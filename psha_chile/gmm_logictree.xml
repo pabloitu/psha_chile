@@ -4,13 +4,13 @@ xmlns="http://openquake.org/xmlns/nrml/0.5"
 xmlns:gml="http://www.opengis.net/gml"
 >
     <logicTree
-    logicTreeID="NZ_GMPE"
+    logicTreeID="CHILE_GMM"
     >
         <logicTreeBranchingLevel
-        branchingLevelID="NZ_GMPE_BL"
+        branchingLevelID="ASC_L"
         >
             <logicTreeBranchSet
-            branchSetID="NZ_GMPE_BS"
+            branchSetID="ASC_S"
             applyToTectonicRegionType="Active Shallow Crust"
             uncertaintyType="gmpeModel"
             >
@@ -23,9 +23,47 @@ xmlns:gml="http://www.opengis.net/gml"
                     <uncertaintyWeight>
                         1
                     </uncertaintyWeight>
+
                 </logicTreeBranch>
-                    
             </logicTreeBranchSet>
         </logicTreeBranchingLevel>
+
+        <logicTreeBranchingLevel
+        branchingLevelID="SI_L"
+        >
+                        <logicTreeBranchSet
+            branchSetID="SI_S"
+            applyToTectonicRegionType="Subduction Interface"
+            uncertaintyType="gmpeModel"
+            >
+                <logicTreeBranch branchID="Abrahamson_et_al_2015_SInter_High">
+                    <uncertaintyModel>AbrahamsonEtAl2015SInterHigh</uncertaintyModel>
+                    <uncertaintyWeight>1</uncertaintyWeight>
+                </logicTreeBranch>
+
+            </logicTreeBranchSet>
+
+        </logicTreeBranchingLevel>
+
+     <logicTreeBranchingLevel branchingLevelID="bl4">
+            <logicTreeBranchSet uncertaintyType="gmpeModel" branchSetID="bs4"
+                    applyToTectonicRegionType="Stable Shallow Crust">
+                    <logicTreeBranch branchID="AtkinsonBoore2006Modified2011">
+                        <uncertaintyModel>AtkinsonBoore2006Modified2011</uncertaintyModel>
+                        <uncertaintyWeight>1</uncertaintyWeight>
+                    </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+
+        <logicTreeBranchingLevel branchingLevelID="bl2">
+            <logicTreeBranchSet uncertaintyType="gmpeModel" branchSetID="bs2"
+                    applyToTectonicRegionType="Subduction IntraSlab">
+                <logicTreeBranch branchID="Abrahamson_et_al_2015_SSlab">
+                    <uncertaintyModel>AbrahamsonEtAl2015SSlab</uncertaintyModel>
+                    <uncertaintyWeight>1</uncertaintyWeight>
+                </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+
     </logicTree>
 </nrml>
