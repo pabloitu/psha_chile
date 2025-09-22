@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import hazard
 
 imtl = {"PGA": np.logspace(np.log10(0.0005), np.log10(3.00), 25)}
-model = hazard.hazardResults('test', './', 26)
+model = hazard.hazardResults('test', './', 348)
 model.parse_db(imtl)
 a = model.get_maps_from_curves(['PGA'], [0.0021030, 0.000399999])
 model.get_stats('hcurves', 'PGA')

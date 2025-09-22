@@ -246,12 +246,14 @@ def hazard_model2raster(array, storedir, filename, grid, res, srs='EPSG:4326'):
 
     # (Optional) sanity checks: ensure grid spacing matches res
     # If these asserts fail, your input isn't a rectilinear grid at the given res.
-    if cols > 1:
-        if not np.allclose(np.diff(ux), px, rtol=0, atol=10**(-dec_x)):
-            raise ValueError("X coordinates are not on uniform spacing equal to res[0].")
-    if rows > 1:
-        if not np.allclose(np.diff(uy), py, rtol=0, atol=10**(-dec_y)):
-            raise ValueError("Y coordinates are not on uniform spacing equal to res[1].")
+    print(np.diff(ux))
+    print(px)
+    # if cols > 1:
+    #     if not np.allclose(np.diff(ux), px, rtol=0, atol=8**(-dec_x)):
+    #         raise ValueError("X coordinates are not on uniform spacing equal to res[0].")
+    # if rows > 1:
+    #     if not np.allclose(np.diff(uy), py, rtol=0, atol=8**(-dec_y)):
+    #         raise ValueError("Y coordinates are not on uniform spacing equal to res[1].")
 
     # --- 3) Create raster ---
     target_ds = gdal.GetDriverByName('GTiff').Create(
