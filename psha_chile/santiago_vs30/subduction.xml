@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml
+xmlns="http://openquake.org/xmlns/nrml/0.5"
+xmlns:gml="http://www.opengis.net/gml"
+>
+    <sourceModel
+    name="subduction"
+    >
+        <sourceGroup
+        rup_interdep="indep"
+        src_interdep="indep"
+        tectonicRegion="Subduction Interface"
+        >
+            <complexFaultSource
+            id="i03"
+            name="Interface Segment 1"
+            >
+                <complexFaultGeometry>
+                    <faultTopEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -75.9187 -45.4117 3.3439 -75.8056 -44.596 3.3439 -75.5423 -42.794 3.7523 -75.266 -40.8287 3.9319 -74.8556 -38.673 4.4941 -74.2326 -36.5217 4.7668 -73.4191 -34.6614 5.2525 -72.8683 -33.2698 10.4686
+                            </gml:posList>
+                        </gml:LineString>
+                    </faultTopEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -75.051 -45.4685 30.0 -74.9501 -44.6529 30.0 -74.75 -42.8575 30.0 -74.7926 -40.8631 30.0 -74.3458 -38.7475 24.2 -73.9903 -36.577 21.7995 -73.1662 -34.7531 22.7356 -72.6736 -33.2996 22.8134
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -74.6854 -45.4904 40.4 -74.5897 -44.6749 40.4 -74.359 -42.8868 42.0 -74.3839 -40.8912 40.729 -74.1089 -38.7812 33.0 -73.686 -36.6456 37.252 -72.8743 -34.8582 35.0 -72.3982 -33.314 32.5847
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -74.3196 -45.5112 47.8 -74.2291 -44.6958 47.8 -73.9677 -42.9148 49.0 -73.9748 -40.9179 46.458 -73.8718 -38.8145 37.4862 -73.3812 -36.7135 43.904 -72.5817 -34.9625 43.8575 -72.1121 -33.3341 38.8569
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -74.0219 -45.5273 55.2 -73.9356 -44.712 55.2 -73.6989 -42.9332 56.0 -73.5654 -40.9432 52.187 -73.6345 -38.8474 41.9725 -73.0849 -36.7787 50.556 -72.2883 -35.0661 52.715 -71.7283 -33.371 46.0049
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -73.724 -45.5425 62.6 -73.642 -44.7274 62.6 -73.4299 -42.951 63.0 -73.181 -40.9655 57.916 -73.3485 -38.8862 46.4588 -72.788 -36.8431 57.208 -71.9539 -35.183 61.5725 -71.4131 -33.311 50.5796
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <faultBottomEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -73.4259 -45.557 70.0 -73.3482 -44.7421 70.0 -73.1608 -42.9681 70.0 -72.7963 -40.9866 63.645 -73.0623 -38.9244 50.945 -72.4907 -36.9068 63.86 -71.6186 -35.299 70.43 -71.0284 -33.3452 57.091
+                            </gml:posList>
+                        </gml:LineString>
+                    </faultBottomEdge>
+                </complexFaultGeometry>
+                <magScaleRel>
+                    StrasserInterface
+                </magScaleRel>
+                <ruptAspectRatio>
+                    1.0
+                </ruptAspectRatio>
+                <truncGutenbergRichterMFD aValue="5.42253186232" bValue="0.996736988704" maxMag="9.6" minMag="6.5"/>
+                <rake>
+                    90.0
+                </rake>
+            </complexFaultSource>
+            <complexFaultSource
+            id="i04"
+            name="Interface Segment 2"
+            >
+                <complexFaultGeometry>
+                    <faultTopEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -72.8683 -33.2698 10.4686 -72.7177 -32.5632 5.6863 -72.4005 -30.3563 6.319 -72.1178 -28.3817 5.8234 -71.7962 -27.0022 7.8311
+                            </gml:posList>
+                        </gml:LineString>
+                    </faultTopEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -72.6736 -33.2996 22.8134 -72.4428 -32.6008 22.8508 -72.1926 -30.3698 20.0 -71.7653 -28.436 20.0 -71.6179 -26.9984 16.7684
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -72.3982 -33.314 32.5847 -72.154 -32.6397 33.0 -71.6319 -30.4047 27.3333 -71.2646 -28.5114 31.5 -71.2551 -27.031 31.5955
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -72.1121 -33.3341 38.8569 -71.8649 -32.6779 38.1 -71.3609 -30.4206 34.6667 -71.0287 -28.5462 43.0 -70.9757 -27.0455 41.039
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -71.7283 -33.371 46.0049 -71.5335 -32.7208 43.2 -71.0898 -30.4361 42.0 -70.7927 -28.5807 51.5567 -70.6936 -27.0669 49.4694
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -71.4131 -33.311 50.5796 -71.2018 -32.7629 48.3 -70.8186 -30.4509 52.3483 -70.5565 -28.6147 60.1133 -70.3162 -27.0918 60.4732
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <faultBottomEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -71.0284 -33.3452 57.091 -70.8698 -32.8041 53.4 -70.5473 -30.4652 62.6967 -70.3202 -28.6483 68.67 -70.0328 -27.109 68.67
+                            </gml:posList>
+                        </gml:LineString>
+                    </faultBottomEdge>
+                </complexFaultGeometry>
+                <magScaleRel>
+                    StrasserInterface
+                </magScaleRel>
+                <ruptAspectRatio>
+                    1.0
+                </ruptAspectRatio>
+                <truncGutenbergRichterMFD aValue="5.42249061423" bValue="0.950987028207" maxMag="8.6" minMag="6.5"/>
+                <rake>
+                    90.0
+                </rake>
+            </complexFaultSource>
+            <complexFaultSource
+            id="i05"
+            name="Interface Segment 3"
+            >
+                <complexFaultGeometry>
+                    <faultTopEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -71.7962 -27.0022 7.8311 -71.6755 -26.189 5.7419 -71.3229 -23.9816 7.2826 -71.1681 -21.9941 7.427 -71.2475 -21.0542 7.2327
+                            </gml:posList>
+                        </gml:LineString>
+                    </faultTopEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -71.6179 -26.9984 16.7684 -71.5388 -26.2116 15.0 -71.127 -23.9993 20.0 -70.9458 -22.0032 20.0 -71.0618 -21.0265 16.7739
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -71.2551 -27.031 31.5955 -71.2173 -26.2641 33.0 -70.8216 -24.0264 30.0 -70.5958 -22.017 31.475 -70.7578 -20.9641 28.4621
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -70.9757 -27.0455 41.039 -70.8954 -26.3159 41.9175 -70.5161 -24.0529 40.0 -70.2457 -22.03 42.95 -70.3473 -20.8949 44.3553
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -70.6936 -27.0669 49.4694 -70.5692 -26.3677 50.835 -70.2029 -24.0794 49.5567 -69.887 -22.0425 55.1667 -70.0374 -20.8315 54.8887
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -70.3162 -27.0918 60.4732 -70.2426 -26.4187 59.7525 -69.8897 -24.1052 59.1133 -69.5283 -22.0543 67.3833 -69.6191 -20.7692 68.9863
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <faultBottomEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -70.0328 -27.109 68.67 -69.9157 -26.469 68.67 -69.5763 -24.1304 68.67 -69.1695 -22.0653 79.6 -69.3066 -20.6961 79.6
+                            </gml:posList>
+                        </gml:LineString>
+                    </faultBottomEdge>
+                </complexFaultGeometry>
+                <magScaleRel>
+                    StrasserInterface
+                </magScaleRel>
+                <ruptAspectRatio>
+                    1.0
+                </ruptAspectRatio>
+                <truncGutenbergRichterMFD aValue="4.65442063249" bValue="0.838124908707" maxMag="8.5" minMag="6.5"/>
+                <rake>
+                    90.0
+                </rake>
+            </complexFaultSource>
+            <complexFaultSource
+            id="i06"
+            name="Interface Segment 4"
+            >
+                <complexFaultGeometry>
+                    <faultTopEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -71.2475 -21.0542 7.2327 -71.3217 -20.165 7.049 -71.8979 -18.8209 6.0654 -73.0781 -17.7228 6.8398 -74.68 -16.5327 5.719
+                            </gml:posList>
+                        </gml:LineString>
+                    </faultTopEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -71.0618 -21.0265 16.7739 -71.1666 -20.132 13.82 -71.7145 -18.6987 22.6489 -72.9778 -17.5978 21.0 -74.5938 -16.4261 17.5
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -70.7578 -20.9641 28.4621 -70.7962 -20.0526 29.71 -71.4492 -18.5215 38.8 -72.6484 -17.1859 33.2 -74.3171 -16.083 28.975
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -70.3473 -20.8949 44.3553 -70.4261 -19.9725 45.6 -71.1845 -18.3438 46.6 -72.4933 -16.9911 42.8312 -74.1742 -15.9053 40.45
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -70.0374 -20.8315 54.8887 -70.0838 -19.8976 56.9333 -70.9837 -18.2086 54.4 -72.3385 -16.7962 52.4625 -74.0316 -15.7274 50.3
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <intermediateEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -69.6191 -20.7692 68.9863 -69.7419 -19.822 68.2667 -70.7832 -18.0731 62.2 -72.1841 -16.6011 62.0938 -73.8893 -15.5495 60.15
+                            </gml:posList>
+                        </gml:LineString>
+                    </intermediateEdge>
+                    <faultBottomEdge>
+                        <gml:LineString>
+                            <gml:posList>
+                                -69.3066 -20.6961 79.6 -69.4002 -19.7458 79.6 -70.583 -17.9374 70.0 -72.0299 -16.4059 71.725 -73.7472 -15.3715 70.0
+                            </gml:posList>
+                        </gml:LineString>
+                    </faultBottomEdge>
+                </complexFaultGeometry>
+                <magScaleRel>
+                    StrasserInterface
+                </magScaleRel>
+                <ruptAspectRatio>
+                    1.0
+                </ruptAspectRatio>
+                <truncGutenbergRichterMFD aValue="5.48700845325" bValue="1.01033366493" maxMag="8.8" minMag="6.5"/>
+                <rake>
+                    90.0
+                </rake>
+            </complexFaultSource>
+        </sourceGroup>
+    </sourceModel>
+</nrml>
