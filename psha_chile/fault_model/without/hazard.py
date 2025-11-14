@@ -59,6 +59,8 @@ import rasterio.mask
 import pandas
 import geopandas
 
+from osgeo import gdal
+import pyvista
 
 def get_oqcalc(num, folder=None):
 
@@ -295,6 +297,48 @@ def hazard_model2raster(array, storedir, filename, grid, res, srs='EPSG:4326'):
     return shp_fn, raster_fn
 
 
+def basemap2vti(fname_vti, raster,
+                offset=0, mask_rgb=[0, 0, 0]):
+    """
+    Creates 2D vtkImage. All rasters must be in the same
+    projection, extent and dimension.
+
+    Input:  fname_vti(str):  Filename of the results vti file
+            rasters(list): list of string, pointing the rasters to be casted
+                           onto the vtk
+            arrays_names(list): List of lists of strings. Each sublists contains
+                        the array names of each raster band.
+                        e.g. [['PGA_a','SA(0.1)'_a], ['PGV_b','SA(0.4)'_b]]
+            offset (int): Vertical elevation upon which to cast the vti.
+            nodata_val(float): Nodata value of the raster
+            mask_rgb(list of int): Color value to set transparency
+
+    Last mod. 07/08/2020
+    """
+
+    raster = gdal.Open(raster)
+
+    affine = raster.GetGeoTransform()
+    dims = (raster.RasterXSize + 1, raster.RasterYSize + 1, 1)
+    spacing = (affine[1], -affine[5], 0)
+    origin = (affine[0], affine[3] - spacing[1] * dims[1], offset)
+
+    image = pyvista.ImageData(dimensions=dims, spacing=spacing, origin=origin)
+
+    r = np.flipud(np.abs(raster.GetRasterBand(1).ReadAsArray())).flatten(order='C')
+    g = np.flipud(np.abs(raster.GetRasterBand(2).ReadAsArray())).flatten(order='C')
+    b = np.flipud(np.abs(raster.GetRasterBand(3).ReadAsArray())).flatten(order='C')
+
+    rgb = np.ascontiguousarray(np.vstack((r, g, b)).T)
+    dim = rgb.astype('uint16').max(0) + 1
+    mask = np.in1d(np.ravel_multi_index(rgb.T, dim),
+                   np.ravel_multi_index(np.array(mask_rgb).T,
+                                        dim)).astype('int')
+    image.cell_data["basemap"] = rgb
+    image.cell_data["mask"] = mask
+    image.save(fname_vti)
+
+    return image
 
 
 class hazardResults(object):
@@ -532,6 +576,11 @@ class hazardResults(object):
                            weights=[i[2] for i in self.branches])
         Stats[:, 2:, measure_ind, :] = np.swapaxes(q, 0, 1)
         t1 = time.time()
+        if attr == 'hcurves':
+            self.hcurves_stats = Stats
+
+        elif attr == 'hmaps':
+            self.hmaps_stats = Stats
         print('Processing stats in: %.1f seconds' % (t1 - t0))
 
     def plot_pointcurves(self, measure, point, ax=None, title=None, plot_args={}, filename=None, yrs=None):
@@ -883,5 +932,10 @@ class hazardResults(object):
             pickle.dump(Data, hazardobj)
 
 
+basemap2vti('basemap.vti', '../../../data/basemaps/basemap_chile/basemap.tiff')
 
-model = hazardResults
+model = hazardResults(name='chile_with', path='./', calcpath='./results_all/calc_42.hdf5')
+model.parse_db({'PGA': np.logspace(np.log10(0.0005), np.log10(3.00), 25)})
+model.get_maps_from_curves(['PGA'], poes=[0.002105])
+model.get_stats('hmaps', 'PGA')
+model.model2vti('maps_with', 'hmaps_stats', 'PGA', [0.002105])
