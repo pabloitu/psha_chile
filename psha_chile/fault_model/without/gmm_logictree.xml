@@ -80,6 +80,7 @@ xmlns:gml="http://www.opengis.net/gml"
                     <uncertaintyModel>
                         [ParkerEtAl2020SInter]
                             region = 'SA'
+                            saturation_region = 'SA_S'
                     </uncertaintyModel>
                     <uncertaintyWeight>0.33</uncertaintyWeight>
                 </logicTreeBranch>
@@ -120,6 +121,7 @@ xmlns:gml="http://www.opengis.net/gml"
                     <uncertaintyModel>
                         [ParkerEtAl2020SSlab]
                             region = 'SA'
+                            saturation_region = 'SA_S'
                     </uncertaintyModel>
                     <uncertaintyWeight>
                         0.5
