@@ -8,8 +8,8 @@
                 <logicTreeBranch branchID="b1">
 			<uncertaintyModel>
             
-            crustalfaults.xml
-<!--            subduction.xml-->
+<!--            crustalfaults.xml-->
+            subduction.xml
             pointsources.xml
             
             </uncertaintyModel>

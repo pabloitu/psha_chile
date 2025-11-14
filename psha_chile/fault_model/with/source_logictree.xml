@@ -9,8 +9,8 @@
 			<uncertaintyModel>
             
             crustalfaults.xml
-<!--            subduction.xml-->
-<!--            pointsources.xml-->
+            subduction.xml
+            pointsources.xml
             
             </uncertaintyModel>
                     <uncertaintyWeight>1.0</uncertaintyWeight>
