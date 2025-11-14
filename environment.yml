@@ -16,5 +16,5 @@ dependencies:
   - seaborn
   - vtk
   - rioxarray
-  - pip:
-      - git+https://code.usgs.gov/ghsc/esi/libcomcat-python.git@main
+#  - pip:
+#      - git+https://code.usgs.gov/ghsc/esi/libcomcat-python.git@main
