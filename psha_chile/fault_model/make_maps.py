@@ -1,5 +1,4 @@
 import numpy as np
-from matplotlib import pyplot as plt
 import hazard
 
 imtl = {"PGA": np.logspace(np.log10(0.0005), np.log10(3.00), 25)}
