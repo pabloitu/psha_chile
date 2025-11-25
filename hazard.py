@@ -246,12 +246,12 @@ def hazard_model2raster(array, storedir, filename, grid, res, srs='EPSG:4326'):
 
     # (Optional) sanity checks: ensure grid spacing matches res
     # If these asserts fail, your input isn't a rectilinear grid at the given res.
-    if cols > 1:
-        if not np.allclose(np.diff(ux), px, rtol=0, atol=10**(-dec_x)):
-            raise ValueError("X coordinates are not on uniform spacing equal to res[0].")
-    if rows > 1:
-        if not np.allclose(np.diff(uy), py, rtol=0, atol=10**(-dec_y)):
-            raise ValueError("Y coordinates are not on uniform spacing equal to res[1].")
+    # if cols > 1:
+    #     if not np.allclose(np.diff(ux), px, rtol=0, atol=10**(-dec_x)):
+    #         raise ValueError("X coordinates are not on uniform spacing equal to res[0].")
+    # if rows > 1:
+    #     if not np.allclose(np.diff(uy), py, rtol=0, atol=10**(-dec_y)):
+    #         raise ValueError("Y coordinates are not on uniform spacing equal to res[1].")
 
     # --- 3) Create raster ---
     target_ds = gdal.GetDriverByName('GTiff').Create(
@@ -562,19 +562,15 @@ class hazardResults(object):
         legend = plot_args.get('legend', None)
         if labels is None:
             labels = [self.name]
-        else:
-            if not isinstance(labels, list):
-                labels = [self.name]
+        # else:
+        #     if not isinstance(labels, list):
+        #         labels = [self.name]
 
         index_measure = np.argwhere(np.in1d(sorted(list(self.imtl.keys())), measure)).ravel()[0]
         if np.argwhere(np.all(np.isclose(self.grid, point), axis=1)).shape[0]:
-            print(np.isclose(self.grid, point))
             point = np.argwhere(np.all(np.isclose(self.grid, point), axis=1))[0, 0]
         else:
             point = np.argmin(np.sum((self.grid - point) ** 2, axis=1))
-
-
-
 
         title = title if title else '%s - $x=(%.1f,%.1f)$' % (self.name, self.grid[point, 0], self.grid[point, 1])
 
@@ -585,26 +581,26 @@ class hazardResults(object):
 
         if plot_branches:
             ax.loglog(self.imtl[measure], self.hcurves[point, :, index_measure, :].T,
-                       linewidth=branches_lw, alpha=branches_alpha, color=branches_c, label=labels.pop(0))
+                       linewidth=branches_lw, alpha=branches_alpha, color=branches_c, label=labels['branches'])
         if plot_mean:
             ax.loglog(self.imtl[measure], self.hcurves_stats[point, 0, index_measure, :].T,
-                       linewidth=stats_lw, color=mean_c, linestyle=mean_s, label=labels.pop(0))
+                       linewidth=stats_lw, color=mean_c, linestyle=mean_s, label=labels['mean'])
         if plot_geomean:
             ax.loglog(self.imtl[measure], self.hcurves_stats[point, 1, index_measure, :].T,
-                       linewidth=stats_lw, linestyle=geomean_s, color=geomean_c, label=labels.pop(0))
+                       linewidth=stats_lw, linestyle=geomean_s, color=geomean_c, label=labels['geomean'])
         if plot_median:
             ax.loglog(self.imtl[measure], self.hcurves_stats[point, 4, index_measure, :].T,
-                       linewidth=stats_lw, linestyle=median_s, color=median_c, label=labels.pop(0))
+                       linewidth=stats_lw, linestyle=median_s, color=median_c, label=labels('median'))
         if plot_quantile:
             ax.loglog(self.imtl[measure], self.hcurves_stats[point, 2, index_measure, :].T,
-                       linewidth=stats_lw, linestyle=quantile_s, color=quantile_c, label=labels.pop(0))
+                       linewidth=stats_lw, linestyle=quantile_s, color=quantile_c, label=labels['quantile'])
             ax.loglog(self.imtl[measure], self.hcurves_stats[point, -1, index_measure, :].T,
                        linewidth=stats_lw, linestyle=quantile_s, color=quantile_c)
 
         if plot_env:
             ax.fill_between(self.imtl[measure], self.hcurves_stats[point, 2, index_measure, :].T,
                              self.hcurves_stats[point, -1, index_measure, :].T,
-                             color=env_c, alpha=env_alpha, label=labels[5])
+                             color=env_c, alpha=env_alpha, label=labels.get('envelope', None))
 
         if not xlims:
             xlims = [min(self.imtl[measure]), max(self.imtl[measure])]
