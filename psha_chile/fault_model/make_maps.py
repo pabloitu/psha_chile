@@ -19,7 +19,7 @@ model2 = hazard.hazardResults('No_Faults', './without', './without/results_all/c
 model2.parse_db(imtl)
 model2.get_maps_from_curves(['PGA'], [0.0021030, 0.0004])
 model2.get_stats('hmaps', 'PGA')
-# model2.model2vti('No_Faults', 'hmaps_stats', ['PGA'], levels=[0.0021030, 0.0004],
+# model2.model2vti('No_Faults', 'hmaps_stats', ['PGA'], levels=[0.0021030,  0.0004],
 #                 res=(0.01, 0.01), res_method='nearest', crs_f='EPSG:4326',
 #                 crop='../../data/shapefiles/chile.shp')
 
