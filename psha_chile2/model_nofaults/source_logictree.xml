@@ -8,7 +8,7 @@
                 <logicTreeBranch branchID="b1">
 			<uncertaintyModel>
             
-            crustalfaults.xml
+<!--            crustalfaults.xml-->
             subduction_interface_sources.xml
             ssm_intraslab_point_sources.xml
             ssm_crustal_point_sources.xml
