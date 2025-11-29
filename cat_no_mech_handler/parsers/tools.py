@@ -206,8 +206,8 @@ def filter_df(df: pd.DataFrame,
               lon_max=180,
               lat_min=-90,
               lat_max=90,
-              mag_min=4.95,
-              time_min="1976-01-01T00:00:00",
+              mag_min=4.5,
+              time_min="1500-01-01T00:00:00",
               drop_notimes: bool = False) -> pd.DataFrame:
 
     df = df.copy()

@@ -29,7 +29,6 @@ slab_dip =  SLAB_DIR / "sam_slab2_dip_02.23.18.xyz"
 rawcat_anss = CATALOG_DIR / "ANSS.csv"
 rawcat_gcmt_1976_2020 = CATALOG_DIR / "gcmt_jan76_dec20.txt"
 rawcat_gcmt_2020_2025 = CATALOG_DIR / "gcmt_jan21_aug25.txt"
-rawcat_integrated = CATALOG_DIR / "Integrated_Seismic_Catalog_complete.csv"
 
 
 raw_potin = CATALOG_DIR / "CHILE_SEISMICITY_RELOCATED.csv"
@@ -55,7 +54,6 @@ cat_gcmt = FORMATTED_CATALOGS / "gcmt.csv"
 cat_isc = FORMATTED_CATALOGS / "isc.txt"
 cat_gem = FORMATTED_CATALOGS / "cat_gem_chile.csv"
 cat_potin = FORMATTED_CATALOGS / "potin.csv"
-cat_integrated = FORMATTED_CATALOGS / "integrated.csv"
 # Merge
 
 cat_merged = MERGED_CATALOGS / "cat_merged.csv"

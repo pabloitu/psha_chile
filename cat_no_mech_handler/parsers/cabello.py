@@ -5,9 +5,8 @@ from typing import Any, Dict, List, Optional
 
 import pandas as pd
 
-from cat_handler import paths
-from cat_handler.parsers.tools import _sf, filter_df
-from cat_handler import paths
+from cat_no_mech_handler.parsers.tools import _sf, filter_df
+from cat_no_mech_handler import paths
 
 # -------------------- CONFIG --------------------
 # Spatial / magnitude filters (adjust as needed).
@@ -44,6 +43,13 @@ FIELDS = [
     "source",
 ]
 
+# -------------------- SPECIAL HARDCODED MECHANISMS --------------------
+# Replace "PUT_EVENT_ID_HERE" with the actual event id string from your catalog.
+SPECIAL_MECHS: Dict[str, tuple[float, float, float, float, float, float]] = {
+    # id : (strike1, dip1, rake1, strike2, dip2, rake2)
+    "890": (10.0, 17.0, 105.0, 170.0, 79.0, 90.0),
+}
+
 
 # -------------------- PARSE ONE ROW --------------------
 def _build_time_iso(row: pd.Series) -> Optional[str]:
@@ -77,6 +83,7 @@ def _select_magnitude(row: pd.Series) -> tuple[Optional[float], Optional[str], O
 
     mag_type is set to 'mw' for all retained events.
     """
+    # magnitude and mag_unc are already stripped in prepare_integrated
     mag_val = _sf(row.get("magnitude"))
     mag_unc = _sf(row.get("mag_unc"))
 
@@ -97,6 +104,10 @@ def parse_integrated_row(row: pd.Series) -> Dict[str, Any] | None:
         Parsed record, or None if the event should be discarded
         (e.g., missing homogenized magnitude).
     """
+    # Event id (string, stripped) – we need this early for special cases
+    eid_raw = row.get("id")
+    eid = str(eid_raw).strip() if eid_raw is not None else None
+
     # Time
     time_iso = _build_time_iso(row)
 
@@ -116,7 +127,8 @@ def parse_integrated_row(row: pd.Series) -> Dict[str, Any] | None:
     if mag is None:
         return None
 
-    # Focal mechanism (strike/dip/rake); tensor not available in this catalog
+    # --- Focal mechanism (strike/dip/rake) ---
+    # default: read from row
     s1 = _sf(row.get("strike1"))
     d1 = _sf(row.get("dip1"))
     r1 = _sf(row.get("rake1"))
@@ -124,11 +136,14 @@ def parse_integrated_row(row: pd.Series) -> Dict[str, Any] | None:
     d2 = _sf(row.get("dip2"))
     r2 = _sf(row.get("rake2"))
 
+    # override with hard-coded mechanism if this event is in SPECIAL_MECHS
+    if eid is not None and eid in SPECIAL_MECHS:
+        s1, d1, r1, s2, d2, r2 = SPECIAL_MECHS[eid]
+
     # Moment tensor components not provided -> keep blank (None)
     Mrr = Mtt = Mpp = Mrt = Mrp = Mtp = None
 
-    # Event id & source
-    eid = str(row.get("id"))
+    # Source
     source_raw = row.get("catalog")
     source = str(source_raw).strip() if source_raw is not None else None
 
@@ -187,12 +202,12 @@ def build_csv_from_catalog(
     total = len(input_catalog)
 
     for i, row in input_catalog.iterrows():
-        eid = str(row["id"])
-        print(f"[INTEGRATED] parsing {i + 1}/{total} id: {eid}")
+        eid = str(row["id"]).strip()
+        # print(f"[INTEGRATED] parsing {i + 1}/{total} id: {eid}")
         try:
             rec = parse_integrated_row(row)
         except Exception as exc:
-            print(f"[INTEGRATED] failed parsing id {eid}: {exc}")
+            # print(f"[INTEGRATED] failed parsing id {eid}: {exc}")
             failed.append(eid)
             continue
 
@@ -202,8 +217,6 @@ def build_csv_from_catalog(
             continue
 
         rows.append(rec)
-
-    df = pd.DataFrame(rows, columns=FIELDS)
 
     df = pd.DataFrame(rows, columns=FIELDS)
 
@@ -221,8 +234,6 @@ def build_csv_from_catalog(
 
         df = filter_df(df, **filter_kwargs)
 
-        # --- ensure final catalog is ordered by time ---
-        # time_iso is ISO string, so lexicographic sort == chronological sort
         df = df.sort_values("time_iso").reset_index(drop=True)
 
     if not df.empty and out_path:
@@ -253,6 +264,9 @@ def prepare_integrated(
     """
     # Read everything as string; numeric conversion is handled row-wise via _sf
     inputcat = pd.read_csv(in_path, sep=";", dtype=str)
+
+    # --- strip leading/trailing whitespace from ALL string cells ---
+    inputcat = inputcat.applymap(lambda v: v.strip() if isinstance(v, str) else v)
 
     tmin_ts: Optional[pd.Timestamp]
     if isinstance(time_min, str):

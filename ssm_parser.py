@@ -116,7 +116,7 @@ def simplify_point_source(node):
 def get_sam_basemodel(simplify=True):
 
     path = 'psha_gem/ssm.xml'
-    chile_shp = gpd.read_file('./shp/chile_buffer.shp')
+    chile_shp = gpd.read_file('./data/shapefiles/chile_buffer.shp')
 
     Model_original = openquake.hazardlib.nrml.read(path)
     ns = '{' + Model_original.attrib['xmlns'] + '}'
@@ -143,12 +143,15 @@ def get_sam_basemodel(simplify=True):
 
     nodes_ps = []
     for node in ps_xml:
+
         node[4] = unique_nodal_plane_dist(node[4])
 
         if simplify:
             node = simplify_point_source(node)
-
-        nodes_ps.append(conv.convert_node(node))
+        oq_node = conv.convert_node(node)
+        if oq_node.mfd.bin_width != 0.1:
+            oq_node.mfd.bin_width = 0.1
+        nodes_ps.append(oq_node)
 
 
     nodes_sf_chile = []

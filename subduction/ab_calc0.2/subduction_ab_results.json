@@ -1,0 +1,52 @@
+{
+  "segments": [
+    {
+      "name": "seg0_full",
+      "lat_min": null,
+      "lat_max": null,
+      "kijko_taroni": {
+        "a": 5.4010872952987485,
+        "b": 0.8429979544742507,
+        "std_b": 0.01738232485507188,
+        "mc0": 4.4,
+        "year0": 1513,
+        "rate_at_mc0": 49.19220564842081,
+        "last_year": 2022,
+        "T_eff": 509.0,
+        "delta_m": 0.2,
+        "ncomplete": 2352
+      },
+      "aki_last": {
+        "a": 5.712109291859916,
+        "b": 0.8846739446177379,
+        "std_b": 0.04445653842576802,
+        "Mc_ref": 4.4,
+        "year_ref": 2016,
+        "rate_at_Mref": 66.0,
+        "last_year": 2022,
+        "T_eff": 6.0,
+        "delta_m": 0.2,
+        "N": 396
+      },
+      "weichert": {
+        "a": 6.748583465061362,
+        "b": 1.1118497266143095,
+        "std_b": 0.025857120517015834,
+        "mc0": 4.4,
+        "year0": 2014,
+        "rate_at_mc0": 43.06006912180853,
+        "std_rate_at_mc0": 1.3748022016102623,
+        "last_year": 2022,
+        "T_eff": 8.0,
+        "delta_m": 0.2
+      },
+      "hazard_params": {
+        "Mmin_hazard": 4.5,
+        "lambda_Mmin_ks": 40.513195539187045,
+        "T_mfd": 8.0,
+        "year0_mfd": 2014,
+        "N_events_Mmin": 434
+      }
+    }
+  ]
+}
