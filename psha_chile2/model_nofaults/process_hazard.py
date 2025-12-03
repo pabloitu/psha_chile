@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import hazard
 
 imtl = {"PGA": np.logspace(np.log10(0.0005), np.log10(3.00), 25)}
-model = hazard.hazardResults('sub_noseg_crustal_intraslab', './', 61)
+model = hazard.hazardResults('test', './', 1633)
 model.parse_db(imtl)
 a = model.get_maps_from_curves(['PGA'], [0.0021030, 0.000399999])
 model.get_stats('hcurves', 'PGA')
@@ -17,7 +17,7 @@ model.plot_pointcurves('PGA', poi, ax=axes,
                                    'xlims': [1e-2, 3],
                                    'ylims': [1e-5, 2],
                                    'poes': False}, yrs=1)
-
-model.model2vti('newfull', 'hmaps_stats', ['PGA'], levels=[0.0021030],
+# plt.show()
+model.model2vti('nofaults', 'hmaps_stats', ['PGA'], levels=[0.0021030],
                 res=(0.01, 0.01), res_method='nearest', crs_f='EPSG:4326',
                 crop='../../data/shapefiles/chile.shp')

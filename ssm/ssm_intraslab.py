@@ -17,7 +17,7 @@ class SSMConfig:
     b_completeness: float | None = 1.0
 
     # Kernel / smoothing
-    n_neighbors: int = 35
+    n_neighbors: int = 25
     kernel_power: float = 1.5
     max_event_grid_dist_km: float = 500.0
     min_kernel_km: float = 5.0      # NEW: minimum kernel radius

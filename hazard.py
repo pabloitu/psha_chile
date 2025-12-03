@@ -599,7 +599,7 @@ class hazardResults(object):
 
         if plot_env:
             ax.fill_between(self.imtl[measure], self.hcurves_stats[point, 2, index_measure, :].T,
-                             self.hcurves_stats[point, -1, index_measure, :].T,
+                            self.hcurves_stats[point, -1, index_measure, :].T,
                              color=env_c, alpha=env_alpha, label=labels.get('envelope', None))
 
         if not xlims:
@@ -612,9 +612,9 @@ class hazardResults(object):
         if poes_label == True:
             if yrs == 50:
                 ax.axhline(0.1, linestyle='--', linewidth=0.8, color='black')
-                ax.text(min(xlims)*1.1, 0.102, '10% in ' + '50 yr.', fontsize=12)
+                ax.text(min(xlims)*1.1, 0.102, '10% en ' + '50 yr.', fontsize=12)
                 ax.axhline(0.02, linestyle='--', linewidth=0.8, color='black')
-                ax.text(min(xlims)*1.1, 0.0202, '2% in '+'50 yr.', fontsize=12)
+                ax.text(min(xlims)*1.1, 0.0202, '2% en '+'50 yr.', fontsize=12)
             elif yrs == 1:
                 ax.axhline(0.00205, linestyle='--', linewidth=0.8, color='black')
                 ax.text(min(xlims)*1.1, 0.00215, '10% in ' + '50 yr.', fontsize=12)
