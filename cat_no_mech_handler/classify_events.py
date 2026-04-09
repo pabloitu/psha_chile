@@ -687,7 +687,6 @@ def classify_catalog(
     return df
 
 
-
 def write_per_class_catalogs(df: pd.DataFrame) -> None:
     """
     Split df into per-class catalogs and write to paths.cat_{class}
