@@ -616,7 +616,7 @@ class hazardResults(object):
         else:
             if not isinstance(labels, list):
                 labels = [self.name]
-
+        print(labels)
         index_measure = np.argwhere(np.in1d(sorted(list(self.imtl.keys())), measure)).ravel()[0]
         if np.argwhere(np.all(np.isclose(self.grid, point), axis=1)).shape[0]:
             print(np.isclose(self.grid, point))

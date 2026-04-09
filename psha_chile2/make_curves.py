@@ -42,14 +42,14 @@ for city, coords in cities.items():
                                        'labels': {'mean': 'With Faults',
                                                   },
                                        'poes': True}, yrs=1)
-    ax = model_without.plot_pointcurves('PGA', point=coords, title=city, ax=ax,
-                                       plot_args={'mean_c': 'steelblue', 'mean_s': '-', 'stats_lw': 2, 'env_c': 'steelblue',
-                                       'xlims': [1e-2, 3],
-                                       'ylims': [1e-5, 2],
-                                       'plot_env': True,
-                                       'labels': {'mean': 'No Faults',
-                                                  },
-                                       'poes': True}, yrs=1)
+    # ax = model_without.plot_pointcurves('PGA', point=coords, title=city, ax=ax,
+    #                                    plot_args={'mean_c': 'steelblue', 'mean_s': '-', 'stats_lw': 2, 'env_c': 'steelblue',
+    #                                    'xlims': [1e-2, 3],
+    #                                    'ylims': [1e-5, 2],
+    #                                    'plot_env': True,
+    #                                    'labels': {'mean': 'No Faults',
+    #                                               },
+    #                                    'poes': True}, yrs=1)
     ax.tick_params(which='major', axis='y', length=8, color='gray', width=0.5)
     ax.tick_params(which='minor', axis='y', length=4, color='gray', width=0.5)
     ax.grid(axis='y', which='major', linewidth=1)
@@ -67,7 +67,7 @@ for city, coords in cities.items():
     unique = dict(zip(labels, handles))
     ax.legend(list(unique.values()), list(unique.keys()),loc="best", frameon=True)
     fig = ax.get_figure()
-    fig.savefig(f"figures/{city}.png",dpi=300,bbox_inches="tight",pad_inches=0.02, facecolor="white",)
+    fig.savefig(f"figures/{city}2.png",dpi=300,bbox_inches="tight",pad_inches=0.02, facecolor="white",)
     plt.show()
     plt.close(fig)
 
