@@ -73,7 +73,7 @@ cat_intraarc = INTEGRATED_CATALOGS / "cat_intraarc.csv"
 cat_slab_interface = INTEGRATED_CATALOGS / "cat_slab_interface.csv"
 cat_intra_slab = INTEGRATED_CATALOGS / "cat_intra_slab.csv"
 cat_slab_deep = INTEGRATED_CATALOGS / "cat_slab_deep.csv"
-cat_forecarc = INTEGRATED_CATALOGS / "cat_forecarc.csv"
+cat_forearc = INTEGRATED_CATALOGS / "cat_forearc.csv"
 cat_unclassified = INTEGRATED_CATALOGS / "cat_unclassified.csv"
 
 

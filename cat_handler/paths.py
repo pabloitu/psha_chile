@@ -22,6 +22,8 @@ trench_shp = SHAPEFILE_DIR / "sam_nazca_trench.shp"
 
 # Slab 2.0
 slab_depth =  SLAB_DIR / "sam_slab2_dep_02.23.18.xyz"
+slab_thickness =  SLAB_DIR / "sam_slab2_thk_02.23.18.xyz"
+
 slab_strike = SLAB_DIR / "sam_slab2_str_02.23.18.xyz"
 slab_dip =  SLAB_DIR / "sam_slab2_dip_02.23.18.xyz"
 
