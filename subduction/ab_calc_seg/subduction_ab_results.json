@@ -1,0 +1,46 @@
+{
+  "segments": [
+    {
+      "name": "seg1_south",
+      "lat_min": -46.0,
+      "lat_max": -30.0,
+      "a": 5.0514931702901,
+      "b": 0.8388052974478485,
+      "std_b": 0.025245072826530403,
+      "mc0": 4.4,
+      "year0": 1513,
+      "rate_at_mc0": 22.94826527327737,
+      "last_year": 2022,
+      "T_eff": 509.0,
+      "delta_m": 0.1,
+      "ncomplete": 1104,
+      "hazard_params": {
+        "Mmin_hazard": 6.0,
+        "lambda_Mmin": 1.0439059803865969,
+        "T_anchor_Mmin": 76.63525403923163,
+        "N_events_Mmin": 80
+      }
+    },
+    {
+      "name": "seg2_north",
+      "lat_min": -30.0,
+      "lat_max": -17.0,
+      "a": 6.0799167541840795,
+      "b": 1.0410155744599485,
+      "std_b": 0.030552103534411717,
+      "mc0": 4.4,
+      "year0": 1513,
+      "rate_at_mc0": 31.582625208187117,
+      "last_year": 2022,
+      "T_eff": 509.0,
+      "delta_m": 0.1,
+      "ncomplete": 1161,
+      "hazard_params": {
+        "Mmin_hazard": 6.0,
+        "lambda_Mmin": 0.6820611413200113,
+        "T_anchor_Mmin": 102.6300953966196,
+        "N_events_Mmin": 70
+      }
+    }
+  ]
+}

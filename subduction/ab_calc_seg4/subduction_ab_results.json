@@ -1,0 +1,88 @@
+{
+  "segments": [
+    {
+      "name": "seg1_south",
+      "lat_min": -46.0,
+      "lat_max": -37.0,
+      "a": 4.75585000040602,
+      "b": 0.8914620020161288,
+      "std_b": 0.0511288523525626,
+      "mc0": 4.4,
+      "year0": 1513,
+      "rate_at_mc0": 6.814236328846115,
+      "last_year": 2022,
+      "T_eff": 509.0,
+      "delta_m": 0.1,
+      "ncomplete": 304,
+      "hazard_params": {
+        "Mmin_hazard": 6.0,
+        "lambda_Mmin": 0.2553159744439621,
+        "T_anchor_Mmin": 86.16773802701742,
+        "N_events_Mmin": 22
+      }
+    },
+    {
+      "name": "seg2",
+      "lat_min": -37.0,
+      "lat_max": -32.0,
+      "a": 4.54750561312441,
+      "b": 0.8013366022356962,
+      "std_b": 0.034644802447164925,
+      "mc0": 4.4,
+      "year0": 1513,
+      "rate_at_mc0": 10.51052872066824,
+      "last_year": 2022,
+      "T_eff": 509.0,
+      "delta_m": 0.1,
+      "ncomplete": 535,
+      "hazard_params": {
+        "Mmin_hazard": 6.0,
+        "lambda_Mmin": 0.5488908608048128,
+        "T_anchor_Mmin": 67.40866471296069,
+        "N_events_Mmin": 37
+      }
+    },
+    {
+      "name": "seg3",
+      "lat_min": -32.0,
+      "lat_max": -26.0,
+      "a": 5.53883333949002,
+      "b": 0.9725204024163883,
+      "std_b": 0.03604400418650635,
+      "mc0": 4.4,
+      "year0": 1513,
+      "rate_at_mc0": 18.18626725148284,
+      "last_year": 2022,
+      "T_eff": 509.0,
+      "delta_m": 0.1,
+      "ncomplete": 728,
+      "hazard_params": {
+        "Mmin_hazard": 6.0,
+        "lambda_Mmin": 0.5054880871181648,
+        "T_anchor_Mmin": 94.95772743854859,
+        "N_events_Mmin": 48
+      }
+    },
+    {
+      "name": "seg4_north",
+      "lat_min": -26.0,
+      "lat_max": -17.6,
+      "a": 6.0652278076685135,
+      "b": 1.0904069510437542,
+      "std_b": 0.043034929645603945,
+      "mc0": 4.4,
+      "year0": 1513,
+      "rate_at_mc0": 18.511312952999063,
+      "last_year": 2022,
+      "T_eff": 509.0,
+      "delta_m": 0.1,
+      "ncomplete": 642,
+      "hazard_params": {
+        "Mmin_hazard": 6.0,
+        "lambda_Mmin": 0.3332622341157154,
+        "T_anchor_Mmin": 105.02240103163713,
+        "N_events_Mmin": 35
+      }
+    }
+  ]
+}

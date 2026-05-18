@@ -1,0 +1,26 @@
+{
+  "segments": [
+    {
+      "name": "seg0_full",
+      "lat_min": null,
+      "lat_max": null,
+      "ks_results": {
+        "a": 5.303522607521035,
+        "b": 0.8884302780929264,
+        "std_b": 0.02805258484494479,
+        "mc0": 4.4,
+        "year0": 2014,
+        "rate_at_mc0": 22.387617076120456,
+        "last_year": 2022,
+        "T_eff": 8.0,
+        "delta_m": 0.1
+      },
+      "hazard_params": {
+        "Mmin_hazard": 5.5,
+        "lambda_Mmin": 2.6131002892279453,
+        "T_anchor_Mmin": 11.86330280846554,
+        "N_events_Mmin": 31
+      }
+    }
+  ]
+}
