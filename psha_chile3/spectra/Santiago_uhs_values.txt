@@ -1,0 +1,12 @@
+# Uniform Hazard Spectrum (10% in 50 yr) for Santiago
+# IM_label    value
+PGA       8.302092e-01
+SA(0.1)   2.112294e+00
+SA(0.2)   1.958309e+00
+SA(0.3)   1.690668e+00
+SA(0.5)   1.232070e+00
+SA(0.75)  8.569123e-01
+SA(1)     6.023122e-01
+SA(2)     2.150956e-01
+SA(3)     1.154881e-01
+SA(5)     5.205159e-02
