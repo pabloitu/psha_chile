@@ -24,15 +24,15 @@ PREFERRED_DC_PLANE = 1  # 1 or 2
 
 # ---------------- Class labels & colors ----------------
 CLASS_COLORS: Dict[str, str] = {
-    "intraarc_shallow": "darkgreen",
-    "intraarc_deep":    "olive",
+    "intraarc_shallow": "firebrick",
+    "intraarc_deep":    "firebrick",
     "slab_interface":           "deepskyblue",
     "intra_slab":               "teal", #"deepskyblue",
     "outer_rise":               "burlywood",
     "forearc":                  "orange",
     "backarc":                  "mediumpurple",
-    "slab_deep":                "firebrick",
-    "unclassified":             "#7f7f7f",
+    "slab_deep":                "teal",
+    "unclassified":             "cornflowerblue",
 }
 DEFAULT_COLOR = "#7f7f7f"
 
