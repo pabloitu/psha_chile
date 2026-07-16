@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml"
+      xmlns="http://openquake.org/xmlns/nrml/0.4">
+    <logicTree logicTreeID="lt_ssm">
+        <logicTreeBranchingLevel branchingLevelID="bl1">
+            <logicTreeBranchSet uncertaintyType="sourceModel"
+                                branchSetID="bs_ssm">
+                <logicTreeBranch branchID="al1">
+                    <uncertaintyModel>
+                        subduction_interface_sources.xml
+                        ssm_intraslab_point_sources.xml
+                        ssm_crustal_point_sources.xml
+                        crustal_faults_al1.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.16666666666666666</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="al2">
+                    <uncertaintyModel>
+                        subduction_interface_sources.xml
+                        ssm_intraslab_point_sources.xml
+                        ssm_crustal_point_sources.xml
+                        crustal_faults_al2.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.16666666666666666</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="al3">
+                    <uncertaintyModel>
+                        subduction_interface_sources.xml
+                        ssm_intraslab_point_sources.xml
+                        ssm_crustal_point_sources.xml
+                        crustal_faults_al3.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.16666666666666666</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="yc">
+                    <uncertaintyModel>
+                        subduction_interface_sources.xml
+                        ssm_intraslab_point_sources.xml
+                        ssm_crustal_point_sources.xml
+                        crustal_faults_yc.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.16666666666666666</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="wc_scaling">
+                    <uncertaintyModel>
+                        subduction_interface_sources.xml
+                        ssm_intraslab_point_sources.xml
+                        ssm_crustal_point_sources.xml
+                        crustal_faults_reference.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.16666666666666666</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="nofaults">
+                    <uncertaintyModel>
+                        subduction_interface_sources.xml
+                        ssm_intraslab_point_sources.xml
+                        ssm_crustal_point_sources.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.16666666666666666</uncertaintyWeight>
+                </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+    </logicTree>
+</nrml>

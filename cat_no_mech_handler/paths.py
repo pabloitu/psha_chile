@@ -70,6 +70,7 @@ cat_integrated_relocated = RELOCATED_CATALOGS / "cat_integrated_relocated.csv"
 
 cat_classified = INTEGRATED_CATALOGS / "cat_classified.csv"
 cat_intraarc = INTEGRATED_CATALOGS / "cat_intraarc.csv"
+cat_backarc = INTEGRATED_CATALOGS / "cat_backarc.csv"
 cat_slab_interface = INTEGRATED_CATALOGS / "cat_slab_interface.csv"
 cat_intra_slab = INTEGRATED_CATALOGS / "cat_intra_slab.csv"
 cat_slab_deep = INTEGRATED_CATALOGS / "cat_slab_deep.csv"
@@ -87,6 +88,7 @@ selected_classified = CLASSIFIED_CATALOGS / "selected_classified.csv"
 ### MC estimate
 cat_full_mc = FINAL_CATALOGS / "cat_full_mc.csv"
 cat_intraarc_mc = FINAL_CATALOGS / "cat_intraarc_mc.csv"
+cat_backarc_mc = FINAL_CATALOGS / "cat_backarc_mc.csv"
 cat_slab_interface_mc = FINAL_CATALOGS / "cat_slab_interface_mc.csv"
 cat_intra_slab_mc = FINAL_CATALOGS / "cat_intra_slab_mc.csv"
 cat_slab_deep_mc = FINAL_CATALOGS / "cat_slab_deep_mc.csv"
@@ -98,6 +100,7 @@ MC_FILTER_SUMMARY = FINAL_CATALOGS / "mc_filter_summary.txt"
 
 ## declustered
 cat_merged_dc = DECLUSTERED_CATALOGS / "cat_merged_dc.csv"
+cat_backarc_dc = DECLUSTERED_CATALOGS / "cat_backarc_dc.csv"
 cat_intraarc_dc = DECLUSTERED_CATALOGS / "cat_intraarc_dc.csv"
 cat_slab_interface_dc = DECLUSTERED_CATALOGS / "cat_slab_interface_dc.csv"
 cat_intra_slab_dc = DECLUSTERED_CATALOGS / "cat_intraslab_dc.csv"

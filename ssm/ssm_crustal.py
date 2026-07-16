@@ -840,7 +840,7 @@ if __name__ == "__main__":
     bbox = (cfg.lon_min, cfg.lon_max, cfg.lat_min, cfg.lat_max)
 
     # 1) Load grid
-    df_grid = load_grid(ssm_paths.grid_01, bbox=bbox)
+    df_grid = load_grid(ssm_paths.grid_01_crustal, bbox=bbox)
 
     # 2) Load catalogs and build SSM (spatial shape)
     df_forearc = load_catalog(

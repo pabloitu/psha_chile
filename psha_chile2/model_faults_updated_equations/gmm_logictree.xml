@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns="http://openquake.org/xmlns/nrml/0.5"
+      xmlns:gml="http://www.opengis.net/gml">
+    <logicTree logicTreeID="CHILE_GMM_COLLAPSED">
+
+        <logicTreeBranchingLevel branchingLevelID="ASC_L">
+            <logicTreeBranchSet branchSetID="ASC_S"
+                                applyToTectonicRegionType="Active Shallow Crust"
+                                uncertaintyType="gmpeModel">
+                <logicTreeBranch branchID="BooreEtAl2014">
+                    <uncertaintyModel>BooreEtAl2014</uncertaintyModel>
+                    <uncertaintyWeight>1.0</uncertaintyWeight>
+                </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+
+        <logicTreeBranchingLevel branchingLevelID="SI_L">
+            <logicTreeBranchSet branchSetID="SI_S"
+                                applyToTectonicRegionType="Subduction Interface"
+                                uncertaintyType="gmpeModel">
+                <logicTreeBranch branchID="AbrahamsonGulerce2020SInter">
+                    <uncertaintyModel>
+                        [AbrahamsonGulerce2020SInter]
+                            region = "SAM"
+                    </uncertaintyModel>
+                    <uncertaintyWeight>1.0</uncertaintyWeight>
+                </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+
+        <logicTreeBranchingLevel branchingLevelID="SS_L">
+            <logicTreeBranchSet branchSetID="SS_S"
+                                applyToTectonicRegionType="Subduction IntraSlab"
+                                uncertaintyType="gmpeModel">
+                <logicTreeBranch branchID="AbrahamsonGulerce2020SSlab">
+                    <uncertaintyModel>
+                        [AbrahamsonGulerce2020SSlab]
+                            region = 'SAM'
+                    </uncertaintyModel>
+                    <uncertaintyWeight>1.0</uncertaintyWeight>
+                </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+
+        <logicTreeBranchingLevel branchingLevelID="SSC_L">
+            <logicTreeBranchSet branchSetID="SSC_S"
+                                applyToTectonicRegionType="Stable Shallow Crust"
+                                uncertaintyType="gmpeModel">
+                <logicTreeBranch branchID="AtkinsonBoore2006Modified2011">
+                    <uncertaintyModel>AtkinsonBoore2006Modified2011</uncertaintyModel>
+                    <uncertaintyWeight>1.0</uncertaintyWeight>
+                </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+
+    </logicTree>
+</nrml>

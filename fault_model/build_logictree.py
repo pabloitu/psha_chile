@@ -7,15 +7,16 @@ so uncertaintyModel entries are bare filenames.
 A component is a list of (branch_id, files, weight) alternatives; the tree
 is the cartesian product over components. Fixed sources form a single
 alternative with weight 1, so they appear in every branch. For now only
-the crustal faults branch (phi x mmax x mfd, 12 alternatives); when the
-subduction interface gets its own alternatives, replace its filename in
-FIXED with a branched component.
+six alternatives for the crustal-fault component: the four slip-rate
+recurrence models, the crustalfaults.xml-convention reference, and a
+no-faults baseline. When the subduction interface gets its own
+alternatives, replace its filename in FIXED with a branched component.
 """
 
 import itertools
 from pathlib import Path
 
-import create_model as cm
+import create_faults_slip_moment as cm
 
 FIXED = ["subduction_interface_sources.xml",
          "ssm_intraslab_point_sources.xml",
@@ -23,7 +24,10 @@ FIXED = ["subduction_interface_sources.xml",
 
 
 def components():
-    faults = [(bid, [fname], w) for bid, fname, *_, w in cm.branches()]
+    w = 1.0 / 6.0
+    faults = [(bid, [fname], w) for bid, fname, *_ in cm.branches()]
+    faults.append(("reference", ["crustal_faults_reference.xml"], w))
+    faults.append(("nofaults", [], w))
     return [[("", FIXED, 1.0)], faults]
 
 
