@@ -315,10 +315,10 @@ def compute_mc_over_time(
         print(line)
         lines.append(line)
 
-    MC_SUMMARY_TXT.parent.mkdir(parents=True, exist_ok=True)
-    with open(MC_SUMMARY_TXT, "w") as f:
+    MC_SUMMARY_TEXT.parent.mkdir(parents=True, exist_ok=True)
+    with open(MC_SUMMARY_TEXT, "w") as f:
         f.write("\n".join(lines))
-    print(f"[OK] wrote Mc summary: {MC_SUMMARY_TXT}")
+    print(f"[OK] wrote Mc summary: {MC_SUMMARY_TEXT}")
 
     return df_all, mc_df
 
@@ -560,14 +560,14 @@ def summarize_filtered_catalog() -> None:
     Uses:
         - CAT_IN_MC           (original classified catalog)
         - paths.cat_full_mc  (catalog with mc_window, mc_window_index)
-        - MC_SUMMARY_TXT      (time-window definitions)
+        - MC_SUMMARY_TEXT      (time-window definitions)
     """
     # --- read catalogs ---
     df_orig = pd.read_csv(CAT_IN_MC)
     df_proc = pd.read_csv(paths.cat_full_mc)
 
     # --- read window summary (start/end per window) ---
-    win_df = pd.read_csv(MC_SUMMARY_TXT, sep="\t")
+    win_df = pd.read_csv(MC_SUMMARY_TEXT, sep="\t")
 
     # ensure we have mc_window_index as integer
     win_idx = df_proc["mc_window_index"].fillna(-1).astype(int).to_numpy()

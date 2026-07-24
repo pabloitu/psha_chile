@@ -273,7 +273,7 @@ def assign_depths_from_slab(
             half_thick = cfg.half_thickness_90_plus
 
         usd[i] = d - half_thick
-        lsd[i] = d + half_thick
+        lsd[i] = d + half_thick + 20
 
     df_out = df_ssm.copy()
     df_out["hypo_depth_km"] = hypo_depth

@@ -18,8 +18,49 @@ from cat_no_mech_handler import paths
 # ---- Tunables ----
 INTRA_ARC_SHALLOW_MAX = 40.0
 DEEP_SLAB_TOL = 15.0
+
+# Outer limit of the subducting plate. Events deeper than the slab top
+# plus the local Slab2 thickness are not in the plate: mislocated,
+# matched to the wrong node in map view, or genuinely sub-slab. They go
+# to deep_unknown rather than into a slab class.
+#
+# Why the thk grid and not a constant: the slab tests below are all
+# ONE-SIDED. They check that an event is at least TOL below the slab top,
+# never that it is close enough to be in the plate. Without an outer
+# bound, an event at 250 km whose epicentre falls within
+# SLAB_QUERY_MAXDIST_KM of a 30 km slab node passes
+# `dep >= slab_depth + TOL` and becomes intra_slab.
+#
+# Slab2 'dep' is the TOP surface (verified: shallowest nodes sit at
+# 5-10 km at the trench = seafloor; a mid-slab surface would be at
+# seafloor + thk/2 ~ 42 km). 'thk' is full lithospheric thickness,
+# median 72 km, varying 86 km in the north to 61 km in the south with
+# plate age. Seismicity concentrates near the top (the elastic part),
+# but events below that are kept: they are either depth error or real
+# earthquakes in the plate below the elastic core. The plate boundary,
+# not the seismogenic band, is the defensible cut.
+USE_SLAB_THK_BOUND = True
+# events at nodes with depth but no thickness: no geometry to judge
+# against, so they cannot be placed in the plate
+THK_MISSING_TO_UNKNOWN = True
+
+# Spatially concentrated deep clusters excluded from the smoothed model.
+# A nest has its own recurrence and cannot share a truncated GR with
+# distributed slab seismicity: it inflates the local a-value into a
+# hazard bullseye, and its Mmax (~6.7 at Jujuy) is not the class Mmax
+# (M8.0, Chillan 1939). Circles, not boxes — the clusters are round and
+# a box sweeps in the diffuse seismicity around them.
+# TEAM INPUT — each entry needs a reason.
+DEEP_NEST_EXCLUSIONS = [
+    {"name": "jujuy", "lon": -66.9, "lat": -24.0, "radius_deg": 0.8,
+     "depth": (170.0, 320.0),
+     "reason": "isolated deep nest near 24S (Valenzuela-Malebran et al.; "
+               "Sippl et al. 2019). Own recurrence and Mmax ~6.7 vs class "
+               "M8.0 — a shared truncated GR misrepresents both."},
+]
+
 SUBDUCTION_CLASSIFY_MAX_SLAB_DEPTH = 50.0
-INTERFACE_DEPTH_TOL = 11            # buffer for relocated or “no-error-info” cases
+INTERFACE_DEPTH_TOL = 11            # buffer for relocated or "no-error-info" cases
 STRICT_INTERFACE_DEPTH_TOL = 15.0   # treat explicit 0 depth_error as poorly constrained
 BACKARC_MAX_DEPTH = 70
 SLAB_QUERY_MAXDIST_KM = 15.0
@@ -40,6 +81,8 @@ RAW_CLASSES: List[str] = [
     "forearc",
     "backarc",
     "unclassified",
+    "deep_unknown",
+    "deep_nest",
 ]
 
 # Final classes we will actually use / write out
@@ -50,6 +93,9 @@ FINAL_CLASSES: List[str] = [
     "slab_deep",
     "outer_rise",
     "forearc",
+    "deep_unknown",    # below the plate; kept separate from unclassified,
+                       # which selects the no-slab region
+    "deep_nest",       # concentrated deep clusters, excluded from the SSM
     "unclassified",    # includes backarc + any leftovers
 ]
 
@@ -64,6 +110,7 @@ class SlabGrid:
     depth: np.ndarray   # km, +down
     strike: np.ndarray  # deg
     dip: np.ndarray     # deg
+    thk: np.ndarray = None   # km, full lithospheric thickness (Slab2 thk)
 
 
 def _lon0360_to_180(x: float) -> float:
@@ -78,7 +125,23 @@ def _read_xyz(p: str) -> pd.DataFrame:
     return df
 
 
-def load_slab_xyz(depth_path: str, strike_path: str, dip_path: str) -> SlabGrid:
+def load_slab_xyz(depth_path: str, strike_path: str, dip_path: str,
+                  thk_path: str | None = None) -> SlabGrid:
+    """Load the Slab2 grids onto a common set of nodes.
+
+    Parameters
+    ----------
+    depth_path, strike_path, dip_path : str
+        Slab2 dep / str / dip .xyz files.
+    thk_path : str or None
+        Slab2 thk .xyz file. Without it the plate has no outer bound and
+        the slab tests stay one-sided.
+
+    Returns
+    -------
+    SlabGrid
+        Nodes where every supplied grid has a value.
+    """
     dep = _read_xyz(depth_path)
     st = _read_xyz(strike_path)
     di = _read_xyz(dip_path)
@@ -91,11 +154,22 @@ def load_slab_xyz(depth_path: str, strike_path: str, dip_path: str) -> SlabGrid:
     df.rename(columns={"val": "val_dip"}, inplace=True)
     df = df.dropna(subset=["val_dep", "val_st", "val_dip"], how="any")
 
+    if thk_path:
+        th = _read_xyz(thk_path).rename(columns={"val": "val_thk"})
+        df = df.merge(th, on=["lon", "lat"], how="left")
+        n_missing = int(df["val_thk"].isna().sum())
+        if n_missing:
+            print(f"[slab] {n_missing}/{len(df)} nodes have no thickness")
+    else:
+        df["val_thk"] = np.nan
+        print("[slab] no thk grid supplied — the plate has no outer bound")
+
     lon = df["lon"].to_numpy(float)
     lat = df["lat"].to_numpy(float)
     depth = df["val_dep"].to_numpy(float)
     strike = (df["val_st"].to_numpy(float) % 360.0)
     dip = df["val_dip"].to_numpy(float)
+    thk = df["val_thk"].to_numpy(float)
 
     return SlabGrid(
         tree=cKDTree(np.c_[lon, lat]),
@@ -104,6 +178,7 @@ def load_slab_xyz(depth_path: str, strike_path: str, dip_path: str) -> SlabGrid:
         depth=depth,
         strike=strike,
         dip=dip,
+        thk=thk,
     )
 
 # ---- Simple geo helpers ----
@@ -118,15 +193,21 @@ def _haversine_km(lon1: float, lat1: float, lon2: float, lat2: float) -> float:
 
 def query_slab(
     grid: SlabGrid, lon: float, lat: float, maxdist_km: float
-) -> Tuple[Optional[float], Optional[float], Optional[float]]:
+) -> Tuple[Optional[float], Optional[float], Optional[float], Optional[float]]:
+    """Nearest slab node: (depth, strike, dip, thickness), all None if the
+    nearest node is farther than maxdist_km in map view."""
     if np.isnan(lon) or np.isnan(lat):
-        return (None, None, None)
+        return (None, None, None, None)
     _, idx = grid.tree.query(np.array([lon, lat]), k=1)
     if idx is None:
-        return (None, None, None)
+        return (None, None, None, None)
     if _haversine_km(lon, lat, grid.lon[idx], grid.lat[idx]) > maxdist_km:
-        return (None, None, None)
-    return float(grid.depth[idx]), float(grid.strike[idx]), float(grid.dip[idx])
+        return (None, None, None, None)
+    thk = None
+    if grid.thk is not None:
+        v = float(grid.thk[idx])
+        thk = v if np.isfinite(v) else None
+    return float(grid.depth[idx]), float(grid.strike[idx]), float(grid.dip[idx]), thk
 
 
 def load_union(path: str):
@@ -356,6 +437,61 @@ def _ellipse_mask(
     dy = (lat_nodes - lat0) / max(lat_err, 1e-12)
     return (dx * dx + dy * dy) <= 1.0
 
+
+def _below_slab(dep: float, slab_depth: float | None,
+                thk: float | None) -> bool:
+    """True if the event sits below the subducting plate.
+
+    The plate bottom is the Slab2 top plus the local thickness, so the
+    limit follows plate age (86 km in the north, 61 km in the south)
+    rather than a single constant. Seismicity concentrates near the top,
+    but events deeper in the plate are kept: they are either depth error
+    or real earthquakes below the elastic core.
+
+    Parameters
+    ----------
+    dep : float
+        Event depth, km.
+    slab_depth : float or None
+        Slab2 top depth at the event's map position, km.
+    thk : float or None
+        Slab thickness at that node, km.
+
+    Returns
+    -------
+    bool
+        True when the event is deeper than slab_top + thk, or when
+        thickness is unavailable and THK_MISSING_TO_UNKNOWN is set.
+    """
+    if not USE_SLAB_THK_BOUND:
+        return False
+    if not np.isfinite(dep) or slab_depth is None:
+        return False
+    if thk is None or not np.isfinite(thk):
+        return bool(THK_MISSING_TO_UNKNOWN)
+    return dep > slab_depth + thk
+
+
+def _in_deep_nest(lon: float, lat: float, dep: float) -> str | None:
+    """Name of the excluded deep nest containing this event, else None.
+
+    Nests are spatially concentrated deep clusters whose recurrence and
+    Mmax differ from the distributed slab population; pooling them under
+    one truncated GR misrepresents both and produces a hazard bullseye in
+    the smoothed field.
+    """
+    if not (np.isfinite(lon) and np.isfinite(lat) and np.isfinite(dep)):
+        return None
+    for n in DEEP_NEST_EXCLUSIONS:
+        z0, z1 = n["depth"]
+        if not (z0 <= dep <= z1):
+            continue
+        dlon = (lon - n["lon"]) * math.cos(math.radians(lat))
+        dlat = lat - n["lat"]
+        if math.hypot(dlon, dlat) <= n["radius_deg"]:
+            return n["name"]
+    return None
+
 # ---- Row classification (depth-first, then kinematics if mech exists) ----
 def classify_row(row: pd.Series, intra_poly, trench_line, slab: SlabGrid) -> tuple[str, float | None]:
     """
@@ -371,7 +507,13 @@ def classify_row(row: pd.Series, intra_poly, trench_line, slab: SlabGrid) -> tup
     lat = float(lat) if pd.notna(lat) else np.nan
     dep = float(dep) if pd.notna(dep) else np.nan
 
-    slab_depth, slab_strike, slab_dip = query_slab(slab, lon, lat, SLAB_QUERY_MAXDIST_KM)
+    slab_depth, slab_strike, slab_dip, slab_thk = query_slab(
+        slab, lon, lat, SLAB_QUERY_MAXDIST_KM)
+
+    # excluded nests are removed before any other test: they are a
+    # separate population, not a slab-geometry question
+    if _in_deep_nest(lon, lat, dep):
+        return "deep_nest", slab_depth if slab_depth is not None else np.nan
 
     # Intra-arc polygon domain
     in_intra = (
@@ -388,8 +530,15 @@ def classify_row(row: pd.Series, intra_poly, trench_line, slab: SlabGrid) -> tup
                 return "intraarc_shallow", np.nan
             if dep <= 90.0:
                 return "intraarc_deep", np.nan
+            # FUTURE WORK: no slab reference here, so this 90 km fallback
+            # assigns slab_deep on depth alone — the one remaining
+            # unbounded path
             return "slab_deep", np.nan
         else:
+            # the band check must come first: without it a deep event
+            # above a shallow node passes the DEEP_SLAB_TOL test below
+            if _below_slab(dep, slab_depth, slab_thk):
+                return "deep_unknown", slab_depth
             if dep >= slab_depth - DEEP_SLAB_TOL:
                 return "slab_deep", slab_depth
             if dep <= INTRA_ARC_SHALLOW_MAX:
@@ -411,6 +560,11 @@ def classify_row(row: pd.Series, intra_poly, trench_line, slab: SlabGrid) -> tup
     relocated = _is_relocated(row)
     lon_err, lat_err, dep_err = _numeric_errors(row)
     has_mech = _has_mechanism(row)
+
+    # bounds the one-sided slab tests below; applies to both the shallow
+    # and deep branches
+    if _below_slab(dep, slab_depth, slab_thk):
+        return "deep_unknown", slab_depth
 
     if slab_depth < SUBDUCTION_CLASSIFY_MAX_SLAB_DEPTH:
         # Shallow slab
@@ -474,7 +628,7 @@ def classify_row(row: pd.Series, intra_poly, trench_line, slab: SlabGrid) -> tup
             # Mechanism exists but is not interface-like: fall back to depth relation
             return ("forearc" if dep < slab_depth else "intra_slab"), slab_depth
         else:
-            # *** NEW: ambiguous in depth AND no focal mechanism → still treat as interface ***
+            # ambiguous in depth AND no focal mechanism → still treat as interface
             return "slab_interface", slab_depth
 
     else:
@@ -494,14 +648,25 @@ def _coerce_numeric(df: pd.DataFrame, cols: Iterable[str]) -> None:
             df[col] = pd.to_numeric(df[col], errors="coerce")
 
 
+def _nest_mask(df: pd.DataFrame, nest: dict) -> np.ndarray:
+    """Vectorized membership of a nest definition, for reporting."""
+    z0, z1 = nest["depth"]
+    dlon = (df["longitude"] - nest["lon"]) * np.cos(np.radians(df["latitude"]))
+    dlat = df["latitude"] - nest["lat"]
+    return (np.hypot(dlon, dlat) <= nest["radius_deg"]) & \
+           df["depth"].between(z0, z1)
+
+
 def _map_raw_to_final(raw_class: str) -> str:
     """Collapse raw classes to final classes we actually use."""
     if raw_class in ("intraarc_shallow", "intraarc_deep"):
         return "intraarc"
-    if raw_class in ("slab_interface", "intra_slab", "slab_deep", "outer_rise", "forearc"):
+    if raw_class in ("slab_interface", "intra_slab", "slab_deep",
+                     "outer_rise", "forearc", "deep_unknown", "deep_nest"):
         return raw_class
     # everything else (backarc, unclassified, oddballs) → unclassified
     return "unclassified"
+
 
 def _upsert_special_events(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -598,6 +763,7 @@ def _upsert_special_events(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+
 def classify_catalog(
     in_csv: str,
     out_csv_all: str,
@@ -644,14 +810,22 @@ def classify_catalog(
     df["class"] = df["class_raw"].map(_map_raw_to_final)
 
     # --- POST-PROCESSING OVERRIDE: all intra_slab events before 1930 → slab_interface ---
-    years = pd.to_datetime(df["time_iso"], utc=True, errors="coerce").dt.year
+    # years via string slice: pd.to_datetime bottoms out at 1677 and silently
+    # exempted the oldest events (1575, 1615) from this rule
+    years = pd.to_numeric(df["time_iso"].astype(str).str[:4], errors="coerce")
     mask_old_intraslab = (
-            (df["class_raw"] == "intra_slab") &
-            years.notna() &
-            (years < 1930)
+        (df["class_raw"] == "intra_slab")
+        & years.notna()
+        & (years < 1930)
     )
     df.loc[mask_old_intraslab, "class_raw"] = "slab_interface"
     df.loc[mask_old_intraslab, "class"] = "slab_interface"
+    n_re = int(mask_old_intraslab.sum())
+    if n_re:
+        ys = years[mask_old_intraslab]
+        print(f"[pre-1930 rule] {n_re} intra_slab -> slab_interface "
+              f"({int(ys.min())}-{int(ys.max())})")
+
     # --- MANUAL OVERRIDE for specific 2010-03-11 events ---
     if "id" in df.columns:
         override = {
@@ -671,6 +845,7 @@ def classify_catalog(
             for col, val in vals.items():
                 if col in df.columns:
                     df.loc[mask, col] = val
+
     # quick summary
     print(
         "Raw class totals: "
@@ -680,6 +855,34 @@ def classify_catalog(
         "Final class totals: "
         + ", ".join(f"{c}={int((df['class'] == c).sum())}" for c in FINAL_CLASSES)
     )
+
+    # what the plate bound removed, and whether it is coherent: events
+    # past the Slab2 depth limit are real deep seismicity the geometry
+    # cannot reach; shallower ones are wrong-node matches
+    du = df[df["class"] == "deep_unknown"]
+    if len(du):
+        zmax = float(np.nanmax(slab.depth))
+        below = int((du["depth"] > zmax).sum())
+        print(f"[deep_unknown] {len(du)} events below the plate "
+              f"(slab top + local thk): depth "
+              f"{du['depth'].min():.0f}-{du['depth'].max():.0f} km, "
+              f"M{du['mag'].min():.1f}-{du['mag'].max():.1f}")
+        print(f"[deep_unknown] {below} deeper than the Slab2 limit "
+              f"({zmax:.0f} km) = real deep seismicity with no geometry; "
+              f"{len(du) - below} shallower = wrong-node candidates")
+        print(du.groupby(pd.cut(du["depth"], [0, 100, 200, 300, 700])
+                         ).size().to_string())
+
+    dn = df[df["class"] == "deep_nest"]
+    if len(dn):
+        print(f"[deep_nest] {len(dn)} events excluded from the SSM")
+        for n in DEEP_NEST_EXCLUSIONS:
+            s = dn[_nest_mask(dn, n)]
+            if not len(s):
+                continue
+            print(f"  {n['name']}: {len(s)} events, depth "
+                  f"{s['depth'].min():.0f}-{s['depth'].max():.0f} km, "
+                  f"Mmax {s['mag'].max():.1f} — {n['reason']}")
 
     df.to_csv(out_csv_all, index=False)
     print(f"[OK] wrote combined classified catalog: {out_csv_all} ({len(df)} rows)")
@@ -711,6 +914,7 @@ def main() -> None:
         str(paths.slab_depth),
         str(paths.slab_strike),
         str(paths.slab_dip),
+        str(paths.slab_thk) if hasattr(paths, "slab_thk") else None,
     )
 
     # Classify the relocated integrated catalog

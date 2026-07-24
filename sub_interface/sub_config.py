@@ -12,7 +12,10 @@ SLAB_XYZ = ROOT / "data" / "slab_2.0" / "sam_slab2_dep_02.23.18.xyz"
 # the upstream *_mc.csv/*_dc.csv variants embed the national per-epoch Mc
 # stamps and are not used
 CAT_INTERFACE = ROOT / "results" / "catalogs" / "integrated" / "cat_slab_interface.csv"
-OUT_DIR = ROOT / "sub_interface" / "outputs"
+# RUN_TAG isolates sensitivity variants: "" = reference tree; e.g. "_z60"
+# writes everything to outputs_z60/ so variants never overwrite the reference
+RUN_TAG = "_z60_mcf56_mmin6"
+OUT_DIR = ROOT / "sub_interface" / ("outputs" + RUN_TAG)
 GEOM_DIR = OUT_DIR / "geometry"
 FIG_DIR = OUT_DIR / "figures"
 
@@ -97,7 +100,7 @@ W_MFD = {"tgr": 0.5, "tapered": 0.5}
 
 # source building
 TRT = "Subduction Interface"
-RUPT_MESH = 5.0
+RUPT_MESH = 10.0
 ASPECT = 1.0
 RAKE = 90.0
 INV_TIME = 1.0

@@ -12,6 +12,7 @@
 import datetime
 import hashlib
 import json
+from concurrent.futures import ProcessPoolExecutor
 
 import numpy as np
 import pandas as pd
@@ -66,11 +67,28 @@ def contract_report(df, path):
 
 def mc_per_window(mags):
     mags = np.round(np.round(mags / C.DELTA_M) * C.DELTA_M, 6)
+    if C.MC_MAX_SAMPLE and len(mags) > C.MC_MAX_SAMPLE:
+        rng = np.random.default_rng(42)
+        mags = rng.choice(mags, C.MC_MAX_SAMPLE, replace=False)
+    # candidate scan starts near the modal magnitude: candidates below it
+    # are guaranteed expensive failures
+    vals, cnt = np.unique(mags, return_counts=True)
+    m0 = max(vals[np.argmax(cnt)] - 0.2, vals[0])
+    mcs = np.round(np.arange(m0, vals[-1] - 0.5, C.DELTA_M), 6)
     mc, info = estimate_mc_ks(
-        mags, delta_m=C.DELTA_M, p_value_pass=C.MC_P_VALUE,
-        b_value=C.MC_B_FIXED,
+        mags, delta_m=C.DELTA_M, mcs_test=mcs,
+        p_value_pass=C.MC_P_VALUE, b_value=C.MC_B_FIXED, n=C.MC_KS_N,
     )
     return mc
+
+
+def _win_job(args):
+    label, y0, y1, m = args
+    if len(m) < C.MC_MIN_EVENTS:
+        return (label, y0, y1, len(m), C.MC_HIST_FLOOR, "floor")
+    mc = mc_per_window(m)
+    how = "ks" if mc is not None else "ks_failed"
+    return (label, y0, y1, len(m), mc if mc is not None else np.nan, how)
 
 
 def window_table(df, label):
@@ -81,19 +99,14 @@ def window_table(df, label):
     (flagged, not estimated): the historical windows only contain great
     earthquakes and the KS test is meaningless there.
     """
-    rows = []
+    jobs = []
     for t0, t1 in C.MC_WINDOWS:
         y0 = int(t0[:4])
         y1 = int(t1[:4]) if t1 else float(np.ceil(df["year"].max()))
         m = df[(df["year"] >= y0) & (df["year"] < y1)]["mag"].to_numpy()
-        if len(m) < C.MC_MIN_EVENTS:
-            rows.append((label, y0, y1, len(m), C.MC_HIST_FLOOR, "floor"))
-            continue
-        mc = mc_per_window(m)
-        how = "ks" if mc is not None else "ks_failed"
-        if mc is None:
-            mc = np.nan
-        rows.append((label, y0, y1, len(m), mc, how))
+        jobs.append((label, y0, y1, m))
+    with ProcessPoolExecutor() as ex:
+        rows = list(ex.map(_win_job, jobs))
     return pd.DataFrame(rows, columns=["seg", "y0", "y1", "n", "mc", "how"])
 
 

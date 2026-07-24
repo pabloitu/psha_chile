@@ -2,15 +2,15 @@
 
 === PER CLASS ===
 class_file	N_total	N_mainshocks	N_clustered
-intraarc	473	264	209
-slab_interface	7439	1357	6082
-intra_slab	2166	805	1361
-slab_deep	10819	3027	7792
-outer_rise	727	316	411
-forearc	1084	565	519
-unclassified	393	393	0
+intraarc	111	70	41
+slab_interface	1399	362	1037
+intra_slab	474	230	244
+slab_deep	1858	724	1134
+outer_rise	152	93	59
+forearc	261	167	94
+unclassified	143	90	53
 
 === MERGED (ALL CLASSES) ===
-total_events	23101
-mainshocks	6727
-clustered_events	16374
+total_events	4398
+mainshocks	1736
+clustered_events	2662
