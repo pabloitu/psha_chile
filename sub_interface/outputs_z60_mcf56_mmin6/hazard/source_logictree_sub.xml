@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml"
+      xmlns="http://openquake.org/xmlns/nrml/0.4">
+    <logicTree logicTreeID="lt_sub_interface">
+        <logicTreeBranchingLevel branchingLevelID="bl1">
+            <logicTreeBranchSet uncertaintyType="sourceModel"
+                                branchSetID="bs_sub">
+                <logicTreeBranch branchID="seg__seis__tgr">
+                    <uncertaintyModel>
+                        src/sub_int__seg__seis__tgr.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.125000000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="seg__seis__tapered">
+                    <uncertaintyModel>
+                        src/sub_int__seg__seis__tapered.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.125000000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="seg__geo_lo__tgr">
+                    <uncertaintyModel>
+                        src/sub_int__seg__geo_lo__tgr.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.031250000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="seg__geo_lo__tapered">
+                    <uncertaintyModel>
+                        src/sub_int__seg__geo_lo__tapered.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.031250000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="seg__geo_mid__tgr">
+                    <uncertaintyModel>
+                        src/sub_int__seg__geo_mid__tgr.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.062500000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="seg__geo_mid__tapered">
+                    <uncertaintyModel>
+                        src/sub_int__seg__geo_mid__tapered.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.062500000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="seg__geo_hi__tgr">
+                    <uncertaintyModel>
+                        src/sub_int__seg__geo_hi__tgr.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.031250000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="seg__geo_hi__tapered">
+                    <uncertaintyModel>
+                        src/sub_int__seg__geo_hi__tapered.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.031250000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="full__seis__tgr">
+                    <uncertaintyModel>
+                        src/sub_int__full__seis__tgr.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.125000000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="full__seis__tapered">
+                    <uncertaintyModel>
+                        src/sub_int__full__seis__tapered.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.125000000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="full__geo_lo__tgr">
+                    <uncertaintyModel>
+                        src/sub_int__full__geo_lo__tgr.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.031250000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="full__geo_lo__tapered">
+                    <uncertaintyModel>
+                        src/sub_int__full__geo_lo__tapered.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.031250000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="full__geo_mid__tgr">
+                    <uncertaintyModel>
+                        src/sub_int__full__geo_mid__tgr.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.062500000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="full__geo_mid__tapered">
+                    <uncertaintyModel>
+                        src/sub_int__full__geo_mid__tapered.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.062500000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="full__geo_hi__tgr">
+                    <uncertaintyModel>
+                        src/sub_int__full__geo_hi__tgr.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.031250000000</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="full__geo_hi__tapered">
+                    <uncertaintyModel>
+                        src/sub_int__full__geo_hi__tapered.xml
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.031250000000</uncertaintyWeight>
+                </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+    </logicTree>
+</nrml>

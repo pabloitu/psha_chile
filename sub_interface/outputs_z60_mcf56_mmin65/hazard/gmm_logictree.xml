@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml
+xmlns="http://openquake.org/xmlns/nrml/0.5"
+xmlns:gml="http://www.opengis.net/gml"
+>
+    <logicTree
+    logicTreeID="CHILE_GMM"
+    >
+        <logicTreeBranchingLevel
+        branchingLevelID="ASC_L"
+        >
+            <logicTreeBranchSet
+            branchSetID="ASC_S"
+            applyToTectonicRegionType="Active Shallow Crust"
+            uncertaintyType="gmpeModel"
+            >
+                <logicTreeBranch
+                branchID="AbrahamsonEtAl2014"
+                >
+                    <uncertaintyModel>
+                        AbrahamsonEtAl2014
+                    </uncertaintyModel>
+                    <uncertaintyWeight>
+                        0.25
+                    </uncertaintyWeight>
+
+                </logicTreeBranch>
+                <logicTreeBranch
+                branchID="BooreEtAl2014"
+                >
+                    <uncertaintyModel>
+                        BooreEtAl2014
+                    </uncertaintyModel>
+                    <uncertaintyWeight>
+                        0.25
+                    </uncertaintyWeight>
+
+                </logicTreeBranch>
+                <logicTreeBranch
+                branchID="CampbellBozorgnia2014"
+                >
+                    <uncertaintyModel>
+                        CampbellBozorgnia2014
+                    </uncertaintyModel>
+                    <uncertaintyWeight>
+                        0.25
+                    </uncertaintyWeight>
+
+                </logicTreeBranch>
+                <logicTreeBranch
+                branchID="ChiouYoungs2014"
+                >
+                    <uncertaintyModel>
+                        ChiouYoungs2014
+                    </uncertaintyModel>
+                    <uncertaintyWeight>
+                        0.25
+                    </uncertaintyWeight>
+
+                </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+
+        <logicTreeBranchingLevel
+        branchingLevelID="SI_L"
+        >
+        <logicTreeBranchSet
+            branchSetID="SI_S"
+            applyToTectonicRegionType="Subduction Interface"
+            uncertaintyType="gmpeModel"
+            >
+                <logicTreeBranch branchID="AbrahamsonGulerce2020SInter">
+                    <uncertaintyModel>
+                        [AbrahamsonGulerce2020SInter]
+                            region = "SAM"
+		            </uncertaintyModel>
+                    <uncertaintyWeight>0.34</uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="ParkerEtAl2020SInter">
+                    <uncertaintyModel>
+                        [ParkerEtAl2020SInter]
+                            region = 'SA'
+                            saturation_region = 'SA_S'
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.33</uncertaintyWeight>
+                </logicTreeBranch>
+                    <logicTreeBranch branchID="KuehnEtAl2020SInter">
+                    <uncertaintyModel>
+                        [KuehnEtAl2020SInter]
+                            region = 'SAM'
+                    </uncertaintyModel>
+                    <uncertaintyWeight>0.33</uncertaintyWeight>
+                </logicTreeBranch>
+            </logicTreeBranchSet>
+
+        </logicTreeBranchingLevel>
+
+     <logicTreeBranchingLevel branchingLevelID="bl4">
+            <logicTreeBranchSet uncertaintyType="gmpeModel" branchSetID="bs4"
+                    applyToTectonicRegionType="Stable Shallow Crust">
+                    <logicTreeBranch branchID="AtkinsonBoore2006Modified2011">
+                        <uncertaintyModel>AtkinsonBoore2006Modified2011</uncertaintyModel>
+                        <uncertaintyWeight>1</uncertaintyWeight>
+                    </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+
+        <logicTreeBranchingLevel branchingLevelID="bl2">
+            <logicTreeBranchSet uncertaintyType="gmpeModel" branchSetID="bs2"
+                    applyToTectonicRegionType="Subduction IntraSlab">
+                <logicTreeBranch branchID="AbrahamsonGulerce2020SSlab">
+                    <uncertaintyModel>
+                        [AbrahamsonGulerce2020SSlab]
+                            region = 'SAM'
+                    </uncertaintyModel>
+                    <uncertaintyWeight>
+                        0.5
+                    </uncertaintyWeight>
+                </logicTreeBranch>
+                <logicTreeBranch branchID="AbrahamsonGulerce2020SSlab">
+                    <uncertaintyModel>
+                        [ParkerEtAl2020SSlab]
+                            region = 'SA'
+                            saturation_region = 'SA_S'
+                    </uncertaintyModel>
+                    <uncertaintyWeight>
+                        0.5
+                    </uncertaintyWeight>
+                </logicTreeBranch>
+            </logicTreeBranchSet>
+        </logicTreeBranchingLevel>
+
+    </logicTree>
+</nrml>
