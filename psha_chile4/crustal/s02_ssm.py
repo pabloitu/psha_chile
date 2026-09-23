@@ -1,0 +1,165 @@
+# Crustal smoothed seismicity by per-class superposition: each class is fit
+# on its own complete declustered events, smoothed on the crustal grid, and
+# given its own truncated GR; the total grid is the per-bin sum (uncapped).
+# Outputs: ssm/grid_{class}.csv, ssm/grid_total.csv, ssm/classes.csv,
+#          ssm/b_stability.csv, figures/s02_*.png
+
+import json
+
+import numpy as np
+import pandas as pd
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+from lib import cat, cfg, gr, smooth
+from crustal import config
+
+
+def domain(c):
+    g = pd.read_csv(c.GRID_CSV)[["lon", "lat"]]
+    lo, hi, la, ha = c.BBOX
+    g = g[g["lon"].between(lo, hi) & g["lat"].between(la, ha)].reset_index(drop=True)
+    print(f"grid: {len(g)} cells in bbox")
+    return g
+
+
+def fit(k, s, c, te, floor=None, nboot=0, b=None):
+    floor = c.MMIN_FIT_BY_CLASS.get(k, c.MMIN_FIT) if floor is None else floor
+    steps = c.COMPLETENESS[k]
+    comp = s[gr.complete(s, steps)]
+    w = gr.weichert(comp["mag"], steps, te, max(floor, min(x[0] for x in steps)), c.DM, nboot, b=b)
+    w["comp"] = comp
+    return w
+
+
+def mmax_of(k, s, c):
+    if k in c.MMAX_OVERRIDE:
+        return float(c.MMAX_OVERRIDE[k])
+    m = float(s["mag"].max()) + c.MMAX_PAD
+    if m > c.MMAX_SANITY:
+        top = ", ".join(f"M{r.mag:.1f}@{r.year:.0f} z{r.depth:.0f}" for r in s.nlargest(5, "mag").itertuples())
+        raise SystemExit(f"{k}: Mmax {m:.2f} > MMAX_SANITY {c.MMAX_SANITY} ({top}); "
+                         "check the class or set MMAX_OVERRIDE")
+    return m
+
+
+def main(c=None):
+    c = c or cfg.load(config)
+    od = c.OUT / "ssm"
+    od.mkdir(parents=True, exist_ok=True)
+    c.FIG.mkdir(parents=True, exist_ok=True)
+    te = c.T_END or json.loads((c.OUT / "decluster" / "input.json").read_text())["t_end"]
+    missing = [k for k in c.CLASSES if k not in c.COMPLETENESS]
+    if missing:
+        raise SystemExit(f"no COMPLETENESS for {missing}")
+
+    cells = domain(c)
+    cats = {k: cat.load(c.OUT / "decluster" / f"cat_dc_{k}_{c.DC_METHOD}.csv", bbox=c.BBOX)
+            for k in c.CLASSES}
+    own = [k for k in c.CLASSES if k not in c.B_SOURCE]
+    fits = {k: fit(k, cats[k], c, te, nboot=c.N_BOOT) for k in own}
+    weak = [f"{k} (n={w['n']})" for k, w in fits.items() if not np.isfinite(w["b"])]
+    if weak:
+        raise SystemExit(f"too few complete events above the fit floor for {weak}; "
+                         "revise COMPLETENESS or MMIN_FIT_BY_CLASS, borrow b via B_SOURCE, or drop the class")
+    b_use = {k: fits[k]["b"] for k in own}
+    for k, src in c.B_SOURCE.items():
+        if k not in cats:
+            continue
+        donors = [src] if isinstance(src, str) else list(src)
+        b_use[k] = (fits[donors[0]]["b"] if len(donors) == 1 and donors[0] in fits else
+                    fit(donors[0], pd.concat([cats[d] for d in donors]), c, te)["b"])
+        fits[k] = fit(k, cats[k], c, te, b=b_use[k])
+        if not fits[k]["n"]:
+            raise SystemExit(f"{k}: no complete events above the fit floor, even with b borrowed")
+        print(f"{k}: b {b_use[k]:.3f} from {'+'.join(donors)}, rate from its own {fits[k]['n']} events")
+    mmax = {k: mmax_of(k, s, c) for k, s in cats.items()}
+
+    stab = []
+    for k in own:
+        s = cats[k]
+        f0 = fits[k]["mmin"]
+        for fl in np.round(np.arange(f0 - 0.5, f0 + 1.05, 0.1), 2):
+            if fl < min(x[0] for x in c.COMPLETENESS[k]) - 1e-6:
+                continue
+            w = fit(k, s, c, te, fl)
+            stab.append({"class": k, "floor": fl, "b": w["b"], "n": w["n"]})
+    stab = pd.DataFrame(stab, columns=["class", "floor", "b", "n"])
+    stab.round(4).to_csv(od / "b_stability.csv", index=False)
+
+    e = smooth.edges(c.MMIN, max(mmax.values()), c.DM)
+    glon, glat = cells["lon"].to_numpy(), cells["lat"].to_numpy()
+    per, info = {}, []
+    for k, s in cats.items():
+        w, b = fits[k], b_use[k]
+        steps = c.COMPLETENESS[k]
+        comp = w["comp"]
+        rate = w["rate"] * 10 ** (-b * (c.MMIN - w["mmin"]))
+        kp = {"N_NEIGHBORS": c.N_NEIGHBORS, "MIN_KERNEL_KM": c.MIN_KERNEL_KM,
+              **c.KERNEL_BY_CLASS.get(k, {})}
+        wt = 10 ** (b * (gr.mc_of(comp["mag"], steps) - w["mmin"])) / (te - gr.since(comp["mag"], steps))
+        elon, elat = comp["longitude"].to_numpy(), comp["latitude"].to_numpy()
+        h = smooth.kernel(elon, elat, kp["N_NEIGHBORS"], kp["MIN_KERNEL_KM"])
+        shape = smooth.field(elon, elat, wt, h, glon, glat, c.KERNEL_POWER, c.MAX_DIST_KM)
+        if shape.sum() <= 0:
+            raise RuntimeError(f"{k}: empty field")
+        rb = smooth.tgr_bins(shape, rate, b, e, mmax[k])
+        exp = rate * (1 - 10 ** (-b * (mmax[k] - c.MMIN)))
+        if abs(rb.sum() / exp - 1) > 1e-9:
+            raise RuntimeError(f"{k}: binned total {rb.sum()} != {exp}")
+        per[k] = rb
+        smooth.write(cells, rb, e, od / f"grid_{k}.csv")
+
+        mt = np.arange(w["mmin"], s["mag"].max() + 1e-6, 0.1)
+        obs = gr.obs_cum(comp, steps, te, mt)
+        mod = rate * np.clip(10 ** (-b * (mt - c.MMIN)) - 10 ** (-b * (mmax[k] - c.MMIN)), 0, None)
+        big = mt >= min(s["mag"].max(), mmax[k]) - 0.3
+        info.append({"class": k, "n_complete": w["n"], "floor": w["mmin"], "b_fit": w["b"],
+                     "b_err": w["b_err"], "b_used": b, "rate_floor": w["rate"],
+                     f"rate_M{c.MMIN}": rate, "mmax": mmax[k], "kernel_med_km": float(np.median(h)),
+                     "model_obs_floor": mod[0] / obs[0],
+                     "model_obs_top": mod[big][0] / obs[big][0] if big.any() and obs[big][0] > 0 else np.nan})
+        if w["b_err"] > c.B_ERR_WARN or not 0.5 <= w["b"] <= 1.5:
+            print(f"[warn] {k}: b {w['b']:.3f} +/- {w['b_err']:.3f}")
+
+        f, (a1, a2) = plt.subplots(1, 2, figsize=(11, 4.5))
+        a1.semilogy(mt, obs, "ko", ms=4, label="observed (complete, 1/T)")
+        a1.semilogy(mt, np.maximum(mod, 1e-8), "C0", lw=2, label=f"model b={b:.2f} Mmax={mmax[k]:.1f}")
+        a1.axvline(w["mmin"], color="crimson", ls="--", lw=0.8)
+        a1.set_xlabel("M")
+        a1.set_ylabel("N(>=M)/yr")
+        a1.legend(fontsize=8)
+        st = stab[stab["class"] == k]
+        a2.plot(st["floor"], st["b"], "o-")
+        a2.axvline(w["mmin"], color="crimson", ls="--", lw=0.8)
+        a2.set_xlabel("fit floor")
+        a2.set_ylabel("b")
+        f.suptitle(k)
+        f.tight_layout()
+        f.savefig(c.FIG / f"s02_fit_{k}.png", dpi=200)
+        plt.close(f)
+
+    tot = sum(per.values())
+    smooth.write(cells, tot, e, od / "grid_total.csv")
+    tab = pd.DataFrame(info)
+    tab["frac_of_total"] = tab[f"rate_M{c.MMIN}"] / tab[f"rate_M{c.MMIN}"].sum()
+    tab.to_csv(od / "classes.csv", index=False)
+    print(tab.round(4).to_string(index=False))
+
+    f, axs = plt.subplots(1, len(per) + 1, figsize=(3.5 * (len(per) + 1), 8), sharey=True)
+    for ax, (k, rb) in zip(axs, list(per.items()) + [("total", tot)]):
+        v = rb.sum(axis=1)
+        sc = ax.scatter(glon, glat, c=np.log10(np.maximum(v, 1e-12)), s=2, cmap="magma_r",
+                        vmin=np.log10(v[v > 0]).min(), vmax=np.log10(v.max()))
+        ax.set_aspect("equal")
+        ax.set_title(f"{k}: log10 N(>={c.MMIN})", fontsize=9)
+    f.colorbar(sc, ax=axs, shrink=0.5)
+    f.savefig(c.FIG / "s02_maps.png", dpi=200)
+    plt.close(f)
+    cfg.snapshot(c, "s02")
+
+
+if __name__ == "__main__":
+    main()
