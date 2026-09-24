@@ -1,0 +1,13 @@
+class,method,n_in,n_main,frac_removed,n_M7_removed,mmax_main,median_depth_in,median_depth_main
+intra_slab,gk74,5700,2373,0.584,0,7.7,44.67945,48.9
+intra_slab,gk74_sym,5700,1852,0.675,0,7.7,44.67945,48.0
+intra_slab,uhrhammer,5700,3802,0.333,0,7.7,44.67945,47.9
+intra_slab,gruenthal,5700,1666,0.708,0,7.7,44.67945,49.0
+slab_deep,gk74,23210,9094,0.608,0,8.0,119.904,119.2575
+slab_deep,gk74_sym,23210,6913,0.702,0,8.0,119.904,118.3
+slab_deep,uhrhammer,23210,16729,0.279,1,8.0,119.904,120.7
+slab_deep,gruenthal,23210,5897,0.746,0,8.0,119.904,119.3
+deep_nest,gk74,5104,449,0.912,0,7.2,200.4937,200.0
+deep_nest,gk74_sym,5104,226,0.956,0,7.2,200.4937,200.0
+deep_nest,uhrhammer,5104,2470,0.516,0,7.2,200.4937,200.70725
+deep_nest,gruenthal,5104,225,0.956,0,7.2,200.4937,200.0

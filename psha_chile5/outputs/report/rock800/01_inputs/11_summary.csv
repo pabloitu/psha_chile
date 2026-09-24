@@ -1,0 +1,13 @@
+class,method,n_in,n_main,frac_removed,n_M7_removed,mmax_main,median_depth_in,median_depth_main
+forearc,gk74,3618,1993,0.449,4,8.4,11.6372,15.0
+forearc,gk74_sym,3618,1811,0.499,4,8.4,11.6372,15.0
+forearc,uhrhammer,3618,2632,0.273,5,8.4,11.6372,12.7153
+forearc,gruenthal,3618,1625,0.551,5,8.4,11.6372,15.1
+intraarc,gk74,1917,1064,0.445,0,7.7,11.7,15.0
+intraarc,gk74_sym,1917,983,0.487,0,7.7,11.7,15.6
+intraarc,uhrhammer,1917,1338,0.302,0,7.7,11.7,15.0
+intraarc,gruenthal,1917,909,0.526,0,7.7,11.7,17.4
+unclassified,gk74,2065,1308,0.367,2,8.0,19.3,18.0
+unclassified,gk74_sym,2065,1209,0.415,2,8.0,19.3,19.0
+unclassified,uhrhammer,2065,1579,0.235,2,8.0,19.3,18.0
+unclassified,gruenthal,2065,1103,0.466,2,8.0,19.3,20.0
