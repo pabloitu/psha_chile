@@ -1,13 +1,14 @@
-# psha_chile5
+# psha_chile6
 
-Chile PSHA: source models, the hazard sensitivity campaign and its report.
-Sits in the repository root next to `psha_chile4/` (the Vs30 380 series, kept
-as an archive) and reads the same inputs.
+Chile PSHA: the workbench of the final model, a copy of psha_chile5 (the
+sensitivity campaign, frozen). Reads the classified catalog of cat_handler_2
+(`results/cat_handler_2/catalog.csv`) and its families (`cat_handler_2/params.py`
+FAMILIES); each model reads one family (`FAMILY`, `CLASS_MAP` in its config).
 
 ## Layout
 
 ```
-psha_chile5/
+psha_chile6/
   paths.py              inputs (catalogs, Slab2 grids, faults) and the output root
   run.py                builds a source model; steps are cached and reused across variants
   variants.py           named parameter variants per model
@@ -27,6 +28,9 @@ psha_chile5/
     figures.py          curves, contributions, source maps, sections, truncation
     fig_gmm.py, fig_intraslab.py, gmm_check.py
     report.py           collects everything into outputs/report/<site>/ with report.md
+  check_catalog.py      S1: model inputs, fits and city rates against psha_chile5
+  hazard/catalog_effect.py  S1: hazard against psha_chile5, per family
+  run_s1.sh             S1 in one go
   check_completeness.py completeness ensemble: perturbed tables, refit, picks for the mc_lo / mc_hi rows
   interface/check_convention.py  fitted vs observed rates, declustered and full catalog
 ```

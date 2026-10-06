@@ -125,7 +125,7 @@ def load(job, calc_id=None):
     bmap = info.get("branch_map", {})
     rows, src = [], []
     for x in rl:
-        sp = bmap.get(x.sm_lt_path[0], x.sm_lt_path[0])
+        sp = "_x_".join(bmap.get(b, b) for b in x.sm_lt_path)
         src.append(sp)
         row = {}
         for part in sp.split("_x_"):
