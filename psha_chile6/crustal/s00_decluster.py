@@ -18,9 +18,11 @@ from crustal import config
 
 def load(c):
     """Classified catalog for CLASSES, cut at the historical cutoff per class."""
-    df = cat.load(c.CAT)
-    if "class" not in df.columns:
-        raise SystemExit(f"{c.CAT} has no class column")
+    df = cat.exclude(cat.family(c.CAT, c.FAMILY), c.EXCLUDE)
+    df["class"] = df["class"].replace(c.CLASS_MAP or {})
+    out = df.loc[~df["class"].isin(list(c.CLASSES)) & (df["mag"] >= 5.5), "class"].value_counts()
+    if len(out):
+        print(f"[classes] {c.FAMILY} events M>=5.5 in no fitted class: {out.to_dict()}")
     df = df[df["class"].isin(list(c.CLASSES))].reset_index(drop=True)
     keep = np.ones(len(df), bool)
     for k, box in c.CLASSES.items():
@@ -59,7 +61,7 @@ def main(c=None):
     for k in c.CLASSES:
         s = df[df["class"] == k].reset_index(drop=True)
         for m in c.DC_METHODS:
-            out, rev = dc.run(s, m, c.DC_FS, c.DC_FROM_YEAR, c.DC_KEEP_IDS, c.DC_MPROT)
+            out, rev = dc.run(s, m, c.DC_FS, c.DC_FROM_YEAR, cat.resolve(s, c.DC_KEEP_IDS), c.DC_MPROT)
             mn = out[out["is_mainshock"]]
             mn.drop(columns=["year"]).to_csv(od / f"cat_dc_{k}_{m}.csv", index=False)
             revs.append(rev.assign(**{"class": k}))

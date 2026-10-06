@@ -1,0 +1,73 @@
+{
+ "name": "c_if_rate_gk74",
+ "description": "psha_chile6 rock800 c_if_rate_gk74 40d95105",
+ "calc_id": 316,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen"
+ ],
+ "sources": {
+  "interface": [
+   [
+    "c_rate_gk74",
+    1.0,
+    [
+     "full__seis__tapered"
+    ]
+   ]
+  ]
+ },
+ "gmm": {
+  "Subduction Interface": [
+   [
+    "AbrahamsonGulerce2020SInter",
+    0.34,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "ParkerEtAl2020SInter",
+    0.33,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ],
+   [
+    "KuehnEtAl2020SInter",
+    0.33,
+    {
+     "region": "SAM"
+    }
+   ]
+  ]
+ },
+ "trts": {
+  "interface": "Subduction Interface"
+ },
+ "builds": {
+  "if-c_rate_gk74-full__seis__tapered": "dc_method-gk74_mmin_haz-5.5"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 1,
+ "n_realizations": 3,
+ "branch_map": {
+  "if-c_rate_gk74-full__seis__tapered": "if-c_rate_gk74-full__seis__tapered"
+ }
+}

@@ -1,0 +1,156 @@
+{
+ "name": "c_all_small",
+ "description": "psha_chile6 rock800 c_all_small 3f9274b5",
+ "calc_id": 361,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "concepcion",
+  "pucon",
+  "ensenada",
+  "puerto_aysen",
+  "puerto_williams"
+ ],
+ "sources": {
+  "interface": [
+   [
+    "mmin55",
+    1.0,
+    {
+     "full__seis__tapered": 0.5,
+     "seg__geo_mid__tapered": 0.5
+    }
+   ]
+  ],
+  "intraslab": [
+   [
+    "ref",
+    1.0
+   ]
+  ],
+  "crustal": [
+   [
+    "ref",
+    1.0,
+    {
+     "phi050__mobs__tgr": 0.5,
+     "phi100__mgeo__tap": 0.5
+    }
+   ]
+  ]
+ },
+ "gmm": {
+  "Subduction Interface": [
+   [
+    "AbrahamsonGulerce2020SInter",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "ParkerEtAl2020SInter",
+    0.25,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ],
+   [
+    "KuehnEtAl2020SInter",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "MontalvaEtAl2017SInter",
+    0.25,
+    {}
+   ]
+  ],
+  "Subduction IntraSlab": [
+   [
+    "AbrahamsonGulerce2020SSlab",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "ParkerEtAl2020SSlab",
+    0.25,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ],
+   [
+    "KuehnEtAl2020SSlab",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "MontalvaEtAl2017SSlab",
+    0.25,
+    {}
+   ]
+  ],
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "interface": "Subduction Interface",
+  "intraslab": "Subduction IntraSlab",
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "if-mmin55-seg__geo_mid__tapered": "mmin_haz-5.5",
+  "if-mmin55-full__seis__tapered": "mmin_haz-5.5",
+  "is-ref-is": "ref",
+  "cr-ref-phi050__mobs__tgr": "ref",
+  "cr-ref-phi100__mgeo__tap": "ref"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 4,
+ "levels": [
+  2,
+  1,
+  2
+ ],
+ "n_realizations": 256,
+ "branch_map": {}
+}

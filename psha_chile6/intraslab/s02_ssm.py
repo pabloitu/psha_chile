@@ -53,11 +53,25 @@ def mmax_of(k, s, c):
     return m
 
 
-def pattern_events(k, s, w, c):
-    """Events that draw the spatial pattern of a class and their weights (rate at the fit floor)."""
+def pattern(k, s, w, b, c, te):
+    """Events that draw the spatial pattern of a class and their weights (SMOOTH_EVENTS)."""
     steps = c.COMPLETENESS[k]
-    ev = w["comp"] if c.SMOOTH_EVENTS == "floor" else s[gr.complete(s, steps)].reset_index(drop=True)
-    return ev
+    if c.SMOOTH_EVENTS == "period":
+        if gr.since(c.SMOOTH_MC, steps) > c.SMOOTH_FROM:
+            raise SystemExit(f"{k}: M{c.SMOOTH_MC} is not complete since {c.SMOOTH_FROM}")
+        ev = s[(s["year"] >= c.SMOOTH_FROM) & (s["mag"] >= c.SMOOTH_MC - 1e-6)].reset_index(drop=True)
+        return ev, np.ones(len(ev))
+    if c.SMOOTH_EVENTS in ("window", "window_T"):
+        keep, wt = gr.window_weights(s, steps, b, w["mmin"], te, c.SMOOTH_EVENTS == "window_T")
+        return s[keep].reset_index(drop=True), wt
+    ev = s[gr.complete(s, steps)]
+    if c.SMOOTH_EVENTS == "all":
+        ev = ev.reset_index(drop=True)
+        return ev, np.ones(len(ev))
+    if c.SMOOTH_EVENTS == "floor":
+        ev = ev[ev["mag"] >= w["mmin"] - 1e-6]
+    ev = ev.reset_index(drop=True)
+    return ev, 10 ** (b * (gr.mc_of(ev["mag"], steps) - w["mmin"])) / (te - gr.since(ev["mag"], steps))
 
 
 def cross_validate(k, ev, wt, b, c, te, glon, glat):
@@ -117,6 +131,8 @@ def main(c=None):
     cells = domain(c)
     cats = {k: cat.load(c.OUT / "decluster" / f"cat_dc_{k}_{c.DC_METHOD}.csv", bbox=c.BBOX)
             for k in c.CLASSES}
+    pats = {k: cat.load(c.OUT / "decluster" / f"cat_dc_{k}_{c.PATTERN_DC}.csv", bbox=c.BBOX)
+            for k in c.CLASSES}
     own = [k for k in c.CLASSES if k not in c.B_SOURCE]
     fits = {k: fit(k, cats[k], c, te, nboot=c.N_BOOT) for k in own}
     weak = [f"{k} (n={w['n']})" for k, w in fits.items() if not np.isfinite(w["b"])]
@@ -134,6 +150,15 @@ def main(c=None):
         if not fits[k]["n"]:
             raise SystemExit(f"{k}: no complete events above the fit floor, even with b borrowed")
         print(f"{k}: b {b_use[k]:.3f} from {'+'.join(donors)}, rate from its own {fits[k]['n']} events")
+    pool = [k for k in c.B_POOL if k in fits]
+    if len(pool) > 1:
+        j = gr.weichert_joint([(fits[k]["comp"]["mag"].to_numpy(), c.COMPLETENESS[k], te, fits[k]["mmin"])
+                               for k in pool], c.DM, nboot=c.N_BOOT)
+        for k in pool:
+            fits[k] = fit(k, cats[k], c, te, b=j["b"])
+            fits[k]["b_err"] = j["b_err"]
+            b_use[k] = j["b"]
+        print(f"pooled b {j['b']:.3f} +- {j['b_err']:.3f} for {'+'.join(pool)} ({j['n']} events)")
     mmax = {k: mmax_of(k, s, c) for k, s in cats.items()}
 
     stab = []
@@ -158,8 +183,7 @@ def main(c=None):
         rate = w["rate"] * 10 ** (-b * (c.MMIN - w["mmin"]))
         kp = {"N_NEIGHBORS": c.N_NEIGHBORS, "MIN_KERNEL_KM": c.MIN_KERNEL_KM, "MAX_DIST_KM": c.MAX_DIST_KM,
               "KERNEL_POWER": c.KERNEL_POWER, "KERNEL": c.KERNEL, **c.KERNEL_BY_CLASS.get(k, {})}
-        ev = pattern_events(k, s, w, c)
-        wt = 10 ** (b * (gr.mc_of(ev["mag"], steps) - w["mmin"])) / (te - gr.since(ev["mag"], steps))
+        ev, wt = pattern(k, pats[k], w, b, c, te)
         elon, elat = ev["longitude"].to_numpy(), ev["latitude"].to_numpy()
         z0, z1 = c.MASK_BY_CLASS.get(k, (None, None))
         on = ((cells["slab_km"] >= (z0 if z0 is not None else -np.inf))
@@ -178,7 +202,7 @@ def main(c=None):
         if shape.sum() <= 0:
             raise RuntimeError(f"{k}: empty field")
         rb = smooth.tgr_bins(shape, rate, b, e, mmax[k])
-        exp = rate * (1 - 10 ** (-b * (mmax[k] - c.MMIN)))
+        exp = rate * (1 - 10 ** (-b * (gr.top(mmax[k]) - c.MMIN)))
         if abs(rb.sum() / exp - 1) > 1e-9:
             raise RuntimeError(f"{k}: binned total {rb.sum()} != {exp}")
         per[k] = rb
@@ -186,7 +210,7 @@ def main(c=None):
 
         mt = np.arange(w["mmin"], s["mag"].max() + 1e-6, 0.1)
         obs = gr.obs_cum(comp, steps, te, mt)
-        mod = rate * np.clip(10 ** (-b * (mt - c.MMIN)) - 10 ** (-b * (mmax[k] - c.MMIN)), 0, None)
+        mod = rate * np.clip(10 ** (-b * (mt - c.MMIN)) - 10 ** (-b * (gr.top(mmax[k]) - c.MMIN)), 0, None)
         big = mt >= min(s["mag"].max(), mmax[k]) - 0.3
         info.append({"class": k, "n_complete": w["n"], "floor": w["mmin"], "b_fit": w["b"],
                      "b_err": w["b_err"], "b_used": b, "rate_floor": w["rate"],

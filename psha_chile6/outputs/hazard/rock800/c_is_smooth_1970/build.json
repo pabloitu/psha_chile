@@ -1,0 +1,68 @@
+{
+ "name": "c_is_smooth_1970",
+ "description": "psha_chile6 rock800 c_is_smooth_1970 603592b0",
+ "calc_id": 279,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen"
+ ],
+ "sources": {
+  "intraslab": [
+   [
+    "smooth_1970",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Subduction IntraSlab": [
+   [
+    "AbrahamsonGulerce2020SSlab",
+    0.34,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "ParkerEtAl2020SSlab",
+    0.33,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ],
+   [
+    "MontalvaEtAl2017SSlab",
+    0.33,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "intraslab": "Subduction IntraSlab"
+ },
+ "builds": {
+  "is-smooth_1970-is": "smooth_from-1970_smooth_mc-5.1"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 1,
+ "n_realizations": 3,
+ "branch_map": {
+  "is-smooth_1970-is": "is-smooth_1970-is"
+ }
+}

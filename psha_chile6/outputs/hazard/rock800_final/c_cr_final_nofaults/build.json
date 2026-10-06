@@ -1,0 +1,80 @@
+{
+ "name": "c_cr_final_nofaults",
+ "description": "psha_chile6 rock800 c_cr_final_nofaults 9a24dbbe",
+ "calc_id": 457,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen",
+  "hornopiren",
+  "puerto_williams",
+  "calama",
+  "la_serena"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "ref",
+    1.0,
+    {
+     "nofaults": 1.0
+    }
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-ref-nofaults": "ref"
+ },
+ "poes": [
+  0.002105,
+  0.000404
+ ],
+ "n_source_branches": 1,
+ "levels": [
+  1
+ ],
+ "n_realizations": 4,
+ "branch_map": {
+  "cr-ref-nofaults": "cr-ref-nofaults"
+ }
+}

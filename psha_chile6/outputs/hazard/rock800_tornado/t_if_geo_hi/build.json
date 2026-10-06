@@ -1,0 +1,86 @@
+{
+ "name": "t_if_geo_hi",
+ "description": "psha_chile6 rock800 t_if_geo_hi 11690e27",
+ "calc_id": 380,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen",
+  "hornopiren",
+  "puerto_williams",
+  "calama",
+  "la_serena"
+ ],
+ "sources": {
+  "interface": [
+   [
+    "mmin55",
+    1.0,
+    [
+     "full__geo_hi__tapered"
+    ]
+   ]
+  ]
+ },
+ "gmm": {
+  "Subduction Interface": [
+   [
+    "AbrahamsonGulerce2020SInter",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "ParkerEtAl2020SInter",
+    0.25,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ],
+   [
+    "KuehnEtAl2020SInter",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "MontalvaEtAl2017SInter",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "interface": "Subduction Interface"
+ },
+ "builds": {
+  "if-mmin55-full__geo_hi__tapered": "mmin_haz-5.5"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 1,
+ "levels": [
+  1
+ ],
+ "n_realizations": 4,
+ "branch_map": {
+  "if-mmin55-full__geo_hi__tapered": "if-mmin55-full__geo_hi__tapered"
+ }
+}

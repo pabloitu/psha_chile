@@ -1,7 +1,13 @@
 # NRML 0.4 written as text, then indented: no openquake import, the engine
 # validates at run time.
 
+import re
 import xml.etree.ElementTree as ET
+from pathlib import Path
+
+import numpy as np
+
+from lib import gr
 
 NS = "http://openquake.org/xmlns/nrml/0.4"
 ET.register_namespace("", NS)
@@ -20,11 +26,37 @@ def write(path, text):
     ET.ElementTree(root).write(path, encoding="utf-8", xml_declaration=True)
 
 
-def mfd(rates, mmin, dm):
-    """Incremental MFD; minMag is the first bin centre."""
+def mfd(rates, mmin, dm, half=None):
+    """
+    Incremental MFD between edges mmin, mmin + dm, ...; minMag is the first bin centre.
+    half is the offset of the recorded labels from the true bin (gr.HALF for catalog-based
+    MFDs; 0 for MFDs in true magnitudes, e.g. from slip rates).
+    """
+    half = gr.HALF if half is None else half
     r = " ".join(f"{x:.8e}" for x in rates)
-    return (f'<incrementalMFD minMag="{mmin + dm / 2:.4f}" binWidth="{dm}">'
+    return (f'<incrementalMFD minMag="{mmin + dm / 2 - half:.4f}" binWidth="{dm}">'
             f"<occurRates>{r}</occurRates></incrementalMFD>")
+
+
+def mfd_rates(src):
+    """
+    Bin centres, summed rates and bin width of every incrementalMFD in an NRML file or text.
+
+    The centres are the magnitudes OpenQuake uses; with gr.HALF a recorded label M is the
+    centre of its bin, so N(recorded >= M) is the sum of the rates with centre >= M.
+    """
+    txt = str(src) if "<incrementalMFD" in str(src) else Path(src).read_text()
+    tot, dm = {}, None
+    pat = r'<incrementalMFD minMag="([\d.]+)" binWidth="([\d.]+)">\s*<occurRates>([^<]+)</occurRates>'
+    for m0, w, r in re.findall(pat, txt):
+        dm = float(w)
+        for i, x in enumerate(float(v) for v in r.split()):
+            k = round(float(m0) + i * dm, 4)
+            tot[k] = tot.get(k, 0.0) + x
+    if not tot:
+        raise ValueError("no incrementalMFD found")
+    c = np.array(sorted(tot))
+    return c, np.array([tot[k] for k in c]), dm
 
 
 def complex_fault(sid, edges, trt, mfd_xml, msr, aspect, rake):
@@ -77,21 +109,36 @@ def logic_tree(path, branches):
     branches: list of (branch_id, [files relative to the tree], weight).
     Weights are written to 12 decimals; the last branch absorbs rounding.
     """
-    if abs(sum(w for _, _, w in branches) - 1.0) > 1e-6:
-        raise ValueError("branch weights do not sum to 1")
-    acc, xml = 0.0, []
-    for i, (bid, files, w) in enumerate(branches):
-        ws = f"{1.0 - acc:.12f}" if i == len(branches) - 1 else f"{w:.12f}"
-        acc += float(ws)
-        fl = "".join(f"\n{' ' * 24}{f}" for f in files) + f"\n{' ' * 20}"
-        xml.append(f'<logicTreeBranch branchID="{bid}"><uncertaintyModel>'
-                   f'{fl}</uncertaintyModel>'
-                   f"<uncertaintyWeight>{ws}</uncertaintyWeight></logicTreeBranch>\n")
-    write(path, HEAD + '<logicTree logicTreeID="lt_source">\n'
-                    '<logicTreeBranchingLevel branchingLevelID="bl1">\n'
-                    '<logicTreeBranchSet uncertaintyType="sourceModel" branchSetID="bs1">\n'
-                    + "".join(xml)
-                    + "</logicTreeBranchSet>\n</logicTreeBranchingLevel>\n</logicTree>\n</nrml>\n")
+    logic_tree_levels(path, [branches])
+
+
+def logic_tree_levels(path, levels):
+    """
+    Source-model logic tree with one branching level per entry of levels: the
+    first is the base sourceModel, the others extendModel (engine >= 3.9), which adds
+    the files of the picked branch to the model of the previous level. The paths are
+    the product of the levels, but a branch set holds at most 183 branches (BASE183).
+
+    levels: list of branch lists as in logic_tree; branch ids must be unique across levels
+    and the levels must not share source ids.
+    """
+    xml = []
+    for k, branches in enumerate(levels):
+        if abs(sum(w for _, _, w in branches) - 1.0) > 1e-6:
+            raise ValueError(f"branch weights of level {k} do not sum to 1")
+        acc, br = 0.0, []
+        for i, (bid, files, w) in enumerate(branches):
+            ws = f"{1.0 - acc:.12f}" if i == len(branches) - 1 else f"{w:.12f}"
+            acc += float(ws)
+            fl = "".join(f"\n{' ' * 24}{f}" for f in files) + f"\n{' ' * 20}"
+            br.append(f'<logicTreeBranch branchID="{bid}"><uncertaintyModel>'
+                      f'{fl}</uncertaintyModel>'
+                      f"<uncertaintyWeight>{ws}</uncertaintyWeight></logicTreeBranch>\n")
+        xml.append(f'<logicTreeBranchingLevel branchingLevelID="bl{k + 1}">\n'
+                   f'<logicTreeBranchSet uncertaintyType="{"sourceModel" if k == 0 else "extendModel"}" '
+                   f'branchSetID="bs{k + 1}">\n' + "".join(br)
+                   + "</logicTreeBranchSet>\n</logicTreeBranchingLevel>\n")
+    write(path, HEAD + '<logicTree logicTreeID="lt_source">\n' + "".join(xml) + "</logicTree>\n</nrml>\n")
 
 
 def trt_id(trt):

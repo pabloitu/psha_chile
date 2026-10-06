@@ -1,0 +1,164 @@
+{
+ "name": "t_cr_patagonia_own",
+ "description": "psha_chile6 rock800 t_cr_patagonia_own fbf910ae",
+ "calc_id": 479,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen",
+  "hornopiren",
+  "puerto_williams",
+  "calama",
+  "la_serena"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "patagonia_own",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-patagonia_own-phi060__mobs__al1": "b_source-",
+  "cr-patagonia_own-phi060__mobs__al2": "b_source-",
+  "cr-patagonia_own-phi060__mobs__al3": "b_source-",
+  "cr-patagonia_own-phi060__mobs__yc": "b_source-",
+  "cr-patagonia_own-phi060__mobs__tap": "b_source-",
+  "cr-patagonia_own-phi060__mwc__al1": "b_source-",
+  "cr-patagonia_own-phi060__mwc__al2": "b_source-",
+  "cr-patagonia_own-phi060__mwc__al3": "b_source-",
+  "cr-patagonia_own-phi060__mwc__yc": "b_source-",
+  "cr-patagonia_own-phi060__mwc__tap": "b_source-",
+  "cr-patagonia_own-phi060__mleo__al1": "b_source-",
+  "cr-patagonia_own-phi060__mleo__al2": "b_source-",
+  "cr-patagonia_own-phi060__mleo__al3": "b_source-",
+  "cr-patagonia_own-phi060__mleo__yc": "b_source-",
+  "cr-patagonia_own-phi060__mleo__tap": "b_source-",
+  "cr-patagonia_own-phi080__mobs__al1": "b_source-",
+  "cr-patagonia_own-phi080__mobs__al2": "b_source-",
+  "cr-patagonia_own-phi080__mobs__al3": "b_source-",
+  "cr-patagonia_own-phi080__mobs__yc": "b_source-",
+  "cr-patagonia_own-phi080__mobs__tap": "b_source-",
+  "cr-patagonia_own-phi080__mwc__al1": "b_source-",
+  "cr-patagonia_own-phi080__mwc__al2": "b_source-",
+  "cr-patagonia_own-phi080__mwc__al3": "b_source-",
+  "cr-patagonia_own-phi080__mwc__yc": "b_source-",
+  "cr-patagonia_own-phi080__mwc__tap": "b_source-",
+  "cr-patagonia_own-phi080__mleo__al1": "b_source-",
+  "cr-patagonia_own-phi080__mleo__al2": "b_source-",
+  "cr-patagonia_own-phi080__mleo__al3": "b_source-",
+  "cr-patagonia_own-phi080__mleo__yc": "b_source-",
+  "cr-patagonia_own-phi080__mleo__tap": "b_source-",
+  "cr-patagonia_own-phi100__mobs__al1": "b_source-",
+  "cr-patagonia_own-phi100__mobs__al2": "b_source-",
+  "cr-patagonia_own-phi100__mobs__al3": "b_source-",
+  "cr-patagonia_own-phi100__mobs__yc": "b_source-",
+  "cr-patagonia_own-phi100__mobs__tap": "b_source-",
+  "cr-patagonia_own-phi100__mwc__al1": "b_source-",
+  "cr-patagonia_own-phi100__mwc__al2": "b_source-",
+  "cr-patagonia_own-phi100__mwc__al3": "b_source-",
+  "cr-patagonia_own-phi100__mwc__yc": "b_source-",
+  "cr-patagonia_own-phi100__mwc__tap": "b_source-",
+  "cr-patagonia_own-phi100__mleo__al1": "b_source-",
+  "cr-patagonia_own-phi100__mleo__al2": "b_source-",
+  "cr-patagonia_own-phi100__mleo__al3": "b_source-",
+  "cr-patagonia_own-phi100__mleo__yc": "b_source-",
+  "cr-patagonia_own-phi100__mleo__tap": "b_source-"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 45,
+ "levels": [
+  45
+ ],
+ "n_realizations": 180,
+ "branch_map": {
+  "cr-patagonia_own-phi060__mobs__al1": "cr-patagonia_own-phi060__mobs__al1",
+  "cr-patagonia_own-phi060__mobs__al2": "cr-patagonia_own-phi060__mobs__al2",
+  "cr-patagonia_own-phi060__mobs__al3": "cr-patagonia_own-phi060__mobs__al3",
+  "cr-patagonia_own-phi060__mobs__yc": "cr-patagonia_own-phi060__mobs__yc",
+  "cr-patagonia_own-phi060__mobs__tap": "cr-patagonia_own-phi060__mobs__tap",
+  "cr-patagonia_own-phi060__mwc__al1": "cr-patagonia_own-phi060__mwc__al1",
+  "cr-patagonia_own-phi060__mwc__al2": "cr-patagonia_own-phi060__mwc__al2",
+  "cr-patagonia_own-phi060__mwc__al3": "cr-patagonia_own-phi060__mwc__al3",
+  "cr-patagonia_own-phi060__mwc__yc": "cr-patagonia_own-phi060__mwc__yc",
+  "cr-patagonia_own-phi060__mwc__tap": "cr-patagonia_own-phi060__mwc__tap",
+  "cr-patagonia_own-phi060__mleo__al1": "cr-patagonia_own-phi060__mleo__al1",
+  "cr-patagonia_own-phi060__mleo__al2": "cr-patagonia_own-phi060__mleo__al2",
+  "cr-patagonia_own-phi060__mleo__al3": "cr-patagonia_own-phi060__mleo__al3",
+  "cr-patagonia_own-phi060__mleo__yc": "cr-patagonia_own-phi060__mleo__yc",
+  "cr-patagonia_own-phi060__mleo__tap": "cr-patagonia_own-phi060__mleo__tap",
+  "cr-patagonia_own-phi080__mobs__al1": "cr-patagonia_own-phi080__mobs__al1",
+  "cr-patagonia_own-phi080__mobs__al2": "cr-patagonia_own-phi080__mobs__al2",
+  "cr-patagonia_own-phi080__mobs__al3": "cr-patagonia_own-phi080__mobs__al3",
+  "cr-patagonia_own-phi080__mobs__yc": "cr-patagonia_own-phi080__mobs__yc",
+  "cr-patagonia_own-phi080__mobs__tap": "cr-patagonia_own-phi080__mobs__tap",
+  "cr-patagonia_own-phi080__mwc__al1": "cr-patagonia_own-phi080__mwc__al1",
+  "cr-patagonia_own-phi080__mwc__al2": "cr-patagonia_own-phi080__mwc__al2",
+  "cr-patagonia_own-phi080__mwc__al3": "cr-patagonia_own-phi080__mwc__al3",
+  "cr-patagonia_own-phi080__mwc__yc": "cr-patagonia_own-phi080__mwc__yc",
+  "cr-patagonia_own-phi080__mwc__tap": "cr-patagonia_own-phi080__mwc__tap",
+  "cr-patagonia_own-phi080__mleo__al1": "cr-patagonia_own-phi080__mleo__al1",
+  "cr-patagonia_own-phi080__mleo__al2": "cr-patagonia_own-phi080__mleo__al2",
+  "cr-patagonia_own-phi080__mleo__al3": "cr-patagonia_own-phi080__mleo__al3",
+  "cr-patagonia_own-phi080__mleo__yc": "cr-patagonia_own-phi080__mleo__yc",
+  "cr-patagonia_own-phi080__mleo__tap": "cr-patagonia_own-phi080__mleo__tap",
+  "cr-patagonia_own-phi100__mobs__al1": "cr-patagonia_own-phi100__mobs__al1",
+  "cr-patagonia_own-phi100__mobs__al2": "cr-patagonia_own-phi100__mobs__al2",
+  "cr-patagonia_own-phi100__mobs__al3": "cr-patagonia_own-phi100__mobs__al3",
+  "cr-patagonia_own-phi100__mobs__yc": "cr-patagonia_own-phi100__mobs__yc",
+  "cr-patagonia_own-phi100__mobs__tap": "cr-patagonia_own-phi100__mobs__tap",
+  "cr-patagonia_own-phi100__mwc__al1": "cr-patagonia_own-phi100__mwc__al1",
+  "cr-patagonia_own-phi100__mwc__al2": "cr-patagonia_own-phi100__mwc__al2",
+  "cr-patagonia_own-phi100__mwc__al3": "cr-patagonia_own-phi100__mwc__al3",
+  "cr-patagonia_own-phi100__mwc__yc": "cr-patagonia_own-phi100__mwc__yc",
+  "cr-patagonia_own-phi100__mwc__tap": "cr-patagonia_own-phi100__mwc__tap",
+  "cr-patagonia_own-phi100__mleo__al1": "cr-patagonia_own-phi100__mleo__al1",
+  "cr-patagonia_own-phi100__mleo__al2": "cr-patagonia_own-phi100__mleo__al2",
+  "cr-patagonia_own-phi100__mleo__al3": "cr-patagonia_own-phi100__mleo__al3",
+  "cr-patagonia_own-phi100__mleo__yc": "cr-patagonia_own-phi100__mleo__yc",
+  "cr-patagonia_own-phi100__mleo__tap": "cr-patagonia_own-phi100__mleo__tap"
+ }
+}

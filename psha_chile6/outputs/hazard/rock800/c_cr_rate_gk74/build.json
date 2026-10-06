@@ -1,0 +1,90 @@
+{
+ "name": "c_cr_rate_gk74",
+ "description": "psha_chile6 rock800 c_cr_rate_gk74 ea99ee60",
+ "calc_id": 329,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "rate_gk74",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-rate_gk74-phi050__mobs__tgr": "dc_method-gk74",
+  "cr-rate_gk74-phi050__mobs__tap": "dc_method-gk74",
+  "cr-rate_gk74-phi050__mgeo__tgr": "dc_method-gk74",
+  "cr-rate_gk74-phi050__mgeo__tap": "dc_method-gk74",
+  "cr-rate_gk74-phi075__mobs__tgr": "dc_method-gk74",
+  "cr-rate_gk74-phi075__mobs__tap": "dc_method-gk74",
+  "cr-rate_gk74-phi075__mgeo__tgr": "dc_method-gk74",
+  "cr-rate_gk74-phi075__mgeo__tap": "dc_method-gk74",
+  "cr-rate_gk74-phi100__mobs__tgr": "dc_method-gk74",
+  "cr-rate_gk74-phi100__mobs__tap": "dc_method-gk74",
+  "cr-rate_gk74-phi100__mgeo__tgr": "dc_method-gk74",
+  "cr-rate_gk74-phi100__mgeo__tap": "dc_method-gk74"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 12,
+ "n_realizations": 48,
+ "branch_map": {
+  "cr-rate_gk74-phi050__mobs__tgr": "cr-rate_gk74-phi050__mobs__tgr",
+  "cr-rate_gk74-phi050__mobs__tap": "cr-rate_gk74-phi050__mobs__tap",
+  "cr-rate_gk74-phi050__mgeo__tgr": "cr-rate_gk74-phi050__mgeo__tgr",
+  "cr-rate_gk74-phi050__mgeo__tap": "cr-rate_gk74-phi050__mgeo__tap",
+  "cr-rate_gk74-phi075__mobs__tgr": "cr-rate_gk74-phi075__mobs__tgr",
+  "cr-rate_gk74-phi075__mobs__tap": "cr-rate_gk74-phi075__mobs__tap",
+  "cr-rate_gk74-phi075__mgeo__tgr": "cr-rate_gk74-phi075__mgeo__tgr",
+  "cr-rate_gk74-phi075__mgeo__tap": "cr-rate_gk74-phi075__mgeo__tap",
+  "cr-rate_gk74-phi100__mobs__tgr": "cr-rate_gk74-phi100__mobs__tgr",
+  "cr-rate_gk74-phi100__mobs__tap": "cr-rate_gk74-phi100__mobs__tap",
+  "cr-rate_gk74-phi100__mgeo__tgr": "cr-rate_gk74-phi100__mgeo__tgr",
+  "cr-rate_gk74-phi100__mgeo__tap": "cr-rate_gk74-phi100__mgeo__tap"
+ }
+}

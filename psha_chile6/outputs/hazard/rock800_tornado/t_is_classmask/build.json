@@ -1,0 +1,83 @@
+{
+ "name": "t_is_classmask",
+ "description": "psha_chile6 rock800 t_is_classmask bf01290f",
+ "calc_id": 412,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen",
+  "hornopiren",
+  "puerto_williams",
+  "calama",
+  "la_serena"
+ ],
+ "sources": {
+  "intraslab": [
+   [
+    "classmask",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Subduction IntraSlab": [
+   [
+    "AbrahamsonGulerce2020SSlab",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "ParkerEtAl2020SSlab",
+    0.25,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ],
+   [
+    "KuehnEtAl2020SSlab",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "MontalvaEtAl2017SSlab",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "intraslab": "Subduction IntraSlab"
+ },
+ "builds": {
+  "is-classmask-is": "mask_by_class-intra_slabNone50.0slab_deep50.0None"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 1,
+ "levels": [
+  1
+ ],
+ "n_realizations": 4,
+ "branch_map": {
+  "is-classmask-is": "is-classmask-is"
+ }
+}

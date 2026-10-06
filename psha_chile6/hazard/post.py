@@ -75,7 +75,7 @@ CONTRIB = [
 AXIS_NAMES = {"if": ["geometry", "rate", "mfd"], "is": ["model"], "cr": ["phi", "mmax", "mfd"]}
 
 
-def load(job, calc_id=None):
+def load(job, calc_id=None, root=None):
     """
     Read curves, realization weights and branch paths from the datastore.
 
@@ -87,7 +87,7 @@ def load(job, calc_id=None):
         branch values per rlz), info (build.json).
     """
     from openquake.commonlib.datastore import read
-    hd = hc.OUT_ROOT / job
+    hd = (root or hc.OUT_ROOT) / job
     info = json.loads((hd / "build.json").read_text())
     cid = calc_id or info.get("calc_id")
     if cid is None:
@@ -120,7 +120,7 @@ def load(job, calc_id=None):
     bmap = info.get("branch_map", {})
     rows, src = [], []
     for x in rl:
-        sp = bmap.get(x.sm_lt_path[0], x.sm_lt_path[0])
+        sp = "_x_".join(bmap.get(b, b) for b in x.sm_lt_path)
         src.append(sp)
         row = {}
         for part in sp.split("_x_"):

@@ -1,0 +1,164 @@
+{
+ "name": "t_cr_depth30",
+ "description": "psha_chile6 rock800 t_cr_depth30 7231a83f",
+ "calc_id": 472,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen",
+  "hornopiren",
+  "puerto_williams",
+  "calama",
+  "la_serena"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "depth30",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-depth30-phi060__mobs__al1": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mobs__al2": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mobs__al3": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mobs__yc": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mobs__tap": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mwc__al1": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mwc__al2": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mwc__al3": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mwc__yc": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mwc__tap": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mleo__al1": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mleo__al2": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mleo__al3": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mleo__yc": "fault_depth-0.030.0",
+  "cr-depth30-phi060__mleo__tap": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mobs__al1": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mobs__al2": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mobs__al3": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mobs__yc": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mobs__tap": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mwc__al1": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mwc__al2": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mwc__al3": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mwc__yc": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mwc__tap": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mleo__al1": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mleo__al2": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mleo__al3": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mleo__yc": "fault_depth-0.030.0",
+  "cr-depth30-phi080__mleo__tap": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mobs__al1": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mobs__al2": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mobs__al3": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mobs__yc": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mobs__tap": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mwc__al1": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mwc__al2": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mwc__al3": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mwc__yc": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mwc__tap": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mleo__al1": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mleo__al2": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mleo__al3": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mleo__yc": "fault_depth-0.030.0",
+  "cr-depth30-phi100__mleo__tap": "fault_depth-0.030.0"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 45,
+ "levels": [
+  45
+ ],
+ "n_realizations": 180,
+ "branch_map": {
+  "cr-depth30-phi060__mobs__al1": "cr-depth30-phi060__mobs__al1",
+  "cr-depth30-phi060__mobs__al2": "cr-depth30-phi060__mobs__al2",
+  "cr-depth30-phi060__mobs__al3": "cr-depth30-phi060__mobs__al3",
+  "cr-depth30-phi060__mobs__yc": "cr-depth30-phi060__mobs__yc",
+  "cr-depth30-phi060__mobs__tap": "cr-depth30-phi060__mobs__tap",
+  "cr-depth30-phi060__mwc__al1": "cr-depth30-phi060__mwc__al1",
+  "cr-depth30-phi060__mwc__al2": "cr-depth30-phi060__mwc__al2",
+  "cr-depth30-phi060__mwc__al3": "cr-depth30-phi060__mwc__al3",
+  "cr-depth30-phi060__mwc__yc": "cr-depth30-phi060__mwc__yc",
+  "cr-depth30-phi060__mwc__tap": "cr-depth30-phi060__mwc__tap",
+  "cr-depth30-phi060__mleo__al1": "cr-depth30-phi060__mleo__al1",
+  "cr-depth30-phi060__mleo__al2": "cr-depth30-phi060__mleo__al2",
+  "cr-depth30-phi060__mleo__al3": "cr-depth30-phi060__mleo__al3",
+  "cr-depth30-phi060__mleo__yc": "cr-depth30-phi060__mleo__yc",
+  "cr-depth30-phi060__mleo__tap": "cr-depth30-phi060__mleo__tap",
+  "cr-depth30-phi080__mobs__al1": "cr-depth30-phi080__mobs__al1",
+  "cr-depth30-phi080__mobs__al2": "cr-depth30-phi080__mobs__al2",
+  "cr-depth30-phi080__mobs__al3": "cr-depth30-phi080__mobs__al3",
+  "cr-depth30-phi080__mobs__yc": "cr-depth30-phi080__mobs__yc",
+  "cr-depth30-phi080__mobs__tap": "cr-depth30-phi080__mobs__tap",
+  "cr-depth30-phi080__mwc__al1": "cr-depth30-phi080__mwc__al1",
+  "cr-depth30-phi080__mwc__al2": "cr-depth30-phi080__mwc__al2",
+  "cr-depth30-phi080__mwc__al3": "cr-depth30-phi080__mwc__al3",
+  "cr-depth30-phi080__mwc__yc": "cr-depth30-phi080__mwc__yc",
+  "cr-depth30-phi080__mwc__tap": "cr-depth30-phi080__mwc__tap",
+  "cr-depth30-phi080__mleo__al1": "cr-depth30-phi080__mleo__al1",
+  "cr-depth30-phi080__mleo__al2": "cr-depth30-phi080__mleo__al2",
+  "cr-depth30-phi080__mleo__al3": "cr-depth30-phi080__mleo__al3",
+  "cr-depth30-phi080__mleo__yc": "cr-depth30-phi080__mleo__yc",
+  "cr-depth30-phi080__mleo__tap": "cr-depth30-phi080__mleo__tap",
+  "cr-depth30-phi100__mobs__al1": "cr-depth30-phi100__mobs__al1",
+  "cr-depth30-phi100__mobs__al2": "cr-depth30-phi100__mobs__al2",
+  "cr-depth30-phi100__mobs__al3": "cr-depth30-phi100__mobs__al3",
+  "cr-depth30-phi100__mobs__yc": "cr-depth30-phi100__mobs__yc",
+  "cr-depth30-phi100__mobs__tap": "cr-depth30-phi100__mobs__tap",
+  "cr-depth30-phi100__mwc__al1": "cr-depth30-phi100__mwc__al1",
+  "cr-depth30-phi100__mwc__al2": "cr-depth30-phi100__mwc__al2",
+  "cr-depth30-phi100__mwc__al3": "cr-depth30-phi100__mwc__al3",
+  "cr-depth30-phi100__mwc__yc": "cr-depth30-phi100__mwc__yc",
+  "cr-depth30-phi100__mwc__tap": "cr-depth30-phi100__mwc__tap",
+  "cr-depth30-phi100__mleo__al1": "cr-depth30-phi100__mleo__al1",
+  "cr-depth30-phi100__mleo__al2": "cr-depth30-phi100__mleo__al2",
+  "cr-depth30-phi100__mleo__al3": "cr-depth30-phi100__mleo__al3",
+  "cr-depth30-phi100__mleo__yc": "cr-depth30-phi100__mleo__yc",
+  "cr-depth30-phi100__mleo__tap": "cr-depth30-phi100__mleo__tap"
+ }
+}

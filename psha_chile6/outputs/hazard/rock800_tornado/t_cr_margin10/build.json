@@ -1,0 +1,164 @@
+{
+ "name": "t_cr_margin10",
+ "description": "psha_chile6 rock800 t_cr_margin10 af1c5514",
+ "calc_id": 476,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen",
+  "hornopiren",
+  "puerto_williams",
+  "calama",
+  "la_serena"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "margin10",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-margin10-phi060__mobs__al1": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mobs__al2": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mobs__al3": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mobs__yc": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mobs__tap": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mwc__al1": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mwc__al2": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mwc__al3": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mwc__yc": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mwc__tap": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mleo__al1": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mleo__al2": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mleo__al3": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mleo__yc": "buffer_margin_km-10.0",
+  "cr-margin10-phi060__mleo__tap": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mobs__al1": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mobs__al2": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mobs__al3": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mobs__yc": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mobs__tap": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mwc__al1": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mwc__al2": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mwc__al3": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mwc__yc": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mwc__tap": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mleo__al1": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mleo__al2": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mleo__al3": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mleo__yc": "buffer_margin_km-10.0",
+  "cr-margin10-phi080__mleo__tap": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mobs__al1": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mobs__al2": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mobs__al3": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mobs__yc": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mobs__tap": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mwc__al1": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mwc__al2": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mwc__al3": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mwc__yc": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mwc__tap": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mleo__al1": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mleo__al2": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mleo__al3": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mleo__yc": "buffer_margin_km-10.0",
+  "cr-margin10-phi100__mleo__tap": "buffer_margin_km-10.0"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 45,
+ "levels": [
+  45
+ ],
+ "n_realizations": 180,
+ "branch_map": {
+  "cr-margin10-phi060__mobs__al1": "cr-margin10-phi060__mobs__al1",
+  "cr-margin10-phi060__mobs__al2": "cr-margin10-phi060__mobs__al2",
+  "cr-margin10-phi060__mobs__al3": "cr-margin10-phi060__mobs__al3",
+  "cr-margin10-phi060__mobs__yc": "cr-margin10-phi060__mobs__yc",
+  "cr-margin10-phi060__mobs__tap": "cr-margin10-phi060__mobs__tap",
+  "cr-margin10-phi060__mwc__al1": "cr-margin10-phi060__mwc__al1",
+  "cr-margin10-phi060__mwc__al2": "cr-margin10-phi060__mwc__al2",
+  "cr-margin10-phi060__mwc__al3": "cr-margin10-phi060__mwc__al3",
+  "cr-margin10-phi060__mwc__yc": "cr-margin10-phi060__mwc__yc",
+  "cr-margin10-phi060__mwc__tap": "cr-margin10-phi060__mwc__tap",
+  "cr-margin10-phi060__mleo__al1": "cr-margin10-phi060__mleo__al1",
+  "cr-margin10-phi060__mleo__al2": "cr-margin10-phi060__mleo__al2",
+  "cr-margin10-phi060__mleo__al3": "cr-margin10-phi060__mleo__al3",
+  "cr-margin10-phi060__mleo__yc": "cr-margin10-phi060__mleo__yc",
+  "cr-margin10-phi060__mleo__tap": "cr-margin10-phi060__mleo__tap",
+  "cr-margin10-phi080__mobs__al1": "cr-margin10-phi080__mobs__al1",
+  "cr-margin10-phi080__mobs__al2": "cr-margin10-phi080__mobs__al2",
+  "cr-margin10-phi080__mobs__al3": "cr-margin10-phi080__mobs__al3",
+  "cr-margin10-phi080__mobs__yc": "cr-margin10-phi080__mobs__yc",
+  "cr-margin10-phi080__mobs__tap": "cr-margin10-phi080__mobs__tap",
+  "cr-margin10-phi080__mwc__al1": "cr-margin10-phi080__mwc__al1",
+  "cr-margin10-phi080__mwc__al2": "cr-margin10-phi080__mwc__al2",
+  "cr-margin10-phi080__mwc__al3": "cr-margin10-phi080__mwc__al3",
+  "cr-margin10-phi080__mwc__yc": "cr-margin10-phi080__mwc__yc",
+  "cr-margin10-phi080__mwc__tap": "cr-margin10-phi080__mwc__tap",
+  "cr-margin10-phi080__mleo__al1": "cr-margin10-phi080__mleo__al1",
+  "cr-margin10-phi080__mleo__al2": "cr-margin10-phi080__mleo__al2",
+  "cr-margin10-phi080__mleo__al3": "cr-margin10-phi080__mleo__al3",
+  "cr-margin10-phi080__mleo__yc": "cr-margin10-phi080__mleo__yc",
+  "cr-margin10-phi080__mleo__tap": "cr-margin10-phi080__mleo__tap",
+  "cr-margin10-phi100__mobs__al1": "cr-margin10-phi100__mobs__al1",
+  "cr-margin10-phi100__mobs__al2": "cr-margin10-phi100__mobs__al2",
+  "cr-margin10-phi100__mobs__al3": "cr-margin10-phi100__mobs__al3",
+  "cr-margin10-phi100__mobs__yc": "cr-margin10-phi100__mobs__yc",
+  "cr-margin10-phi100__mobs__tap": "cr-margin10-phi100__mobs__tap",
+  "cr-margin10-phi100__mwc__al1": "cr-margin10-phi100__mwc__al1",
+  "cr-margin10-phi100__mwc__al2": "cr-margin10-phi100__mwc__al2",
+  "cr-margin10-phi100__mwc__al3": "cr-margin10-phi100__mwc__al3",
+  "cr-margin10-phi100__mwc__yc": "cr-margin10-phi100__mwc__yc",
+  "cr-margin10-phi100__mwc__tap": "cr-margin10-phi100__mwc__tap",
+  "cr-margin10-phi100__mleo__al1": "cr-margin10-phi100__mleo__al1",
+  "cr-margin10-phi100__mleo__al2": "cr-margin10-phi100__mleo__al2",
+  "cr-margin10-phi100__mleo__al3": "cr-margin10-phi100__mleo__al3",
+  "cr-margin10-phi100__mleo__yc": "cr-margin10-phi100__mleo__yc",
+  "cr-margin10-phi100__mleo__tap": "cr-margin10-phi100__mleo__tap"
+ }
+}

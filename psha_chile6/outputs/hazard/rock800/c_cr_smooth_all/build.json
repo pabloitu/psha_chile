@@ -1,0 +1,90 @@
+{
+ "name": "c_cr_smooth_all",
+ "description": "psha_chile6 rock800 c_cr_smooth_all 16559809",
+ "calc_id": 300,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "smooth_all",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-smooth_all-phi050__mobs__tgr": "smooth_events-all",
+  "cr-smooth_all-phi050__mobs__tap": "smooth_events-all",
+  "cr-smooth_all-phi050__mgeo__tgr": "smooth_events-all",
+  "cr-smooth_all-phi050__mgeo__tap": "smooth_events-all",
+  "cr-smooth_all-phi075__mobs__tgr": "smooth_events-all",
+  "cr-smooth_all-phi075__mobs__tap": "smooth_events-all",
+  "cr-smooth_all-phi075__mgeo__tgr": "smooth_events-all",
+  "cr-smooth_all-phi075__mgeo__tap": "smooth_events-all",
+  "cr-smooth_all-phi100__mobs__tgr": "smooth_events-all",
+  "cr-smooth_all-phi100__mobs__tap": "smooth_events-all",
+  "cr-smooth_all-phi100__mgeo__tgr": "smooth_events-all",
+  "cr-smooth_all-phi100__mgeo__tap": "smooth_events-all"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 12,
+ "n_realizations": 48,
+ "branch_map": {
+  "cr-smooth_all-phi050__mobs__tgr": "cr-smooth_all-phi050__mobs__tgr",
+  "cr-smooth_all-phi050__mobs__tap": "cr-smooth_all-phi050__mobs__tap",
+  "cr-smooth_all-phi050__mgeo__tgr": "cr-smooth_all-phi050__mgeo__tgr",
+  "cr-smooth_all-phi050__mgeo__tap": "cr-smooth_all-phi050__mgeo__tap",
+  "cr-smooth_all-phi075__mobs__tgr": "cr-smooth_all-phi075__mobs__tgr",
+  "cr-smooth_all-phi075__mobs__tap": "cr-smooth_all-phi075__mobs__tap",
+  "cr-smooth_all-phi075__mgeo__tgr": "cr-smooth_all-phi075__mgeo__tgr",
+  "cr-smooth_all-phi075__mgeo__tap": "cr-smooth_all-phi075__mgeo__tap",
+  "cr-smooth_all-phi100__mobs__tgr": "cr-smooth_all-phi100__mobs__tgr",
+  "cr-smooth_all-phi100__mobs__tap": "cr-smooth_all-phi100__mobs__tap",
+  "cr-smooth_all-phi100__mgeo__tgr": "cr-smooth_all-phi100__mgeo__tgr",
+  "cr-smooth_all-phi100__mgeo__tap": "cr-smooth_all-phi100__mgeo__tap"
+ }
+}

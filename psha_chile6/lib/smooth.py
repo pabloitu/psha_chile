@@ -1,13 +1,14 @@
 import numpy as np
 import pandas as pd
 
+from lib import gr
 from lib.dc import hav
 
 
 def kernel(lon, lat, nn, floor):
-    """Adaptive bandwidth: distance to the nn-th neighbour, at least floor km."""
+    """Adaptive bandwidth: distance to the nn-th neighbour, at least floor km (floor with fewer than 2 events)."""
     if len(lon) < 2:
-        raise ValueError("need at least 2 events")
+        return np.full(len(lon), float(floor))
     d = np.sort(hav(lon[:, None], lat[:, None], lon[None, :], lat[None, :]), axis=1)
     return np.maximum(d[:, min(nn, len(lon) - 1)], floor)
 
@@ -52,20 +53,21 @@ def slab_top(glon, glat, path):
 
 
 def edges(mmin, mmax, dm):
-    return np.round(mmin + dm * np.arange(int(np.ceil((mmax - mmin) / dm - 1e-9)) + 1), 6)
+    return np.round(mmin + dm * np.arange(int(np.ceil((gr.top(mmax) - mmin) / dm - 1e-9)) + 1), 6)
 
 
 def tgr_bins(shape, rate, b, e, mmax):
     """
-    Per-cell incremental rates of the GR with N(>=e[0]) = rate, cut at mmax
-    without renormalization (total = rate * (1 - 10^-b(mmax - e[0]))), spread
+    Per-cell incremental rates of the GR with N(>=e[0]) = rate, cut at gr.top(mmax)
+    without renormalization (total = rate * (1 - 10^-b(top(mmax) - e[0]))), spread
     by shape.
 
     Returns
     -------
     array (n_cells, n_bins)
     """
-    lo, hi = np.minimum(e[:-1], mmax), np.minimum(e[1:], mmax)
+    mt = gr.top(mmax)
+    lo, hi = np.minimum(e[:-1], mt), np.minimum(e[1:], mt)
     frac = 10 ** (-b * (lo - e[0])) - 10 ** (-b * (hi - e[0]))
     return (shape / shape.sum() * rate)[:, None] * frac[None, :]
 

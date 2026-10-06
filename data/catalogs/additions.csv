@@ -1,0 +1,2 @@
+id,agency,time_iso,latitude,longitude,depth,magnitude,strike1,dip1,rake1,strike2,dip2,rake2,general_remarks,reason,reference
+add:pichilemu2010a,GCMT,2010-03-11T14:39:44,-34.29,-71.89,11.0,6.88,324,35,-90,144,55,-90,Crustal,"Pichilemu doublet, first event (Mw 6.9, normal faulting in the upper plate); missing in Cabello; PDE hypocentre, GCMT Mw",Ruiz et al. 2014b; GCMT C201003111439A

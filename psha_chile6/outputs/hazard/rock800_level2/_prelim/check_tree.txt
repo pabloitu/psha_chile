@@ -1,0 +1,24 @@
+joint realizations 256; family parts [8, 4, 8]; sites 10
+mean: joint against 1 - prod(1 - mean_f), levels with PoE > 1e-06: max relative difference 1.32e-06
+paired, PoE 0.01-1: n 47273, median 2.8e-07, 99 % 2.3e-06, max 4.9e-06
+paired, PoE 0.0001-0.01: n 21419, median 3.1e-07, 99 % 2.8e-06, max 5.7e-06
+paired, PoE 1e-06-0.0001: n 5011, median 2.0e-07, 99 % 1.4e-06, max 2.6e-06
+  worst paired: site valparaiso, rlz 46 (if-mmin55-full__seis__tapered ... ['MontalvaEtAl2017SInter', 'KuehnEtAl2020SSlab', 'CampbellBozorgnia2014']), PGA 2.41 g: joint 2.7593e-04, product 2.7593e-04
+  worst paired: site valparaiso, rlz 14 (if-mmin55-full__seis__tapered ... ['MontalvaEtAl2017SInter', 'KuehnEtAl2020SSlab', 'AbrahamsonEtAl2014']), PGA 2.41 g: joint 2.7577e-04, product 2.7577e-04
+  worst paired: site valparaiso, rlz 78 (if-mmin55-full__seis__tapered ... ['MontalvaEtAl2017SInter', 'KuehnEtAl2020SSlab', 'AbrahamsonEtAl2014']), PGA 2.41 g: joint 2.7577e-04, product 2.7577e-04
+partner: every joint curve has a product within max |ln ratio| 5.70e-06; best partner is the paired one for 256 of 256 realizations
+quantiles 5/50/95 %: PGA at PoE (0.1, 0.02, 0.002105, 0.000404, 0.0001): max relative difference joint against exact 1.11e-06
+LEVEL 1: PASS (tolerances {'mean': 0.0001, 'paired': 0.001, 'partner': 0.001, 'quantiles': 0.001})
+level 2: sampled joint job (2000 samples) against the exact combination of the full-size family jobs, PGA at PoE 0.002105 (sampling noise only expected)
+  site               PGA mean g    mean      q5     q50     q95   share interface / in-slab / crustal (%)
+  iquique                1.1936   +0.2%   +0.5%   +0.3%   +0.1%    56.8 /  41.7 /   1.5
+  antofagasta            1.3790   +0.3%   +1.5%   +0.1%   -0.2%    78.2 /  21.8 /   0.0
+  copiapo                1.0379   +0.1%   +1.9%   +0.3%   -0.3%    64.3 /  35.1 /   0.6
+  valparaiso             1.3813   +0.2%   -0.2%   +0.7%   -1.0%    69.3 /  30.5 /   0.2
+  santiago_centro        0.8154   +0.1%   +0.2%   +0.3%   -0.6%    46.3 /  52.1 /   1.5
+  concepcion             1.2265   +0.3%   +0.0%   +0.4%   -0.4%    78.6 /  21.0 /   0.4
+  pucon                  0.5000   -0.2%   +0.1%   -0.3%   +0.1%    37.9 /  21.8 /  40.3
+  ensenada               0.4847   +0.3%   +0.3%   +0.2%   +0.1%    78.2 /  16.3 /   5.5
+  puerto_aysen           0.4828   -0.7%   +0.9%   -1.1%   -1.0%     8.1 /   0.5 /  91.5
+  puerto_williams        0.0243   +0.3%   -0.0%   +5.5%   -0.0%    -0.0 /  -0.0 / 100.0
+LEVEL 2: PASS (tolerances {'mean': 3.0, 'quantiles': 8.0} %)

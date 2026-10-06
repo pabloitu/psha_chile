@@ -1,0 +1,59 @@
+{
+ "name": "c_if_gmm_pk",
+ "description": "psha_chile6 rock800 c_if_gmm_pk 1d1d2d28",
+ "calc_id": 331,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen"
+ ],
+ "sources": {
+  "interface": [
+   [
+    "mmin55",
+    1.0,
+    [
+     "full__seis__tapered"
+    ]
+   ]
+  ]
+ },
+ "gmm": {
+  "Subduction Interface": [
+   [
+    "ParkerEtAl2020SInter",
+    1.0,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ]
+  ]
+ },
+ "trts": {
+  "interface": "Subduction Interface"
+ },
+ "builds": {
+  "if-mmin55-full__seis__tapered": "mmin_haz-5.5"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 1,
+ "n_realizations": 1,
+ "branch_map": {
+  "if-mmin55-full__seis__tapered": "if-mmin55-full__seis__tapered"
+ }
+}

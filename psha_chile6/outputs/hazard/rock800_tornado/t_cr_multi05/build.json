@@ -1,0 +1,164 @@
+{
+ "name": "t_cr_multi05",
+ "description": "psha_chile6 rock800 t_cr_multi05 16cbe916",
+ "calc_id": null,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen",
+  "hornopiren",
+  "puerto_williams",
+  "calama",
+  "la_serena"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "multi05",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-multi05-phi060__mobs__al1": "fault_f-0.5",
+  "cr-multi05-phi060__mobs__al2": "fault_f-0.5",
+  "cr-multi05-phi060__mobs__al3": "fault_f-0.5",
+  "cr-multi05-phi060__mobs__yc": "fault_f-0.5",
+  "cr-multi05-phi060__mobs__tap": "fault_f-0.5",
+  "cr-multi05-phi060__mwc__al1": "fault_f-0.5",
+  "cr-multi05-phi060__mwc__al2": "fault_f-0.5",
+  "cr-multi05-phi060__mwc__al3": "fault_f-0.5",
+  "cr-multi05-phi060__mwc__yc": "fault_f-0.5",
+  "cr-multi05-phi060__mwc__tap": "fault_f-0.5",
+  "cr-multi05-phi060__mleo__al1": "fault_f-0.5",
+  "cr-multi05-phi060__mleo__al2": "fault_f-0.5",
+  "cr-multi05-phi060__mleo__al3": "fault_f-0.5",
+  "cr-multi05-phi060__mleo__yc": "fault_f-0.5",
+  "cr-multi05-phi060__mleo__tap": "fault_f-0.5",
+  "cr-multi05-phi080__mobs__al1": "fault_f-0.5",
+  "cr-multi05-phi080__mobs__al2": "fault_f-0.5",
+  "cr-multi05-phi080__mobs__al3": "fault_f-0.5",
+  "cr-multi05-phi080__mobs__yc": "fault_f-0.5",
+  "cr-multi05-phi080__mobs__tap": "fault_f-0.5",
+  "cr-multi05-phi080__mwc__al1": "fault_f-0.5",
+  "cr-multi05-phi080__mwc__al2": "fault_f-0.5",
+  "cr-multi05-phi080__mwc__al3": "fault_f-0.5",
+  "cr-multi05-phi080__mwc__yc": "fault_f-0.5",
+  "cr-multi05-phi080__mwc__tap": "fault_f-0.5",
+  "cr-multi05-phi080__mleo__al1": "fault_f-0.5",
+  "cr-multi05-phi080__mleo__al2": "fault_f-0.5",
+  "cr-multi05-phi080__mleo__al3": "fault_f-0.5",
+  "cr-multi05-phi080__mleo__yc": "fault_f-0.5",
+  "cr-multi05-phi080__mleo__tap": "fault_f-0.5",
+  "cr-multi05-phi100__mobs__al1": "fault_f-0.5",
+  "cr-multi05-phi100__mobs__al2": "fault_f-0.5",
+  "cr-multi05-phi100__mobs__al3": "fault_f-0.5",
+  "cr-multi05-phi100__mobs__yc": "fault_f-0.5",
+  "cr-multi05-phi100__mobs__tap": "fault_f-0.5",
+  "cr-multi05-phi100__mwc__al1": "fault_f-0.5",
+  "cr-multi05-phi100__mwc__al2": "fault_f-0.5",
+  "cr-multi05-phi100__mwc__al3": "fault_f-0.5",
+  "cr-multi05-phi100__mwc__yc": "fault_f-0.5",
+  "cr-multi05-phi100__mwc__tap": "fault_f-0.5",
+  "cr-multi05-phi100__mleo__al1": "fault_f-0.5",
+  "cr-multi05-phi100__mleo__al2": "fault_f-0.5",
+  "cr-multi05-phi100__mleo__al3": "fault_f-0.5",
+  "cr-multi05-phi100__mleo__yc": "fault_f-0.5",
+  "cr-multi05-phi100__mleo__tap": "fault_f-0.5"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 45,
+ "levels": [
+  45
+ ],
+ "n_realizations": 180,
+ "branch_map": {
+  "cr-multi05-phi060__mobs__al1": "cr-multi05-phi060__mobs__al1",
+  "cr-multi05-phi060__mobs__al2": "cr-multi05-phi060__mobs__al2",
+  "cr-multi05-phi060__mobs__al3": "cr-multi05-phi060__mobs__al3",
+  "cr-multi05-phi060__mobs__yc": "cr-multi05-phi060__mobs__yc",
+  "cr-multi05-phi060__mobs__tap": "cr-multi05-phi060__mobs__tap",
+  "cr-multi05-phi060__mwc__al1": "cr-multi05-phi060__mwc__al1",
+  "cr-multi05-phi060__mwc__al2": "cr-multi05-phi060__mwc__al2",
+  "cr-multi05-phi060__mwc__al3": "cr-multi05-phi060__mwc__al3",
+  "cr-multi05-phi060__mwc__yc": "cr-multi05-phi060__mwc__yc",
+  "cr-multi05-phi060__mwc__tap": "cr-multi05-phi060__mwc__tap",
+  "cr-multi05-phi060__mleo__al1": "cr-multi05-phi060__mleo__al1",
+  "cr-multi05-phi060__mleo__al2": "cr-multi05-phi060__mleo__al2",
+  "cr-multi05-phi060__mleo__al3": "cr-multi05-phi060__mleo__al3",
+  "cr-multi05-phi060__mleo__yc": "cr-multi05-phi060__mleo__yc",
+  "cr-multi05-phi060__mleo__tap": "cr-multi05-phi060__mleo__tap",
+  "cr-multi05-phi080__mobs__al1": "cr-multi05-phi080__mobs__al1",
+  "cr-multi05-phi080__mobs__al2": "cr-multi05-phi080__mobs__al2",
+  "cr-multi05-phi080__mobs__al3": "cr-multi05-phi080__mobs__al3",
+  "cr-multi05-phi080__mobs__yc": "cr-multi05-phi080__mobs__yc",
+  "cr-multi05-phi080__mobs__tap": "cr-multi05-phi080__mobs__tap",
+  "cr-multi05-phi080__mwc__al1": "cr-multi05-phi080__mwc__al1",
+  "cr-multi05-phi080__mwc__al2": "cr-multi05-phi080__mwc__al2",
+  "cr-multi05-phi080__mwc__al3": "cr-multi05-phi080__mwc__al3",
+  "cr-multi05-phi080__mwc__yc": "cr-multi05-phi080__mwc__yc",
+  "cr-multi05-phi080__mwc__tap": "cr-multi05-phi080__mwc__tap",
+  "cr-multi05-phi080__mleo__al1": "cr-multi05-phi080__mleo__al1",
+  "cr-multi05-phi080__mleo__al2": "cr-multi05-phi080__mleo__al2",
+  "cr-multi05-phi080__mleo__al3": "cr-multi05-phi080__mleo__al3",
+  "cr-multi05-phi080__mleo__yc": "cr-multi05-phi080__mleo__yc",
+  "cr-multi05-phi080__mleo__tap": "cr-multi05-phi080__mleo__tap",
+  "cr-multi05-phi100__mobs__al1": "cr-multi05-phi100__mobs__al1",
+  "cr-multi05-phi100__mobs__al2": "cr-multi05-phi100__mobs__al2",
+  "cr-multi05-phi100__mobs__al3": "cr-multi05-phi100__mobs__al3",
+  "cr-multi05-phi100__mobs__yc": "cr-multi05-phi100__mobs__yc",
+  "cr-multi05-phi100__mobs__tap": "cr-multi05-phi100__mobs__tap",
+  "cr-multi05-phi100__mwc__al1": "cr-multi05-phi100__mwc__al1",
+  "cr-multi05-phi100__mwc__al2": "cr-multi05-phi100__mwc__al2",
+  "cr-multi05-phi100__mwc__al3": "cr-multi05-phi100__mwc__al3",
+  "cr-multi05-phi100__mwc__yc": "cr-multi05-phi100__mwc__yc",
+  "cr-multi05-phi100__mwc__tap": "cr-multi05-phi100__mwc__tap",
+  "cr-multi05-phi100__mleo__al1": "cr-multi05-phi100__mleo__al1",
+  "cr-multi05-phi100__mleo__al2": "cr-multi05-phi100__mleo__al2",
+  "cr-multi05-phi100__mleo__al3": "cr-multi05-phi100__mleo__al3",
+  "cr-multi05-phi100__mleo__yc": "cr-multi05-phi100__mleo__yc",
+  "cr-multi05-phi100__mleo__tap": "cr-multi05-phi100__mleo__tap"
+ }
+}

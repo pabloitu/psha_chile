@@ -4,7 +4,8 @@
 # replaces logic_tree.GMM for those regions, and "site": {"VS30": ...}, which
 # replaces the site parameters of hazard/config.py, "trunc": the truncation
 # level, "calc": {"MESH": .., "PS_DIST": ..} instead of hazard/config.py, and "disagg": {...}, which
-# makes it a disaggregation job (see hazard/disagg.py). hazard/run_all.sh
+# makes it a disaggregation job (see hazard/disagg.py), and "samples": n, which samples the
+# logic tree instead of enumerating it (the combiner check). hazard/run_all.sh
 # builds, runs and records the calc ids.
 
 import sys
@@ -21,6 +22,7 @@ import shutil
 import numpy as np
 import pandas as pd
 
+import paths
 import run
 from lib import nrml
 from variants import VARIANTS
@@ -50,7 +52,8 @@ def source_branches(hd):
 
     Returns
     -------
-    list of (branch_id, [files], weight), and the TRT of each family.
+    list of (branch_id, [files], weight) of the product across families, the TRT of each
+    family, the builds, the id map and the branch sets per family (one level each).
     """
     sets, trts = [], {}
     for fam, vs in lt.SOURCES.items():
@@ -99,13 +102,17 @@ def source_branches(hd):
     ids = {f"b{i:05d}" if len(b[0]) > 75 else b[0]: b[0] for i, b in enumerate(br)}
     br = [(k, b[1], b[2]) for k, b in zip(ids, br)]
     tags = {r[0]: r[3] for s in sets for r in s}
-    return br, trts, tags, ids
+    return br, trts, tags, ids, [[(r[0], r[1], r[2]) for r in st] for st in sets]
 
 
-def job(hd, desc, site=None):
+def job(hd, desc, site=None, trts=None):
     st = site or {}
     dg = getattr(lt, "DISAGG_JOB", {})
     ca = getattr(lt, "CALC_JOB", None) or {}
+    md = ca.get("MAX_DIST", hc.MAX_DIST)
+    # OpenQuake accepts per-type distances only for the types in the job's own GMM tree
+    per = {t: v for t, v in getattr(hc, "MAX_DIST_TRT", {}).items() if trts is None or t in trts}
+    maxd = json.dumps({"default": md, **per}) if per and "MAX_DIST" not in ca else md
     imtl = ", ".join(f'"{k}": logscale({a}, {b}, {hc.N_LEVELS})' for k, (a, b) in hc.IMTL.items())
     return f"""[general]
 description = {desc}
@@ -115,7 +122,7 @@ calculation_mode = {"disaggregation" if dg else "classical"}
 sites_csv = sites.csv
 
 [logic_tree]
-number_of_logic_tree_samples = 0
+number_of_logic_tree_samples = {getattr(lt, "SAMPLES_JOB", 0) or 0}
 
 [erf]
 rupture_mesh_spacing = {ca.get("MESH", hc.MESH)}
@@ -124,7 +131,7 @@ width_of_mfd_bin = 0.1
 pointsource_distance = {ca.get("PS_DIST", hc.PS_DIST)}
 
 [site_params]
-reference_vs30_type = measured
+reference_vs30_type = {"measured" if getattr(hc, "VS30_MEASURED", True) else "inferred"}
 reference_vs30_value = {st.get("VS30", hc.VS30)}
 reference_depth_to_1pt0km_per_sec = {st.get("Z1PT0", hc.Z1PT0)}
 reference_depth_to_2pt5km_per_sec = {st.get("Z2PT5", hc.Z2PT5)}
@@ -135,13 +142,12 @@ gsim_logic_tree_file = gmm_lt.xml
 investigation_time = {hc.INV_TIME}
 intensity_measure_types_and_levels = {{{imtl}}}
 truncation_level = {getattr(lt, "TRUNC_JOB", None) or hc.TRUNC}
-maximum_distance = {hc.MAX_DIST}
+maximum_distance = {maxd}
 max_sites_disagg = {dg.get("max_sites", 1) if dg else (10 if getattr(hc, "STORE_RUPTURES", False) else 1)}
 
 [output]
 individual_rlzs = {str(hc.INDIVIDUAL_RLZS).lower()}
 mean = true
-quantiles = 0.16 0.5 0.84
 poes = {" ".join(str(p) for p in hc.POES)}
 """ + (f"""
 [disaggregation]
@@ -163,6 +169,7 @@ def main():
         lt.DISAGG_JOB = job.pop("disagg", {})
         lt.TRUNC_JOB = job.pop("trunc", None)
         lt.CALC_JOB = job.pop("calc", {})
+        lt.SAMPLES_JOB = job.pop("samples", 0)
         lt.SOURCES = job
         one()
 
@@ -174,30 +181,35 @@ def one():
     hd.mkdir(parents=True, exist_ok=True)
 
     st = sites(hd)
-    br, trts, tags, ids = source_branches(hd)
-    nrml.logic_tree(hd / "source_lt.xml", br)
+    br, trts, tags, ids, levels = source_branches(hd)
+    # several families: one extendModel level each, so no branch set nears the 183 limit of the engine
+    if len(levels) > 1:
+        nrml.logic_tree_levels(hd / "source_lt.xml", levels)
+        ids = {}
+    else:
+        nrml.logic_tree(hd / "source_lt.xml", br)
     g = getattr(lt, "GMM_JOB", lt.GMM_FULL)
     gmm = {t: g[t] for t in dict.fromkeys(trts.values())}
     nrml.gmm_tree(hd / "gmm_lt.xml", gmm)
 
     # key from everything OpenQuake reads, so an unchanged job keeps its calc id
     site = getattr(lt, "SITE_JOB", {})
-    h = hashlib.sha1(job(hd, "", site).encode())
+    h = hashlib.sha1(job(hd, "", site, list(gmm)).encode())
     for f in [hd / "source_lt.xml", hd / "gmm_lt.xml", hd / "sites.csv"] + sorted((hd / "src").rglob("*.xml")):
         h.update(f.read_bytes())
     key = h.hexdigest()[:8]
-    desc = f"psha_chile5 {hc.SITE} {lt.NAME} {key}"
-    (hd / "job.ini").write_text(job(hd, desc, site))
+    desc = f"{paths.ROOT.name} {hc.SITE} {lt.NAME} {key}"
+    (hd / "job.ini").write_text(job(hd, desc, site, list(gmm)))
     old = json.loads((hd / "build.json").read_text()) if (hd / "build.json").exists() else {}
     cid = old.get("calc_id") if old.get("description") == desc else None
 
-    n_rlz = len(br) * int(np.prod([len(v) for v in gmm.values()]))
+    n_rlz = getattr(lt, "SAMPLES_JOB", 0) or len(br) * int(np.prod([len(v) for v in gmm.values()]))
     info = {"name": lt.NAME, "description": desc, "calc_id": cid, "sites": hc.SITES, "site_params": site,
             "disagg": getattr(lt, "DISAGG_JOB", {}), "trunc": getattr(lt, "TRUNC_JOB", None) or hc.TRUNC,
-            "calc": getattr(lt, "CALC_JOB", {}),
+            "calc": getattr(lt, "CALC_JOB", {}), "samples": getattr(lt, "SAMPLES_JOB", 0),
             "site_names": st["name"].tolist() if "name" in st else None,
             "sources": lt.SOURCES, "gmm": gmm, "trts": trts, "builds": tags,
-            "poes": hc.POES, "n_source_branches": len(br), "n_realizations": n_rlz,
+            "poes": hc.POES, "n_source_branches": len(br), "levels": [len(x) for x in levels], "n_realizations": n_rlz,
             "branch_map": ids}
     (hd / "build.json").write_text(json.dumps(info, indent=1))
     print(f"{hd}\n  {len(st)} sites ({hc.SITES}), {len(br)} source branches, "

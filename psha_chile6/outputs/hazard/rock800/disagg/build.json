@@ -1,0 +1,165 @@
+{
+ "name": "disagg",
+ "description": "psha_chile6 rock800 disagg 12c5c8f4",
+ "calc_id": null,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {
+  "max_sites": 10,
+  "mag_bin": 0.25,
+  "dist_bin": 20.0,
+  "n_eps": 8,
+  "outputs": [
+   "Mag_Dist_Eps",
+   "TRT_Mag_Dist",
+   "TRT_Mag_Dist_Eps"
+  ]
+ },
+ "trunc": 3.0,
+ "calc": {},
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen"
+ ],
+ "sources": {
+  "interface": [
+   [
+    "mmin55",
+    1.0,
+    [
+     "full__seis__tgr"
+    ]
+   ]
+  ],
+  "intraslab": [
+   [
+    "ref",
+    1.0
+   ]
+  ],
+  "crustal": [
+   [
+    "ref",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Subduction Interface": [
+   [
+    "AbrahamsonGulerce2020SInter",
+    0.34,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "ParkerEtAl2020SInter",
+    0.33,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ],
+   [
+    "KuehnEtAl2020SInter",
+    0.33,
+    {
+     "region": "SAM"
+    }
+   ]
+  ],
+  "Subduction IntraSlab": [
+   [
+    "AbrahamsonGulerce2020SSlab",
+    0.34,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "ParkerEtAl2020SSlab",
+    0.33,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ],
+   [
+    "MontalvaEtAl2017SSlab",
+    0.33,
+    {}
+   ]
+  ],
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "interface": "Subduction Interface",
+  "intraslab": "Subduction IntraSlab",
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "if-mmin55-full__seis__tgr": "mmin_haz-5.5",
+  "is-ref-is": "ref",
+  "cr-ref-phi050__mobs__tgr": "ref",
+  "cr-ref-phi050__mobs__tap": "ref",
+  "cr-ref-phi050__mgeo__tgr": "ref",
+  "cr-ref-phi050__mgeo__tap": "ref",
+  "cr-ref-phi075__mobs__tgr": "ref",
+  "cr-ref-phi075__mobs__tap": "ref",
+  "cr-ref-phi075__mgeo__tgr": "ref",
+  "cr-ref-phi075__mgeo__tap": "ref",
+  "cr-ref-phi100__mobs__tgr": "ref",
+  "cr-ref-phi100__mobs__tap": "ref",
+  "cr-ref-phi100__mgeo__tgr": "ref",
+  "cr-ref-phi100__mgeo__tap": "ref"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 12,
+ "n_realizations": 432,
+ "branch_map": {
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi050__mobs__tgr": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi050__mobs__tgr",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi050__mobs__tap": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi050__mobs__tap",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi050__mgeo__tgr": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi050__mgeo__tgr",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi050__mgeo__tap": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi050__mgeo__tap",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi075__mobs__tgr": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi075__mobs__tgr",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi075__mobs__tap": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi075__mobs__tap",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi075__mgeo__tgr": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi075__mgeo__tgr",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi075__mgeo__tap": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi075__mgeo__tap",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi100__mobs__tgr": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi100__mobs__tgr",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi100__mobs__tap": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi100__mobs__tap",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi100__mgeo__tgr": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi100__mgeo__tgr",
+  "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi100__mgeo__tap": "if-mmin55-full__seis__tgr_x_is-ref-is_x_cr-ref-phi100__mgeo__tap"
+ }
+}

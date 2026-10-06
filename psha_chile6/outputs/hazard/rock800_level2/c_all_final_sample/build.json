@@ -1,0 +1,284 @@
+{
+ "name": "c_all_final_sample",
+ "description": "psha_chile6 rock800 c_all_final_sample f518fb31",
+ "calc_id": 373,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 2000,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "concepcion",
+  "pucon",
+  "ensenada",
+  "puerto_aysen",
+  "puerto_williams"
+ ],
+ "sources": {
+  "interface": [
+   [
+    "c_ab_p05",
+    0.0925,
+    {
+     "full__seis__tapered": 0.25,
+     "full__geo_lo__tapered": 0.0625,
+     "full__geo_mid__tapered": 0.125,
+     "full__geo_hi__tapered": 0.0625,
+     "seg__seis__tapered": 0.25,
+     "seg__geo_lo__tapered": 0.0625,
+     "seg__geo_mid__tapered": 0.125,
+     "seg__geo_hi__tapered": 0.0625
+    }
+   ],
+   [
+    "mmin55",
+    0.315,
+    {
+     "full__seis__tapered": 0.25,
+     "full__geo_lo__tapered": 0.0625,
+     "full__geo_mid__tapered": 0.125,
+     "full__geo_hi__tapered": 0.0625,
+     "seg__seis__tapered": 0.25,
+     "seg__geo_lo__tapered": 0.0625,
+     "seg__geo_mid__tapered": 0.125,
+     "seg__geo_hi__tapered": 0.0625
+    }
+   ],
+   [
+    "c_ab_p95",
+    0.0925,
+    {
+     "full__seis__tapered": 0.25,
+     "full__geo_lo__tapered": 0.0625,
+     "full__geo_mid__tapered": 0.125,
+     "full__geo_hi__tapered": 0.0625,
+     "seg__seis__tapered": 0.25,
+     "seg__geo_lo__tapered": 0.0625,
+     "seg__geo_mid__tapered": 0.125,
+     "seg__geo_hi__tapered": 0.0625
+    }
+   ],
+   [
+    "c_ab_p05_gk74",
+    0.0925,
+    {
+     "full__seis__tapered": 0.25,
+     "full__geo_lo__tapered": 0.0625,
+     "full__geo_mid__tapered": 0.125,
+     "full__geo_hi__tapered": 0.0625,
+     "seg__seis__tapered": 0.25,
+     "seg__geo_lo__tapered": 0.0625,
+     "seg__geo_mid__tapered": 0.125,
+     "seg__geo_hi__tapered": 0.0625
+    }
+   ],
+   [
+    "c_rate_gk74",
+    0.315,
+    {
+     "full__seis__tapered": 0.25,
+     "full__geo_lo__tapered": 0.0625,
+     "full__geo_mid__tapered": 0.125,
+     "full__geo_hi__tapered": 0.0625,
+     "seg__seis__tapered": 0.25,
+     "seg__geo_lo__tapered": 0.0625,
+     "seg__geo_mid__tapered": 0.125,
+     "seg__geo_hi__tapered": 0.0625
+    }
+   ],
+   [
+    "c_ab_p95_gk74",
+    0.0925,
+    {
+     "full__seis__tapered": 0.25,
+     "full__geo_lo__tapered": 0.0625,
+     "full__geo_mid__tapered": 0.125,
+     "full__geo_hi__tapered": 0.0625,
+     "seg__seis__tapered": 0.25,
+     "seg__geo_lo__tapered": 0.0625,
+     "seg__geo_mid__tapered": 0.125,
+     "seg__geo_hi__tapered": 0.0625
+    }
+   ]
+  ],
+  "intraslab": [
+   [
+    "ref",
+    1.0
+   ]
+  ],
+  "crustal": [
+   [
+    "ref",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Subduction Interface": [
+   [
+    "AbrahamsonGulerce2020SInter",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "ParkerEtAl2020SInter",
+    0.25,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ],
+   [
+    "KuehnEtAl2020SInter",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "MontalvaEtAl2017SInter",
+    0.25,
+    {}
+   ]
+  ],
+  "Subduction IntraSlab": [
+   [
+    "AbrahamsonGulerce2020SSlab",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "ParkerEtAl2020SSlab",
+    0.25,
+    {
+     "region": "SA",
+     "saturation_region": "SA_S"
+    }
+   ],
+   [
+    "KuehnEtAl2020SSlab",
+    0.25,
+    {
+     "region": "SAM"
+    }
+   ],
+   [
+    "MontalvaEtAl2017SSlab",
+    0.25,
+    {}
+   ]
+  ],
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "interface": "Subduction Interface",
+  "intraslab": "Subduction IntraSlab",
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "if-c_ab_p05-seg__seis__tapered": "ab_pct-5_mmin_haz-5.5",
+  "if-c_ab_p05-seg__geo_lo__tapered": "ab_pct-5_mmin_haz-5.5",
+  "if-c_ab_p05-seg__geo_mid__tapered": "ab_pct-5_mmin_haz-5.5",
+  "if-c_ab_p05-seg__geo_hi__tapered": "ab_pct-5_mmin_haz-5.5",
+  "if-c_ab_p05-full__seis__tapered": "ab_pct-5_mmin_haz-5.5",
+  "if-c_ab_p05-full__geo_lo__tapered": "ab_pct-5_mmin_haz-5.5",
+  "if-c_ab_p05-full__geo_mid__tapered": "ab_pct-5_mmin_haz-5.5",
+  "if-c_ab_p05-full__geo_hi__tapered": "ab_pct-5_mmin_haz-5.5",
+  "if-mmin55-seg__seis__tapered": "mmin_haz-5.5",
+  "if-mmin55-seg__geo_lo__tapered": "mmin_haz-5.5",
+  "if-mmin55-seg__geo_mid__tapered": "mmin_haz-5.5",
+  "if-mmin55-seg__geo_hi__tapered": "mmin_haz-5.5",
+  "if-mmin55-full__seis__tapered": "mmin_haz-5.5",
+  "if-mmin55-full__geo_lo__tapered": "mmin_haz-5.5",
+  "if-mmin55-full__geo_mid__tapered": "mmin_haz-5.5",
+  "if-mmin55-full__geo_hi__tapered": "mmin_haz-5.5",
+  "if-c_ab_p95-seg__seis__tapered": "ab_pct-95_mmin_haz-5.5",
+  "if-c_ab_p95-seg__geo_lo__tapered": "ab_pct-95_mmin_haz-5.5",
+  "if-c_ab_p95-seg__geo_mid__tapered": "ab_pct-95_mmin_haz-5.5",
+  "if-c_ab_p95-seg__geo_hi__tapered": "ab_pct-95_mmin_haz-5.5",
+  "if-c_ab_p95-full__seis__tapered": "ab_pct-95_mmin_haz-5.5",
+  "if-c_ab_p95-full__geo_lo__tapered": "ab_pct-95_mmin_haz-5.5",
+  "if-c_ab_p95-full__geo_mid__tapered": "ab_pct-95_mmin_haz-5.5",
+  "if-c_ab_p95-full__geo_hi__tapered": "ab_pct-95_mmin_haz-5.5",
+  "if-c_ab_p05_gk74-seg__seis__tapered": "ab_pct-5_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p05_gk74-seg__geo_lo__tapered": "ab_pct-5_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p05_gk74-seg__geo_mid__tapered": "ab_pct-5_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p05_gk74-seg__geo_hi__tapered": "ab_pct-5_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p05_gk74-full__seis__tapered": "ab_pct-5_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p05_gk74-full__geo_lo__tapered": "ab_pct-5_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p05_gk74-full__geo_mid__tapered": "ab_pct-5_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p05_gk74-full__geo_hi__tapered": "ab_pct-5_dc_method-gk74_mmin_haz-5.5",
+  "if-c_rate_gk74-seg__seis__tapered": "dc_method-gk74_mmin_haz-5.5",
+  "if-c_rate_gk74-seg__geo_lo__tapered": "dc_method-gk74_mmin_haz-5.5",
+  "if-c_rate_gk74-seg__geo_mid__tapered": "dc_method-gk74_mmin_haz-5.5",
+  "if-c_rate_gk74-seg__geo_hi__tapered": "dc_method-gk74_mmin_haz-5.5",
+  "if-c_rate_gk74-full__seis__tapered": "dc_method-gk74_mmin_haz-5.5",
+  "if-c_rate_gk74-full__geo_lo__tapered": "dc_method-gk74_mmin_haz-5.5",
+  "if-c_rate_gk74-full__geo_mid__tapered": "dc_method-gk74_mmin_haz-5.5",
+  "if-c_rate_gk74-full__geo_hi__tapered": "dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p95_gk74-seg__seis__tapered": "ab_pct-95_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p95_gk74-seg__geo_lo__tapered": "ab_pct-95_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p95_gk74-seg__geo_mid__tapered": "ab_pct-95_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p95_gk74-seg__geo_hi__tapered": "ab_pct-95_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p95_gk74-full__seis__tapered": "ab_pct-95_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p95_gk74-full__geo_lo__tapered": "ab_pct-95_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p95_gk74-full__geo_mid__tapered": "ab_pct-95_dc_method-gk74_mmin_haz-5.5",
+  "if-c_ab_p95_gk74-full__geo_hi__tapered": "ab_pct-95_dc_method-gk74_mmin_haz-5.5",
+  "is-ref-is": "ref",
+  "cr-ref-phi050__mobs__tgr": "ref",
+  "cr-ref-phi050__mobs__tap": "ref",
+  "cr-ref-phi050__mgeo__tgr": "ref",
+  "cr-ref-phi050__mgeo__tap": "ref",
+  "cr-ref-phi075__mobs__tgr": "ref",
+  "cr-ref-phi075__mobs__tap": "ref",
+  "cr-ref-phi075__mgeo__tgr": "ref",
+  "cr-ref-phi075__mgeo__tap": "ref",
+  "cr-ref-phi100__mobs__tgr": "ref",
+  "cr-ref-phi100__mobs__tap": "ref",
+  "cr-ref-phi100__mgeo__tgr": "ref",
+  "cr-ref-phi100__mgeo__tap": "ref"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 576,
+ "levels": [
+  48,
+  1,
+  12
+ ],
+ "n_realizations": 2000,
+ "branch_map": {}
+}

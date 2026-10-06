@@ -1,0 +1,92 @@
+{
+ "name": "t_cr_only_al2",
+ "description": "psha_chile6 rock800 t_cr_only_al2 b548ccec",
+ "calc_id": 460,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen",
+  "hornopiren",
+  "puerto_williams",
+  "calama",
+  "la_serena"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "only_al2",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-only_al2-phi060__mobs__al2": "mfd-al10.0al21.0al30.0yc0.0tap0.0hyb0.0",
+  "cr-only_al2-phi060__mwc__al2": "mfd-al10.0al21.0al30.0yc0.0tap0.0hyb0.0",
+  "cr-only_al2-phi060__mleo__al2": "mfd-al10.0al21.0al30.0yc0.0tap0.0hyb0.0",
+  "cr-only_al2-phi080__mobs__al2": "mfd-al10.0al21.0al30.0yc0.0tap0.0hyb0.0",
+  "cr-only_al2-phi080__mwc__al2": "mfd-al10.0al21.0al30.0yc0.0tap0.0hyb0.0",
+  "cr-only_al2-phi080__mleo__al2": "mfd-al10.0al21.0al30.0yc0.0tap0.0hyb0.0",
+  "cr-only_al2-phi100__mobs__al2": "mfd-al10.0al21.0al30.0yc0.0tap0.0hyb0.0",
+  "cr-only_al2-phi100__mwc__al2": "mfd-al10.0al21.0al30.0yc0.0tap0.0hyb0.0",
+  "cr-only_al2-phi100__mleo__al2": "mfd-al10.0al21.0al30.0yc0.0tap0.0hyb0.0"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 9,
+ "levels": [
+  9
+ ],
+ "n_realizations": 36,
+ "branch_map": {
+  "cr-only_al2-phi060__mobs__al2": "cr-only_al2-phi060__mobs__al2",
+  "cr-only_al2-phi060__mwc__al2": "cr-only_al2-phi060__mwc__al2",
+  "cr-only_al2-phi060__mleo__al2": "cr-only_al2-phi060__mleo__al2",
+  "cr-only_al2-phi080__mobs__al2": "cr-only_al2-phi080__mobs__al2",
+  "cr-only_al2-phi080__mwc__al2": "cr-only_al2-phi080__mwc__al2",
+  "cr-only_al2-phi080__mleo__al2": "cr-only_al2-phi080__mleo__al2",
+  "cr-only_al2-phi100__mobs__al2": "cr-only_al2-phi100__mobs__al2",
+  "cr-only_al2-phi100__mwc__al2": "cr-only_al2-phi100__mwc__al2",
+  "cr-only_al2-phi100__mleo__al2": "cr-only_al2-phi100__mleo__al2"
+ }
+}

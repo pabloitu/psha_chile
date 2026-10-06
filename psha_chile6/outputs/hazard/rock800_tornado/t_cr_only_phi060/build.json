@@ -1,0 +1,104 @@
+{
+ "name": "t_cr_only_phi060",
+ "description": "psha_chile6 rock800 t_cr_only_phi060 780e0f35",
+ "calc_id": 469,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen",
+  "hornopiren",
+  "puerto_williams",
+  "calama",
+  "la_serena"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "only_phi060",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-only_phi060-phi060__mobs__al1": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mobs__al2": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mobs__al3": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mobs__yc": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mobs__tap": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mwc__al1": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mwc__al2": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mwc__al3": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mwc__yc": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mwc__tap": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mleo__al1": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mleo__al2": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mleo__al3": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mleo__yc": "phi-phi0600.61.0phi0800.80.0phi1001.00.0",
+  "cr-only_phi060-phi060__mleo__tap": "phi-phi0600.61.0phi0800.80.0phi1001.00.0"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 15,
+ "levels": [
+  15
+ ],
+ "n_realizations": 60,
+ "branch_map": {
+  "cr-only_phi060-phi060__mobs__al1": "cr-only_phi060-phi060__mobs__al1",
+  "cr-only_phi060-phi060__mobs__al2": "cr-only_phi060-phi060__mobs__al2",
+  "cr-only_phi060-phi060__mobs__al3": "cr-only_phi060-phi060__mobs__al3",
+  "cr-only_phi060-phi060__mobs__yc": "cr-only_phi060-phi060__mobs__yc",
+  "cr-only_phi060-phi060__mobs__tap": "cr-only_phi060-phi060__mobs__tap",
+  "cr-only_phi060-phi060__mwc__al1": "cr-only_phi060-phi060__mwc__al1",
+  "cr-only_phi060-phi060__mwc__al2": "cr-only_phi060-phi060__mwc__al2",
+  "cr-only_phi060-phi060__mwc__al3": "cr-only_phi060-phi060__mwc__al3",
+  "cr-only_phi060-phi060__mwc__yc": "cr-only_phi060-phi060__mwc__yc",
+  "cr-only_phi060-phi060__mwc__tap": "cr-only_phi060-phi060__mwc__tap",
+  "cr-only_phi060-phi060__mleo__al1": "cr-only_phi060-phi060__mleo__al1",
+  "cr-only_phi060-phi060__mleo__al2": "cr-only_phi060-phi060__mleo__al2",
+  "cr-only_phi060-phi060__mleo__al3": "cr-only_phi060-phi060__mleo__al3",
+  "cr-only_phi060-phi060__mleo__yc": "cr-only_phi060-phi060__mleo__yc",
+  "cr-only_phi060-phi060__mleo__tap": "cr-only_phi060-phi060__mleo__tap"
+ }
+}

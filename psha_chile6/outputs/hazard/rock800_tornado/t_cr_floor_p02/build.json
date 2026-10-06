@@ -1,0 +1,164 @@
+{
+ "name": "t_cr_floor_p02",
+ "description": "psha_chile6 rock800 t_cr_floor_p02 c5839c7f",
+ "calc_id": 483,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "samples": 0,
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen",
+  "hornopiren",
+  "puerto_williams",
+  "calama",
+  "la_serena"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "floor_p02",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-floor_p02-phi060__mobs__al1": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mobs__al2": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mobs__al3": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mobs__yc": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mobs__tap": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mwc__al1": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mwc__al2": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mwc__al3": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mwc__yc": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mwc__tap": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mleo__al1": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mleo__al2": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mleo__al3": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mleo__yc": "v0fc539bb6f",
+  "cr-floor_p02-phi060__mleo__tap": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mobs__al1": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mobs__al2": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mobs__al3": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mobs__yc": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mobs__tap": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mwc__al1": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mwc__al2": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mwc__al3": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mwc__yc": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mwc__tap": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mleo__al1": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mleo__al2": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mleo__al3": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mleo__yc": "v0fc539bb6f",
+  "cr-floor_p02-phi080__mleo__tap": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mobs__al1": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mobs__al2": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mobs__al3": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mobs__yc": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mobs__tap": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mwc__al1": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mwc__al2": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mwc__al3": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mwc__yc": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mwc__tap": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mleo__al1": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mleo__al2": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mleo__al3": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mleo__yc": "v0fc539bb6f",
+  "cr-floor_p02-phi100__mleo__tap": "v0fc539bb6f"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 45,
+ "levels": [
+  45
+ ],
+ "n_realizations": 180,
+ "branch_map": {
+  "cr-floor_p02-phi060__mobs__al1": "cr-floor_p02-phi060__mobs__al1",
+  "cr-floor_p02-phi060__mobs__al2": "cr-floor_p02-phi060__mobs__al2",
+  "cr-floor_p02-phi060__mobs__al3": "cr-floor_p02-phi060__mobs__al3",
+  "cr-floor_p02-phi060__mobs__yc": "cr-floor_p02-phi060__mobs__yc",
+  "cr-floor_p02-phi060__mobs__tap": "cr-floor_p02-phi060__mobs__tap",
+  "cr-floor_p02-phi060__mwc__al1": "cr-floor_p02-phi060__mwc__al1",
+  "cr-floor_p02-phi060__mwc__al2": "cr-floor_p02-phi060__mwc__al2",
+  "cr-floor_p02-phi060__mwc__al3": "cr-floor_p02-phi060__mwc__al3",
+  "cr-floor_p02-phi060__mwc__yc": "cr-floor_p02-phi060__mwc__yc",
+  "cr-floor_p02-phi060__mwc__tap": "cr-floor_p02-phi060__mwc__tap",
+  "cr-floor_p02-phi060__mleo__al1": "cr-floor_p02-phi060__mleo__al1",
+  "cr-floor_p02-phi060__mleo__al2": "cr-floor_p02-phi060__mleo__al2",
+  "cr-floor_p02-phi060__mleo__al3": "cr-floor_p02-phi060__mleo__al3",
+  "cr-floor_p02-phi060__mleo__yc": "cr-floor_p02-phi060__mleo__yc",
+  "cr-floor_p02-phi060__mleo__tap": "cr-floor_p02-phi060__mleo__tap",
+  "cr-floor_p02-phi080__mobs__al1": "cr-floor_p02-phi080__mobs__al1",
+  "cr-floor_p02-phi080__mobs__al2": "cr-floor_p02-phi080__mobs__al2",
+  "cr-floor_p02-phi080__mobs__al3": "cr-floor_p02-phi080__mobs__al3",
+  "cr-floor_p02-phi080__mobs__yc": "cr-floor_p02-phi080__mobs__yc",
+  "cr-floor_p02-phi080__mobs__tap": "cr-floor_p02-phi080__mobs__tap",
+  "cr-floor_p02-phi080__mwc__al1": "cr-floor_p02-phi080__mwc__al1",
+  "cr-floor_p02-phi080__mwc__al2": "cr-floor_p02-phi080__mwc__al2",
+  "cr-floor_p02-phi080__mwc__al3": "cr-floor_p02-phi080__mwc__al3",
+  "cr-floor_p02-phi080__mwc__yc": "cr-floor_p02-phi080__mwc__yc",
+  "cr-floor_p02-phi080__mwc__tap": "cr-floor_p02-phi080__mwc__tap",
+  "cr-floor_p02-phi080__mleo__al1": "cr-floor_p02-phi080__mleo__al1",
+  "cr-floor_p02-phi080__mleo__al2": "cr-floor_p02-phi080__mleo__al2",
+  "cr-floor_p02-phi080__mleo__al3": "cr-floor_p02-phi080__mleo__al3",
+  "cr-floor_p02-phi080__mleo__yc": "cr-floor_p02-phi080__mleo__yc",
+  "cr-floor_p02-phi080__mleo__tap": "cr-floor_p02-phi080__mleo__tap",
+  "cr-floor_p02-phi100__mobs__al1": "cr-floor_p02-phi100__mobs__al1",
+  "cr-floor_p02-phi100__mobs__al2": "cr-floor_p02-phi100__mobs__al2",
+  "cr-floor_p02-phi100__mobs__al3": "cr-floor_p02-phi100__mobs__al3",
+  "cr-floor_p02-phi100__mobs__yc": "cr-floor_p02-phi100__mobs__yc",
+  "cr-floor_p02-phi100__mobs__tap": "cr-floor_p02-phi100__mobs__tap",
+  "cr-floor_p02-phi100__mwc__al1": "cr-floor_p02-phi100__mwc__al1",
+  "cr-floor_p02-phi100__mwc__al2": "cr-floor_p02-phi100__mwc__al2",
+  "cr-floor_p02-phi100__mwc__al3": "cr-floor_p02-phi100__mwc__al3",
+  "cr-floor_p02-phi100__mwc__yc": "cr-floor_p02-phi100__mwc__yc",
+  "cr-floor_p02-phi100__mwc__tap": "cr-floor_p02-phi100__mwc__tap",
+  "cr-floor_p02-phi100__mleo__al1": "cr-floor_p02-phi100__mleo__al1",
+  "cr-floor_p02-phi100__mleo__al2": "cr-floor_p02-phi100__mleo__al2",
+  "cr-floor_p02-phi100__mleo__al3": "cr-floor_p02-phi100__mleo__al3",
+  "cr-floor_p02-phi100__mleo__yc": "cr-floor_p02-phi100__mleo__yc",
+  "cr-floor_p02-phi100__mleo__tap": "cr-floor_p02-phi100__mleo__tap"
+ }
+}

@@ -5,15 +5,18 @@
 # Steps are cached one by one. A step depends on the config keys its script
 # reads (found by scanning the script for c.KEY) plus those of the steps before
 # it; the hash of those values is recorded in config.json. A step whose hash is
-# unchanged is skipped, and a step already built with the same hash in another
+# unchanged is skipped (the hash also covers the step script, lib/ and the input data files, so a
+# code fix or a new catalog reruns the steps), and a step already built with the same hash in another
 # folder of the model (usually ref) is copied from there instead of rerun, so a
 # variant that only changes a late step does not redo the declustering.
 
+import functools
 import hashlib
 import importlib
 import json
 import re
 import shutil
+from pathlib import Path
 
 from lib import cfg
 from variants import VARIANTS
@@ -25,14 +28,14 @@ SET = {}                # extra overrides on top of each variant, e.g. {"Z_BOTTO
 STEPS = None            # None = missing steps only; or e.g. ["s02"], ["s03", "s04"]
 FORCE = False           # rerun the selected steps even if done
 
-MODELS = {"interface": ["s00_geometry", "s01_decluster", "s02_mc", "s03_ab", "s04_rates", "s05_sources"],
+MODELS = {"interface": ["s00_geometry", "s01_decluster", "s02_mc", "s03_ab", "s04_rates", "s04b_patagonia", "s05_sources"],
           "intraslab": ["s00_decluster", "s01_mc", "s02_ssm", "s03_sources"],
           "crustal": ["s00_decluster", "s01_mc", "s02_ssm", "s03_faults", "s04_sources"]}
 OPTIONAL = {"s02_mc", "s01_mc"}
-REPLACE = {"CLASSES"}       # dict parameters replaced by an override instead of merged
+REPLACE = {"CLASSES", "B_SOURCE"}   # dict parameters replaced by an override instead of merged
 # folders under outputs/<model>/<tag>/ that each step writes; copied when a step is reused
 OUTS = {"interface": {"s00": ["geometry"], "s01": ["decluster"], "s02": ["mc"], "s03": ["ab"],
-                      "s04": ["rates"], "s05": ["nrml"]},
+                      "s04": ["rates"], "s04b": ["patagonia"], "s05": ["nrml"]},
         "intraslab": {"s00": ["decluster"], "s01": ["mc"], "s02": ["ssm"], "s03": ["nrml"]},
         "crustal": {"s00": ["decluster"], "s01": ["mc"], "s02": ["ssm"], "s03": ["faults", "nrml"],
                     "s04": ["nrml"]}}
@@ -44,13 +47,42 @@ def keys(model, step):
     return set(re.findall(r"\bc\.([A-Z][A-Z0-9_]*)", open(src).read())) - {"OUT", "FIG", "TAG"}
 
 
+INPUTS = ("CAT", "SLAB_XYZ", "SLAB_THK", "SLAB_STR", "GRID_CSV", "FAULTS_SHP")
+
+
+@functools.lru_cache(maxsize=None)
+def digest(path, mtime, size):
+    return hashlib.sha1(Path(path).read_bytes()).hexdigest()
+
+
+def files(c):
+    """Data files a model reads (a shapefile with its sidecars) and their content hashes."""
+    out = {}
+    for k in INPUTS:
+        p = getattr(c, k, None)
+        for f in ([p] + [x for x in p.parent.glob(p.stem + ".*")] if k == "FAULTS_SHP" and p else [p]):
+            if f is not None and Path(f).exists():
+                st = Path(f).stat()
+                out[str(f)] = digest(str(f), st.st_mtime_ns, st.st_size)
+    return out
+
+
+def code(model, step):
+    """Hash of the step script and of lib/, so a fix in either reruns the step."""
+    h = hashlib.sha1()
+    for p in [Path(importlib.import_module(f"{model}.{step}").__file__)] + sorted((Path(__file__).parent / "lib").glob("*.py")):
+        h.update(p.read_bytes())
+    return h.hexdigest()
+
+
 def hashes(model, c, names):
-    """Step -> hash of the config values it and the steps before it depend on."""
-    d, out, seen = cfg.as_dict(c), {}, set()
+    """Step -> hash of the config values, code and input files it and the steps before it depend on."""
+    d, out, seen, cd, fl = cfg.as_dict(c), {}, set(), hashlib.sha1(), files(c)
     for s in names:
         seen |= keys(model, s)
-        out[s.split("_")[0]] = hashlib.sha1(json.dumps({k: d.get(k) for k in sorted(seen)},
-                                                       sort_keys=True).encode()).hexdigest()[:12]
+        cd.update(code(model, s).encode())
+        out[s.split("_")[0]] = hashlib.sha1(json.dumps({**{k: d.get(k) for k in sorted(seen)}, "_code": cd.hexdigest(),
+                                                        "_files": fl}, sort_keys=True).encode()).hexdigest()[:12]
     return out
 
 

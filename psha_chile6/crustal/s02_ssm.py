@@ -58,6 +58,8 @@ def main(c=None):
     cells = domain(c)
     cats = {k: cat.load(c.OUT / "decluster" / f"cat_dc_{k}_{c.DC_METHOD}.csv", bbox=c.BBOX)
             for k in c.CLASSES}
+    pats = {k: cat.load(c.OUT / "decluster" / f"cat_dc_{k}_{c.PATTERN_DC}.csv", bbox=c.BBOX)
+            for k in c.CLASSES}
     own = [k for k in c.CLASSES if k not in c.B_SOURCE]
     fits = {k: fit(k, cats[k], c, te, nboot=c.N_BOOT) for k in own}
     weak = [f"{k} (n={w['n']})" for k, w in fits.items() if not np.isfinite(w["b"])]
@@ -99,14 +101,21 @@ def main(c=None):
         rate = w["rate"] * 10 ** (-b * (c.MMIN - w["mmin"]))
         kp = {"N_NEIGHBORS": c.N_NEIGHBORS, "MIN_KERNEL_KM": c.MIN_KERNEL_KM,
               **c.KERNEL_BY_CLASS.get(k, {})}
-        wt = 10 ** (b * (gr.mc_of(comp["mag"], steps) - w["mmin"])) / (te - gr.since(comp["mag"], steps))
-        elon, elat = comp["longitude"].to_numpy(), comp["latitude"].to_numpy()
+        pc = pats[k]
+        if c.SMOOTH_EVENTS == "window_T":
+            keep, wt = gr.window_weights(pc, steps, b, w["mmin"], te)
+            pe = pc[keep]
+        else:
+            pe = pc[gr.complete(pc, steps)]
+            wt = (np.ones(len(pe)) if c.SMOOTH_EVENTS == "all" else
+                  10 ** (b * (gr.mc_of(pe["mag"], steps) - w["mmin"])) / (te - gr.since(pe["mag"], steps)))
+        elon, elat = pe["longitude"].to_numpy(), pe["latitude"].to_numpy()
         h = smooth.kernel(elon, elat, kp["N_NEIGHBORS"], kp["MIN_KERNEL_KM"])
         shape = smooth.field(elon, elat, wt, h, glon, glat, c.KERNEL_POWER, c.MAX_DIST_KM)
         if shape.sum() <= 0:
             raise RuntimeError(f"{k}: empty field")
         rb = smooth.tgr_bins(shape, rate, b, e, mmax[k])
-        exp = rate * (1 - 10 ** (-b * (mmax[k] - c.MMIN)))
+        exp = rate * (1 - 10 ** (-b * (gr.top(mmax[k]) - c.MMIN)))
         if abs(rb.sum() / exp - 1) > 1e-9:
             raise RuntimeError(f"{k}: binned total {rb.sum()} != {exp}")
         per[k] = rb
@@ -114,7 +123,7 @@ def main(c=None):
 
         mt = np.arange(w["mmin"], s["mag"].max() + 1e-6, 0.1)
         obs = gr.obs_cum(comp, steps, te, mt)
-        mod = rate * np.clip(10 ** (-b * (mt - c.MMIN)) - 10 ** (-b * (mmax[k] - c.MMIN)), 0, None)
+        mod = rate * np.clip(10 ** (-b * (mt - c.MMIN)) - 10 ** (-b * (gr.top(mmax[k]) - c.MMIN)), 0, None)
         big = mt >= min(s["mag"].max(), mmax[k]) - 0.3
         info.append({"class": k, "n_complete": w["n"], "floor": w["mmin"], "b_fit": w["b"],
                      "b_err": w["b_err"], "b_used": b, "rate_floor": w["rate"],

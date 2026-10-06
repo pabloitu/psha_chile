@@ -2,6 +2,24 @@ import numpy as np
 
 LN10 = np.log(10.0)
 
+# Catalog magnitudes are the nearest 0.1 of the homogenized Mw (Cabello et al.; checked against the
+# native Mw of GCMT and ISC-GEM events), so a recorded value stands for the bin [M - HALF, M + HALF).
+# The fits read the recorded values as they are: N(>=M) is the rate of recorded values >= M and the
+# bin of a MFD is labelled by its recorded value. HALF moves the sources from the edge to the centre:
+# bin centres sit at the recorded value and a source with Mmax holds the bin of Mmax (top edge Mmax + 2 HALF).
+# HALF = 0 reads every recorded value as the lower edge of its bin (the earlier convention).
+HALF = 0.05
+
+
+def top(mmax):
+    """Upper cut of the continuous MFD for a highest bin centred at mmax."""
+    return mmax + 2 * HALF
+
+
+def mid(e, dm):
+    """Magnitudes of the bins between edges e (recorded labels): the recorded value of the bin."""
+    return np.asarray(e)[:-1] + dm / 2 - HALF
+
 
 # completeness
 
@@ -49,6 +67,30 @@ def audit(df, steps, t_end):
                        f"step {mc}@{y0} likely too early")
         prev = r
     return rows, msg
+
+
+def window_weights(df, steps, b, floor, te, per_year=True):
+    """
+    Completeness-window weights of the events that draw a spatial pattern.
+
+    The table (Mc, since) is read as disjoint time windows; an event counts if it is
+    complete in the window it occurs in and weighs 10^(b (Mc of that window - floor)),
+    divided by the window's length with per_year (Hiemer et al. 2014, eq. 4).
+
+    Returns
+    -------
+    keep : bool array
+    w : array, weights of the kept events
+    """
+    st = sorted(steps, key=lambda x: x[1])
+    y0, mcs = np.array([x[1] for x in st], float), np.array([x[0] for x in st], float)
+    y1 = np.minimum(np.append(y0[1:], te), te)
+    i = np.searchsorted(y0, df["year"].to_numpy(), side="right") - 1
+    mt = np.where(i >= 0, mcs[np.clip(i, 0, None)], np.inf)
+    keep = (i >= 0) & (df["mag"].to_numpy() >= mt - 1e-6)
+    i = i[keep]
+    w = 10 ** (b * (mcs[i] - floor))
+    return keep, (w / (y1[i] - y0[i]) if per_year else w)
 
 
 # a-b estimation
@@ -122,6 +164,47 @@ def weichert(m, steps, t_end, mmin, dm, nboot=0, seed=0, b=None):
     return out
 
 
+def _ll(m, steps, t_end, mmin, dm, beta):
+    m = m[m >= mmin - 1e-6]
+    nb = int(np.floor((m.max() - mmin) / dm + 1e-6)) + 1
+    lo = mmin + dm * np.arange(nb)
+    t = t_end - since(lo, steps)
+    n = np.bincount(np.floor((m - mmin) / dm + 1e-6).astype(int), minlength=nb)
+    lw = np.log(t) - beta * (lo + dm / 2)
+    return float((n * (lw - np.log(np.exp(lw).sum()))).sum())
+
+
+def weichert_joint(groups, dm, nboot=0, seed=0):
+    """
+    One b for several subsets, each with its own completeness table, t_end and
+    fit floor: the Weichert likelihoods are summed and maximized over beta.
+
+    Parameters
+    ----------
+    groups : list of (m, steps, t_end, mmin)
+        Complete magnitudes and settings per subset.
+
+    Returns
+    -------
+    dict
+        b, b_err (bootstrap over every subset), n.
+    """
+    from scipy.optimize import minimize_scalar
+    gs = [(np.asarray(m, float)[np.asarray(m, float) >= mm - 1e-6], st, te, mm) for m, st, te, mm in groups]
+    f = lambda be, gs=gs: -sum(_ll(m, st, te, mm, dm, be) for m, st, te, mm in gs)
+    b = minimize_scalar(f, bounds=(0.3 * LN10, 3.0 * LN10), method="bounded").x / LN10
+    out = {"b": float(b), "b_err": np.nan, "n": int(sum(len(m) for m, *_ in gs))}
+    if nboot:
+        rng = np.random.default_rng(seed)
+        bs = []
+        for _ in range(nboot):
+            g2 = [(rng.choice(m, len(m)), st, te, mm) for m, st, te, mm in gs]
+            bs.append(minimize_scalar(lambda be: -sum(_ll(m, st, te, mm, dm, be) for m, st, te, mm in g2),
+                                      bounds=(0.3 * LN10, 3.0 * LN10), method="bounded").x / LN10)
+        out["b_err"] = float(np.std(bs))
+    return out
+
+
 def kijko_smit(df, steps, t_end, mmin, dm):
     """
     Kijko & Smit (2012): Aki-Utsu b per completeness period, combined, and
@@ -154,32 +237,34 @@ def m0(m, c=9.05):
     return 10 ** (1.5 * np.asarray(m, float) + c)
 
 
-def cum(form, b, mmin, mmax, m, c=9.05):
+def cum(form, b, mmin, mmax, m, c=9.05, corner=None):
     """
     N(>=m) for unit rate at mmin, both forms hard-truncated at mmax.
 
     tgr is the doubly truncated GR. tapered is the Kagan tapered Pareto with
-    corner moment at mmax, truncated and renormalized at mmax (beta = 2b/3).
+    the corner moment at corner (mmax when corner is None), truncated and
+    renormalized at top(mmax) (beta = 2b/3).
     """
-    m = np.asarray(m, float)
+    m, mmax = np.asarray(m, float), top(mmax)
     if form == "tgr":
         n = (10 ** (-b * m) - 10 ** (-b * mmax)) / (10 ** (-b * mmin) - 10 ** (-b * mmax))
         return np.where(m > mmax, 0.0, np.clip(n, 0, None))
     be = 2.0 * b / 3.0
-    tap = lambda x: (m0(mmin, c) / m0(x, c)) ** be * np.exp((m0(mmin, c) - m0(x, c)) / m0(mmax, c))
+    mc = mmax if corner is None else corner
+    tap = lambda x: (m0(mmin, c) / m0(x, c)) ** be * np.exp((m0(mmin, c) - m0(x, c)) / m0(mc, c))
     n = (tap(m) - tap(mmax)) / (1.0 - tap(mmax))
     return np.where(m > mmax, 0.0, np.clip(n, 0, None))
 
 
-def mpr(form, b, mmin, mmax, c=9.05, dm=0.01):
+def mpr(form, b, mmin, mmax, c=9.05, dm=0.01, corner=None):
     """Total moment rate of the MFD per unit rate at mmin (N m / yr)."""
-    g = mmin + dm * np.arange(int(round((mmax - mmin) / dm)) + 1)
-    n = cum(form, b, mmin, mmax, g, c)
-    return (np.maximum(n[:-1] - n[1:], 0) * m0(g[:-1] + dm / 2, c)).sum()
+    g = mmin + dm * np.arange(int(round((top(mmax) - mmin) / dm)) + 1)
+    n = cum(form, b, mmin, mmax, g, c, corner)
+    return (np.maximum(n[:-1] - n[1:], 0) * m0(mid(g, dm), c)).sum()
 
 
-def inc(lam, form, b, mmin, mmax, dm, c=9.05):
+def inc(lam, form, b, mmin, mmax, dm, c=9.05, corner=None):
     """Incremental rates on bins of width dm from mmin to mmax."""
-    e = mmin + dm * np.arange(int(round((mmax - mmin) / dm)) + 1)
-    n = lam * cum(form, b, mmin, mmax, e, c)
+    e = mmin + dm * np.arange(int(round((top(mmax) - mmin) / dm)) + 1)
+    n = lam * cum(form, b, mmin, mmax, e, c, corner)
     return np.maximum(n[:-1] - n[1:], 0.0), e

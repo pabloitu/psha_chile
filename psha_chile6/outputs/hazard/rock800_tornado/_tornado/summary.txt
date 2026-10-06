@@ -1,0 +1,48 @@
+reference PGA 475 yr (g): iquique 1.113, antofagasta 1.331, copiapo 1.025, valparaiso 1.367, santiago_centro 0.804, santiago_penalolen 0.741, concepcion 1.240, pucon 0.514, puerto_montt 0.630, puerto_aysen 0.497, hornopiren 0.645, puerto_williams 0.105, calama 0.822, la_serena 1.345
+
+axes ranked by the largest range over the cities (set A criterion, B collaborators, C paper):
+                                                               range_max  amax             city verdict
+set family    axis                                                                                     
+C   crustal   faults vs no faults                                   81.4  81.4  puerto_williams  >= 5 %
+    intraslab GMM (single vs tree)                                  50.3  27.2           calama  >= 5 %
+    crustal   fault Mmax (single vs tree)                           49.2  35.4     puerto_aysen  >= 5 %
+              fault seismogenic depth 10 / 30 km                    49.0  26.0  puerto_williams  >= 5 %
+              fault MFD (single vs tree)                            35.2  18.1     puerto_aysen  >= 5 %
+    interface GMM (single vs tree)                                  31.7  21.0       concepcion  >= 5 %
+    crustal   GMM (single vs tree)                                  26.7  14.0  puerto_williams  >= 5 %
+    interface (a, b): 5th / 95th percentile                         24.9  14.2     puerto_montt  >= 5 %
+    crustal   aseismic coefficient 0.6 / 1.0 (single vs tree)       20.6  11.4     puerto_aysen  >= 5 %
+A   interface fit floor -0.2 / +0.2                                 16.9  11.4     puerto_montt  >= 5 %
+B   interface scaling: Thingbaijam / Allen & Hayes                  15.9  12.5     puerto_montt  >= 5 %
+    crustal   fault and cap Mmin 6.5                                15.0  15.0     puerto_aysen  >= 5 %
+C   interface geometry: segmented                                   14.6  14.6          copiapo  >= 5 %
+A   intraslab fit floors -0.2 / +0.2                                13.7  13.7           calama  >= 5 %
+C   interface coupling 0.7 / 0.9 (geodetic)                         11.2   5.9     puerto_montt  >= 5 %
+A   all       truncation 2.5 / 4.0                                   8.7   5.4           calama  >= 5 %
+C   intraslab Mmax pad 0 / 0.4                                       7.7   4.1           calama  >= 5 %
+A   interface corner 9.1 / 10.1 (Bird & Kagan interval)              6.4   6.4     puerto_montt  >= 5 %
+C   interface segment Mmax +0.2 (segmented)                          5.2   5.2      antofagasta  >= 5 %
+A   interface Z_BOTTOM 60 km                                         4.8   4.8       concepcion   < 5 %
+              Z_TOP 5 km                                             4.5   4.5     puerto_montt   < 5 %
+              segment Mmax from the area (segmented)                 4.5   4.5          copiapo   < 5 %
+B   crustal   fault scaling: Leonard 2014                            3.8   3.8     puerto_aysen   < 5 %
+    interface aspect ratio 2                                         3.7   3.7      antofagasta   < 5 %
+A   interface completeness -0.1 / +0.1                               3.6   3.6     puerto_montt   < 5 %
+B   intraslab kernel neighbours 10 / 50                              3.3   1.9        la_serena   < 5 %
+              scaling: Allen & Hayes                                 2.9   2.9           calama   < 5 %
+              class domain cut at 50 km                              2.1   2.1          iquique   < 5 %
+A   intraslab completeness -0.1 / +0.1                               1.6   1.6           calama   < 5 %
+              separate b per class                                   1.5   1.5        la_serena   < 5 %
+B   interface MFD: truncated                                         1.4   1.4     puerto_montt   < 5 %
+C   interface rate: geodetic (mid coupling)                          1.2   1.2     puerto_montt   < 5 %
+A   crustal   completeness -0.1 / +0.1                               0.9   0.5  puerto_williams   < 5 %
+B   crustal   buffer margin 0 / 10 km                                0.6   0.4            pucon   < 5 %
+A   crustal   fit floors -0.2 / +0.2                                 0.5   0.3  puerto_williams   < 5 %
+B   crustal   background Mmax 7.5                                    0.3   0.3  santiago_centro   < 5 %
+A   crustal   Patagonia b own                                        0.3   0.3  puerto_williams   < 5 %
+              backarc b borrowed                                     0.1   0.1  santiago_centro   < 5 %
+              intra-arc fit floor 5.0                                0.1   0.1  santiago_centro   < 5 %
+              exclusions off                                         0.0   0.0     puerto_aysen   < 5 %
+
+rows missing (no finished calc):
+t_cr_multi05

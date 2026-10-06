@@ -1,0 +1,90 @@
+{
+ "name": "c_cr_smooth_window_T",
+ "description": "psha_chile6 rock800 c_cr_smooth_window_T 00a87d7b",
+ "calc_id": 310,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen"
+ ],
+ "sources": {
+  "crustal": [
+   [
+    "smooth_window_T",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "AbrahamsonEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "BooreEtAl2014",
+    0.25,
+    {}
+   ],
+   [
+    "CampbellBozorgnia2014",
+    0.25,
+    {}
+   ],
+   [
+    "ChiouYoungs2014",
+    0.25,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "crustal": "Active Shallow Crust"
+ },
+ "builds": {
+  "cr-smooth_window_T-phi050__mobs__tgr": "smooth_events-window_T",
+  "cr-smooth_window_T-phi050__mobs__tap": "smooth_events-window_T",
+  "cr-smooth_window_T-phi050__mgeo__tgr": "smooth_events-window_T",
+  "cr-smooth_window_T-phi050__mgeo__tap": "smooth_events-window_T",
+  "cr-smooth_window_T-phi075__mobs__tgr": "smooth_events-window_T",
+  "cr-smooth_window_T-phi075__mobs__tap": "smooth_events-window_T",
+  "cr-smooth_window_T-phi075__mgeo__tgr": "smooth_events-window_T",
+  "cr-smooth_window_T-phi075__mgeo__tap": "smooth_events-window_T",
+  "cr-smooth_window_T-phi100__mobs__tgr": "smooth_events-window_T",
+  "cr-smooth_window_T-phi100__mobs__tap": "smooth_events-window_T",
+  "cr-smooth_window_T-phi100__mgeo__tgr": "smooth_events-window_T",
+  "cr-smooth_window_T-phi100__mgeo__tap": "smooth_events-window_T"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 12,
+ "n_realizations": 48,
+ "branch_map": {
+  "cr-smooth_window_T-phi050__mobs__tgr": "cr-smooth_window_T-phi050__mobs__tgr",
+  "cr-smooth_window_T-phi050__mobs__tap": "cr-smooth_window_T-phi050__mobs__tap",
+  "cr-smooth_window_T-phi050__mgeo__tgr": "cr-smooth_window_T-phi050__mgeo__tgr",
+  "cr-smooth_window_T-phi050__mgeo__tap": "cr-smooth_window_T-phi050__mgeo__tap",
+  "cr-smooth_window_T-phi075__mobs__tgr": "cr-smooth_window_T-phi075__mobs__tgr",
+  "cr-smooth_window_T-phi075__mobs__tap": "cr-smooth_window_T-phi075__mobs__tap",
+  "cr-smooth_window_T-phi075__mgeo__tgr": "cr-smooth_window_T-phi075__mgeo__tgr",
+  "cr-smooth_window_T-phi075__mgeo__tap": "cr-smooth_window_T-phi075__mgeo__tap",
+  "cr-smooth_window_T-phi100__mobs__tgr": "cr-smooth_window_T-phi100__mobs__tgr",
+  "cr-smooth_window_T-phi100__mobs__tap": "cr-smooth_window_T-phi100__mobs__tap",
+  "cr-smooth_window_T-phi100__mgeo__tgr": "cr-smooth_window_T-phi100__mgeo__tgr",
+  "cr-smooth_window_T-phi100__mgeo__tap": "cr-smooth_window_T-phi100__mgeo__tap"
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "name": "c_is_gmm_mv",
+ "description": "psha_chile6 rock800 c_is_gmm_mv 7c921f7b",
+ "calc_id": 335,
+ "sites": "cities",
+ "site_params": {},
+ "disagg": {},
+ "trunc": 3.0,
+ "calc": {},
+ "site_names": [
+  "iquique",
+  "antofagasta",
+  "copiapo",
+  "valparaiso",
+  "santiago_centro",
+  "santiago_penalolen",
+  "concepcion",
+  "pucon",
+  "puerto_montt",
+  "puerto_aysen"
+ ],
+ "sources": {
+  "intraslab": [
+   [
+    "ref",
+    1.0
+   ]
+  ]
+ },
+ "gmm": {
+  "Subduction IntraSlab": [
+   [
+    "MontalvaEtAl2017SSlab",
+    1.0,
+    {}
+   ]
+  ]
+ },
+ "trts": {
+  "intraslab": "Subduction IntraSlab"
+ },
+ "builds": {
+  "is-ref-is": "ref"
+ },
+ "poes": [
+  0.002105
+ ],
+ "n_source_branches": 1,
+ "n_realizations": 1,
+ "branch_map": {
+  "is-ref-is": "is-ref-is"
+ }
+}

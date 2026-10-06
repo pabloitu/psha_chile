@@ -1,4 +1,4 @@
-# One NRML per interface end branch and the branch table the hazard runner
+# One NRML per interface end branch (with the Antarctic interface of s04b when PATAGONIA) and the branch table the hazard runner
 # turns into a logic tree. Each source's MFD moment is checked against s04.
 # Outputs: nrml/sub__{geom}__{rate}__{form}.xml, nrml/branches.json
 
@@ -9,6 +9,7 @@ import pandas as pd
 
 from lib import cfg, gr, nrml
 from interface import config
+from interface.s04b_patagonia import source as pat_source
 
 RATES = [("seismic", "-", "seis"), ("geodetic", "lo", "geo_lo"),
          ("geodetic", "mid", "geo_mid"), ("geodetic", "hi", "geo_hi")]
@@ -20,6 +21,7 @@ def main(c=None):
     od.mkdir(parents=True, exist_ok=True)
     bp = pd.read_csv(c.OUT / "rates" / "branches.csv", keep_default_na=False)
     geo = json.loads((c.OUT / "geometry" / "edges.json").read_text())
+    pat = json.loads((c.OUT / "patagonia" / "patagonia.json").read_text()) if c.PATAGONIA else None
 
     out = []
     for geom, gt in (("segmented", "seg"), ("non_segmented", "full")):
@@ -32,14 +34,16 @@ def main(c=None):
                 bid = f"{gt}__{rt}__{form}"
                 srcs = []
                 for r in sub.itertuples():
-                    inc, e = gr.inc(r.lam, form, r.b, c.MMIN_HAZ, r.mmax, c.BIN_W, c.M0_C)
-                    mom = (inc * gr.m0(e[:-1] + c.BIN_W / 2, c.M0_C)).sum()
+                    inc, e = gr.inc(r.lam, form, r.b, c.MMIN_HAZ, r.mmax, c.BIN_W, c.M0_C, c.CORNER)
+                    mom = (inc * gr.m0(gr.mid(e, c.BIN_W), c.M0_C)).sum()
                     if abs(mom / r.m0_rate - 1) > 0.03:
                         raise RuntimeError(f"{bid}/{r.seg}: MFD moment {mom:.3e} vs {r.m0_rate:.3e}")
                     edges = [[tuple(p) for p in ed] for ed in geo[r.seg]["edges"]]
                     srcs.append(nrml.complex_fault(f"{r.seg}_{bid}", edges, c.TRT,
                                                    nrml.mfd(inc, c.MMIN_HAZ, c.BIN_W),
                                                    c.MSR, c.ASPECT, c.RAKE))
+                if pat:
+                    srcs.append(pat_source(c, pat, form, f"patagonia_{bid}"))
                 fn = f"sub__{bid}.xml"
                 nrml.model(od / fn, f"interface {bid}", srcs)
                 out.append({"id": bid, "file": fn, "weight": float(sub["weight"].iloc[0])})

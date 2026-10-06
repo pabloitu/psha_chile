@@ -1,0 +1,12 @@
+id,field,value,reason,reference
+83388,time_iso,2010-02-27T06:35:14,Maule 2010: Cabello time is 3 h early (local time); GCMT centroid time 06:35:14 UTC for the centroid location of this row,GCMT C201002270634A
+157950,class,slab_interface,"Chiloe 2016: deep interface patch (domain C), not intraslab",Ruiz and Madariaga 2018; Ruiz et al. 2017a
+24,class,intra_slab,"Santiago 1647: historical intraslab, most probable of its type (section 7.4)",Ruiz and Madariaga 2018
+160,class,slab_interface,Illapel 1880: interplate; deep submarine cable break off Limari (section 5.4.1); Cabello epicentre is inland (intensity),Ruiz and Madariaga 2018
+1987,class,slab_interface,Taltal 1966: thrust on the plate interface (Deschamps et al. 1980; Table 1 domain B),Ruiz and Madariaga 2018
+3289,class,slab_interface,La Ligua 1971: interplate near the bottom of the contact zone (Table 1 domain C),Ruiz and Madariaga 2018
+4704,class,slab_interface,"Arauco 1975: interplate, domain C (Table 1; paper gives 14 Oct 1975, event is 10 May 1975)",Ruiz and Madariaga 2018
+8464,class,slab_interface,Antofagasta 1987: interplate at the southern end of the 1995 rupture (section 4.2); GCMT thrust,Ruiz and Madariaga 2018
+9347,class,slab_deep,Arica 1987: intraplate intermediate depth (Fig. 4); catalog depth 19 km is wrong,Ruiz and Madariaga 2018
+70065,class,intra_slab,Michilla 2007: intraplate intermediate depth (Fig. 4; Ruiz and Madariaga 2011),Ruiz and Madariaga 2018
+110688,class,slab_interface,Constitucion 2012: interplate near the bottom of the seismogenic contact (Table 1 domain C; Ruiz et al. 2013),Ruiz and Madariaga 2018

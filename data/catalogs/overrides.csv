@@ -1,0 +1,3 @@
+id,field,value,reason,reference
+83388,time_iso,2010-02-27T06:35:14,"Maule 2010: Cabello time is 3 h early (local time); GCMT centroid time 06:35:14 UTC for the centroid location of this row",GCMT C201002270634A
+157950,class,slab_interface,"Chiloe 2016: deep interface patch (domain C), not intraslab",Ruiz and Madariaga 2018; Ruiz et al. 2017a

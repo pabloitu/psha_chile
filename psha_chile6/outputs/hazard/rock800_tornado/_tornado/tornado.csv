@@ -1,0 +1,1009 @@
+site,family,axis,row,set,paper,base,iml_ref,iml,rel_pct
+iquique,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,1.1133912254557354,1.0447492612166984,-6.165125309923325
+antofagasta,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,1.3312943409484013,1.1942248018350594,-10.295960472249499
+copiapo,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,1.0248884444720445,0.9489008402738243,-7.414231725225873
+valparaiso,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,1.3674190687812808,1.247156083694188,-8.794888694530044
+santiago_centro,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,0.8039378356778795,0.7603443902599787,-5.4224895860440325
+santiago_penalolen,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,0.7412144731765119,0.7058014715152128,-4.777699699998427
+concepcion,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,1.2403745163371898,1.107004163027412,-10.752426106239177
+pucon,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,0.5138650400681213,0.4906002733597218,-4.527407956243801
+puerto_montt,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,0.6295117711436043,0.5693495469598308,-9.556965721940314
+puerto_aysen,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,0.4965371669251255,0.4925824190911537,-0.796465621790643
+hornopiren,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,0.6449488431910474,0.6253866378347153,-3.0331406223698565
+puerto_williams,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,0.8223624584142992,0.8079953507368914,-1.7470529606994467
+la_serena,interface,GMM (single vs tree),gmm_ag,C,"GMM, interface",,1.344922471340388,1.2577784334593087,-6.479484114368994
+iquique,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,1.1133912254557354,1.0461067102887869,-6.0432050862811115
+antofagasta,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,1.3312943409484013,1.1873540935779252,-10.812052822814099
+copiapo,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,1.0248884444720445,1.0073259542719775,-1.7136001771504095
+valparaiso,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,1.3674190687812808,1.2717138605996376,-6.998966912677396
+santiago_centro,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,0.8039378356778795,0.8258970630543743,2.731458379238849
+santiago_penalolen,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,0.7412144731765119,0.7682391711117521,3.646002461261255
+concepcion,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,1.2403745163371898,1.11874206584412,-9.806106856520136
+pucon,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,0.5138650400681213,0.5338116578294807,3.8816841400059365
+puerto_montt,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,0.6295117711436043,0.6050205855071176,-3.890504794214533
+puerto_aysen,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,0.4965371669251255,0.5014123984807292,0.9818462504618042
+hornopiren,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,0.6449488431910474,0.6569619333851479,1.8626423352684274
+puerto_williams,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,0.8223624584142992,0.836832292192574,1.7595445451359604
+la_serena,interface,GMM (single vs tree),gmm_pk,C,"GMM, interface",,1.344922471340388,1.3002337484795103,-3.3227731570534047
+iquique,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,1.1133912254557354,1.2367383527373559,11.078507218442635
+antofagasta,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,1.3312943409484013,1.5975436581456417,19.999282578454203
+copiapo,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,1.0248884444720445,1.2034158637663093,17.41920501272023
+valparaiso,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,1.3674190687812808,1.6281254808246106,19.06558259975748
+santiago_centro,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,0.8039378356778795,0.8944779755146368,11.262082193259882
+santiago_penalolen,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,0.7412144731765119,0.811312132816534,9.457135846203201
+concepcion,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,1.2403745163371898,1.5005245326864651,20.97350541492058
+pucon,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,0.5138650400681213,0.5448383335970715,6.027515225562752
+puerto_montt,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,0.6295117711436043,0.7423700022395532,17.927898455484726
+puerto_aysen,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,0.4965371669251255,0.499370703046063,0.5706594208213289
+hornopiren,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,0.6449488431910474,0.6748396671833163,4.634603861660791
+puerto_williams,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,0.8223624584142992,0.8459497400652227,2.8682342450803366
+la_serena,interface,GMM (single vs tree),gmm_ku,C,"GMM, interface",,1.344922471340388,1.5518938009276577,15.389090003158046
+iquique,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,1.1133912254557354,1.1205517616556269,0.6431284921398994
+antofagasta,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,1.3312943409484013,1.3277033614638702,-0.2697359535061783
+copiapo,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,1.0248884444720445,0.9430159168207203,-7.988433091710734
+valparaiso,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,1.3674190687812808,1.3232986228617694,-3.2265489729373154
+santiago_centro,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,0.8039378356778795,0.730832829345017,-9.093365567403655
+santiago_penalolen,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,0.7412144731765119,0.6804214941095442,-8.201806800457678
+concepcion,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,1.2403745163371898,1.2102231101494874,-2.4308308329922146
+pucon,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,0.5138650400681213,0.4822426104517125,-6.153839461858834
+puerto_montt,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,0.6295117711436043,0.6014204878046739,-4.462392067410958
+puerto_aysen,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,0.4965371669251255,0.49276798979808834,-0.7590926476618742
+hornopiren,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,0.6449488431910474,0.6178569185813891,-4.2006315532894245
+puerto_williams,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,0.8223624584142992,0.7977511301445405,-2.9927592168075057
+la_serena,interface,GMM (single vs tree),gmm_mv,C,"GMM, interface",,1.344922471340388,1.2757304593251768,-5.144684060952043
+iquique,interface,geometry: segmented,seg,C,Interface segmentation,,1.1133912254557354,1.0770458578725561,-3.264384230107642
+antofagasta,interface,geometry: segmented,seg,C,Interface segmentation,,1.3312943409484013,1.165569461515516,-12.44840260605512
+copiapo,interface,geometry: segmented,seg,C,Interface segmentation,,1.0248884444720445,0.8756532330737584,-14.56111757364601
+valparaiso,interface,geometry: segmented,seg,C,Interface segmentation,,1.3674190687812808,1.319825645948182,-3.480529408992128
+santiago_centro,interface,geometry: segmented,seg,C,Interface segmentation,,0.8039378356778795,0.7628926607808085,-5.105516008269683
+santiago_penalolen,interface,geometry: segmented,seg,C,Interface segmentation,,0.7412144731765119,0.7042465293045787,-4.987482734046633
+concepcion,interface,geometry: segmented,seg,C,Interface segmentation,,1.2403745163371898,1.1320772892636697,-8.731010323665823
+pucon,interface,geometry: segmented,seg,C,Interface segmentation,,0.5138650400681213,0.48444191897233146,-5.725846049361383
+puerto_montt,interface,geometry: segmented,seg,C,Interface segmentation,,0.6295117711436043,0.592385038971379,-5.89770261241962
+puerto_aysen,interface,geometry: segmented,seg,C,Interface segmentation,,0.4965371669251255,0.5043593717725808,1.5753513268493835
+hornopiren,interface,geometry: segmented,seg,C,Interface segmentation,,0.6449488431910474,0.6379367330788466,-1.087235086352989
+puerto_williams,interface,geometry: segmented,seg,C,Interface segmentation,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,geometry: segmented,seg,C,Interface segmentation,,0.8223624584142992,0.8010734999235608,-2.5887561224266387
+la_serena,interface,geometry: segmented,seg,C,Interface segmentation,,1.344922471340388,1.2234981410450507,-9.02835166210899
+iquique,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,1.1133912254557354,1.1073090423671599,-0.5462754645013446
+antofagasta,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,1.3312943409484013,1.3199863131663836,-0.8494010253181083
+copiapo,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,1.0248884444720445,1.0174741489844057,-0.7234246349082651
+valparaiso,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,1.3674190687812808,1.356867467049394,-0.771643600179639
+santiago_centro,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,0.8039378356778795,0.7999229473817115,-0.4994028291730457
+santiago_penalolen,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,0.7412144731765119,0.7379469547147143,-0.4408330625000456
+concepcion,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,1.2403745163371898,1.228703208094146,-0.9409503411525244
+pucon,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,0.5138650400681213,0.511829479459459,-0.3961274751036692
+puerto_montt,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,0.6295117711436043,0.6221962795099406,-1.1620897287391463
+puerto_aysen,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,0.4965371669251255,0.49627736002746325,-0.052323756400984855
+hornopiren,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,0.6449488431910474,0.6432375621450028,-0.26533593541738787
+puerto_williams,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,0.8223624584142992,0.8213160230042185,-0.1272474684822722
+la_serena,interface,rate: geodetic (mid coupling),geo,C,Geodetic rate,,1.344922471340388,1.3371233802857712,-0.5798914971540392
+iquique,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,1.1073090423671599,1.0772552539119746,-2.714128333219201
+antofagasta,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,1.3199863131663836,1.2635982682943214,-4.271865875396729
+copiapo,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,1.0174741489844057,0.9795077892472708,-3.7314323685797013
+valparaiso,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,1.356867467049394,1.3045192096325993,-3.8580228863936084
+santiago_centro,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,0.7999229473817115,0.7786831428907531,-2.6552313020247853
+santiago_penalolen,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,0.7379469547147143,0.7219039470265204,-2.1740055414140147
+concepcion,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,1.228703208094146,1.1705932522798996,-4.729372840523571
+pucon,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,0.511829479459459,0.5017886318452189,-1.96175640856876
+puerto_montt,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,0.6221962795099406,0.5857417233839214,-5.859012232399053
+puerto_aysen,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,0.49627736002746325,0.49501616920891683,-0.25413023444724736
+hornopiren,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,0.6432375621450028,0.6339082781235904,-1.4503636868316683
+puerto_williams,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,0.8213160230042185,0.8162128588689155,-0.6213398974777795
+la_serena,interface,coupling 0.7 / 0.9 (geodetic),geo_lo,C,Coupling coefficient,geo,1.3371233802857712,1.2986075163135624,-2.880501869915486
+iquique,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,1.1073090423671599,1.1363220951065833,2.6201405054365523
+antofagasta,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,1.3199863131663836,1.3736401157144813,4.064724157585609
+copiapo,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,1.0174741489844057,1.0527815538933383,3.4701033873120846
+valparaiso,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,1.356867467049394,1.4070804315211263,3.700653578269053
+santiago_centro,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,0.7999229473817115,0.8191113409761989,2.398780239683629
+santiago_penalolen,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,0.7379469547147143,0.75359428655644,2.120387074132579
+concepcion,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,1.228703208094146,1.2805429295291861,4.219059663354274
+pucon,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,0.511829479459459,0.5208540357970272,1.763195888423419
+puerto_montt,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,0.6221962795099406,0.6556316442190052,5.373764808654791
+puerto_aysen,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,0.49627736002746325,0.49753044790624634,0.25249749025701984
+hornopiren,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,0.6432375621450028,0.6514486833098051,1.2765301108070615
+puerto_williams,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,0.8213160230042185,0.8263480503124085,0.6126785752680108
+la_serena,interface,coupling 0.7 / 0.9 (geodetic),geo_hi,C,Coupling coefficient,geo,1.3371233802857712,1.374337752662677,2.7831666789756015
+iquique,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,1.1133912254557354,1.0615921912915072,-4.6523659410936835
+antofagasta,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,1.3312943409484013,1.230693594207795,-7.556611911152511
+copiapo,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,1.0248884444720445,0.9467036739002185,-7.628612752298302
+valparaiso,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,1.3674190687812808,1.2676258328884897,-7.297926302997393
+santiago_centro,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,0.8039378356778795,0.758046282900774,-5.708345936773796
+santiago_penalolen,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,0.7412144731765119,0.7058535928376469,-4.770667818630702
+concepcion,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,1.2403745163371898,1.1348105130118242,-8.51065560723504
+pucon,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,0.5138650400681213,0.49245802667484057,-4.165882425168066
+puerto_montt,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,0.6295117711436043,0.5626360271829509,-10.623430255984479
+puerto_aysen,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,0.4965371669251255,0.4937941772338342,-0.552423841356664
+hornopiren,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,0.6449488431910474,0.625364912621145,-3.0365091397026034
+puerto_williams,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,0.8223624584142992,0.8109114912094947,-1.39244770814132
+la_serena,interface,"(a, b): 5th / 95th percentile",ab_p05,C,"Recurrence parameters (a, b)",,1.344922471340388,1.2676326931121533,-5.74678316968007
+iquique,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,1.1133912254557354,1.188070503368352,6.707370797003431
+antofagasta,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,1.3312943409484013,1.4734197118064287,10.675728611358682
+copiapo,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,1.0248884444720445,1.1338446173851737,10.631027552394379
+valparaiso,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,1.3674190687812808,1.5132908892690446,10.66767487876068
+santiago_centro,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,0.8039378356778795,0.8680381973348895,7.973298284059571
+santiago_penalolen,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,0.7412144731765119,0.7946310231454577,7.206625329376881
+concepcion,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,1.2403745163371898,1.3792347647484775,11.195025904058431
+pucon,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,0.5138650400681213,0.543047737593213,5.679058750761312
+puerto_montt,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,0.6295117711436043,0.7191224118169197,14.234942820929941
+puerto_aysen,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,0.4965371669251255,0.500804291263723,0.859376623309438
+hornopiren,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,0.6449488431910474,0.6711634285198539,4.064599170238559
+puerto_williams,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,0.8223624584142992,0.8400659090764159,2.1527552092118762
+la_serena,interface,"(a, b): 5th / 95th percentile",ab_p95,C,"Recurrence parameters (a, b)",,1.344922471340388,1.4588810368162974,8.473244213276843
+iquique,interface,MFD: truncated,tgr,B,,,1.1133912254557354,1.1070782213080215,-0.5670068169551068
+antofagasta,interface,MFD: truncated,tgr,B,,,1.3312943409484013,1.3170595462200267,-1.0692447410415529
+copiapo,interface,MFD: truncated,tgr,B,,,1.0248884444720445,1.0116957027500202,-1.2872368493549002
+valparaiso,interface,MFD: truncated,tgr,B,,,1.3674190687812808,1.3501907873953334,-1.2599123252904687
+santiago_centro,interface,MFD: truncated,tgr,B,,,0.8039378356778795,0.7953123448401628,-1.0729051992488525
+santiago_penalolen,interface,MFD: truncated,tgr,B,,,0.7412144731765119,0.7341798730632852,-0.949064052011761
+concepcion,interface,MFD: truncated,tgr,B,,,1.2403745163371898,1.2241938849509308,-1.3044956320160561
+pucon,interface,MFD: truncated,tgr,B,,,0.5138650400681213,0.5101294137539463,-0.7269664255968422
+puerto_montt,interface,MFD: truncated,tgr,B,,,0.6295117711436043,0.6205887596854867,-1.4174495008898225
+puerto_aysen,interface,MFD: truncated,tgr,B,,,0.4965371669251255,0.4960906882156727,-0.08991848731438878
+hornopiren,interface,MFD: truncated,tgr,B,,,0.6449488431910474,0.6422532077452717,-0.4179611257907445
+puerto_williams,interface,MFD: truncated,tgr,B,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,MFD: truncated,tgr,B,,,0.8223624584142992,0.8202489390171073,-0.257005822136791
+la_serena,interface,MFD: truncated,tgr,B,,,1.344922471340388,1.330969699710639,-1.0374405905972606
+iquique,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,1.1133912254557354,1.083567890763617,-2.6786033525557085
+antofagasta,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,1.3312943409484013,1.2704495622688607,-4.5703475788979375
+copiapo,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,1.0248884444720445,0.9622860021176106,-6.108220137722653
+valparaiso,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,1.3674190687812808,1.2876188688378802,-5.8358261754037795
+santiago_centro,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,0.8039378356778795,0.7590156811819637,-5.587764688054198
+santiago_penalolen,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,0.7412144731765119,0.7050898156530327,-4.8737118379063915
+concepcion,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,1.2403745163371898,1.167539302229276,-5.872034062985698
+pucon,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,0.5138650400681213,0.49455642066272004,-3.7575273466436965
+puerto_montt,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,0.6295117711436043,0.5894555345200375,-6.363063958406778
+puerto_aysen,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,0.4965371669251255,0.4936207265195729,-0.5873559120685878
+hornopiren,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,0.6449488431910474,0.6282370000447478,-2.591188948198364
+puerto_williams,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,0.8223624584142992,0.8099198830444471,-1.5130281352877195
+la_serena,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_lo,A,,,1.344922471340388,1.2798238637147101,-4.84032418320729
+iquique,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,1.1133912254557354,1.1101135975195935,-0.29438241124994935
+antofagasta,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,1.3312943409484013,1.3231713126455558,-0.6101602067247414
+copiapo,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,1.0248884444720445,1.017277734759935,-0.7425890840275784
+valparaiso,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,1.3674190687812808,1.3574214625702854,-0.7311296470295603
+santiago_centro,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,0.8039378356778795,0.7992174337627472,-0.5871600645778741
+santiago_penalolen,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,0.7412144731765119,0.7372859572777762,-0.5300106839387309
+concepcion,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,1.2403745163371898,1.231140486603934,-0.7444549699814673
+pucon,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,0.5138650400681213,0.5119044474390864,-0.38153843444477253
+puerto_montt,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,0.6295117711436043,0.6247614840341837,-0.7545986154938733
+puerto_aysen,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,0.4965371669251255,0.49634435384418624,-0.03883155054299481
+hornopiren,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,0.6449488431910474,0.6436450492699981,-0.20215462587674926
+puerto_williams,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,0.8223624584142992,0.8213344570614678,-0.12500587086790027
+la_serena,interface,corner 9.1 / 10.1 (Bird & Kagan interval),corner_hi,A,,,1.344922471340388,1.3368409218266673,-0.6008933366743796
+iquique,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,1.0770458578725561,1.121676171064122,4.14377093281082
+antofagasta,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,1.165569461515516,1.2257122630807293,5.159950011646108
+copiapo,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,0.8756532330737584,0.9152413902656488,4.52098567065482
+valparaiso,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,1.319825645948182,1.3458546195133259,1.9721524312739103
+santiago_centro,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,0.7628926607808085,0.7774710372079393,1.9109341558234405
+santiago_penalolen,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,0.7042465293045787,0.7158370979152652,1.6458112505193023
+concepcion,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,1.1320772892636697,1.1707389735003308,3.415109957890561
+pucon,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,0.48444191897233146,0.4878166535221421,0.6966231487501418
+puerto_montt,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,0.592385038971379,0.6008676345844715,1.4319395418597614
+puerto_aysen,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,0.5043593717725808,0.5064511019305408,0.4147301061559583
+hornopiren,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,0.6379367330788466,0.6416980991904351,0.5896142856416375
+puerto_williams,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,0.8010734999235608,0.8097043116065338,1.0774057166784923
+la_serena,interface,segment Mmax +0.2 (segmented),mmax_p02,C,Interface Mmax,seg,1.2234981410450507,1.2675210104448411,3.5981149396915546
+iquique,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,1.0770458578725561,1.1007001170386224,2.196216529980388
+antofagasta,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,1.165569461515516,1.1969331324240415,2.6908452858523946
+copiapo,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,0.8756532330737584,0.9151444230810072,4.509911973787273
+valparaiso,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,1.319825645948182,1.3198912703840464,0.0049722049322076245
+santiago_centro,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,0.7628926607808085,0.7629415160954611,0.0064039565674356425
+santiago_penalolen,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,0.7042465293045787,0.7043040168908178,0.008162991771620831
+concepcion,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,1.1320772892636697,1.1320773078984416,1.6460688812003355e-06
+pucon,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,0.48444191897233146,0.4844419265456675,1.5633114580637653e-06
+puerto_montt,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,0.592385038971379,0.5923850651875151,4.425522992512754e-06
+puerto_aysen,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,0.5043593717725808,0.5043593713092522,-9.186477134548454e-08
+hornopiren,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,0.6379367330788466,0.637936741350411,1.2966120399582337e-06
+puerto_williams,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,0.8010734999235608,0.8054973797008177,0.5522439298864645
+la_serena,interface,segment Mmax from the area (segmented),mmax_area,A,,seg,1.2234981410450507,1.2675210104448411,3.5981149396915546
+iquique,interface,Z_TOP 5 km,ztop5,A,,,1.1133912254557354,1.0884544342718574,-2.2397150807139554
+antofagasta,interface,Z_TOP 5 km,ztop5,A,,,1.3312943409484013,1.29229479070822,-2.9294461067413735
+copiapo,interface,Z_TOP 5 km,ztop5,A,,,1.0248884444720445,0.9861384558919902,-3.7808981835106725
+valparaiso,interface,Z_TOP 5 km,ztop5,A,,,1.3674190687812808,1.3072022382547621,-4.4036851541193744
+santiago_centro,interface,Z_TOP 5 km,ztop5,A,,,0.8039378356778795,0.7849883116403323,-2.357088222072412
+santiago_penalolen,interface,Z_TOP 5 km,ztop5,A,,,0.7412144731765119,0.7265391726835242,-1.9798993441258572
+concepcion,interface,Z_TOP 5 km,ztop5,A,,,1.2403745163371898,1.1970976149159132,-3.4890189093107704
+pucon,interface,Z_TOP 5 km,ztop5,A,,,0.5138650400681213,0.5038272553735519,-1.953389297166186
+puerto_montt,interface,Z_TOP 5 km,ztop5,A,,,0.6295117711436043,0.6010159476414384,-4.526654593034685
+puerto_aysen,interface,Z_TOP 5 km,ztop5,A,,,0.4965371669251255,0.4951445348444939,-0.2804688497450636
+hornopiren,interface,Z_TOP 5 km,ztop5,A,,,0.6449488431910474,0.6345700568947906,-1.6092417880626209
+puerto_williams,interface,Z_TOP 5 km,ztop5,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,Z_TOP 5 km,ztop5,A,,,0.8223624584142992,0.8172179909698308,-0.6255717769982017
+la_serena,interface,Z_TOP 5 km,ztop5,A,,,1.344922471340388,1.305169685155756,-2.9557678625901196
+iquique,interface,Z_BOTTOM 60 km,zbot60,A,,,1.1133912254557354,1.0908585177512728,-2.023790666684966
+antofagasta,interface,Z_BOTTOM 60 km,zbot60,A,,,1.3312943409484013,1.2903551068893258,-3.075145202668761
+copiapo,interface,Z_BOTTOM 60 km,zbot60,A,,,1.0248884444720445,0.9807562490988819,-4.306048683756658
+valparaiso,interface,Z_BOTTOM 60 km,zbot60,A,,,1.3674190687812808,1.3110623320011887,-4.121394681903945
+santiago_centro,interface,Z_BOTTOM 60 km,zbot60,A,,,0.8039378356778795,0.8180419959928314,1.7543844423069554
+santiago_penalolen,interface,Z_BOTTOM 60 km,zbot60,A,,,0.7412144731765119,0.7630758805373528,2.949403735622247
+concepcion,interface,Z_BOTTOM 60 km,zbot60,A,,,1.2403745163371898,1.1806858195995942,-4.8121511649445665
+pucon,interface,Z_BOTTOM 60 km,zbot60,A,,,0.5138650400681213,0.5325888210775674,3.6437156742486376
+puerto_montt,interface,Z_BOTTOM 60 km,zbot60,A,,,0.6295117711436043,0.6225133094711646,-1.1117284843976782
+puerto_aysen,interface,Z_BOTTOM 60 km,zbot60,A,,,0.4965371669251255,0.4954622774131226,-0.2164771508766039
+hornopiren,interface,Z_BOTTOM 60 km,zbot60,A,,,0.6449488431910474,0.6591776767645883,2.2061956888146605
+puerto_williams,interface,Z_BOTTOM 60 km,zbot60,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,Z_BOTTOM 60 km,zbot60,A,,,0.8223624584142992,0.8434017010020932,2.5583904484602016
+la_serena,interface,Z_BOTTOM 60 km,zbot60,A,,,1.344922471340388,1.2954907329924061,-3.675434041838621
+iquique,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,1.1133912254557354,1.1720939753452955,5.272427925371126
+antofagasta,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,1.3312943409484013,1.4453616074013178,8.56814777501842
+copiapo,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,1.0248884444720445,1.1063808735915721,7.951346271789328
+valparaiso,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,1.3674190687812808,1.4801602127378355,8.24481291291599
+santiago_centro,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,0.8039378356778795,0.8508041372525413,5.829592724062338
+santiago_penalolen,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,0.7412144731765119,0.7788648520712801,5.0795525798917
+concepcion,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,1.2403745163371898,1.3448689795905755,8.424428418761497
+pucon,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,0.5138650400681213,0.5352529906595341,4.162172734805525
+puerto_montt,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,0.6295117711436043,0.7082543806430094,12.508520588321502
+puerto_aysen,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,0.4965371669251255,0.5077322719346604,2.254635857142806
+hornopiren,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,0.6449488431910474,0.667085608106122,3.4323288038702993
+puerto_williams,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,0.8223624584142992,0.8364913282010423,1.7180830231461108
+la_serena,interface,scaling: Thingbaijam / Allen & Hayes,msr_tmg,B,,,1.344922471340388,1.4282659991219526,6.196902019080852
+iquique,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,1.1133912254557354,1.0869227061322715,-2.377288298875335
+antofagasta,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,1.3312943409484013,1.3079257717283157,-1.7553270153193967
+copiapo,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,1.0248884444720445,0.9927116516047289,-3.13954099500956
+valparaiso,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,1.3674190687812808,1.3062379713986716,-4.474202443084052
+santiago_centro,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,0.8039378356778795,0.7728308701179545,-3.8693247387337593
+santiago_penalolen,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,0.7412144731765119,0.7159774806361812,-3.404816480738204
+concepcion,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,1.2403745163371898,1.1984888379853342,-3.376857376556186
+pucon,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,0.5138650400681213,0.5052675694076476,-1.6730989637539717
+puerto_montt,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,0.6295117711436043,0.6084261485189453,-3.349519991715777
+puerto_aysen,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,0.4965371669251255,0.49446009406898084,-0.4183116581196189
+hornopiren,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,0.6449488431910474,0.6340618147340449,-1.688045272418226
+puerto_williams,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,0.8223624584142992,0.8166101165680971,-0.6994898401969762
+la_serena,interface,scaling: Thingbaijam / Allen & Hayes,msr_ah,B,,,1.344922471340388,1.2999879393414744,-3.34104998291318
+iquique,interface,aspect ratio 2,asp20,B,,,1.1133912254557354,1.144114878241397,2.7594660424134165
+antofagasta,interface,aspect ratio 2,asp20,B,,,1.3312943409484013,1.380951951336813,3.730024898403461
+copiapo,interface,aspect ratio 2,asp20,B,,,1.0248884444720445,1.0351734567430477,1.003525049626397
+valparaiso,interface,aspect ratio 2,asp20,B,,,1.3674190687812808,1.4055919295992656,2.7915992755612518
+santiago_centro,interface,aspect ratio 2,asp20,B,,,0.8039378356778795,0.8051380733195219,0.149294832060054
+santiago_penalolen,interface,aspect ratio 2,asp20,B,,,0.7412144731765119,0.7416047986368463,0.052660258866987775
+concepcion,interface,aspect ratio 2,asp20,B,,,1.2403745163371898,1.2840224019878663,3.5189279589174616
+pucon,interface,aspect ratio 2,asp20,B,,,0.5138650400681213,0.5137696533837456,-0.018562594638282803
+puerto_montt,interface,aspect ratio 2,asp20,B,,,0.6295117711436043,0.6365091155273044,1.1115509994337858
+puerto_aysen,interface,aspect ratio 2,asp20,B,,,0.4965371669251255,0.49596122780010965,-0.11599114092152307
+hornopiren,interface,aspect ratio 2,asp20,B,,,0.6449488431910474,0.6437832971198129,-0.18071915060234867
+puerto_williams,interface,aspect ratio 2,asp20,B,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,aspect ratio 2,asp20,B,,,0.8223624584142992,0.8231356673802416,0.09402289197797398
+la_serena,interface,aspect ratio 2,asp20,B,,,1.344922471340388,1.3635471138748847,1.384811610436909
+iquique,interface,fit floor -0.2 / +0.2,floor_m02,A,,,1.1133912254557354,1.0586599595105382,-4.9157263587015
+antofagasta,interface,fit floor -0.2 / +0.2,floor_m02,A,,,1.3312943409484013,1.223844773152102,-8.071060207448433
+copiapo,interface,fit floor -0.2 / +0.2,floor_m02,A,,,1.0248884444720445,0.9383802268562885,-8.440744754451723
+valparaiso,interface,fit floor -0.2 / +0.2,floor_m02,A,,,1.3674190687812808,1.2591436192644598,-7.9182345770066
+santiago_centro,interface,fit floor -0.2 / +0.2,floor_m02,A,,,0.8039378356778795,0.7524213923669423,-6.408013284696146
+santiago_penalolen,interface,fit floor -0.2 / +0.2,floor_m02,A,,,0.7412144731765119,0.701418497195888,-5.3690230588828385
+concepcion,interface,fit floor -0.2 / +0.2,floor_m02,A,,,1.2403745163371898,1.127302011790646,-9.115997068405225
+pucon,interface,fit floor -0.2 / +0.2,floor_m02,A,,,0.5138650400681213,0.4899381220881129,-4.656264994566762
+puerto_montt,interface,fit floor -0.2 / +0.2,floor_m02,A,,,0.6295117711436043,0.5576222580844253,-11.419883845631784
+puerto_aysen,interface,fit floor -0.2 / +0.2,floor_m02,A,,,0.4965371669251255,0.49349679328677254,-0.6123154198467984
+hornopiren,interface,fit floor -0.2 / +0.2,floor_m02,A,,,0.6449488431910474,0.623101426095343,-3.387465118567967
+puerto_williams,interface,fit floor -0.2 / +0.2,floor_m02,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,fit floor -0.2 / +0.2,floor_m02,A,,,0.8223624584142992,0.8094274477257932,-1.572908704204179
+la_serena,interface,fit floor -0.2 / +0.2,floor_m02,A,,,1.344922471340388,1.2598675089188633,-6.324153565279977
+iquique,interface,fit floor -0.2 / +0.2,floor_p02,A,,,1.1133912254557354,1.1404500687074448,2.4303086492022175
+antofagasta,interface,fit floor -0.2 / +0.2,floor_p02,A,,,1.3312943409484013,1.384160603013213,3.971042348692788
+copiapo,interface,fit floor -0.2 / +0.2,floor_p02,A,,,1.0248884444720445,1.0682330637033186,4.229203623580946
+valparaiso,interface,fit floor -0.2 / +0.2,floor_p02,A,,,1.3674190687812808,1.4237499887975356,4.119506689815289
+santiago_centro,interface,fit floor -0.2 / +0.2,floor_p02,A,,,0.8039378356778795,0.8300796129469158,3.2517162532838872
+santiago_penalolen,interface,fit floor -0.2 / +0.2,floor_p02,A,,,0.7412144731765119,0.7630364257309612,2.9440807410209047
+concepcion,interface,fit floor -0.2 / +0.2,floor_p02,A,,,1.2403745163371898,1.2930888959527003,4.24987605930307
+pucon,interface,fit floor -0.2 / +0.2,floor_p02,A,,,0.5138650400681213,0.5255933031827601,2.282362527149928
+puerto_montt,interface,fit floor -0.2 / +0.2,floor_p02,A,,,0.6295117711436043,0.66420618701458,5.511321227234234
+puerto_aysen,interface,fit floor -0.2 / +0.2,floor_p02,A,,,0.4965371669251255,0.4982260600048489,0.3401342723611478
+hornopiren,interface,fit floor -0.2 / +0.2,floor_p02,A,,,0.6449488431910474,0.6553456436814248,1.612034907906268
+puerto_williams,interface,fit floor -0.2 / +0.2,floor_p02,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,fit floor -0.2 / +0.2,floor_p02,A,,,0.8223624584142992,0.8295961422025785,0.8796223264164293
+la_serena,interface,fit floor -0.2 / +0.2,floor_p02,A,,,1.344922471340388,1.3898536907440557,3.340803679106341
+iquique,interface,completeness -0.1 / +0.1,mc_m01,A,,,1.1133912254557354,1.0953621315426263,-1.6192954911899426
+antofagasta,interface,completeness -0.1 / +0.1,mc_m01,A,,,1.3312943409484013,1.2972497864424253,-2.557252251348341
+copiapo,interface,completeness -0.1 / +0.1,mc_m01,A,,,1.0248884444720445,1.001147446353406,-2.3164470481339405
+valparaiso,interface,completeness -0.1 / +0.1,mc_m01,A,,,1.3674190687812808,1.3345725851559997,-2.402078804894514
+santiago_centro,interface,completeness -0.1 / +0.1,mc_m01,A,,,0.8039378356778795,0.7900278477689892,-1.7302317780778953
+santiago_penalolen,interface,completeness -0.1 / +0.1,mc_m01,A,,,0.7412144731765119,0.7303490799521499,-1.4658905913962794
+concepcion,interface,completeness -0.1 / +0.1,mc_m01,A,,,1.2403745163371898,1.2047952799463704,-2.8684269083409153
+pucon,interface,completeness -0.1 / +0.1,mc_m01,A,,,0.5138650400681213,0.5071750699631216,-1.3018924393285891
+puerto_montt,interface,completeness -0.1 / +0.1,mc_m01,A,,,0.6295117711436043,0.6070987366298717,-3.5603837038687858
+puerto_aysen,interface,completeness -0.1 / +0.1,mc_m01,A,,,0.4965371669251255,0.49567741515436264,-0.17314952999127886
+hornopiren,interface,completeness -0.1 / +0.1,mc_m01,A,,,0.6449488431910474,0.6392510599838604,-0.8834473101766882
+puerto_williams,interface,completeness -0.1 / +0.1,mc_m01,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,completeness -0.1 / +0.1,mc_m01,A,,,0.8223624584142992,0.8188560678692476,-0.4263801817768753
+la_serena,interface,completeness -0.1 / +0.1,mc_m01,A,,,1.344922471340388,1.3201121244195217,-1.8447417936395705
+iquique,interface,completeness -0.1 / +0.1,mc_p01,A,,,1.1133912254557354,1.1063843331887886,-0.6293288564474531
+antofagasta,interface,completeness -0.1 / +0.1,mc_p01,A,,,1.3312943409484013,1.3176552869648188,-1.0244957530478271
+copiapo,interface,completeness -0.1 / +0.1,mc_p01,A,,,1.0248884444720445,1.0139259704333556,-1.0696260747028008
+valparaiso,interface,completeness -0.1 / +0.1,mc_p01,A,,,1.3674190687812808,1.3531319870905978,-1.0448210074630926
+santiago_centro,interface,completeness -0.1 / +0.1,mc_p01,A,,,0.8039378356778795,0.7972988281673911,-0.8258110535238616
+santiago_penalolen,interface,completeness -0.1 / +0.1,mc_p01,A,,,0.7412144731765119,0.7357839425947905,-0.7326530684767407
+concepcion,interface,completeness -0.1 / +0.1,mc_p01,A,,,1.2403745163371898,1.2256530757903206,-1.186854482494648
+pucon,interface,completeness -0.1 / +0.1,mc_p01,A,,,0.5138650400681213,0.510621836529641,-0.6311391679905576
+puerto_montt,interface,completeness -0.1 / +0.1,mc_p01,A,,,0.6295117711436043,0.6201217998007038,-1.4916276030616848
+puerto_aysen,interface,completeness -0.1 / +0.1,mc_p01,A,,,0.4965371669251255,0.49612609258055396,-0.08278823257424905
+hornopiren,interface,completeness -0.1 / +0.1,mc_p01,A,,,0.6449488431910474,0.6423411398458131,-0.4043271606368082
+puerto_williams,interface,completeness -0.1 / +0.1,mc_p01,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,interface,completeness -0.1 / +0.1,mc_p01,A,,,0.8223624584142992,0.8205758817786357,-0.21724929407750393
+la_serena,interface,completeness -0.1 / +0.1,mc_p01,A,,,1.344922471340388,1.3335842896862358,-0.8430360779720147
+iquique,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,1.1133912254557354,1.120508630342159,0.6392546235048924
+antofagasta,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,1.3312943409484013,1.3192632426039272,-0.9037143758834909
+copiapo,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,1.0248884444720445,1.029132792473887,0.41412780334633137
+valparaiso,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,1.3674190687812808,1.3418393880753245,-1.8706540876861077
+santiago_centro,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,0.8039378356778795,0.8299508868063604,3.235704301259412
+santiago_penalolen,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,0.7412144731765119,0.7732577370139603,4.323075843368973
+concepcion,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,1.2403745163371898,1.2197938610275472,-1.6592291310867147
+pucon,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,0.5138650400681213,0.5219055518695905,1.5647127503368052
+puerto_montt,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,0.6295117711436043,0.6309905359803826,0.2349066220146856
+puerto_aysen,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,0.4965371669251255,0.49670965110515125,0.0347374157495306
+hornopiren,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,0.6449488431910474,0.6475138436185564,0.39770602809643396
+puerto_williams,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,0.8223624584142992,0.9066319155967547,10.2472402917013
+la_serena,intraslab,GMM (single vs tree),gmm_ag,C,"GMM, in-slab",,1.344922471340388,1.3170476614056335,-2.0725960439172186
+iquique,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,1.1133912254557354,1.3157671605430439,18.176534039458737
+antofagasta,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,1.3312943409484013,1.4649239637698503,10.037571610666696
+copiapo,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,1.0248884444720445,1.1702193082383572,14.180164148614004
+valparaiso,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,1.3674190687812808,1.5268540593944941,11.659555892789374
+santiago_centro,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,0.8039378356778795,0.9403898031709667,16.972950076174854
+santiago_penalolen,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,0.7412144731765119,0.8692858519439116,17.27858580776809
+concepcion,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,1.2403745163371898,1.326508601478961,6.944199837007625
+pucon,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,0.5138650400681213,0.5394633776168831,4.981529302979704
+puerto_montt,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,0.6295117711436043,0.6550045177082968,4.049606017434915
+puerto_aysen,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,0.4965371669251255,0.49711008619495617,0.11538295781130525
+hornopiren,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,0.6449488431910474,0.6551549474910676,1.5824672619805025
+puerto_williams,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,0.8223624584142992,1.012926912261195,23.172805603790223
+la_serena,intraslab,GMM (single vs tree),gmm_pk,C,"GMM, in-slab",,1.344922471340388,1.5921378068930172,18.381381887853166
+iquique,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,1.1133912254557354,1.0169715101829269,-8.660003156872541
+antofagasta,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,1.3312943409484013,1.2595594603004263,-5.388356161483543
+copiapo,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,1.0248884444720445,0.9567068993524618,-6.652582091966641
+valparaiso,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,1.3674190687812808,1.268005596129283,-7.2701540384836445
+santiago_centro,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,0.8039378356778795,0.739980435359186,-7.955515648142697
+santiago_penalolen,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,0.7412144731765119,0.682619245454638,-7.905299996472149
+concepcion,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,1.2403745163371898,1.1774875187010327,-5.070000778624628
+pucon,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,0.5138650400681213,0.5011759914658082,-2.4693348667251147
+puerto_montt,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,0.6295117711436043,0.6162857212694183,-2.1010012013212953
+puerto_aysen,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,0.4965371669251255,0.4963504153821438,-0.03761078836015397
+hornopiren,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,0.6449488431910474,0.6403638369521625,-0.7109100647734179
+puerto_williams,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,0.8223624584142992,0.7241363191663345,-11.944385136131697
+la_serena,intraslab,GMM (single vs tree),gmm_ku,C,"GMM, in-slab",,1.344922471340388,1.1973943186373548,-10.969268180641112
+iquique,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,1.1133912254557354,0.98441502311185,-11.58408647338608
+antofagasta,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,1.3312943409484013,1.2764068634243129,-4.1228656831055925
+copiapo,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,1.0248884444720445,0.9268717864177964,-9.563641641480292
+valparaiso,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,1.3674190687812808,1.3261794847233581,-3.015870189281311
+santiago_centro,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,0.8039378356778795,0.6847575306113934,-14.824567246047494
+santiago_penalolen,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,0.7412144731765119,0.625707049109036,-15.583535973395534
+concepcion,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,1.2403745163371898,1.2276811394058975,-1.0233503481493322
+pucon,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,0.5138650400681213,0.4893410447019923,-4.772458418824899
+puerto_montt,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,0.6295117711436043,0.614590786414601,-2.370247136427195
+puerto_aysen,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,0.4965371669251255,0.4959782115324418,-0.11257070566239591
+hornopiren,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,0.6449488431910474,0.6360915129106474,-1.3733384242657354
+puerto_williams,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,0.8223624584142992,0.5990830791606186,-27.150969377203047
+la_serena,intraslab,GMM (single vs tree),gmm_mv,C,"GMM, in-slab",,1.344922471340388,1.2538622308431802,-6.770668379602185
+iquique,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,1.1133912254557354,1.0883814166333514,-2.246273210222849
+antofagasta,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,1.3312943409484013,1.3159234157671735,-1.1545850311567962
+copiapo,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,1.0248884444720445,1.0068253992871066,-1.7624401252999689
+valparaiso,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,1.3674190687812808,1.347716666480602,-1.4408459520927064
+santiago_centro,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,0.8039378356778795,0.784737160906811,-2.388328290940367
+santiago_penalolen,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,0.7412144731765119,0.7227104035227104,-2.496452824848572
+concepcion,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,1.2403745163371898,1.228969515578733,-0.919480415651841
+pucon,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,0.5138650400681213,0.5097064829232687,-0.8092702987347211
+puerto_montt,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,0.6295117711436043,0.6262004581238512,-0.526012883561755
+puerto_aysen,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,0.4965371669251255,0.4963689401068898,-0.03388000525267332
+hornopiren,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,0.6449488431910474,0.6433771186358674,-0.2436975539646613
+puerto_williams,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,0.8223624584142992,0.7882910701971728,-4.143110847110377
+la_serena,intraslab,Mmax pad 0 / 0.4,pad0,C,In-slab Mmax,,1.344922471340388,1.3157022976119013,-2.1726288578824193
+iquique,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,1.1133912254557354,1.1354635318792101,1.9824394084334562
+antofagasta,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,1.3312943409484013,1.3451110355538416,1.0378392050849783
+copiapo,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,1.0248884444720445,1.0412434673686377,1.5957856667042636
+valparaiso,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,1.3674190687812808,1.385156031224923,1.2971124104222298
+santiago_centro,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,0.8039378356778795,0.8198692115422128,1.9816676311670278
+santiago_penalolen,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,0.7412144731765119,0.7574224604713119,2.1866798182366587
+concepcion,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,1.2403745163371898,1.249646400798723,0.7475068488921321
+pucon,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,0.5138650400681213,0.517092110163402,0.6279995414463002
+puerto_montt,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,0.6295117711436043,0.6323781115944583,0.45532753829953254
+puerto_aysen,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,0.4965371669251255,0.49671653848801844,0.03612449879708546
+hornopiren,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,0.6449488431910474,0.6463559827925968,0.21817848289906738
+puerto_williams,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,0.8223624584142992,0.851626202533112,3.558497085973489
+la_serena,intraslab,Mmax pad 0 / 0.4,pad04,C,In-slab Mmax,,1.344922471340388,1.3703780909378467,1.8927202229054085
+iquique,intraslab,separate b per class,b_separate,A,,,1.1133912254557354,1.114794938671185,0.12607546955250015
+antofagasta,intraslab,separate b per class,b_separate,A,,,1.3312943409484013,1.3351588652247255,0.2902832347030815
+copiapo,intraslab,separate b per class,b_separate,A,,,1.0248884444720445,1.0283941620262267,0.3420584526141468
+valparaiso,intraslab,separate b per class,b_separate,A,,,1.3674190687812808,1.375806403522902,0.6133697366891733
+santiago_centro,intraslab,separate b per class,b_separate,A,,,0.8039378356778795,0.80206544856741,-0.23290197666722134
+santiago_penalolen,intraslab,separate b per class,b_separate,A,,,0.7412144731765119,0.7383252635922846,-0.38979400548474485
+concepcion,intraslab,separate b per class,b_separate,A,,,1.2403745163371898,1.2460890810573384,0.46071284478044205
+pucon,intraslab,separate b per class,b_separate,A,,,0.5138650400681213,0.5141012505930984,0.04596742462685821
+puerto_montt,intraslab,separate b per class,b_separate,A,,,0.6295117711436043,0.6306867258927161,0.1866453977464655
+puerto_aysen,intraslab,separate b per class,b_separate,A,,,0.4965371669251255,0.49657874429170035,0.008373465139044356
+hornopiren,intraslab,separate b per class,b_separate,A,,,0.6449488431910474,0.6453743026151068,0.06596793351147934
+puerto_williams,intraslab,separate b per class,b_separate,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,separate b per class,b_separate,A,,,0.8223624584142992,0.8107668145703979,-1.4100405150133333
+la_serena,intraslab,separate b per class,b_separate,A,,,1.344922471340388,1.36485308645178,1.481915540568557
+iquique,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,1.1133912254557354,1.0478839544906489,-5.883580673834842
+antofagasta,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,1.3312943409484013,1.2948775453962957,-2.735442826727752
+copiapo,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,1.0248884444720445,0.9781907532056684,-4.556368209462224
+valparaiso,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,1.3674190687812808,1.3236951990263652,-3.197547171393822
+santiago_centro,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,0.8039378356778795,0.7444072706748558,-7.404871665584389
+santiago_penalolen,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,0.7412144731765119,0.6830440701123185,-7.847985322642337
+concepcion,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,1.2403745163371898,1.215256734042271,-2.0250159902584275
+pucon,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,0.5138650400681213,0.501500220587103,-2.4062387041117184
+puerto_montt,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,0.6295117711436043,0.6208732627821217,-1.3722552551780676
+puerto_aysen,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,0.4965371669251255,0.49625518877499974,-0.05678893120366624
+hornopiren,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,0.6449488431910474,0.6410449861742555,-0.6052971577523159
+puerto_williams,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,0.8223624584142992,0.7093972311555596,-13.73667123333452
+la_serena,intraslab,fit floors -0.2 / +0.2,floor_m02,A,,,1.344922471340388,1.2844618703839514,-4.495471095533099
+iquique,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,1.1133912254557354,1.0934151452668004,-1.794165404955328
+antofagasta,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,1.3312943409484013,1.3195766957375767,-0.8801693848166536
+copiapo,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,1.0248884444720445,1.010327384114194,-1.4207458808213502
+valparaiso,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,1.3674190687812808,1.351401433066268,-1.171377237651705
+santiago_centro,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,0.8039378356778795,0.7875683567171774,-2.0361622795000534
+santiago_penalolen,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,0.7412144731765119,0.7252750435497631,-2.1504477048916115
+concepcion,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,1.2403745163371898,1.2307374779826397,-0.7769458520486383
+pucon,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,0.5138650400681213,0.5101888584507974,-0.7153982720514596
+puerto_montt,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,0.6295117711436043,0.6266139070283054,-0.460335175311255
+puerto_aysen,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,0.4965371669251255,0.49643593069144015,-0.02038845033741632
+hornopiren,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,0.6449488431910474,0.6436446684463024,-0.20221367299338988
+puerto_williams,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,0.8223624584142992,0.7956521440622478,-3.247997775038869
+la_serena,intraslab,fit floors -0.2 / +0.2,floor_p02,A,,,1.344922471340388,1.319766014230635,-1.8704763765811205
+iquique,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,1.1133912254557354,1.1043734596823203,-0.8099368458489464
+antofagasta,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,1.3312943409484013,1.3219154440277283,-0.7044946134144525
+copiapo,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,1.0248884444720445,1.0187125581980068,-0.6025910729454242
+valparaiso,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,1.3674190687812808,1.3619737101168774,-0.39822164168418217
+santiago_centro,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,0.8039378356778795,0.8032802841447894,-0.08179134056249815
+santiago_penalolen,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,0.7412144731765119,0.7408389979226072,-0.050656762312739634
+concepcion,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,1.2403745163371898,1.2376727207723128,-0.21782095079276864
+pucon,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,0.5138650400681213,0.5124789454462324,-0.26973903920475273
+puerto_montt,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,0.6295117711436043,0.6264525561235929,-0.4859662932837572
+puerto_aysen,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,0.4965371669251255,0.4964277707896576,-0.022031812068645795
+hornopiren,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,0.6449488431910474,0.6437439583590597,-0.18681866704748362
+puerto_williams,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,0.8223624584142992,0.8095280901117969,-1.5606705013322064
+la_serena,intraslab,completeness -0.1 / +0.1,mc_m01,A,,,1.344922471340388,1.3435449670957627,-0.10242257631790652
+iquique,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,1.1133912254557354,1.0982687321913163,-1.3582371513866764
+antofagasta,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,1.3312943409484013,1.3318269472773574,0.04000665461980635
+copiapo,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,1.0248884444720445,1.0173279123782064,-0.7376931737905212
+valparaiso,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,1.3674190687812808,1.3608823937935084,-0.47803011797972195
+santiago_centro,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,0.8039378356778795,0.802114754396373,-0.22676893667645803
+santiago_penalolen,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,0.7412144731765119,0.7392174465580339,-0.2694262849347262
+concepcion,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,1.2403745163371898,1.237215906526961,-0.2546496859316405
+pucon,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,0.5138650400681213,0.5120957699741387,-0.3443063754148379
+puerto_montt,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,0.6295117711436043,0.6311082151626801,0.253600344307392
+puerto_aysen,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,0.4965371669251255,0.49660985685597975,0.014639373584945936
+hornopiren,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,0.6449488431910474,0.6457066005423929,0.11749107845457907
+puerto_williams,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,0.8223624584142992,0.8170548233496897,-0.6454131034682509
+la_serena,intraslab,completeness -0.1 / +0.1,mc_p01,A,,,1.344922471340388,1.3408416585337026,-0.30342364661498644
+iquique,intraslab,kernel neighbours 10 / 50,nn10,B,,,1.1133912254557354,1.109497791979617,-0.3496914100903581
+antofagasta,intraslab,kernel neighbours 10 / 50,nn10,B,,,1.3312943409484013,1.3324281300318541,0.08516441845949352
+copiapo,intraslab,kernel neighbours 10 / 50,nn10,B,,,1.0248884444720445,1.0221445054182863,-0.2677305094577198
+valparaiso,intraslab,kernel neighbours 10 / 50,nn10,B,,,1.3674190687812808,1.3662493108414833,-0.08554494861916506
+santiago_centro,intraslab,kernel neighbours 10 / 50,nn10,B,,,0.8039378356778795,0.8030473180875419,-0.11076945888317535
+santiago_penalolen,intraslab,kernel neighbours 10 / 50,nn10,B,,,0.7412144731765119,0.7431476565161832,0.26081295085707
+concepcion,intraslab,kernel neighbours 10 / 50,nn10,B,,,1.2403745163371898,1.2347988596681807,-0.4495139649816293
+pucon,intraslab,kernel neighbours 10 / 50,nn10,B,,,0.5138650400681213,0.5135987478323334,-0.05182143462271194
+puerto_montt,intraslab,kernel neighbours 10 / 50,nn10,B,,,0.6295117711436043,0.6263056267130676,-0.5093065098230598
+puerto_aysen,intraslab,kernel neighbours 10 / 50,nn10,B,,,0.4965371669251255,0.49627937081107226,-0.05191879505207497
+hornopiren,intraslab,kernel neighbours 10 / 50,nn10,B,,,0.6449488431910474,0.6440792049223284,-0.1348383329778935
+puerto_williams,intraslab,kernel neighbours 10 / 50,nn10,B,,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,kernel neighbours 10 / 50,nn10,B,,,0.8223624584142992,0.826130423307299,0.45818785311106947
+la_serena,intraslab,kernel neighbours 10 / 50,nn10,B,,,1.344922471340388,1.3707901403992695,1.9233576366004979
+iquique,intraslab,kernel neighbours 10 / 50,nn50,B,,,1.1133912254557354,1.1166789314921268,0.2952875827672896
+antofagasta,intraslab,kernel neighbours 10 / 50,nn50,B,,,1.3312943409484013,1.3325889746111947,0.09724623796352194
+copiapo,intraslab,kernel neighbours 10 / 50,nn50,B,,,1.0248884444720445,1.0267470408167227,0.18134620940484236
+valparaiso,intraslab,kernel neighbours 10 / 50,nn50,B,,,1.3674190687812808,1.3654254373558288,-0.14579520433548598
+santiago_centro,intraslab,kernel neighbours 10 / 50,nn50,B,,,0.8039378356778795,0.8056503660529132,0.21301776070654643
+santiago_penalolen,intraslab,kernel neighbours 10 / 50,nn50,B,,,0.7412144731765119,0.7414376581914677,0.030110720045617434
+concepcion,intraslab,kernel neighbours 10 / 50,nn50,B,,,1.2403745163371898,1.2431160776098065,0.22102689441834134
+pucon,intraslab,kernel neighbours 10 / 50,nn50,B,,,0.5138650400681213,0.514864819721325,0.19456074557460123
+puerto_montt,intraslab,kernel neighbours 10 / 50,nn50,B,,,0.6295117711436043,0.6294732888588936,-0.006113036558597074
+puerto_aysen,intraslab,kernel neighbours 10 / 50,nn50,B,,,0.4965371669251255,0.4968018831638184,0.05331247212212453
+hornopiren,intraslab,kernel neighbours 10 / 50,nn50,B,,,0.6449488431910474,0.6454751096188248,0.08159816601478465
+puerto_williams,intraslab,kernel neighbours 10 / 50,nn50,B,,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,kernel neighbours 10 / 50,nn50,B,,,0.8223624584142992,0.8197841627184784,-0.31352302983191915
+la_serena,intraslab,kernel neighbours 10 / 50,nn50,B,,,1.344922471340388,1.325770318463878,-1.4240339710751004
+iquique,intraslab,class domain cut at 50 km,classmask,B,,,1.1133912254557354,1.0902851288297617,-2.0752899877144126
+antofagasta,intraslab,class domain cut at 50 km,classmask,B,,,1.3312943409484013,1.3215442633398538,-0.7323758021536841
+copiapo,intraslab,class domain cut at 50 km,classmask,B,,,1.0248884444720445,1.0079467545329632,-1.6530277056454268
+valparaiso,intraslab,class domain cut at 50 km,classmask,B,,,1.3674190687812808,1.3568585837601759,-0.7722932393005921
+santiago_centro,intraslab,class domain cut at 50 km,classmask,B,,,0.8039378356778795,0.7948792357337221,-1.1267786565262394
+santiago_penalolen,intraslab,class domain cut at 50 km,classmask,B,,,0.7412144731765119,0.735454420318814,-0.7771101437095362
+concepcion,intraslab,class domain cut at 50 km,classmask,B,,,1.2403745163371898,1.232072472316016,-0.6693175256203832
+pucon,intraslab,class domain cut at 50 km,classmask,B,,,0.5138650400681213,0.5103312994828394,-0.687678730744834
+puerto_montt,intraslab,class domain cut at 50 km,classmask,B,,,0.6295117711436043,0.6221230148826635,-1.1737280539676043
+puerto_aysen,intraslab,class domain cut at 50 km,classmask,B,,,0.4965371669251255,0.49638865862012577,-0.029908799359246174
+hornopiren,intraslab,class domain cut at 50 km,classmask,B,,,0.6449488431910474,0.6418110366229652,-0.48652022578365983
+puerto_williams,intraslab,class domain cut at 50 km,classmask,B,,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,class domain cut at 50 km,classmask,B,,,0.8223624584142992,0.8224466749397913,0.010240803751471184
+la_serena,intraslab,class domain cut at 50 km,classmask,B,,,1.344922471340388,1.3529117534223143,0.5940329091210783
+iquique,intraslab,scaling: Allen & Hayes,msr_ah,B,,,1.1133912254557354,1.0940736851571569,-1.735018190993154
+antofagasta,intraslab,scaling: Allen & Hayes,msr_ah,B,,,1.3312943409484013,1.3197205913463126,-0.8693606850190383
+copiapo,intraslab,scaling: Allen & Hayes,msr_ah,B,,,1.0248884444720445,1.0115791984076166,-1.2986043638421596
+valparaiso,intraslab,scaling: Allen & Hayes,msr_ah,B,,,1.3674190687812808,1.3525090310791,-1.0903780737436697
+santiago_centro,intraslab,scaling: Allen & Hayes,msr_ah,B,,,0.8039378356778795,0.7898717071733358,-1.7496537518579602
+santiago_penalolen,intraslab,scaling: Allen & Hayes,msr_ah,B,,,0.7412144731765119,0.7278074610163765,-1.8087898503491129
+concepcion,intraslab,scaling: Allen & Hayes,msr_ah,B,,,1.2403745163371898,1.2318503559408431,-0.6872247280215293
+pucon,intraslab,scaling: Allen & Hayes,msr_ah,B,,,0.5138650400681213,0.5112596503458112,-0.5070182867401685
+puerto_montt,intraslab,scaling: Allen & Hayes,msr_ah,B,,,0.6295117711436043,0.6270388814367372,-0.39282660312685014
+puerto_aysen,intraslab,scaling: Allen & Hayes,msr_ah,B,,,0.4965371669251255,0.4964180525008322,-0.023989024835935346
+hornopiren,intraslab,scaling: Allen & Hayes,msr_ah,B,,,0.6449488431910474,0.643968843582617,-0.1519499753781406
+puerto_williams,intraslab,scaling: Allen & Hayes,msr_ah,B,,,0.10463250175814126,0.10463250175814126,0.0
+calama,intraslab,scaling: Allen & Hayes,msr_ah,B,,,0.8223624584142992,0.7981565569616308,-2.9434589583944404
+la_serena,intraslab,scaling: Allen & Hayes,msr_ah,B,,,1.344922471340388,1.3241832207329824,-1.5420406045216994
+iquique,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,1.1133912254557354,1.113999113613898,0.0545978937380065
+antofagasta,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,1.3312943409484013,1.3313151947920114,0.0015664337305931753
+copiapo,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,1.0248884444720445,1.0251031210956276,0.020946340525251905
+valparaiso,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,1.3674190687812808,1.3674332131677085,0.0010343856357231118
+santiago_centro,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,0.8039378356778795,0.8046813793343406,0.09248770532539474
+santiago_penalolen,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,0.7412144731765119,0.7430296730565673,0.24489536372329646
+concepcion,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,1.2403745163371898,1.2404570695450878,0.006655506607944339
+pucon,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,0.5138650400681213,0.5079609412653463,-1.148959034456265
+puerto_montt,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,0.6295117711436043,0.6299032902477867,0.06219408788354919
+puerto_aysen,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,0.4965371669251255,0.47836003085152085,-3.660780558718102
+hornopiren,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,0.6449488431910474,0.626357444248505,-2.882616061540122
+puerto_williams,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,0.10463250175814126,0.10768209597562366,2.914576413867609
+calama,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,0.8223624584142992,0.8225304994552347,0.020433938735431312
+la_serena,crustal,GMM (single vs tree),gmm_ask,C,"GMM, crust",,1.344922471340388,1.3450456459029816,0.009158487958860206
+iquique,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,1.1133912254557354,1.1106519070383742,-0.24603377094515322
+antofagasta,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,1.3312943409484013,1.3313231410034592,0.0021633123624242856
+copiapo,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,1.0248884444720445,1.0250330645153292,0.014110808260614505
+valparaiso,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,1.3674190687812808,1.367792892184361,0.027337881386513274
+santiago_centro,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,0.8039378356778795,0.8059586603371375,0.2513657859570806
+santiago_penalolen,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,0.7412144731765119,0.7408745985190611,-0.04585375350190102
+concepcion,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,1.2403745163371898,1.2401983668282215,-0.014201316348261273
+pucon,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,0.5138650400681213,0.5050192707040942,-1.7214187917618196
+puerto_montt,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,0.6295117711436043,0.6299494080210947,0.06952004673324019
+puerto_aysen,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,0.4965371669251255,0.5111547710997996,2.9439093683954365
+hornopiren,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,0.6449488431910474,0.6506327232881123,0.8812916182533881
+puerto_williams,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,0.10463250175814126,0.10105168350920357,-3.422281020494733
+calama,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,0.8223624584142992,0.8225945891588105,0.02822730319655964
+la_serena,crustal,GMM (single vs tree),gmm_bssa,C,"GMM, crust",,1.344922471340388,1.3447458250510893,-0.013134310197271404
+iquique,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,1.1133912254557354,1.1170614008226283,0.3296393291936095
+antofagasta,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,1.3312943409484013,1.3313680685156628,0.005538036555385872
+copiapo,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,1.0248884444720445,1.025775086988225,0.08651112430457797
+valparaiso,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,1.3674190687812808,1.36835305468955,0.06830282900043283
+santiago_centro,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,0.8039378356778795,0.804406649295349,0.05831466024661669
+santiago_penalolen,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,0.7412144731765119,0.7435013562134711,0.3085318918772062
+concepcion,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,1.2403745163371898,1.2415244702034594,0.09271021382037947
+pucon,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,0.5138650400681213,0.5492450949776188,6.8850869685175065
+puerto_montt,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,0.6295117711436043,0.6297120350719345,0.0318125788126844
+puerto_aysen,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,0.4965371669251255,0.5494088674138337,10.648085180838196
+hornopiren,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,0.6449488431910474,0.6865065359448312,6.443564197769036
+puerto_williams,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,0.10463250175814126,0.11786006610014083,12.641926858038023
+calama,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,0.8223624584142992,0.8227280206852617,0.04445269445634281
+la_serena,crustal,GMM (single vs tree),gmm_cb,C,"GMM, crust",,1.344922471340388,1.346282100781838,0.10109351805944744
+iquique,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,1.1133912254557354,1.1118383632333588,-0.13947139036784018
+antofagasta,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,1.3312943409484013,1.3311709074326639,-0.00927169236289993
+copiapo,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,1.0248884444720445,1.0236390509010704,-0.12190532322936543
+valparaiso,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,1.3674190687812808,1.3660904804590415,-0.09716028923184572
+santiago_centro,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,0.8039378356778795,0.8006724263141124,-0.40617684836461443
+santiago_penalolen,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,0.7412144731765119,0.7374365543574618,-0.5096930720820403
+concepcion,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,1.2403745163371898,1.2393082548495105,-0.0859628663468448
+pucon,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,0.5138650400681213,0.48659715154377065,-5.306429976387539
+puerto_montt,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,0.6295117711436043,0.6284793008960183,-0.16401126951294254
+puerto_aysen,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,0.4965371669251255,0.442272921802081,-10.928536419354728
+hornopiren,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,0.6449488431910474,0.6090025863566443,-5.573505125856171
+puerto_williams,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,0.10463250175814126,0.08997329785475634,-14.010181976982416
+calama,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,0.8223624584142992,0.8215955682662472,-0.09325451815136443
+la_serena,crustal,GMM (single vs tree),gmm_cy,C,"GMM, crust",,1.344922471340388,1.3436115760684963,-0.0974699508578536
+iquique,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,1.1133912254557354,1.1043708898456617,-0.8101676574989614
+antofagasta,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,1.3312943409484013,1.331631290471615,0.025309919290550376
+copiapo,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,1.0248884444720445,1.0248884443688109,-1.0072676026595673e-08
+valparaiso,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,1.3674190687812808,1.3681218503386914,0.051394746018629256
+santiago_centro,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,0.8039378356778795,0.8043056391039938,0.04575023214377083
+santiago_penalolen,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,0.7412144731765119,0.7365901716695468,-0.6238817068894287
+concepcion,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,1.2403745163371898,1.240374516490785,1.2382961322998653e-08
+pucon,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,0.5138650400681213,0.4105218417152909,-20.110961107439916
+puerto_montt,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,0.6295117711436043,0.6294796760430555,-0.005098411502379996
+puerto_aysen,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,0.4965371669251255,0.166803803636143,-66.40658247818618
+hornopiren,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,0.6449488431910474,0.3907617663524747,-39.41197499958569
+puerto_williams,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,0.10463250175814126,0.019503791970956263,-81.35971935752868
+calama,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,0.8223624584142992,0.8223624562962132,-2.575611279809209e-07
+la_serena,crustal,faults vs no faults,nofaults,C,Crustal faults removed,,1.344922471340388,1.3449224714022203,4.597455749433266e-09
+iquique,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,1.1133912254557354,1.1128012702801031,-0.05298723055687793
+antofagasta,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,1.3312943409484013,1.3312940887223323,-1.894592812634599e-05
+copiapo,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,1.0248884444720445,1.0248884440641581,-3.9798120354817e-08
+valparaiso,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,1.3674190687812808,1.3674881093169053,0.0050489668603326265
+santiago_centro,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,0.8039378356778795,0.8039400695696893,0.0002778687245186262
+santiago_penalolen,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,0.7412144731765119,0.7396889200167083,-0.20581804794849168
+concepcion,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,1.2403745163371898,1.2403745164279965,7.320899442220252e-09
+pucon,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,0.5138650400681213,0.5000476231455984,-2.6889194331436106
+puerto_montt,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,0.6295117711436043,0.6295072566903062,-0.0007171356446566968
+puerto_aysen,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,0.4965371669251255,0.453736307019999,-8.619870325151425
+hornopiren,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,0.6449488431910474,0.6056994122585431,-6.085665762001813
+puerto_williams,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,0.10463250175814126,0.09807268273932977,-6.269389442655737
+calama,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,0.8223624584142992,0.8223624566026605,-2.202968696352059e-07
+la_serena,crustal,fault MFD (single vs tree),only_al1,C,Fault MFD shape,,1.344922471340388,1.3449224720038877,4.9333670482099024e-08
+iquique,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,1.1133912254557354,1.1139398971846644,0.04927932934843948
+antofagasta,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,1.3312943409484013,1.33129409925589,-1.8154701320050037e-05
+copiapo,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,1.0248884444720445,1.0248884440641581,-3.9798120354817e-08
+valparaiso,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,1.3674190687812808,1.3674139291145138,-0.00037586624938024116
+santiago_centro,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,0.8039378356778795,0.8039404343556259,0.0003232436179834153
+santiago_penalolen,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,0.7412144731765119,0.742505863463276,0.17422626425922516
+concepcion,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,1.2403745163371898,1.2403745164283007,7.345435371064468e-09
+pucon,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,0.5138650400681213,0.5214739511162629,1.4807216788153
+puerto_montt,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,0.6295117711436043,0.629512259699856,7.760875555540281e-05
+puerto_aysen,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,0.4965371669251255,0.5222122665696807,5.170831380770902
+hornopiren,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,0.6449488431910474,0.6672583673252134,3.4591153034376987
+puerto_williams,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,0.10463250175814126,0.10809666688358728,3.310792600040724
+calama,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,0.8223624584142992,0.8223624566026605,-2.202968696352059e-07
+la_serena,crustal,fault MFD (single vs tree),only_al2,C,Fault MFD shape,,1.344922471340388,1.3449224720359652,5.171876260590125e-08
+iquique,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,1.1133912254557354,1.115147794780818,0.15776748414408903
+antofagasta,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,1.3312943409484013,1.3312934331109925,-6.81920880207798e-05
+copiapo,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,1.0248884444720445,1.0248884440641581,-3.9798120354817e-08
+valparaiso,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,1.3674190687812808,1.3673904060732627,-0.0020961173258782217
+santiago_centro,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,0.8039378356778795,0.8039224307726132,-0.001916181150163343
+santiago_penalolen,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,0.7412144731765119,0.7453236644639267,0.554386272276175
+concepcion,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,1.2403745163371898,1.2403745164283007,7.345435371064468e-09
+pucon,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,0.5138650400681213,0.5403311320362941,5.150397459353195
+puerto_montt,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,0.6295117711436043,0.6295114957097175,-4.375357212094144e-05
+puerto_aysen,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,0.4965371669251255,0.5815158161714454,17.114257482992024
+hornopiren,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,0.6449488431910474,0.7231875481407497,12.130993919238087
+puerto_williams,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,0.10463250175814126,0.1150831865142324,9.98799090195508
+calama,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,0.8223624584142992,0.8223624566026605,-2.202968696352059e-07
+la_serena,crustal,fault MFD (single vs tree),only_al3,C,Fault MFD shape,,1.344922471340388,1.3449224720038877,4.9333670482099024e-08
+iquique,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,1.1133912254557354,1.112682015445125,-0.06369818572264929
+antofagasta,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,1.3312943409484013,1.3312950343166046,5.208226174779895e-05
+copiapo,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,1.0248884444720445,1.0248884440641581,-3.9798120354817e-08
+valparaiso,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,1.3674190687812808,1.3673799346144835,-0.0028619000342122725
+santiago_centro,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,0.8039378356778795,0.8039637706226537,0.0032259888293806327
+santiago_penalolen,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,0.7412144731765119,0.7382926861637231,-0.3941891474767534
+concepcion,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,1.2403745163371898,1.2403745164283007,7.345435371064468e-09
+pucon,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,0.5138650400681213,0.49646845596963907,-3.385438343144731
+puerto_montt,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,0.6295117711436043,0.6295149532658949,0.0005054905144685762
+puerto_aysen,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,0.4965371669251255,0.40674079102288546,-18.08452254607976
+hornopiren,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,0.6449488431910474,0.5684597078182942,-11.859721306623916
+puerto_williams,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,0.10463250175814126,0.09764254885064984,-6.680479573783627
+calama,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,0.8223624584142992,0.8223624566026605,-2.202968696352059e-07
+la_serena,crustal,fault MFD (single vs tree),only_yc,C,Fault MFD shape,,1.344922471340388,1.3449224720038877,4.9333670482099024e-08
+iquique,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,1.1133912254557354,1.1123734923803548,-0.09140839734604889
+antofagasta,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,1.3312943409484013,1.3312950493435947,5.321101215205459e-05
+copiapo,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,1.0248884444720445,1.0248884444180426,-5.2690518614895154e-09
+valparaiso,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,1.3674190687812808,1.3674229534472857,0.00028408745302854754
+santiago_centro,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,0.8039378356778795,0.8039224563019371,-0.0019130056155836073
+santiago_penalolen,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,0.7412144731765119,0.7402121833993445,-0.13522263979439675
+concepcion,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,1.2403745163371898,1.2403745164926094,1.2530065873761487e-08
+pucon,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,0.5138650400681213,0.5028433449169214,-2.14486183954814
+puerto_montt,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,0.6295117711436043,0.6295129095932824,0.00018084644803906258
+puerto_aysen,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,0.4965371669251255,0.4720034934768356,-4.940954088133632
+hornopiren,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,0.6449488431910474,0.6213724131400419,-3.6555504052623977
+puerto_williams,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,0.10463250175814126,0.10011662372653853,-4.315941945114932
+calama,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,0.8223624584142992,0.8223624569175957,-1.8200047025018762e-07
+la_serena,crustal,fault MFD (single vs tree),only_tap,C,Fault MFD shape,,1.344922471340388,1.3449224723702389,7.657325884480315e-08
+iquique,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,1.1133912254557354,1.11472258248734,0.11957674904969906
+antofagasta,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,1.3312943409484013,1.331294124368814,-1.626834733592375e-05
+copiapo,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,1.0248884444720445,1.0248884440641581,-3.9798120354817e-08
+valparaiso,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,1.3674190687812808,1.3673666215081923,-0.0038354937623608087
+santiago_centro,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,0.8039378356778795,0.803929979655315,-0.0009771927897750388
+santiago_penalolen,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,0.7412144731765119,0.7437673971835723,0.3444244681461317
+concepcion,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,1.2403745163371898,1.2403745164283007,7.345435371064468e-09
+pucon,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,0.5138650400681213,0.5367549176471366,4.454453172370099
+puerto_montt,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,0.6295117711436043,0.6295125543374227,0.00012441289491960106
+puerto_aysen,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,0.4965371669251255,0.5546461810507409,11.70285287714985
+hornopiren,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,0.6449488431910474,0.7031925066461308,9.030741596016846
+puerto_williams,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,0.10463250175814126,0.1141223160223773,9.069662012069447
+calama,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,0.8223624584142992,0.8223624566026605,-2.202968696352059e-07
+la_serena,crustal,fault MFD (single vs tree),only_hyb,C,Fault MFD shape,,1.344922471340388,1.3449224720038877,4.9333670482099024e-08
+iquique,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,1.1133912254557354,1.1041316698288193,-0.8316533681254734
+antofagasta,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,1.3312943409484013,1.3312983097400697,0.00029811526620626694
+copiapo,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,1.0248884444720445,1.0248884441869697,-2.781520569428153e-08
+valparaiso,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,1.3674190687812808,1.3670984497353602,-0.02344702170976598
+santiago_centro,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,0.8039378356778795,0.8038183504310562,-0.0148624982580281
+santiago_penalolen,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,0.7412144731765119,0.7335154017137998,-1.0387103519062912
+concepcion,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,1.2403745163371898,1.2403745157483954,-4.7469073116701566e-08
+pucon,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,0.5138650400681213,0.43881208235261593,-14.605577702961824
+puerto_montt,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,0.6295117711436043,0.6295150653882818,0.0005233015216710157
+puerto_aysen,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,0.4965371669251255,0.32093005099443356,-35.36635877998078
+hornopiren,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,0.6449488431910474,0.504605618279962,-21.760365398393745
+puerto_williams,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,0.10463250175814126,0.10553628546155892,0.8637695632154108
+calama,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,0.8223624584142992,0.822362457316328,-1.3351427741170596e-07
+la_serena,crustal,fault Mmax (single vs tree),only_mobs,C,Fault Mmax,,1.344922471340388,1.3449224718160837,3.536975157203415e-08
+iquique,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,1.1133912254557354,1.1172245441215887,0.34429215698947857
+antofagasta,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,1.3312943409484013,1.3312923565090602,-0.00014906090111121983
+copiapo,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,1.0248884444720445,1.02488844465874,1.821618411668169e-08
+valparaiso,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,1.3674190687812808,1.3675790413323206,0.011698867939746727
+santiago_centro,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,0.8039378356778795,0.8039975223807383,0.0074242932985635335
+santiago_penalolen,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,0.7412144731765119,0.74502586328429,0.5142088080720031
+concepcion,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,1.2403745163371898,1.240374516365543,2.2858603898612273e-09
+pucon,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,0.5138650400681213,0.5398494357350523,5.0566576125681495
+puerto_montt,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,0.6295117711436043,0.6295101402860708,-0.00025906704343992004
+puerto_aysen,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,0.4965371669251255,0.5405806646633157,8.870131114441149
+hornopiren,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,0.6449488431910474,0.6949039852238799,7.745597586572406
+puerto_williams,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,0.10463250175814126,0.10276865102328692,-1.7813305651074307
+calama,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,0.8223624584142992,0.8223624566387262,-2.159112444388711e-07
+la_serena,crustal,fault Mmax (single vs tree),only_mwc,C,Fault Mmax,,1.344922471340388,1.3449224720923945,5.5914473051643654e-08
+iquique,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,1.1133912254557354,1.1186323201514918,0.47073253102125623
+antofagasta,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,1.3312943409484013,1.3312923565140427,-0.00014906052685503823
+copiapo,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,1.0248884444720445,1.0248884441132489,-3.5008262955216196e-08
+valparaiso,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,1.3674190687812808,1.36757904164904,0.011698891101596942
+santiago_centro,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,0.8039378356778795,0.8039975222672598,0.007424279183232407
+santiago_penalolen,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,0.7412144731765119,0.7450258637306318,0.514208868289634
+concepcion,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,1.2403745163371898,1.240374516553269,1.742048727493284e-08
+pucon,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,0.5138650400681213,0.5417665921127628,5.429743195011416
+puerto_montt,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,0.6295117711436043,0.629510118085363,-0.0002625936983524646
+puerto_aysen,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,0.4965371669251255,0.564980117942079,13.784053959302955
+hornopiren,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,0.6449488431910474,0.6948933977461248,7.743955986953033
+puerto_williams,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,0.10463250175814126,0.10553628478939593,0.8637689208117916
+calama,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,0.8223624584142992,0.8223624563712272,-2.484393579749167e-07
+la_serena,crustal,fault Mmax (single vs tree),only_mleo,C,Fault Mmax,,1.344922471340388,1.3449224721719992,6.183340506282775e-08
+iquique,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,1.1133912254557354,1.110739458308617,-0.23817029328868644
+antofagasta,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,1.3312943409484013,1.3312909529359607,-0.00025449011059608395
+copiapo,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,1.0248884444720445,1.0248884439806154,-4.79495221306081e-08
+valparaiso,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,1.3674190687812808,1.3673038165156806,-0.008428452420439214
+santiago_centro,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,0.8039378356778795,0.8038735453735142,-0.007996924825792728
+santiago_penalolen,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,0.7412144731765119,0.7382536572187313,-0.3994546875335403
+concepcion,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,1.2403745163371898,1.2403745157751975,-4.5308268248334116e-08
+pucon,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,0.5138650400681213,0.4914069485747617,-4.370426034505559
+puerto_montt,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,0.6295117711436043,0.6295031446382718,-0.0013703485348348643
+puerto_aysen,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,0.4965371669251255,0.4399919123253589,-11.387919850981321
+hornopiren,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,0.6449488431910474,0.5939680838627871,-7.904620632548176
+puerto_williams,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,0.10463250175814126,0.09408335134493707,-10.0820970883298
+calama,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,0.8223624584142992,0.8223624562815017,-2.593500525449599e-07
+la_serena,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi060,C,Fault aseismic coefficient,,1.344922471340388,1.3449224719474733,4.513904805492075e-08
+iquique,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,1.1133912254557354,1.1160232889975812,0.23640060040606148
+antofagasta,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,1.3312943409484013,1.3312977288387366,0.0002544809386773039
+copiapo,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,1.0248884444720445,1.0248884440985726,-3.6440250816838216e-08
+valparaiso,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,1.3674190687812808,1.367534218056003,0.008420920649054864
+santiago_centro,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,0.8039378356778795,0.8040020939692877,0.007992942806822612
+santiago_penalolen,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,0.7412144731765119,0.744161315431825,0.39756944338718014
+concepcion,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,1.2403745163371898,1.2403745158373776,-4.02952671230139e-08
+pucon,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,0.5138650400681213,0.5323371117055348,3.594732117788113
+puerto_montt,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,0.6295117711436043,0.6295204014394781,0.0013709506746950595
+puerto_aysen,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,0.4965371669251255,0.5423853186187008,9.233579024405403
+hornopiren,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,0.6449488431910474,0.6852990882948419,6.2563481630808715
+puerto_williams,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,0.10463250175814126,0.11315628856401692,8.146404475330682
+calama,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,0.8223624584142992,0.8223624563078082,-2.561511558418772e-07
+la_serena,crustal,aseismic coefficient 0.6 / 1.0 (single vs tree),only_phi100,C,Fault aseismic coefficient,,1.344922471340388,1.3449224720116282,4.9909210098064705e-08
+iquique,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,1.1133912254557354,1.1135214911759739,0.011699905411521883
+antofagasta,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,1.3312943409484013,1.3312873242270271,-0.0005270601067142167
+copiapo,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,1.0248884444720445,1.024888444172298,-2.9246738364463454e-08
+valparaiso,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,1.3674190687812808,1.3670589520655232,-0.0263355048923386
+santiago_centro,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,0.8039378356778795,0.8038288282087828,-0.01355919130299199
+santiago_penalolen,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,0.7412144731765119,0.7401303857416138,-0.14625826587710833
+concepcion,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,1.2403745163371898,1.2403745158062878,-4.280175103232864e-08
+pucon,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,0.5138650400681213,0.484292128561049,-5.754995806516028
+puerto_montt,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,0.6295117711436043,0.6294824204524692,-0.004662453107406872
+puerto_aysen,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,0.4965371669251255,0.4445380218811076,-10.472357057585391
+hornopiren,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,0.6449488431910474,0.6318190649418313,-2.0357859988170857
+puerto_williams,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,0.10463250175814126,0.08052930085652676,-23.0360552377207
+calama,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,0.8223624584142992,0.8223624581809852,-2.8371194282783563e-08
+la_serena,crustal,fault seismogenic depth 10 / 30 km,depth10,C,Fault seismogenic depth,,1.344922471340388,1.3449224721530653,6.042557565422157e-08
+iquique,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,1.1133912254557354,1.1126312974304358,-0.06825345915481007
+antofagasta,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,1.3312943409484013,1.331317289849448,0.001723803695474757
+copiapo,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,1.0248884444720445,1.024888444393413,-7.67220731390239e-09
+valparaiso,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,1.3674190687812808,1.3677807434087386,0.026449435708109093
+santiago_centro,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,0.8039378356778795,0.8040053596510602,0.008399153539495607
+santiago_penalolen,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,0.7412144731765119,0.7391857778888442,-0.27369882282163305
+concepcion,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,1.2403745163371898,1.2403745156895605,-5.221240106934033e-08
+pucon,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,0.5138650400681213,0.5310805543816352,3.350201506456174
+puerto_montt,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,0.6295117711436043,0.6297734732489109,0.04157223380130137
+puerto_aysen,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,0.4965371669251255,0.5322045455167442,7.18322433192542
+hornopiren,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,0.6449488431910474,0.6573714246588208,1.9261343901803896
+puerto_williams,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,0.10463250175814126,0.13180922959233568,25.973504769114285
+calama,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,0.8223624584142992,0.8223624568070147,-1.9544721396869136e-07
+la_serena,crustal,fault seismogenic depth 10 / 30 km,depth30,C,Fault seismogenic depth,,1.344922471340388,1.3449224719818733,4.769682426797317e-08
+iquique,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,1.1133912254557354,1.1149797181329308,0.14267156421545746
+antofagasta,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,1.3312943409484013,1.3313039869200156,0.0007245558940383034
+copiapo,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,1.0248884444720445,1.0248884444376252,-3.3583469338793748e-09
+valparaiso,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,1.3674190687812808,1.3674190688640135,6.050271394997253e-09
+santiago_centro,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,0.8039378356778795,0.803965552245338,0.003447600825401409
+santiago_penalolen,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,0.7412144731765119,0.7427323794848413,0.204786382789357
+concepcion,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,1.2403745163371898,1.2403745157206507,-4.970587275110461e-08
+pucon,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,0.5138650400681213,0.5196529337699168,1.1263451004622338
+puerto_montt,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,0.6295117711436043,0.629505944188741,-0.0009256308031835303
+puerto_aysen,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,0.4965371669251255,0.5152238872207884,3.76340816768721
+hornopiren,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,0.6449488431910474,0.6625023717414569,2.721693159965821
+puerto_williams,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,0.10463250175814126,0.10535601658533894,0.691481915313541
+calama,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,0.8223624584142992,0.8223624575286675,-1.0769359848339377e-07
+la_serena,crustal,fault scaling: Leonard 2014,msr_leonard,B,,,1.344922471340388,1.3449224719818733,4.769682426797317e-08
+iquique,crustal,fault and cap Mmin 6.5,cap65,B,,,1.1133912254557354,1.1121196552137256,-0.11420695735134823
+antofagasta,crustal,fault and cap Mmin 6.5,cap65,B,,,1.3312943409484013,1.3313825146893774,0.006623159001284407
+copiapo,crustal,fault and cap Mmin 6.5,cap65,B,,,1.0248884444720445,1.0248884437250534,-7.288512016145887e-08
+valparaiso,crustal,fault and cap Mmin 6.5,cap65,B,,,1.3674190687812808,1.3676541477040287,0.017191432247432026
+santiago_centro,crustal,fault and cap Mmin 6.5,cap65,B,,,0.8039378356778795,0.8041617970410267,0.027858044889561562
+santiago_penalolen,crustal,fault and cap Mmin 6.5,cap65,B,,,0.7412144731765119,0.7426220597363111,0.18990273540759883
+concepcion,crustal,fault and cap Mmin 6.5,cap65,B,,,1.2403745163371898,1.240374515806592,-4.277722620571467e-08
+pucon,crustal,fault and cap Mmin 6.5,cap65,B,,,0.5138650400681213,0.4859585926306208,-5.430695856211787
+puerto_montt,crustal,fault and cap Mmin 6.5,cap65,B,,,0.6295117711436043,0.6295171627170153,0.0008564690380907791
+puerto_aysen,crustal,fault and cap Mmin 6.5,cap65,B,,,0.4965371669251255,0.42214309862967647,-14.98257799232724
+hornopiren,crustal,fault and cap Mmin 6.5,cap65,B,,,0.6449488431910474,0.5730531861082423,-11.147497641376203
+puerto_williams,crustal,fault and cap Mmin 6.5,cap65,B,,,0.10463250175814126,0.0938364985955985,-10.318020673440254
+calama,crustal,fault and cap Mmin 6.5,cap65,B,,,0.8223624584142992,0.8223624583044632,-1.3356160621924573e-08
+la_serena,crustal,fault and cap Mmin 6.5,cap65,B,,,1.344922471340388,1.3449224712340926,-7.903455667701564e-09
+iquique,crustal,buffer margin 0 / 10 km,margin0,B,,,1.1133912254557354,1.1143254498136432,0.0839080043517848
+antofagasta,crustal,buffer margin 0 / 10 km,margin0,B,,,1.3312943409484013,1.3316284031853411,0.02509304116036226
+copiapo,crustal,buffer margin 0 / 10 km,margin0,B,,,1.0248884444720445,1.024888444014978,-4.459671520962161e-08
+valparaiso,crustal,buffer margin 0 / 10 km,margin0,B,,,1.3674190687812808,1.3676969318189511,0.020320254705663565
+santiago_centro,crustal,buffer margin 0 / 10 km,margin0,B,,,0.8039378356778795,0.8043302606596485,0.048812851485990905
+santiago_penalolen,crustal,buffer margin 0 / 10 km,margin0,B,,,0.7412144731765119,0.7443667790109113,0.4252892986411849
+concepcion,crustal,buffer margin 0 / 10 km,margin0,B,,,1.2403745163371898,1.240374515753261,-4.7076809117641005e-08
+pucon,crustal,buffer margin 0 / 10 km,margin0,B,,,0.5138650400681213,0.5158690401147887,0.38998567530528216
+puerto_montt,crustal,buffer margin 0 / 10 km,margin0,B,,,0.6295117711436043,0.6295129646850744,0.0001895979590660346
+puerto_aysen,crustal,buffer margin 0 / 10 km,margin0,B,,,0.4965371669251255,0.4983365134350193,0.36237901807762984
+hornopiren,crustal,buffer margin 0 / 10 km,margin0,B,,,0.6449488431910474,0.6460590961347206,0.17214589271605796
+puerto_williams,crustal,buffer margin 0 / 10 km,margin0,B,,,0.10463250175814126,0.1046876687244885,0.05272450282680641
+calama,crustal,buffer margin 0 / 10 km,margin0,B,,,0.8223624584142992,0.8223624565453541,-2.2726537318717988e-07
+la_serena,crustal,buffer margin 0 / 10 km,margin0,B,,,1.344922471340388,1.3449224720437054,5.2294280017406436e-08
+iquique,crustal,buffer margin 0 / 10 km,margin10,B,,,1.1133912254557354,1.113309496935129,-0.0073405033862217195
+antofagasta,crustal,buffer margin 0 / 10 km,margin10,B,,,1.3312943409484013,1.3312469463565808,-0.0035600385551615155
+copiapo,crustal,buffer margin 0 / 10 km,margin10,B,,,1.0248884444720445,1.0248884443245985,-1.4386547508848935e-08
+valparaiso,crustal,buffer margin 0 / 10 km,margin10,B,,,1.3674190687812808,1.3661811301070452,-0.0905310378141011
+santiago_centro,crustal,buffer margin 0 / 10 km,margin10,B,,,0.8039378356778795,0.8004464991917193,-0.4342794095785085
+santiago_penalolen,crustal,buffer margin 0 / 10 km,margin10,B,,,0.7412144731765119,0.7402573284166603,-0.12913195768422536
+concepcion,crustal,buffer margin 0 / 10 km,margin10,B,,,1.2403745163371898,1.2403745157203467,-4.973038647548833e-08
+pucon,crustal,buffer margin 0 / 10 km,margin10,B,,,0.5138650400681213,0.5127620841215661,-0.2146392263635888
+puerto_montt,crustal,buffer margin 0 / 10 km,margin10,B,,,0.6295117711436043,0.6294972524091488,-0.0023063483672758345
+puerto_aysen,crustal,buffer margin 0 / 10 km,margin10,B,,,0.4965371669251255,0.4964832432155119,-0.010859954340891598
+hornopiren,crustal,buffer margin 0 / 10 km,margin10,B,,,0.6449488431910474,0.6448141916255188,-0.020877867593716015
+puerto_williams,crustal,buffer margin 0 / 10 km,margin10,B,,,0.10463250175814126,0.10453335176513434,-0.09476022396569528
+calama,crustal,buffer margin 0 / 10 km,margin10,B,,,0.8223624584142992,0.8223624567599305,-2.0117270072006477e-07
+la_serena,crustal,buffer margin 0 / 10 km,margin10,B,,,1.344922471340388,1.3449224718856412,4.0541614509947976e-08
+iquique,crustal,background Mmax 7.5,mmax75,B,,,1.1133912254557354,1.1136712810992737,0.02515339057245214
+antofagasta,crustal,background Mmax 7.5,mmax75,B,,,1.3312943409484013,1.3313850187432703,0.006811250681382219
+copiapo,crustal,background Mmax 7.5,mmax75,B,,,1.0248884444720445,1.0257225427325294,0.08138429747976961
+valparaiso,crustal,background Mmax 7.5,mmax75,B,,,1.3674190687812808,1.3685504917782332,0.08274149620868254
+santiago_centro,crustal,background Mmax 7.5,mmax75,B,,,0.8039378356778795,0.8066584548136874,0.3384116302368012
+santiago_penalolen,crustal,background Mmax 7.5,mmax75,B,,,0.7412144731765119,0.7425406678852768,0.1789218582148644
+concepcion,crustal,background Mmax 7.5,mmax75,B,,,1.2403745163371898,1.2413303661195791,0.07706138507359572
+pucon,crustal,background Mmax 7.5,mmax75,B,,,0.5138650400681213,0.5144385752238619,0.11161202086535926
+puerto_montt,crustal,background Mmax 7.5,mmax75,B,,,0.6295117711436043,0.6304645183320291,0.1513470012949769
+puerto_aysen,crustal,background Mmax 7.5,mmax75,B,,,0.4965371669251255,0.49689014374349083,0.07108769330423925
+hornopiren,crustal,background Mmax 7.5,mmax75,B,,,0.6449488431910474,0.6451697161114893,0.03424657982935564
+puerto_williams,crustal,background Mmax 7.5,mmax75,B,,,0.10463250175814126,0.10463250167380823,-8.059926059900135e-08
+calama,crustal,background Mmax 7.5,mmax75,B,,,0.8223624584142992,0.8228518373409919,0.059508908959227114
+la_serena,crustal,background Mmax 7.5,mmax75,B,,,1.344922471340388,1.345923037794879,0.07439584628947671
+iquique,crustal,backarc b borrowed,backarc_borrow,A,,,1.1133912254557354,1.1134009207312177,0.0008707878471181374
+antofagasta,crustal,backarc b borrowed,backarc_borrow,A,,,1.3312943409484013,1.3313002040312327,0.00044040469873163346
+copiapo,crustal,backarc b borrowed,backarc_borrow,A,,,1.0248884444720445,1.0251975721990387,0.030162085313922837
+valparaiso,crustal,backarc b borrowed,backarc_borrow,A,,,1.3674190687812808,1.3675368691530285,0.008614796622130605
+santiago_centro,crustal,backarc b borrowed,backarc_borrow,A,,,0.8039378356778795,0.8048609021981794,0.11481814629630271
+santiago_penalolen,crustal,backarc b borrowed,backarc_borrow,A,,,0.7412144731765119,0.7414849358963123,0.0364891309584392
+concepcion,crustal,backarc b borrowed,backarc_borrow,A,,,1.2403745163371898,1.240400975694576,0.0021331748627284597
+pucon,crustal,backarc b borrowed,backarc_borrow,A,,,0.5138650400681213,0.5138729013042725,0.0015298250587880702
+puerto_montt,crustal,backarc b borrowed,backarc_borrow,A,,,0.6295117711436043,0.6295764766112061,0.010278674771124763
+puerto_aysen,crustal,backarc b borrowed,backarc_borrow,A,,,0.4965371669251255,0.49653716671110537,-4.310254375639033e-08
+hornopiren,crustal,backarc b borrowed,backarc_borrow,A,,,0.6449488431910474,0.6449484586712714,-5.962019780092476e-05
+puerto_williams,crustal,backarc b borrowed,backarc_borrow,A,,,0.10463250175814126,0.10463250174811232,-9.584910642956856e-09
+calama,crustal,backarc b borrowed,backarc_borrow,A,,,0.8223624584142992,0.8225987787902521,0.02873676607375586
+la_serena,crustal,backarc b borrowed,backarc_borrow,A,,,1.344922471340388,1.3451041433765913,0.01350799321706564
+iquique,crustal,Patagonia b own,patagonia_own,A,,,1.1133912254557354,1.1133912254557354,0.0
+antofagasta,crustal,Patagonia b own,patagonia_own,A,,,1.3312943409484013,1.3312943409484013,0.0
+copiapo,crustal,Patagonia b own,patagonia_own,A,,,1.0248884444720445,1.0248884444720445,0.0
+valparaiso,crustal,Patagonia b own,patagonia_own,A,,,1.3674190687812808,1.3674190687812808,0.0
+santiago_centro,crustal,Patagonia b own,patagonia_own,A,,,0.8039378356778795,0.8039378356778795,0.0
+santiago_penalolen,crustal,Patagonia b own,patagonia_own,A,,,0.7412144731765119,0.7412144731765119,0.0
+concepcion,crustal,Patagonia b own,patagonia_own,A,,,1.2403745163371898,1.2403745163371898,0.0
+pucon,crustal,Patagonia b own,patagonia_own,A,,,0.5138650400681213,0.5138650400681213,0.0
+puerto_montt,crustal,Patagonia b own,patagonia_own,A,,,0.6295117711436043,0.6295117711436043,0.0
+puerto_aysen,crustal,Patagonia b own,patagonia_own,A,,,0.4965371669251255,0.4965371669251255,0.0
+hornopiren,crustal,Patagonia b own,patagonia_own,A,,,0.6449488431910474,0.6449488431910474,0.0
+puerto_williams,crustal,Patagonia b own,patagonia_own,A,,,0.10463250175814126,0.10436694805694403,-0.2537965706019829
+calama,crustal,Patagonia b own,patagonia_own,A,,,0.8223624584142992,0.8223624584142992,0.0
+la_serena,crustal,Patagonia b own,patagonia_own,A,,,1.344922471340388,1.344922471340388,0.0
+iquique,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,1.1133912254557354,1.1133872897761625,-0.0003534857723752616
+antofagasta,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,1.3312943409484013,1.3312861664606461,-0.0006140255767395075
+copiapo,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,1.0248884444720445,1.0247905258335033,-0.009554077721274368
+valparaiso,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,1.3674190687812808,1.3673812705046093,-0.002764205760652505
+santiago_centro,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,0.8039378356778795,0.8030601759342278,-0.1091701005602741
+santiago_penalolen,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,0.7412144731765119,0.7409844771643536,-0.03102961699772422
+concepcion,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,1.2403745163371898,1.2403300580803513,-0.0035842607416403105
+pucon,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,0.5138650400681213,0.5137545402232497,-0.02150367046898083
+puerto_montt,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,0.6295117711436043,0.6291929821649197,-0.05064067000772887
+puerto_aysen,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,0.4965371669251255,0.4964511721007385,-0.0173189098652049
+hornopiren,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,0.6449488431910474,0.6449031754537237,-0.007080830953631878
+puerto_williams,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,0.10463250175814126,0.10463250176315557,4.792299890254981e-09
+calama,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,0.8223624584142992,0.8222756942718605,-0.01055059621836163
+la_serena,crustal,intra-arc fit floor 5.0,intraarc_floor50,A,,,1.344922471340388,1.3448754636423659,-0.0034951976060959566
+iquique,crustal,exclusions off,no_exclude,A,,,1.1133912254557354,1.113391225404336,-4.6164627676148484e-09
+antofagasta,crustal,exclusions off,no_exclude,A,,,1.3312943409484013,1.3312943409484013,0.0
+copiapo,crustal,exclusions off,no_exclude,A,,,1.0248884444720445,1.0248884444720445,0.0
+valparaiso,crustal,exclusions off,no_exclude,A,,,1.3674190687812808,1.3674190687812808,0.0
+santiago_centro,crustal,exclusions off,no_exclude,A,,,0.8039378356778795,0.8039378356778795,0.0
+santiago_penalolen,crustal,exclusions off,no_exclude,A,,,0.7412144731765119,0.7412144731765119,0.0
+concepcion,crustal,exclusions off,no_exclude,A,,,1.2403745163371898,1.2403745163371898,0.0
+pucon,crustal,exclusions off,no_exclude,A,,,0.5138650400681213,0.5138650400681213,0.0
+puerto_montt,crustal,exclusions off,no_exclude,A,,,0.6295117711436043,0.6295117711436043,0.0
+puerto_aysen,crustal,exclusions off,no_exclude,A,,,0.4965371669251255,0.4965371666980202,-4.5737824638791835e-08
+hornopiren,crustal,exclusions off,no_exclude,A,,,0.6449488431910474,0.6449488431910474,0.0
+puerto_williams,crustal,exclusions off,no_exclude,A,,,0.10463250175814126,0.10463250175312695,-4.792299890254981e-09
+calama,crustal,exclusions off,no_exclude,A,,,0.8223624584142992,0.8223624584142992,0.0
+la_serena,crustal,exclusions off,no_exclude,A,,,1.344922471340388,1.344922471340388,0.0
+iquique,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,1.1133912254557354,1.113475176503506,0.0075401211947045965
+antofagasta,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,1.3312943409484013,1.3312638884456316,-0.0022874357557878255
+copiapo,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,1.0248884444720445,1.0247221809901637,-0.016222593080994496
+valparaiso,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,1.3674190687812808,1.3671655195946246,-0.018542171339042124
+santiago_centro,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,0.8039378356778795,0.804014582138257,0.009546317758868383
+santiago_penalolen,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,0.7412144731765119,0.7416388539699178,0.05725479045048942
+concepcion,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,1.2403745163371898,1.2400504974745512,-0.02612266362866933
+pucon,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,0.5138650400681213,0.5142728712901706,0.07936543454976075
+puerto_montt,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,0.6295117711436043,0.6295786981277007,0.010631569918828632
+puerto_aysen,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,0.4965371669251255,0.49661288185151525,0.01524859193493544
+hornopiren,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,0.6449488431910474,0.6450229596881263,0.01149184123072633
+puerto_williams,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,0.10463250175814126,0.10429422271074126,-0.3233020731760128
+calama,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,0.8223624584142992,0.8223419580606717,-0.0024928610757646297
+la_serena,crustal,fit floors -0.2 / +0.2,floor_m02,A,,,1.344922471340388,1.344563665258441,-0.026678569924509787
+iquique,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,1.1133912254557354,1.113313372113691,-0.006992451553822221
+antofagasta,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,1.3312943409484013,1.3312843932012783,-0.0007472237218308919
+copiapo,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,1.0248884444720445,1.0247180775480587,-0.016622972471269648
+valparaiso,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,1.3674190687812808,1.3673822373129185,-0.002693502614026233
+santiago_centro,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,0.8039378356778795,0.8030038607787461,-0.11617501474424641
+santiago_penalolen,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,0.7412144731765119,0.7407937074185753,-0.0567670725766245
+concepcion,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,1.2403745163371898,1.2403198601555505,-0.004406425714120754
+pucon,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,0.5138650400681213,0.5134407093008995,-0.08257630586535614
+puerto_montt,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,0.6295117711436043,0.6291495521546042,-0.0575396689313834
+puerto_aysen,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,0.4965371669251255,0.4964322595114872,-0.0211278068644849
+hornopiren,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,0.6449488431910474,0.6448673647587145,-0.012633317075150252
+puerto_williams,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,0.10463250175814126,0.10479778446994568,0.1579649812698536
+calama,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,0.8223624584142992,0.8222099291589323,-0.01854769193392336
+la_serena,crustal,fit floors -0.2 / +0.2,floor_p02,A,,,1.344922471340388,1.3448649774289712,-0.004274886667599009
+iquique,crustal,completeness -0.1 / +0.1,mc_m01,A,,,1.1133912254557354,1.1133321306478072,-0.005307640888230214
+antofagasta,crustal,completeness -0.1 / +0.1,mc_m01,A,,,1.3312943409484013,1.3312560722828037,-0.0028745458025669635
+copiapo,crustal,completeness -0.1 / +0.1,mc_m01,A,,,1.0248884444720445,1.0243131690601532,-0.056130539376664235
+valparaiso,crustal,completeness -0.1 / +0.1,mc_m01,A,,,1.3674190687812808,1.3674861634774926,0.004906666708359708
+santiago_centro,crustal,completeness -0.1 / +0.1,mc_m01,A,,,0.8039378356778795,0.8043752602619648,0.05441024973236175
+santiago_penalolen,crustal,completeness -0.1 / +0.1,mc_m01,A,,,0.7412144731765119,0.7420562855320065,0.1135720342706037
+concepcion,crustal,completeness -0.1 / +0.1,mc_m01,A,,,1.2403745163371898,1.2401450290203144,-0.01850145370230205
+pucon,crustal,completeness -0.1 / +0.1,mc_m01,A,,,0.5138650400681213,0.5135132254832425,-0.06846439384786684
+puerto_montt,crustal,completeness -0.1 / +0.1,mc_m01,A,,,0.6295117711436043,0.6290182404115197,-0.07839896801105084
+puerto_aysen,crustal,completeness -0.1 / +0.1,mc_m01,A,,,0.4965371669251255,0.4960852737610832,-0.09100893027620405
+hornopiren,crustal,completeness -0.1 / +0.1,mc_m01,A,,,0.6449488431910474,0.6447909728585268,-0.02447796196353158
+puerto_williams,crustal,completeness -0.1 / +0.1,mc_m01,A,,,0.10463250175814126,0.10415877017295268,-0.4527575822315888
+calama,crustal,completeness -0.1 / +0.1,mc_m01,A,,,0.8223624584142992,0.8220754307014553,-0.03490282294712488
+la_serena,crustal,completeness -0.1 / +0.1,mc_m01,A,,,1.344922471340388,1.3448494367769341,-0.0054303920865472755
+iquique,crustal,completeness -0.1 / +0.1,mc_p01,A,,,1.1133912254557354,1.1134377069291537,0.004174765559095128
+antofagasta,crustal,completeness -0.1 / +0.1,mc_p01,A,,,1.3312943409484013,1.331329369561644,0.002631169694433666
+copiapo,crustal,completeness -0.1 / +0.1,mc_p01,A,,,1.0248884444720445,1.025524035971613,0.06201567624228854
+valparaiso,crustal,completeness -0.1 / +0.1,mc_p01,A,,,1.3674190687812808,1.3675739609253827,0.011327335389577087
+santiago_centro,crustal,completeness -0.1 / +0.1,mc_p01,A,,,0.8039378356778795,0.8044988465072285,0.06978286186467564
+santiago_penalolen,crustal,completeness -0.1 / +0.1,mc_p01,A,,,0.7412144731765119,0.7416129893760668,0.053765301943853316
+concepcion,crustal,completeness -0.1 / +0.1,mc_p01,A,,,1.2403745163371898,1.2402764343344326,-0.007907450650213033
+pucon,crustal,completeness -0.1 / +0.1,mc_p01,A,,,0.5138650400681213,0.5139870891591576,0.023751195648591406
+puerto_montt,crustal,completeness -0.1 / +0.1,mc_p01,A,,,0.6295117711436043,0.6296663441750568,0.024554430677548034
+puerto_aysen,crustal,completeness -0.1 / +0.1,mc_p01,A,,,0.4965371669251255,0.49691647773377706,0.07639122182947489
+hornopiren,crustal,completeness -0.1 / +0.1,mc_p01,A,,,0.6449488431910474,0.6450448469862078,0.01488548993830996
+puerto_williams,crustal,completeness -0.1 / +0.1,mc_p01,A,,,0.10463250175814126,0.1050999667168777,0.44676840454125344
+calama,crustal,completeness -0.1 / +0.1,mc_p01,A,,,0.8223624584142992,0.8228248747116002,0.05623022945291378
+la_serena,crustal,completeness -0.1 / +0.1,mc_p01,A,,,1.344922471340388,1.345094159371029,0.012765645180268237
+iquique,all,truncation 2.5 / 4.0,trunc25,A,,,1.1133912254557354,1.058966168710353,-4.88822396845322
+antofagasta,all,truncation 2.5 / 4.0,trunc25,A,,,1.3312943409484013,1.2757584271372182,-4.171572889855435
+copiapo,all,truncation 2.5 / 4.0,trunc25,A,,,1.0248884444720445,0.9828346054269629,-4.103260142302123
+valparaiso,all,truncation 2.5 / 4.0,trunc25,A,,,1.3674190687812808,1.307818830627398,-4.358593463743487
+santiago_centro,all,truncation 2.5 / 4.0,trunc25,A,,,0.8039378356778795,0.7678503931435239,-4.488834948777686
+santiago_penalolen,all,truncation 2.5 / 4.0,trunc25,A,,,0.7412144731765119,0.7076922948069455,-4.522601700679885
+concepcion,all,truncation 2.5 / 4.0,trunc25,A,,,1.2403745163371898,1.187291493238773,-4.279596396028051
+pucon,all,truncation 2.5 / 4.0,trunc25,A,,,0.5138650400681213,0.4949806861753872,-3.6749637395512735
+puerto_montt,all,truncation 2.5 / 4.0,trunc25,A,,,0.6295117711436043,0.6066010672998167,-3.639440101678626
+puerto_aysen,all,truncation 2.5 / 4.0,trunc25,A,,,0.4965371669251255,0.48517776925594414,-2.2877235433403698
+hornopiren,all,truncation 2.5 / 4.0,trunc25,A,,,0.6449488431910474,0.6301039160248224,-2.301721651716737
+puerto_williams,all,truncation 2.5 / 4.0,trunc25,A,,,0.10463250175814126,0.10225515077219187,-2.272096094428344
+calama,all,truncation 2.5 / 4.0,trunc25,A,,,0.8223624584142992,0.7775484950345679,-5.449417458348327
+la_serena,all,truncation 2.5 / 4.0,trunc25,A,,,1.344922471340388,1.282847483854468,-4.615506752895159
+iquique,all,truncation 2.5 / 4.0,trunc40,A,,,1.1133912254557354,1.1461744002608256,2.9444434315234913
+antofagasta,all,truncation 2.5 / 4.0,trunc40,A,,,1.3312943409484013,1.3633664626219286,2.4090932175584445
+copiapo,all,truncation 2.5 / 4.0,trunc40,A,,,1.0248884444720445,1.049026607683994,2.3551990796797373
+valparaiso,all,truncation 2.5 / 4.0,trunc40,A,,,1.3674190687812808,1.402844664994525,2.5906905221686927
+santiago_centro,all,truncation 2.5 / 4.0,trunc40,A,,,0.8039378356778795,0.8238188127706331,2.4729495503828414
+santiago_penalolen,all,truncation 2.5 / 4.0,trunc40,A,,,0.7412144731765119,0.760907439351997,2.656851274245886
+concepcion,all,truncation 2.5 / 4.0,trunc40,A,,,1.2403745163371898,1.2681665851289308,2.240619137662603
+pucon,all,truncation 2.5 / 4.0,trunc40,A,,,0.5138650400681213,0.5225780080074838,1.6955751530027152
+puerto_montt,all,truncation 2.5 / 4.0,trunc40,A,,,0.6295117711436043,0.642493100732288,2.0621265850360615
+puerto_aysen,all,truncation 2.5 / 4.0,trunc40,A,,,0.4965371669251255,0.50193334301128,1.086761766409361
+hornopiren,all,truncation 2.5 / 4.0,trunc40,A,,,0.6449488431910474,0.6515587727396354,1.0248765647649982
+puerto_williams,all,truncation 2.5 / 4.0,trunc40,A,,,0.10463250175814126,0.10556791892905201,0.8940024898505872
+calama,all,truncation 2.5 / 4.0,trunc40,A,,,0.8223624584142992,0.8490677233746836,3.247383764560241
+la_serena,all,truncation 2.5 / 4.0,trunc40,A,,,1.344922471340388,1.382082977719007,2.763022194252107
