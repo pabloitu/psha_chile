@@ -1,0 +1,33 @@
+id,field,value,reason,reference
+83388,time_iso,2010-02-27T06:35:14,Maule 2010: Cabello time is 3 h early (local time); GCMT centroid time 06:35:14 UTC for the centroid location of this row,GCMT C201002270634A
+157950,class,slab_interface,"Chiloe 2016: deep interface patch (domain C), not intraslab",Ruiz and Madariaga 2018; Ruiz et al. 2017a
+24,class,intra_slab,"Santiago 1647: historical intraslab, most probable of its type (section 7.4)",Ruiz and Madariaga 2018
+160,class,slab_interface,Illapel 1880: interplate; deep submarine cable break off Limari (section 5.4.1); Cabello epicentre is inland (intensity),Ruiz and Madariaga 2018
+1987,class,slab_interface,Taltal 1966: thrust on the plate interface (Deschamps et al. 1980; Table 1 domain B),Ruiz and Madariaga 2018
+3289,class,slab_interface,La Ligua 1971: interplate near the bottom of the contact zone (Table 1 domain C),Ruiz and Madariaga 2018
+4704,class,slab_interface,"Arauco 1975: interplate, domain C (Table 1; paper gives 14 Oct 1975, event is 10 May 1975)",Ruiz and Madariaga 2018
+8464,class,slab_interface,Antofagasta 1987: interplate at the southern end of the 1995 rupture (section 4.2); GCMT thrust,Ruiz and Madariaga 2018
+9347,class,slab_deep,Arica 1987: intraplate intermediate depth (Fig. 4); catalog depth 19 km is wrong,Ruiz and Madariaga 2018
+70065,class,intra_slab,Michilla 2007: intraplate intermediate depth (Fig. 4; Ruiz and Madariaga 2011),Ruiz and Madariaga 2018
+110688,class,slab_interface,Constitucion 2012: interplate near the bottom of the seismogenic contact (Table 1 domain C; Ruiz et al. 2013),Ruiz and Madariaga 2018
+43,mag,9.0,Concepcion 1751: Mw ~9 in the paper (Cabello 8.50),Ruiz and Madariaga 2018
+160,mag,7.5,Illapel 1880: Mw 7.5 in the paper (Cabello 8.10),Ruiz and Madariaga 2018
+234,mag,7.8,Copiapo 1918: Mw 7.8 in the paper (Cabello 8.00),Ruiz and Madariaga 2018
+356,mag,7.7,Talca 1928: Mw 7.7 in the paper (Cabello 8.10),Ruiz and Madariaga 2018
+552,mag,7.8,Chillan 1939: Mw 7.8 in the paper (Cabello 8.00),Ruiz and Madariaga 2018
+608,mag,7.9,Illapel 1943: Mw 7.9 in the paper (Cabello 8.20),Ruiz and Madariaga 2018
+631,mag,7.1,Santiago 1945: Mw 7.1 in the paper (Cabello 7.00),Ruiz and Madariaga 2018
+835,mag,6.3,Las Melosas 1958: Mw 6.3 in the paper (Cabello 6.80),Ruiz and Madariaga 2018
+2370,mag,7.4,Tocopilla 1967: Mw 7.4 in the paper (Cabello 7.50),Ruiz and Madariaga 2018
+3289,mag,7.8,La Ligua 1971: Mw 7.8 in the paper (Cabello 7.50),Ruiz and Madariaga 2018
+4704,mag,7.7,Arauco 1975: Mw 7.7 in the paper (Cabello 7.80),Ruiz and Madariaga 2018
+6353,mag,7.2,Papudo 1981: Mw 7.2 in the paper (Cabello 7.50),Ruiz and Madariaga 2018
+6854,mag,7.7,Copiapo 1983: Mw 7.7 in the paper (Cabello 7.20),Ruiz and Madariaga 2018
+7282,mag,8.0,Valparaiso 1985: Mw 8.0 in the paper (Cabello 7.90),Ruiz and Madariaga 2018
+8464,mag,7.6,Antofagasta 1987: Mw 7.6 in the paper (Cabello 7.20),Ruiz and Madariaga 2018
+36911,mag,7.0,Papudo 2001: Mw 7.0 in the paper (Cabello 6.70),Ruiz and Madariaga 2018
+52159,mag,6.4,Curico 2004: Mw 6.4 in the paper (Cabello 6.50),Ruiz and Madariaga 2018
+69130,mag,7.8,Tocopilla 2007: Mw 7.8 in the paper (Cabello 7.70),Ruiz and Madariaga 2018
+110688,mag,7.2,Constitucion 2012: Mw 7.2 in the paper (Cabello 7.10),Ruiz and Madariaga 2018
+145193,mag,8.3,Illapel 2015: Mw 8.3 in the paper (Cabello 8.40),Ruiz and Madariaga 2018
+add:pichilemu2010a,mag,6.9,Pichilemu 2010 first event: Mw 6.9 in the paper (GCMT 6.88),Ruiz and Madariaga 2018
