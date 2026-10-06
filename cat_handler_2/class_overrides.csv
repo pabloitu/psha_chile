@@ -1,0 +1,15 @@
+id,class,reason,reference
+157950,slab_interface,"Chiloe 2016: deep interface patch (domain C), not intraslab",Ruiz and Madariaga 2018; Ruiz et al. 2017a
+24,intra_slab,"Santiago 1647: historical intraslab, most probable of its type (section 7.4)",Ruiz and Madariaga 2018
+160,slab_interface,Illapel 1880: interplate; deep submarine cable break off Limari (section 5.4.1); Cabello epicentre is inland (intensity),Ruiz and Madariaga 2018
+1987,slab_interface,Taltal 1966: thrust on the plate interface (Deschamps et al. 1980; Table 1 domain B),Ruiz and Madariaga 2018
+3289,slab_interface,La Ligua 1971: interplate near the bottom of the contact zone (Table 1 domain C),Ruiz and Madariaga 2018
+4704,slab_interface,"Arauco 1975: interplate, domain C (Table 1; paper gives 14 Oct 1975, event is 10 May 1975)",Ruiz and Madariaga 2018
+8464,slab_interface,Antofagasta 1987: interplate at the southern end of the 1995 rupture (section 4.2); GCMT thrust,Ruiz and Madariaga 2018
+9347,slab_deep,Arica 1987: intraplate intermediate depth (Fig. 4); catalog depth 19 km is wrong,Ruiz and Madariaga 2018
+70065,intra_slab,Michilla 2007: intraplate intermediate depth (Fig. 4; Ruiz and Madariaga 2011),Ruiz and Madariaga 2018
+110688,slab_interface,Constitucion 2012: interplate near the bottom of the seismogenic contact (Table 1 domain C; Ruiz et al. 2013),Ruiz and Madariaga 2018
+678,patagonia_crustal,"Tierra del Fuego 1949 M8.0: Magallanes-Fagnano transform, 240 km from the Antarctic trench; fixed depth (10 km) is the only reason it left the class",Pelayo and Wiens 1989; Lomnitz 1970
+159,patagonia_crustal,"Magallanes 1879 M7.2: Magallanes-Fagnano fault system, 350 km from the trench; no depth",Lomnitz 1970
+3030,patagonia_crustal,"Tierra del Fuego 1970-06-15 M6.8 (54.5 S 64.5 W): eastern Magallanes-Fagnano segment, 380 km from the trench; fixed depth",Jaschek et al. 1982
+196,patagonia_crustal,"Magallanes 1907 M5.5: same fault system as 1879, no depth",Lomnitz 1970
