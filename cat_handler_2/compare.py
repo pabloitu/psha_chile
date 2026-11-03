@@ -27,6 +27,40 @@ FAMS = ["interface", "in-slab", "crustal", "excluded"]
 MB = [3.9, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 10.0]
 
 
+def cities(new, r=200.0):
+    """
+    Events per family within r km of each city, CATALOG_PREV against the new catalog.
+
+    Parameters
+    ----------
+    new : pandas.DataFrame
+        The new catalog.
+    r : float
+        Radius in km around each city of config.CITIES.
+
+    Returns
+    -------
+    list of str
+        Lines of compare.txt: N(M >= 5) and N(M >= 6), as v1 / new.
+    """
+    old = pd.read_csv(C.CATALOG_PREV, dtype={"id": str}, low_memory=False)
+    rows = []
+    for name, (lo, la) in C.CITIES.items():
+        row = {"city": name}
+        for m in (5.0, 6.0):
+            for f in FAMS:
+                n = []
+                for d in (old, new):
+                    x = (d["longitude"] - lo) * 111.2 * np.cos(np.radians(la))
+                    y = (d["latitude"] - la) * 111.2
+                    k = (np.hypot(x, y) <= r) & (d["mag"] >= m) & (d["class"].map(FAMILY).fillna("excluded") == f)
+                    n.append(int(k.sum()))
+                row[f"{f} M{m:.0f}"] = "{} / {}".format(*n)
+        rows.append(row)
+    return [f"## events within {r:.0f} km of each city, catalog_v1 / new (catalog magnitude)",
+            pd.DataFrame(rows).to_string(index=False), ""]
+
+
 def main(old_path=None, new_path=None):
     OUT.mkdir(parents=True, exist_ok=True)
     old = pd.read_csv(old_path or C.OLD_CLASSIFIED, dtype={"id": str}, low_memory=False)
@@ -91,6 +125,8 @@ def main(old_path=None, new_path=None):
     fig.tight_layout()
     fig.savefig(OUT / "compare.png", dpi=110)
     plt.close(fig)
+    if C.CATALOG_PREV.exists():
+        t += cities(new)
     (OUT / "compare.txt").write_text("\n".join(t) + "\n")
     print("\n".join(t))
 

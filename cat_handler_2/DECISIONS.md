@@ -7,7 +7,7 @@ unless marked otherwise.
 
 ## Inputs and scope
 1. Base catalog: Cabello et al. (2025) as distributed; every event and every magnitude comes from it (config CABELLO).
-2. Only events with Cabello magnitude above 3.9 are written (MMIN); lower rows are read only so that a twin can merge. North limit (LAT_MAX = 17 S, 30 Sep 2026): Cabello rows north of it are dropped before anything else, so that Peruvian seismicity does not enter the source fits; no other bound (Cabello reaches 78.5 W, 65 W and 57.6 S).
+2. Only events with Cabello magnitude above 3.9 are written (MMIN); lower rows are read only so that a twin can merge. North limit (LAT_MAX = 17 S, 30 Sep 2026): Cabello rows north of it are dropped before anything else, so that Peruvian seismicity does not enter the source fits. The cut is applied again on the final location (3 Nov 2026): 7 GCMT-located events whose ComCat hypocentre (item 8) lies 0.1-0.7 deg north of it are dropped, among them Arequipa 2001 M8.4 (prepare.json, north_after_locate); no other bound (Cabello reaches 78.5 W, 65 W and 57.6 S).
 3. Frozen inputs: Potin et al. (2024) relocations, GCMT ndk, the ANSS moment tensors queried per event (anss_fm.csv), GEM.
 
 ## Duplicates (dedup)

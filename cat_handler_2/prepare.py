@@ -421,6 +421,10 @@ def main():
     ev, log["mech"] = mech(ev, rows, g, S.anss(), S.gem())
     ev.to_csv(C.PREP / "03_mech.csv", index=False)
     ev, log["magnitudes"] = magnitudes(ev)
+    # north cut again on the final location: ComCat hypocentres of GCMT-located events can lie north of it
+    n = ev["latitude"] > C.LAT_MAX
+    log["north_after_locate"] = {"dropped": int(n.sum()), "ids": ev.loc[n, "id"].tolist()}
+    ev = ev[~n]
     ev[BASE].to_csv(C.OUT / "catalog_base.csv", index=False)
     (C.PREP / "prepare.json").write_text(json.dumps(log, indent=1, default=str))
     print(json.dumps(log, indent=1, default=str))

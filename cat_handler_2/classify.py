@@ -250,12 +250,32 @@ def overrides(ev):
     return ev, {"class_overrides": int((ev["cls_rule"] == "override").sum()), "ids_not_found": miss}
 
 
-def main():
-    ev = pd.read_csv(C.OUT / "catalog_base.csv", dtype={"id": str}, low_memory=False)
+def build(base):
+    """
+    Classify a catalog_base table in memory.
+
+    Parameters
+    ----------
+    base : pathlib.Path or str
+        catalog_base.csv to read.
+
+    Returns
+    -------
+    ev : pandas.DataFrame
+        The catalog with class, cls_rule, class_auto and family.
+    log : dict
+        Counts per class and rule, override check.
+    """
+    ev = pd.read_csv(base, dtype={"id": str}, low_memory=False)
     ev, log = classify(ev)
     ev, log["overrides"] = overrides(ev)
     fam = {c: f for f, cs in C.FAMILIES.items() for c in cs}
     ev["family"] = ev["class"].map(fam).fillna("excluded")
+    return ev, log
+
+
+def main():
+    ev, log = build(C.OUT / "catalog_base.csv")
     z = pd.to_numeric(ev["depth"], errors="coerce")
     ex = ev[(ev["family"] == "crustal") & ~ev["depth_status"].isin(C.UNKNOWN_DEPTH) & (z > C.CRUSTAL_MAX_Z)]
     ex[["id", "time_iso", "latitude", "longitude", "depth", "depth_status", "mag", "class", "cls_rule", "general_remarks"]].to_csv(
