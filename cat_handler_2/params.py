@@ -20,6 +20,9 @@ MECH_EXTRA = 10.0
 # historical (assigned) depths: the epicentre comes from damage reports and
 # sits landward of the rupture; the unknown-depth rule reaches this slab top
 IF_MAX_TOP_HIST = 65.0
+# the same reach for default depths of early instrumental events (epicentres off
+# by 20-50 km), unless the default depth says intermediate (> FOREARC_MAX_Z)
+EARLY_YEAR = 1964
 # interface-like mechanism: one nodal plane within NORM_CONE deg of the slab
 # normal and slip within SLIP_CONE deg of the convergence direction CONV_AZ
 CONV_AZ, NORM_CONE, SLIP_CONE = 78.0, 35.0, 90.0

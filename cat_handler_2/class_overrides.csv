@@ -13,3 +13,7 @@ id,class,reason,reference
 159,patagonia_crustal,"Magallanes 1879 M7.2: Magallanes-Fagnano fault system, 350 km from the trench; no depth",Lomnitz 1970
 3030,patagonia_crustal,"Tierra del Fuego 1970-06-15 M6.8 (54.5 S 64.5 W): eastern Magallanes-Fagnano segment, 380 km from the trench; fixed depth",Jaschek et al. 1982
 196,patagonia_crustal,"Magallanes 1907 M5.5: same fault system as 1879, no depth",Lomnitz 1970
+922,intraarc,"Aysen 1960-06-06 M7.7 slow event: crustal, probably on the Liquine-Ofqui fault (section 6); rule no_slab_deep left it unresolved",Ruiz and Madariaga 2018; Kanamori and Rivera 2017
+28033,slab_deep,"Punitaqui 1997 M7.1: intermediate-depth intraslab (fig 5, 6; section 5.5); the cone rule made it interface; slab top 51 km, so slab_deep",Ruiz and Madariaga 2018
+96048,slab_interface,"Arauco 2011 M7.1: interplate, domain B (fig 7; section 5.6); relocated depth 3 km is 16 km above the slab top, outside the band",Ruiz and Madariaga 2018
+add:pica1768,slab_deep,"Pica 1768: intraslab, possibly intermediate depth (sections 3.1.3, 3.1.5.1); no depth, so the rule leaves it unresolved; slab top 76 km, so slab_deep",Ruiz and Madariaga 2018

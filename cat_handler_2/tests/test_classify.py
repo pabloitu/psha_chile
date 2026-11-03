@@ -14,17 +14,17 @@ from cat_handler_2 import config as C
 
 FROZEN = Path(os.environ.get("CAT_FROZEN", C.OUT / "frozen" / "2026-11-03"))
 
-CLASS = {"slab_interface": 17584, "slab_deep": 15662, "intra_slab": 3869, "unresolved": 3514, "deep_nest": 3249,
-         "forearc": 2294, "outer_rise": 1415, "backarc": 901, "intraarc": 856, "deep_unknown": 789,
+CLASS = {"slab_interface": 17600, "slab_deep": 15664, "intra_slab": 3869, "unresolved": 3498, "deep_nest": 3249,
+         "forearc": 2293, "outer_rise": 1416, "backarc": 901, "intraarc": 857, "deep_unknown": 789,
          "patagonia_interface": 41, "patagonia_crustal": 36, "unclassified": 1}
 RULE = {"band_nomech": 14233, "arc_slab": 8548, "deep_slab": 6889, "band_intraslab": 3743, "nest": 3249,
-        "unk_deep": 2617, "unk_nomech": 2418, "band_forearc": 2030, "outer_rise": 1412, "backarc": 901, "cone": 880,
+        "unk_deep": 2602, "unk_nomech": 2434, "band_forearc": 2029, "outer_rise": 1413, "backarc": 901, "cone": 879,
         "arc_crustal": 853, "deep_mid": 762, "arc_below": 415, "below": 374, "deep_forearc": 252, "deep_above": 224,
-        "band_mech": 142, "pat_deep": 58, "unk_cone": 44, "pat_interface": 41, "no_slab_deep": 39, "pat_crustal": 32,
-        "override": 14, "unk_mech": 14, "remark": 12, "arc_noslab": 5, "unk_normal": 4, "pat_outer": 3,
+        "band_mech": 142, "pat_deep": 58, "unk_cone": 44, "pat_interface": 41, "no_slab_deep": 38, "pat_crustal": 32,
+        "override": 18, "unk_mech": 14, "remark": 12, "arc_noslab": 5, "unk_normal": 4, "pat_outer": 3,
         "pre_year": 2, "no_slab": 1}
-FAM = {"in-slab": 22780, "interface": 17625, "excluded": 5718, "crustal": 4088}
-FAM55 = {"in-slab": 1073, "interface": 1028, "excluded": 448, "crustal": 128}
+FAM = {"in-slab": 22782, "interface": 17641, "excluded": 5703, "crustal": 4088}
+FAM55 = {"in-slab": 1075, "interface": 1044, "excluded": 433, "crustal": 128}
 
 # id: (class, rule); rule None for hand decisions
 EVENTS = {"890": ("slab_interface", "unk_cone"),      # Valdivia 1960 M9.5
@@ -32,8 +32,16 @@ EVENTS = {"890": ("slab_interface", "unk_cone"),      # Valdivia 1960 M9.5
           "135106": ("slab_interface", "cone"),       # Iquique 2014
           "145193": ("slab_interface", "cone"),       # Illapel 2015
           "69131": ("slab_interface", "cone"),        # Tocopilla 2007
+          "251": ("slab_interface", "unk_nomech"),    # 1920 M7.4, default depth before 1964
+          "459": ("unresolved", "unk_deep"),          # 1933, ISC 100 km default: not interface
           "157950": ("slab_interface", None),         # Chiloe 2016
           "24": ("intra_slab", None),                 # Santiago 1647
+          "28033": ("slab_deep", None),               # Punitaqui 1997
+          "96048": ("slab_interface", None),          # Arauco 2011
+          "922": ("intraarc", None),                  # Aysen 1960 slow event
+          "add:pica1768": ("slab_deep", None),
+          "add:valdivia1960fs": ("slab_interface", "unk_nomech"),
+          "add:maule2010or": ("outer_rise", "outer_rise"),
           "678": ("patagonia_crustal", None),         # Tierra del Fuego 1949 M8.0
           "159": ("patagonia_crustal", None),         # Magallanes 1879
           "196": ("patagonia_crustal", None),         # Magallanes 1907
@@ -78,7 +86,7 @@ def test_families_cover_params(ev):
 
 def test_class_overrides_land_in_their_class(built, ev):
     o = pd.read_csv(C.CLASS_OVERRIDES, dtype=str)
-    assert len(o) == 14 and built[1]["overrides"]["ids_not_found"] == []
+    assert len(o) == 18 and built[1]["overrides"]["ids_not_found"] == []
     got = ev.loc[o["id"]]
     assert (got["class"].to_numpy() == o["class"].to_numpy()).all()
     assert (got["cls_rule"] == "override").all()
@@ -89,7 +97,7 @@ def test_crustal_needs_a_real_depth_within_the_cap(ev):
     z = pd.to_numeric(cr["depth"], errors="coerce")
     bad = cr[cr["depth_status"].isin(C.UNKNOWN_DEPTH) | ~(z <= C.CRUSTAL_MAX_Z)]
     assert set(bad["cls_rule"]) <= {"remark", "override"}
-    assert len(bad) == 10
+    assert len(bad) == 11
 
 
 def test_unknown_depth_never_crustal_by_rule(ev):
@@ -106,6 +114,14 @@ def test_known_events(ev, i):
     cls, rule = EVENTS[i]
     assert ev.loc[i, "class"] == cls
     assert ev.loc[i, "cls_rule"] == (rule or "override")
+
+
+def test_magnitudes_of_the_paper(ev):
+    # overrides.csv mag rows, matched through the merged ids of each event
+    o = pd.read_csv(C.OVERRIDES, dtype=str).query("field == 'mag'")
+    own = {m: i for i, d in zip(ev["id"], ev["dup_ids"].fillna("")) for m in [i, *d.split(";")] if m}
+    got = ev.loc[o["id"].map(own), "mag"].to_numpy()
+    assert np.allclose(got, o["value"].astype(float).to_numpy())
 
 
 def test_frozen_catalog_is_this_build(ev):

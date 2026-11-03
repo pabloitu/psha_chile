@@ -701,7 +701,7 @@ def review(ev):
 
     def prop(r):
         c = r["rm_class"]
-        if pd.isna(r.get("id")) or c == "unknown":
+        if pd.isna(r.get("id")) or r["weak"] or c == "unknown":
             return None
         if c == "interface":
             return "slab_interface"
@@ -712,7 +712,8 @@ def review(ev):
         return c
     rm["proposed"] = rm.apply(prop, axis=1)
     rm["agree"] = np.where(rm["proposed"].isna(), "", np.where(rm["proposed"] == rm["class"], "yes", "no"))
-    rm["missing"] = rm["id"].isna()
+    # a weak match (magnitude off by more than RM_DM) is another event: the paper's event counts as missing
+    rm["missing"] = rm["id"].isna() | rm["weak"]
     rm["shared"] = rm["id"].notna() & rm["id"].duplicated(keep=False)
     draft = rm[rm["agree"] == "no"].assign(
         **{"class": lambda d: d["proposed"]},

@@ -26,7 +26,8 @@
 #   deep_*        slab top >= IF_MAX_TOP: slab_deep from DEEP_TOL above the top or deeper
 #                 than FOREARC_MAX_Z (deep_above); shallow forearc; between: unresolved
 #   unk_*         depth unknown (UNKNOWN_DEPTH), slab top < IF_MAX_TOP (IF_MAX_TOP_HIST
-#                 for assigned depths): interface if the mechanism is interface-like
+#                 for assigned depths, and before EARLY_YEAR unless the default depth
+#                 is deeper than FOREARC_MAX_Z): interface if the mechanism is interface-like
 #                 (up to IF_MECH_MAX_TOP) or missing, intra_slab otherwise; over a
 #                 deeper slab, or without a slab: unresolved (unk_deep)
 #   pre_year      intra_slab before PRE_YEAR -> interface
@@ -178,7 +179,8 @@ def classify(ev):
     below = known & near & ((z > top + thk) | ~np.isfinite(thk))
     shallow = near & (top < C.IF_MAX_TOP)
     mdom = near & (top < C.IF_MECH_MAX_TOP)
-    hist = ev["depth_status"].eq("assigned").to_numpy()
+    zr = pd.to_numeric(ev["depth"], errors="coerce").to_numpy()
+    hist = ev["depth_status"].eq("assigned").to_numpy() | ((ev["year"] < C.EARLY_YEAR).to_numpy() & ~(zr > C.FOREARC_MAX_Z))
     ushal = near & (top < np.where(hist, C.IF_MAX_TOP_HIST, C.IF_MAX_TOP))
     crust = ev["general_remarks"].eq("Crustal").to_numpy()
 
