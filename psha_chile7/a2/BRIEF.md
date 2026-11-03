@@ -20,8 +20,10 @@ benchmark shows and what the real-catalog numbers are.
 
 ## Hard rules
 
-- **Branch.** Work on branch `a2-night` (Pablo creates it before the run). Never switch
-  branches, never push, never rewrite history.
+- **No git.** Pablo's settings deny git commands that change the repository (add, commit,
+  switch, checkout, ...). Do not run them or work around them. The run happens on branch
+  `a2-night`, which Pablo created; he commits in the morning. Read-only git (status, log, diff)
+  is fine.
 - **Write only** under `psha_chile7/a2/` (code, tests, report) and `psha_chile7/outputs/a2/`
   (tables, figures, logs). Every other file is read-only: `psha_chile7/lib/`, the class
   pipelines, `cat_handler_2/`, `data/`, `results/`.
@@ -37,17 +39,16 @@ benchmark shows and what the real-catalog numbers are.
   window, bootstrap sizes, seeds) goes into `psha_chile7/a2/settings.py` before phase 4 starts.
   From phase 4 on, change a method only to fix a bug, and log the fix and its reason in
   `PROGRESS.md`. Do not tune anything on the real-catalog results.
-- **Commit after each phase** with `git add psha_chile7/a2 && git commit -m "a2: phase N, <what>"`.
-  Add small outputs with `git add -f psha_chile7/outputs/a2/**/*.csv psha_chile7/outputs/a2/**/*.md`
-  (no PNGs, no large files). Commit messages carry no trailers (no Co-Authored-By, no session links).
-- **Progress log.** After each phase append one line to `psha_chile7/a2/PROGRESS.md`:
-  time, phase, done / partial / skipped, one sentence.
+- **Checkpoint after each phase** instead of committing: all code, tables and figures of the
+  phase written to disk, and one line appended to `psha_chile7/a2/PROGRESS.md`: time, phase,
+  done / partial / skipped, the files written, one sentence. A later phase must not overwrite an
+  earlier phase's outputs.
 - **Time budget** (total about 7 h): P0 15 min, P1 1 h, P2 2.5 h, P3 1.25 h, P4 1.25 h, P5 45 min.
-  When a phase runs over, write what exists, mark the rest "not done: reason", commit, move on.
+  When a phase runs over, write what exists, mark the rest "not done: reason", checkpoint, move on.
   The report at the end matters more than any single method.
 - **Stuck rule.** A failing test or estimator you cannot fix in 20 minutes: mark that method
   "broken: reason" in the results, keep its code, continue with the others.
-- **Tests.** `python -m pytest psha_chile7/a2/tests -q` must pass at every commit (a test of a
+- **Tests.** `python -m pytest psha_chile7/a2/tests -q` must pass at every checkpoint (a test of a
   method marked broken may be marked xfail with the reason).
 
 ## Code style (Pablo's)
@@ -184,4 +185,5 @@ Use plain language, numbers with units, no decision words.
 ## Done when
 
 `psha_chile7/a2/MORNING.md` has every section of P5 filled or marked "not done: reason",
-`python -m pytest psha_chile7/a2/tests -q` passes, and everything is committed on `a2-night`.
+`conda run -n psha_renta python -m pytest psha_chile7/a2/tests -q` passes with its output shown,
+and `PROGRESS.md` has a line for every phase.
