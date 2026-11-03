@@ -1,27 +1,27 @@
 # The catalog of psha_chile: hand-off
 
-Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), commit `dca347b`; final `catalog.csv` written 2026-11-03 01:04. Figures for the presentation: `results/cat_handler_2/slides/`.
+Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), commit `ed42ba6`; final `catalog.csv` written 2026-11-03 01:42. Figures for the presentation: `results/cat_handler_2/slides/`.
 
 ## Pipeline
 
 | stage | count |
 |---|---|
 | Cabello rows south of 17 S with M > 3.9 | 64,439 |
-| earthquakes after removing cross-agency copies | 50,211 (22% of rows were copies) |
+| earthquakes after removing cross-agency copies | 50,214 (22% of rows were copies) |
 | CSN rows relocated with Potin here (besides Cabello's own) | 5,456 |
-| default or missing depths filled (group, Potin, GCMT) | 2,545 of 8,019 |
-| events with a focal mechanism | 2,458 (35% of M >= 5.5) |
-| magnitudes taken from Ruiz and Madariaga (2018) | 21 |
-| `catalog_base.csv` | 50,211 events |
-| `catalog.csv`: classified, 13 classes in 4 families | 50,211 events |
+| default or missing depths filled (group, Potin, GCMT) | 2,546 of 8,022 |
+| events with a focal mechanism | 2,459 (35% of M >= 5.5) |
+| magnitudes taken from Ruiz and Madariaga (2018) | 22 |
+| `catalog_base.csv` | 50,214 events |
+| `catalog.csv`: classified, 13 classes in 4 families | 50,214 events |
 
 ## Key numbers
 
-**Duplicates.** Share of Cabello rows that were copies of another agency's row, by magnitude: 3.9-4.4: 21%, 4.4-4.9: 26%, 4.9-5.4: 25%, 5.4-5.9: 11%, 5.9-6.4: 16%, 6.4-6.9: 8%, 6.9-7.4: 9%, 7.4-7.9: 14%, 7.9-8.4: 0%.
+**Duplicates.** Share of Cabello rows that were copies of another agency's row, by magnitude: 3.9-4.4: 21%, 4.4-4.9: 26%, 4.9-5.4: 25%, 5.4-5.9: 11%, 5.9-6.4: 16%, 6.4-6.9: 8%, 6.9-7.4: 8%, 7.4-7.9: 14%, 7.9-8.4: 0%.
 
-**Depth status** (share of events): free 50.3%, relocated_cabello 22.4%, fixed 10.9%, relocated_potin 10.9%, filled 5.1%, assigned 0.6%. The classifier trusts relocated, free and filled depths only.
+**Depth status** (share of events): free 50.2%, relocated_cabello 22.3%, fixed 10.9%, relocated_potin 10.9%, filled 5.1%, assigned 0.6%, missing 0.0%. The classifier trusts relocated, free and filled depths only.
 
-**Mechanisms.** anss 1,814, gcmt 475, cabello 121, gem 48.
+**Mechanisms.** anss 1,815, gcmt 475, cabello 121, gem 48.
 
 **Magnitudes.** Cabello's Mw for the same earthquake, by agency, against the GCMT Mw (median): CSN -0.10, USGS +0.10, ISC -0.30. Events present only as ISC rows carry an Mw about 0.3 low (DECISIONS 32).
 
@@ -32,21 +32,21 @@ Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), 
 | 3.9-4.5 | 13334 / 11220 / 11644 | 18805 / 12616 / 13107 | 4881 / 4119 / 2972 |
 | 4.5-5.0 | 4974 / 3854 / 3447 | 10626 / 7573 / 6055 | 1618 / 1170 / 625 |
 | 5.0-5.5 | 1886 / 1537 / 1715 | 3530 / 2885 / 2818 | 759 / 628 / 282 |
-| 5.5-6.0 | 486 / 421 / 459 | 744 / 657 / 536 | 179 / 159 / 60 |
-| 6.0-6.5 | 171 / 126 / 173 | 257 / 166 / 149 | 103 / 89 / 21 |
-| 6.5-7.0 | 83 / 70 / 103 | 105 / 96 / 63 | 40 / 36 / 9 |
-| 7.0-10.0 | 71 / 64 / 84 | 36 / 31 / 23 | 20 / 11 / 4 |
+| 5.5-6.0 | 486 / 421 / 463 | 744 / 657 / 536 | 179 / 159 / 60 |
+| 6.0-6.5 | 171 / 126 / 182 | 257 / 166 / 149 | 103 / 89 / 21 |
+| 6.5-7.0 | 83 / 70 / 105 | 105 / 96 / 63 | 40 / 36 / 8 |
+| 7.0-10.0 | 71 / 64 / 85 | 36 / 31 / 25 | 20 / 11 / 5 |
 
 **Family moves at M >= 5.5** (rows campaign, columns new):
 
 | | interface | in-slab | crustal | excluded |
 |---|---|---|---|---|
 | interface | 832 | 22 | 6 | 2 |
-| in-slab | 152 | 971 | 7 | 155 |
-| crustal | 37 | 65 | 101 | 150 |
+| in-slab | 151 | 972 | 7 | 155 |
+| crustal | 53 | 65 | 101 | 134 |
 | excluded | 7 | 6 | 0 | 106 |
 
-**M >= 7 events:** 153; against Ruiz and Madariaga (2018): 47 same class, 2 different (check/review_rm.csv).
+**M >= 7 events:** 157; against Ruiz and Madariaga (2018): 52 same class, 0 different (check/review_rm.csv).
 
 ## Hand decisions
 
@@ -73,6 +73,7 @@ Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), 
 | overrides.csv | 69130 | mag | 7.8 | Tocopilla 2007: Mw 7.8 in the paper (Cabello 7.70) |
 | overrides.csv | 110688 | mag | 7.2 | Constitucion 2012: Mw 7.2 in the paper (Cabello 7.10) |
 | overrides.csv | 145193 | mag | 8.3 | Illapel 2015: Mw 8.3 in the paper (Cabello 8.40) |
+| overrides.csv | 96048 | mag | 7.1 | Arauco 2011: Mw 7.1 in the paper (Cabello 6.90) |
 | overrides.csv | add:pichilemu2010a | mag | 6.9 | Pichilemu 2010 first event: Mw 6.9 in the paper (GCMT 6.88) |
 | class_overrides.csv | 157950 | class | slab_interface | Chiloe 2016: deep interface patch (domain C), not intraslab |
 | class_overrides.csv | 24 | class | intra_slab | Santiago 1647: historical intraslab, most probable of its type (section 7.4) |
@@ -88,31 +89,38 @@ Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), 
 | class_overrides.csv | 159 | class | patagonia_crustal | Magallanes 1879 M7.2: Magallanes-Fagnano fault system, 350 km from the trench; no depth |
 | class_overrides.csv | 3030 | class | patagonia_crustal | Tierra del Fuego 1970-06-15 M6.8 (54.5 S 64.5 W): eastern Magallanes-Fagnano segment, 380  |
 | class_overrides.csv | 196 | class | patagonia_crustal | Magallanes 1907 M5.5: same fault system as 1879, no depth |
+| class_overrides.csv | 922 | class | intraarc | Aysen 1960-06-06 M7.7 slow event: crustal, probably on the Liquine-Ofqui fault (section 6) |
+| class_overrides.csv | 28033 | class | slab_deep | Punitaqui 1997 M7.1: intermediate-depth intraslab (fig 5, 6; section 5.5); the cone rule m |
+| class_overrides.csv | 96048 | class | slab_interface | Arauco 2011 M7.1: interplate, domain B (fig 7; section 5.6); relocated depth 3 km is 16 km |
+| class_overrides.csv | add:pica1768 | class | slab_deep | Pica 1768: intraslab, possibly intermediate depth (sections 3.1.3, 3.1.5.1); no depth, so  |
 | additions.csv | add:pichilemu2010a | event | 6.88 | Pichilemu doublet, first event (Mw 6.9, normal faulting in the upper plate); missing in Ca |
+| additions.csv | add:pica1768 | event | 7.7 | Pica 1768: Mw > 7.7 in the paper (lower bound taken), intraslab, possibly intermediate dep |
+| additions.csv | add:valdivia1960fs | event | 7.8 | Valdivia 1960 foreshock: Ms 7.8, 15 min before the mainshock (time set 15 min before 19:11 |
+| additions.csv | add:maule2010or | event | 7.4 | Maule 2010 outer-rise event: Mw 7.4, 1.5 h after the mainshock; ComCat hypocentre (default |
 
 ## Changes after 29 Sep 2026
 
 - North limit: Cabello rows north of 17 S dropped before anything else (7,937 rows; DECISIONS 2).
 - Crustal depth cap 30 km and unknown depths to the slab family; the neighbour vote removed (DECISIONS 18, 21, 22, 33, 34).
-  Against the catalog of 29 Sep (`catalog_v1.csv`, 50190 events in both): 3498 events changed class (334 at M >= 5.5, 18 at M >= 7). By cause: unknown depth 2381; real depth > 30 km 1079; other 38.
+  Against the catalog of 29 Sep (`catalog_v1.csv`, 50190 events in both): 3501 events changed class (337 at M >= 5.5, 19 at M >= 7). By cause: unknown depth 2382; real depth > 30 km 1080; other 39.
 
 | old class -> new class | all | M >= 5.5 | M >= 7 |
 |---|---|---|---|
-| slab_deep -> unresolved | 1198 | 83 | 4 |
+| slab_deep -> unresolved | 1196 | 81 | 4 |
 | backarc -> unresolved | 756 | 108 | 3 |
 | deep_nest -> unresolved | 359 | 6 | 0 |
-| intraarc -> unresolved | 356 | 37 | 3 |
-| forearc -> unresolved | 320 | 33 | 1 |
+| intraarc -> unresolved | 355 | 36 | 2 |
+| forearc -> unresolved | 312 | 25 | 0 |
 | intraarc -> slab_deep | 95 | 16 | 3 |
 | patagonia_crustal -> unresolved | 58 | 7 | 1 |
-| intra_slab -> slab_interface | 50 | 4 | 0 |
+| intra_slab -> slab_interface | 51 | 5 | 0 |
 | deep_nest -> slab_deep | 45 | 1 | 0 |
 | slab_deep -> deep_unknown | 43 | 0 | 0 |
+| forearc -> slab_interface | 41 | 20 | 5 |
 | deep_unknown -> unresolved | 40 | 1 | 0 |
 | slab_deep -> deep_nest | 39 | 0 | 0 |
-| forearc -> slab_interface | 32 | 11 | 3 |
 | forearc -> intra_slab | 28 | 14 | 0 |
-| intra_slab -> unresolved | 8 | 1 | 0 |
+| deep_unknown -> slab_interface | 8 | 1 | 0 |
 
 ## Open
 

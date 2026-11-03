@@ -13,89 +13,91 @@
   },
   "row_overrides": 1,
   "ids_not_found": [],
-  "added": 1
+  "added": 4
  },
  "dedup": {
-  "rows_read": 218556,
+  "rows_read": 218559,
   "gcmt_rows": 2302,
   "gcmt_tied": 2170,
   "pairs": 22178,
   "groups": 19647,
   "rows_in_groups": 40844,
-  "events": 50218,
+  "events": 50221,
   "by_mag": {
    "M>=4.5": [
-    29988,
-    21707
+    29991,
+    21710
    ],
    "M>=5.0": [
-    10714,
-    9282
+    10717,
+    9285
    ],
    "M>=5.5": [
-    3010,
-    2681
+    3013,
+    2684
    ],
    "M>=6.0": [
-    1027,
-    926
+    1030,
+    929
    ],
    "M>=6.5": [
-    417,
-    401
+    420,
+    404
    ],
    "M>=7.0": [
-    153,
-    153
+    156,
+    156
    ]
   }
  },
  "locate": {
   "potin_used_by_cabello": 11187,
   "csn_relocated_here": 5456,
-  "fixed_or_missing": 8019,
+  "fixed_or_missing": 8022,
   "filled_from_group": 1414,
   "filled_from_potin": 1087,
-  "filled_from_gcmt": 44,
+  "filled_from_gcmt": 45,
   "status": {
    "free": 25235,
    "relocated_cabello": 11224,
    "fixed": 5474,
    "relocated_potin": 5456,
-   "filled": 2545,
-   "assigned": 284
+   "filled": 2546,
+   "assigned": 284,
+   "missing": 2
   },
   "status_M>=5.5": {
    "free": 1722,
    "fixed": 517,
    "assigned": 233,
    "relocated_cabello": 101,
-   "filled": 56,
-   "relocated_potin": 52
+   "filled": 57,
+   "relocated_potin": 52,
+   "missing": 2
   }
  },
  "mech": {
-  "with_mech": 2458,
+  "with_mech": 2459,
   "gcmt_located_to_anss": 1409,
   "by_source": {
-   "anss": 1814,
+   "anss": 1815,
    "gcmt": 475,
    "cabello": 121,
    "gem": 48
   },
   "found": {
-   "anss": 1814,
-   "gcmt": 2243,
+   "anss": 1815,
+   "gcmt": 2244,
    "cabello": 2366,
    "gem": 48
   },
   "M>=5.5": {
-   "events": 2681,
-   "with_mech": 928
+   "events": 2684,
+   "with_mech": 929
   }
  },
  "magnitudes": {
-  "mag_overrides": 21,
+  "mag_overrides": 22,
   "ids_not_found": []
  },
  "north_after_locate": {
