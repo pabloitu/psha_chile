@@ -1,0 +1,6 @@
+id,time_iso,latitude,longitude,depth,depth_status,mag,class,cls_rule,general_remarks
+60137,2006-03-27T05:23:59,-20.8,-69.47,57.9,free,5.22,forearc,remark,Crustal
+65851,2007-03-24T19:13:54,-19.85,-70.48,32.8,free,5.5,forearc,remark,Crustal
+74662,2008-09-10T16:12:04,-20.26,-69.22,37.7,free,5.75,forearc,remark,Crustal
+133069,2014-02-05T11:51:10,-21.38,-69.62,40.5,free,5.0,forearc,remark,Crustal
+201494,2020-09-11T07:36:04,-21.4012,-70.0136,45.5,free,6.2,forearc,remark,Crustal

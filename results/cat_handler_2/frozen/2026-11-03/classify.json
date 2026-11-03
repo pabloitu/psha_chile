@@ -1,0 +1,87 @@
+{
+ "class": {
+  "slab_interface": 17581,
+  "slab_deep": 15661,
+  "intra_slab": 3870,
+  "unresolved": 3516,
+  "deep_nest": 3249,
+  "forearc": 2297,
+  "outer_rise": 1415,
+  "backarc": 901,
+  "intraarc": 856,
+  "deep_unknown": 789,
+  "patagonia_interface": 41,
+  "patagonia_crustal": 34,
+  "unclassified": 1
+ },
+ "class_M>=5.5": {
+  "slab_interface": 1012,
+  "slab_deep": 814,
+  "unresolved": 331,
+  "intra_slab": 189,
+  "outer_rise": 83,
+  "deep_nest": 70,
+  "forearc": 53,
+  "backarc": 50,
+  "deep_unknown": 36,
+  "intraarc": 23,
+  "patagonia_interface": 13,
+  "patagonia_crustal": 3
+ },
+ "rule": {
+  "band_nomech": 14233,
+  "arc_slab": 8548,
+  "deep_slab": 6889,
+  "band_intraslab": 3743,
+  "nest": 3249,
+  "unk_deep": 2617,
+  "unk_nomech": 2420,
+  "band_forearc": 2032,
+  "outer_rise": 1412,
+  "backarc": 901,
+  "cone": 882,
+  "arc_crustal": 853,
+  "deep_mid": 762,
+  "arc_below": 415,
+  "below": 374,
+  "deep_forearc": 253,
+  "deep_above": 224,
+  "band_mech": 144,
+  "pat_deep": 60,
+  "unk_cone": 44,
+  "pat_interface": 41,
+  "no_slab_deep": 39,
+  "pat_crustal": 34,
+  "unk_mech": 15,
+  "remark": 12,
+  "arc_noslab": 5,
+  "unk_normal": 4,
+  "pat_outer": 3,
+  "pre_year": 2,
+  "no_slab": 1
+ },
+ "overrides": {
+  "class_overrides": 14,
+  "ids_not_found": []
+ },
+ "crustal_deeper_than_max_z": {
+  "events": 5,
+  "by_rule": {
+   "remark": 5
+  },
+  "file": "crustal_exceptions.csv"
+ },
+ "crustal_unknown_depth": {
+  "events": 5,
+  "by_rule": {
+   "remark": 3,
+   "override": 2
+  }
+ },
+ "family_M>=5.5": {
+  "in-slab": 1073,
+  "interface": 1028,
+  "excluded": 448,
+  "crustal": 128
+ }
+}

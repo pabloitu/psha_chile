@@ -1,19 +1,19 @@
 # The catalog of psha_chile: hand-off
 
-Status 2026-09-30. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), commit `64c2617`; final `catalog.csv` written 2026-09-30 11:02. Figures for the presentation: `results/cat_handler_2/slides/`.
+Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), commit `dca347b`; final `catalog.csv` written 2026-11-03 01:04. Figures for the presentation: `results/cat_handler_2/slides/`.
 
 ## Pipeline
 
 | stage | count |
 |---|---|
 | Cabello rows south of 17 S with M > 3.9 | 64,439 |
-| earthquakes after removing cross-agency copies | 50,218 (22% of rows were copies) |
+| earthquakes after removing cross-agency copies | 50,211 (22% of rows were copies) |
 | CSN rows relocated with Potin here (besides Cabello's own) | 5,456 |
 | default or missing depths filled (group, Potin, GCMT) | 2,545 of 8,019 |
 | events with a focal mechanism | 2,458 (35% of M >= 5.5) |
 | magnitudes taken from Ruiz and Madariaga (2018) | 21 |
-| `catalog_base.csv` | 50,218 events |
-| `catalog.csv`: classified, 13 classes in 4 families | 50,218 events |
+| `catalog_base.csv` | 50,211 events |
+| `catalog.csv`: classified, 13 classes in 4 families | 50,211 events |
 
 ## Key numbers
 
@@ -31,22 +31,22 @@ Status 2026-09-30. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), 
 |---|---|---|---|
 | 3.9-4.5 | 13334 / 11220 / 11644 | 18805 / 12616 / 13107 | 4881 / 4119 / 2972 |
 | 4.5-5.0 | 4974 / 3854 / 3447 | 10626 / 7573 / 6055 | 1618 / 1170 / 625 |
-| 5.0-5.5 | 1886 / 1537 / 1716 | 3530 / 2888 / 2820 | 759 / 628 / 282 |
-| 5.5-6.0 | 486 / 421 / 459 | 744 / 658 / 538 | 179 / 159 / 60 |
-| 6.0-6.5 | 171 / 127 / 174 | 257 / 166 / 149 | 103 / 89 / 21 |
+| 5.0-5.5 | 1886 / 1537 / 1715 | 3530 / 2885 / 2818 | 759 / 628 / 282 |
+| 5.5-6.0 | 486 / 421 / 459 | 744 / 657 / 536 | 179 / 159 / 60 |
+| 6.0-6.5 | 171 / 126 / 173 | 257 / 166 / 149 | 103 / 89 / 21 |
 | 6.5-7.0 | 83 / 70 / 103 | 105 / 96 / 63 | 40 / 36 / 9 |
-| 7.0-10.0 | 71 / 65 / 85 | 36 / 31 / 23 | 20 / 11 / 4 |
+| 7.0-10.0 | 71 / 64 / 84 | 36 / 31 / 23 | 20 / 11 / 4 |
 
 **Family moves at M >= 5.5** (rows campaign, columns new):
 
 | | interface | in-slab | crustal | excluded |
 |---|---|---|---|---|
-| interface | 834 | 22 | 6 | 2 |
-| in-slab | 152 | 972 | 7 | 155 |
+| interface | 832 | 22 | 6 | 2 |
+| in-slab | 152 | 971 | 7 | 155 |
 | crustal | 37 | 65 | 101 | 150 |
-| excluded | 7 | 7 | 0 | 106 |
+| excluded | 7 | 6 | 0 | 106 |
 
-**M >= 7 events:** 154; against Ruiz and Madariaga (2018): 47 same class, 2 different (check/review_rm.csv).
+**M >= 7 events:** 153; against Ruiz and Madariaga (2018): 47 same class, 2 different (check/review_rm.csv).
 
 ## Hand decisions
 
@@ -94,7 +94,7 @@ Status 2026-09-30. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), 
 
 - North limit: Cabello rows north of 17 S dropped before anything else (7,937 rows; DECISIONS 2).
 - Crustal depth cap 30 km and unknown depths to the slab family; the neighbour vote removed (DECISIONS 18, 21, 22, 33, 34).
-  Against the catalog of 29 Sep (`catalog_v1.csv`, 50195 events in both): 3499 events changed class (335 at M >= 5.5, 18 at M >= 7). By cause: unknown depth 2382; real depth > 30 km 1079; other 38.
+  Against the catalog of 29 Sep (`catalog_v1.csv`, 50190 events in both): 3498 events changed class (334 at M >= 5.5, 18 at M >= 7). By cause: unknown depth 2381; real depth > 30 km 1079; other 38.
 
 | old class -> new class | all | M >= 5.5 | M >= 7 |
 |---|---|---|---|
@@ -111,7 +111,7 @@ Status 2026-09-30. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), 
 | deep_unknown -> unresolved | 40 | 1 | 0 |
 | slab_deep -> deep_nest | 39 | 0 | 0 |
 | forearc -> slab_interface | 32 | 11 | 3 |
-| forearc -> intra_slab | 29 | 15 | 0 |
+| forearc -> intra_slab | 28 | 14 | 0 |
 | intra_slab -> unresolved | 8 | 1 | 0 |
 
 ## Open

@@ -1,0 +1,113 @@
+{
+ "read": {
+  "lat_max": -17.0,
+  "cabello_rows_north_dropped": 7937,
+  "cabello_south_of_it": 221928,
+  "cabello_M>3.9": 64439,
+  "gcmt": 3069
+ },
+ "overrides": {
+  "files": {
+   "/data/PyCharmProjects/psha_chile/cat_handler_2/overrides.csv": true,
+   "/data/PyCharmProjects/psha_chile/cat_handler_2/additions.csv": true
+  },
+  "row_overrides": 1,
+  "ids_not_found": [],
+  "added": 1
+ },
+ "dedup": {
+  "rows_read": 218556,
+  "gcmt_rows": 2302,
+  "gcmt_tied": 2170,
+  "pairs": 22178,
+  "groups": 19647,
+  "rows_in_groups": 40844,
+  "events": 50218,
+  "by_mag": {
+   "M>=4.5": [
+    29988,
+    21707
+   ],
+   "M>=5.0": [
+    10714,
+    9282
+   ],
+   "M>=5.5": [
+    3010,
+    2681
+   ],
+   "M>=6.0": [
+    1027,
+    926
+   ],
+   "M>=6.5": [
+    417,
+    401
+   ],
+   "M>=7.0": [
+    153,
+    153
+   ]
+  }
+ },
+ "locate": {
+  "potin_used_by_cabello": 11187,
+  "csn_relocated_here": 5456,
+  "fixed_or_missing": 8019,
+  "filled_from_group": 1414,
+  "filled_from_potin": 1087,
+  "filled_from_gcmt": 44,
+  "status": {
+   "free": 25235,
+   "relocated_cabello": 11224,
+   "fixed": 5474,
+   "relocated_potin": 5456,
+   "filled": 2545,
+   "assigned": 284
+  },
+  "status_M>=5.5": {
+   "free": 1722,
+   "fixed": 517,
+   "assigned": 233,
+   "relocated_cabello": 101,
+   "filled": 56,
+   "relocated_potin": 52
+  }
+ },
+ "mech": {
+  "with_mech": 2458,
+  "gcmt_located_to_anss": 1409,
+  "by_source": {
+   "anss": 1814,
+   "gcmt": 475,
+   "cabello": 121,
+   "gem": 48
+  },
+  "found": {
+   "anss": 1814,
+   "gcmt": 2243,
+   "cabello": 2366,
+   "gem": 48
+  },
+  "M>=5.5": {
+   "events": 2681,
+   "with_mech": 928
+  }
+ },
+ "magnitudes": {
+  "mag_overrides": 21,
+  "ids_not_found": []
+ },
+ "north_after_locate": {
+  "dropped": 7,
+  "ids": [
+   "5678",
+   "5947",
+   "6533",
+   "37575",
+   "37788",
+   "43678",
+   "53389"
+  ]
+ }
+}
