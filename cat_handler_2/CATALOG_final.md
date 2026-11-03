@@ -1,6 +1,6 @@
 # The catalog of psha_chile: hand-off
 
-Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), commit `682d75f`; final `catalog.csv` written 2026-11-03 01:56. Figures for the presentation: `results/cat_handler_2/slides/`.
+Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), commit `d10c0e4`; final `catalog.csv` written 2026-11-03 02:02. Figures for the presentation: `results/cat_handler_2/slides/`.
 
 ## Pipeline
 
@@ -32,17 +32,17 @@ Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), 
 | 3.9-4.5 | 13334 / 11220 / 11644 | 18805 / 12616 / 13107 | 4881 / 4119 / 2972 |
 | 4.5-5.0 | 4974 / 3854 / 3447 | 10626 / 7573 / 6055 | 1618 / 1170 / 625 |
 | 5.0-5.5 | 1886 / 1537 / 1715 | 3530 / 2885 / 2818 | 759 / 628 / 282 |
-| 5.5-6.0 | 486 / 421 / 463 | 744 / 657 / 543 | 179 / 159 / 60 |
-| 6.0-6.5 | 171 / 126 / 182 | 257 / 166 / 156 | 103 / 89 / 21 |
-| 6.5-7.0 | 83 / 70 / 105 | 105 / 96 / 65 | 40 / 36 / 9 |
-| 7.0-10.0 | 71 / 64 / 85 | 36 / 31 / 27 | 20 / 11 / 5 |
+| 5.5-6.0 | 486 / 421 / 463 | 744 / 657 / 536 | 179 / 159 / 60 |
+| 6.0-6.5 | 171 / 126 / 182 | 257 / 166 / 149 | 103 / 89 / 21 |
+| 6.5-7.0 | 83 / 70 / 105 | 105 / 96 / 63 | 40 / 36 / 8 |
+| 7.0-10.0 | 71 / 64 / 85 | 36 / 31 / 25 | 20 / 11 / 5 |
 
 **Family moves at M >= 5.5** (rows campaign, columns new):
 
 | | interface | in-slab | crustal | excluded |
 |---|---|---|---|---|
 | interface | 832 | 22 | 6 | 2 |
-| in-slab | 151 | 990 | 8 | 136 |
+| in-slab | 151 | 972 | 7 | 155 |
 | crustal | 53 | 65 | 101 | 134 |
 | excluded | 7 | 6 | 0 | 106 |
 
@@ -93,25 +93,6 @@ Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), 
 | class_overrides.csv | 28033 | class | slab_deep | Punitaqui 1997 M7.1: intermediate-depth intraslab (fig 5, 6; section 5.5); the cone rule m |
 | class_overrides.csv | 96048 | class | slab_interface | Arauco 2011 M7.1: interplate, domain B (fig 7; section 5.6); relocated depth 3 km is 16 km |
 | class_overrides.csv | add:pica1768 | class | slab_deep | Pica 1768: intraslab, possibly intermediate depth (sections 3.1.3, 3.1.5.1); no depth, so  |
-| class_overrides.csv | 183 | class | slab_deep | 1903 M6.8 near Copiapo: CERESIS assigned depth = Slab2 top (no depth information) over a d |
-| class_overrides.csv | 186 | class | slab_deep | 1905 M6.8 near Santiago: CERESIS assigned depth = Slab2 top (no depth information) over a  |
-| class_overrides.csv | 284 | class | slab_deep | 1924 M6.1 near Santiago: CERESIS assigned depth = Slab2 top (no depth information) over a  |
-| class_overrides.csv | 326 | class | slab_deep | 1927 M6.1 near Santiago: CERESIS assigned depth = Slab2 top (no depth information) over a  |
-| class_overrides.csv | 388 | class | slab_deep | 1930 M6.0 near Santiago: CERESIS assigned depth = Slab2 top (no depth information) over a  |
-| class_overrides.csv | 396 | class | slab_deep | 1930 M6.0 near Santiago: CERESIS assigned depth = Slab2 top (no depth information) over a  |
-| class_overrides.csv | 474 | class | slab_deep | 1934 M6.0 near Santiago: CERESIS assigned depth = Slab2 top (no depth information) over a  |
-| class_overrides.csv | 282 | class | slab_deep | 1924 M6.0 31.0 S: CERESIS assigned depth = Slab2 top (no depth information) over a deep sl |
-| class_overrides.csv | 387 | class | slab_deep | 1929 M6.1 31.5 S: CERESIS assigned depth = Slab2 top (no depth information) over a deep sl |
-| class_overrides.csv | 322 | class | slab_deep | 1927 M6.1 32.5 S: CERESIS assigned depth = Slab2 top (no depth information) over a deep sl |
-| class_overrides.csv | 382 | class | slab_deep | 1929 M6.0 26.0 S: CERESIS assigned depth = Slab2 top (no depth information) over a deep sl |
-| class_overrides.csv | 286 | class | slab_deep | 1924 M6.1 32.2 S: CERESIS assigned depth = Slab2 top (no depth information) over a deep sl |
-| class_overrides.csv | 429 | class | slab_deep | 1932 M6.1 26.5 S: CERESIS assigned depth = Slab2 top (no depth information) over a deep sl |
-| class_overrides.csv | 721 | class | slab_deep | 1952 M6.0 17.4 S: CERESIS assigned depth = Slab2 top (no depth information) over a deep sl |
-| class_overrides.csv | 702 | class | slab_deep | 1951 M6.2 17.0 S: CERESIS assigned depth = Slab2 top (no depth information) over a deep sl |
-| class_overrides.csv | 877 | class | slab_deep | 1960 M6.0 18.5 S, deep focus: CERESIS assigned depth = Slab2 top (no depth information) ov |
-| class_overrides.csv | 141 | class | slab_deep | Calama 1870 M7.4: no depth; the large events of the area are intraslab (1950 Mw 8.2 at 114 |
-| class_overrides.csv | 29 | class | slab_deep | 1687 M7.2 (Aconcagua valley, CERESIS default epicentre): no depth or study; treated as gro |
-| class_overrides.csv | 112 | class | intraarc | 1850 M7.0: epicentre in the Cajon del Maipo, possibly related to Las Melosas 1958 (shallow |
 | additions.csv | add:pichilemu2010a | event | 6.88 | Pichilemu doublet, first event (Mw 6.9, normal faulting in the upper plate); missing in Ca |
 | additions.csv | add:pica1768 | event | 7.7 | Pica 1768: Mw > 7.7 in the paper (lower bound taken), intraslab, possibly intermediate dep |
 | additions.csv | add:valdivia1960fs | event | 7.8 | Valdivia 1960 foreshock: Ms 7.8, 15 min before the mainshock (time set 15 min before 19:11 |
@@ -121,16 +102,16 @@ Status 2026-11-03. Code: `cat_handler_2` (README.md, DECISIONS.md, CONTEXT.md), 
 
 - North limit: Cabello rows north of 17 S dropped before anything else (7,937 rows; DECISIONS 2).
 - Crustal depth cap 30 km and unknown depths to the slab family; the neighbour vote removed (DECISIONS 18, 21, 22, 33, 34).
-  Against the catalog of 29 Sep (`catalog_v1.csv`, 50190 events in both): 3496 events changed class (332 at M >= 5.5, 18 at M >= 7). By cause: unknown depth 2377; real depth > 30 km 1080; other 39.
+  Against the catalog of 29 Sep (`catalog_v1.csv`, 50190 events in both): 3501 events changed class (337 at M >= 5.5, 19 at M >= 7). By cause: unknown depth 2382; real depth > 30 km 1080; other 39.
 
 | old class -> new class | all | M >= 5.5 | M >= 7 |
 |---|---|---|---|
-| slab_deep -> unresolved | 1186 | 71 | 2 |
-| backarc -> unresolved | 753 | 105 | 3 |
+| slab_deep -> unresolved | 1196 | 81 | 4 |
+| backarc -> unresolved | 756 | 108 | 3 |
 | deep_nest -> unresolved | 359 | 6 | 0 |
-| intraarc -> unresolved | 354 | 35 | 2 |
+| intraarc -> unresolved | 355 | 36 | 2 |
 | forearc -> unresolved | 312 | 25 | 0 |
-| intraarc -> slab_deep | 96 | 17 | 3 |
+| intraarc -> slab_deep | 95 | 16 | 3 |
 | patagonia_crustal -> unresolved | 58 | 7 | 1 |
 | intra_slab -> slab_interface | 51 | 5 | 0 |
 | deep_nest -> slab_deep | 45 | 1 | 0 |
