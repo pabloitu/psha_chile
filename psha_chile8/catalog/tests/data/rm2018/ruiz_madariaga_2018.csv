@@ -1,0 +1,5 @@
+date,name,mw,lat,lon,lat_n,lat_s,rm_class,domain,basis,note
+1543,Tarapaca 1543,>7.7,-19.5,,-19.0,-20.0,unknown,,text 3.1.1,brief description only; epicentre 19-20S (Greve); no information to call it interplate
+1615,Arica 1615,7.5-7.9,-18.5,,,,interface,,text 3.1.2,local tsunami at Arica; Lomnitz 7.5 / Comte and Pardo 7.9
+1751-05-25,Concepcion 1751,~9,-36.0,,-34.0,-37.5,interface,megathrust,text 5.1; fig 2 bar,> 600 km; tsunami destroyed old Concepcion
+2010-02-27,Maule 2010,8.8,-36.3,-73.25,-33.8,-38.4,interface,megathrust,table 2; fig 6,~500 km

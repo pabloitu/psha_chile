@@ -1,0 +1,63 @@
+src,src_id,agency,mag_type,mag,mag_err,n_sta,note
+rm2018,Tarapaca 1543,rm2018,Mw,,,,>7.7
+rm2018,Arica 1615,rm2018,Mw,,,,7.5-7.9
+rm2018,Central Chile 1730,rm2018,Mw,,,,>9.0
+rm2018,Concepcion 1751,rm2018,Mw,,,,~9
+rm2018,Pica 1768,rm2018,Mw,,,,>7.7
+rm2018,Copiapo 1819,rm2018,Mw,,,,<8.5
+rm2018,Valdivia 1837,rm2018,Mw,,,,8.0-9.25
+rm2018,Southern Peru 1868,rm2018,Mw,,,,~9
+rm2018,Iquique 1877,rm2018,Mw,,,,8.7-9.0
+rm2018,Illapel 1880,rm2018,Mw,7.5,,,7.5
+rm2018,Valparaiso 1906,rm2018,Mw,8.2,,,8.2
+rm2018,Taltal 1909,rm2018,Mw,,,,~7 (Ms)
+rm2018,Copiapo 1918,rm2018,Mw,7.8,,,7.8
+rm2018,Atacama 1922,rm2018,Mw,,,,~8.5
+rm2018,Mendoza 1927,rm2018,Mw,7.2,,,7.2
+rm2018,Talca 1928,rm2018,Mw,7.7,,,7.7
+rm2018,Taltal 1936,rm2018,Mw,,,,~7 (Ms)
+rm2018,Chillan 1939,rm2018,Mw,7.8,,,7.8
+rm2018,Illapel 1943,rm2018,Mw,7.9,,,7.9
+rm2018,Santiago 1945,rm2018,Mw,7.1,,,7.1
+rm2018,Calama 1950,rm2018,Mw,8.0,,,8.0
+rm2018,Las Melosas 1958,rm2018,Mw,6.3,,,6.3
+rm2018,Copiapo 1959,rm2018,Mw,,,,~7.0
+rm2018,Concepcion 1960,rm2018,Mw,8.1,,,8.1
+rm2018,Valdivia 1960 foreshock,rm2018,Mw,,,,7.8 (Ms)
+rm2018,Valdivia 1960,rm2018,Mw,9.5,,,9.5
+rm2018,Aysen 1960 slow event,rm2018,Mw,7.7,,,7.7
+rm2018,La Ligua 1965,rm2018,Mw,7.4,,,7.4
+rm2018,Taltal 1966,rm2018,Mw,7.7,,,7.7
+rm2018,Tocopilla 1967,rm2018,Mw,7.4,,,7.4
+rm2018,La Ligua 1971,rm2018,Mw,7.8,,,7.8
+rm2018,Copiapo swarm 1973,rm2018,Mw,,,,~6
+rm2018,Arauco 1975,rm2018,Mw,7.7,,,7.7
+rm2018,Papudo 1981,rm2018,Mw,7.2,,,7.2
+rm2018,Copiapo 1983,rm2018,Mw,7.7,,,7.7
+rm2018,Valparaiso 1985,rm2018,Mw,8.0,,,8.0
+rm2018,Antofagasta 1987,rm2018,Mw,7.6,,,7.6
+rm2018,Arica 1987,rm2018,Mw,,,,7.2 (Ms)
+rm2018,Mejillones 1994,rm2018,Mw,6.2,,,6.2
+rm2018,Antofagasta 1995,rm2018,Mw,8.0,,,8.0
+rm2018,Punitaqui 1997,rm2018,Mw,7.1,,,7.1
+rm2018,Papudo 2001,rm2018,Mw,7.0,,,7.0
+rm2018,Aroma 2001,rm2018,Mw,6.3,,,6.3
+rm2018,Curico 2004,rm2018,Mw,6.4,,,6.4
+rm2018,Tarapaca 2005,rm2018,Mw,7.8,,,7.8
+rm2018,Copiapo swarm 2006,rm2018,Mw,,,,~6
+rm2018,Aysen 2007,rm2018,Mw,6.2,,,6.2
+rm2018,Tocopilla 2007,rm2018,Mw,7.8,,,7.8
+rm2018,Michilla 2007,rm2018,Mw,6.7,,,6.7
+rm2018,Maule 2010,rm2018,Mw,8.8,,,8.8
+rm2018,Maule outer rise 2010,rm2018,Mw,7.4,,,7.4
+rm2018,Pichilemu 2010a,rm2018,Mw,7.0,,,7.0
+rm2018,Pichilemu 2010b,rm2018,Mw,6.9,,,6.9
+rm2018,Arauco 2011,rm2018,Mw,7.1,,,7.1
+rm2018,Constitucion 2012,rm2018,Mw,7.2,,,7.2
+rm2018,Iquique foreshock 2014,rm2018,Mw,6.7,,,6.7
+rm2018,Iquique 2014,rm2018,Mw,8.2,,,8.2
+rm2018,Iquique aftershock 2014,rm2018,Mw,7.7,,,7.7
+rm2018,Jujuy 2015,rm2018,Mw,6.7,,,6.7
+rm2018,Illapel 2015,rm2018,Mw,8.3,,,8.3
+rm2018,Chiloe 2016,rm2018,Mw,7.6,,,7.6
+rm2018,Valparaiso 2017,rm2018,Mw,6.9,,,6.9
