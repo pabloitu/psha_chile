@@ -1,0 +1,70 @@
+src,src_id,origin_id,prime,time,lon,lat,depth,depth_fixed,lon_err,lat_err,depth_err,depth_quality,agency,etype,lat_n,lat_s,rm_class,domain,basis,note
+rm2018,Tarapaca 1543,Tarapaca 1543,True,1543,,-19.5,,,,,,,rm2018,earthquake,-19.0,-20.0,unknown,,text 3.1.1,brief description only; epicentre 19-20S (Greve); no information to call it interplate
+rm2018,Valdivia 1575,Valdivia 1575,True,1575,,-40.0,,,,,,,rm2018,earthquake,,,interface,,text 6,giant event similar to 1960 (paleoseismic)
+rm2018,Arica 1604,Arica 1604,True,1604,,-18.3,,,,,,,rm2018,earthquake,,,interface,,text 3.1.2,north of Arica; destroyed and flooded Arica (tsunami); southern Peru
+rm2018,Arica 1615,Arica 1615,True,1615,,-18.5,,,,,,,rm2018,earthquake,,,interface,,text 3.1.2,local tsunami at Arica; Lomnitz 7.5 / Comte and Pardo 7.9
+rm2018,Santiago 1647,Santiago 1647,True,1647-05-13,,-33.5,,,,,,,rm2018,earthquake,,,intraslab,,text 7.4,most probable historical intraplate intermediate-depth event
+rm2018,Central Chile 1730,Central Chile 1730,True,1730-07-08,,-32.5,,,,,,,rm2018,earthquake,-28.6,-36.4,interface,megathrust,text 5.1; fig 2 bar,rupture > 600 km; damage 28S to Concepcion 38S
+rm2018,Valdivia 1737,Valdivia 1737,True,1737-12-24,,-39.5,,,,,,,rm2018,earthquake,-37.6,-41.3,interface,C,text 6.1; fig 3 bar,no tsunami; deep interface in northern part of the 1960 rupture
+rm2018,Concepcion 1751,Concepcion 1751,True,1751-05-25,,-36.0,,,,,,,rm2018,earthquake,-34.0,-37.5,interface,megathrust,text 5.1; fig 2 bar,> 600 km; tsunami destroyed old Concepcion
+rm2018,Pica 1768,Pica 1768,True,1768,-69.33,-20.48,,,,,,,rm2018,earthquake,,,intraslab,,text 3.1.3 and 3.1.5.1,Pica church damage; possibly intermediate depth (section 7.4 names 1786 instead: typo in paper)
+rm2018,Copiapo 1819,Copiapo 1819,True,1819-04-11,,-27.4,,,,,,,rm2018,earthquake,,,interface,,text 4.1,tsunami; Lomnitz 8.5 'probably smaller'; foreshocks 3-4 April 1819
+rm2018,Valparaiso 1822,Valparaiso 1822,True,1822-11-19,,-33.3,,,,,,,rm2018,earthquake,-32.6,-34.3,interface,C,text 2.2; fig 2 bar,deep on the plate interface (uplift and minor run-up)
+rm2018,Concepcion 1835,Concepcion 1835,True,1835-02-20,,-36.5,,,,,,,rm2018,earthquake,-35.5,-37.0,interface,,text 5.2; fig 2 bar,Darwin; uplift and tsunami; rupture 35.5-37S
+rm2018,Valdivia 1837,Valdivia 1837,True,1837-11-07,,-43.5,,,,,,,rm2018,earthquake,-41.0,-46.0,interface,A-B-C,text 6.1; fig 3 bar,~500 km in the southern 1960 zone; trans-Pacific tsunami
+rm2018,Southern Peru 1868,Southern Peru 1868,True,1868-08-13,,-18.0,,,,,,,rm2018,earthquake,-17.5,-19.3,interface,megathrust,fig 1 bar,giant megathrust of southern Peru
+rm2018,Iquique 1877,Iquique 1877,True,1877-05-10,,-21.0,,,,,,,rm2018,earthquake,-19.0,-23.0,interface,megathrust,text 3.1.4; fig 1 bar,giant tsunamigenic; did not break south of Mejillones
+rm2018,Illapel 1880,Illapel 1880,True,1880-08-15,,-31.2,,,,,,,rm2018,earthquake,-30.0,-31.6,interface,,text 5.4.1; fig 2 bar,small tsunami; deep submarine cable break off Limari
+rm2018,Taltal 1887,Taltal 1887,True,1887,,-25.4,,,,,,,rm2018,earthquake,,,unknown,,text 4.3,described by Montessus de Ballore
+rm2018,Valparaiso 1906,Valparaiso 1906,True,1906-08-17,-71.45,-32.9,,,,,,,rm2018,earthquake,-32.6,-34.3,interface,C-B,table 1; fig 6,Okal 2005 / Carvajal 2017b Mw 8.0-8.2
+rm2018,Taltal 1909,Taltal 1909,True,1909-06-08,,-25.4,,,,,,,rm2018,earthquake,,,unknown,,text 4.3,Centennial catalog
+rm2018,Copiapo 1918,Copiapo 1918,True,1918-12-04,-70.65,-26.55,,,,,,,rm2018,earthquake,,,interface,probably C,table 1; fig 5,text also cites 18 Dec 1918 events
+rm2018,Atacama 1922,Atacama 1922,True,1922-11-11,-70.75,-28.55,,,,,,,rm2018,earthquake,-28.0,-30.0,interface,megathrust,table 2; fig 5; text 4.1,trans-Pacific tsunami; ISC/USGS wrongly list 70 km depth or a location near Argentina
+rm2018,Mendoza 1927,Mendoza 1927,True,1927-04-14,-69.7,-32.45,,,,,,,rm2018,earthquake,,,intraslab,,fig 6; text 5,intermediate depth
+rm2018,Talca 1928,Talca 1928,True,1928-12-01,-72.2,-34.95,,,,,,,rm2018,earthquake,-34.4,-35.5,interface,C,table 1; fig 6; text 5.3,bottom of the plate interface; no tsunami
+rm2018,Taltal 1936,Taltal 1936,True,1936-07-13,,-25.4,,,,,,,rm2018,earthquake,,,unknown,,text 4.3,Centennial catalog
+rm2018,Chillan 1939,Chillan 1939,True,1939-01-25,-72.2,-36.2,,,,,,,rm2018,earthquake,,,intraslab,,fig 6; text 5,intermediate depth (local date 24 Jan)
+rm2018,Illapel 1943,Illapel 1943,True,1943-04-06,,-31.2,,,,,,,rm2018,earthquake,-30.0,-31.6,interface,B,table 1; text 5.4.2,reverse mechanism; small tsunami
+rm2018,Santiago 1945,Santiago 1945,True,1945,,-33.5,,,,,,,rm2018,earthquake,,,intraslab,,text 5,intermediate depth; damage in Santiago
+rm2018,Calama 1950,Calama 1950,True,1950-12-09,-67.8,-24.15,,,,,,,rm2018,earthquake,,,intraslab,,fig 4; fig 5; text 3.1,~100 km depth; tensional (Kausel and Campos 1992)
+rm2018,Las Melosas 1958,Las Melosas 1958,True,1958-09-04,-70.15,-33.8,,,,,,,rm2018,earthquake,,,crustal,,fig 6; text 5,shallow intraplate
+rm2018,Copiapo 1959,Copiapo 1959,True,1959-10-05,,-27.3,,,,,,,rm2018,earthquake,,,unknown,,text 4.1,
+rm2018,Concepcion 1960,Concepcion 1960,True,1960-05-21,-72.96,-37.17,,,,,,,rm2018,earthquake,-37.0,-38.2,interface,C,table 1; fig 6; fig 7; text 6.2,foreshock of Valdivia; bottom of the interface
+rm2018,Valdivia 1960 foreshock,Valdivia 1960 foreshock,True,1960-05-22,,-37.9,,,,,,,rm2018,earthquake,,,interface,,text 6.2,15 min before the mainshock
+rm2018,Valdivia 1960,Valdivia 1960,True,1960-05-22,-74.0,-37.65,,,,,,,rm2018,earthquake,-37.0,-46.0,interface,megathrust,table 2; fig 6; fig 7,~1000 km
+rm2018,Aysen 1960 slow event,Aysen 1960 slow event,True,1960-06,,-45.5,,,,,,,rm2018,earthquake,,,crustal,,text 6,slow aftershock of Valdivia probably on the Liquine-Ofqui fault (Kanamori and Rivera 2017)
+rm2018,La Ligua 1965,La Ligua 1965,True,1965-03-28,-71.25,-32.4,,,,,,,rm2018,earthquake,,,intraslab,,fig 6; text 5.5,intermediate depth
+rm2018,Taltal 1966,Taltal 1966,True,1966-12-28,-70.75,-25.5,,,,,,,rm2018,earthquake,-24.9,-26.2,interface,B,table 1; fig 5; text 4.3,text says deeper part of the interface; table and figure say B
+rm2018,Tocopilla 1967,Tocopilla 1967,True,1967-12-21,-70.0,-21.85,,,,,,,rm2018,earthquake,-21.4,-22.1,interface,C,table 1; fig 4,
+rm2018,La Ligua 1971,La Ligua 1971,True,1971-07-09,-71.2,-32.5,,,,,,,rm2018,earthquake,-31.2,-32.4,interface,C,table 1; fig 6; text 5.5,bottom of the contact zone
+rm2018,Copiapo swarm 1973,Copiapo swarm 1973,True,1973,-71.2,-26.8,,,,,,,rm2018,earthquake,,,interface,swarm,fig 5; text 4.4,swarm on the plate interface
+rm2018,Arauco 1975,Arauco 1975,True,1975-05-10,-73.0,-38.2,,,,,,,rm2018,earthquake,,,interface,C,table 1; fig 7,table gives 14 October 1975; Arauco earthquake is 10 May 1975 (Cabello has M7.8 on that date)
+rm2018,Papudo 1981,Papudo 1981,True,1981-10-16,-73.05,-33.2,,,,,,,rm2018,earthquake,,,outer_rise,,fig 6; text 5.5,
+rm2018,Copiapo 1983,Copiapo 1983,True,1983-10-04,-70.504,-26.541,,,,,,,rm2018,earthquake,,,interface,probably C,text 4.1; fig 5,table 1 gives 4 November 1983 Mw 7.4; text and figure give 4 October 1983 Mw 7.7
+rm2018,Valparaiso 1985,Valparaiso 1985,True,1985-03-03,-71.8,-33.15,,,,,,,rm2018,earthquake,-32.6,-34.3,interface,C-B,table 1; fig 6; text 5.5.1,
+rm2018,Antofagasta 1987,Antofagasta 1987,True,1987-03-05,,-24.4,,,,,,,rm2018,earthquake,,,interface,,text 4.2,southern end of the 1995 rupture (Cerro Paranal)
+rm2018,Arica 1987,Arica 1987,True,1987-08-08,-70.0,-19.1,,,,,,,rm2018,earthquake,,,intraslab,,fig 4; text 3.1,intermediate depth
+rm2018,Mejillones 1994,Mejillones 1994,True,1994-10-12,,-23.1,,,,,,,rm2018,earthquake,,,interface,,text 4.2,precursory activity of 1995
+rm2018,Antofagasta 1995,Antofagasta 1995,True,1995-07-30,-70.3,-23.35,,,,,,,rm2018,earthquake,-23.4,-24.8,interface,C,table 1; fig 4; fig 5,
+rm2018,Punitaqui 1997,Punitaqui 1997,True,1997-10-15,-71.2,-30.9,,,,,,,rm2018,earthquake,,,intraslab,,fig 5; fig 6; text 5.5,intermediate depth
+rm2018,Papudo 2001,Papudo 2001,True,2001-04-09,-73.3,-32.8,,,,,,,rm2018,earthquake,,,outer_rise,,fig 6,
+rm2018,Aroma 2001,Aroma 2001,True,2001-07-24,-69.3,-19.55,,,,,,,rm2018,earthquake,,,crustal,,fig 4; text 3.1,shallow intraplate
+rm2018,Curico 2004,Curico 2004,True,2004-08-28,-70.55,-35.15,,,,,,,rm2018,earthquake,,,crustal,,fig 6; text 5,shallow intraplate (Cabello: Pearce et al. 2020)
+rm2018,Tarapaca 2005,Tarapaca 2005,True,2005-06-13,-69.25,-20.0,,,,,,,rm2018,earthquake,,,intraslab,,fig 4; text 3.1.5.3,intermediate depth
+rm2018,Copiapo swarm 2006,Copiapo swarm 2006,True,2006,-71.2,-27.2,,,,,,,rm2018,earthquake,,,interface,swarm,fig 5; text 4.4,
+rm2018,Aysen 2007,Aysen 2007,True,2007-04-21,-73.0,-45.35,,,,,,,rm2018,earthquake,,,crustal,,fig 7; text 6,Liquine-Ofqui swarm (max Mw 6.3)
+rm2018,Tocopilla 2007,Tocopilla 2007,True,2007-11-14,-70.15,-22.3,,,,,,,rm2018,earthquake,-21.7,-23.2,interface,C,table 1; fig 4,
+rm2018,Michilla 2007,Michilla 2007,True,2007-12-16,-70.05,-22.95,,,,,,,rm2018,earthquake,,,intraslab,,fig 4; text 3.1,intermediate depth
+rm2018,Maule 2010,Maule 2010,True,2010-02-27,-73.25,-36.3,,,,,,,rm2018,earthquake,-33.8,-38.4,interface,megathrust,table 2; fig 6,~500 km
+rm2018,Maule outer rise 2010,Maule outer rise 2010,True,2010-02-27,-75.0,-37.75,,,,,,,rm2018,earthquake,,,outer_rise,,fig 6; fig 7; text 5.6,1.5 h after the mainshock
+rm2018,Pichilemu 2010a,Pichilemu 2010a,True,2010-03-11,-72.05,-34.25,,,,,,,rm2018,earthquake,,,crustal,,fig 6; text 5.6,shallow normal intraplate; figure labels it 2011
+rm2018,Pichilemu 2010b,Pichilemu 2010b,True,2010-03-11,-72.1,-34.4,,,,,,,rm2018,earthquake,,,crustal,,fig 6; text 5.6,shallow normal intraplate; figure labels it 2011
+rm2018,Arauco 2011,Arauco 2011,True,2011-01-02,-73.95,-38.35,,,,,,,rm2018,earthquake,,,interface,B,fig 7; text 5.6,bimodal: interplate to shallow intraplate
+rm2018,Constitucion 2012,Constitucion 2012,True,2012-03-25,-72.25,-35.2,,,,,,,rm2018,earthquake,,,interface,C,table 1; fig 6,bottom of the seismogenic contact
+rm2018,Iquique foreshock 2014,Iquique foreshock 2014,True,2014-03-16,,-19.6,,,,,,,rm2018,earthquake,,,crustal,,text 3.1.5.4,upper-plate reverse fault (one interpretation)
+rm2018,Iquique 2014,Iquique 2014,True,2014-04-01,-70.9,-19.6,,,,,,,rm2018,earthquake,-19.8,-20.8,interface,B,table 1; fig 4,
+rm2018,Iquique aftershock 2014,Iquique aftershock 2014,True,2014-04-03,-70.4,-20.55,,,,,,,rm2018,earthquake,,,interface,C,table 1; fig 4,
+rm2018,Jujuy 2015,Jujuy 2015,True,2015-02-11,-66.85,-23.1,,,,,,,rm2018,earthquake,,,intraslab,,fig 4; fig 5,intermediate depth
+rm2018,Illapel 2015,Illapel 2015,True,2015-09-16,-71.75,-31.6,,,,,,,rm2018,earthquake,-30.0,-31.6,interface,B-A-C,table 1; fig 6,
+rm2018,Chiloe 2016,Chiloe 2016,True,2016-12-25,-74.4,-43.5,,,,,,,rm2018,earthquake,-43.0,-43.7,interface,C,table 1; fig 7; text 6.4,20 km patch at the deep interface
+rm2018,Valparaiso 2017,Valparaiso 2017,True,2017-04-24,,-33.1,,,,,,,rm2018,earthquake,,,interface,,text 4.4; text 5.5.1,preceded by a swarm and slow slip

@@ -1,0 +1,23 @@
+src,src_id,origin_id,etype,reason,lat,lon,mmax,time
+potin,116490,116490,earthquake,same event as isc 620544888: explosion,-28.702911,-71.5589,2.9,2020-04-21T02:16:51.520
+potin,116514,116514,earthquake,same event as isc 620544889: explosion,-34.77367,-72.610584,3.0,2020-04-22T08:06:32.310
+potin,28715,28715,earthquake,same event as isc 6698116: explosion,-34.075104,-70.348469,3.0,2003-04-22T19:52:03.920
+potin,52370,52370,earthquake,same event as isc 13822581: mining explosion,-22.464041,-68.731556,5.0,2009-10-05T13:18:52.760
+potin,56902,56902,earthquake,same event as isc 17179356: mining explosion,-37.392992,-73.699854,5.1,2010-07-30T12:10:52.350
+iscehb,610838257,608952984,earthquake,same event as isc 13822581: mining explosion,-22.478,-68.563,4.69,2009-10-05T13:18:52.760
+csn,2020/04/10758,2020/04/10758,earthquake,same event as isc 620544889: explosion,-34.744,-72.652,3.0,2020-04-22T08:06:31.000
+csn,2020/04/29977,2020/04/29977,earthquake,same event as isc 620544888: explosion,-28.696,-71.565,2.9,2020-04-21T02:16:51.000
+isc,13822581,16849884,mining explosion,flagged by the source,-22.4381,-68.5039,5.1,2009-10-05T13:18:52.690
+isc,17179356,601005541,mining explosion,flagged by the source,-37.4088,-73.5816,5.1,2010-07-30T12:10:51.520
+isc,618133466,616390263,explosion,flagged by the source,-32.8209,-68.6823,3.8,2020-04-21T02:58:25.200
+isc,620544888,616390261,explosion,flagged by the source,-28.7332,-71.6999,3.7,2020-04-21T02:16:48.770
+isc,620544889,616390404,explosion,flagged by the source,-34.6663,-72.8334,3.5,2020-04-22T08:06:27.010
+isc,6698116,6258629,explosion,flagged by the source,-34.052,-70.368,3.6,2003-04-22T19:52:03.400
+comcat,usp000bvsd,usp000bvsd,earthquake,same event as isc 6698116: explosion,-34.067,-70.328,3.6,2003-04-22T19:52:03.300
+comcat,usp000h2dr,usp000h2dr,earthquake,same event as isc 13822581: mining explosion,-22.444,-68.451,4.6,2009-10-05T13:18:53.560
+comcat,usp000hh5j,usp000hh5j,earthquake,same event as isc 17179356: mining explosion,-37.425,-73.642,5.1,2010-07-30T12:10:54.000
+csn_isc,13822581,15483922,mining explosion,flagged by the source,-22.47,-68.791,5.0,2009-10-05T13:18:53.000
+csn_isc,17179356,16976348,mining explosion,flagged by the source,-37.43,-73.648,5.1,2010-07-30T12:10:54.100
+csn_isc,620544888,616248468,explosion,flagged by the source,-28.696,-71.565,2.9,2020-04-21T02:16:51.000
+csn_isc,620544889,616248497,explosion,flagged by the source,-34.744,-72.652,3.0,2020-04-22T08:06:31.800
+csn_isc,6698116,6258629,explosion,flagged by the source,-34.052,-70.368,3.6,2003-04-22T19:52:03.400

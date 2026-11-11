@@ -1,0 +1,2 @@
+src,src_id,origin_id,prime,time,lon,lat,depth,depth_fixed,lon_err,lat_err,depth_err,depth_quality,agency,etype,felt
+csn,2025/04/292593,2025/04/292593,True,2025-04-18T00:10:18,-68.22,-23.47,139.0,,,,,,CSN,earthquake,True

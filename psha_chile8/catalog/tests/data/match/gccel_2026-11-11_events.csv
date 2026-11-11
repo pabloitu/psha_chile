@@ -1,0 +1,9 @@
+src,src_id,origin_id,prime,time,lon,lat,depth,depth_fixed,lon_err,lat_err,depth_err,depth_quality,agency,etype,note,cluster,gtcu,smin,smin_az,ot_err,dz_plus,dz_minus
+gccel,cec_illapel8.28_23,cec_illapel8.28_23,True,2015-09-16T22:54:32.30,-71.6435,-31.6002,25.0,False,1.53,1.53,4.0,l,GCCEL,earthquake,CH02 illapel8.28,illapel8.28,CH02,1.13,347.0,0.12,4.0,4.0
+gccel,cec_illapel8.28_24,cec_illapel8.28_24,True,2015-09-16T23:09:07.51,-71.3369,-31.1273,46.0,False,2.57,2.57,3.0,n,GCCEL,earthquake,CH03 illapel8.28,illapel8.28,CH03,1.78,347.0,0.14,3.0,3.0
+gccel,cec_illapel8.28_25,cec_illapel8.28_25,True,2015-09-16T23:18:40.36,-71.5494,-31.5908,22.0,False,1.62,1.62,4.0,l,GCCEL,earthquake,CH02 illapel8.28,illapel8.28,CH02,1.23,345.0,0.13,4.0,4.0
+gccel,cec_iquique17.22_16,cec_iquique17.22_16,True,2014-04-01T23:46:47.55,-70.7094,-19.5584,30.0,False,1.7,1.7,4.0,l,GCCEL,earthquake,CH02 iquique17.22,iquique17.22,CH02,1.18,346.0,0.14,4.0,4.0
+gccel,cec_iquique17.22_17,cec_iquique17.22_17,True,2014-04-01T23:59:56.27,-70.3012,-19.5985,16.0,False,2.52,2.52,4.0,l,GCCEL,earthquake,CH03 iquique17.22,iquique17.22,CH03,1.54,319.0,0.15,4.0,4.0
+gccel,cec_iquique17.22_21,cec_iquique17.22_21,True,2014-04-03T02:43:14.64,-70.424,-20.5349,30.0,False,1.68,1.68,3.0,n,GCCEL,earthquake,CH02 iquique17.22,iquique17.22,CH02,1.11,355.0,0.14,3.0,3.0
+gccel,cec_tirua1.51_37,cec_tirua1.51_37,True,2011-01-02T20:20:16.46,-73.5763,-38.5021,24.0,False,1.92,1.92,4.0,l,GCCEL,earthquake,CH02 tirua1.51,tirua1.51,CH02,1.69,343.0,0.09,4.0,4.0
+gccel,cec_tome2.27_7,cec_tome2.27_7,True,2010-02-27T06:34:11.01,-73.0791,-36.1847,28.0,False,1.44,1.44,4.0,f,GCCEL,earthquake,CH01 tome2.27,tome2.27,CH01,1.28,18.0,0.1,4.0,4.0

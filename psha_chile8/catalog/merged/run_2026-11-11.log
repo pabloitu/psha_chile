@@ -1,0 +1,55 @@
+records 388441 candidate pairs 350425
+identity edges {'id': 76352, 'foreign': 57033} groups 255595
+window links {'potin': 45586, 'csn': 3808, 'gccel': 755, 'comcat': 339, 'iscgem': 10, 'cabello': 2, 'gcmt': 1}
+second-pass merges 7 same-source duplicates 80
+comcat_mt events: 2501 with an event_id: 2501
+       src  records  alone    ref   id  foreign  window  second_pass  same_source
+     potin   117998  69781 117974    0        0       0            0           24
+     gccel      801     26    180    0        0     621            0            0
+    iscehb    10220      0   6153    0        0    4064            0            3
+    iscgem     4129      9    901 2013        0    1214            0            1
+centennial      661      0      5    0      599      52            5            0
+       csn    55547  41141  51568    0      455    3496            0           28
+       isc    91171  13233  28023 7020     9220   46860            7           41
+    comcat    43982     30     30  551    20615   22768            0           18
+   csn_isc    60944      0      0 6922     9217   44789            0           16
+      gcmt     2797      0      0    0     1527    1268            0            2
+   cabello      169    167    167    0        0       2            0            0
+events 205001 | M >= 4.5 (any native) 22477 | dropped records 22
+X1 diagnostics: splits 22 false merges 536 of which outside 10 s / 50 km or dM > 1: 402
+review lists: {'id_disagree': 693, 'pre1964_window': 21, 'ambiguous': 102, 'second_pass_m5': 6, 'merges_m6': 356, 'rm18': 347, 'rm18_matches': 59, 'rm18_unmatched': 10, 'dropped_types': 22, 'same_source': 82, 'id_refused': 3, 'close_events_m45': 33, 'possible_splits': 52, 'x1_splits': 22, 'x1_false_merges': 536, 'blind_failures': 514}
+       src            subset     n  same  wrong  missed  wrong_pct  missed_pct
+    comcat               all 43573 43312      5     256      0.011       0.588
+    comcat          M >= 4.5 15389 15303      3      83      0.019       0.539
+    comcat       before 1964   305   305      0       0      0.000       0.000
+    comcat 1964 on, M >= 4.5 15084 14998      3      83      0.020       0.550
+      gcmt               all  2796  2791      1       4      0.036       0.143
+      gcmt          M >= 4.5  2796  2791      1       4      0.036       0.143
+      gcmt       before 1964     0     0      0       0        NaN         NaN
+      gcmt 1964 on, M >= 4.5  2796  2791      1       4      0.036       0.143
+    iscehb               all 10221 10214      0       7      0.000       0.068
+    iscehb          M >= 4.5  7958  7951      0       7      0.000       0.088
+    iscehb       before 1964     0     0      0       0        NaN         NaN
+    iscehb 1964 on, M >= 4.5  7958  7951      0       7      0.000       0.088
+    iscgem               all  4110  4096      0      14      0.000       0.341
+    iscgem          M >= 4.5  3732  3731      0       1      0.000       0.027
+    iscgem       before 1964   722   709      0      13      0.000       1.801
+    iscgem 1964 on, M >= 4.5  3388  3387      0       1      0.000       0.030
+centennial               all   659   654      0       5      0.000       0.759
+centennial          M >= 4.5   659   654      0       5      0.000       0.759
+centennial       before 1964   151   146      0       5      0.000       3.311
+centennial 1964 on, M >= 4.5   508   508      0       0      0.000       0.000
+   csn_isc               all 60949 60727      2     220      0.003       0.361
+   csn_isc          M >= 4.5  8179  8117      2      60      0.024       0.734
+   csn_isc       before 1964     0     0      0       0        NaN         NaN
+   csn_isc 1964 on, M >= 4.5  8179  8117      2      60      0.024       0.734
+        records  records_m45  window_links  window_links_m45  chance  chance_m45
+src                                                                             
+csn     55549.0       1444.0        3808.0             288.0    22.8         2.5
+gccel     801.0        426.0         755.0             425.0     9.8         8.8
+potin  118003.0       5411.0       45586.0            5394.0   159.5        38.2
+RM18 matched 59 not matched 10
+
+real	0m33,164s
+user	0m35,532s
+sys	0m1,002s

@@ -296,3 +296,61 @@ One entry per session: date, done, decisions, commands for Pablo, open questions
 - Suggested commit (in addition to the A2b one above, or merged with it):
   `git add psha_chile8/explore/X3 psha_chile8/catalog/PREFERENCES_draft_A4_location.md psha_chile8/WORKLOG.md`
   `git commit -m "X3: crustal vs subduction split of the GCCEL benchmark; draft regional location rule for A4"`
+
+## 2026-11-11: A3, events matched across the source catalogues (Claude Code)
+
+- Done: `catalog/match.py`, `catalog/tests/test_match.py` (26 tests; catalog tests 55 pass), real samples in `catalog/tests/data/match/` (cut by `make_sample.py`), full run in `catalog/merged/` (log `run_2026-11-11.log`, sha256 in `merged/MANIFEST.csv`), `catalog/figs/match/summary.png`, method and references in `catalog/merged/METHOD.md`, DATA.md row. Run time 32 s.
+- **Result.** 388 441 records of 11 sources → **205 001 events**; **22 477 with a native M ≥ 4.5** (target 22 300–23 200); 1 406 with M ≥ 6, 264 with M ≥ 7. 124 409 events have one source (69 781 Potin only, 41 141 CSN web only, 13 233 ISC only); at M ≥ 4.5 only 1 529 (1 334 ISC only, 167 Cabello before 1904).
+- **Counts per source and rule** (rule = weakest link between the record and the reference member of its event; `ref` = it is the reference member):
+
+  | source | records | alone | ref | id | foreign | window | second_pass | same_source |
+  |---|---|---|---|---|---|---|---|---|
+  | Potin | 117 998 | 69 781 | 117 974 | 0 | 0 | 0 | 0 | 24 |
+  | GCCEL | 801 | 26 | 180 | 0 | 0 | 621 | 0 | 0 |
+  | ISC-EHB | 10 220 | 0 | 6 153 | 0 | 0 | 4 064 | 0 | 3 |
+  | ISC-GEM | 4 129 | 9 | 901 | 2 013 | 0 | 1 214 | 0 | 1 |
+  | Centennial | 661 | 0 | 5 | 0 | 599 | 52 | 5 | 0 |
+  | CSN web | 55 547 | 41 141 | 51 568 | 0 | 455 | 3 496 | 0 | 28 |
+  | ISC | 91 171 | 13 233 | 28 023 | 7 020 | 9 220 | 46 860 | 7 | 41 |
+  | ComCat | 43 982 | 30 | 30 | 551 | 20 615 | 22 768 | 0 | 18 |
+  | CSN in ISC | 60 944 | 0 | 0 | 6 922 | 9 217 | 44 789 | 0 | 16 |
+  | GCMT | 2 797 | 0 | 0 | 0 | 1 527 | 1 268 | 0 | 2 |
+  | Cabello (< 1904) | 169 | 167 | 167 | 0 | 0 | 2 | 0 | 0 |
+
+  Identity edges: 76 352 by ID, 57 033 by an agency's own solution. Links made by windows: Potin 45 586, CSN web 3 808, GCCEL 755, ComCat 339, ISC-GEM 10, Cabello 2, GCMT 1. Second-pass merges 7 (6 of them before 1964). Same-source merges 80. The "window" column is large for the other sources because their event's reference member is a Potin record tied by a window. The 26 GCCEL records left alone are the 26 that X3 found in no source. All 2 501 `comcat_mt` events have an event ID through ComCat.
+- **Known cases.** Maule 2010, Illapel 2015 (7 sources each), Iquique 2014 (8 sources, 9 records) and Arauco 2011 (8 sources) are one event each; first-hour aftershocks stay separate (tests). RM18: 59 matched, 10 not (all year or month only); Mejillones on 1994-12-10; the Valdivia foreshock on the 18:56 event.
+- **Checks** (`merged/check_blind`, `check_chance`, METHOD.md):
+  - Blind recovery: identity links hidden and the records matched by time and distance alone. Of 122 308 records, 8 land in the wrong event (≤ 0.04 % per source) and 506 are missed (0.07–0.76 %). The misses are true pairs wider than the windows, mostly > 50 km at the same time. This is the rate to expect for Potin and CSN web.
+  - Chance matches (source shifted ± 10, ± 20 min): Potin 160 per 118 003 records, 38 per 5 411 at M ≥ 4.5; CSN web 23 per 55 549.
+  - X1 diagnostics: **splits 22** (X1 baseline 121), all between events that share a source. **False merges 536** (baseline 202): above the baseline, for reasons that are not errors. 134 are within 10 s / 50 km (the diagnostic uses 5 s / 25 km, the X1 baseline used 5 s; the brief set 10 s). 314 are CSN-in-ISC origins, tied to their ISC event by ID, in events whose reference is a Potin record more than 54 km away: the tail of the Potin–CSN distance, recovered through another member. 28 have |ΔM| > 1 (24 of them in 2025–2026, CSN web against the unreviewed ISC and ComCat). The rest are events where the CSN location is far off (next point).
+- **Differences from the brief** (table with evidence in METHOD.md; each has a switch at the top of `match.py`):
+  - A record is matched to the closest member of an event, not only to its best-located member (`LINK`).
+  - Attach order: leftovers of the sources with identity links first, then GCCEL, Potin, CSN web (`STAGES`). With Potin first the Iquique 2014 mainshock split, because Potin lists it twice.
+  - Second pass before 1964 uses 60 s / 300 km. Without it the M 7.1–7.5 events of 1909, 1910, 1911, 1912 and 1917 stay split in two.
+  - New step: one source listing an earthquake twice (2 s, 50 km, scaled; `SAME_T`). 82 cases, of them 26 in the unreviewed ISC Bulletin of 2025–2026 (M up to 7.05).
+  - ComCat identity links also through GUC, SJA and LIM origins; windows from pairs from 1964 on with at least 100 pairs.
+  - Non-earthquakes are dropped after matching, with every record matched to them (`KEEP` to keep one).
+- Decisions made: Pablo accepted the six differences from the brief (11 Nov, in the session). The DECISIONS lines below are still his to add.
+- **Review lists** (`catalog/merged/review/`, sizes): `id_disagree` 693 (33 with M ≥ 7), `pre1964_window` 21, `ambiguous` 102, `merges_m6` 356, `second_pass_m5` 6, `rm18` 347 rows (59 events side by side), `rm18_matches` 59, `rm18_unmatched` 10, `dropped_types` 22, plus `same_source` 82, `id_refused` 3, `close_events_m45` 33, `possible_splits` 52, `x1_splits` 22, `x1_false_merges` 536, `blind_failures` 514.
+- **What Pablo should look at first:**
+  1. `dropped_types`: ISC flags 6 events as explosions. Two are M 5.0–5.1 with five sources: 2009-10-05 13:18 near Calama (plausible mine blast?) and **2010-07-30 12:10 at 37.4° S, 73.6° W**, on the coast of Arauco, which looks like a Maule aftershock. To keep one: `KEEP = [("isc", "17179356")]`.
+  2. `close_events_m45` (33 pairs, 12 with M ≥ 5.5): two events within 10 s / 50 km that share a source, so nothing merged them. Real doublets (1993-05-24, 2014-04-01 23:57) and probable duplicates (ISC 2025–2026; Potin 2015-06-20; ComCat 2014-04-03 03:11) are mixed.
+  3. `same_source` (82): the automatic duplicate merges; the top rows are Iquique 2014 (Potin twice, 5 s apart) and ISC 2025.
+  4. `pre1964_window` (21) and `id_disagree` for M ≥ 7 (33).
+  5. `possible_splits` (52; 7 with M ≥ 5.5): a Potin-only or CSN-only record 50–150 km from an ISC event at nearly the same time, with no other event around. Probably the same earthquakes. No duplicate reaches the final catalogue (these Potin records have no usable magnitude), but the event keeps the teleseismic location.
+  6. `rm18_matches` where `n_candidates` > 1.
+- **For A4** (not done here): 629 events have a member more than 30 s or 100 km from the reference; in 251 the reference is a Potin record. These are distant events that the CSN located badly (up to 100 s and 900 km off, e.g. 1994-09-08, 2003-08-23). "Potin first" must not apply to them. Events with `same_source` have two records of one source to choose from.
+- Commands (from `psha_chile8/catalog/`, psha_renta python): `python match.py` (32 s; rewrites `merged/`); samples: `python tests/data/match/make_sample.py`; tests: `pytest catalog/tests` from `psha_chile8/`.
+- Proposed for DECISIONS (Catalog), if Pablo agrees:
+  - "A3 as run on 11 Nov: a record is matched to the closest member of an event; sources with identity links are completed before GCCEL, Potin and CSN web are attached; before 1964 the second pass uses 60 s / 300 km."
+  - "One source listing an earthquake twice (records within 2 s and 50 km, widened for large events) is one event; listed in `review/same_source`."
+  - "Non-earthquakes flagged by a source are dropped with all records matched to them."
+- Proposed for LEARNINGS (Pitfalls, Catalog):
+  - "The unreviewed ISC Bulletin (2025 on) lists some events twice, up to M 7; Potin lists the Iquique 2014 mainshock twice (5 s, 37 km apart); ComCat has pairs of records for one event (A3)."
+  - "CSN locations of distant events can be off by 100 s and 900 km; Potin keeps them. A Potin record is not a location for events outside the network (A3)."
+  - "Before 1964 ISC-GEM and Centennial / ISC origins of M 7 events differ by up to 13 s and 260 km (A3)."
+- Open questions for Pablo: keep the 2010-07-30 event; merge the `possible_splits` with a wider window for isolated pairs (30 s / 150 km, both events without other neighbours); the new references in METHOD.md have unchecked DOIs.
+- PLAN: A3 box and the ← marker left as they are until Pablo has gone through the review lists.
+- Suggested commit (`links` is 41 MB and `events` 28 MB; leave them out if too heavy and regenerate with `python match.py`):
+  `git add psha_chile8/catalog/match.py psha_chile8/catalog/tests/test_match.py psha_chile8/catalog/tests/data/match psha_chile8/catalog/merged psha_chile8/catalog/figs/match psha_chile8/DATA.md psha_chile8/WORKLOG.md`
+  `git commit -m "A3: events matched across the source catalogues, one ID per earthquake, with review lists and checks"`

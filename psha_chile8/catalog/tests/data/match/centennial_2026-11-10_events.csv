@@ -1,0 +1,7 @@
+src,src_id,origin_id,prime,time,lon,lat,depth,depth_fixed,lon_err,lat_err,depth_err,depth_quality,agency,etype
+centennial,402,402,True,1912-12-07T22:46:50.00,-62.5,-29.0,620.0,,,,,,G&R,earthquake
+centennial,2239,2239,True,1960-05-22T10:30:44.31,-73.17,-37.961,38.0,False,,,,DEQ,EHB,earthquake
+centennial,2240,2240,True,1960-05-22T10:32:48.47,-73.472,-37.994,41.3,False,,,,DEQ,EHB,earthquake
+centennial,2241,2241,True,1960-05-22T18:56:04.03,-72.984,-38.146,35.0,True,,,,FEQ,EHB,earthquake
+centennial,2242,2242,True,1960-05-22T19:11:17.46,-73.054,-38.294,35.0,True,,,,FEQ,----,earthquake
+centennial,10546,10546,True,1994-12-10T03:39:32.85,-70.414,-23.446,31.5,False,,,,DEQM,EHB,earthquake

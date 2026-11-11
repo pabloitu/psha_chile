@@ -7,6 +7,7 @@ Status: `test` (not used further), `used` (something was built on it), `final`.
 
 | date | folder | built from | what changed | events (M > 3.9) | status |
 |---|---|---|---|---|---|
+| 2026-11-11 | `catalog/merged/` (`events`, `links`, `windows`, `counts`, `check_*`, `review/`, all `_2026-11-11`) | source tables frozen 2026-11-10, GCCEL 2026-11-11; `catalog/match.py` | A3 matching only: one ID per earthquake, nothing chosen (no location, depth or magnitude) | 205 001 events of any size; 22 477 with a native M ≥ 4.5; 22 records dropped as non-earthquakes | test (review lists pending) |
 
 ## Source catalogs (frozen inputs)
 
