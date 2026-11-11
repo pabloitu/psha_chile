@@ -1,0 +1,9 @@
+variant,mean ΔMw 4.5–5.0,mean ΔMw 5.0–5.5,mean ΔMw 5.5–6.0
+INV-W linear mean (recommended),0.0,0.0,0.0
+"W fits, GCMT-first direct",-0.002,0.004,0.002
+"W fits, GCMT on W scale, W first",-0.001,-0.014,0.0
+W fits capped y < 6.2,0.001,-0.005,-0.006
+W fits in the jointly complete window,0.06,0.021,0.002
+"W fits, no lambda correction",-0.009,0.001,0.003
+"W fits, lambda with sy 0.15",0.012,-0.001,-0.004
+no MS proxies below MS 5.0,-0.004,0.002,0.0
