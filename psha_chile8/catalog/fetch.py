@@ -10,6 +10,7 @@ import json
 import os
 import shutil
 import time
+import zipfile
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -22,7 +23,7 @@ BOX = dict(lat0=-58.0, lat1=-15.5, lon0=-80.0, lon1=-60.0)
 END = dt.date.today().isoformat()
 MAG_MIN = 3.5
 MT_MAG_MIN, MT_START = 5.0, "1976-01-01"
-RUN = ["potin", "cabello", "rm2018", "gcmt", "centennial", "iscgem", "csn", "comcat", "comcat_mt", "iscehb", "isc"]
+RUN = ["gccel", "potin", "cabello", "rm2018", "gcmt", "centennial", "iscgem", "csn", "comcat", "comcat_mt", "iscehb", "isc"]
 
 HERE = Path(__file__).resolve().parent
 RAW = HERE / "sources" / "raw"
@@ -40,6 +41,7 @@ CENT = "http://web.archive.org/web/20130909170341id_/http://earthquake.usgs.gov/
 GCMT_LAST = "2025-08"
 CSN = "https://www.sismologia.cl/sismicidad/catalogo/"
 CSN_START = "2020-01-01"
+GCCEL = "https://download.isc.ac.uk/datarepository/Distribution_v20230722.zip"
 WAIT = {"usgs.gov": 0.3, "isc.ac.uk": 1.0, "sismologia.cl": 1.0}
 
 
@@ -218,6 +220,22 @@ def centennial():
     ok = [get(CENT + f, RAW / "centennial" / f) for f in fs]
     log("centennial", CENT + "{" + ",".join(fs) + "} (Wayback snapshot 2013-09-09)", "1900-01-01", "2002-04-01",
         sum(ok), [f for f, o in zip(fs, ok) if not o])
+
+
+# gccel: ISC dataset repository (doi 10.31905/MFDY4QHD), one zip, unzipped with the inner zips
+def gccel():
+    d = RAW / "gccel"
+    z = d / GCCEL.rsplit("/", 1)[1]
+    ok = get(GCCEL, z, tries=3, timeout=3600)
+    if ok:
+        with zipfile.ZipFile(z) as h:
+            h.extractall(d)
+        for f in d.rglob("*.zip"):
+            if f != z and not f.with_suffix("").exists():
+                with zipfile.ZipFile(f) as h:
+                    h.extractall(f.with_suffix(""))
+    log("gccel", f"{GCCEL} (ISC dataset repository, doi 10.31905/MFDY4QHD, version 20230722)", "", "",
+        int(ok), [] if ok else [z.name])
 
 
 def iscgem():

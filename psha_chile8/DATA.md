@@ -12,6 +12,7 @@ Status: `test` (not used further), `used` (something was built on it), `final`.
 
 | file | source, version or query | downloaded | notes |
 |---|---|---|---|
+| `catalog/sources/gccel_2026-11-11_*.csv` | GCCEL (Bergman et al. 2023), ISC dataset repository doi 10.31905/MFDY4QHD, `Distribution_v20230722.zip`, version 20230722 (newest on the ISC repository; ScienceBase not checkable, bot wall) | 2026-11-11 | 801 events in 12 clusters, 1973–2021, depth 4–95 km; 1 375 magnitudes, no mechanisms; sha256 in `catalog/sources/MANIFEST.csv` |
 | `catalog/sources/comcat_2026-11-10_*.csv` | USGS ComCat FDSN, CSV, box, M ≥ 3.5, yearly requests | 2026-11-10 | 43 985 events (preferred origin and magnitude only); sha256 in `catalog/sources/MANIFEST.csv` |
 | `catalog/sources/comcat_mt_2026-11-10_*.csv` | ComCat GeoJSON event pages, every moment-tensor and focal-mechanism product, ComCat M ≥ 5.0 from 1976 | 2026-11-10 | 5 288 products for 2 501 events (mechs only); sha256 in `catalog/sources/MANIFEST.csv` |
 | `catalog/sources/isc_2026-11-10_*.csv` | ISC Bulletin FDSN, QuakeML, all origins and magnitudes, box, M ≥ 3.5 from 1964 | 2026-11-10 | 91 177 events, 275 287 origins, 401 452 magnitudes; sha256 in `catalog/sources/MANIFEST.csv` |

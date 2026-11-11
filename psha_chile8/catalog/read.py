@@ -20,7 +20,7 @@ import pandas as pd
 from fetch import BOX, RAW
 
 # settings
-RUN = ["comcat", "comcat_mt", "isc", "csn_isc", "csn", "iscehb", "iscgem", "gcmt", "centennial", "potin", "cabello",
+RUN = ["comcat", "comcat_mt", "isc", "csn_isc", "csn", "iscehb", "iscgem", "gcmt", "centennial", "gccel", "potin", "cabello",
        "rm2018"]
 OUT = RAW.parent
 
@@ -316,6 +316,42 @@ def rm2018(d):
                            domain=r.domain, basis=r.basis, note=r.note))
     mg = pd.DataFrame(dict(src_id=i, agency="rm2018", mag_type="Mw", mag=r.mw.map(num), note=r.mw))
     return frame(ev, EV, "rm2018"), frame(mg[r.mw.notna()], MG, "rm2018"), frame([], MC, "rm2018")
+
+
+def gccel(d):
+    """GCCEL (Bergman et al. 2023), MNF v1.4 file all_gccel.dat: E / H / M records of every cluster.
+
+    Errors are the 90 % semi-axes (lon_err = lat_err = semi-major) and the larger of the two depth bounds.
+    depth_quality is the mloc depth code; depth_fixed is True where GCCEL did not constrain the depth
+    (c cluster default, i input file, u unknown, or no code).
+    """
+    f = next(f for f in sorted(d.rglob("all_gccel.dat")) if f.is_file())
+    ev, mg, eid = [], [], None
+    with opener(f) as h:
+        for b in h:
+            k = b[:1]
+            if k not in (b"E", b"H", b"M"):
+                continue
+            l = b.decode("latin-1").rstrip("\r\n").ljust(121)
+            if k == b"E":
+                eid = l[4:].strip()
+            elif k == b"H":
+                dz = [num(l[77:82]), num(l[83:88])]
+                dz = [np.nan if v >= 99.9 else v for v in dz]
+                dc, gt, cl = l[75].strip(), l[89:93].strip(), l[103:121].strip()
+                ev.append(dict(src_id=eid, origin_id=eid, prime=True,
+                               time=iso(l[4:8], l[9:11], l[12:14], l[15:17], l[18:20], num(l[21:26])),
+                               lat=num(l[34:42]), lon=num(l[43:52]), depth=num(l[69:74]),
+                               depth_fixed=dc in ("c", "i", "u", ""), lon_err=num(l[63:68]), lat_err=num(l[63:68]),
+                               depth_err=np.nanmax(dz) if np.isfinite(dz).any() else np.nan, depth_quality=dc or None,
+                               agency="GCCEL", etype="earthquake", note=f"{gt} {cl}", cluster=cl, gtcu=gt,
+                               smin=num(l[57:62]), smin_az=num(l[53:56]), ot_err=num(l[27:32]), dz_plus=dz[0],
+                               dz_minus=dz[1]))
+            else:
+                a = l[15:110].split(maxsplit=1)
+                mg.append(dict(src_id=eid, agency=a[0] if a else None, mag_type=l[9:14].strip() or None,
+                               mag=num(l[4:8]), note=a[1].strip() if len(a) > 1 else None))
+    return inbox(frame(ev, EV, "gccel"), frame(mg, MG, "gccel"), frame([], MC, "gccel"))
 
 
 def sha(f):

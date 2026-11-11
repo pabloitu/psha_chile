@@ -1,0 +1,61 @@
+B   Calibrated Earthquake Cluster: illapel8.28                                                                           
+F   1.4.2                                                                                                                
+# Program: mloc v10.5.0, release date 4/10/2020
+# Run: illapel8.28
+# Author: EBergman
+# Date: 20200511 140148.206
+#                                                                                                                        
+# The Illapel cluster is named for the city of Illapel in Choapa Province,
+# Coquimbo Region, Chile. The cluster is based on the 8.3 Mw earthquake of
+# September 16, 2015, but it includes both earlier and more recent events.
+# In addition to the M8.3 Illapel event, the cluster contains an M7.2
+# aftershock and 9 events with M6.0-6.9. The cluster is mainly composed of
+# events on-shore, to maintain good azimuthal coverage and depth control.
+# All events have depth control from near-source or local-distance
+# readings and many events also have strong constraint on depth from
+# telelseismic depth phases. The agreement between the two methods is
+# quite good, and the fit of arrival times for events both above and below
+# the Moho to the theoretical times calculated from the 1-D crustal model
+# used for local and regional travel-time calculations is also quite good.
+#                                                                                                                        
+# Number of events:  54
+# Calibration type: direct calibration using data to  1.0 degrees; hypocentroid calibration level =  1.4 km
+# Epicentral calibration range:  2 -  4 km
+# Date range: 20010101 - 20191104
+# Latitude range: -31.994 - -30.969
+# Longitude range:  -71.837 -  -71.111
+# Depth range:  18.0 -  73.0
+# Magnitude range: 3.6 - 8.3
+E   cec_illapel8.28_1                                                                                                    
+H   2001 01 01 21 29 36.40  0.20  -31.8993  -71.5498   5  1.44  3.36  73.0 n   3.0   3.0 CH03 EBergman illapel8.28       
+P +  ILCH             0.42  51 Pn       2001  1  1 21 29 49.26  -2   0.45  0.40
+P +  ILCH             0.42  51 Sn       2001  1  1 21 29 59.59  -2   1.46  0.69
+STOP                                                                                                                     
+E   cec_illapel8.28_2                                                                                                    
+H   2001 04 25 17 16 29.04  0.13  -31.5620  -71.4404 353  1.21  2.17  43.0 n   3.0   3.0 CH02 EBergman illapel8.28       
+M   4.8  mb    ISC
+P +  ILCH             0.24 108 Pg       2001  4 25 17 16 36.94  -2  -0.19  0.24
+P +  JACH             1.33 147 Pn       2001  4 25 17 16 51.14  -2  -0.28  0.50
+STOP                                                                                                                     
+E   cec_illapel8.28_3                                                                                                    
+H   2001 10 31 04 59 24.82  0.13  -31.7431  -71.2077 349  1.32  2.47  51.0 n   3.0   3.0 CH02 EBergman illapel8.28       
+M   4.6  mb    ISC
+P +  ILCH             0.11  17 Pn       2001 10 31  4 59 33.62  -2   0.71  0.40
+P +  ILCH             0.11  17 Sn       2001 10 31  4 59 38.83  -2   0.02  0.69
+STOP
+E   cec_ahar12.17_1                                                                                                      
+H   2012 08 11 12 23 14.05  0.20   38.4074   46.8409 271  0.94  1.98  11.6 m   1.2   1.2 CH02 EBergman ahar12.17         
+M   6.2  mb    NEIC
+M   6.9  ME    NEIC
+M   6.7  MS    NEIC
+M   6.3  MW    NEIC
+M   6.4  MW    NEIC
+M   6.4  MW    NEIC
+M   6.2  MN    TEH
+STOP                                                                                                                     
+E   cec_sanjuan7.5_79                                                                                                    
+H   2021 01 19 03 37 44.81  0.37  -31.7993  -68.8997   9  1.54  1.85  17.6 i  99.9  99.9 CT02 EBergman sanjuan7.5        
+M   5.30 mb    US
+M   5.0  mb    AUST
+STOP                                                                                                                     
+EOF

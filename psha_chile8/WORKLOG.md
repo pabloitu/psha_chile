@@ -227,3 +227,72 @@ One entry per session: date, done, decisions, commands for Pablo, open questions
 - Proposed: cite as related work and as an example of the forward-regression bias; use its Table S1 (tsunami evidence) and the declustering comparison; compare its classes with A7 later. Add to REFERENCES (D): Candia, G., Macedo, J. (2026), SRL, doi:10.1785/0220250449.
 - Input to freeze if kept: the supplement xlsx as `catalog/sources/candia_macedo_2026-11-11.xlsx` (29 MB; or keep it raw and archive it with the data DOI).
 - Suggested commit: `git add psha_chile8/explore/X2/review psha_chile8/WORKLOG.md` with `git commit -m "X2 review: Candia and Macedo (2026) checked with the X2 tests"`
+
+## 2026-11-11: A2b, GCCEL added as a source and benchmarked as the location reference (Claude Code)
+
+- Done:
+  - **Fetch and freeze.**
+    - `fetch.py` has a `gccel` source. It downloads `Distribution_v20230722.zip` (455 MB, ISC dataset repository, doi 10.31905/MFDY4QHD) into `sources/raw/gccel/` and unzips it with the inner zips. Downloaded and unzipped once.
+    - `read.py` has a `gccel` reader (MNF v1.4 E / H / M records of `all_gccel.dat`). It wrote `sources/gccel_2026-11-11_{events,mags}.csv`: 801 events and 1 375 magnitudes in the box; no mechanisms; no CHECK lines.
+  - **Bookkeeping.** MANIFEST rows, DATA.md row, SOURCES.md card, `figs/profile/gccel.png`, a test sample of real lines in `tests/data/gccel/` and `test_gccel` (catalog tests: 29 pass).
+  - **Benchmark.** `explore/X3/` (`x3_gccel.py`, `REPORT.md`, `figures_index.md`, 10 tables, 4 figures, 4 tests).
+- **Version.** 20230722 is the only GCCEL in the ISC repository.
+  - ScienceBase (USGS, doi 10.5066/P95R8K8G) is behind a bot check and could not be inspected. Its usgs.gov page still describes the 2021 release.
+  - A web-search summary of an SSA 2025 abstract mentions ≈ 28 000 events in 366 clusters at the USGS, so a newer ScienceBase version may exist. **Pablo to check by hand**: https://www.sciencebase.gov/catalog/item/59fb91fde4b0531197b16ac7. If there is one, put the files in `sources/raw/gccel/`; the reader needs only `all_gccel.dat`.
+- **ComCat** carries no GCCEL origins (no GCCEL catalogue or contributor; none on the Illapel 2015 event page).
+- **Coverage.** 12 clusters (Iquique, Tocopilla, Vallenar, La Serena, Illapel, Valparaíso, San Pedro, Tabuco, Maule, Tomé, Tirúa, San Juan), 18.5–38.5° S, 1973–2021, 96 % from 2000. Depth 4–95 km; 14 events at 70–95 km, none deeper. GCCEL selects events shallower than about 50 km.
+- **Main results** (`explore/X3/REPORT.md`):
+  - 775 of 801 link to X1 baseline events. The 26 others have no origin in any source: M < 3.5 San Juan events, and 3 Tabuco events from March–April 2010.
+  - DECISIONS order (GCCEL left out): mean epicentre distance 8.9 km and mean |Δz| 8.1 km. By depth: 10.7 km above 30 km, 6.4 km at 30–70 km, 3.7 km at 70–120 km.
+  - Potin is the best epicentre in its network core: 18–36° S, 3–6 km, depth spread 2–4 km. It is poor south of 36° S and in the backarc.
+  - Above 30 km, Potin depths are worse than EHB L1, ISC and ComCat on the same events (mean |Δz| 13.9 vs 4.9 km against EHB L1).
+  - X1 finding 6 cannot be tested with GCCEL (no events below 95 km): the EHB-before-Potin-at-depth decision rests on X1. At 70–95 km, EHB is closer in 5 of 8 pairs, which is not significant.
+  - Valparaíso: every source is 8–14 km shallower than GCCEL. Tirúa: the global catalogues are ≈ 20 km east of GCCEL.
+- Decisions made: none.
+- Commands (from `psha_chile8/catalog/` with the psha_renta python), only if a newer GCCEL is fetched:
+  - `python -c "import fetch; fetch.gccel()"`, or set `RUN = ["gccel"]` in `fetch.py`. Note: `gccel` was added at the head of `fetch.RUN`; files on disk are skipped.
+  - `python read.py` (RUN now includes `gccel`; it rewrites every source from raw, ≈ the A2 time), or only `read.gccel` and `read.write`.
+  - `python profile.py`.
+  - Benchmark: from `psha_chile8/explore/X3/`, `python x3_gccel.py` (≈ 10 s, needs the X1 cache; delete `cache/gccel_linked.csv` to relink).
+  - Tests: `pytest catalog/tests explore/X3/tests` from `psha_chile8/` (33 pass).
+- Proposed for DECISIONS (Catalog), if Pablo agrees:
+  - "GCCEL version 20230722 (ISC dataset repository), frozen 2026-11-11; ComCat carries no GCCEL origins (A2b)."
+  - Depth exception, one of these:
+    - "Below 70 km EHB L1/L2 before Potin, on X1 evidence (GCCEL has no events below 95 km)", or
+    - keep "no exceptions", with the Potin flat-slab cloud flagged in A7.
+  - Possibly: "Depth above 30 km: EHB L1 before Potin (X3: Potin 13.9 vs EHB L1 4.9 km on shared events)". This conflicts with the 11 Nov "no regional or depth exceptions" line, so it is Pablo's call.
+- Proposed for LEARNINGS (Pitfalls, Catalog):
+  - "GCCEL selects events shallower than about 50 km (none below 95 km in Chile); it cannot test intermediate-depth locations (X3)."
+  - "Potin et al. (2024) locations are excellent at 18–36° S (epicentre 3–6 km, depth σ 2–4 km against GCCEL) but poor south of 36° S, in the backarc (San Juan) and in depth above 30 km (X3)."
+  - "Teleseismic catalogues (ISC, ComCat, EHB) are ≈ 20 km east of GCCEL at Tirúa, 38–39° S (X3)."
+- Proposed for PREFERENCES (location line): note that the GCCEL step only matters where Potin and CSN are missing. In the GCCEL footprint that is San Juan, before 1982, and the southern clusters with no Potin event.
+- Open questions for Pablo:
+  - The Valparaíso depth offset (all sources 8–14 km shallower): ask E. Bergman, or treat the cluster's depths as uncertain?
+  - Should Potin be first outside its network (south of 36–37° S, backarc)? See X3 option (c).
+  - Newer GCCEL on ScienceBase (above).
+- Suggested commit:
+  `git add psha_chile8/catalog/fetch.py psha_chile8/catalog/read.py psha_chile8/catalog/profile.py psha_chile8/catalog/tests/test_read.py psha_chile8/catalog/tests/data/gccel psha_chile8/catalog/sources/gccel_2026-11-11_events.csv psha_chile8/catalog/sources/gccel_2026-11-11_mags.csv psha_chile8/catalog/sources/MANIFEST.csv psha_chile8/catalog/figs/profile/gccel.png psha_chile8/catalog/SOURCES.md psha_chile8/DATA.md psha_chile8/explore/.gitignore psha_chile8/explore/X3/x3_gccel.py psha_chile8/explore/X3/tests psha_chile8/explore/X3/REPORT.md psha_chile8/explore/X3/figures_index.md psha_chile8/explore/X3/tables psha_chile8/explore/X3/figs psha_chile8/WORKLOG.md`
+  `git commit -m "A2b: GCCEL frozen as a source (v20230722) and benchmarked as the location reference (X3)"`
+
+## 2026-11-11: A2b follow-up, crustal vs subduction split and draft A4 location rule (Claude Code)
+
+- Asked by Pablo: whether the shallow (< 30 km) Potin result separates into crustal and subduction events, and whether GCCEL is a good reference for subduction events.
+- Done:
+  - `x3_gccel.py`: `classes()` (crustal onshore / crustal backarc / interface-slab onshore / offshore, from Slab2 and the X1 setting), `slab_check()`, L-g variants, and scores by group.
+  - New tables `x3_slab_check.csv` and `x3_variant_scores_by_group.csv`; the summary and paired tables are split by group.
+  - New section in `explore/X3/REPORT.md`.
+  - Draft `catalog/PREFERENCES_draft_A4_location.md`. PREFERENCES and DECISIONS are not changed.
+- Findings:
+  - Crustal onshore: Potin is the best source (epicentre 3.3 km, depth −0.1 ± 4.9 km).
+  - Interface / slab onshore: Potin is level with EHB L1 in depth (4.3 vs 4.2 km spread) and better in epicentre.
+  - The shallow problem is the backarc (San Juan), the southern edge (Tirúa, Tabuco) and offshore events.
+  - **Offshore, GCCEL is not a dependable depth reference** (stations on one side only). Every source is shallower than GCCEL there, and Slab2 sits between them.
+  - Region rule L-g (Potin first only at 18–37° S and outside the backarc): mean |Δz| 8.12 → 6.85 km, epicentre 8.91 → 8.57 km.
+- Decisions made: none.
+- Commands: from `psha_chile8/explore/X3/`, `python x3_gccel.py` (≈ 15 s); `pytest explore/X3/tests` from `psha_chile8/` (4 pass).
+- Proposed for DECISIONS (Catalog), replacing the 11 Nov location line if Pablo and S. Ruiz agree: the text in `catalog/PREFERENCES_draft_A4_location.md` (regional order, EHB first below 70 km in the flat slab, offshore depths uncertain).
+- Proposed for LEARNINGS (Pitfalls, Catalog): "GCCEL offshore depths are one-sided (coastal stations only): all catalogues are 5–12 km shallower than GCCEL offshore, and Slab2 does not decide between them (X3)."
+- Open questions: southern limit of the core (36 or 37° S); a note from E. Bergman on the depths of the offshore and Valparaíso clusters.
+- Suggested commit (in addition to the A2b one above, or merged with it):
+  `git add psha_chile8/explore/X3 psha_chile8/catalog/PREFERENCES_draft_A4_location.md psha_chile8/WORKLOG.md`
+  `git commit -m "X3: crustal vs subduction split of the GCCEL benchmark; draft regional location rule for A4"`

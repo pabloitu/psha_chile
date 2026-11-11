@@ -1,0 +1,49 @@
+gid,ehb,depth,flat,cluster,dz_potin,dz_ehb,closer,zmin
+cec_illapel8.28_3,ehb1,51.0,in flat slab (30–34° S),illapel8.28,3.8177999999999983,4.299999999999997,Potin,50.0
+cec_illapel8.28_39,ehb1,60.0,in flat slab (30–34° S),illapel8.28,7.552999999999997,0.20000000000000284,ISC-EHB,50.0
+cec_illapel8.28_50,ehb1,69.0,in flat slab (30–34° S),illapel8.28,0.8182000000000045,3.5999999999999943,Potin,50.0
+cec_iquique17.22_1,ehb1,50.0,outside,iquique17.22,-1.8374999999999986,-6.600000000000001,Potin,50.0
+cec_iquique17.22_47,ehb1,52.0,outside,iquique17.22,1.0696999999999974,-2.5,Potin,50.0
+cec_iquique17.22_67,ehb1,52.0,outside,iquique17.22,0.6188999999999965,-0.10000000000000142,ISC-EHB,50.0
+cec_maule16.16_8,ehb1,57.0,outside,maule16.16,3.9431999999999974,4.899999999999999,Potin,50.0
+cec_maule16.16_32,ehb1,51.0,outside,maule16.16,-1.3547000000000011,-5.5,Potin,50.0
+cec_maule16.16_82,ehb1,80.0,outside,maule16.16,1.125,-0.7000000000000028,ISC-EHB,50.0
+cec_sanpedro3.14_20,ehb1,78.0,in flat slab (30–34° S),sanpedro3.14,-2.906499999999994,-0.5,ISC-EHB,50.0
+cec_serena1.19_2,ehb1,71.0,outside,serena1.19,-1.643100000000004,-2.4000000000000057,Potin,50.0
+cec_serena1.19_5,ehb1,51.0,outside,serena1.19,2.770000000000003,-0.10000000000000142,ISC-EHB,50.0
+cec_serena1.19_8,ehb1,62.0,outside,serena1.19,0.8704999999999998,1.7000000000000028,Potin,50.0
+cec_serena1.19_9,ehb1,58.0,in flat slab (30–34° S),serena1.19,1.5448999999999984,-1.1000000000000014,ISC-EHB,50.0
+cec_serena1.19_10,ehb1,58.0,in flat slab (30–34° S),serena1.19,-2.2483000000000004,-2.5,Potin,50.0
+cec_serena1.19_15,ehb1,61.0,in flat slab (30–34° S),serena1.19,-0.09700000000000131,0.7999999999999972,Potin,50.0
+cec_serena1.19_16,ehb1,67.0,outside,serena1.19,-1.3944000000000045,-1.5999999999999943,Potin,50.0
+cec_serena1.19_17,ehb1,66.0,outside,serena1.19,0.24349999999999739,-3.6000000000000014,Potin,50.0
+cec_serena1.19_18,ehb1,60.0,outside,serena1.19,-0.6370000000000005,0.7000000000000028,Potin,50.0
+cec_serena1.19_19,ehb1,65.0,outside,serena1.19,-1.9598999999999975,-5.0,Potin,50.0
+cec_serena1.19_22,ehb1,72.0,in flat slab (30–34° S),serena1.19,11.469899999999996,-4.5,ISC-EHB,50.0
+cec_serena1.19_25,ehb1,72.0,in flat slab (30–34° S),serena1.19,-2.4950999999999937,0.7000000000000028,ISC-EHB,50.0
+cec_serena1.19_26,ehb1,88.0,in flat slab (30–34° S),serena1.19,4.226299999999995,-4.599999999999994,Potin,50.0
+cec_tocopilla4.17_10,ehb1,56.0,outside,tocopilla4.17,2.488199999999999,1.6000000000000014,ISC-EHB,50.0
+cec_tocopilla4.17_44,ehb1,54.0,outside,tocopilla4.17,1.6445000000000007,0.5,ISC-EHB,50.0
+cec_tocopilla4.17_45,ehb1,52.0,outside,tocopilla4.17,2.4757000000000033,6.600000000000001,Potin,50.0
+cec_tome2.27_2,ehb1,60.0,outside,tome2.27,5.324399999999997,-3.799999999999997,ISC-EHB,50.0
+cec_tome2.27_45,ehb1,75.0,outside,tome2.27,9.3185,5.900000000000006,ISC-EHB,50.0
+cec_vallenar2.29_1,ehb1,53.0,outside,vallenar2.29,-2.737099999999998,0.20000000000000284,ISC-EHB,50.0
+cec_vallenar2.29_23,ehb1,61.0,outside,vallenar2.29,0.6047000000000011,5.599999999999994,Potin,50.0
+cec_vallenar2.29_27,ehb1,53.0,outside,vallenar2.29,0.5364000000000004,5.0,Potin,50.0
+cec_vallenar2.29_33,ehb1,54.0,outside,vallenar2.29,-10.249000000000002,-0.8999999999999986,ISC-EHB,50.0
+cec_iquique17.22_11,ehb2,55.0,outside,iquique17.22,-1.8796999999999997,5.299999999999997,Potin,50.0
+cec_iquique17.22_26,ehb2,50.0,outside,iquique17.22,2.2680000000000007,1.2000000000000028,ISC-EHB,50.0
+cec_iquique17.22_45,ehb2,53.0,outside,iquique17.22,1.2802000000000007,4.399999999999999,Potin,50.0
+cec_iquique17.22_59,ehb2,50.0,outside,iquique17.22,-0.8316000000000017,6.399999999999999,Potin,50.0
+cec_sanpedro3.14_33,ehb2,71.0,in flat slab (30–34° S),sanpedro3.14,0.8127000000000066,2.9000000000000057,Potin,50.0
+cec_serena1.19_1,ehb2,55.0,in flat slab (30–34° S),serena1.19,-2.6918000000000006,4.200000000000003,Potin,50.0
+cec_serena1.19_31,ehb2,65.0,outside,serena1.19,0.3100000000000023,-3.3999999999999986,Potin,50.0
+cec_serena1.19_67,ehb2,57.0,in flat slab (30–34° S),serena1.19,-2.518500000000003,0.7000000000000028,ISC-EHB,50.0
+cec_maule16.16_82,ehb1,80.0,outside,maule16.16,1.125,-0.7000000000000028,ISC-EHB,70.0
+cec_sanpedro3.14_20,ehb1,78.0,in flat slab (30–34° S),sanpedro3.14,-2.906499999999994,-0.5,ISC-EHB,70.0
+cec_serena1.19_2,ehb1,71.0,outside,serena1.19,-1.643100000000004,-2.4000000000000057,Potin,70.0
+cec_serena1.19_22,ehb1,72.0,in flat slab (30–34° S),serena1.19,11.469899999999996,-4.5,ISC-EHB,70.0
+cec_serena1.19_25,ehb1,72.0,in flat slab (30–34° S),serena1.19,-2.4950999999999937,0.7000000000000028,ISC-EHB,70.0
+cec_serena1.19_26,ehb1,88.0,in flat slab (30–34° S),serena1.19,4.226299999999995,-4.599999999999994,Potin,70.0
+cec_tome2.27_45,ehb1,75.0,outside,tome2.27,9.3185,5.900000000000006,ISC-EHB,70.0
+cec_sanpedro3.14_33,ehb2,71.0,in flat slab (30–34° S),sanpedro3.14,0.8127000000000066,2.9000000000000057,Potin,70.0

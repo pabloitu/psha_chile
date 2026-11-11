@@ -20,7 +20,7 @@ import palette as pal
 from fetch import BOX
 
 # settings
-RUN = ["comcat", "comcat_mt", "isc", "csn_isc", "csn", "iscehb", "iscgem", "gcmt", "centennial", "potin", "cabello",
+RUN = ["comcat", "comcat_mt", "isc", "csn_isc", "csn", "iscehb", "iscgem", "gcmt", "centennial", "gccel", "potin", "cabello",
        "rm2018"]
 SRC = HERE / "sources"
 FIGS = HERE / "figs" / "profile"
@@ -28,7 +28,7 @@ NTYPES = 14
 TITLE = {"comcat": "USGS ComCat", "comcat_mt": "ComCat moment tensors", "isc": "ISC Bulletin",
          "csn_isc": "CSN solutions in the ISC Bulletin", "csn": "CSN catalogue (sismologia.cl)", "iscehb": "ISC-EHB",
          "iscgem": "ISC-GEM", "gcmt": "GCMT",
-         "centennial": "Centennial catalogue", "potin": "Potin et al. (2024)", "cabello": "Cabello et al. (2025)",
+         "centennial": "Centennial catalogue", "gccel": "GCCEL (Bergman et al. 2023)", "potin": "Potin et al. (2024)", "cabello": "Cabello et al. (2025)",
          "rm2018": "Ruiz and Madariaga (2018)"}
 
 

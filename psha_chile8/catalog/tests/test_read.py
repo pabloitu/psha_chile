@@ -121,6 +121,23 @@ def test_iscgem():
     assert mg.set_index("src_id").loc["14340585", "note"] == "q=A s=d"
 
 
+def test_gccel():
+    ev, mg, mc = run("gccel")
+    e = ev.set_index("src_id")
+    assert set(e.index) == {"cec_illapel8.28_1", "cec_illapel8.28_2", "cec_illapel8.28_3", "cec_sanjuan7.5_79"}
+    a = e.loc["cec_illapel8.28_1"]
+    assert a.time == "2001-01-01T21:29:36.40"
+    assert (a.lat, a.lon, a.depth, a.lat_err, a.depth_err) == (-31.8993, -71.5498, 73.0, 3.36, 3.0)
+    assert (a.depth_quality, a.depth_fixed, a.gtcu, a.cluster, a.smin) == ("n", False, "CH03", "illapel8.28", 1.44)
+    b = e.loc["cec_sanjuan7.5_79"]
+    assert b.depth_fixed and b.gtcu == "CT02" and np.isnan(b.depth_err)
+    assert "cec_illapel8.28_1" not in set(mg.src_id)
+    assert set(zip(mg.src_id, mg.agency, mg.mag_type, mg.mag)) == {
+        ("cec_illapel8.28_2", "ISC", "mb", 4.8), ("cec_illapel8.28_3", "ISC", "mb", 4.6),
+        ("cec_sanjuan7.5_79", "US", "mb", 5.3), ("cec_sanjuan7.5_79", "AUST", "mb", 5.0)}
+    assert mc.empty
+
+
 def test_write_and_manifest(tmp_path, monkeypatch):
     raw = tmp_path / "raw" / "potin"
     raw.mkdir(parents=True)
