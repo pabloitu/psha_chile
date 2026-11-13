@@ -1,0 +1,15 @@
+rule,crustal Patagonia,crustal arc,crustal backarc,crustal forearc,in-slab,interface,outer rise,unclassified,unknown depth
+above,0,152,283,365,0,0,0,0,0
+above_deep,0,0,0,0,0,0,0,88,0
+band,0,0,0,0,0,2923,0,0,0
+band_other_mech,0,0,0,51,116,0,0,0,0
+below,0,0,0,0,80,0,0,0,0
+mech_if,0,0,0,0,0,937,0,0,0
+noslab,0,23,0,0,0,0,0,0,0
+noslab_deep,0,0,0,0,0,0,0,3,0
+outer_rise,0,0,0,0,0,0,501,0,0
+pat,86,0,0,0,0,0,0,0,0
+pat_deep,0,0,0,0,0,0,0,1,0
+rm18,0,4,0,3,10,36,3,0,0
+slab,0,0,0,0,6925,0,0,0,0
+unk,0,0,0,0,0,0,0,0,1644

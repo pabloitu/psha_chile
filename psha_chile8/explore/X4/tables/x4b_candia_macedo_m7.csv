@@ -1,0 +1,8 @@
+cm_class,crustal,in-slab,interface,outer rise,unclassified,unknown depth,All
+crustal,2,1,2,0,0,15,20
+in-slab,0,22,0,0,0,5,27
+interface,1,4,36,2,0,20,63
+not matched,0,0,8,1,0,20,29
+outer rise,0,0,0,4,0,0,4
+unknown,0,2,0,0,2,6,10
+All,3,29,46,7,2,66,153

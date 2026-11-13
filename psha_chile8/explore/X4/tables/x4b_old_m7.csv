@@ -1,0 +1,13 @@
+old_class,crustal backarc,crustal forearc,in-slab,interface,outer rise,unclassified,unknown depth,All
+crustal Patagonia,0,0,0,0,0,0,2,2
+crustal arc,0,0,0,0,0,0,2,2
+crustal backarc,1,0,0,0,0,0,2,3
+crustal forearc,0,1,0,0,0,0,0,1
+in-slab (Jujuy nest),0,0,3,0,0,0,0,3
+in-slab (deeper),0,0,18,0,0,1,6,25
+in-slab (slab top < 50 km),0,0,4,1,0,0,0,5
+interface,0,1,1,45,2,0,45,94
+not in the old catalogue,0,0,2,0,0,0,4,6
+outer rise,0,0,0,0,5,0,0,5
+unresolved,0,0,1,0,0,1,5,7
+All,1,2,29,46,7,2,66,153

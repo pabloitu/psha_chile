@@ -1,0 +1,225 @@
+rule,by,bin,n,converted − measured,set
+1 own value reaches Mw 5 (A5 as run),measured Mw,4.5–4.75,841,-0.014732461355529044,six agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,4.75–5.0,850,0.0064117647058822514,six agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,5.0–5.25,901,0.023973362930077805,six agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,5.25–5.5,626,0.0005750798722045074,six agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,5.5–5.75,410,-0.040414634146341465,six agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,5.75–6.0,234,-0.01294871794871795,six agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,4.8,303,0.04204620462046183,six agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,4.9,309,0.0604530744336573,six agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.0,353,0.019688385269121835,six agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.1,403,0.04856079404466472,six agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.2,337,0.02415430267062339,six agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.3,285,0.0715438596491227,six agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.4,263,0.08376425855513346,six agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.0–5.3,1378,0.039949201741654526,six agencies
+1 own value reaches Mw 5 (A5 as run),count,>= 5.0,2795,1.046816479400749,six agencies
+1 own value reaches Mw 5 (A5 as run),count,>= 5.5,1154,1.066543438077634,six agencies
+2 another scale reaches Mw 5,measured Mw,4.5–4.75,841,-0.02400713436385247,six agencies
+2 another scale reaches Mw 5,measured Mw,4.75–5.0,850,-0.049941176470588315,six agencies
+2 another scale reaches Mw 5,measured Mw,5.0–5.25,901,-0.04694783573806867,six agencies
+2 another scale reaches Mw 5,measured Mw,5.25–5.5,626,-0.03840255591054309,six agencies
+2 another scale reaches Mw 5,measured Mw,5.5–5.75,410,-0.05870731707317072,six agencies
+2 another scale reaches Mw 5,measured Mw,5.75–6.0,234,-0.022350427350427353,six agencies
+2 another scale reaches Mw 5,converted Mw,4.8,382,-0.019005235602094432,six agencies
+2 another scale reaches Mw 5,converted Mw,4.9,413,-0.002978208232445156,six agencies
+2 another scale reaches Mw 5,converted Mw,5.0,362,-0.0012983425414364316,six agencies
+2 another scale reaches Mw 5,converted Mw,5.1,276,0.002572463768115659,six agencies
+2 another scale reaches Mw 5,converted Mw,5.2,261,-0.009157088122605118,six agencies
+2 another scale reaches Mw 5,converted Mw,5.3,228,0.03583333333333322,six agencies
+2 another scale reaches Mw 5,converted Mw,5.4,239,0.06401673640167403,six agencies
+2 another scale reaches Mw 5,converted Mw,5.0–5.3,1127,0.00534161490683227,six agencies
+2 another scale reaches Mw 5,count,>= 5.0,2485,0.9307116104868914,six agencies
+2 another scale reaches Mw 5,count,>= 5.5,1119,1.034195933456562,six agencies
+"3 no limit, shallow events only",measured Mw,4.5–4.75,841,-0.030903686087990406,six agencies
+"3 no limit, shallow events only",measured Mw,4.75–5.0,850,-0.02241176470588245,six agencies
+"3 no limit, shallow events only",measured Mw,5.0–5.25,901,0.008768035516093363,six agencies
+"3 no limit, shallow events only",measured Mw,5.25–5.5,626,-0.006293929712460029,six agencies
+"3 no limit, shallow events only",measured Mw,5.5–5.75,410,-0.04260975609756097,six agencies
+"3 no limit, shallow events only",measured Mw,5.75–6.0,234,-0.01252136752136752,six agencies
+"3 no limit, shallow events only",converted Mw,4.8,342,-0.008947368421052843,six agencies
+"3 no limit, shallow events only",converted Mw,4.9,331,-0.0035649546827791066,six agencies
+"3 no limit, shallow events only",converted Mw,5.0,340,-0.007470588235294063,six agencies
+"3 no limit, shallow events only",converted Mw,5.1,336,0.010773809523809252,six agencies
+"3 no limit, shallow events only",converted Mw,5.2,300,0.00033333333333358085,six agencies
+"3 no limit, shallow events only",converted Mw,5.3,257,0.04404669260700377,six agencies
+"3 no limit, shallow events only",converted Mw,5.4,251,0.0641035856573709,six agencies
+"3 no limit, shallow events only",converted Mw,5.0–5.3,1233,0.010137875101378726,six agencies
+"3 no limit, shallow events only",count,>= 5.0,2619,0.9808988764044944,six agencies
+"3 no limit, shallow events only",count,>= 5.5,1135,1.0489833641404807,six agencies
+4 not used,measured Mw,4.5–4.75,841,-0.015208085612366145,six agencies
+4 not used,measured Mw,4.75–5.0,850,-0.0037058823529412667,six agencies
+4 not used,measured Mw,5.0–5.25,901,0.008546059933407468,six agencies
+4 not used,measured Mw,5.25–5.5,626,-0.02354632587859424,six agencies
+4 not used,measured Mw,5.5–5.75,410,-0.0543170731707317,six agencies
+4 not used,measured Mw,5.75–6.0,234,-0.037735042735042724,six agencies
+4 not used,converted Mw,4.8,342,-0.0023976608187136483,six agencies
+4 not used,converted Mw,4.9,365,0.014383561643835991,six agencies
+4 not used,converted Mw,5.0,324,0.013858024691358032,six agencies
+4 not used,converted Mw,5.1,346,0.005693641618496809,six agencies
+4 not used,converted Mw,5.2,315,-0.0022222222222219833,six agencies
+4 not used,converted Mw,5.3,260,0.038153846153846024,six agencies
+4 not used,converted Mw,5.4,259,0.07583011583011622,six agencies
+4 not used,converted Mw,5.0–5.3,1245,0.01259437751004011,six agencies
+4 not used,count,>= 5.0,2634,0.9865168539325843,six agencies
+4 not used,count,>= 5.5,1130,1.044362292051756,six agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,4.5–4.75,841,0.0019143876337693933,six agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,4.75–5.0,850,0.019117647058823458,six agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,5.0–5.25,901,0.02352941176470599,six agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,5.25–5.5,626,-0.006293929712460056,six agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,5.5–5.75,410,-0.0348048780487805,six agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,5.75–6.0,234,-0.03260683760683756,six agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,4.8,349,0.03905444126074476,six agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,4.9,341,0.03304985337243436,six agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.0,389,-0.003419023136246773,six agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.1,380,0.022815789473683942,six agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.2,322,0.038944099378882234,six agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.3,271,0.03575645756457552,six agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.4,237,0.050210970464135425,six agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.0–5.3,1362,0.02171071953010275,six agencies
+"5 weighted mean, own value reaches Mw 5",count,>= 5.0,2750,1.0299625468164795,six agencies
+"5 weighted mean, own value reaches Mw 5",count,>= 5.5,1151,1.0637707948243993,six agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,4.5–4.75,841,-0.002128418549345948,six agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,4.75–5.0,850,-0.008058823529411825,six agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,5.0–5.25,901,-0.011320754716981013,six agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,5.25–5.5,626,-0.023706070287539918,six agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,5.5–5.75,410,-0.045780487804878055,six agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,5.75–6.0,234,-0.03730769230769226,six agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,4.8,389,-0.0015938303341904577,six agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,4.9,403,-0.00374689826302696,six agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.0,376,-0.015292553191489328,six agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.1,326,0.003036809815950643,six agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.2,279,0.02283154121863825,six agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.3,240,0.023999999999999876,six agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.4,225,0.04311111111111151,six agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.0–5.3,1221,0.006036036036036007,six agencies
+"6 weighted mean, another scale reaches Mw 5",count,>= 5.0,2582,0.9670411985018726,six agencies
+"6 weighted mean, another scale reaches Mw 5",count,>= 5.5,1136,1.0499075785582255,six agencies
+"7 weighted mean, no limit, shallow only",measured Mw,4.5–4.75,841,-0.011165279429250824,six agencies
+"7 weighted mean, no limit, shallow only",measured Mw,4.75–5.0,850,-0.009705882352941241,six agencies
+"7 weighted mean, no limit, shallow only",measured Mw,5.0–5.25,901,0.011986681465038966,six agencies
+"7 weighted mean, no limit, shallow only",measured Mw,5.25–5.5,626,-0.010607028753993603,six agencies
+"7 weighted mean, no limit, shallow only",measured Mw,5.5–5.75,410,-0.03431707317073172,six agencies
+"7 weighted mean, no limit, shallow only",measured Mw,5.75–6.0,234,-0.031324786324786275,six agencies
+"7 weighted mean, no limit, shallow only",converted Mw,4.8,367,0.006430517711171447,six agencies
+"7 weighted mean, no limit, shallow only",converted Mw,4.9,378,-0.0010052910052906737,six agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.0,361,-0.03293628808864261,six agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.1,343,-0.006151603498542529,six agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.2,282,0.008829787234042812,six agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.3,253,0.02363636363636351,six agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.4,228,0.044517543859649525,six agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.0–5.3,1239,-0.004463276836158216,six agencies
+"7 weighted mean, no limit, shallow only",count,>= 5.0,2611,0.9779026217228465,six agencies
+"7 weighted mean, no limit, shallow only",count,>= 5.5,1144,1.057301293900185,six agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,4.5–4.75,879,0.00313993174061442,all agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,4.75–5.0,876,0.025422374429223647,all agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,5.0–5.25,924,0.036753246753246836,all agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,5.25–5.5,634,-0.01618296529968451,all agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,5.5–5.75,414,-0.018164251207729513,all agencies
+1 own value reaches Mw 5 (A5 as run),measured Mw,5.75–6.0,236,-0.029957627118644033,all agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,4.8,289,0.07006920415224892,all agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,4.9,251,0.05243027888446248,all agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.0,380,0.00771052631578952,all agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.1,485,0.054164948453607954,all agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.2,356,0.06081460674157329,all agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.3,302,0.09672185430463566,all agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.4,263,0.11041825095057069,all agencies
+1 own value reaches Mw 5 (A5 as run),converted Mw,5.0–5.3,1523,0.05256730137885746,all agencies
+1 own value reaches Mw 5 (A5 as run),count,>= 5.0,2972,1.096678966789668,all agencies
+1 own value reaches Mw 5 (A5 as run),count,>= 5.5,1186,1.0870760769935839,all agencies
+2 another scale reaches Mw 5,measured Mw,4.5–4.75,879,-0.038953356086461804,all agencies
+2 another scale reaches Mw 5,measured Mw,4.75–5.0,876,-0.10893835616438362,all agencies
+2 another scale reaches Mw 5,measured Mw,5.0–5.25,924,-0.06909090909090895,all agencies
+2 another scale reaches Mw 5,measured Mw,5.25–5.5,634,-0.05025236593059933,all agencies
+2 another scale reaches Mw 5,measured Mw,5.5–5.75,414,-0.036280193236715025,all agencies
+2 another scale reaches Mw 5,measured Mw,5.75–6.0,236,-0.03927966101694912,all agencies
+2 another scale reaches Mw 5,converted Mw,4.8,478,-0.029163179916318192,all agencies
+2 another scale reaches Mw 5,converted Mw,4.9,454,-0.03618942731277497,all agencies
+2 another scale reaches Mw 5,converted Mw,5.0,281,-0.05743772241992874,all agencies
+2 another scale reaches Mw 5,converted Mw,5.1,235,-0.044340425531915174,all agencies
+2 another scale reaches Mw 5,converted Mw,5.2,234,-0.033418803418803156,all agencies
+2 another scale reaches Mw 5,converted Mw,5.3,217,0.022857142857142746,all agencies
+2 another scale reaches Mw 5,converted Mw,5.4,217,0.0506912442396317,all agencies
+2 another scale reaches Mw 5,converted Mw,5.0–5.3,967,-0.030423991726990694,all agencies
+2 another scale reaches Mw 5,count,>= 5.0,2310,0.8523985239852399,all agencies
+2 another scale reaches Mw 5,count,>= 5.5,1126,1.0320806599450045,all agencies
+"3 no limit, shallow events only",measured Mw,4.5–4.75,879,-0.029510807736063634,all agencies
+"3 no limit, shallow events only",measured Mw,4.75–5.0,876,-0.023892694063927022,all agencies
+"3 no limit, shallow events only",measured Mw,5.0–5.25,924,0.019004329004329135,all agencies
+"3 no limit, shallow events only",measured Mw,5.25–5.5,634,-0.007665615141955789,all agencies
+"3 no limit, shallow events only",measured Mw,5.5–5.75,414,-0.025410628019323717,all agencies
+"3 no limit, shallow events only",measured Mw,5.75–6.0,236,-0.031228813559321996,all agencies
+"3 no limit, shallow events only",converted Mw,4.8,367,-0.006839237057220916,all agencies
+"3 no limit, shallow events only",converted Mw,4.9,337,-0.012967359050444754,all agencies
+"3 no limit, shallow events only",converted Mw,5.0,344,-0.015348837209302267,all agencies
+"3 no limit, shallow events only",converted Mw,5.1,322,0.01900621118012394,all agencies
+"3 no limit, shallow events only",converted Mw,5.2,286,0.009860139860140116,all agencies
+"3 no limit, shallow events only",converted Mw,5.3,254,0.06185039370078731,all agencies
+"3 no limit, shallow events only",converted Mw,5.4,262,0.086106870229008,all agencies
+"3 no limit, shallow events only",converted Mw,5.0–5.3,1206,0.01606135986733,all agencies
+"3 no limit, shallow events only",count,>= 5.0,2658,0.9808118081180812,all agencies
+"3 no limit, shallow events only",count,>= 5.5,1190,1.0907424381301558,all agencies
+4 not used,measured Mw,4.5–4.75,879,-0.01995449374288956,all agencies
+4 not used,measured Mw,4.75–5.0,876,-0.01955479452054801,all agencies
+4 not used,measured Mw,5.0–5.25,924,0.025714285714285856,all agencies
+4 not used,measured Mw,5.25–5.5,634,-0.02012618296529966,all agencies
+4 not used,measured Mw,5.5–5.75,414,-0.047149758454106315,all agencies
+4 not used,measured Mw,5.75–6.0,236,-0.059194915254237236,all agencies
+4 not used,converted Mw,4.8,360,0.00852777777777758,all agencies
+4 not used,converted Mw,4.9,340,-0.005647058823529051,all agencies
+4 not used,converted Mw,5.0,330,-0.013363636363636343,all agencies
+4 not used,converted Mw,5.1,323,0.0033126934984517055,all agencies
+4 not used,converted Mw,5.2,298,0.03302013422818815,all agencies
+4 not used,converted Mw,5.3,257,0.08303501945525282,all agencies
+4 not used,converted Mw,5.4,271,0.10594095940959448,all agencies
+4 not used,converted Mw,5.0–5.3,1208,0.023046357615893995,all agencies
+4 not used,count,>= 5.0,2676,0.9874538745387453,all agencies
+4 not used,count,>= 5.5,1197,1.0971585701191566,all agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,4.5–4.75,879,0.002457337883959105,all agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,4.75–5.0,876,0.019942922374429167,all agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,5.0–5.25,924,0.007316017316017407,all agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,5.25–5.5,634,-0.03132492113564666,all agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,5.5–5.75,414,-0.04787439613526573,all agencies
+"5 weighted mean, own value reaches Mw 5",measured Mw,5.75–6.0,236,-0.04055084745762706,all agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,4.8,318,0.03320754716981111,all agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,4.9,357,0.025238095238095552,all agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.0,415,0.00604819277108435,all agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.1,433,0.012725173210161396,all agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.2,356,0.025983146067415995,all agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.3,283,0.023816254416961,all agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.4,228,0.031842105263158255,all agencies
+"5 weighted mean, own value reaches Mw 5",converted Mw,5.0–5.3,1487,0.01614660390047071,all agencies
+"5 weighted mean, own value reaches Mw 5",count,>= 5.0,2808,1.0361623616236162,all agencies
+"5 weighted mean, own value reaches Mw 5",count,>= 5.5,1093,1.001833180568286,all agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,4.5–4.75,879,-0.009260523321956713,all agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,4.75–5.0,876,-0.023550228310502318,all agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,5.0–5.25,924,-0.03002164502164491,all agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,5.25–5.5,634,-0.04741324921135643,all agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,5.5–5.75,414,-0.05801932367149761,all agencies
+"6 weighted mean, another scale reaches Mw 5",measured Mw,5.75–6.0,236,-0.04436440677966096,all agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,4.8,375,-0.009973333333333556,all agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,4.9,430,-0.01583720930232525,all agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.0,397,-0.020881612090680082,all agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.1,337,-0.022581602373887476,all agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.2,287,-0.011672473867595555,all agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.3,266,0.012593984962405883,all agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.4,208,0.021153846153846502,all agencies
+"6 weighted mean, another scale reaches Mw 5",converted Mw,5.0–5.3,1287,-0.012354312354312377,all agencies
+"6 weighted mean, another scale reaches Mw 5",count,>= 5.0,2576,0.9505535055350554,all agencies
+"6 weighted mean, another scale reaches Mw 5",count,>= 5.5,1081,0.9908340971585701,all agencies
+"7 weighted mean, no limit, shallow only",measured Mw,4.5–4.75,879,-0.014835039817974906,all agencies
+"7 weighted mean, no limit, shallow only",measured Mw,4.75–5.0,876,-0.016244292237442965,all agencies
+"7 weighted mean, no limit, shallow only",measured Mw,5.0–5.25,924,-0.004480519480519368,all agencies
+"7 weighted mean, no limit, shallow only",measured Mw,5.25–5.5,634,-0.03400630914826497,all agencies
+"7 weighted mean, no limit, shallow only",measured Mw,5.5–5.75,414,-0.04497584541062804,all agencies
+"7 weighted mean, no limit, shallow only",measured Mw,5.75–6.0,236,-0.0354661016949152,all agencies
+"7 weighted mean, no limit, shallow only",converted Mw,4.8,342,-0.007105263157894951,all agencies
+"7 weighted mean, no limit, shallow only",converted Mw,4.9,396,-0.026439393939393624,all agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.0,407,-0.03309582309582306,all agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.1,338,-0.022573964497041656,all agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.2,288,-0.002569444444444168,all agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.3,272,0.01099264705882341,all agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.4,204,0.03617647058823564,all agencies
+"7 weighted mean, no limit, shallow only",converted Mw,5.0–5.3,1305,-0.014444444444444456,all agencies
+"7 weighted mean, no limit, shallow only",count,>= 5.0,2626,0.9690036900369003,all agencies
+"7 weighted mean, no limit, shallow only",count,>= 5.5,1117,1.0238313473877176,all agencies

@@ -13,10 +13,10 @@ Tick a box when its "done when" holds. Detail of each step lives in its task bri
 - [ ] A0 new catalog module inside `psha_chile8/catalog/`
 - [ ] A1 Sergio's rules written down (no Cabello from 1900 on, his source order) → DECISIONS
 - [x] A2 source catalogs collected, each frozen as a dated file
-- [ ] A3 events matched across catalogs once (one ID per event) ←
-- [ ] A4 magnitude, location and mechanism chosen per event, each by its own priority rule
-- [ ] A5 Mw conversion redone, checked against events with known Mw
-- [ ] A6 large events reviewed one by one against the literature
+- [x] A3 events matched across catalogs once (one ID per event)
+- [x] A4 magnitude, location and mechanism chosen per event, each by its own priority rule
+- [x] A5 Mw conversion redone, checked against events with known Mw
+- [ ] A6 large events reviewed one by one against the literature ←
 - [ ] A7 where the double seismic zone exists (literature, data); new class names for events and source models; classified, with upper and lower plane where the zone exists
 - [ ] A8 final catalog frozen, dated, with a decisions note
 

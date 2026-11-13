@@ -1,0 +1,60 @@
+rm18,rm_class,rm_mw,time,lon,lat,mw,z,sig,depth_src,top,d,ifl,cls_auto,agree,cls,sub,old_class,cm_class
+Santiago 1647,intraslab,,1647-05-14T02:30:00.000,-72.0,-33.0,8.0,,,,21.68,,False,unknown depth,unknown depth,in-slab,intraslab_shallow,intra_slab,crustal
+Central Chile 1730,interface,,1730-07-08T10:00:00.000,-71.63,-33.05,9.0,,,,33.62,,False,unknown depth,unknown depth,interface,,slab_interface,
+Valdivia 1737,interface,,1737-12-24T00:00:00.000,-73.9,-39.8,7.5,,,,26.32,,False,unknown depth,unknown depth,interface,,slab_interface,
+Concepcion 1751,interface,,1751-05-25T05:30:00.000,-73.03,-36.83,9.0,,,,35.55,,False,unknown depth,unknown depth,interface,,slab_interface,interface
+Copiapo 1819,interface,,1819-04-11T15:00:00.000,-71.45,-27.85,8.5,,,,17.03,,False,unknown depth,unknown depth,interface,,slab_interface,
+Valparaiso 1822,interface,,1822-11-20T02:30:00.000,-71.93,-32.55,8.3,,,,23.08,,False,unknown depth,unknown depth,interface,,slab_interface,interface
+Concepcion 1835,interface,,1835-02-20T15:30:00.000,-73.35,-36.13,8.3,,,,22.43,,False,unknown depth,unknown depth,interface,,slab_interface,
+Valdivia 1837,interface,,1837-11-07T11:30:00.000,-74.35,-43.15,8.6,,,,24.58,,False,unknown depth,unknown depth,interface,,slab_interface,
+Copiapo 1959,unknown,,1859-10-05T12:00:00.000,-71.24,-27.24,7.0,,,,18.69,,False,unknown depth,no class in the paper,unknown depth,,slab_interface,interface
+Southern Peru 1868,interface,,1868-08-13T16:45:00.000,-72.15,-17.15,9.0,,,,49.26,,False,unknown depth,unknown depth,interface,,slab_interface,
+Iquique 1877,interface,,1877-05-10T02:16:00.000,-70.47,-20.65,8.9,,,,29.28,,False,unknown depth,unknown depth,interface,,slab_interface,interface
+Illapel 1880,interface,7.5,1880-08-15T12:48:00.000,-71.18,-31.1,7.5,,,,52.29,,False,unknown depth,unknown depth,interface,,slab_interface,crustal
+Valparaiso 1906,interface,8.2,1906-08-17T00:40:04.250,-71.4,-32.4,8.2,,,,42.25,,False,unknown depth,unknown depth,interface,,slab_interface,interface
+Taltal 1909,unknown,,1909-06-08T05:46:37.330,-70.5,-26.15,7.0,,,,39.75,,False,unknown depth,no class in the paper,unknown depth,,slab_interface,interface
+Copiapo 1918,interface,7.8,1918-12-04T11:47:38.960,-73.46,-27.28,7.8,,,,,,False,outer rise,no,interface,,slab_interface,interface
+Atacama 1922,interface,,1922-11-11T04:32:43.090,-70.7,-28.99,8.5,,,,58.85,,False,unknown depth,unknown depth,interface,,slab_interface,interface
+Mendoza 1927,intraslab,7.2,1927-04-14T06:23:30.320,-69.68,-32.48,7.2,,,,100.87,,False,unknown depth,unknown depth,in-slab,intraslab_intermediate,slab_deep,in-slab
+Talca 1928,interface,7.7,1928-12-01T04:06:15.180,-71.68,-35.09,7.7,,,,56.91,,False,unknown depth,unknown depth,interface,,slab_interface,interface
+Taltal 1936,unknown,,1936-07-13T11:12:17.490,-70.02,-24.72,7.0,,,,51.55,,False,unknown depth,no class in the paper,unknown depth,,slab_interface,interface
+Chillan 1939,intraslab,7.8,1939-01-25T03:32:14.960,-72.21,-36.3,7.8,,,,58.57,,False,unknown depth,unknown depth,in-slab,intraslab_intermediate,slab_deep,in-slab
+Illapel 1943,interface,7.9,1943-04-06T16:07:18.060,-71.37,-31.26,7.9,,,,43.33,,False,unknown depth,unknown depth,interface,,slab_interface,interface
+Calama 1950,intraslab,8.0,1950-12-09T21:38:51.980,-67.91,-23.98,8.0,113.9,20.0,iscgem,101.4,12.5,False,in-slab,yes,in-slab,intraslab_intermediate,slab_deep,in-slab
+Las Melosas 1958,crustal,6.3,1958-09-04T21:51:17.260,-70.14,-33.83,6.3,,,,96.91,,False,unknown depth,unknown depth,crustal arc,,intraarc,crustal
+Concepcion 1960,interface,8.1,1960-05-21T10:02:54.090,-73.38,-37.83,8.1,11.5,20.0,cent_ehb,30.48,-18.98,False,crustal forearc,no,interface,,slab_interface,interface
+Valdivia 1960 foreshock,interface,,1960-05-22T18:56:04.030,-72.98,-38.15,7.8,,,,44.17,,False,unknown depth,unknown depth,interface,,slab_interface,interface
+Valdivia 1960,interface,9.5,1960-05-22T19:11:20.000,-73.16,-38.25,9.5,,,,39.1,,False,unknown depth,unknown depth,interface,,slab_interface,interface
+La Ligua 1965,intraslab,7.4,1965-03-28T16:33:16.210,-71.24,-32.49,7.4,68.3,5.0,ehb1,49.08,19.22,False,in-slab,yes,in-slab,intraslab_shallow,intra_slab,in-slab
+Taltal 1966,interface,7.7,1966-12-28T08:18:05.620,-70.69,-25.51,7.7,20.0,5.0,ehb1,31.07,-11.07,False,interface,yes,interface,,slab_interface,interface
+Tocopilla 1967,interface,7.4,1967-12-21T02:25:24.380,-69.97,-21.89,7.4,45.0,5.0,ehb1,44.42,0.58,False,interface,yes,interface,,slab_interface,interface
+La Ligua 1971,interface,7.8,1971-07-09T03:03:19.870,-71.1,-32.56,7.8,60.6,5.0,ehb1,55.62,4.98,False,in-slab,no,interface,,slab_interface,interface
+Arauco 1975,interface,7.7,1975-05-10T14:27:41.030,-73.49,-38.33,7.7,24.0,3.0,gccel,30.42,-6.42,False,interface,yes,interface,,slab_interface,crustal
+Papudo 1981,outer_rise,7.2,1981-10-16T03:25:40.350,-73.08,-33.23,7.2,24.21,10.0,isc,,,False,outer rise,yes,outer rise,,outer_rise,interface
+Copiapo 1983,interface,7.7,1983-10-04T18:52:17.660,-70.55,-26.55,7.7,28.57,6.8,isc,39.75,-11.18,True,interface,yes,interface,,slab_interface,interface
+Valparaiso 1985,interface,8.0,1985-03-03T22:47:09.930,-71.79,-33.18,8.0,49.6,5.0,ehb1,28.36,21.24,True,interface,yes,interface,,slab_interface,interface
+Antofagasta 1987,interface,7.6,1987-03-05T09:17:04.160,-70.12,-24.41,7.6,40.0,5.0,ehb1,46.05,-6.05,True,interface,yes,interface,,slab_interface,interface
+Arica 1987,intraslab,,1987-08-08T15:48:57.730,-70.02,-19.08,7.2,69.7,5.0,ehb1,65.08,4.62,False,in-slab,yes,in-slab,intraslab_intermediate,slab_deep,in-slab
+Mejillones 1994,interface,6.2,1994-12-10T03:39:32.530,-70.49,-23.48,6.2,30.3,5.0,ehb1,29.66,0.64,True,interface,yes,interface,,slab_interface,interface
+Antofagasta 1995,interface,8.0,1995-07-30T05:11:22.590,-70.5,-23.44,8.0,32.71,5.0,potin,29.14,3.57,True,interface,yes,interface,,slab_interface,
+Punitaqui 1997,intraslab,7.1,1997-10-15T01:03:34.800,-71.2,-30.9,7.1,59.5,5.0,ehb1,50.7,8.8,False,in-slab,yes,in-slab,intraslab_intermediate,slab_deep,interface
+Papudo 2001,outer_rise,7.0,2001-04-09T09:00:55.500,-73.27,-32.74,7.0,11.0,10.0,ehb1,,,False,outer rise,yes,outer rise,,outer_rise,outer rise
+Aroma 2001,crustal,6.3,2001-07-24T05:00:06.490,-69.25,-19.56,6.3,9.0,5.0,ehb1,87.18,-78.18,False,crustal arc,yes,crustal arc,,forearc,unknown
+Curico 2004,crustal,6.4,2004-08-28T13:41:24.680,-70.41,-35.2,6.4,7.16,10.4,potin,113.83,-106.67,False,crustal arc,yes,crustal arc,,intraarc,crustal
+Tarapaca 2005,intraslab,7.8,2005-06-13T22:44:32.380,-69.18,-19.99,7.8,105.2,5.0,ehb1,84.69,20.51,False,in-slab,yes,in-slab,intraslab_intermediate,slab_deep,in-slab
+Aysen 2007,crustal,6.2,2007-04-21T17:53:44.010,-72.63,-45.25,6.2,21.35,6.8,isc,,,False,crustal arc,yes,crustal arc,,intraarc,unknown
+Tocopilla 2007,interface,7.8,2007-11-14T15:40:50.300,-70.07,-22.3,7.8,41.93,5.0,potin,40.7,1.23,True,interface,yes,interface,,slab_interface,interface
+Michilla 2007,intraslab,6.7,2007-12-16T08:09:16.850,-70.22,-22.99,6.7,46.15,5.0,potin,36.22,9.93,False,in-slab,yes,in-slab,intraslab_shallow,intra_slab,interface
+Maule 2010,interface,8.8,2010-02-27T06:34:11.010,-73.08,-36.18,8.8,28.0,10.0,gccel,29.41,-1.41,True,interface,yes,interface,,slab_interface,interface
+Maule outer rise 2010,outer_rise,7.4,2010-02-27T08:01:20.650,-75.27,-37.8,7.4,41.7,10.0,gcmt,,,False,outer rise,yes,outer rise,,outer_rise,outer rise
+Pichilemu 2010b,crustal,6.9,2010-03-11T14:39:44.390,-71.95,-34.34,6.9,15.36,6.8,isc,33.48,-18.12,False,crustal forearc,yes,crustal forearc,,forearc,crustal
+Pichilemu 2010a,crustal,7.0,2010-03-11T14:55:23.570,-72.35,-34.22,7.0,22.69,10.4,potin,20.69,2.0,False,in-slab,no,crustal forearc,,forearc,crustal
+Arauco 2011,interface,7.1,2011-01-02T20:20:10.910,-74.03,-38.37,7.1,2.76,10.4,potin,18.95,-16.19,True,interface,yes,interface,,slab_interface,interface
+Constitucion 2012,interface,7.2,2012-03-25T22:37:05.600,-72.12,-35.24,7.2,50.33,5.0,potin,42.89,7.44,True,interface,yes,interface,,slab_interface,interface
+Iquique foreshock 2014,crustal,6.7,2014-03-16T21:16:27.910,-70.85,-19.98,6.7,8.62,10.4,potin,22.22,-13.6,True,interface,no,crustal forearc,,forearc,interface
+Iquique 2014,interface,8.2,2014-04-01T23:46:45.510,-70.93,-19.59,8.2,30.0,10.0,gccel,23.74,6.26,True,interface,yes,interface,,slab_interface,interface
+Iquique aftershock 2014,interface,7.7,2014-04-03T02:43:15.420,-70.43,-20.54,7.7,30.0,10.0,gccel,31.19,-1.19,True,interface,yes,interface,,slab_interface,interface
+Jujuy 2015,intraslab,6.7,2015-02-11T18:57:20.350,-66.62,-23.02,6.7,199.8,5.0,ehb1,182.11,17.69,False,in-slab,yes,in-slab,intraslab_intermediate,slab_deep,in-slab
+Illapel 2015,interface,8.3,2015-09-16T22:54:32.300,-71.64,-31.6,8.3,25.0,3.0,gccel,31.66,-6.66,True,interface,yes,interface,,slab_interface,interface
+Chiloe 2016,interface,7.6,2016-12-25T14:22:24.180,-74.23,-43.53,7.6,35.33,5.0,potin,28.75,6.58,True,interface,yes,interface,,slab_interface,interface
+Valparaiso 2017,interface,6.9,2017-04-24T21:38:28.820,-72.07,-33.07,6.9,37.0,10.0,gccel,19.9,17.1,True,interface,yes,interface,,slab_interface,interface
