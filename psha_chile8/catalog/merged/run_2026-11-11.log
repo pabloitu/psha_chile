@@ -4,20 +4,20 @@ window links {'potin': 45586, 'csn': 3808, 'gccel': 755, 'comcat': 339, 'iscgem'
 second-pass merges 7 same-source duplicates 80
 comcat_mt events: 2501 with an event_id: 2501
        src  records  alone    ref   id  foreign  window  second_pass  same_source
-     potin   117998  69781 117974    0        0       0            0           24
+     potin   117960  69743 117936    0        0       0            0           24
      gccel      801     26    180    0        0     621            0            0
     iscehb    10220      0   6153    0        0    4064            0            3
     iscgem     4129      9    901 2013        0    1214            0            1
 centennial      661      0      5    0      599      52            5            0
-       csn    55547  41141  51568    0      455    3496            0           28
+       csn    55540  41134  51561    0      455    3496            0           28
        isc    91171  13233  28023 7020     9220   46860            7           41
     comcat    43982     30     30  551    20615   22768            0           18
    csn_isc    60944      0      0 6922     9217   44789            0           16
       gcmt     2797      0      0    0     1527    1268            0            2
    cabello      169    167    167    0        0       2            0            0
-events 205001 | M >= 4.5 (any native) 22477 | dropped records 22
+events 204956 | M >= 4.5 (any native) 22471 | dropped records: {'duplicate': 45, 'type': 22}
 X1 diagnostics: splits 22 false merges 536 of which outside 10 s / 50 km or dM > 1: 402
-review lists: {'id_disagree': 693, 'pre1964_window': 21, 'ambiguous': 102, 'second_pass_m5': 6, 'merges_m6': 356, 'rm18': 347, 'rm18_matches': 59, 'rm18_unmatched': 10, 'dropped_types': 22, 'same_source': 82, 'id_refused': 3, 'close_events_m45': 33, 'possible_splits': 52, 'x1_splits': 22, 'x1_false_merges': 536, 'blind_failures': 514}
+review lists: {'id_disagree': 693, 'pre1964_window': 21, 'ambiguous': 102, 'second_pass_m5': 6, 'merges_m6': 356, 'rm18': 347, 'rm18_matches': 59, 'rm18_unmatched': 10, 'dropped_types': 22, 'dropped_duplicates': 45, 'same_source': 82, 'id_refused': 3, 'close_events_m45': 33, 'possible_splits': 7, 'x1_splits': 22, 'x1_false_merges': 536, 'blind_failures': 514}
        src            subset     n  same  wrong  missed  wrong_pct  missed_pct
     comcat               all 43573 43312      5     256      0.011       0.588
     comcat          M >= 4.5 15389 15303      3      83      0.019       0.539
@@ -50,6 +50,6 @@ gccel     801.0        426.0         755.0             425.0     9.8         8.8
 potin  118003.0       5411.0       45586.0            5394.0   159.5        38.2
 RM18 matched 59 not matched 10
 
-real	0m33,164s
-user	0m35,532s
-sys	0m1,002s
+real	0m33,584s
+user	0m36,094s
+sys	0m0,892s

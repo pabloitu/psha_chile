@@ -49,6 +49,7 @@ RM_DATE = {"Copiapo 1918": "1918-12-04", "Arauco 1975": "1975-05-10", "Copiapo 1
            "Antofagasta 1995": "1995-07-30", "Copiapo 1959": "1859-10-05", "Mejillones 1994": "1994-12-10"}
 RM_DAYS, RM_LAT, RM_MMIN = 1, 2.0, 5.5
 KEEP = []
+LONE, LONE_D, LONE_M = ["potin", "csn"], 50.0, 4.5
 SLIDES = [-1200.0, -600.0, 600.0, 1200.0]
 BLIND = ["comcat", "gcmt", "iscehb", "iscgem", "centennial", "csn_isc"]
 
@@ -549,6 +550,38 @@ def drop_types(o, ev):
     return hit, np.where(bad, "flagged by the source", "same event as " + why.astype(str))
 
 
+def lone_dups(o, ev, ref, gone):
+    """
+    Events of one LONE source that duplicate an ISC event located far away.
+
+    Two events (reference members) within WIDE_T and LONE_D to WIDE_D of each other, with no source in
+    common and no other event inside WIDE_T / WIDE_D of either; one has only records of a LONE source, the
+    other has an ISC record; the larger native magnitude is at least LONE_M. The records of the first are
+    removed.
+
+    Returns the record mask and, per record, the reference record of the event it duplicates (-1 elsewhere).
+    """
+    lab = np.unique(ev[~gone])
+    i = ref[lab]
+    t, la, lo = (o[c].to_numpy(float)[i] for c in ("t", "lat", "lon"))
+    bit = (1 << o.src.map(SI).to_numpy()).astype(np.int64)
+    mask = pd.Series(bit).groupby(ev).agg(np.bitwise_or.reduce).reindex(lab).to_numpy()
+    m = pd.Series(o.mmax.to_numpy(float)).groupby(ev).max().reindex(lab).fillna(0).to_numpy()
+    ok = np.isfinite(t) & np.isfinite(la) & np.isfinite(lo)
+    a, b, dt, dd = near(t[ok], la[ok], lo[ok], t[ok], la[ok], lo[ok], WIDE_T, WIDE_D)
+    k = (a < b) & (np.abs(dt) < WIDE_T) & (dd < WIDE_D)
+    a, b, dd = np.flatnonzero(ok)[a[k]], np.flatnonzero(ok)[b[k]], dd[k]
+    n = np.bincount(np.r_[a, b], minlength=len(lab))
+    k = (n[a] == 1) & (n[b] == 1) & (mask[a] & mask[b] == 0) & (dd >= LONE_D) & (np.maximum(m[a], m[b]) >= LONE_M)
+    a, b = a[k], b[k]
+    lone = np.isin(mask, [1 << SI[s] for s in LONE])
+    isc = (mask >> SI["isc"]) & 1 == 1
+    x, y = np.r_[a[lone[a] & isc[b]], b[lone[b] & isc[a]]], np.r_[b[lone[a] & isc[b]], a[lone[b] & isc[a]]]
+    to = pd.Series(i[y], index=lab[x])
+    of = pd.Series(ev).map(to).fillna(-1).astype(int).to_numpy()
+    return of >= 0, of
+
+
 def event_ids(o, ev, ref, keep):
     """cl + origin time of the reference member to the second, letters on collisions (by time, lat, source)."""
     lab = np.unique(ev[keep])
@@ -563,12 +596,21 @@ def event_ids(o, ev, ref, keep):
 
 
 def tables(o, A, res):
-    """events, links and dropped tables from a match result."""
+    """events, links and dropped tables from a match result. dropped holds the records of non-earthquakes
+    and of the single-source duplicates of ISC events (step 'type' and 'duplicate')."""
     ev, ref, wl, sp = res["ev"], res["ref"], res["wl"], res["sp"]
     hit, why = drop_types(o, ev)
+    dup, of = lone_dups(o, ev, ref, hit)
+    j = of[dup]
+    far = hav(o.lat.to_numpy()[dup], o.lon.to_numpy()[dup], o.lat.to_numpy()[j], o.lon.to_numpy()[j])
+    why = np.asarray(why, dtype=object)
+    why[dup] = [f"same earthquake as {s} {q} ({dt:+.1f} s, {dd:.0f} km)" for s, q, dt, dd in
+                zip(o.src.to_numpy()[j], o.sid.to_numpy()[j], o.t.to_numpy()[dup] - o.t.to_numpy()[j], far)]
+    step = np.where(dup, "duplicate", "type")
+    hit = hit | dup
     ids = event_ids(o, ev, ref, ~hit)
     o = o.assign(ev=ev, rule=res["rule"], event_id=pd.Series(ev).map(ids).to_numpy(), ri=ref[ev])
-    dropped = o[hit].assign(reason=why[hit])[["src", "sid", "oid", "etype", "reason", "t", "lat", "lon", "mmax"]]
+    dropped = o[hit].assign(reason=why[hit], step=step[hit])[["src", "sid", "oid", "etype", "step", "reason", "t", "lat", "lon", "mmax"]]
     dropped = dropped.assign(time=tstr(dropped.t)).drop(columns="t").rename(columns={"sid": "src_id", "oid": "origin_id"})
     k = o[~hit]
     top = k.sort_values("mmax", ascending=False, kind="stable").drop_duplicates("ev").set_index("ev")
@@ -852,7 +894,8 @@ def review(o, A, res, e, L, dropped, eid, hit, miss):
     out["rm18"] = side_by_side(hit, L, A)
     out["rm18_matches"] = hit
     out["rm18_unmatched"] = miss
-    out["dropped_types"] = dropped
+    out["dropped_types"] = dropped[dropped.step == "type"].drop(columns="step")
+    out["dropped_duplicates"] = dropped[dropped.step == "duplicate"].drop(columns=["step", "etype"])
     bx, by = (np.array([p[k] for p in res["dup"]], int) for k in (0, 1))
     out["same_source"] = big(add(pd.concat([pair_rows(o, eid, ss.a, ss.b, step="same-source pass"),
                                             pair_rows(o, eid, bx, by, step="identity")]).drop(columns="to_event")))
@@ -864,7 +907,7 @@ def review(o, A, res, e, L, dropped, eid, hit, miss):
     wide = near_events(e, WIDE_T, WIDE_D, 0.0)
     n = pd.concat([wide.event_a, wide.event_b]).value_counts()
     wide["only_neighbours"] = (wide.event_a.map(n) == 1) & (wide.event_b.map(n) == 1)
-    wide = wide[(wide.shared == "") & (np.fmax(wide.m_a.fillna(0), wide.m_b.fillna(0)) >= 4.5)]
+    wide = wide[(wide.shared == "") & (np.fmax(wide.m_a.fillna(0), wide.m_b.fillna(0)) >= LONE_M)]
     out["possible_splits"] = wide.sort_values(["only_neighbours", "m_a"], ascending=False)
     return out
 
@@ -922,7 +965,8 @@ def main():
         print("comcat_mt events:", len(ids), "with an event_id:", len(ids & set(L.src_id[L.src == "comcat"])))
     xf = more["x1_false_merges"]
     print(by.to_string(index=False))
-    print("events", len(e), "| M >= 4.5 (any native)", int((e.mmax >= 4.5).sum()), "| dropped records", len(dropped))
+    print("events", len(e), "| M >= 4.5 (any native)", int((e.mmax >= 4.5).sum()), "| dropped records:",
+          dropped.step.value_counts().to_dict())
     print("X1 diagnostics: splits", len(more["x1_splits"]), "false merges", len(xf), "of which outside",
           f"{FLOOR_T:.0f} s / {FLOOR_D:.0f} km or dM > 1:", int((~xf.inside).sum()))
     print("review lists:", {k: len(v) for k, v in {**lists, **more}.items()})

@@ -170,6 +170,40 @@ def test_doublet_listed_by_all_stays_two():
     assert o.assign(ev=res["ev"]).groupby("ev").src.nunique().tolist() == [3, 3]
 
 
+# single-source duplicates of ISC events
+def lone_case(dd=100.0, src="potin", other=("isc", "comcat"), m=5.0, third=None):
+    rows = [{"src": s, "sid": f"{s}0", "t": 3.2e9 + 0.1 * i, "lat": -33.0, "mmax": m} for i, s in enumerate(other)]
+    rows.append({"src": src, "sid": "x", "t": 3.2e9 + 8.0, "lat": -33.0 - dd / 111.19, "mmax": np.nan})
+    if third is not None:
+        rows.append({"src": "isc", "sid": "isc9", "t": 3.2e9 + third, "lat": -33.3, "mmax": 3.0})
+    o = pd.DataFrame(rows).assign(lon=-72.0, z=20.0, etype="earthquake", mtype="mb", magency="X")
+    o["oid"], o["mmed"] = o.sid, o.mmax
+    A = o.assign(agency="X", prime=True)
+    res = M.match(o, A, W=table(), quiet=True)
+    e, L, dropped, ox = M.tables(o, A, res)
+    M.check(A, e, L, dropped)
+    return e, dropped
+
+
+def test_lone_duplicate_removed():
+    for s in M.LONE:
+        e, d = lone_case(src=s)
+        assert len(e) == 1 and e.sources.iloc[0] == "isc,comcat"
+        assert d.src.tolist() == [s] and d.step.iloc[0] == "duplicate" and d.reason.iloc[0].startswith("same earthquake as isc isc0")
+
+
+@pytest.mark.parametrize("kw, n", [({"dd": 30.0}, 1), ({"dd": 200.0}, 2), ({"src": "gccel"}, 2), ({"other": ("comcat",)}, 2),
+                                   ({"m": 4.0}, 2), ({"third": 20.0}, 3)])
+def test_lone_record_kept(kw, n):
+    e, d = lone_case(**kw)
+    assert len(d) == 0 and len(e) == n
+
+
+def test_lone_duplicate_with_far_third_event():
+    e, d = lone_case(third=300.0)
+    assert len(d) == 1 and len(e) == 2
+
+
 # identifiers
 def test_event_ids():
     o = pd.DataFrame({"src": ["isc", "isc", "potin"], "sid": list("abc"), "t": M.tsec(["2010-02-27T06:34:11.9"] * 2 + ["1730-07-08T10:00"]),

@@ -10,7 +10,9 @@ One record = one event of one source, placed by its preferred origin (GCMT: the 
 3. **One-to-one assignment.** Single records are attached source by source to the existing events that lack that source. Cost = hypot(Δt / T, Δd / D); the assignment that minimizes the total cost in each connected block of candidates is found with the Hungarian method (Kuhn 1955; implementation of Crouse 2016 in SciPy). Blocks are the connected components of the candidate graph, so the result does not depend on how time is cut.
 4. **Second pass.** Events that share no source and have members within 10 s / 50 km (scaled; 60 s / 300 km before 1964) are merged, closest first.
 5. **Same source twice.** Two events that share sources are merged only if, for every shared source, the two records lie within 2 s (scaled) and 50 km: one earthquake listed twice by a source. 2 s is the 99th percentile of the origin-time difference between two solutions of the same network (CSN web vs CSN in ISC 1.0 s; Potin vs CSN 1.9 s).
-6. **Non-earthquakes** flagged by a source are dropped with every record matched to them. **Ruiz and Madariaga (2018)** is attached last (dates corrected, ± 1 day, 2° latitude, M ≥ 5.5, closest Mw).
+6. **Non-earthquakes** flagged by a source are dropped with every record matched to them, without exceptions.
+7. **Single-source duplicates.** An event with records of Potin only or of CSN web only is removed when an event with an ISC record lies within 30 s and 50–150 km of it, the two share no source, neither has another event within 30 s / 150 km, and the larger native magnitude is at least 4.5 (`LONE`, `LONE_D`, `LONE_M`; `lone_dups`). These are the true pairs wider than the windows that the blind check predicts; the ISC event stays, with its teleseismic location. Listed in `review/dropped_duplicates` (45 in the run of 11 Nov: 38 Potin, 7 CSN web).
+8. **Ruiz and Madariaga (2018)** is attached last (dates corrected, ± 1 day, 2° latitude, M ≥ 5.5, closest Mw).
 
 Review lists follow the record-linkage practice of sending uncertain links to clerical review instead of deciding them (Fellegi and Sunter 1969).
 
@@ -31,12 +33,12 @@ Switches: `LINK = "ref"` gives the brief's distance rule; `SAME_T = 0` switches 
 
 ## Checks (every run writes them)
 
-- **Partition** (`check`): every origin of the inputs is in exactly one event or in `dropped_types`; a source event is never in two events.
+- **Partition** (`check`): every origin of the inputs is in exactly one event or in `dropped_types` / `dropped_duplicates`; a source event is never in two events.
 - **Blind recovery** (`check_blind`): the records of a source with identity links are taken out of the final events and matched again by time and distance only. The identity link is the truth. Wrong ≤ 0.04 %, missed 0.07–0.76 % per source. The misses are true pairs further apart than the windows (mostly > 50 km at the same time); this is the expected miss rate for Potin and CSN web, which have no IDs.
 - **Chance matches** (`check_chance`): a source is shifted by ± 10 and ± 20 min and matched to the final events; none of those matches can be real. Potin 160 per 118 003 records (0.14 %; 38 per 5 411 at M ≥ 4.5), CSN web 23 per 55 549. This bounds the false-merge rate of records that have no true partner. The same idea is used to rate accidental associations in catalogue cross-identification (Sutherland and Saunders 1992; Budavári and Szalay 2008).
 - **X1 diagnostics** (`review/x1_splits`, `x1_false_merges`), same definitions as X1.
-- **Possible splits** (`review/possible_splits`): events with no common source within 30 s / 150 km; **close events** (`review/close_events_m45`): events within 10 s / 50 km that share a source.
-- Unit tests: `catalog/tests/test_match.py` (26).
+- **Possible splits** (`review/possible_splits`): events with no common source within 30 s / 150 km that step 7 did not remove (7: ISC against CSN web + ComCat or ComCat alone, a Potin record 25 km away, and two pairs with other events nearby); **close events** (`review/close_events_m45`): events within 10 s / 50 km that share a source.
+- Unit tests: `catalog/tests/test_match.py` (34).
 
 ## References
 
