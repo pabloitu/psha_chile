@@ -14,7 +14,7 @@ REPO = ROOT.parent
 sys.path.insert(0, str(ROOT))
 
 # inputs
-RUN, A3 = "2026-11-13", "2026-11-11"
+RUN, A3 = "2026-11-13b", "2026-11-11"
 CAT = ROOT / "catalog" / "merged" / f"catalog_{RUN}.csv"
 SLAB = REPO / "data" / "slab_2.0"
 TRENCH = REPO / "data" / "shapefiles" / "sam_nazca_trench.shp"

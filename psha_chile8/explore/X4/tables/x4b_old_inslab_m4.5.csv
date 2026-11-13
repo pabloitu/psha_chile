@@ -4,10 +4,10 @@ crustal arc,1,0,1,2
 crustal backarc,8,0,1,9
 crustal forearc,1,25,0,26
 in-slab (Jujuy nest),61,0,727,788
-in-slab (deeper),4207,23,41,4271
-in-slab (slab top < 50 km),22,740,0,762
+in-slab (deeper),4211,23,41,4275
+in-slab (slab top < 50 km),22,741,0,763
 interface,21,243,0,264
-not in the old catalogue,540,158,102,800
-outer rise,0,9,0,9
+not in the old catalogue,539,157,102,798
+outer rise,0,8,0,8
 unresolved,87,2,34,123
-All,5011,1211,909,7131
+All,5014,1210,909,7133

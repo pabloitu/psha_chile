@@ -57,7 +57,7 @@ cl19090517080257,1909-05-17T08:02:57.860,-65.76,-20.28,7.0,,,,273.67,,False,unkn
 cl19090608054637,1909-06-08T05:46:37.330,-70.5,-26.15,7.0,,,,39.75,,False,unknown depth,unknown depth,,unk,Taltal 1909,unknown,slab_interface,interface
 cl19101004230019,1910-10-04T23:00:19.040,-67.53,-20.74,7.2,,,,149.83,,False,unknown depth,unknown depth,,unk,,,,in-slab
 cl19140130033606,1914-01-30T03:36:06.550,-73.31,-34.76,7.7,,,,10.01,,False,unknown depth,unknown depth,,unk,,,slab_interface,interface
-cl19150606212933,1915-06-06T21:29:33.710,-68.01,-19.24,7.3,,,,154.72,,False,unknown depth,unknown depth,,unk,,,slab_deep,in-slab
+cl19150606212933,1915-06-06T21:29:33.710,-68.01,-19.24,7.3,160.0,20.0,iscgem,154.72,5.28,False,in-slab,in-slab,intraslab_intermediate,slab,,,slab_deep,in-slab
 cl19181204114751,1918-12-04T11:47:38.960,-73.46,-27.28,7.8,,,,,,False,outer rise,interface,,rm18,Copiapo 1918,interface,slab_interface,interface
 cl19190302032635,1919-03-02T03:26:51.420,-72.22,-41.4,7.3,,,,102.05,,False,unknown depth,unknown depth,,unk,,,,
 cl19190302114515,1919-03-02T11:45:16.160,-76.45,-42.28,7.2,,,,,,False,outer rise,outer rise,,outer_rise,,,slab_interface,
@@ -85,7 +85,7 @@ cl19390418062244,1939-04-18T06:22:43.760,-70.7,-27.14,7.4,,,,36.62,,False,unknow
 cl19401004075500,1940-10-04T07:54:50.110,-70.72,-20.59,7.2,23.5,20.0,cent_ehb,21.98,1.52,False,interface,interface,,band,,,slab_interface,interface
 cl19410403152134,1941-04-03T15:21:30.670,-66.64,-22.58,7.2,150.1,20.0,cent_ehb,184.35,-34.25,False,unclassified,unclassified,,above_deep,,,unresolved,unknown
 cl19420708065543,1942-07-08T06:55:43.080,-70.19,-24.6,7.1,,,,44.96,,False,unknown depth,unknown depth,,unk,,,slab_interface,interface
-cl19430314183803,1943-03-14T18:38:03.190,-68.97,-19.67,7.1,77.1,20.0,centennial,95.69,-18.59,False,unclassified,unclassified,,above_deep,,,slab_deep,unknown
+cl19430314183803,1943-03-14T18:38:03.190,-68.97,-19.67,7.1,120.0,20.0,iscgem,95.69,24.31,False,in-slab,in-slab,intraslab_intermediate,slab,,,slab_deep,unknown
 cl19430406160718,1943-04-06T16:07:18.060,-71.37,-31.26,7.9,,,,43.33,,False,unknown depth,interface,,rm18,Illapel 1943,interface,slab_interface,interface
 cl19431201103450,1943-12-01T10:34:50.460,-68.86,-20.73,7.1,114.2,20.0,iscgem,89.21,24.99,False,in-slab,in-slab,intraslab_intermediate,slab,,,slab_deep,in-slab
 cl19450913111713,1945-09-13T11:17:13.730,-70.42,-33.76,7.0,91.9,20.0,iscgem,86.73,5.17,False,in-slab,in-slab,intraslab_intermediate,slab,,,slab_deep,in-slab
@@ -103,10 +103,10 @@ cl19590614001206,1959-06-14T00:11:57.860,-68.83,-20.27,7.1,109.2,20.0,iscgem,93.
 cl19600521100257,1960-05-21T10:02:54.090,-73.38,-37.83,8.1,11.5,20.0,cent_ehb,30.48,-18.98,False,crustal forearc,interface,,rm18,Concepcion 1960,interface,slab_interface,interface
 cl19600522103043,1960-05-22T10:30:44.310,-73.17,-37.96,7.1,38.0,20.0,cent_ehb,36.88,1.12,False,interface,interface,,band,,,slab_interface,interface
 cl19600522185602,1960-05-22T18:56:04.030,-72.98,-38.15,7.8,,,,44.17,,False,unknown depth,interface,,rm18,Valdivia 1960 foreshock,interface,slab_interface,interface
-cl19600522191120,1960-05-22T19:11:20.000,-73.16,-38.25,9.5,,,,39.1,,False,unknown depth,interface,,rm18,Valdivia 1960,interface,slab_interface,interface
+cl19600522191120,1960-05-22T19:11:20.000,-73.16,-38.25,9.5,25.0,20.0,iscgem,39.1,-14.1,False,interface,interface,,rm18,Valdivia 1960,interface,slab_interface,interface
 cl19600606055549,1960-06-06T05:55:49.080,-73.5,-45.7,7.7,,,,,,False,unknown depth,unknown depth,,unk,,,intraarc,crustal
-cl19600620020114,1960-06-20T02:01:15.310,-73.32,-38.26,7.0,,,,34.47,,False,unknown depth,unknown depth,,unk,,,slab_interface,interface
-cl19601101084559,1960-11-01T08:45:59.580,-74.86,-38.39,7.4,,,,8.84,,False,outer rise,outer rise,,outer_rise,,,outer_rise,outer rise
+cl19600620020114,1960-06-20T02:01:15.310,-73.32,-38.26,7.0,25.0,20.0,iscgem,34.47,-9.47,False,interface,interface,,band,,,slab_interface,interface
+cl19601101084559,1960-11-01T08:45:59.580,-74.86,-38.39,7.4,20.0,20.0,iscgem,8.84,11.16,False,outer rise,outer rise,,outer_rise,,,outer_rise,outer rise
 cl19601202091048,1960-12-02T09:10:43.270,-70.08,-24.67,7.3,14.1,20.0,cent_ehb,49.23,-35.13,False,crustal forearc,crustal forearc,,above,,,slab_interface,interface
 cl19620214063605,1962-02-14T06:36:04.390,-73.0,-38.09,7.1,40.6,20.0,cent_ehb,43.18,-2.58,False,interface,interface,,band,,,slab_interface,interface
 cl19650223221148,1965-02-23T22:11:48.420,-70.74,-25.68,7.0,41.8,5.6,ehb2,29.43,12.37,False,interface,interface,,band,,,intra_slab,interface

@@ -31,6 +31,8 @@ Name clash: `explore/X4/` already held the surface-wave check (`x4_*.py`, `table
 - The depth σ now has a floor of 5 km (10 km offshore), so the "with σ" variants widen the band for every source and not mainly for Potin.
 - Arica 1987 is back at 69.7 km and in-slab; Atacama 1922 and the Valdivia foreshock have no depth any more instead of a wrong one.
 
+**After the simplification of A4 (13 Nov, run `2026-11-13b`).** The tables and figures of this folder are of this run. It differs from the run the text below was written on in 35 depths and no magnitude (depths before 1964 by the catalogues' own flags; no last-resort GCMT depth), so the numbers below are off by a few events. Baseline, Mw ≥ 4.5 / ≥ 5.5 / ≥ 7: interface 3 897 / 637 / 47; in-slab 7 133 / 666 / 31 (shallow 1 210, intermediate 5 014, nest 909); crustal forearc 418, arc 178, backarc 282, Patagonia 85; outer rise 504 / 94 / 7; unknown depth 1 646 / 384 / 64; unclassified 91 / 3 / 1. Class depends on the variant for 2 174 events (338 of Mw ≥ 5.5, 10 of Mw ≥ 7). Against Ruiz and Madariaga the rule alone gives 32 right, 5 wrong, 19 without depth. What the classification has to decide about events without depth: `catalog/REPORT_A3-A5.md`, section 6.
+
 ## 1. Summary
 
 1. **The class of 2 173 of the 14 234 events (15 %) depends on the rule variant**; 337 of 1 941 at Mw ≥ 5.5 and 11 of 153 at Mw ≥ 7. Nearly all of it is the interface against in-slab and against forearc crust.

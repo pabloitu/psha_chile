@@ -24,7 +24,7 @@ Calama 1950,intraslab,8.0,1950-12-09T21:38:51.980,-67.91,-23.98,8.0,113.9,20.0,i
 Las Melosas 1958,crustal,6.3,1958-09-04T21:51:17.260,-70.14,-33.83,6.3,,,,96.91,,False,unknown depth,unknown depth,crustal arc,,intraarc,crustal
 Concepcion 1960,interface,8.1,1960-05-21T10:02:54.090,-73.38,-37.83,8.1,11.5,20.0,cent_ehb,30.48,-18.98,False,crustal forearc,no,interface,,slab_interface,interface
 Valdivia 1960 foreshock,interface,,1960-05-22T18:56:04.030,-72.98,-38.15,7.8,,,,44.17,,False,unknown depth,unknown depth,interface,,slab_interface,interface
-Valdivia 1960,interface,9.5,1960-05-22T19:11:20.000,-73.16,-38.25,9.5,,,,39.1,,False,unknown depth,unknown depth,interface,,slab_interface,interface
+Valdivia 1960,interface,9.5,1960-05-22T19:11:20.000,-73.16,-38.25,9.5,25.0,20.0,iscgem,39.1,-14.1,False,interface,yes,interface,,slab_interface,interface
 La Ligua 1965,intraslab,7.4,1965-03-28T16:33:16.210,-71.24,-32.49,7.4,68.3,5.0,ehb1,49.08,19.22,False,in-slab,yes,in-slab,intraslab_shallow,intra_slab,in-slab
 Taltal 1966,interface,7.7,1966-12-28T08:18:05.620,-70.69,-25.51,7.7,20.0,5.0,ehb1,31.07,-11.07,False,interface,yes,interface,,slab_interface,interface
 Tocopilla 1967,interface,7.4,1967-12-21T02:25:24.380,-69.97,-21.89,7.4,45.0,5.0,ehb1,44.42,0.58,False,interface,yes,interface,,slab_interface,interface

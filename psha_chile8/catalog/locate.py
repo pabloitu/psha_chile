@@ -3,9 +3,9 @@
 A local catalogue (Potin et al., CSN web) comes first only inside its own network; elsewhere, and before 1982,
 the global sources come first, and a local record further than FAR_KM from every teleseismic member is not used.
 The depth is the first measured depth in the same order (offshore GCCEL and ISC-EHB L1 / L2 before the local
-catalogue): fixed depths, ISC-EHB L3, unconstrained GCCEL depths, depths on a default bin of their agency and round
-depths before 1964 are skipped, and an event with none left has an unknown depth. A fixed ISC-EHB L1 depth is held
-at its depth-phase value and counts as measured; a fixed L2 depth is the GCMT depth and is the last resort.
+catalogue): fixed depths, ISC-EHB L3, unconstrained GCCEL depths and depths on a default bin of their agency are
+skipped, and an event with none left has an unknown depth. A fixed ISC-EHB L1 depth is held at its depth-phase
+value and counts as measured. Before 1964 only the depths that their catalogue marks as constrained count (OLD_OK).
 Checks and figures in locate_check.py.
 """
 from pathlib import Path
@@ -20,9 +20,9 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 
 # settings
-RUN = "2026-11-13"
+RUN = "2026-11-13b"
 A3 = "2026-11-11"
-MW = "2026-11-13"
+MW = "2026-11-13b"
 ARC = REPO / "data" / "intraarc.shp"
 LAND = Path.home() / ".local/share/cartopy/shapefiles/natural_earth/physical/ne_10m_land.shp"
 X3_SIGMA = HERE.parent / "explore" / "X3" / "tables" / "x3_depth_error_model.csv"
@@ -38,8 +38,7 @@ SEA = ["gccel", "ehb1", "ehb2"] + [k for k in INSIDE if k not in ("gccel", "ehb1
 OLD = ["cent_ehb", "iscgem", "isc", "centennial", "comcat", "ehb1", "ehb2", "ehb3", "gcmt", "cabello"]
 HIST = ["cabello"] + OLD[:-1]
 OLD_BEFORE, HIST_BEFORE = 1964, 1904
-OLD_ROUND = 5.0
-LAST = "ehb2"
+OLD_OK = {"iscgem": ("A", "B"), "cent_ehb": ("DEQ",), "centennial": ("DEQ",)}
 CENT_EHB = [(1918, 1943), (1956, 2100)]
 NEVER = ["cabello"]
 K, MIN_N, MIN_SPIKE, MIN_SHARE = 5, 300, 10, 0.003
@@ -52,7 +51,7 @@ SIG_NAME = {"Potin et al.": "potin", "CSN web": "csn", "ISC-EHB L1": "ehb1", "IS
             "GCMT hypocentre": "gcmt"}
 SIG_BINS, SIG_LAB, SIG_MIN_N = [30.0, 70.0], ["< 30 km", "30–70 km", "≥ 70 km"], 20
 SIG_X1_NONE, SIG_GCCEL, SIG_OFF = 25.0, 3.0, 10.0
-SIG_MIN, SIG_LAST, SIG_OLD = 5.0, 15.0, 20.0
+SIG_MIN, SIG_OLD = 5.0, 20.0
 OFF_KM = 20.0
 DOMAIN = {"lat": (-58.0, -17.0), "lon": (-78.5, -65.0)}
 M0_TOL = 0.10
@@ -195,12 +194,13 @@ def first(W, v, keys, ok=None):
 
 # location
 def wide(e, R, dflt):
-    """One row per event with lat, lon, z, t, the measured flag and the last-resort flag (a fixed depth of LAST)
-    of every source slot."""
+    """One row per event with lat, lon, z, t and the measured flag of every source slot."""
+    q = R.quality.fillna("").astype(str)
+    old = np.any([(R.key == k) & q.str.startswith(v) for k, v in OLD_OK.items()], axis=0)
     ok = R.z.notna() & (R.key != "ehb3") & ~R.key.isin(NEVER) & ~on_default(R, dflt) \
-        & ~(R.key.isin(["centennial", "cent_ehb"]) & (R.z == 0)) & ~((R.yr < OLD_BEFORE) & (R.z % OLD_ROUND == 0))
-    R = R.assign(meas=ok & (~R.fixed | (R.key == "ehb1")), last=ok & R.fixed & (R.key == LAST))
-    W = R.pivot(index="event_id", columns="key", values=["lat", "lon", "z", "t", "meas", "last"]).reindex(e.event_id)
+        & ~(R.key.isin(["centennial", "cent_ehb"]) & (R.z == 0)) & ~((R.yr < OLD_BEFORE) & ~old)
+    R = R.assign(meas=ok & (~R.fixed | (R.key == "ehb1")))
+    W = R.pivot(index="event_id", columns="key", values=["lat", "lon", "z", "t", "meas"]).reindex(e.event_id)
     return W, R
 
 
@@ -222,14 +222,13 @@ def inside_network(e, W, back=backarc):
 def locate(e, W, ins, off=None):
     """
     Epicentre and origin time from the first source of the event's order; depth from the first source of the
-    same order with a measured depth, else the fixed depth of LAST.
+    same order with a measured depth.
 
     Orders: HIST before HIST_BEFORE, OLD before OLD_BEFORE, INSIDE for events inside the network, OUTSIDE else.
     With off (a function of lon, lat) the depth of inside events that lie offshore follows SEA.
 
     Returns a table in the order of e: lat, lon, t, loc_key, depth, depth_key, depth_first (the depth of the
-    location source, measured or not), first_meas (whether that depth is measured), last (depth from the fixed
-    depth of LAST), inside_network, offshore.
+    location source, measured or not), first_meas (whether that depth is measured), inside_network, offshore.
     """
     yr = e.yr.to_numpy()
     out = pd.DataFrame({"lat": np.nan, "lon": np.nan, "t": np.nan, "loc_key": None, "depth": np.nan, "depth_key": None,
@@ -252,18 +251,14 @@ def locate(e, W, ins, off=None):
         k = cat == c
         z, zs = first(W, "z", order, ok="meas")
         out.loc[k, "depth"], out.loc[k, "depth_key"] = z[k], zs[k]
-    z, zs = first(W, "z", [LAST], ok="last")
-    k = out.depth.isna().to_numpy() & np.isfinite(z)
-    out.loc[k, "depth"], out.loc[k, "depth_key"] = z[k], zs[k]
-    out["last"] = k
     return out
 
 
-def sigma(key, z, off, last, old):
+def sigma(key, z, off, old):
     """Depth error per event from the X3 model (below 70 km) and the X1 values (from 70 km), by depth source and
     depth range; the largest σ of the range where a source is not covered (flag); SIG_GCCEL for GCCEL (its own
     depth bound); at least SIG_MIN for the others (their tabled values are spreads between catalogues that share
-    data), SIG_OFF offshore, SIG_LAST for a fixed depth of LAST and SIG_OLD before OLD_BEFORE."""
+    data), SIG_OFF offshore and SIG_OLD before OLD_BEFORE."""
     m = pd.read_csv(X3_SIGMA)
     m = m[(m.n_z >= SIG_MIN_N) & (m.sigma_z_net > 0) & m.src.isin(SIG_NAME)]
     tab = {(SIG_NAME[s], d): v for s, d, v in zip(m.src, m.depth, m.sigma_z_net) if d != SIG_LAB[2]}
@@ -280,7 +275,7 @@ def sigma(key, z, off, last, old):
     s[~g] = np.maximum(s[~g], SIG_MIN)
     low = off & np.isfinite(z) & (s < SIG_OFF)
     s[low] = SIG_OFF
-    s = np.maximum(s, np.where(old, SIG_OLD, np.where(last, SIG_LAST, 0.0)))
+    s = np.maximum(s, np.where(old, SIG_OLD, 0.0))
     s[~np.isfinite(z)] = np.nan
     return s, miss, low
 
@@ -329,11 +324,11 @@ def build(e, R, dflt, back=backarc, off=offshore):
     a = rec.reindex(pd.MultiIndex.from_arrays([e.event_id, x.loc_key]))
     b = rec.reindex(pd.MultiIndex.from_arrays([e.event_id, x.depth_key]))
     o = x.offshore.to_numpy()
-    s, miss, low = sigma(x.depth_key.to_numpy(), x.depth.to_numpy(), o, x["last"].to_numpy(), (e.yr < OLD_BEFORE).to_numpy())
+    s, miss, low = sigma(x.depth_key.to_numpy(), x.depth.to_numpy(), o, (e.yr < OLD_BEFORE).to_numpy())
     fl = [";".join(f for f, k in (("fallback_source", lk in TAIL and yr >= OLD_BEFORE), ("depth_from_another_source", dk is not None and dk != lk),
                                   ("loc_src_depth_not_measured", not fm),
-                                  ("depth_unknown", dk is None), ("depth_fixed_gcmt", la_), ("sigma_largest_of_range", mi), ("sigma_offshore_floor", lo_))
-                   if k) for lk, dk, yr, mi, lo_, fm, la_ in zip(x.loc_key, x.depth_key, e.yr, miss, low, x.first_meas, x["last"])]
+                                  ("depth_unknown", dk is None), ("sigma_largest_of_range", mi), ("sigma_offshore_floor", lo_))
+                   if k) for lk, dk, yr, mi, lo_, fm in zip(x.loc_key, x.depth_key, e.yr, miss, low, x.first_meas)]
     out = pd.DataFrame({
         "event_id": e.event_id.to_numpy(), "time": tstr(x.t.to_numpy()), "lon": x.lon.round(4).to_numpy(), "lat": x.lat.round(4).to_numpy(),
         "loc_src": x.loc_key.to_numpy(), "loc_src_id": a.src_id.to_numpy(), "depth": x.depth.round(2).to_numpy(),

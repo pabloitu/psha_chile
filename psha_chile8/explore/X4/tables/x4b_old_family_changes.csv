@@ -2,32 +2,33 @@ event_id,time,lon,lat,mw,z,sig,depth_src,old_depth,old_status,dz,top,d,ifl,cls,r
 cl19601202091048,1960-12-02T09:10:43.270,-70.08,-24.67,7.3,14.1,20.0,cent_ehb,35.0,fixed,-20.9,49.23,-35.13,False,crustal forearc,above,slab_interface,unk_nomech
 cl19650223221148,1965-02-23T22:11:48.420,-70.74,-25.68,7.0,41.8,5.6,ehb2,35.0,fixed,6.8,29.43,12.37,False,interface,band,intra_slab,unk_normal
 cl20100227082528,2010-02-27T08:25:26.860,-72.44,-34.79,7.0,46.9,10.0,csn_isc,25.0,fixed,21.9,25.24,21.66,False,in-slab,slab,slab_interface,unk_nomech
-cl19811107032951,1981-11-07T03:29:51.330,-71.41,-32.25,6.9,58.5,5.0,ehb1,64.0,free,-5.5,41.68,16.82,False,in-slab,slab,slab_interface,cone
 cl19600620125946,1960-06-20T12:59:46.020,-73.32,-39.21,6.9,24.6,20.0,cent_ehb,25.0,fixed,-0.4,42.56,-17.96,False,crustal forearc,above,slab_interface,unk_nomech
-cl20150917041027,2015-09-17T04:10:27.610,-71.73,-31.55,6.8,1.81,10.4,potin,35.5,free,-33.69,28.19,-26.38,True,crustal forearc,above,slab_interface,cone
+cl19811107032951,1981-11-07T03:29:51.330,-71.41,-32.25,6.9,58.5,5.0,ehb1,64.0,free,-5.5,41.68,16.82,False,in-slab,slab,slab_interface,cone
 cl20071115150557,2007-11-15T15:05:57.410,-70.5,-23.02,6.8,2.42,10.4,potin,26.0,free,-23.58,27.74,-25.32,True,crustal forearc,above,slab_interface,cone
+cl20150917041027,2015-09-17T04:10:27.610,-71.73,-31.55,6.8,1.81,10.4,potin,35.5,free,-33.69,28.19,-26.38,True,crustal forearc,above,slab_interface,cone
 cl19720608185344,1972-06-08T18:53:44.120,-71.58,-30.37,6.8,44.2,5.0,ehb1,45.0,free,-0.8,30.85,13.35,False,interface,band,intra_slab,band_intraslab
 cl19600813141456,1960-08-13T14:14:59.000,-74.74,-39.92,6.7,42.6,20.0,cent_ehb,25.0,fixed,17.6,10.43,32.17,False,in-slab,slab,slab_interface,unk_nomech
-cl19611018165157,1961-10-18T16:51:55.410,-73.4,-36.76,6.6,10.2,20.0,cent_ehb,20.0,fixed,-9.8,25.63,-15.43,False,crustal forearc,above,slab_interface,unk_nomech
-cl20150921173957,2015-09-21T17:39:57.960,-71.54,-31.75,6.6,0.0,10.4,potin,35.5,free,-35.5,36.07,-36.07,True,crustal forearc,above,slab_interface,cone
+cl20060430191713,2006-04-30T19:17:13.540,-71.32,-27.07,6.6,25.0,10.0,gccel,12.0,free,13.0,16.09,8.91,True,interface,mech_if,forearc,band_mech
 cl20060430200927,2006-04-30T20:09:27.560,-71.17,-27.06,6.6,17.0,10.0,gccel,49.75,relocated_potin,-32.75,19.54,-2.54,False,interface,band,intra_slab,band_intraslab
+cl20150921173957,2015-09-21T17:39:57.960,-71.54,-31.75,6.6,0.0,10.4,potin,35.5,free,-35.5,36.07,-36.07,True,crustal forearc,above,slab_interface,cone
+cl19611018165157,1961-10-18T16:51:55.410,-73.4,-36.76,6.6,10.2,20.0,cent_ehb,20.0,fixed,-9.8,25.63,-15.43,False,crustal forearc,above,slab_interface,unk_nomech
 cl19230504222651,1923-05-04T22:26:51.310,-69.78,-27.06,6.6,105.8,20.0,cent_ehb,35.0,fixed,70.8,76.07,29.73,False,in-slab,slab,slab_interface,unk_nomech
 cl19880814175310,1988-08-14T17:53:10.050,-71.11,-27.34,6.6,29.1,5.0,ehb1,39.0,free,-9.9,22.83,6.27,False,in-slab,band_other_mech,slab_interface,cone
-cl20060430191713,2006-04-30T19:17:13.540,-71.32,-27.07,6.6,25.0,10.0,gccel,12.0,free,13.0,16.09,8.91,True,interface,mech_if,forearc,band_mech
-cl20150916225915,2015-09-16T22:59:15.260,-71.73,-31.62,6.5,15.24,10.4,potin,15.24,relocated_cabello,-0.0,28.32,-13.08,False,interface,band,forearc,band_forearc
 cl19751229033944,1975-12-29T03:39:44.170,-68.61,-56.82,6.5,14.7,10.0,ehb1,15.0,fixed,-0.3,,,False,crustal Patagonia,pat,antarctic_interface,pat_interface
+cl20150916225915,2015-09-16T22:59:15.260,-71.73,-31.62,6.5,15.24,10.4,potin,15.24,relocated_cabello,-0.0,28.32,-13.08,False,interface,band,forearc,band_forearc
 cl20150917035514,2015-09-17T03:55:14.910,-71.74,-31.5,6.5,4.28,10.4,potin,4.28,relocated_cabello,0.0,27.97,-23.69,True,interface,mech_if,forearc,band_forearc
-cl19850304031757,1985-03-04T03:17:57.140,-72.09,-34.14,6.5,42.5,5.0,ehb1,42.5,free,0.0,26.47,16.03,False,in-slab,slab,slab_interface,band_nomech
 cl19930315160857,1993-03-15T16:08:57.910,-70.97,-26.69,6.5,20.2,10.0,ehb1,28.9,free,-8.7,23.7,-3.5,False,crustal forearc,band_other_mech,intra_slab,band_mech
+cl19850304031757,1985-03-04T03:17:57.140,-72.09,-34.14,6.5,42.5,5.0,ehb1,42.5,free,0.0,26.47,16.03,False,in-slab,slab,slab_interface,band_nomech
 cl19730731105115,1973-07-31T10:51:15.920,-71.14,-26.92,6.5,38.5,10.0,ehb1,35.0,fixed,3.5,19.88,18.62,False,in-slab,slab,slab_interface,unk_nomech
 cl20150620021003,2015-06-20T02:10:03.660,-73.98,-36.44,6.4,72.23,10.0,potin,17.0,free,55.23,13.24,58.99,True,in-slab,slab,slab_interface,cone
 cl19640805222310,1964-08-05T22:23:10.590,-74.96,-41.09,6.4,7.49,10.0,isc,15.0,fixed,-7.51,9.11,-1.62,False,interface,band,intra_slab,unk_mech
+cl20110601125521,2011-06-01T12:55:21.010,-73.83,-37.55,6.3,21.0,7.2,comcat,10.0,fixed,11.0,20.0,1.0,False,in-slab,band_other_mech,slab_interface,unk_cone
 cl19970727052131,1997-07-27T05:21:31.060,-71.94,-30.53,6.3,36.0,10.0,ehb2,26.0,free,10.0,19.43,16.57,False,in-slab,slab,slab_interface,cone
 cl20100227172430,2010-02-27T17:24:31.300,-73.12,-36.45,6.3,19.0,7.2,comcat,20.0,fixed,-1.0,30.81,-11.81,False,crustal forearc,band_other_mech,intra_slab,unk_mech
 cl19671115213155,1967-11-15T21:31:55.710,-71.18,-28.79,6.3,35.6,5.0,ehb1,34.8,free,0.8,35.08,0.52,False,interface,band,intra_slab,band_mech
-cl20110601125521,2011-06-01T12:55:21.010,-73.83,-37.55,6.3,21.0,7.2,comcat,10.0,fixed,11.0,20.0,1.0,False,in-slab,band_other_mech,slab_interface,unk_cone
 cl19870306093956,1987-03-06T09:39:56.220,-70.07,-24.07,6.2,44.1,5.0,ehb1,44.4,free,-0.3,45.94,-1.84,False,crustal forearc,band_other_mech,intra_slab,band_mech
 cl19670926161124,1967-09-26T16:11:24.700,-71.58,-30.07,6.2,49.4,5.0,ehb1,50.0,free,-0.6,29.63,19.77,False,in-slab,slab,slab_interface,cone
+cl19610408175946,1961-04-08T17:59:46.770,-72.96,-38.32,6.2,25.0,20.0,iscgem,25.0,fixed,0.0,46.43,-21.43,False,crustal forearc,above,slab_interface,unk_nomech
 cl19950730054706,1995-07-30T05:47:06.040,-70.38,-23.28,6.2,55.2,5.6,ehb2,40.0,free,15.2,32.09,23.11,False,in-slab,slab,slab_interface,band_nomech
 cl20120414105618,2012-04-14T10:56:18.310,-65.37,-57.58,6.2,8.4,10.0,isc,8.0,free,0.4,,,False,crustal Patagonia,pat,antarctic_interface,pat_interface
 cl19880413003931,1988-04-13T00:39:31.830,-72.53,-17.34,6.2,15.1,10.0,ehb1,41.5,free,-26.4,30.13,-15.03,True,interface,mech_if,intra_slab,band_mech

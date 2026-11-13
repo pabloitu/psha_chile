@@ -1,8 +1,8 @@
 old_class,intraslab_intermediate,intraslab_shallow,jujuy_nest,All
 in-slab (Jujuy nest),0,0,3,3
-in-slab (deeper),18,0,0,18
+in-slab (deeper),20,0,0,20
 in-slab (slab top < 50 km),0,4,0,4
 interface,0,1,0,1
 not in the old catalogue,2,0,0,2
 unresolved,1,0,0,1
-All,21,5,3,29
+All,23,5,3,31

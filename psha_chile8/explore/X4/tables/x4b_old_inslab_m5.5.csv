@@ -2,10 +2,10 @@ old_class,intraslab_intermediate,intraslab_shallow,jujuy_nest,All
 below slab,2,1,0,3
 crustal forearc,0,6,0,6
 in-slab (Jujuy nest),2,0,42,44
-in-slab (deeper),415,3,6,424
-in-slab (slab top < 50 km),2,84,0,86
+in-slab (deeper),419,3,6,428
+in-slab (slab top < 50 km),2,85,0,87
 interface,3,31,0,34
-not in the old catalogue,29,18,6,53
-outer rise,0,5,0,5
+not in the old catalogue,28,17,6,51
+outer rise,0,4,0,4
 unresolved,8,0,1,9
-All,461,148,55,664
+All,464,147,55,666

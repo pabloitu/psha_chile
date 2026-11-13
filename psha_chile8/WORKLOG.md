@@ -718,3 +718,61 @@ Asked by Pablo. Only `explore/X4/REPORT.md` changed; no code, table or figure (t
 - Suggested commit:
   `git add psha_chile8/explore/X4/REPORT.md psha_chile8/WORKLOG.md`
   `git commit -m "X4 classification report brought to the catalogue of 13 Nov"`
+
+## 2026-11-13: Potin depths near the coast, A4 third rule, A5 fifth run (Claude Code, A3–A5 conversation)
+
+Asked by Pablo ("fix the Potin depths near the coast"). All 124 tests pass. New files carry the run name `2026-11-13b`; the files of `2026-11-13` are kept.
+
+- **What was measured** (events inside the network, Potin depth against the GCCEL depth of the same event; ISC-EHB L1 gives the same picture):
+  - by distance to the coast: Potin is a median 11.7 km shallower than GCCEL at 20–40 km offshore, 1.4 km at 10–20 km offshore, within 1.5 km from the coast inland;
+  - by Potin depth, west of the line 20 km inland: −17 to −21 km for Potin depths under 10 km, −11 km at 10–20 km, −2 km at 20–30 km, +1 km at 30–80 km; +64 km above 80 km (3 events; 11 against ISC-EHB L1, +72 km);
+  - of 92 such events with a Potin depth under 20 km, GCCEL is deeper by more than 10 km for 62 and never shallower by more than 5 km; 25 are also under 20 km in GCCEL;
+  - of the 770 events of Mw ≥ 4.5 concerned, 189 have a mechanism and 161 are thrusts.
+- **Rule (`locate.py`, `COAST_KM = 20`, `POTIN_Z = (20, 80)`, function `coastal`)**: west of the line 20 km inland of the coast, a Potin depth outside 20–80 km gives way to the first measured depth of GCCEL, ISC-EHB L1, L2, ISC, ComCat. Without one the Potin depth stays. The epicentre stays Potin's. Flag `potin_depth_not_used`. Not applied to CSN web depths (too few pairs with GCCEL to judge).
+- **Tried and not taken**: ISC and ComCat before Potin for every offshore event. Against GCCEL it changes nothing (mean depth difference offshore 9.8 against 9.9 km); against ISC-EHB L1 it looks much better (5.1 against 14.0 km), but ISC and ISC-EHB share data.
+- **Effect**: 702 events of Mw ≥ 4.5 in the domain take another depth (79 of Mw ≥ 5.5): ISC 539, ComCat 95, GCCEL 25, ISC-EHB 43. 236 become more than 10 km deeper; 251 become shallower (27 of them from the deep side). GCCEL benchmark, depth: 6.59 km (6.96); offshore group 10.58 (10.99). The rule was chosen on the same GCCEL events.
+- **Limits**: for the events that are also shallow in GCCEL the replacement is no better than Potin (7.5 against 6.4 km); the replacement depths are poor offshore too (2015-11-11 01:54 Mw 6.8: Potin 12.2 km, now ISC 3.9 km). The Iquique foreshock of 2014-03-16 keeps a shallow depth (ISC 9.4 km).
+- **A5 fifth run** (same rule, new depths): 14 243 events of Mw ≥ 4.5 in the domain (14 234); 5 467 of Mw ≥ 5.0, 1 943 of Mw ≥ 5.5; 44 magnitudes changed, 8 by 0.2 or more. Tests: T1 0.08 / 0.15 (declustered), T2 13.7 %, T3 32 of 32 (Mw ≥ 7: 37.5 of 44), T4 16 of 20, T5 2.1 σ.
+- **Classification rerun** (baseline, Mw ≥ 4.5 / ≥ 5.5 / ≥ 7): interface 3 926 / 644 / 46; in-slab 7 177 / 669 / 29 (shallow 1 255, intermediate 5 012, nest 910); crustal forearc 352 / 47 / 2 (419 / 58 / 2 before); arc 179, backarc 283, Patagonia 86; outer rise 504; unknown depth 1 644; unclassified 92. Class depends on the variant for 2 168 events. Left: 52 Potin depths above 5 km over a slab top deeper than 15 km (180), 38 more than 40 km under a shallow slab top (56).
+- **Not updated**: `catalog/REPORT_A3-A5.md`, `paper/CATALOG_SECTION_draft.md` and `explore/X4/REPORT.md` still carry the numbers of the run `2026-11-13`, while `explore/X4/tables` and `figs` and `catalog/figs` are now of `2026-11-13b`. To be brought up once Pablo keeps the rule.
+- **Proposed line for DECISIONS**: "Near the coast (west of the line 20 km inland) a Potin depth shallower than 20 km or deeper than 80 km is replaced by the first measured depth of GCCEL, ISC-EHB, ISC, ComCat (13 Nov; Potin is a median 11–21 km shallower than GCCEL there for depths under 20 km)."
+- Run order: `locate.py` (`MW` on 2026-11-13), `magnitude.py`, `locate.py` (`MW = "2026-11-13b"`, the state of the file now), `locate_check.py`, `magnitude_check.py`; from `explore/X4/`: `x4b_classify.py`, `x4b_compare.py`, `x4b_figs.py`.
+- Suggested commit (with the report line of the entry above):
+  `git add psha_chile8/catalog/locate.py psha_chile8/catalog/locate_check.py psha_chile8/catalog/magnitude.py psha_chile8/catalog/tests/test_locate.py psha_chile8/catalog/merged psha_chile8/catalog/figs psha_chile8/explore/X4 psha_chile8/DATA.md psha_chile8/WORKLOG.md`
+  `git commit -m "A4: Potin depths outside 20-80 km near the coast replaced by a global depth; A5 and classification rerun (run 2026-11-13b)"`
+
+## 2026-11-13: table of the location, depth and magnitude rules with their support (Claude Code, A3–A5 conversation)
+
+Asked by Pablo: the rules had become confusing and need references. New file `catalog/RULES_LOCATION_MAGNITUDE.md`. No code or run changed.
+
+- One table for location and depth (L1–L4, D1–D7) and one for magnitude (M1–M8): the rule as the code applies it, our evidence, the literature, and a support grade (standard practice / documentation of the source / own measurement / own choice).
+- Literature searched on the web for the location and depth rules (the magnitude rules were already covered in `MAGNITUDES.md`). Nine references to add to `REFERENCES.md`, listed in section 5 of the file; only abstracts or citing text were seen, so each needs reading before it is cited.
+- Section 4 separates the method (citable) from the patches (few events, no citation for the number) and proposes: drop the coastal Potin rule of this afternoon (D6) and the last-resort GCMT depth (3 events); describe the 50 km check and the CSN cross-check as quality checks; simplify the σ floors; drop the depth split of NEIC mb; decide on the GCMT line below 5.4.
+- Pablo's objection to D6 recorded: the local study is expected to be better than global locations, and thrust mechanisms do not exclude upper-plate splay faults. The check of the afternoon: GCCEL depths for these events come from near-source and local stations (80 of 92) and agree with depth phases, but the rule replaces 634 of 702 depths with plain ISC or ComCat values, which is not supported.
+- Open: Pablo to choose which patches stay; then one rerun of A4, A5 and the classification, and the three reports brought to it. The run `2026-11-13b` (with D6) is on disk; the run `2026-11-13` is the committed one.
+
+## 2026-11-13: A4 simplified (run 2026-11-13b), report section on events without depth (Claude Code, A3–A5 conversation)
+
+Agreed by Pablo after the rules table ("Yes, simplify"). All 123 tests pass. This entry replaces the entry "Potin depths near the coast, A4 third rule" above: that rule was discarded and the files of `2026-11-13b` were overwritten with this run.
+
+- **Dropped from `locate.py`:** the coastal Potin depth rule (Pablo: a local study is expected to locate better than global catalogues, and thrust mechanisms do not exclude upper-plate splay faults; the rule replaced 634 of 702 depths with plain ISC or ComCat values, which nothing supports); the last-resort GCMT depth of ISC-EHB L2 (3 events).
+- **Changed:** before 1964 a depth counts only where its catalogue marks it as constrained (`OLD_OK`): ISC-GEM depth quality A or B (Di Giacomo et al. 2018, Table 1) or a free-depth Centennial solution (DEQ). This replaces "not on a multiple of 5 km". 83 events before 1964 keep a depth (78 before).
+- **Kept after looking:** the depth split of NEIC mb. It comes out of the general choice rule (simplest form within one standard error of the best in cross-validation); removing it would need an exception.
+- **Kept, open for Pablo:** the GCMT line below 5.4 (own choice; Lolli et al. 2023 leave such values unchanged).
+- **Result:** against the committed run `2026-11-13`, 35 depths differ (16 to unknown, 18 from unknown) and no magnitude. 14 234 events of Mw ≥ 4.5 in the domain, 12 376 with a measured depth, 1 858 without. GCCEL benchmark and the five magnitude tests unchanged (8.82 km, 6.96 km; T3 31 of 32).
+- **Classification rerun** (baseline, Mw ≥ 4.5 / ≥ 5.5 / ≥ 7): interface 3 897 / 637 / 47; in-slab 7 133 / 666 / 31; crustal forearc 418, arc 178, backarc 282, Patagonia 85; outer rise 504; unknown depth 1 646 / 384 / 64; unclassified 91. `explore/X4/REPORT.md` has a note with these; its other numbers are of the run `2026-11-13` and differ by a few events.
+- **`catalog/REPORT_A3-A5.md`, new section 6:** what the classification has to decide about events without depth (counts by period and size, why each depth was rejected, position against the slab, four options, what to check first). Large events are left to the hand review of A6. The paper draft and `RULES_LOCATION_MAGNITUDE.md` are on this run.
+- **Proposed lines for DECISIONS** (replace the depth lines proposed in the entry "A4 rerun with four changes"):
+  - "A local record more than 50 km from every teleseismic or GCCEL record of the event is not used (quality check, 85 events)."
+  - "Depth: fixed depths, ISC-EHB L3 and agency default values are not measurements; a fixed ISC-EHB L1 depth is (held at its depth-phase value). Before 1964 only ISC-GEM depth quality A or B and free-depth Centennial solutions count. Offshore (more than 20 km from the coast) GCCEL and ISC-EHB L1 / L2 go before the local depth. σ at least 5 km, 10 km offshore, 20 km before 1964."
+  - "Potin depths are not replaced by ISC or ComCat depths (13 Nov, tried and dropped)."
+  - "A CSN regional Mw more than 0.3 from the median of two or more other moment magnitudes of the event is left out (quality check, 26 values)."
+- **Proposed lines for LEARNINGS:**
+  - "A check that finds a problem tends to produce a patch rule for a few events. Before adding one, ask whether it has a citation and whether a quality-check sentence would do. Table of rules by support: `catalog/RULES_LOCATION_MAGNITUDE.md`."
+  - "ISC fixed depths at odd values (181, 117 km) are the regional default grid of its locator, not depth-phase depths; ISC-EHB L1 fixed depths are depth-phase depths."
+  - "Potin depths under 20 km at and off the coast are a median 11–21 km shallower than GCCEL and ISC-EHB L1, but about a quarter are truly shallow; ISC depths are not a tested replacement for small events."
+  - "The source catalogues carry their own depth quality flags (ISC-GEM A–C, Centennial DEQ / FEQ / LEQ, ISC-EHB L1–L3, GCCEL depth codes); use them before inventing a screen."
+- Open: Pablo to choose the option of section 6; GCMT line; the nine references of `RULES_LOCATION_MAGNITUDE.md` section 5 to read and add to `REFERENCES.md`; withheld-Mw check of the surface-wave rule not repeated since 12 Nov.
+- Suggested commit (from the repo root; it includes the report commit of the entry "X4 classification report brought to the catalogue of 13 Nov" if that was not run):
+  `git add psha_chile8/catalog/locate.py psha_chile8/catalog/magnitude.py psha_chile8/catalog/tests/test_locate.py psha_chile8/catalog/merged psha_chile8/catalog/figs psha_chile8/catalog/REPORT_A3-A5.md psha_chile8/catalog/RULES_LOCATION_MAGNITUDE.md psha_chile8/paper/CATALOG_SECTION_draft.md psha_chile8/explore/X4 psha_chile8/DATA.md psha_chile8/WORKLOG.md`
+  `git commit -m "A4 simplified: depths before 1964 by the catalogues' own flags, no last-resort GCMT depth (run 2026-11-13b); rules table with references; report section on events without depth"`

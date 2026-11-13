@@ -1,8 +1,8 @@
 cm_class,crustal,in-slab,interface,outer rise,unclassified,unknown depth,All
-crustal,490,49,154,10,4,245,952
+crustal,488,51,154,10,4,245,952
 in-slab,24,5809,49,3,30,216,6131
-interface,238,831,3558,26,0,773,5426
-not matched,18,161,89,15,3,179,465
+interface,239,832,3566,26,0,763,5426
+not matched,16,159,82,15,3,190,465
 outer rise,14,46,25,446,1,34,566
-unknown,183,235,21,4,54,197,694
-All,967,7131,3896,504,92,1644,14234
+unknown,182,236,21,4,53,198,694
+All,963,7133,3897,504,91,1646,14234

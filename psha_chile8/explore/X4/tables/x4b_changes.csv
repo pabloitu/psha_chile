@@ -1,36 +1,36 @@
 w,sig,mech,below,variant,against,class_m4.5,family_m4.5,class_m5.5,family_m5.5,class_m7,family_m7
-10.0,False,False,in-slab,w10_nosig_nomech_belowslab,baseline,1031,1031.0,214,214.0,5,5.0
-10.0,False,False,unclassified,w10_nosig_nomech_belowout,baseline,1111,1111.0,217,217.0,5,5.0
-10.0,False,True,in-slab,w10_nosig_mech_belowslab,baseline,699,699.0,63,63.0,3,3.0
-10.0,False,True,unclassified,w10_nosig_mech_belowout,baseline,779,779.0,66,66.0,3,3.0
-10.0,True,False,in-slab,w10_sig_nomech_belowslab,baseline,539,539.0,135,135.0,4,4.0
-10.0,True,False,unclassified,w10_sig_nomech_belowout,baseline,593,593.0,138,138.0,4,4.0
-10.0,True,True,in-slab,w10_sig_mech_belowslab,baseline,298,298.0,27,27.0,2,2.0
-10.0,True,True,unclassified,w10_sig_mech_belowout,baseline,352,352.0,30,30.0,2,2.0
+10.0,False,False,in-slab,w10_nosig_nomech_belowslab,baseline,1033,1033.0,216,216.0,5,5.0
+10.0,False,False,unclassified,w10_nosig_nomech_belowout,baseline,1113,1113.0,219,219.0,5,5.0
+10.0,False,True,in-slab,w10_nosig_mech_belowslab,baseline,701,701.0,65,65.0,3,3.0
+10.0,False,True,unclassified,w10_nosig_mech_belowout,baseline,781,781.0,68,68.0,3,3.0
+10.0,True,False,in-slab,w10_sig_nomech_belowslab,baseline,538,538.0,134,134.0,3,3.0
+10.0,True,False,unclassified,w10_sig_nomech_belowout,baseline,592,592.0,137,137.0,3,3.0
+10.0,True,True,in-slab,w10_sig_mech_belowslab,baseline,297,297.0,26,26.0,1,1.0
+10.0,True,True,unclassified,w10_sig_mech_belowout,baseline,351,351.0,29,29.0,1,1.0
 15.0,False,False,in-slab,w15_nosig_nomech_belowslab,baseline,265,265.0,119,119.0,3,3.0
 15.0,False,False,unclassified,w15_nosig_nomech_belowout,baseline,345,345.0,122,122.0,3,3.0
 15.0,False,True,in-slab,w15_nosig_mech_belowslab,baseline,0,0.0,0,0.0,0,0.0
 15.0,False,True,unclassified,w15_nosig_mech_belowout,baseline,80,80.0,3,3.0,0,0.0
-15.0,True,False,in-slab,w15_sig_nomech_belowslab,baseline,920,920.0,167,167.0,5,5.0
-15.0,True,False,unclassified,w15_sig_nomech_belowout,baseline,974,974.0,170,170.0,5,5.0
-15.0,True,True,in-slab,w15_sig_mech_belowslab,baseline,669,669.0,56,56.0,4,4.0
-15.0,True,True,unclassified,w15_sig_mech_belowout,baseline,723,723.0,59,59.0,4,4.0
-20.0,False,False,in-slab,w20_nosig_nomech_belowslab,baseline,732,732.0,149,149.0,3,3.0
-20.0,False,False,unclassified,w20_nosig_nomech_belowout,baseline,812,812.0,152,152.0,3,3.0
-20.0,False,True,in-slab,w20_nosig_mech_belowslab,baseline,479,479.0,37,37.0,1,1.0
-20.0,False,True,unclassified,w20_nosig_mech_belowout,baseline,559,559.0,40,40.0,1,1.0
-20.0,True,False,in-slab,w20_sig_nomech_belowslab,baseline,1203,1203.0,181,181.0,6,6.0
-20.0,True,False,unclassified,w20_sig_nomech_belowout,baseline,1257,1257.0,184,184.0,6,6.0
-20.0,True,True,in-slab,w20_sig_mech_belowslab,baseline,923,923.0,65,65.0,5,5.0
-20.0,True,True,unclassified,w20_sig_mech_belowout,baseline,977,977.0,68,68.0,5,5.0
-,,,,w: 10.0 → 15.0,"one factor, others as baseline",699,699.0,63,63.0,3,3.0
-,,,,w: 10.0 → 20.0,"one factor, others as baseline",1178,1178.0,100,100.0,4,4.0
-,,,,w: 15.0 → 20.0,"one factor, others as baseline",479,479.0,37,37.0,1,1.0
-,,,,sig: False → True,"one factor, others as baseline",669,669.0,56,56.0,4,4.0
+15.0,True,False,in-slab,w15_sig_nomech_belowslab,baseline,919,919.0,166,166.0,4,4.0
+15.0,True,False,unclassified,w15_sig_nomech_belowout,baseline,973,973.0,169,169.0,4,4.0
+15.0,True,True,in-slab,w15_sig_mech_belowslab,baseline,668,668.0,55,55.0,3,3.0
+15.0,True,True,unclassified,w15_sig_mech_belowout,baseline,722,722.0,58,58.0,3,3.0
+20.0,False,False,in-slab,w20_nosig_nomech_belowslab,baseline,731,731.0,148,148.0,2,2.0
+20.0,False,False,unclassified,w20_nosig_nomech_belowout,baseline,811,811.0,151,151.0,2,2.0
+20.0,False,True,in-slab,w20_nosig_mech_belowslab,baseline,478,478.0,36,36.0,0,0.0
+20.0,False,True,unclassified,w20_nosig_mech_belowout,baseline,558,558.0,39,39.0,0,0.0
+20.0,True,False,in-slab,w20_sig_nomech_belowslab,baseline,1202,1202.0,180,180.0,5,5.0
+20.0,True,False,unclassified,w20_sig_nomech_belowout,baseline,1256,1256.0,183,183.0,5,5.0
+20.0,True,True,in-slab,w20_sig_mech_belowslab,baseline,922,922.0,64,64.0,4,4.0
+20.0,True,True,unclassified,w20_sig_mech_belowout,baseline,976,976.0,67,67.0,4,4.0
+,,,,w: 10.0 → 15.0,"one factor, others as baseline",701,701.0,65,65.0,3,3.0
+,,,,w: 10.0 → 20.0,"one factor, others as baseline",1179,1179.0,101,101.0,3,3.0
+,,,,w: 15.0 → 20.0,"one factor, others as baseline",478,478.0,36,36.0,0,0.0
+,,,,sig: False → True,"one factor, others as baseline",668,668.0,55,55.0,3,3.0
 ,,,,mech: False → True,"one factor, others as baseline",265,265.0,119,119.0,3,3.0
 ,,,,below: in-slab → unclassified,"one factor, others as baseline",80,80.0,3,3.0,0,0.0
-,,,,w: range over all settings of the other factors,min–max of the pairwise changes,254–1424,,9–218,,1–6,
-,,,,sig: range over all settings of the other factors,min–max of the pairwise changes,444–1231,,28–190,,4–7,
+,,,,w: range over all settings of the other factors,min–max of the pairwise changes,254–1425,,9–219,,0–5,
+,,,,sig: range over all settings of the other factors,min–max of the pairwise changes,444–1232,,28–191,,3–6,
 ,,,,mech: range over all settings of the other factors,min–max of the pairwise changes,265–332,,115–151,,1–3,
 ,,,,below: range over all settings of the other factors,min–max of the pairwise changes,54–80,,3–3,,0–0,
-,,,,any of the 24,events with more than one class,2173,2173.0,337,337.0,11,11.0
+,,,,any of the 24,events with more than one class,2174,2174.0,338,338.0,10,10.0
