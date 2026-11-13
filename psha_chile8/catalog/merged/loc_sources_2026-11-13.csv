@@ -1,0 +1,47 @@
+source,before 1964,1964–1981,1982–1999,2000–2010,2011–today,total,check,set,property
+cabello,169,0,0,0,0,169,3,all events,loc_src
+cent_ehb,81,0,0,0,0,81,3,all events,loc_src
+comcat,0,0,12,1,39,52,3,all events,loc_src
+csn,0,0,0,0,47505,47505,3,all events,loc_src
+ehb1,0,901,1073,923,688,3585,3,all events,loc_src
+ehb2,0,244,554,488,915,2201,3,all events,loc_src
+gccel,0,9,33,64,90,196,3,all events,loc_src
+isc,886,3567,6814,13410,20953,45630,3,all events,loc_src
+iscgem,659,1,0,0,0,660,3,all events,loc_src
+potin,0,0,19995,33284,51598,104877,3,all events,loc_src
+cent_ehb,35,2,4,1,0,42,3,all events,depth_src
+centennial,5,0,0,0,0,5,3,all events,depth_src
+comcat,0,870,1940,2602,1352,6764,3,all events,depth_src
+csn,0,0,0,0,47143,47143,3,all events,depth_src
+csn_isc,0,0,124,207,331,662,3,all events,depth_src
+ehb1,0,890,1063,992,738,3683,3,all events,depth_src
+ehb2,0,242,554,443,1038,2277,3,all events,depth_src
+gccel,0,9,34,150,143,336,3,all events,depth_src
+gcmt,0,4,1,5,3,13,3,all events,depth_src
+isc,89,501,3018,6249,15982,25839,3,all events,depth_src
+iscgem,162,7,9,26,15,219,3,all events,depth_src
+potin,0,0,20066,33729,51698,105493,3,all events,depth_src
+unknown,1504,2197,1668,3766,3345,12480,3,all events,depth_src
+cabello,169,0,0,0,0,169,3,M ≥ 4.5,loc_src
+cent_ehb,81,0,0,0,0,81,3,M ≥ 4.5,loc_src
+comcat,0,0,3,0,5,8,3,M ≥ 4.5,loc_src
+csn,0,0,0,0,780,780,3,M ≥ 4.5,loc_src
+ehb1,0,886,983,798,581,3248,3,M ≥ 4.5,loc_src
+ehb2,0,233,429,315,566,1543,3,M ≥ 4.5,loc_src
+gccel,0,9,15,41,28,93,3,M ≥ 4.5,loc_src
+isc,4,1371,1476,1505,1557,5913,3,M ≥ 4.5,loc_src
+iscgem,323,0,0,0,0,323,3,M ≥ 4.5,loc_src
+potin,0,0,238,1438,1715,3391,3,M ≥ 4.5,loc_src
+cent_ehb,35,2,4,1,0,42,3,M ≥ 4.5,depth_src
+centennial,5,0,0,0,0,5,3,M ≥ 4.5,depth_src
+comcat,0,454,697,493,285,1929,3,M ≥ 4.5,depth_src
+csn,0,0,0,0,738,738,3,M ≥ 4.5,depth_src
+csn_isc,0,0,16,52,46,114,3,M ≥ 4.5,depth_src
+ehb1,0,875,973,864,627,3339,3,M ≥ 4.5,depth_src
+ehb2,0,231,427,266,641,1565,3,M ≥ 4.5,depth_src
+gccel,0,9,16,96,69,190,3,M ≥ 4.5,depth_src
+gcmt,0,4,1,5,3,13,3,M ≥ 4.5,depth_src
+isc,2,334,331,552,996,2215,3,M ≥ 4.5,depth_src
+iscgem,53,6,9,26,14,108,3,M ≥ 4.5,depth_src
+potin,0,0,216,1352,1536,3104,3,M ≥ 4.5,depth_src
+unknown,482,584,454,390,277,2187,3,M ≥ 4.5,depth_src
