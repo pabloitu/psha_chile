@@ -704,3 +704,17 @@ Asked by Pablo after the check of the X4 handoff (entry above). All 123 tests pa
 - The fit of the GCMT correction gives 0.162 × (5.4 − GCMT) on 812 pairs in the run of 13 Nov (0.159, 813 before); DECISIONS still carries 0.159.
 - Not redone on the new run: the withheld-Mw check of the surface-wave rule (`explore/X4/tables/x4_blind.csv`); marked in the draft.
 - Add `psha_chile8/paper/CATALOG_SECTION_draft.md` and `psha_chile8/catalog/REPORT_A3-A5.md` to the commit of the entry above (already in its list).
+
+## 2026-11-13: X4 classification report brought to the catalogue of 13 Nov (Claude Code, A3–A5 conversation)
+
+Asked by Pablo. Only `explore/X4/REPORT.md` changed; no code, table or figure (those are of the rerun of this morning).
+
+- Every number of the report now comes from the tables of the 13 Nov run or from a recount on `tables/x4b_events_m45.csv` (soft membership, the two settings outside the grid, depth differences against the old classifier, Potin depths).
+- Section 0 has a table of what moved against the first version; section 7 is now "what was found upstream and what was done with it", with what remains.
+- Main changes: class depends on the variant for 2 173 events (2 195); unknown depth 1 644 (1 552), 66 of Mw ≥ 7 (54); against Ruiz and Madariaga the rule alone gives 31 right, 5 wrong, 20 without depth (33, 8, 15).
+- Corrected against the first version: the far-offshore cluster at 44–46° S in the outer-rise class has only 10 events from 2024 on at Mw ≥ 4.5 (153 of all years); the dense cluster is in the map of all events.
+- Still open, new in the report: 180 Potin depths above 5 km over a slab top deeper than 15 km and 56 more than 40 km under a shallow slab top (near the coast, so not reached by the offshore rule of A4); two of the five CSN regional Mw outliers unchanged (2015-09-05, 2016-02-05).
+- `HANDOFF_A3-A5.md` is left as written (numbers of 11 Nov).
+- Suggested commit:
+  `git add psha_chile8/explore/X4/REPORT.md psha_chile8/WORKLOG.md`
+  `git commit -m "X4 classification report brought to the catalogue of 13 Nov"`
