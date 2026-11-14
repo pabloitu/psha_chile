@@ -1,0 +1,101 @@
+model,test,score,events,mean score,observed share
+A run j: thrust decides alone,"mechanism hidden, against thrust-like",0–0.2,121,0.0,0.281
+A run j: thrust decides alone,"mechanism hidden, against thrust-like",0.2–0.4,73,0.301,0.548
+A run j: thrust decides alone,"mechanism hidden, against thrust-like",0.4–0.6,108,0.516,0.667
+A run j: thrust decides alone,"mechanism hidden, against thrust-like",0.6–0.8,241,0.722,0.714
+A run j: thrust decides alone,"mechanism hidden, against thrust-like",0.8–1,727,1.0,0.838
+A run j: thrust decides alone,against Riedel-Hornig interface,0–0.2,50,0.0,0.04
+A run j: thrust decides alone,against Riedel-Hornig interface,0.2–0.4,8,0.29,0.125
+A run j: thrust decides alone,against Riedel-Hornig interface,0.4–0.6,17,0.505,0.412
+A run j: thrust decides alone,against Riedel-Hornig interface,0.6–0.8,21,0.731,0.238
+A run j: thrust decides alone,against Riedel-Hornig interface,0.8–1,210,1.0,0.481
+"A2 run j rules, mechanism only excludes","mechanism hidden, against thrust-like",0–0.2,121,0.0,0.281
+"A2 run j rules, mechanism only excludes","mechanism hidden, against thrust-like",0.2–0.4,73,0.301,0.548
+"A2 run j rules, mechanism only excludes","mechanism hidden, against thrust-like",0.4–0.6,108,0.516,0.667
+"A2 run j rules, mechanism only excludes","mechanism hidden, against thrust-like",0.6–0.8,241,0.722,0.714
+"A2 run j rules, mechanism only excludes","mechanism hidden, against thrust-like",0.8–1,727,1.0,0.838
+"A2 run j rules, mechanism only excludes",against Riedel-Hornig interface,0–0.2,50,0.0,0.04
+"A2 run j rules, mechanism only excludes",against Riedel-Hornig interface,0.2–0.4,10,0.285,0.1
+"A2 run j rules, mechanism only excludes",against Riedel-Hornig interface,0.4–0.6,22,0.52,0.409
+"A2 run j rules, mechanism only excludes",against Riedel-Hornig interface,0.6–0.8,35,0.72,0.257
+"A2 run j rules, mechanism only excludes",against Riedel-Hornig interface,0.8–1,189,1.0,0.503
+B USGS CatSep,"mechanism hidden, against thrust-like",0–0.2,250,0.0,0.424
+B USGS CatSep,"mechanism hidden, against thrust-like",0.2–0.4,3,0.338,0.333
+B USGS CatSep,"mechanism hidden, against thrust-like",0.4–0.6,1,0.562,1.0
+B USGS CatSep,"mechanism hidden, against thrust-like",0.6–0.8,12,0.706,0.583
+B USGS CatSep,"mechanism hidden, against thrust-like",0.8–1,1004,0.998,0.809
+B USGS CatSep,against Riedel-Hornig interface,0–0.2,63,0.006,0.095
+B USGS CatSep,against Riedel-Hornig interface,0.2–0.4,7,0.264,0.143
+B USGS CatSep,against Riedel-Hornig interface,0.4–0.6,6,0.495,0.0
+B USGS CatSep,against Riedel-Hornig interface,0.6–0.8,14,0.722,0.286
+B USGS CatSep,against Riedel-Hornig interface,0.8–1,216,0.995,0.486
+C CatSep with the event depth error,"mechanism hidden, against thrust-like",0–0.2,125,0.057,0.272
+C CatSep with the event depth error,"mechanism hidden, against thrust-like",0.2–0.4,75,0.301,0.547
+C CatSep with the event depth error,"mechanism hidden, against thrust-like",0.4–0.6,101,0.515,0.673
+C CatSep with the event depth error,"mechanism hidden, against thrust-like",0.6–0.8,249,0.715,0.719
+C CatSep with the event depth error,"mechanism hidden, against thrust-like",0.8–1,720,0.899,0.84
+C CatSep with the event depth error,against Riedel-Hornig interface,0–0.2,45,0.064,0.0
+C CatSep with the event depth error,against Riedel-Hornig interface,0.2–0.4,21,0.295,0.095
+C CatSep with the event depth error,against Riedel-Hornig interface,0.4–0.6,24,0.524,0.375
+C CatSep with the event depth error,against Riedel-Hornig interface,0.6–0.8,42,0.719,0.31
+C CatSep with the event depth error,against Riedel-Hornig interface,0.8–1,174,0.894,0.529
+"E as C, thrust-like mechanism raises the odds","mechanism hidden, against thrust-like",0–0.2,125,0.057,0.272
+"E as C, thrust-like mechanism raises the odds","mechanism hidden, against thrust-like",0.2–0.4,75,0.301,0.547
+"E as C, thrust-like mechanism raises the odds","mechanism hidden, against thrust-like",0.4–0.6,101,0.515,0.673
+"E as C, thrust-like mechanism raises the odds","mechanism hidden, against thrust-like",0.6–0.8,249,0.715,0.719
+"E as C, thrust-like mechanism raises the odds","mechanism hidden, against thrust-like",0.8–1,720,0.899,0.84
+"E as C, thrust-like mechanism raises the odds",against Riedel-Hornig interface,0–0.2,45,0.064,0.0
+"E as C, thrust-like mechanism raises the odds",against Riedel-Hornig interface,0.2–0.4,19,0.296,0.105
+"E as C, thrust-like mechanism raises the odds",against Riedel-Hornig interface,0.4–0.6,20,0.515,0.35
+"E as C, thrust-like mechanism raises the odds",against Riedel-Hornig interface,0.6–0.8,32,0.723,0.281
+"E as C, thrust-like mechanism raises the odds",against Riedel-Hornig interface,0.8–1,190,0.906,0.516
+"F0 depth error, ellipse only excludes","mechanism hidden, against thrust-like",0–0.2,125,0.057,0.272
+"F0 depth error, ellipse only excludes","mechanism hidden, against thrust-like",0.2–0.4,75,0.301,0.547
+"F0 depth error, ellipse only excludes","mechanism hidden, against thrust-like",0.4–0.6,101,0.515,0.673
+"F0 depth error, ellipse only excludes","mechanism hidden, against thrust-like",0.6–0.8,249,0.715,0.719
+"F0 depth error, ellipse only excludes","mechanism hidden, against thrust-like",0.8–1,720,0.899,0.84
+"F0 depth error, ellipse only excludes",against Riedel-Hornig interface,0–0.2,62,0.021,0.032
+"F0 depth error, ellipse only excludes",against Riedel-Hornig interface,0.2–0.4,14,0.3,0.071
+"F0 depth error, ellipse only excludes",against Riedel-Hornig interface,0.4–0.6,20,0.53,0.45
+"F0 depth error, ellipse only excludes",against Riedel-Hornig interface,0.6–0.8,38,0.721,0.316
+"F0 depth error, ellipse only excludes",against Riedel-Hornig interface,0.8–1,172,0.894,0.535
+"F depth error, ellipse excludes and raises","mechanism hidden, against thrust-like",0–0.2,125,0.057,0.272
+"F depth error, ellipse excludes and raises","mechanism hidden, against thrust-like",0.2–0.4,75,0.301,0.547
+"F depth error, ellipse excludes and raises","mechanism hidden, against thrust-like",0.4–0.6,101,0.515,0.673
+"F depth error, ellipse excludes and raises","mechanism hidden, against thrust-like",0.6–0.8,249,0.715,0.719
+"F depth error, ellipse excludes and raises","mechanism hidden, against thrust-like",0.8–1,720,0.899,0.84
+"F depth error, ellipse excludes and raises",against Riedel-Hornig interface,0–0.2,62,0.021,0.032
+"F depth error, ellipse excludes and raises",against Riedel-Hornig interface,0.2–0.4,12,0.304,0.083
+"F depth error, ellipse excludes and raises",against Riedel-Hornig interface,0.4–0.6,15,0.518,0.467
+"F depth error, ellipse excludes and raises",against Riedel-Hornig interface,0.6–0.8,27,0.722,0.222
+"F depth error, ellipse excludes and raises",against Riedel-Hornig interface,0.8–1,190,0.909,0.526
+"F1 as F, soft edge","mechanism hidden, against thrust-like",0–0.2,125,0.057,0.272
+"F1 as F, soft edge","mechanism hidden, against thrust-like",0.2–0.4,75,0.301,0.547
+"F1 as F, soft edge","mechanism hidden, against thrust-like",0.4–0.6,101,0.515,0.673
+"F1 as F, soft edge","mechanism hidden, against thrust-like",0.6–0.8,249,0.715,0.719
+"F1 as F, soft edge","mechanism hidden, against thrust-like",0.8–1,720,0.899,0.84
+"F1 as F, soft edge",against Riedel-Hornig interface,0–0.2,58,0.023,0.017
+"F1 as F, soft edge",against Riedel-Hornig interface,0.2–0.4,13,0.298,0.077
+"F1 as F, soft edge",against Riedel-Hornig interface,0.4–0.6,15,0.518,0.467
+"F1 as F, soft edge",against Riedel-Hornig interface,0.6–0.8,28,0.718,0.214
+"F1 as F, soft edge",against Riedel-Hornig interface,0.8–1,192,0.908,0.526
+"G as F1, weight of 0.8 or more becomes 1","mechanism hidden, against thrust-like",0–0.2,125,0.003,0.272
+"G as F1, weight of 0.8 or more becomes 1","mechanism hidden, against thrust-like",0.2–0.4,75,0.301,0.547
+"G as F1, weight of 0.8 or more becomes 1","mechanism hidden, against thrust-like",0.4–0.6,101,0.515,0.673
+"G as F1, weight of 0.8 or more becomes 1","mechanism hidden, against thrust-like",0.6–0.8,249,0.715,0.719
+"G as F1, weight of 0.8 or more becomes 1","mechanism hidden, against thrust-like",0.8–1,720,1.0,0.84
+"G as F1, weight of 0.8 or more becomes 1",against Riedel-Hornig interface,0–0.2,58,0.003,0.017
+"G as F1, weight of 0.8 or more becomes 1",against Riedel-Hornig interface,0.2–0.4,13,0.298,0.077
+"G as F1, weight of 0.8 or more becomes 1",against Riedel-Hornig interface,0.4–0.6,15,0.518,0.467
+"G as F1, weight of 0.8 or more becomes 1",against Riedel-Hornig interface,0.6–0.8,28,0.718,0.214
+"G as F1, weight of 0.8 or more becomes 1",against Riedel-Hornig interface,0.8–1,192,1.0,0.526
+D fitted mixture,"mechanism hidden, against thrust-like",0–0.2,67,0.068,0.284
+D fitted mixture,"mechanism hidden, against thrust-like",0.2–0.4,35,0.304,0.314
+D fitted mixture,"mechanism hidden, against thrust-like",0.4–0.6,46,0.508,0.435
+D fitted mixture,"mechanism hidden, against thrust-like",0.6–0.8,161,0.719,0.615
+D fitted mixture,"mechanism hidden, against thrust-like",0.8–1,961,0.882,0.81
+D fitted mixture,against Riedel-Hornig interface,0–0.2,26,0.071,0.0
+D fitted mixture,against Riedel-Hornig interface,0.2–0.4,19,0.314,0.053
+D fitted mixture,against Riedel-Hornig interface,0.4–0.6,20,0.511,0.2
+D fitted mixture,against Riedel-Hornig interface,0.6–0.8,182,0.762,0.445
+D fitted mixture,against Riedel-Hornig interface,0.8–1,59,0.963,0.508

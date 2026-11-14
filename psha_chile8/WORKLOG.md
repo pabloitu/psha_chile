@@ -776,3 +776,567 @@ Agreed by Pablo after the rules table ("Yes, simplify"). All 123 tests pass. Thi
 - Suggested commit (from the repo root; it includes the report commit of the entry "X4 classification report brought to the catalogue of 13 Nov" if that was not run):
   `git add psha_chile8/catalog/locate.py psha_chile8/catalog/magnitude.py psha_chile8/catalog/tests/test_locate.py psha_chile8/catalog/merged psha_chile8/catalog/figs psha_chile8/catalog/REPORT_A3-A5.md psha_chile8/catalog/RULES_LOCATION_MAGNITUDE.md psha_chile8/paper/CATALOG_SECTION_draft.md psha_chile8/explore/X4 psha_chile8/DATA.md psha_chile8/WORKLOG.md`
   `git commit -m "A4 simplified: depths before 1964 by the catalogues' own flags, no last-resort GCMT depth (run 2026-11-13b); rules table with references; report section on events without depth"`
+
+## 2026-11-13: two decisions of 13 Nov applied; A5 rerun with the Centennial first before 1976 (run 2026-11-13c) (Claude Code, A6 conversation)
+
+Asked by Pablo, who allowed the edits of DECISIONS, PREFERENCES and RULES_LOCATION_MAGNITUDE for these two decisions and the full rebuild. All 123 tests pass.
+
+- **Notes edited:** `DECISIONS.md` (Magnitudes (A5): the GCMT line below 5.4 is kept, with the agreed wording; the "One Mw per event" line carries the new order before 1976); `catalog/RULES_LOCATION_MAGNITUDE.md` (M3 is support C; M1 carries the order; section 4 row of M3); `catalog/PREFERENCES.md` (question 1 answered, the two Mw cells of 1904–1975, a row in the change table).
+- **`magnitude.py`:** `OLD = ["Centennial", "ISC-GEM"]`. A Centennial entry gives: an Mw (Pacheco and Sykes, Okal) as given; else its preferred (first-listed) magnitude, Ms by the Di Giacomo et al. (2015) relation, an untyped value the same way after subtracting 0.2 (both as before), mB by Abe (1982). An entry whose preferred magnitude is mb leaves the event to ISC-GEM. Before, the type order Mw, mB, Ms, untyped was applied to all listed values, which would have taken a secondary mB before the preferred Ms of a shallow event.
+- **Abe mB was going in as Mw unconverted** (22 events of the run `2026-11-13b`, the intermediate-depth events ISC-GEM lacks, e.g. 1929-10-19 mB 7.4 as Mw 7.4). Now converted with Abe (1982, J. Phys. Earth 30, 321–330; read, PDF from J-STAGE): log M0 = 2.4 mB + 10.0 for intermediate and deep events (eq. 5, p. 324) and 2.4 mB + 9.6 for shallow ones (eq. 7, p. 328), M0 in dyn cm, with the Hanks and Kanamori constant, so Mw = 1.6 mB − 4.07 deeper than 60 km and 1.6 mB − 4.33 otherwise (depth of the event, the provisional A3 depth where none was measured). σ 0.3 (`SIG_MB`, my choice: Abe shows a scatter of about a factor 3 in M0). Flag `converted_from_mb`. Check on the new catalogue: 42 events take an Abe mB (32 in the domain), none with Mw equal to the mB. Calama 1950 (mB 7.7) and La Ligua 1965 (mB 7.4) are named by Ruiz and Madariaga and keep Mw 8.0 and 7.4; by the relation they would be 8.25 and 7.77.
+- **Rerun:** `magnitude.py`, `locate.py`, `magnitude_check.py` with `RUN = "2026-11-13c"` (depths of `locations_2026-11-13b`; locations, depths and mechanisms are identical to `2026-11-13b`). DATA.md has the row.
+- **What changed** (against `2026-11-13b`): 138 events changed Mw, all of 1906–1975, 121 in the domain. Of the events with Mw ≥ 6 before or after, **113 changed: 70 up, 43 down, 43 by 0.3 or more**, mean +0.10. Events of Mw ≥ 7 in the domain: 165 (153); before 1976 129 (117); of Mw ≥ 7.5 before 1976 59 (47). Counts at Mw ≥ 4.5, 5.0, 5.5 unchanged (14 234, 5 470, 1 941). Kinds at Mw ≥ 4.5 in the domain: Centennial 157 (37), ISC-GEM 515 (635).
+- **Largest changes** (Mw before → after, Centennial value):
+
+| event | before (ISC-GEM) | after | Centennial | note |
+|---|---|---|---|---|
+| 1967-03-13 16:06, 40.2° S | 5.7 | 7.1 | BRK 7.3, untyped | suspect Centennial value; A6 |
+| 1971-06-17 21:00, 25.4° S, 90 km | 6.3 | 7.5 | Abe mB 7.2 | A6 |
+| 1948-05-11 08:55, 17.3° S | 6.5 | 7.5 | Abe mB 7.4 | A6 |
+| 1918-05-20 17:55, 28.9° S | 6.9 | 7.8 | Abe mB 7.6 | A6 |
+| 1925-05-15 11:57, 25.5° S | 6.3 | 7.1 | Abe Ms 7.1 | A6 |
+| 1959-06-14 00:12, 20.3° S, 109 km | 7.1 | 7.9 | Abe mB 7.5 | Abe (1982, Table 1) lists M0 87 × 10²⁵ dyn cm for it: Mw 7.2 |
+| 1962-07-17 05:32, 43.1° S | 5.8 | 6.6 | BRK 6.8, untyped | |
+| 1969-07-19 04:54, 17.3° S | 6.5 | 5.7 | PAS 5.7, untyped | |
+| 1934-03-01 21:45, 40.9° S | 6.6 | 7.3 | Abe mB 7.3 | |
+| 1962-08-03 08:56, 23.3° S, 113 km | 6.8 | 7.5 | Abe mB 7.2 | |
+| 1960-11-01 08:45, 38.4° S | 7.4 | 6.8 | Abe Ms 6.8 | |
+| 1920-08-03 19:57, 27.3° S | 7.0 | 6.4 | G&R 6.6, untyped | |
+| 1962-02-14 06:36, 38.1° S | 7.1 | 7.7 | Abe mB 7.5 | |
+| 1960-06-06 05:55, Aysén | 7.7 | 7.2 | Pacheco and Sykes Mw 7.2 | A6 (named case) |
+
+  By Centennial type, mean change at Mw ≥ 6: Abe mB +0.33 (30 events), Pacheco and Sykes Mw +0.01 (18), Abe Ms −0.04 (14), Pasadena untyped +0.08 (15), G&R untyped −0.16 (7), Berkeley untyped +0.87 (3), NEIS and USCGS Ms −0.1 (16). Full list: the events with `mw_kind` changed between `catalog_2026-11-13b.csv` and `catalog_2026-11-13c.csv`.
+- **To look at (Pablo, S. Ruiz):** the converted Abe mB reads a mean 0.39 above ISC-GEM on the 16 events of the domain that have both (median 0.35), and ISC-GEM uses a literature M0 for some of them (1957-11-29: Abe's table M0 gives Mw 7.8, ISC-GEM 7.7, converted mB 7.8; 1959-06-14: 7.2, 7.1, 7.9). The slope 1.6 widens Abe's scatter. Options: keep; take ISC-GEM where it has a direct Mw; correct the single events in A6 from a cited M0. Not decided here. The "−0.2" of untyped values is Engdahl and Villaseñor's correction for catalogues before 1960 and is applied also to the Berkeley and Pasadena values of 1960–1975.
+- **Test table, before and after** (this study; the tests use 1976 on, except test 6, so they do not see this change):
+
+| test | 2026-11-13b | 2026-11-13c |
+|---|---|---|
+| 1 b range over floors 4.7–5.8 (2011 on full / declustered; 1976 on full / declustered) | 0.12 / 0.15; 0.08 / 0.08 | 0.12 / 0.14; 0.08 / 0.08 |
+| 2 rate departure, M ≥ 5.5 / M ≥ 5.0 | 13.8 % / 14.2 % | 13.6 % / 14.4 % |
+| 3 large events from small ones | 31 of 32; Mw ≥ 7 full 37.3 / 44, declustered 32.4 / 36 | 31 of 32; 37.3 / 44, 32.5 / 36 |
+| 4 converted against held-out regional Mw | 16 of 20 | 16 of 20 (same four mb bins) |
+| 5 histogram, largest z | 2.1 | 2.1 |
+| sensitivity (d) | Centennial first: same passes | ISC-GEM first (the old order): same passes |
+
+  The small differences in the declustered rows come from the declustering windows of the changed events before 1976.
+- **Not updated:** `catalog/MAGNITUDES.md` rule 6, `catalog/REPORT_A3-A5.md`, `paper/CATALOG_SECTION_draft.md` and `explore/X4` still describe or use `2026-11-13b`; `locate_check.py` and the X4 classification were not rerun.
+- **Proposed line for LEARNINGS:** "The Centennial lists Abe mB for intermediate-depth events and for shallow events without Ms; it is not Mw (Abe 1982: log M0 = 2.4 mB + 10.0). The acceptance tests of A5 use 1976 on and do not see any change before 1976."
+- **Reference to add to `REFERENCES.md`:** Abe, K. (1982). Magnitude, seismic moment and apparent stress for major deep earthquakes. J. Phys. Earth 30(4), 321–330. doi:10.4294/jpe1952.30.321 (read).
+- Commands (already run; to repeat, from `catalog/`): `python magnitude.py`, `python locate.py`, `python magnitude_check.py`.
+- Suggested commit (from the repo root):
+  `git add psha_chile8/DECISIONS.md psha_chile8/DATA.md psha_chile8/WORKLOG.md psha_chile8/catalog/PREFERENCES.md psha_chile8/catalog/RULES_LOCATION_MAGNITUDE.md psha_chile8/catalog/magnitude.py psha_chile8/catalog/magnitude_check.py psha_chile8/catalog/locate.py psha_chile8/catalog/tests/test_magnitude.py psha_chile8/catalog/merged psha_chile8/catalog/figs`
+  `git commit -m "A5: GCMT line below 5.4 kept; Centennial before ISC-GEM for magnitude before 1976, Abe mB converted (run 2026-11-13c)"`
+
+## 2026-11-13: A6 large events, first pass on the run 2026-11-13c (Claude Code, A6 conversation)
+
+Task `tasks/A6_large_events.md`. 124 tests pass. **Not finished:** every period has its dossiers and source comparison, but literature was read for 103 of the 458 selected events only. PLAN boxes untouched.
+
+- **Selection:** 458 events (111 before 1904, 239 in 1904–1963, 11 in 1964–1975, 97 from 1976): 165 of Mw ≥ 7, 223 of Mw 6–6.99 without depth, the named cases and the M ≥ 6 rows of the review lists.
+- **Files:** `catalog/a6.py` (selection, dossiers, tables, figure); `catalog/A6/dossiers.csv` (11975 rows), `literature.csv` (225 literature values with reference and page), `selection.csv`, `counts.csv`, `changes_for_review.csv`, `no_depth.csv`, `REPORT.md`; `catalog/overrides_A6.csv` (71 rows, all `proposed`); `catalog/figs/A6/large_events.png`.
+- **Code:** `overrides()` in `magnitude.py`, called as the last step of `magnitude.py` (Mw) and `locate.py` (time, epicentre, depth, nodal planes; existence and class hint as new columns). Only rows with status `accepted` are applied; flag `a6_<property>`. Test `test_a6_corrections_only_accepted_rows`. Rerun of both scripts with the table (no accepted row): `mw`, `locations` and `catalog` of `2026-11-13c` have the same sha256 as before.
+- **Read:** Lomnitz (2004) Table 1 in full; Abe (1982) in full; Ruiz and Madariaga (2018) through the frozen table and the R1 notes; the ISC-GEM entries and their magnitude source; by a sub-agent on the web: Kanamori and Rivera (2017, full text), the USGS page of the Drake Passage event, the CSN and NOAA tables for 1878. Comte and Pardo (1991) could not be opened.
+- **Not done:** rupture studies and finite-fault products for the events from 1976; Engdahl and Villaseñor's Table 1 row by row; any literature for 355 events, among them almost all of the 223 events of Mw 6–7 without depth. No depth could be proposed for any event.
+- **Short table for Pablo** (accept or reject; full reasons in `A6/REPORT.md` section 2):
+
+| event | property | old → new | source |
+|---|---|---|---|
+| 1543 Tarapacá | Mw | 7.4 → 7.7 | Ruiz and Madariaga (2018), "> 7.7" |
+| 1878-01-23 | longitude | −77.0 → −70.3 | CSN table, NOAA database |
+| 1916-06-21 (deep, outside the domain) | Mw | 7.8 → 7.1 | ISC-GEM direct |
+| 1952-06-11 | Mw | 6.5 → 6.8 | ISC-GEM direct |
+| 1959-06-14, 109 km | Mw | 7.9 → 7.2 | Abe (1982) Table 1, moment |
+| 1960-06-06 Aysén | Mw | 7.2 → 7.7 | Kanamori and Rivera (2017); Ruiz and Madariaga |
+| 1962-02-14 | Mw | 7.7 → 7.1 | ISC-GEM direct |
+| 1962-08-03, 113 km | Mw | 7.5 → 6.8 | ISC-GEM direct |
+| 1967-03-13 | Mw | 7.1 → 5.7 | ISC-GEM direct (Centennial Berkeley 7.3: one of the two is wrong) |
+| 1970-06-15 | Mw | 7.0 → 6.8 | ISC-GEM direct |
+| 1974-01-02, 122 km | Mw | 7.3 → 7.0 | ISC-GEM direct |
+| 1974-08-18 | Mw | 7.1 → 6.9 | ISC-GEM direct |
+| 2010-02-27 08:25 | Mw | 7.0 → 6.3 | ISC-GEM proxy; mb 6.1 (was CSN ML alone) |
+| 2011-01-07 04:55, 307 km | Mw | 6.6 → 5.7 | CSN moment magnitude in the ISC Bulletin (was CSN ML) |
+
+  Plus 57 class hints for A7 (55 from Ruiz and Madariaga, 2 from Lomnitz for Magallanes 1949).
+- **Patterns, no rule changed** (REPORT section 4): ten of the Mw proposals come from converted Centennial values standing before an ISC-GEM direct Mw (38 such events in the catalogue); `GUC MW` of the ISC Bulletin is not in the reference family (343 converted events have one, 66 differ by 0.5 or more); CSN ML of deep and very large events; legacy WCMT tensors of 2010 before GCMT (4 events); poor Centennial solutions used as epicentres before 1964.
+- **Open, large events without a decision:** 1971-06-17 (7.5 against 6.3), 1948-05-11, 1918-05-20, 1934-03-01, 1925-05-15; Papudo 2001 (7.0 against GCMT 6.65); Santiago 1647 class; the 1919-03-02 and 1918-12-04 epicentres; 1604 / 1639 La Serena.
+- **Proposed line for DECISIONS:** "Large events: corrections only from cited sources, recorded in `catalog/overrides_A6.csv` and applied as the last step of `magnitude.py` and `locate.py` (rows with status `accepted`)."
+- **Proposed line for LEARNINGS:** "A source order by catalogue hides the kind of value: before 1976 a converted Centennial mB or Ms can stand before a direct Mw of ISC-GEM. Order by kind of value first (direct before converted), then by catalogue."
+- **References:** Abe (1982) to add; Kanamori and Rivera (2017) and the web pages read by a sub-agent, to be opened once more before citing; † Comte and Pardo (1991), Wyss (1970), Kausel and Campos (1992), Beck et al. (1998) not read.
+- **Commands:** to accept a row, set its `status` to `accepted` in `catalog/overrides_A6.csv`, then from `catalog/`: `python magnitude.py`, `python locate.py`, `python a6.py`. To continue A6: add rows to `A6/literature.csv` and `overrides_A6.csv`, rerun `a6.py`.
+- **Next for A6:** the five open large events above; Engdahl and Villaseñor Table 1 and Beck et al. (1998) for 1904–1975; rupture studies for the 36 events of Mw ≥ 7 from 1976 (depth and class); then the Mw 6–7 events without depth.
+- Suggested commit (from the repo root):
+  `git add psha_chile8/catalog/a6.py psha_chile8/catalog/A6 psha_chile8/catalog/overrides_A6.csv psha_chile8/catalog/figs/A6 psha_chile8/catalog/magnitude.py psha_chile8/catalog/locate.py psha_chile8/catalog/tests/test_magnitude.py psha_chile8/catalog/merged/MANIFEST.csv psha_chile8/WORKLOG.md`
+  `git commit -m "A6 first pass: dossiers of 458 large events, corrections table and its last-step application, 14 proposed changes and 57 class hints"`
+
+## 2026-11-13: A6, the five open large events (Claude Code, A6 conversation)
+
+Asked by Pablo. 124 tests pass; no code changed except one setting in `a6.py` (`EXTRA`, an event added to the selection). Detail in `catalog/A6/REPORT.md` section 7.
+
+- **Read:** Abe and Kanamori (1979) Table 2 and Astiz and Kanamori (1986) pp. 1617–1620, both on the page images. By a sub-agent: Astiz (1987, thesis), the CaltechDATA transcription of Abe (1981), the CSN table. Not opened (no free copy): Astiz et al. (1988), Abe (1981), Pacheco and Sykes (1992).
+- **Result: no seismic moment exists in what was read for any of the five (1971-06-17, 1948-05-11, 1918-05-20, 1934-03-01, 1925-05-15), so no Mw change is proposed for them.** They stay at the converted Centennial values (7.5, 7.5, 7.8, 7.3, 7.1), against ISC-GEM proxies of 6.3–6.9.
+- **Proposed** (8 new rows in `overrides_A6.csv`, now 79, all `proposed`): 1934-03-01 depth 120 ± 20 km (depth phases, Astiz and Kanamori 1986) and class hint in-slab; class hint in-slab for 1918-05-20 and 1971-06-17; 1949-04-20 Mw 7.0 → 7.1 (moment 6.0 × 10^26 dyn cm) and in-slab; **1971-05-08 (42.3° S, 157 km) Mw 6.0 → 7.2** (moment 8.0 × 10^26 dyn cm, same paper) and in-slab.
+- **To decide (Pablo, S. Ruiz):** depth feeds the mB conversion. Accepting 120 km for 1934 makes the next run convert its mB 7.3 as an intermediate-depth event: Mw 7.6 instead of 7.3. 1918-05-20 and 1939-04-18 are listed at 80 and 100 km by Abe and Kanamori (depths of Gutenberg and Richter) and are converted as shallow because the catalogue has no depth for them; as intermediate-depth events they would be 8.1 and 7.6.
+- **Pattern to report:** an intermediate-depth event of 1964–1975 with an ISC-GEM proxy from mb can be far too low (1971-05-08: 6.0 against a measured 7.2). Not searched systematically.
+- Counts now: 459 events selected, literature read for 112, 15 Mw proposals, 1 longitude, 1 depth, 62 class hints.
+- References to add: Abe and Kanamori (1979), Astiz and Kanamori (1986) (read); † Astiz et al. (1988), Abe (1981), Pacheco and Sykes (1992).
+- Commit: add `psha_chile8/catalog/A6 psha_chile8/catalog/overrides_A6.csv psha_chile8/catalog/a6.py psha_chile8/catalog/figs/A6 psha_chile8/WORKLOG.md` to the A6 commit of the entry above.
+
+## 2026-11-13: decisions of 13 Nov applied, run 2026-11-13d (Claude Code)
+
+Asked by Pablo (no brief in `tasks/`): apply the 13 Nov lines of DECISIONS (large events A6, mechanism order, magnitudes before 1976, GUC MW). 124 tests pass. `magnitude.py`, `locate.py`, `magnitude_check.py` and `locate_check.py` were run; `a6.py` was not (its tables and figure are still of `2026-11-13c`). PLAN boxes untouched (A6 literature is not finished).
+
+- **`magnitude.py`:**
+  - Before 1976: Ruiz and Madariaga > Centennial Mw > ISC-GEM direct (flag `d`) > Centennial Ms, mB, untyped converted > ISC-GEM proxy (flag `p`, new flag `iscgem_proxy`) > Cabello. Setting `OLD` now lists the four levels.
+  - From 1976 a measured Mw goes before Ruiz and Madariaga (28 events; 27 events keep the paper's value, all 1730–1975).
+  - `GUC MW` added to `WFAM` (after `CSN web Mw`) and to `REG` (0.3 cross-check). Measured offset to NEIC Mww +0.06 on 125 pairs (sd 0.20; GUC Mwr has 0.14), shift −0.06.
+  - **Not asked, needed for rule 1:** the ISC-GEM value now comes from the frozen ISC-GEM v13 table, not from its copy in ComCat. 540 events before 1976 took the ComCat copy, which has no `d` / `p` flag and an older value for 37 of them (11 changes at Mw ≥ 6 in the table below, −0.1 to +0.3).
+  - `LOC` left at `2026-11-13b`, so the accepted 1934 depth of 120 km does not enter the mB conversion and 1934-03-01 stays at 7.3, as DECISIONS says ("left as they are"). With `LOC = "2026-11-13d"` it would become 7.6.
+- **`locate.py`:** mechanisms GCMT (our file, then its copies in ComCat), then ComCat W-phase, other tensors, nodal planes. 1049 events changed mechanism (619 with strike more than 20° apart); GCMT now gives 2797 of 3016, ComCat 219.
+- **`overrides_A6.csv`:** 72 rows `accepted` (63 class hints and the nine listed in DECISIONS), 8 rows `superseded`. Applied: 7 Mw rows in `magnitude.py`, 65 rows in `locate.py` (63 hints, 1878 longitude, 1934 depth). The 63rd hint was added afterwards on Pablo's word: Santiago 1647 in-slab (Ruiz and Madariaga 2018, p. 16; page not re-read here), `locate.py` rerun, only that column changed. The rule gives exactly the proposed value for all eight superseded rows: 1916-06-21 7.1, 1952-06-11 6.8, 1962-02-14 7.1, 1962-08-03 6.8, 1967-03-13 5.7, 1970-06-15 6.8, 1974-01-02 7.0, 1974-08-18 6.9 (all ISC-GEM direct). `old_value` was not edited: for 1959-06-14 the rule alone now gives 7.1 (not 7.9), for 2011-01-07 about 5.6 (GUC MW 5.7 − 0.06).
+- **`magnitude_check.py`:** variant (d) is now "ISC-GEM before the Centennial inside each level". **`tests`:** `test_one_mw_per_event` (levels before 1976, measured Mw before the paper from 1976), `test_maule_moment_check` (GCMT first).
+
+### To decide (Pablo)
+
+1. **1967-03-13 is now 5.7 by the rule** (ISC-GEM direct before the converted Centennial Berkeley 7.3). **Decided by Pablo the same day: 1967-03-13 and Papudo 2001 (6.7, GCMT) follow the general rule, no override.**
+2. **GUC MW changes the conversion of small events.** 51 of its 352 values are below 4.5 (down to 2.1), so the reference now reaches Mw 2.7 instead of 3.8 and the CSN ML line moved: 42 400 ML events are 0.1 lower (0.02 at ML 4.5), almost all below Mw 4.5. Events of Mw ≥ 4.5: 15 636 → 15 448 (domain 14 234 → 14 054). The split of NEIC mb also changed (by depth → none), 2 472 values moved by 0.1. Option: use GUC MW in the reference only from Mw 4.0 or 4.5. Not changed.
+3. **GUC MW against a single other moment magnitude.** The cross-check needs two others. 11 events take a GUC MW more than 0.3 from their only other moment magnitude, the largest 2010-05-05 15:24: GCMT 5.39 → GUC MW 6.0 (list: `review/mw_reference_dropped_2026-11-13d.csv`, rows `GUC MW`, `dropped` False). 18 values were dropped by the check. Option: for GUC MW drop on one other value, or put it last in the family.
+4. The priority of the converted scales by σ of this fit puts ISC mb and NEIC mb before CSN ML (0.247, 0.245, 0.247); the `PRIORITY` setting was kept.
+5. The acceptance tests run on the rule values before the A6 rows; with them the observed N ≥ 7 from 1976 would be one lower (2010-02-27 08:25).
+
+### Events of Mw ≥ 6 that changed (60, 55 in the domain; `review/mw6_changed_2026-11-13d.csv`)
+
+Before 1904: 1. 1904–1963: 23. 1964–1975: 18. From 1976: 18. Counts at Mw ≥ 6: 999 → 997 (domain 826 → 826); at Mw ≥ 7: 195 → 192 (domain 165 → 163).
+
+| group | n | change |
+|---|---|---|
+| converted Centennial → ISC-GEM direct | 26 | mean −0.13, −1.4 to +0.6 |
+| ISC-GEM, ComCat copy → v13 table | 11 | −0.1 to +0.3 |
+| Ruiz and Madariaga → GCMT (from 1976) | 10 | −0.3 to +0.1 |
+| A6 rows | 7 | see below |
+| converted or GCMT → GUC MW | 3 | −0.5, +0.4, +0.6 |
+| converted, relation refitted | 3 | −0.1 |
+
+Those at Mw ≥ 7 before or after:
+
+| date | depth | before | after |
+|---|---|---|---|
+| 1543 | | 7.4 Cabello | 7.7 A6 |
+| 1916-06-21 (outside) | | 7.8 Abe mB | 7.1 ISC-GEM direct |
+| 1949-04-20 | 58 | 7.0 Abe mB | 7.1 A6 |
+| 1950-08-14 (outside) | 610 | 7.5 Abe mB | 7.1 ISC-GEM direct |
+| 1957-11-29 | 159 | 7.8 Abe mB | 7.7 ISC-GEM direct |
+| 1959-06-14 | 109 | 7.9 Abe mB | 7.2 A6 |
+| 1960-06-06 Aysén | | 7.2 Pacheco and Sykes | 7.7 A6 |
+| 1960-11-01 | 20 | 6.8 Abe Ms | 7.4 ISC-GEM direct |
+| 1962-02-14 | 41 | 7.7 Abe mB | 7.1 ISC-GEM direct |
+| 1962-08-03 | 113 | 7.5 Abe mB | 6.8 ISC-GEM direct |
+| 1965-02-23 | 42 | 6.5 Abe Ms | 7.0 ISC-GEM direct |
+| 1967-03-13 | 23 | 7.1 Berkeley | 5.7 ISC-GEM direct |
+| 1970-06-15 (outside) | 15 | 7.0 USCGS Ms | 6.8 ISC-GEM direct |
+| 1971-05-08 | 157 | 6.0 ISC-GEM proxy | 7.2 A6 |
+| 1974-01-02 | 122 | 7.3 Abe mB | 7.0 ISC-GEM direct |
+| 1974-08-18 | 25 | 7.1 NEIS Ms | 6.9 ISC-GEM direct |
+| 1981-10-16 Papudo | 24 | 7.2 R&M | 7.1 GCMT |
+| 1983-10-04 Copiapó | 29 | 7.7 R&M | 7.6 GCMT |
+| 1985-03-03 Valparaíso | 50 | 8.0 R&M | 7.9 GCMT |
+| 1987-03-05 Antofagasta | 40 | 7.6 R&M | 7.5 GCMT |
+| 2001-04-09 Papudo | 11 | 7.0 R&M | 6.7 GCMT |
+| 2007-11-14 Tocopilla | 42 | 7.8 R&M | 7.7 GCMT |
+| 2010-02-27 08:25 | 47 | 7.0 CSN ML | 6.3 A6 |
+| 2012-03-25 Constitución | 50 | 7.2 R&M | 7.1 GCMT |
+| 2014-04-01 Iquique | 30 | 8.2 R&M | 8.1 GCMT |
+
+Other A6 row: 2011-01-07 04:55 (307 km) 6.6 → 5.7. Location: 1878-01-23 longitude −77.0 → −70.3; 1934-03-01 depth unknown → 120 ± 20 km. No other epicentre or depth changed.
+
+### Acceptance tests 1 to 5, before and after (`mw_tests`, `mw_sensitivity`)
+
+| test | 2026-11-13c | 2026-11-13d |
+|---|---|---|
+| 1 b against the floor | 4 of 4 (b range 0.12 / 0.14 / 0.08 / 0.08) | 4 of 4 (0.11 / 0.14 / 0.08 / 0.08) |
+| 2 rates in time | pass (departure 13.6 % at 5.5, 14.4 % at 5.0) | pass (13.3 %, 13.9 %) |
+| 3 large events | 31 of 32; N ≥ 7 from 5.0: 37.3 / 44 | 31 of 32; 38.5 / 43 |
+| 4 against the regional Mw | 16 of 20 | 15 of 20 |
+| 5 histogram | 4 of 4 (largest \|z\| 2.1) | 4 of 4 (1.8) |
+
+Test 3 misses the same case (shallow crustal, declustered, N ≥ 7 from 5.3: 0.6 predicted, band 1.1–10.2). Test 4: the four mb bins fail as before (ISC mb +0.11 / +0.13, NEIC mb +0.17 / +0.14); new miss SJA ML at 5.0–5.25, +0.101 against the limit 0.1. `locate_check.py`: tables and figures rewritten for `2026-11-13d`, not compared line by line with `2026-11-13b` (the last run it was made for).
+
+### Events of Mw ≥ 7 (192, 163 in the domain; all in `review/mw7_2026-11-13d.csv`)
+
+Before 1904 (61, 52 in the domain): 52 Cabello et al., 8 Ruiz and Madariaga (1730, 1751, 1819, 1837, 1859, 1868, 1877, 1880), 1 A6 (1543). From 1904 (131, 111 in the domain): GCMT 41, converted Centennial 38 (Abe mB 30, Ms 8), Centennial Mw of Pacheco and Sykes 19, Ruiz and Madariaga 18, ISC-GEM direct 8, A6 4, ISC-GEM proxy 2, converted ISC MS 1 (2001-06-23 23:10, aftershock of Arequipa, outside the domain).
+
+| date | Mw | source | depth (km) | in the domain |
+|---|---|---|---|---|
+| 1904-03-19 06:27 | 7.0 | Centennial AN2 Ms 7, converted |  | yes |
+| 1906-08-17 00:40 | 8.2 | Ruiz and Madariaga (2018) |  | yes |
+| 1906-08-30 02:38 | 7.1 | Centennial P&S Mw |  | yes |
+| 1906-12-26 05:53 | 7.0 | Centennial AN2 Ms 7, converted |  | yes |
+| 1909-05-17 08:02 | 7.1 | Centennial ABE1 mB 7, converted |  | yes |
+| 1909-06-08 05:46 | 7.0 | Ruiz and Madariaga (2018) |  | yes |
+| 1910-09-06 20:03 | 7.1 | Centennial P&S Mw |  | yes |
+| 1910-10-04 23:00 | 7.5 | Centennial ABE1 mB 7.2, converted |  | yes |
+| 1911-09-15 13:09 | 7.1 | Centennial P&S Mw |  | yes |
+| 1912-12-07 22:46 | 7.6 | Centennial ABE1 mB 7.3, converted |  | no |
+| 1913-07-28 05:39 | 7.0 | Centennial AN1 Ms 7, converted |  | yes |
+| 1913-08-06 22:14 | 7.8 | Centennial P&S Mw |  | no |
+| 1914-01-30 03:36 | 7.5 | Centennial P&S Mw |  | yes |
+| 1914-02-26 04:58 | 7.5 | Centennial ABE1 mB 7.2, converted |  | no |
+| 1915-06-06 21:29 | 7.6 | Centennial ABE1 mB 7.3, converted | 160 | yes |
+| 1916-06-21 21:32 | 7.1 | ISC-GEM direct |  | no |
+| 1918-05-20 17:55 | 7.8 | Centennial ABE1 mB 7.6, converted |  | yes |
+| 1918-12-04 11:47 | 7.8 | Ruiz and Madariaga (2018) |  | yes |
+| 1919-03-02 03:26 | 7.2 | Centennial P&S Mw |  | yes |
+| 1919-03-02 11:45 | 7.1 | Centennial P&S Mw |  | yes |
+| 1920-08-20 16:15 | 7.0 | ISC-GEM proxy |  | yes |
+| 1920-12-10 04:25 | 7.2 | Centennial P&S Mw |  | yes |
+| 1921-10-20 06:03 | 7.5 | Centennial ABE1 mB 7.2, converted | 114 | yes |
+| 1922-01-06 14:10 | 7.1 | Centennial P&S Mw |  | yes |
+| 1922-03-28 03:58 | 7.3 | Centennial ABE1 mB 7.1, converted | 136 | yes |
+| 1922-10-11 14:50 | 7.2 | Centennial P&S Mw |  | no |
+| 1922-11-07 23:00 | 7.1 | Centennial ABE1 Ms 7.1, converted |  | yes |
+| 1922-11-11 04:32 | 8.5 | Ruiz and Madariaga (2018) |  | yes |
+| 1925-05-15 11:57 | 7.1 | Centennial ABE1 Ms 7.1, converted |  | yes |
+| 1926-04-28 11:13 | 7.3 | Centennial ABE1 mB 7.1, converted |  | yes |
+| 1927-04-14 06:23 | 7.2 | Ruiz and Madariaga (2018) |  | yes |
+| 1927-11-21 23:12 | 7.1 | Centennial P&S Mw |  | yes |
+| 1927-11-26 12:54 | 7.1 | Centennial ABE1 mB 7, converted | 179 | yes |
+| 1928-12-01 04:06 | 7.7 | Ruiz and Madariaga (2018) |  | yes |
+| 1928-12-02 04:20 | 7.2 | ISC-GEM proxy |  | yes |
+| 1929-10-19 10:12 | 7.8 | Centennial ABE1 mB 7.4, converted |  | yes |
+| 1931-03-18 08:02 | 7.1 | Centennial ABE1 Ms 7.1, converted |  | yes |
+| 1933-02-23 08:09 | 7.2 | Centennial P&S Mw |  | yes |
+| 1933-10-25 23:28 | 7.1 | Centennial ABE1 mB 7, converted | 206 | yes |
+| 1934-03-01 21:45 | 7.3 | Centennial ABE1 mB 7.3, converted | 120 | yes |
+| 1936-07-13 11:12 | 7.0 | Ruiz and Madariaga (2018) |  | yes |
+| 1939-01-25 03:32 | 7.8 | Ruiz and Madariaga (2018) |  | yes |
+| 1939-04-18 06:22 | 7.3 | Centennial ABE1 mB 7.3, converted |  | yes |
+| 1940-10-04 07:54 | 7.0 | Centennial ABE1 mB 7.1, converted | 24 | yes |
+| 1940-10-11 18:41 | 7.0 | Centennial ABE1 Ms 7, converted |  | yes |
+| 1941-04-03 15:21 | 7.5 | Centennial ABE1 mB 7.2, converted | 150 | yes |
+| 1943-03-14 18:38 | 7.3 | Centennial ABE1 mB 7.1, converted | 120 | yes |
+| 1943-04-06 16:07 | 7.9 | Ruiz and Madariaga (2018) |  | yes |
+| 1943-12-01 10:34 | 7.3 | Centennial ABE1 mB 7.1, converted | 114 | yes |
+| 1944-01-15 23:49 | 7.1 | Centennial P&S Mw | 28 | yes |
+| 1945-09-13 11:17 | 7.1 | Centennial ABE1 mB 7, converted | 92 | yes |
+| 1946-08-02 19:18 | 7.1 | Centennial ABE1 Ms 7.1, converted | 39 | yes |
+| 1946-08-28 22:28 | 7.3 | Centennial ABE1 mB 7.1, converted | 574 | no |
+| 1947-01-29 08:17 | 7.1 | Centennial ABE1 mB 7, converted | 566 | no |
+| 1948-05-11 08:55 | 7.5 | Centennial ABE1 mB 7.4, converted | 59 | yes |
+| 1948-07-20 11:02 | 7.0 | Centennial ABE1 mB 7.1, converted | 30 | no |
+| 1949-04-20 03:29 | 7.1 | A6: Astiz and Kanamori (1986) | 58 | yes |
+| 1949-04-25 13:55 | 7.5 | Centennial ABE1 mB 7.2, converted | 101 | yes |
+| 1949-12-17 06:53 | 7.8 | Centennial P&S Mw |  | yes |
+| 1949-12-17 15:07 | 7.8 | Centennial P&S Mw |  | yes |
+| 1950-08-14 22:51 | 7.1 | ISC-GEM direct | 610 | no |
+| 1950-12-09 21:38 | 8.0 | Ruiz and Madariaga (2018) | 114 | yes |
+| 1952-09-21 02:30 | 7.3 | Centennial ABE1 mB 7.1, converted | 268 | yes |
+| 1953-05-06 17:16 | 7.5 | Centennial P&S Mw | 66 | yes |
+| 1953-12-07 02:05 | 7.5 | Centennial ABE1 mB 7.2, converted | 106 | yes |
+| 1957-11-29 22:19 | 7.7 | ISC-GEM direct | 159 | yes |
+| 1958-01-15 19:14 | 7.1 | Centennial ABE1 mB 7, converted | 69 | no |
+| 1959-06-14 00:11 | 7.2 | A6: Abe (1982) | 109 | yes |
+| 1960-01-13 15:40 | 7.9 | Centennial ABE1 mB 7.5, converted | 130 | no |
+| 1960-05-21 10:02 | 8.1 | Ruiz and Madariaga (2018) | 12 | yes |
+| 1960-05-22 18:56 | 7.8 | Ruiz and Madariaga (2018) |  | yes |
+| 1960-05-22 19:11 | 9.5 | Ruiz and Madariaga (2018) | 25 | yes |
+| 1960-06-06 05:55 | 7.7 | A6: Kanamori and Rivera (2017) |  | yes |
+| 1960-06-20 02:01 | 7.0 | Centennial P&S Mw | 25 | yes |
+| 1960-06-20 12:59 | 7.1 | Centennial P&S Mw | 25 | yes |
+| 1960-11-01 08:45 | 7.4 | ISC-GEM direct | 20 | yes |
+| 1960-12-02 09:10 | 7.2 | Centennial P&S Mw | 14 | yes |
+| 1962-02-14 06:36 | 7.1 | ISC-GEM direct | 41 | yes |
+| 1962-12-08 21:27 | 7.2 | ISC-GEM direct | 589 | no |
+| 1965-02-23 22:11 | 7.0 | ISC-GEM direct | 42 | yes |
+| 1965-03-28 16:33 | 7.4 | Ruiz and Madariaga (2018) | 68 | yes |
+| 1966-12-28 08:18 | 7.7 | Ruiz and Madariaga (2018) | 20 | yes |
+| 1967-12-21 02:25 | 7.4 | Ruiz and Madariaga (2018) | 45 | yes |
+| 1967-12-27 09:17 | 7.1 | Centennial ABE1 mB 7, converted | 116 | yes |
+| 1971-05-08 00:49 | 7.2 | A6: Astiz and Kanamori (1986) | 157 | yes |
+| 1971-06-17 21:00 | 7.5 | Centennial ABE1 mB 7.2, converted | 90 | yes |
+| 1971-07-09 03:03 | 7.8 | Ruiz and Madariaga (2018) | 61 | yes |
+| 1974-01-02 10:42 | 7.0 | ISC-GEM direct | 122 | yes |
+| 1975-05-10 14:27 | 7.7 | Ruiz and Madariaga (2018) | 24 | yes |
+| 1976-11-30 00:41 | 7.5 | GCMT | 104 | yes |
+| 1977-11-23 09:26 | 7.5 | GCMT | 21 | yes |
+| 1979-02-16 10:08 | 7.1 | GCMT | 54 | no |
+| 1981-10-16 03:25 | 7.1 | GCMT | 24 | yes |
+| 1983-10-04 18:52 | 7.6 | GCMT | 29 | yes |
+| 1985-03-03 22:47 | 7.9 | GCMT | 50 | yes |
+| 1985-03-04 00:32 | 7.4 | GCMT | 41 | yes |
+| 1985-04-09 01:56 | 7.1 | GCMT | 38 | yes |
+| 1987-03-05 09:17 | 7.5 | GCMT | 40 | yes |
+| 1987-08-08 15:48 | 7.2 | GCMT | 70 | yes |
+| 1988-01-19 07:30 | 7.0 | GCMT | 28 | yes |
+| 1988-02-05 14:01 | 7.2 | GCMT | 35 | yes |
+| 1988-04-12 23:19 | 7.1 | GCMT | 32 | yes |
+| 1991-06-23 21:22 | 7.2 | GCMT | 564 | no |
+| 1993-05-24 23:51 | 7.0 | GCMT | 220 | yes |
+| 1995-07-30 05:11 | 8.0 | GCMT | 33 | yes |
+| 1997-01-23 02:15 | 7.1 | GCMT | 271 | yes |
+| 1997-10-15 01:03 | 7.1 | GCMT | 60 | yes |
+| 1998-01-30 12:16 | 7.0 | GCMT | 42 | yes |
+| 2000-05-12 18:43 | 7.2 | GCMT | 225 | yes |
+| 2001-06-23 20:33 | 8.4 | GCMT | 32 | no |
+| 2001-06-23 23:10 | 7.1 | ISC MS 6.97, converted | 25 | no |
+| 2001-07-07 09:38 | 7.6 | GCMT | 25 | yes |
+| 2005-06-13 22:44 | 7.8 | GCMT | 105 | yes |
+| 2007-11-14 15:40 | 7.7 | GCMT | 42 | yes |
+| 2010-02-27 06:34 | 8.8 | GCMT | 28 | yes |
+| 2010-02-27 08:01 | 7.4 | GCMT | 42 | yes |
+| 2010-03-11 14:55 | 7.0 | GCMT | 23 | yes |
+| 2011-01-01 09:56 | 7.0 | GCMT | 583 | no |
+| 2011-01-02 20:20 | 7.1 | GCMT | 3 | yes |
+| 2012-03-25 22:37 | 7.1 | GCMT | 50 | yes |
+| 2013-09-25 16:42 | 7.0 | GCMT | 63 | no |
+| 2014-04-01 23:46 | 8.1 | GCMT | 30 | yes |
+| 2014-04-01 23:58 | 7.0 | GCMT | 19 | yes |
+| 2014-04-03 02:43 | 7.7 | GCMT | 30 | yes |
+| 2015-09-16 22:54 | 8.3 | GCMT | 25 | yes |
+| 2015-09-16 23:18 | 7.1 | GCMT | 5 | yes |
+| 2016-12-25 14:22 | 7.6 | GCMT | 35 | yes |
+| 2018-01-14 09:18 | 7.1 | GCMT | 40 | no |
+| 2024-06-28 05:36 | 7.1 | GCMT | 20 | no |
+| 2024-07-19 01:50 | 7.3 | GCMT | 124 | yes |
+| 2025-05-02 12:58 | 7.5 | GCMT |  | yes |
+
+- **Not updated:** `catalog/MAGNITUDES.md`, `RULES_LOCATION_MAGNITUDE.md`, `PREFERENCES.md`, `REPORT_A3-A5.md`, `A6/REPORT.md`, `paper/CATALOG_SECTION_draft.md` and `explore/X4` still describe earlier runs.
+- **Proposed lines for DECISIONS:** "ISC-GEM magnitudes are read from the frozen ISC-GEM table, not from its copy in ComCat (13 Nov)." "1967-03-13 (5.7, ISC-GEM direct) and Papudo 2001 (6.7, GCMT) follow the general rule; Santiago 1647 is in-slab (Ruiz and Madariaga 2018, p. 16) (13 Nov)", replacing the two open items of the A6 line. Lines for points 2 and 3 above once decided.
+- Commands (already run; to repeat, from `catalog/`): `python magnitude.py`, `python locate.py`, `python magnitude_check.py`, `python locate_check.py`; `pytest` from `psha_chile8/`. To refresh the A6 tables: set `RUN = "2026-11-13d"` in `a6.py` and run it.
+- Suggested commit (from the repo root):
+  `git add psha_chile8/DATA.md psha_chile8/WORKLOG.md psha_chile8/catalog/magnitude.py psha_chile8/catalog/magnitude_check.py psha_chile8/catalog/locate.py psha_chile8/catalog/overrides_A6.csv psha_chile8/catalog/tests psha_chile8/catalog/merged psha_chile8/catalog/figs`
+  `git commit -m "Decisions of 13 Nov applied: moment-based magnitudes first before 1976, measured Mw before Ruiz and Madariaga from 1976, GUC MW in the reference, GCMT mechanisms first, A6 rows accepted (run 2026-11-13d)"`
+
+## 2026-11-13: A7, tectonic classification with class weights; step 0 rerun (runs 2026-11-13e and 2026-11-13f) (Claude Code)
+
+Brief `tasks/A7_classification.md`. Everything was run in full. 146 tests pass (`pytest` from `psha_chile8/`). Report: `catalog/CLASSIFICATION.md`. PLAN: A7 box left for Pablo.
+
+### Step 0: GUC MW last, fitting floor (run `2026-11-13e`)
+
+- **`magnitude.py`:** `GUC MW` is out of `WFAM` and is the new setting `LAST`: its own offset to NEIC Mww is still measured (+0.06, sd 0.20, 125 pairs), but it does not enter the GCMT line or the relations, and as an event Mw it is taken only where no other measured moment magnitude exists, GCMT included (107 events, 153 before). The 0.3 cross-check stays. New setting `FIT_MIN = 4.0`: relations are fitted on pairs with reference Mw ≥ 4.0. The offsets already used pairs from 4.5 on (`BINS`), so the floor changes nothing there. New table `relations_floor_2026-11-13e.csv`. `locate.py`: only `RUN` and `MW`.
+- **Mw ≥ 4.5 in the domain:** 14 279 (`2026-11-13c` 14 234, `2026-11-13d` 14 054); all events 15 687 (15 636, 15 448). 47 681 events changed by 0.1 against `d`, 47 495 of them upward and nearly all below 4.5: the CSN ML line is back where it was before GUC MW entered the reference.
+- **The floor itself does almost nothing** (converted Mw at native 4.5 / 5.0 / 5.5, with and without it): CSN ML shallow 4.546 / 5.073 / 5.600 against 4.542 / 5.072 / 5.602; ISC mb shallow 4.397 / 5.044 / 5.691 against 4.390 / 5.042 / 5.695; ISC mb deep, ISC MS, SJA ML within 0.006; the NEIC surface-wave scales have no pair below 4.0. One change of form: NEIC mb is a single hinge with the floor (4.363 / 4.997 / 5.632) and split by depth without it (deep 4.416 / 5.009 / 5.601, shallow 4.305 / 4.984 / 5.663). The effect of step 0 is the removal of GUC MW from the fit, not the floor.
+- **Five tests** (`d` → `e`): 1: 4 of 4 → 4 of 4 (b range 0.12 / 0.14 / 0.08 / 0.08). 2: pass → pass (departure 14.1 % at 5.5 and 5.0). **3: 31 of 32 → 30 of 32**: new miss "all events, full, fit from 5.0, N 6.5–7": 87.8 predicted against the band 88.6–130.4 (observed 108); N ≥ 7 from 5.0 is 36.9 / 43. The old miss (shallow crustal, declustered) stays. 4: 15 of 20 → 16 of 20 (SJA ML back inside; the four mb bins fail as before). 5: 4 of 4 (largest |z| 2.2).
+- **Events of Mw ≥ 6 that changed** (8, `review/mw6_changed_2026-11-13e.csv`): 2010-05-05 15:24 6.0 (GUC MW) → 5.4 (GCMT); seven converted values by ± 0.1 from the refitted relations (1977-11-23 6.5 → 6.6, 2010-02-27 07:37 6.4 → 6.5, 2010-02-27 10:30 6.2 → 6.1, 2010-02-27 17:24 6.3 → 6.2, 2025-05-02 13:09 6.0 → 5.9, and outside the domain 2001-06-23 23:10 7.1 → 7.0, 2025-07-04 6.3 → 6.2). Mw ≥ 7 in the domain: 163, unchanged.
+- Not updated: `catalog/MAGNITUDES.md`, `RULES_LOCATION_MAGNITUDE.md`, the module text at the top of `magnitude.py`, `locate_check.py` tables (not rerun), `a6.py` tables.
+
+### Classification (run `2026-11-13f`)
+
+- **Code:** `catalog/classify.py` (geometry, weights, sub-classes, assigned depths; settings at the top), `catalog/classify_check.py` (the seven checks, five figures), `catalog/tests/test_classify.py` (20 tests: the eleven of the brief and nine more). `palette.py`: `CLASS` with one display name and colour per class. Nothing imported from `explore/`.
+- **Counts (Mw ≥ 4.5 in the domain, summed weights):** interface 3 671.8 (142 of it Antarctic), in-slab 8 548.8 (shallow 2 106.4, intermediate 5 537.4, Jujuy nest 905), crustal 1 545.4 (forearc 937.2, arc 221.6, backarc 309.6, Patagonia 77), outer rise 509, unclassified 4. At Mw ≥ 7 (163): 62.7 / 71.6 / 20.7 / 8.
+- **Split events: 4 445 of 14 279** (3 153 near the band, 1 292 without depth); 772 of 1 943 at Mw ≥ 5.5; 67 of 163 at Mw ≥ 7. This is not "most events at weight 1" for the shallow slab: 58 % of the events with a depth there are split.
+- **Band measurement: `unc` holds as W.** Thrusts on the contact with calibrated or depth-phase depths (257): median 3.4 km below the surface, robust sd 6.6 km, 86 % within `unc` (median 12 km), 98 % within `unc` + σ. All depths (979): +2.1 km, sd 8.0 km, 78 % and 94 %. Other mechanisms: median 10 km below, 42 % inside the band.
+- **Why so many are split.** An event on the surface has an interface weight of 2Φ(W/σ) − 1; with W ≈ 12 km and σ = 10 km this is 0.77, under the 0.8 line. 53 % of the events over the shallow slab have W < 1.28 σ. The σ of A4 (floors of 5 and 10 km) is larger than the scatter of the thrust events about the surface (6.6–8.0 km, Slab2's own error included). Maule 2010 is 1.4 km from the surface and gets 0.79. Not tuned; variants: hardening 0.7 → 3 111 split, W = 15 km → 3 117, W = 20 km → 2 460.
+- **Sensitivity of the interface total:** W 10 / 15 / 20 km −12 / +23 / +41 %; hardening 0.7 / 0.9 / none +6.6 / −0.2 / −0.5 %; interface to 60 km +4.7 %; mechanisms not used +4.1 % (+11.5 % at Mw ≥ 5.5); events without depth left out −14 % (first written as −17 %, a number of the run before the depth error was cut at the ground; corrected the same day, as the row in CLASSIFICATION.md section 7).
+- **Jujuy nest:** the circle encloses the cluster (95 % within 0.65°) and nothing is below 260 km, but the upper limit of 170 km cuts it: 149 events (3 of Mw ≥ 5.5) at 150–170 km inside the circle are intermediate in-slab. Limits not changed.
+- **Slab2 check:** `dep` is the surface (9.4 km on the trench line, not about 5; deepens landward; thrusts sit on it), `thk` the thickness (median 79 km), `unc` 10 km above 20 km, 12.6 km at 20–50 km, 25–33 km deeper. The USGS data release text was not opened.
+
+### Done differently from the brief, or decided without asking
+
+1. **Depth error cut at the ground** (normal renormalised to depth ≥ 0). Without it shallow events over a shallow slab were half crustal from probability at negative depths (interface total 3 554 → 3 672).
+2. **Mechanisms "both ways" and "only to exclude" are the same rule under R3 as written** (thrust and no mechanism allow the same classes). The baseline excludes only. I added a variant that is not in the brief: a thrust on the contact is interface with weight 1 (interface +10 %, +26 % at Mw ≥ 5.5).
+3. **Antarctic interface takes every event that meets the position rule with weight 1** (142; 97 without depth), which would otherwise be crustal Patagonia (77 left). No slab model there to weigh them.
+4. "Not deeper than 50 km" is read on the catalogue depth. Rejected depths are those of the source records of A4, one per source. Shares from events east of the trench with a slab, from 1976, Mw ≥ 4.5. In-slab assigned depth at 0.30 of the thickness below the top (psha_chile6–7).
+5. The classified catalogue has its own date (`2026-11-13f`) so that the `2026-11-13e` files of `locate.py` are not overwritten.
+6. Added, not asked: `review/class_thrust_not_interface_` (thrusts of Mw ≥ 6.5 with interface weight under 0.5).
+
+### For Pablo
+
+- **Wrong against the literature (rules alone):** Copiapó 1918 (outer rise: epicentre west of the trench), La Ligua 1971 (in-slab: slab top 55.6 km), Valparaíso 1985 (in-slab: 49.6 ± 5 km, 21 km below the surface). Split: Concepción 1960, Valdivia 1960, Taltal 1966, Copiapó 1983, Maule 2010, Pichilemu 2010 14:55, Arauco 2011, Iquique 2014 with its foreshock and aftershock, Chiloé 2016, Valparaíso 2017. Right 30, no depth 18. All carry the literature class.
+- **Mw ≥ 7 not at weight 1 (67):** 54 without depth (36 before 1904, 18 of 1904–1940: 1904-03-19, 1906-08-30, 1906-12-26, 1909-06-08, 1910-09-06, 1914-01-30, 1919-03-02 03:26, 1920-08-20, 1920-12-10, 1925-05-15, 1926-04-28, 1928-12-02, 1929-10-19, 1931-03-18, 1933-02-23, 1936-07-13, 1939-04-18, 1940-10-11) and 13 near the band (1940-10-04, 1946-08-02, 1953-05-06, 1960-06-20 twice, 1960-12-02, 1962-02-14, 1965-02-23, 1988-01-19, 1988-04-12, 2001-07-07, 2014-04-01 23:58, 2015-09-16 23:18). Table with weights in CLASSIFICATION.md section 6.
+- **Thrusts classified crustal with weight 1:** Illapel aftershocks of 2015-09-17 04:10 and 2015-09-21, and 2007-11-15, on Potin depths of 0–2.4 km (2015-09-16 23:18 Mw 7.1 and 2015-09-17 03:55 are 0.75–0.78 crustal). Fix, if any, is a cited class hint.
+- **Six historical events (1687–1870, Mw 7.0–7.5) are in-slab with weight 1** because Cabello's depths for them are 70 km or more. A historical depth is hardly a "deep default of an agency"; say if Cabello's depths should not count for this rule.
+- **Bins that borrowed:** slab top 50–100 km and > 100 km at 38–46° S, Mw ≥ 5.5 (0 and 7 events; both take the lower magnitude range).
+- **To decide:** (a) accept a third of the catalogue split, or change one of hardening, W, or the depth σ of A4 (the measurement supports a σ below 10 km offshore); (b) the Antarctic interface rule against crustal Patagonia; (c) the nest's upper limit (170 or 150 km); (d) whether a thrust on the contact should add to the interface.
+
+### Proposed lines for DECISIONS
+
+- Classification: "Run 2026-11-13f. The Slab2 depth uncertainty is confirmed as the interface band: 86 % of thrust events with calibrated or depth-phase depths lie within it, 98 % within it plus their σ (13 Nov)."
+- Classification: "The depth error is a normal distribution cut at the ground surface (13 Nov)."
+- Classification: "Mechanisms only exclude: a mechanism that is not a thrust on the plate contact rules the interface out; a thrust adds nothing beyond what the depth gives (13 Nov)." (or the opposite, point (d)).
+- Magnitudes: replace "Conversion relations are fitted only on pairs with a reference Mw ≥ 4.0" by the same sentence plus "(run 2026-11-13e; the floor moves no relation by more than 0.01 at 4.5–5.5)".
+- LEARNINGS, Catalog: "A class weight from depth and σ cannot reach 0.8 for an event on the slab surface unless the band is at least 1.28 σ wide; with σ floors of 10 km and a band of 12 km a third of the catalogue is split (A7)."
+
+### Commands (already run; to repeat, from `catalog/`)
+
+`python magnitude.py`, `python locate.py`, `python magnitude_check.py` (step 0, minutes); `python classify.py` (15 s), `python classify_check.py` (a few minutes; not timed); `pytest` from `psha_chile8/`.
+
+### Suggested commit (from the repo root)
+
+`git add psha_chile8/WORKLOG.md psha_chile8/DATA.md psha_chile8/FIGURES.md psha_chile8/palette.py psha_chile8/catalog/magnitude.py psha_chile8/catalog/locate.py psha_chile8/catalog/classify.py psha_chile8/catalog/classify_check.py psha_chile8/catalog/CLASSIFICATION.md psha_chile8/catalog/tests psha_chile8/catalog/merged psha_chile8/catalog/figs`
+`git commit -m "A7: tectonic classes as weights (run 2026-11-13f); GUC MW last and fitting floor at Mw 4.0 (run 2026-11-13e)"`
+
+## 2026-11-13: A7 follow-up, the depth σ against the scatter of the thrust events (Claude Code)
+
+Asked by Pablo after the A7 report ("revisit depth σ"). Analysis only: `locate.py`, the catalogue and the classes of run `2026-11-13f` are unchanged. New in `classify_check.py`: `sigma_check()`, tables `merged/class_sigma_2026-11-13f.csv` and `class_sigma_variants_2026-11-13f.csv`; `classify_check.py` rerun, its other tables identical. Report: `catalog/CLASSIFICATION.md` section 11.
+
+- **Measured** (scatter of the thrusts on the contact about the Slab2 surface, an upper bound of σ): offshore 8.9 km against the σ of 10 km; ISC-EHB L1 5.6 km offshore and onshore (σ 10 and 5); Potin offshore 7.1 km (σ 10.4, its own tabled value); GCCEL offshore 7.8 km; ISC-EHB L2 9.3 km; ISC 11.7 km offshore and 10.6 onshore (σ 10 and 6.8); onshore all sources 6.8 km (σ 5). CSN web depths are 7–11 km below the surface, GCCEL offshore 6 km below: a bias, not a σ.
+- **Effect on the classes** (Mw ≥ 4.5 in the domain): no offshore floor → 3 695 split (4 445 now), interface 3 829 (3 672); offshore floor 7.5 km → 3 962; σ set to the measured scatter per source → 3 729. With hardening 0.7 as well: 2 722–2 860. Thrusts on the contact at interface weight 1: 249 now, 407 without the offshore floor, but those in another class with weight 1 rise from 65 to 83.
+- **Reading:** σ explains about a sixth of the split events. The rest comes from band edges at ± 12 km lying inside the scatter of the interface events (7–9 km): an event within 0.84 σ of an edge is split whatever σ is.
+- **Not changed, conflicts with DECISIONS** ("σ at least 5 km, 10 km offshore, 20 km before 1964", 13 Nov). Options in section 11; I would drop the offshore floor for ISC-EHB L1 and GCCEL depths only, and decide the hardening separately.
+- **Proposed line for DECISIONS (if (b) is taken):** "Depth σ: the 10 km offshore floor does not apply to ISC-EHB L1 and GCCEL depths, whose thrust events scatter 5.6–7.8 km about the Slab2 surface offshore (A7, 13 Nov)."
+- **Proposed line for LEARNINGS:** "Reducing the depth σ does not remove split classes: a hard band inside a continuous depth distribution splits every event within 0.84 σ of its edges (A7)."
+- Commands (already run): `python classify_check.py` from `catalog/`. Commit: add `psha_chile8/catalog/classify_check.py`, `catalog/CLASSIFICATION.md`, `catalog/merged`, `WORKLOG.md` to the A7 commit above.
+
+## 2026-11-13: depth σ over the shallow slab from the thrust scatter; reruns 2026-11-13g (locate) and 2026-11-13h (classes) (Claude Code)
+
+Asked by Pablo. 146 tests pass. Report: `catalog/CLASSIFICATION.md` section 12 (sections 1–11 still describe run `f`; a note at the top says so).
+
+- **`locate.py`:** `SIG_OFF` removed. New settings `SIG_TOP = 50`, `SIG_BEST = ["gccel", "ehb1"]`, `SIG_SLAB = (6.6, 8.5)`: where the Slab2 top at the epicentre is ≤ 50 km, σ = 6.6 km for GCCEL and ISC-EHB L1 depths and 8.5 km for the others, in place of the tabled value, onshore and offshore; elsewhere the tabled σ, at least 5 km; 20 km before 1964. The Slab2 top comes from `classify.slab_at` (imported inside the function). Flag `sigma_offshore_floor` → `sigma_slab_scatter`. The two values are settings, not recomputed in the run; `classify_check.py` prints the measured scatter every time (6.58 and 8.48 km before and after).
+- **Read as asked, with one consequence to check:** "events over the shallow slab" includes onshore events, so 2 222 events (Mw ≥ 4.5) went from about 5 km to 8.5 or 6.6 km, while 3 518 offshore went down from 10 km.
+- **`classify.py`:** only `RUN = "2026-11-13h"`, `CAT = "2026-11-13g"`. Band width and 0.8 untouched. `classify_check.py`: the σ variants renamed (tabled σ; tabled σ with the old 10 km floor; scatter per source and offshore flag).
+- **Split events:** 4 445 → 3 955 (near the band 3 153 → 2 663; 772 → 710 at Mw ≥ 5.5; 67 → 66 at Mw ≥ 7).
+- **Thrusts on the contact inside the band (762):** interface with weight 1 241 → 374; offshore 5 → 149, onshore 236 → 225; GCCEL and ISC-EHB L1 78 → 142 of 217. 388 are still split.
+- **Rules alone:** Maule 2010 interface 1 (was 0.79); Iquique 2014 split 0.69 / 0.30 / 0.01 (was 0.58 / 0.36 / 0.05); Valparaíso 1985 in-slab 1, unchanged (21 km below the surface, W 12.4 km).
+- **Class totals:** interface 3 671.8 → 3 843.5, in-slab 8 548.8 → 8 448.5, crustal 1 545.4 → 1 474.0, outer rise 509, unclassified 4.
+- **Side effects:** Valparaíso 2017 is now in-slab with weight 1 by the rules (was split); La Ligua 1965, Arauco 1975 and Constitución 2012 are newly split (onshore σ up); 2015-09-16 23:18 Mw 7.1 is now crustal with weight 1 (Potin depth 5 km). Literature events: right 29, wrong 4, split 12, no depth 18.
+- **Correction of the earlier A7 entry:** the sensitivity row "events without depth left out" carried numbers of an earlier pass (interface 3 057.3); the file says 3 157.7 / 7 964.3 / 1 352.0. Fixed in CLASSIFICATION.md section 7.
+- **Not rerun:** `locate_check.py` (its σ-dependent tables are of `2026-11-13d`), `magnitude.py` (reads depths of `2026-11-13b`, unaffected). Not updated: `RULES_LOCATION_MAGNITUDE.md` row D7, `PREFERENCES.md`, `REPORT_A3-A5.md`.
+- **Open for Pablo:** whether the measured σ should apply onshore too. Applied offshore only it would keep the onshore thrusts as they were (236 at weight 1) and give fewer split events; the variant "tabled σ, minimum 5 km" (3 695 split) is the lower bound of that.
+
+### Proposed line for DECISIONS (Catalog, replacing the σ sentence of the depth line of 13 Nov)
+
+"Depth σ: where the Slab2 top at the epicentre is ≤ 50 km, σ is the robust scatter of thrust events on the plate contact about the Slab2 surface, 6.6 km for GCCEL and ISC-EHB L1 depths and 8.5 km for the other sources (979 events, run 2026-11-13f); an upper bound, since it contains the error of Slab2. Elsewhere the σ of the comparisons between catalogues, at least 5 km; 20 km before 1964. The 10 km offshore floor is dropped (13 Nov, run 2026-11-13g)."
+And in Superseded: "Depth σ floor of 10 km offshore (13 Nov) → measured scatter over the shallow slab (13 Nov, A7: the floor left a third of the catalogue split between classes)."
+
+### Commands (already run; to repeat, from `catalog/`)
+
+`python locate.py`, `python classify.py`, `python classify_check.py`; `pytest` from `psha_chile8/`.
+
+### Suggested commit (from the repo root; replaces the A7 commit line above if that is not yet committed)
+
+`git add psha_chile8/WORKLOG.md psha_chile8/DATA.md psha_chile8/FIGURES.md psha_chile8/palette.py psha_chile8/catalog/magnitude.py psha_chile8/catalog/locate.py psha_chile8/catalog/classify.py psha_chile8/catalog/classify_check.py psha_chile8/catalog/CLASSIFICATION.md psha_chile8/catalog/tests psha_chile8/catalog/merged psha_chile8/catalog/figs`
+`git commit -m "A7: tectonic classes as weights (run 2026-11-13h); depth σ over the shallow slab from the scatter of thrust events (run 2026-11-13g); GUC MW last and fitting floor at Mw 4.0 (run 2026-11-13e)"`
+
+## 2026-11-13: σ change rolled back; blind test of the depth rule; mechanisms decide (run 2026-11-13i) (Claude Code)
+
+Asked by Pablo: roll back, look for the simplest way to handle the split events, try alternatives. 146 tests pass. Report: `catalog/CLASSIFICATION.md` section 12.
+
+- **Rolled back:** `locate.py` and `tests/test_locate.py` are as in run `2026-11-13e` (10 km offshore floor back; `git diff` shows only the earlier changes). The 20 files of runs `2026-11-13g` and `h` are deleted and their 15 MANIFEST rows removed; the DATA rows stay, marked withdrawn. The entry above is kept as the record; its DECISIONS line is void.
+- **Alternatives tried** on the 1 270 events over the shallow slab with a depth and a mechanism (974 thrusts on the contact, 296 others), classified without the mechanism: three σ (catalogue, tabled, 6.6 / 8.5 km) × four bands (Slab2 uncertainty, 10, 15, 20 km) × hardening (0.8, none, largest class), and a model fitted on d. New table `class_blind_`, function `blind()` in `classify_check.py`.
+- **Finding:** depth hardly separates the interface. Brier score 0.205 for the rule of run `f`, 0.179 for giving every event the same weight, 0.173 for a 15 km band, 0.152 for the fitted model; the three σ differ by 0.01. The rule gives thrusts an interface weight of 0.68 and other mechanisms 0.40, and under-counts the interface by 20 % (34 % offshore). The σ was never the lever, and the count of split events was the wrong thing to drive down.
+- **Mechanisms against the literature:** 28 of 29 agree (exception: Iquique foreshock 2014-03-16). From 1976 they cover 74–87 % of the events over the shallow slab at Mw ≥ 5.5, 49 % at 5.0–5.5, 4 % below 5.
+- **Decided and applied:** `MECH = "add"` in `classify.py`: a thrust on the plate contact over a slab top ≤ 50 km is interface with weight 1 (959 events); another mechanism rules the interface out; no mechanism: depth and its error as before. Band, σ and 0.8 untouched. This is the variant "not in the brief" of the first A7 entry, now the baseline. It conflicts with the DECISIONS line "thrust on the plate contact: all [classes possible]"; line proposed below.
+- **Result (Mw ≥ 4.5 in the domain):** interface 4 056.0 (3 671.8), in-slab 8 293.4 (8 548.8), crustal 1 416.6 (1 545.4), outer rise 509, unclassified 4. Split 3 785 (4 445); at Mw ≥ 5.5 519 (772), of which 200 near the band (453) and 319 without depth. From 1976 the split share is 13 % at Mw ≥ 5.5 and nil at Mw ≥ 7. Literature events by the rules alone: right 38 (30), split 4, wrong 3, no depth 18; Maule 2010, Iquique 2014 and Valparaíso 1985 are interface with weight 1. Thrusts of Mw ≥ 6.5 not interface: 3 (12).
+- **Not checked:** 58 of the 959 thrusts are more than 20 km from the Slab2 surface (33 Potin depths, 44 of them below it); some may be in-slab thrusts. No distance limit was added.
+- **Open for Pablo:** the band for events without a mechanism. The blind test favours 15 km over the Slab2 uncertainty (summed weight over thrusts 1.00 against 0.80; same below and above Mw 5.5), which would give interface 4 702.9 and 2 817 split events. Caveat: the test events are larger than the events the band is used for. Not changed.
+- Not updated: sections 1–11 of CLASSIFICATION.md (run `f`, said at its top); the figures in `figs/classify/` are redrawn for run `i`.
+
+### Proposed lines for DECISIONS (Classification)
+
+- Replace "The mechanism says which classes are possible (thrust on the plate contact: all; ...)" by: "A mechanism decides between interface and not interface where there is one: a thrust on the plate contact (one nodal plane within 35° of the Slab2 plane, rake 45–135°) over a slab top ≤ 50 km is interface; any other mechanism is not. Depth alone separates the interface poorly (blind test on 1 270 events, A7), and mechanisms agree with the literature class in 28 of 29 events. Events without a mechanism take weights from the depth and its error (13 Nov, run 2026-11-13i)."
+- LEARNINGS, Catalog: "Depth against Slab2 hardly tells interface from non-interface events (Brier 0.20 against 0.18 for a constant weight; A7 blind test). Check a classification rule against mechanisms withheld before tuning its inputs."
+
+### Commands (already run; from `catalog/`)
+
+`python classify.py`, `python classify_check.py`; `pytest` from `psha_chile8/`.
+
+### Suggested commit (from the repo root; replaces the two commit lines above)
+
+`git add psha_chile8/WORKLOG.md psha_chile8/DATA.md psha_chile8/FIGURES.md psha_chile8/palette.py psha_chile8/catalog/magnitude.py psha_chile8/catalog/locate.py psha_chile8/catalog/classify.py psha_chile8/catalog/classify_check.py psha_chile8/catalog/CLASSIFICATION.md psha_chile8/catalog/tests psha_chile8/catalog/merged psha_chile8/catalog/figs`
+`git commit -m "A7: tectonic classes as weights, mechanisms decide where they exist (run 2026-11-13i); GUC MW last and fitting floor at Mw 4.0 (run 2026-11-13e)"`
+
+## 2026-11-13: band of 15 km (run 2026-11-13j) (Claude Code)
+
+Decided by Pablo after the blind test. 147 tests pass. Report: `catalog/CLASSIFICATION.md` section 13.
+
+- **`classify.py`:** `W = 15.0` (was `"unc"`), `RUN = "2026-11-13j"`; nothing else. `classify_check.py`: the Slab2 uncertainty is now a sensitivity variant; sections and band figure draw the 15 km band. One test added (default band).
+- **Mw ≥ 4.5 in the domain:** interface 4 702.9 (run `i` 4 056.0, run `f` 3 671.8), in-slab 7 913.3, crustal 1 149.8 (forearc 541.6), outer rise 509, unclassified 4. Split 2 817 (1 525 near the band, 1 292 without depth); at Mw ≥ 5.5 477 (158 and 319). From 1976 split share 17 % at Mw ≥ 4.5, 11 % at ≥ 5.5, none at ≥ 7.
+- **Literature events and Mw ≥ 7:** as in run `i` (right 38, split 4, wrong 3, no depth 18; 62 events of Mw ≥ 7 not at weight 1, 54 without depth and 8 of 1940–1965).
+- **Sensitivity:** band 10 / Slab2 uncertainty / 20 km moves the interface −21 / −14 / +12 % (−8 / −5 / +5 % at Mw ≥ 5.5). Hardening 0.8 against none is now +3.8 % on the interface: with the wider band more events are rounded up than down. Worth knowing for the fits "with and without split events".
+- **Limit of the evidence:** the 15 km rests on events with mechanisms (mostly Mw ≥ 5); it is applied mainly to smaller events.
+- Runs `f` and `i` stay on disk as the comparison. Sections 1–11 of CLASSIFICATION.md still describe run `f`; a clean rewrite for run `j` is due before A8.
+
+### Proposed lines for DECISIONS (Classification), replacing the band line
+
+- "Interface band around the Slab2 surface: ± 15 km. On the 1 270 events over the shallow slab with a depth and a mechanism, classified without the mechanism, 15 km gives the right interface total and the Slab2 depth uncertainty (median 12 km) 20 % too little (A7 blind test, run 2026-11-13j); 10 and 20 km and the Slab2 uncertainty as sensitivity (13 Nov)."
+- The mechanism line of the entry above stands.
+
+### Commands (already run; from `catalog/`)
+
+`python classify.py`, `python classify_check.py`; `pytest` from `psha_chile8/`.
+
+### Suggested commit (from the repo root; replaces the commit lines above)
+
+`git add psha_chile8/WORKLOG.md psha_chile8/DATA.md psha_chile8/FIGURES.md psha_chile8/palette.py psha_chile8/catalog/magnitude.py psha_chile8/catalog/locate.py psha_chile8/catalog/classify.py psha_chile8/catalog/classify_check.py psha_chile8/catalog/CLASSIFICATION.md psha_chile8/catalog/tests psha_chile8/catalog/merged psha_chile8/catalog/figs`
+`git commit -m "A7: tectonic classes as weights, mechanisms decide where they exist, band 15 km (run 2026-11-13j); GUC MW last and fitting floor at Mw 4.0 (run 2026-11-13e)"`
+
+## 2026-11-13: X5, USGS-style class scores with our depth errors, and what can be validated (Claude Code)
+
+Asked by Pablo after reading Haynie et al. (2026, CatSep) and García et al. (2012). Exploration only: `explore/X5/` (`x5_lib.py`, `x5_models.py`, `x5_check.py`, `tables/`, `REPORT.md`). Nothing under `catalog/` changed except two cards added to `catalog/LITERATURE.md`; run `2026-11-13j` is still the current classification. No tests added (exploration).
+
+- **Papers:** CatSep uses an interface zone of ± 15 km about Slab2 (set by minimising the Brier score on 107 labelled events), a Kagan-angle factor that only lowers the interface score (1 up to 30°, 0.25 from 53°), and does not use the event depth error. García et al. require a thrust-like mechanism and a depth within ± 20 km of the interface together. Neither lets a mechanism decide alone, as run `j` does.
+- **Models compared** on the 5 438 events with a depth over the shallow slab: A run `j`; A2 run `j` with mechanisms only excluding; B CatSep re-implemented (Moho fixed at 40 km); C = B averaged over the event depth error; E = C with a thrust-like mechanism (Kagan ≤ 30°) multiplying the interface odds by 3.3 (measured on best-depth events); D a mixture fitted without labels.
+- **Checks:** 24 literature events: A 22 right (Brier 0.151), E 21 (0.167), C 20 (0.228), B 18 (0.430). Mechanisms withheld: C and E Brier 0.183, summed score 0.98 of the thrust-like events; A 0.196 and 1.06. Thrust-like events more than 20 km from the slab (56): interface score 0.89 in A, 0.32 in E, 0.15 in C. In the literature events the Kagan angle separates interface (4–27°) from the others (31–96°).
+- **Reading:** E is the best compromise and follows USGS practice plus the two steps its authors name as future work. D is not robust. The data on disk cannot validate the classes of small events without mechanism.
+- **Not done:** E is not implemented in `catalog/classify.py`. If Pablo takes it: replace the rules R3–R5 by the E scores, keep R1, R2, R6–R8, new run.
+- **Validation that needs downloads (ask Pablo):** Riedel-Hornig et al. 2017–2021 catalogue (Zenodo), CRUST1.0 Moho, the CatSep code; and a synthetic test that needs nothing.
+- Commands: `python x5_check.py` from `explore/X5/` (2 min).
+- Suggested commit: add `psha_chile8/explore/X5` and `psha_chile8/catalog/LITERATURE.md` to the A7 commit, or `git commit -m "X5: USGS-style class scores with depth errors, checks against literature and mechanisms"`.
+
+## 2026-11-14: X5 rerun, every scoring method through six tests, with the Riedel-Hornig catalogue (Claude Code)
+
+Asked by Pablo. Exploration only: `explore/X5/` (`x5_riedel.py`, `x5_synth.py` new; `x5_check.py` rewritten; `REPORT.md` rewritten; `tables/x5_diagnostics.csv` and five more). Nothing under `catalog/` changed; run `2026-11-13j` is still the current classification. 147 tests as before (none added for the exploration).
+
+- **Download (approved by Pablo):** primary catalogue of Riedel-Hornig et al. (2026), Zenodo 10.5281/zenodo.15284376, 101 MB, md5 verified, in `explore/X5/data/riedel_hornig_2026-11-14/` (not for git). DATA.md row under "Other inputs".
+- **Tests:** (1) 24 literature events; (2) mechanisms hidden, 1 270 events; (3) Riedel-Hornig class and, as a second reference, their depth within −5 to +15 km of Slab2, 306 events of which 210 without mechanism; (4) reliability by score bin; (5) synthetic catalogues with known classes, three scenarios; (6) thrusts far from the slab. Diagnostics: share right, Brier score, summed interface over the true count, AUC, calibration gap.
+- **Ceiling:** on the synthetic catalogues no method classes more than 62–65 % of the events right with our catalogued errors (66–71 % with errors × 0.7).
+- **Ranking:** C (USGS scores averaged over the depth error) and E (C with a thrust-like mechanism multiplying the interface odds by 3.3) are best or equal best on tests 2, 3, 3d and 5; A (current run) is best only on the 24 literature events and gives thrust-like non-interface events a score of 1. B (USGS as published, no depth error) is worst on Brier everywhere. D (fitted mixture) is unstable.
+- **Riedel-Hornig, the new finding:** in their depths the thrust-like events form a layer 4 km wide centred 5 km below Slab2, and other mechanisms sit 17 km below: with good depths the classes separate. Their class takes about ± 5 km of Slab2 as interface and so calls 27 of 58 thrust-like events in-slab. By their class every method of ours gives twice their interface (1.8–2.0), also for the 210 small events without mechanism; by their depths with −5 to +15 km, C and E give 0.97 and 1.00. If their class is right our interface rates at Mw 4.5–5.5 are a factor of two high.
+- **Depths:** over the shallow slab ours agree with theirs within our σ (74 %; Potin −2.0 km, scatter 3.5). Under a deeper slab ISC-EHB and ISC depths are 11–24 km shallower than theirs (Potin −4 km); LEARNINGS already notes their eastern depths run deep.
+- **Open for Pablo:** (a) take E (or C) into `catalog/classify.py` in place of rules R3–R5; (b) where the interface is centred and how wide it is: Slab2 ± 15 km as now, or the thrust layer the local depths show (about 5 km below Slab2); (c) whether the offset of the thrust layer is a Slab2 error or thrusts in the top of the slab, which is a question for S. Ruiz or C. Sippl.
+- **Proposed line for LEARNINGS (Catalog):** "With our depth errors no rule classes more than about two thirds of the events over the shallow slab correctly (synthetic test, X5). In the local depths of Riedel-Hornig et al. (2026) thrust events sit about 5 km below Slab2 in a layer 4 km wide; their own class (± 5 km of Slab2) calls half of them in-slab."
+- Commands: `python x5_check.py` from `explore/X5/` (about 8 min).
+- Suggested commit: add `psha_chile8/explore/X5/*.py`, `explore/X5/REPORT.md`, `explore/X5/tables`, `psha_chile8/DATA.md`, `psha_chile8/WORKLOG.md`, `psha_chile8/catalog/LITERATURE.md`; not `explore/X5/data`.
+
+## 2026-11-14: X5, the interface mechanism as plane plus slip, a skewed Kagan angle (Claude Code)
+
+Asked by Pablo in steps: explain E; no interface weight for another mechanism; plane strict and rake loose about the convergence direction; one measure that does both; compare and review the math. Exploration only: `explore/X5/` (`x5_scheme.py`, `x5_kagan_scheme.py`, `x5_plane_slip.py`, `x5_skew.py` new; `x5_lib.py`, `x5_models.py`, `x5_synth.py`, `x5_check.py` extended; `REPORT.md` section 7; `tables/x5_buffer_other.csv`; four figures in `figs/`). Nothing under `catalog/` changed; run `2026-11-13j` is still the current classification. No tests added (exploration; the checks of the math are listed in the report and become tests when the rule moves to `catalog/classify.py`).
+
+- **Why:** the Kagan angle gives 30° both to a plane 30° off with rake 90° and to the exact plane with rake 120°, which is 6° from the convergence direction. The USGS factor 0.25 for other mechanisms has no support here: the 14 literature interface events with a mechanism are all within 27°.
+- **Measure:** swing σ (tilt of the plane from Slab2) and twist τ (turn of the slip from the convergence direction, in the plane), m = min over the four descriptions of the double couple of √((σ/20°)² + (τ/45°)²); interface possible where m ≤ 1. cos(Φ/2) = cos(σ/2) cos(τ/2) links it to the Kagan angle Φ. Verified against an independent quaternion decomposition on 20 000 random pairs.
+- **Methods added:** F0 (C, interface 0 outside the ellipse), F (F0, odds × 3.9 inside), F1 (F with the weight falling to 0 between m = 1 and 1.5). A to E give the same scores as before.
+- **Results:** literature 22 of 24 right for F and F1 (Brier 0.120 and 0.130; E 0.167, A 0.151). Riedel-Hornig depths: Brier 0.098 for F1, the best of all; totals 0.96–0.97. Synthetic: F1 64.0 % right, E 64.1 %. The 243 events with a mechanism outside the ellipse within 15 km of the slab carry 141 interface in E, 110 in run `j`, 0 in F, 53 in F1; of the 19 with a Riedel-Hornig class 16 are in-slab. Summed interface over the shallow slab: E 3 629, F 3 493, F1 3 548.
+- **Reading:** the measure is sound; the weak point is the edge. Events with m 1–1.5 lie on the slab almost as those inside (0.70 of best depths within 10 km against 0.74), those beyond 1.5 do not (0.52). The share inside grows with magnitude, so part of what falls outside is mechanism error. Hence F1.
+- **For Pablo:** 1985-03-04 00:32 Mw 7.4 is outside the ellipse (m 3.0; strike 234, dip 32, rake 155; two hours after the mainshock); 2014-03-16 Mw 6.7 (crustal in the literature) has m 1.25; 2015-11-07 Mw 6.1 near the trench has m 1.06 with a thrust mechanism.
+- **Open:** F or F1; the tolerances; the convergence azimuth from a plate model per epicentre (one value now); then the rule into `catalog/classify.py` in place of R3–R5, with tests, as a new run.
+- **Proposed line for DECISIONS (Classification), if taken:** "Interface mechanism: the Slab2 plane slipping in the plate convergence direction. Misfit m = √((swing/20°)² + (twist/45°)²), smallest of the four descriptions of the double couple; interface is possible for m ≤ 1, excluded from m = 1.5, linear between. A mechanism never proves interface: depth gives the weights."
+- Commands: from `explore/X5/`, `python x5_check.py` (about 9 min), `python x5_skew.py`, `python x5_plane_slip.py`.
+- Suggested commit: add `psha_chile8/explore/X5/*.py`, `explore/X5/REPORT.md`, `explore/X5/tables`, `explore/X5/figs`, `psha_chile8/WORKLOG.md`; not `explore/X5/data`. Message: "X5: interface mechanism as plane and slip misfit (skewed Kagan angle), methods F, F0, F1 through the six tests".
+
+## 2026-11-14: A7, the F1 rule in `catalog/classify.py` (Claude Code)
+
+Pablo chose F1 (soft edge). `catalog/classify.py`: new default `MECH = "ellipse"`, functions `nu`, `skew`, `ramp`, `by_depth`, `lift`, settings `SZ, DIFF, MOHO, NQ, TOL, AZ, LR, EDGE`, column `em` in `geometry()` and `mech_m` in the classes table, `RUN = "2026-11-14a"`. The modes `"add"`, `"exclude"`, `"none"` are kept (X5 and `classify_check.py` call them). `catalog/tests/test_classify.py`: the old tests name `mech="add"`; four new tests (misfit measure, scores by depth, inside and outside the ellipse, no depth with a mechanism). 151 tests pass. `explore/X5/x5_models.py`: model G (F1 with the 0.8 rule); `x5_check.py` rerun; `REPORT.md` section 8.
+
+- **Port checked:** with `hard=None` the weights of `classify.py` equal the F1 scores of X5 on the 5 438 events (difference 0); `em` equals the X5 measure.
+- **Conflict with DECISIONS, for Pablo:** DECISIONS (Classification) says a thrust on the plate contact allows all classes and any other mechanism rules the interface out, with a depth band; F1 replaces that over the shallow slab. It also says a weight ≥ 0.8 becomes 1. F1 was tested without that rule; with it (model G) every per-event score except the 24 literature events is worse and the interface over the shallow slab is 6 % higher (REPORT section 8). `HARD = 0.8` is left in the file because the decision stands; `HARD = None` is the tested F1.
+- **Not run:** no file of run `2026-11-14a` written. In memory, Mw ≥ 4.5 in the domain: interface 4 564.0, in-slab 8 038.6, crustal 1 163.3, 3 030 split with `HARD = 0.8` (run `j`: 4 702.9, 7 913.3, 1 149.8, 2 817); 4 329.2, 8 170.4, 1 266.5, 6 280 split with `HARD = None`.
+- **Mw ≥ 7 now split:** 2001-07-07 Mw 7.6 (interface 0.77) and 2015-09-16 23:18 Mw 7.1 (interface 0.58), thrusts with depths 16 and 24 km above Slab2. Candidates for a class hint in A6 if the literature has them as interface.
+- **Stale:** `catalog/CLASSIFICATION.md` and the texts of `classify_check.py` describe run `j`; `mech_kind` is still the cone of the old rule. The convergence azimuth is one value (257°); tolerances not fitted.
+- **Commands for Pablo:** set `HARD`, then `python classify.py` and `python classify_check.py` from `catalog/`; add the DATA.md row for run `2026-11-14a` with the printed totals.
+- **Proposed lines for DECISIONS (Classification), replacing the mechanism and band lines of 13 Nov:** "Over the shallow slab (top ≤ 50 km) the depth gives scores after Haynie et al. (2026): interface within ± 15 km of Slab2, fading between 50 and 65 km; averaged over the depth error of the event. Interface mechanism: the Slab2 plane slipping in the plate convergence direction; misfit m = √((swing/20°)² + (twist/45°)²), smallest of the four descriptions of the double couple. m ≤ 1: interface odds × 3.9; from m = 1 to 1.5 the interface weight falls to 0. A mechanism never decides alone (14 Nov, X5)." And, if taken: "Weights are kept as they are; no weight is rounded to 1."
+- Suggested commit: add `psha_chile8/catalog/classify.py`, `psha_chile8/catalog/tests/test_classify.py`, `psha_chile8/explore/X5/x5_models.py`, `explore/X5/REPORT.md`, `explore/X5/tables`, `psha_chile8/WORKLOG.md`. Message: "A7: interface by depth scores and the plane and slip misfit of the mechanism (F1 of X5) in classify.py; tests".
+- **Later the same day, Pablo: keep the weights.** `HARD = None` in `catalog/classify.py`; the default now equals F1 of X5 (difference below the rounding of the table). The old-rule tests and the X5 models A, A2, G name `hard=0.8`; in `classify_check.py` the two loops over hardening now compare kept weights with 0.8. 151 tests pass. Expected totals of run `2026-11-14a` (Mw ≥ 4.5 in the domain): interface 4 329.2, in-slab 8 170.4, crustal 1 266.5, outer rise 509, unclassified 4; 6 280 split. The line "Weights are kept as they are; no weight is rounded to 1" is to go into DECISIONS in place of the 0.8 rule. Commands for Pablo: `python classify.py`, then `python classify_check.py`, from `catalog/`; then the DATA.md row. Add `psha_chile8/catalog/classify_check.py` to the commit.
+- **Final settings, Pablo, same day:** hard edge of the ellipse (`EDGE = 1.0`: interface 0 for m > 1, method F of X5) and the 0.8 rule kept (`HARD = 0.8`). This supersedes the two notes above on F1 and on kept weights. With `hard=None` the weights equal method F of X5. 151 tests pass. Expected totals of run `2026-11-14a` (Mw ≥ 4.5 in the domain): interface 4 496.9, in-slab 8 078.9, crustal 1 190.1, outer rise 509, unclassified 4; 3 030 split; interface Mw ≥ 5.5 763.1 (run `j` 809.0). New figures `explore/X5/figs/spread.png`, `footprint.png` (`x5_spread.py`, `x5_footprint.py`). DECISIONS line to use: "… m ≤ 1: interface odds × 3.9; m > 1: no interface. A weight ≥ 0.8 becomes 1 (kept)."
+- **Run `2026-11-14a` made** (asked by Pablo): `classes_`, `catalog_` and `class_shares_2026-11-14a.csv` in `catalog/merged/`, MANIFEST and DATA.md row added; totals as expected above. `classify_check.py` not rerun. Add `psha_chile8/DATA.md` and `psha_chile8/catalog/merged/MANIFEST.csv` to the commit.
+
+## 2026-11-14: X5, nodal-plane clusters after Specht et al. (2017) on our mechanisms (Claude Code)
+
+Asked by Pablo after reading Specht et al. (2017, GFZ STR17/01) and von Specht and Cotton (2020); neither was in our notes before. Exploration only: `explore/X5/x5_planes.py`, `x5_ace.py`, `x5_ace_fig.py`, `x5_spread.py`, `x5_footprint.py`; tables `x5_ace_*.csv`; figures `planes.png`, `ace.png`, `spread.png`, `footprint.png`. `catalog/` and run `2026-11-14a` unchanged.
+
+- **Method:** mixture of components (normal in strike and rake on the circle, beta in dip) plus a uniform noise component, by expectation–maximisation, on both nodal planes of the 1 270 events with a mechanism over the shallow slab. Not their code (github.com/AgentSmith660/ACE, not downloaded): no merging and removal of components, number of components by BIC (2 to 8; BIC still falls at 8), no truncation along the rake; strike taken against the Slab2 strike. Second fit with depth − slab top as a further dimension (not in ACE).
+- **Result, mechanism only:** families tight thrust (rupture plane strike −3°, rake 96°, dip 24°; auxiliary 169°, 88°, 69°) 912 events, broad reverse 145, normal 121, noise 92. Median depth below Slab2: 1.9, 7.4, 16.8, 7.1 km. Of the 878 events inside the ellipse 833 are in the tight thrust family; mean probability of that family 0.89 inside the ellipse, 0.50 for m 1–1.5, 0.03 beyond 1.5.
+- **With depth:** the same families (856, 227, 138, 49); depth moves 56 events from tight thrust to broad reverse.
+- **Reading:** the clusters exist and the ellipse picks the same interface cluster the data give. The earlier plots of swing and twist could not show the other clusters because they measure distance from one mechanism.
+- **Open for Pablo:** whether the class rule should use the cluster probabilities in place of the ellipse; cards for the two papers in `catalog/LITERATURE.md` not written.
+- Commands: from `explore/X5/`, `python x5_ace.py` (2 min), `python x5_ace_fig.py`, `python x5_planes.py`.
+
+## 2026-11-14: A7 closed on run `2026-11-14a` (Claude Code)
+
+Pablo: go with the ellipse and the depth error; finish A7. `classify_check.py` run on `2026-11-14a` (its sensitivity variants now: mechanisms not used, rules of run `j`; `classify.py` has the mode `"scores"` for the first); tables `class_*_2026-11-14a.csv` and `figs/classify/*.png` rewritten. `catalog/CLASSIFICATION.md` rewritten for this run; the note of the 13 Nov runs kept as `CLASSIFICATION_2026-11-13.md`. 151 tests pass.
+
+- **Counts (Mw ≥ 4.5 in the domain, 14 279):** interface 4 496.9, in-slab 8 078.9, crustal 1 190.1, outer rise 509, unclassified 4; 11 249 at weight 1, 3 030 split (1 738 with a depth, 1 292 without).
+- **Literature events, rules alone:** 36 right, 18 without depth, 7 split, 2 wrong (Copiapó 1918 west of the trench; La Ligua 1971 over a slab top of 56 km).
+- **For Pablo:** Mw ≥ 7 with a depth and split: 10 events (table in CLASSIFICATION.md section 4); 2001-07-07 Mw 7.6 and 2015-09-16 23:18 Mw 7.1 are candidates for a class hint. `mech_kind` and the band figure still use the thrust test of 13 Nov.
+- **Proposed lines for DECISIONS (Classification), replacing the mechanism and band lines of 13 Nov:** "Over the shallow slab (top ≤ 50 km) the depth gives scores after Haynie et al. (2026): interface within ± 15 km of Slab2, fading between 50 and 65 km depth; averaged over the depth error of the event. Interface mechanism: the Slab2 plane slipping in the plate convergence direction; misfit m = √((swing/20°)² + (twist/45°)²), smallest of the four descriptions of the double couple. m ≤ 1: interface odds × 3.9; m > 1: no interface. A mechanism never decides alone. A weight ≥ 0.8 becomes 1 (14 Nov, run `2026-11-14a`, X5)."
+- **Proposed line for LEARNINGS (Catalog):** "Plots of the misfit to one reference mechanism hide the other mechanism families; nodal planes in strike, rake and dip show them (Specht et al. 2017)."
+- **Not done:** cards for Specht et al. (2017) and von Specht and Cotton (2020) in `catalog/LITERATURE.md`; convergence azimuth per epicentre; PLAN A7 box left for Pablo.
+- Commands: from `catalog/`, `python classify.py`, `python classify_check.py` (about 5 min).
+- Suggested commit: `git add psha_chile8/catalog/classify.py psha_chile8/catalog/classify_check.py psha_chile8/catalog/tests/test_classify.py psha_chile8/catalog/CLASSIFICATION.md psha_chile8/catalog/CLASSIFICATION_2026-11-13.md psha_chile8/catalog/figs/classify psha_chile8/catalog/merged/MANIFEST.csv psha_chile8/explore/X5 psha_chile8/DATA.md psha_chile8/WORKLOG.md` (not `explore/X5/data`; the `merged/*_2026-11-14a.csv` files as the earlier runs were handled). Message: "A7: classification run 2026-11-14a, depth scores with the depth error and the plane and slip misfit of the mechanism; checks, method note; X5 comparison of rules and nodal-plane clusters".

@@ -1,0 +1,38 @@
+against,mmin,earlier class,events,w_interface,w_inslab,w_crustal,w_outer_rise,w_unclassified,split,"same class, weight 1"
+old classifier (2026-11-04),4.5,crustal,738,178.3,72.3,484.4,1.0,2.0,248.0,384.0
+old classifier (2026-11-04),4.5,in-slab,6395,318.9,5974.7,89.4,12.0,0.0,484.0,5720.0
+old classifier (2026-11-04),4.5,interface,4173,3286.5,644.2,221.3,21.0,0.0,1598.0,2346.0
+old classifier (2026-11-04),4.5,"no family (unresolved, below slab, no slab)",716,21.8,464.1,229.0,0.0,1.0,203.0,
+old classifier (2026-11-04),4.5,not in the old catalogue,1997,677.2,912.4,164.4,242.0,1.0,480.0,
+old classifier (2026-11-04),4.5,outer rise,260,14.1,11.3,1.6,233.0,0.0,17.0,233.0
+old classifier (2026-11-04),5.5,crustal,108,14.1,13.7,79.2,1.0,0.0,27.0,69.0
+old classifier (2026-11-04),5.5,in-slab,624,36.6,565.8,16.6,5.0,0.0,59.0,532.0
+old classifier (2026-11-04),5.5,interface,841,628.0,141.3,63.7,8.0,0.0,339.0,453.0
+old classifier (2026-11-04),5.5,"no family (unresolved, below slab, no slab)",105,0.0,67.1,37.9,0.0,0.0,34.0,
+old classifier (2026-11-04),5.5,not in the old catalogue,209,80.3,72.8,23.9,32.0,0.0,70.0,
+old classifier (2026-11-04),5.5,outer rise,56,4.1,4.4,0.5,47.0,0.0,6.0,47.0
+old classifier (2026-11-04),7.0,crustal,8,0.0,1.1,6.9,0.0,0.0,2.0,6.0
+old classifier (2026-11-04),7.0,in-slab,36,1.0,34.9,0.2,0.0,0.0,4.0,32.0
+old classifier (2026-11-04),7.0,interface,96,68.2,18.8,7.0,2.0,0.0,55.0,38.0
+old classifier (2026-11-04),7.0,"no family (unresolved, below slab, no slab)",10,0.0,8.9,1.1,0.0,0.0,1.0,
+old classifier (2026-11-04),7.0,not in the old catalogue,8,1.7,3.8,1.5,1.0,0.0,2.0,
+old classifier (2026-11-04),7.0,outer rise,5,0.0,0.0,0.0,5.0,0.0,0.0,5.0
+X4 baseline (run 2026-11-13b),4.5,crustal,961,148.3,20.1,792.6,0.0,0.0,238.0,662.0
+X4 baseline (run 2026-11-13b),4.5,in-slab,7068,151.5,6862.7,53.8,0.0,0.0,439.0,6583.0
+X4 baseline (run 2026-11-13b),4.5,interface,3892,3422.6,332.3,137.0,0.0,0.0,1054.0,2784.0
+X4 baseline (run 2026-11-13b),4.5,not in the X4 run,120,43.4,61.5,9.0,6.0,0.0,30.0,
+X4 baseline (run 2026-11-13b),4.5,outer rise,504,0.7,0.2,0.1,503.0,0.0,1.0,503.0
+X4 baseline (run 2026-11-13b),4.5,unclassified,91,0.0,87.0,0.0,0.0,4.0,0.0,4.0
+X4 baseline (run 2026-11-13b),4.5,unknown depth,1643,730.4,715.1,197.5,0.0,0.0,1268.0,
+X4 baseline (run 2026-11-13b),5.5,crustal,157,28.3,6.2,122.5,0.0,0.0,27.0,108.0
+X4 baseline (run 2026-11-13b),5.5,in-slab,667,21.8,634.7,10.5,0.0,0.0,59.0,596.0
+X4 baseline (run 2026-11-13b),5.5,interface,638,552.8,54.6,30.6,0.0,0.0,133.0,485.0
+X4 baseline (run 2026-11-13b),5.5,outer rise,94,0.7,0.2,0.1,93.0,0.0,1.0,93.0
+X4 baseline (run 2026-11-13b),5.5,unclassified,3,0.0,3.0,0.0,0.0,0.0,0.0,0.0
+X4 baseline (run 2026-11-13b),5.5,unknown depth,384,159.5,166.6,57.9,0.0,0.0,315.0,
+X4 baseline (run 2026-11-13b),7.0,crustal,5,0.6,0.1,4.3,0.0,0.0,2.0,3.0
+X4 baseline (run 2026-11-13b),7.0,in-slab,33,0.3,32.7,0.0,0.0,0.0,1.0,32.0
+X4 baseline (run 2026-11-13b),7.0,interface,47,43.3,2.0,1.7,0.0,0.0,10.0,37.0
+X4 baseline (run 2026-11-13b),7.0,outer rise,9,0.7,0.2,0.1,8.0,0.0,1.0,8.0
+X4 baseline (run 2026-11-13b),7.0,unclassified,2,0.0,2.0,0.0,0.0,0.0,0.0,0.0
+X4 baseline (run 2026-11-13b),7.0,unknown depth,67,25.9,30.5,10.6,0.0,0.0,50.0,

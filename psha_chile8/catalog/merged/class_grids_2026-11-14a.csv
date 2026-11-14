@@ -1,0 +1,11 @@
+quantity,n,median,p10,p90
+"slab top on the Nazca trench line, 18–45° S (km)",112,9.4,6.66,11.53
+"slab top at the epicentres, Mw ≥ 4.5",13639,56.47,18.27,149.52
+"thickness at the epicentres, Mw ≥ 4.5",13639,79.43,67.61,85.51
+"dip at the epicentres, Mw ≥ 4.5",13639,18.62,10.22,31.7
+"depth uncertainty at the epicentres, Mw ≥ 4.5",13639,16.86,10.29,35.12
+"depth uncertainty, slab top ≤ 20 km at the epicentres, Mw ≥ 4.5",1799,10.16,6.29,11.61
+"depth uncertainty, slab top 20–50 km at the epicentres, Mw ≥ 4.5",4758,12.57,10.52,15.33
+"depth uncertainty, slab top 50–100 km at the epicentres, Mw ≥ 4.5",3688,25.23,17.31,30.18
+"depth uncertainty, slab top > 100 km at the epicentres, Mw ≥ 4.5",3394,32.81,23.53,40.51
+correlation of slab top with distance from the trench (events east of it),13498,0.94,,

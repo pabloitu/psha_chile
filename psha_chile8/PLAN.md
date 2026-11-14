@@ -4,32 +4,32 @@ Chile PSHA manuscript, round psha_chile8. Agreed 8 Nov 2026. Current step marked
 Tick a box when its "done when" holds. Detail of each step lives in its task brief (`tasks/`).
 
 ## 0. Clean working setup
-- [ ] psha_chile8 with `catalog/`, `fits/`, `model/`, `runs/`, `figures/`, `tasks/`
-- [ ] PLAN.md, DECISIONS.md, LEARNINGS.md, CLAUDE.md, WORKLOG.md, FIGURES.md, DATA.md in place
-- [ ] note of the psha_chile6/7 results still needed (`PSHA6_NEEDED.md`)
-- [ ] project memory reduced to a pointer to psha_chile8
+- [x] psha_chile8 with `catalog/`, `fits/`, `model/`, `runs/`, `figures/`, `tasks/`
+- [x] PLAN.md, DECISIONS.md, LEARNINGS.md, CLAUDE.md, WORKLOG.md, FIGURES.md, DATA.md in place
+- [x] note of the psha_chile6/7 results still needed (`PSHA6_NEEDED.md`)
+- [x] project memory reduced to a pointer to psha_chile8
 
 ## A. Rebuild the catalog from scratch
-- [ ] A0 new catalog module inside `psha_chile8/catalog/`
-- [ ] A1 Sergio's rules written down (no Cabello from 1900 on, his source order) → DECISIONS
+- [x] A0 new catalog module inside `psha_chile8/catalog/`
+- [x] A1 Sergio's rules written down (no Cabello from 1900 on, his source order) → DECISIONS
 - [x] A2 source catalogs collected, each frozen as a dated file
 - [x] A3 events matched across catalogs once (one ID per event)
 - [x] A4 magnitude, location and mechanism chosen per event, each by its own priority rule
 - [x] A5 Mw conversion redone, checked against events with known Mw
-- [ ] A6 large events reviewed one by one against the literature ←
-- [ ] A7 where the double seismic zone exists (literature, data); new class names for events and source models; classified, with upper and lower plane where the zone exists
+- [x] A6 large events reviewed one by one against the literature
+- [ ] A7 events classified with class weights (interface, in-slab, crustal, outer rise) and sub-classes; new class names for events and source models ←
 - [ ] A8 final catalog frozen, dated, with a decisions note
 
 ## B. Earthquake statistics
 - [ ] B9 method comparison: completeness (incl. spatial), b-value methods, with / without declustering
 - [ ] B10 method per source type picked and documented
 - [ ] B11 fitting code, tested on synthetic catalogs (known Mc, b, a recovered)
-- [ ] B12 fits: crustal, interface, each in-slab plane
+- [ ] B12 fits: crustal, interface, in-slab classes (shallow, intermediate, Jujuy nest)
 - [ ] B13 faults and background join cleanly at M6 (domain-wide)
 
 ## C. In-slab double-zone model
-- [ ] C14 each plane its own source at small M, one merged source at large M
-- [ ] C15 merge magnitude and geometry options to test decided
+- [ ] C14 in-slab depth model: Riedel-Hornig et al. (2026) frozen and benchmarked; three layers below the slab top, weights and hypocentres per cell from well-located events (Jujuy nest removed first); the double zone shows through the weights
+- [ ] C15 one layer against three tested in the tornado; lower seismogenic depth and rupture geometry options decided
 
 ## D. Magallanes–Fagnano
 - [ ] D16 segments (Chilean / Argentine overlap), geometry, slip rate, Mmax, single or joined source

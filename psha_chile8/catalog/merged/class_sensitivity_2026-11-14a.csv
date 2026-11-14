@@ -1,0 +1,12 @@
+variant,"interface, Mw ≥ 4.5","in-slab, Mw ≥ 4.5","crustal, Mw ≥ 4.5","interface, Mw ≥ 5.5","in-slab, Mw ≥ 5.5","crustal, Mw ≥ 5.5","split events, Mw ≥ 4.5","split events, Mw ≥ 5.5","split near the band, Mw ≥ 4.5","largest class changes, Mw ≥ 4.5","a weight changes by 0.2 or more, Mw ≥ 4.5","largest class changes, Mw ≥ 5.5","a weight changes by 0.2 or more, Mw ≥ 5.5","largest class changes, Mw ≥ 7","a weight changes by 0.2 or more, Mw ≥ 7"
+"baseline (W = 15 km, hardening 0.8, interface to 50 km, mechanism misfit)",4496.9,8078.9,1190.1,763.1,865.3,221.6,3030,535,1738,0,0.0,0,0.0,0,0.0
+W = Slab2 depth uncertainty,3808.9,8487.6,1469.5,703.5,905.7,240.8,4126,615,2834,560,1753.0,82,144.0,7,2.0
+W = 10 km,3471.4,8698.5,1596.1,661.2,931.6,257.1,4311,661,3019,802,2546.0,116,238.0,9,4.0
+W = 20 km,5006.1,7737.4,1022.5,813.5,830.6,205.9,2510,485,1218,388,1146.0,33,99.0,1,3.0
+hardening 0.7,4587.7,8038.3,1140.0,768.7,869.0,212.4,2342,460,1050,0,688.0,0,75.0,0,3.0
+hardening 0.9,4323.9,8172.8,1269.3,746.8,874.1,229.1,4444,680,3152,0,0.0,0,0.0,0,0.0
+no hardening,4263.4,8208.2,1294.4,730.9,883.4,235.7,6277,1038,4985,0,0.0,0,0.0,0,0.0
+interface down to a slab top of 60 km,4585.7,8030.6,1149.7,778.6,861.8,209.6,3112,543,1817,88,139.0,15,20.0,0,0.0
+mechanisms not used,4678.2,7970.0,1117.7,820.5,827.5,201.9,3197,624,1905,297,624.0,107,274.0,3,10.0
+"rules of run 2026-11-13j (depth band, a thrust decides)",4702.9,7913.3,1149.8,809.0,831.9,209.1,2817,477,1525,227,462.0,64,118.0,0,2.0
+events without depth that take the bin shares left out,3852.2,7570.8,1051.0,615.8,735.8,179.4,1738,216,1738,1292,,319,,54,

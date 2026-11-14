@@ -1,0 +1,15 @@
+event_id,time,mw,W = Slab2 depth uncertainty,W = 10 km,W = 20 km,hardening 0.7,mechanisms not used,"rules of run 2026-11-13j (depth band, a thrust decides)"
+cl15200101000000,1520-01-01T00:00:00.000,7.4,False,False,False,False,True,False
+cl15621028100000,1562-10-28T10:00:00.000,7.7,False,False,False,False,True,False
+cl15751216183000,1575-12-16T18:30:00.000,8.3,False,False,False,False,True,False
+cl17371224000000,1737-12-24T00:00:00.000,7.5,False,False,False,False,True,False
+cl19201210042549,1920-12-10T04:25:41.010,7.2,False,False,False,False,True,False
+cl19401004075500,1940-10-04T07:54:50.110,7.0,True,False,False,False,False,False
+cl19401011184119,1940-10-11T18:41:13.730,7.0,False,False,False,False,True,False
+cl19530506171648,1953-05-06T17:16:48.910,7.5,False,False,False,True,False,False
+cl19601202091048,1960-12-02T09:10:43.270,7.2,False,True,False,True,False,False
+cl19650223221148,1965-02-23T22:11:48.420,7.0,True,True,True,False,False,False
+cl19850304003224,1985-03-04T00:32:24.110,7.4,False,False,False,False,True,False
+cl19880412231956,1988-04-12T23:19:56.410,7.1,False,True,False,False,True,False
+cl20010707093844,2001-07-07T09:38:44.020,7.6,False,False,True,True,True,True
+cl20150916231839,2015-09-16T23:18:39.140,7.1,False,True,True,False,True,True
