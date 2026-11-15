@@ -1989,3 +1989,27 @@ Follows the C14 entry above; replaces its method and its departures list.
   - Correction to the entry above: NOAA and SISRA both date the event 1851-04-02 (33.3° S), so Lomnitz's 1850-04-02 may be his error. Our 1851-04-02 is probably right.
   - No new hints from Candia. Open for the catalogue (A6 date corrections, need a source read): 1849-12-17 → 11-17, 1847-03-08 → 10-08.
 - **Dates not overridden** (Pablo, 15 Nov): 1849-12-17 and 1847-03-08 are the dates of our source (Cabello et al. 2025, from SISRA), so they stay. The NOAA and Lomnitz dates (1849-11-17, 1847-10-08) are noted here only. The 1849 interface hint stays on `cl18491217100000`.
+
+## 2026-11-16: A9 point 2c, in-slab hints for no-depth events (Claude Code, A6)
+- **Brief from the A7 session:** proposed rows for 1929-10-19 and 1926-04-28. Abe and Kanamori (1979) was read by A7. I read Astiz, Lay and Kanamori (1988), `refs/catalogs/astiz_etal_1988.pdf` (scan; Table A checked on the page images).
+- **Astiz et al. (1988), Table A, "Large intermediate and deep focus events", pp. 130–131.** By region; nearly complete for mB ≥ 7 below 70 km from 1904 (p. 88). Our no-depth split events in it:
+  - 1929-10-19 10:12:52, 23° S 69° W, 100 km, mB 7.10 (Altiplano, p. 130; again under North Chile, p. 131). Abe and Kanamori give mB 7.4, the value our catalogue converts.
+  - 1936-07-13, 24.5° S 70° W, 80 km, mB 7.2 (p. 131); split forearc / in-slab, crustal 0.14.
+  - 1939-04-18, 27° S 70.5° W, 100 km, mB 7.3 (p. 131); split forearc / interface (0.60 / 0.34 / crustal 0.05).
+  - 1942-07-08, 24° S 70° W, 140 km, mB 7.0 (p. 131); split forearc / interface, Mw 6.9.
+  - 1926-04-28 is not in Table A (not under Altiplano or North Chile).
+- **Rows added to `catalog/overrides_A6.csv`, all `proposed`:** 1929 class hint in-slab and depth 100 ± 20 (Abe and Kanamori 1979, Table 2, p. 3591; Astiz et al. 1988, Table A, pp. 130–131). 1926 class hint in-slab with no reference ("agency depths of 90 to 180 km, slab top at 99 km (Pablo)"); the reason notes its absence from Astiz Table A, a point against. 1936, 1939, 1942: class hint in-slab and the table depth (80, 100, 140 km), σ 20, Astiz et al. (1988) p. 131. The table depths are compilations of the old determinations, not new ones.
+- **Mw at the new depths** (Abe 1982 relation in `magnitude.py`; deep when z > 60 km). For an event with no location depth, the conversion already uses the depth of the A3 event file:
+  - 1929: no change, Mw 7.8 (7.773 already from the intermediate relation; mB 7.4).
+  - 1926: no change, Mw 7.3 (already intermediate).
+  - 1939: 7.3 → **7.6** (mB 7.3, shallow 7.35 → intermediate 7.61).
+  - 1942: 6.9 → **7.1** (mB 7.0, 6.87 → 7.13).
+  - 1936: no change, Mw 7.0 (Ruiz and Madariaga value, not converted).
+  - The new Mw of 1939 (7.6) is close to the in-slab maximum region of North Chile but below 1918 (7.8) and Calama 1950 (8.0); no Mmax change.
+- **Weight moved if accepted:** arc crustal −0.15 (1929, 1926), forearc crustal −0.25 (1936 0.14, 1939 0.05, 1942 0.05), forearc interface −1.21 (1939, 1942) to in-slab.
+- **Noted, not changed:**
+  - 1916-08-25 (Mw 6.9) is classed outer rise in our catalogue; Astiz gives 21° S 68° W, 180 km (p. 130). Our location is probably wrong (A7).
+  - Measured-depth events where Astiz differs: 1940-10-04 (24 vs 75 km), 1946-08-02 (39 vs 50), 1965-02-23 (42 vs 80), 1953-05-06 (66 vs 60). The A6 rule keeps measured depths.
+  - 1925-05-15 is in Table A at 50 km; not an in-slab hint (interface depths).
+- **Commit:** `git add psha_chile8/catalog/overrides_A6.csv psha_chile8/WORKLOG.md`; message: `A6 (A9 2c): proposed in-slab hints for 1929, 1926, 1936, 1939, 1942 (Abe and Kanamori 1979; Astiz et al. 1988)`. Add Astiz, Lay and Kanamori (1988) to REFERENCES.md if Pablo has not.
+- **Accepted (Pablo, 16 Nov):** the in-slab hints and table depths of 1929, 1936, 1939 and 1942. 1926-04-28 stays `proposed` (no source with a page; absent from Astiz et al. 1988 Table A). Effect after the rerun: 1939 Mw 7.6, 1942 Mw 7.1; weight to in-slab 0.07 arc crustal, 0.25 forearc crustal, 1.21 interface.
