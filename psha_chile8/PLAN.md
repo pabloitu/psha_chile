@@ -17,12 +17,12 @@ Tick a box when its "done when" holds. Detail of each step lives in its task bri
 - [x] A4 magnitude, location and mechanism chosen per event, each by its own priority rule
 - [x] A5 Mw conversion redone, checked against events with known Mw
 - [x] A6 large events reviewed one by one against the literature
-- [ ] A7 events classified with class weights (interface, in-slab, crustal, outer rise) and sub-classes; new class names for events and source models ←
-- [ ] A8 final catalog frozen, dated, with a decisions note
+- [x] A7 events classified with class weights (interface, in-slab, crustal, outer rise) and sub-classes; new class names for events and source models
+- [x] A8 final catalog frozen, dated, with a decisions note (`catalog/frozen/2026-11-14/`)
 
 ## B. Earthquake statistics
-- [ ] B9 method comparison: completeness (incl. spatial), b-value methods, with / without declustering
-- [ ] B10 method per source type picked and documented
+- [x] B9 method comparison: completeness (incl. spatial), b-value methods, with / without declustering (`explore/B9/REPORT.md`, 14–15 Nov)
+- [ ] B10 method per source type picked and documented ← (DECISIONS, Statistics, written 15 Nov; to be confirmed and turned into the B11 brief)
 - [ ] B11 fitting code, tested on synthetic catalogs (known Mc, b, a recovered)
 - [ ] B12 fits: crustal, interface, in-slab classes (shallow, intermediate, Jujuy nest)
 - [ ] B13 faults and background join cleanly at M6 (domain-wide)
