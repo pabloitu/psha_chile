@@ -1,0 +1,29 @@
+quantity,value
+events,621917
+first day,2017-01-01
+last day,2021-12-31
+events with Ml,612664
+Ml range,0.27–6.95
+Ml ≥ 2.5 (their Mc),131200
+Ml ≥ 3,44401
+Ml ≥ 4,5507
+latitude,-41.92 to -18.08
+depth,0.0–331.0 km
+"depth error, 5 % (km)",2.21
+"depth error, 25 % (km)",3.41
+"depth error, 50 % (km)",4.67
+"depth error, 75 % (km)",6.5
+"depth error, 95 % (km)",14.5
+depth error ≤ 5 km,347942
+"depth error ≤ 5 km, Ml ≥ 2.5",67001
+type Intraslab,459739
+type Crustal,75534
+type Interplate,59061
+type NC,20208
+type Outerrise,7375
+"median depth error, depth [0, 70)",3.99
+"median depth error, depth [70, 150)",4.67
+"median depth error, depth [150, 300)",9.41
+"median depth error, depth [300, 400)",60.25
+"median depth error, east of the Chile border",8.37
+"median depth error, in Chile",4.45

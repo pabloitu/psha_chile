@@ -1,0 +1,106 @@
+source,split,group,n,median,nmad,p16,p84
+Potin / CSN web,all,all,32615,-2.56,5.26,-8.92,3.12
+Potin / CSN web,depth,0–70 km,13397,-1.78,4.79,-7.26,3.76
+Potin / CSN web,depth,150–300 km,4299,-8.63,16.21,-26.13,7.84
+Potin / CSN web,depth,70–150 km,14919,-2.77,4.3,-7.31,1.89
+Potin / CSN web,trench distance,0–100 km,8901,-2.17,5.56,-8.6,4.22
+Potin / CSN web,trench distance,100–200 km,6016,-1.52,3.63,-5.52,2.48
+Potin / CSN web,trench distance,200–300 km,13049,-2.87,4.34,-7.41,1.76
+Potin / CSN web,trench distance,300–400 km,2419,-7.65,14.21,-23.48,5.99
+Potin / CSN web,trench distance,> 400 km,2230,-7.24,17.96,-26.04,11.38
+Potin / CSN web,"flat slab 27–33° S, depth",0–70 km,7382,-1.3,4.87,-7.02,4.24
+Potin / CSN web,"flat slab 27–33° S, depth",150–300 km,72,-8.9,16.19,-32.61,4.03
+Potin / CSN web,"flat slab 27–33° S, depth",70–150 km,2099,-1.99,5.2,-6.81,4.92
+Potin / CSN web,"outside the flat slab, depth",0–70 km,6015,-2.4,4.62,-7.49,2.96
+Potin / CSN web,"outside the flat slab, depth",150–300 km,4227,-8.63,16.22,-26.02,7.88
+Potin / CSN web,"outside the flat slab, depth",70–150 km,12820,-2.87,4.21,-7.38,1.49
+Potin / CSN web,"side of the border, depth ≥ 70 km",east of the border,4142,-5.09,13.51,-20.42,8.86
+Potin / CSN web,"side of the border, depth ≥ 70 km",in Chile,15076,-2.98,4.53,-8.11,1.65
+Potin / CSN web,"flat slab, side of the border, depth ≥ 70 km",east of the border,927,-2.26,7.13,-9.03,7.51
+Potin / CSN web,"flat slab, side of the border, depth ≥ 70 km",in Chile,1244,-1.97,4.29,-6.07,3.71
+Potin / CSN web,"north of 27° S, side of the border, depth ≥ 70 km",east of the border,3158,-7.01,15.8,-23.31,9.42
+Potin / CSN web,"north of 27° S, side of the border, depth ≥ 70 km",in Chile,12761,-3.31,4.46,-8.55,1.1
+GCCEL,all,all,99,-3.63,5.39,-7.6,8.84
+GCCEL,depth,0–70 km,94,-3.59,5.22,-7.34,9.08
+GCCEL,depth,150–300 km,2,,,,
+GCCEL,depth,70–150 km,3,,,,
+GCCEL,trench distance,0–100 km,32,2.27,9.97,-5.08,10.18
+GCCEL,trench distance,100–200 km,53,-4.82,3.64,-7.8,-1.16
+GCCEL,trench distance,200–300 km,1,,,,
+GCCEL,trench distance,300–400 km,11,4.08,15.95,-114.11,11.92
+GCCEL,trench distance,> 400 km,2,,,,
+GCCEL,"flat slab 27–33° S, depth",0–70 km,29,-3.55,5.52,-7.0,9.76
+GCCEL,"flat slab 27–33° S, depth",150–300 km,2,,,,
+GCCEL,"flat slab 27–33° S, depth",70–150 km,2,,,,
+GCCEL,"outside the flat slab, depth",0–70 km,65,-3.63,5.07,-7.53,5.51
+GCCEL,"outside the flat slab, depth",150–300 km,0,,,,
+GCCEL,"outside the flat slab, depth",70–150 km,1,,,,
+GCCEL,"side of the border, depth ≥ 70 km",east of the border,3,,,,
+GCCEL,"side of the border, depth ≥ 70 km",in Chile,2,,,,
+GCCEL,"flat slab, side of the border, depth ≥ 70 km",east of the border,3,,,,
+GCCEL,"flat slab, side of the border, depth ≥ 70 km",in Chile,1,,,,
+GCCEL,"north of 27° S, side of the border, depth ≥ 70 km",east of the border,0,,,,
+GCCEL,"north of 27° S, side of the border, depth ≥ 70 km",in Chile,0,,,,
+ISC-EHB L1,all,all,451,-4.03,6.73,-15.06,1.07
+ISC-EHB L1,depth,0–70 km,126,-0.97,5.28,-6.67,4.13
+ISC-EHB L1,depth,150–300 km,56,-28.85,21.86,-51.89,-14.34
+ISC-EHB L1,depth,70–150 km,269,-3.77,5.55,-10.67,0.69
+ISC-EHB L1,trench distance,0–100 km,56,-4.28,8.08,-10.82,4.55
+ISC-EHB L1,trench distance,100–200 km,112,-1.43,3.52,-5.5,1.71
+ISC-EHB L1,trench distance,200–300 km,210,-3.63,5.72,-10.16,0.88
+ISC-EHB L1,trench distance,300–400 km,46,-37.29,23.34,-52.58,-14.04
+ISC-EHB L1,trench distance,> 400 km,27,-19.69,10.97,-31.72,-11.36
+ISC-EHB L1,"flat slab 27–33° S, depth",0–70 km,72,0.08,4.82,-4.92,4.34
+ISC-EHB L1,"flat slab 27–33° S, depth",150–300 km,20,-51.76,5.92,-57.68,-40.98
+ISC-EHB L1,"flat slab 27–33° S, depth",70–150 km,55,-6.23,10.0,-28.14,-1.07
+ISC-EHB L1,"outside the flat slab, depth",0–70 km,54,-3.22,4.75,-8.01,3.25
+ISC-EHB L1,"outside the flat slab, depth",150–300 km,36,-20.43,9.96,-36.03,-12.23
+ISC-EHB L1,"outside the flat slab, depth",70–150 km,214,-3.22,5.29,-8.66,0.9
+ISC-EHB L1,"side of the border, depth ≥ 70 km",east of the border,88,-22.22,17.5,-48.1,-10.43
+ISC-EHB L1,"side of the border, depth ≥ 70 km",in Chile,237,-3.28,5.13,-8.78,0.88
+ISC-EHB L1,"flat slab, side of the border, depth ≥ 70 km",east of the border,55,-31.93,26.27,-51.99,-6.99
+ISC-EHB L1,"flat slab, side of the border, depth ≥ 70 km",in Chile,20,-2.64,2.55,-5.32,0.02
+ISC-EHB L1,"north of 27° S, side of the border, depth ≥ 70 km",east of the border,30,-20.43,11.01,-33.44,-11.39
+ISC-EHB L1,"north of 27° S, side of the border, depth ≥ 70 km",in Chile,193,-3.71,5.29,-9.88,0.8
+ISC-EHB L2,all,all,463,-10.04,12.47,-30.85,0.26
+ISC-EHB L2,depth,0–70 km,171,-3.16,6.57,-11.52,3.94
+ISC-EHB L2,depth,150–300 km,179,-23.5,16.08,-40.0,-11.84
+ISC-EHB L2,depth,70–150 km,113,-5.84,9.35,-16.74,1.6
+ISC-EHB L2,trench distance,0–100 km,131,-5.0,5.67,-13.33,1.32
+ISC-EHB L2,trench distance,100–200 km,43,-0.17,3.88,-3.13,4.98
+ISC-EHB L2,trench distance,200–300 km,92,-5.35,8.41,-14.18,0.94
+ISC-EHB L2,trench distance,300–400 km,80,-27.55,19.68,-42.27,-6.73
+ISC-EHB L2,trench distance,> 400 km,117,-21.26,13.47,-37.27,-11.92
+ISC-EHB L2,"flat slab 27–33° S, depth",0–70 km,86,-2.73,7.19,-11.63,5.2
+ISC-EHB L2,"flat slab 27–33° S, depth",150–300 km,4,,,,
+ISC-EHB L2,"flat slab 27–33° S, depth",70–150 km,28,-17.64,20.58,-36.39,-1.23
+ISC-EHB L2,"outside the flat slab, depth",0–70 km,85,-3.58,5.8,-10.64,2.06
+ISC-EHB L2,"outside the flat slab, depth",150–300 km,175,-23.21,15.8,-39.51,-11.82
+ISC-EHB L2,"outside the flat slab, depth",70–150 km,85,-3.98,7.29,-13.19,1.81
+ISC-EHB L2,"side of the border, depth ≥ 70 km",east of the border,183,-22.82,16.14,-37.9,-10.4
+ISC-EHB L2,"side of the border, depth ≥ 70 km",in Chile,109,-5.84,10.07,-18.64,1.66
+ISC-EHB L2,"flat slab, side of the border, depth ≥ 70 km",east of the border,24,-31.34,16.05,-42.39,-9.97
+ISC-EHB L2,"flat slab, side of the border, depth ≥ 70 km",in Chile,8,-1.28,6.78,-10.33,2.72
+ISC-EHB L2,"north of 27° S, side of the border, depth ≥ 70 km",east of the border,158,-21.36,13.86,-37.28,-11.02
+ISC-EHB L2,"north of 27° S, side of the border, depth ≥ 70 km",in Chile,92,-6.78,10.34,-30.81,0.69
+ISC,all,all,7227,-5.6,13.23,-22.64,5.36
+ISC,depth,0–70 km,2549,-11.69,11.54,-25.28,-1.83
+ISC,depth,150–300 km,1749,-13.72,16.03,-31.36,1.05
+ISC,depth,70–150 km,2929,1.54,7.49,-6.98,9.1
+ISC,trench distance,0–100 km,1731,-14.0,11.06,-25.61,-3.16
+ISC,trench distance,100–200 km,1107,-6.11,8.71,-21.04,1.52
+ISC,trench distance,200–300 km,2450,1.97,7.16,-5.53,9.53
+ISC,trench distance,300–400 km,986,-12.05,18.22,-34.99,3.0
+ISC,trench distance,> 400 km,953,-13.91,14.51,-28.02,0.6
+ISC,"flat slab 27–33° S, depth",0–70 km,1387,-14.6,12.64,-28.29,-3.23
+ISC,"flat slab 27–33° S, depth",150–300 km,123,-45.47,11.26,-61.97,-34.63
+ISC,"flat slab 27–33° S, depth",70–150 km,495,-3.05,12.93,-24.47,6.29
+ISC,"outside the flat slab, depth",0–70 km,1162,-8.86,9.48,-20.36,-0.71
+ISC,"outside the flat slab, depth",150–300 km,1626,-12.28,14.79,-27.41,1.72
+ISC,"outside the flat slab, depth",70–150 km,2434,1.98,6.98,-5.23,9.52
+ISC,"side of the border, depth ≥ 70 km",east of the border,1848,-12.3,16.1,-30.41,2.7
+ISC,"side of the border, depth ≥ 70 km",in Chile,2830,1.44,7.5,-7.1,8.98
+ISC,"flat slab, side of the border, depth ≥ 70 km",east of the border,412,-20.59,27.47,-45.5,2.01
+ISC,"flat slab, side of the border, depth ≥ 70 km",in Chile,206,0.29,6.9,-7.7,7.53
+ISC,"north of 27° S, side of the border, depth ≥ 70 km",east of the border,1422,-11.37,14.5,-26.28,2.72
+ISC,"north of 27° S, side of the border, depth ≥ 70 km",in Chile,2427,1.32,7.9,-7.31,9.28

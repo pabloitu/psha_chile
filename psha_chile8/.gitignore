@@ -8,3 +8,5 @@ explore/*/cache/
 catalog/merged/
 catalog/cache/
 explore/*/data/
+data/riedel_hornig_*
+data/*.xyz

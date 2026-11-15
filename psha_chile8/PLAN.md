@@ -24,18 +24,19 @@ Tick a box when its "done when" holds. Detail of each step lives in its task bri
 - [x] B9 method comparison: completeness (incl. spatial), b-value methods, with / without declustering (`explore/B9/REPORT.md`, 14–15 Nov)
 - [x] B10 method per source type picked and documented (DECISIONS, Statistics, 15 Nov)
 - [ ] B11 fitting code, tested on synthetic catalogs (known Mc, b, a recovered) (code, tests, method comparison and fits in `fits/`, 15 Nov; for Pablo to review: `fits/FITS.md`)
-- [ ] B12 fits: crustal, interface, in-slab classes (shallow, intermediate, Jujuy nest)
+- [x] B12a fits on the full catalogue: crustal, interface, in-slab classes (shallow, intermediate, Jujuy nest) (B11, `fits/tables/fits_2026-11-15.csv`)
+- [ ] B12 declustered catalogues (Gardner–Knopoff, nearest neighbour) and their fits with the B11 methods, for the declustered interface branch and the smoothed patterns (`tasks/B12_declustered.md`; before S2 and S3)
 
 ## C. In-slab double-zone model
-- [ ] C14 in-slab depth model: Riedel-Hornig et al. (2026) frozen and benchmarked; three layers below the slab top, weights and hypocentres per cell from well-located events (Jujuy nest removed first); the double zone shows through the weights (`model/inslab/REPORT_C14.md`, 15 Nov; kernel version after Pablo's revision) (first run done; Pablo finishing it) ←
+- [x] C14 in-slab depth model: Riedel-Hornig et al. (2026) frozen and benchmarked; three layers below the slab top, weights and hypocentres per cell from well-located events (Jujuy nest removed first); the double zone shows through the weights (`model/inslab/REPORT_C14.md`, run 2026-11-15e: zone to 0.475 of the Slab2 thickness, three slices for the hypocentre distribution, kernel weights; 15 Nov)
 - [ ] C15 one layer against three tested in the tornado; lower seismogenic depth and rupture geometry options decided
 
 ## D. Magallanes–Fagnano
 - [ ] D16 fault database: GEM/SARA faults cleaned (fault properties only, area-source fields removed, plain field names, source per value), compared with CHAF (Maldonado et al. 2021) for important missing faults (exploration, nothing added), Magallanes–Fagnano segments, overlap, slip rate, Mmax, single or joined source (`tasks/D16_fault_database.md`; runs before B13; database `data/faults/faults_2026-11-15.gpkg`, report `model/faults/REPORT_D16.md`, 15 Nov) (first pass done; Pablo rebuilding the final GEM database with extra faults and a CHAF check) ←
-- [ ] D16b fault database B: MASCSN26 faults for Chile (slip rate and Mmax restored from its OpenQuake files and checked against its report) plus GEM outside Chile; A against B per class and near the cities (`tasks/D16b_fault_options.md`)
+- [x] D16b fault database B: MASCSN26 faults for Chile (slip rate and Mmax restored from its OpenQuake files and checked against its report) plus GEM outside Chile; A against B per class and near the cities (`tasks/D16b_fault_options.md`; database `data/faults/faults_B_2026-11-15.gpkg`, report `model/faults/REPORT_D16b.md`, 15 Nov)
 
 ## S. Source models (OpenQuake), after C14 and the fault database (no outer-rise source)
-- [ ] S1 interface: complex-fault sources for the full margin and the four segments; seismic branch from the B11 fits (tapered and cut shapes, (a, b) branches, the three b options) and geodetic branch (coupling χ); rupture scaling, 10–50 km; Antarctic interface (geodetic only)
+- [ ] S1 interface: complex-fault sources for the full margin and the four segments; seismic branch from the B11 fits (tapered and cut shapes, (a, b) branches, the three b options) and geodetic branch (coupling χ); rupture scaling, 10–50 km; Antarctic interface (geodetic only) (`tasks/S1_interface.md`; declustered branch from B12)
 - [ ] S2 in-slab: point sources on the in-slab grid for shallow, intermediate and Jujuy nest; 2-D smoothed pattern scaled to the B11 rates; three-layer depths and seismogenic depths from C14 (and the one-layer version); nodal planes
 - [ ] S3 crustal source model: smoothed background per class (forearc, arc, backarc, Patagonia) joined with the faults by the US NSHM 2023 taper; totals checked against the catalogue fits at M6, 6.5, 7, for fault databases A and B (`tasks/B13_faults_background.md`, after D16 and D16b)
 - [ ] S4 crustal faults as OpenQuake sources: simple-fault sources from the chosen database (A or B, or both into the tornado) with the fault tree (coupling ψ, MFD shapes, seismogenic depth), Magallanes–Fagnano as decided in D16
