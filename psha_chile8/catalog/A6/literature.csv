@@ -45,8 +45,8 @@ cl19600522185602,Mw,7.8 (Ms),Ruiz and Madariaga (2018),p. 14,yes,Valdivia 1960 f
 cl19600522185602,class hint,interface,Ruiz and Madariaga (2018),p. 14,yes,15 min before the mainshock
 cl19600522191120,Mw,9.5,Ruiz and Madariaga (2018),"p. 16, Fig. 6",yes,Valdivia 1960
 cl19600522191120,class hint,interface,Ruiz and Madariaga (2018),"p. 16, Fig. 6",yes,domain megathrust; ~1000 km
-cl19600606055549,Mw,7.7,Ruiz and Madariaga (2018),p. 14,yes,Aysen 1960 slow event
-cl19600606055549,class hint,crustal,Ruiz and Madariaga (2018),p. 14,yes,slow aftershock of Valdivia probably on the Liquine-Ofqui fault (Kanamori and Rivera 2017)
+cl19600606055549,Mw,7.7,Ruiz and Madariaga (2018),"section 6, p. 50",yes,"Aysen 1960 slow event; the paper quotes Kanamori and Rivera (2017), no value of its own"
+cl19600606055549,class hint,crustal,Ruiz and Madariaga (2018),"section 6, p. 50",yes,slow aftershock of Valdivia probably on the Liquine-Ofqui fault (Kanamori and Rivera 2017)
 cl19650328163316,Mw,7.4,Ruiz and Madariaga (2018),p. 11,yes,La Ligua 1965
 cl19650328163316,class hint,in-slab,Ruiz and Madariaga (2018),p. 11,yes,intermediate depth
 cl19661228081805,Mw,7.7,Ruiz and Madariaga (2018),"p. 9, p. 16",yes,Taltal 1966

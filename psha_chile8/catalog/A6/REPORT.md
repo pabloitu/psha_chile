@@ -29,7 +29,7 @@ Every proposed change of Mw or location (all have Mw ≥ 7 before or after, or c
 | 1916-06-21 21:32 | mw | 7.8 | 7.1 | 0.3 | ISC-GEM v13.0 (Di Giacomo et al. 2015), catalogue entry 913818 | the catalogue value is the Centennial ABE1 mB 7.4 converted; ISC-GEM lists a direct Mw from a published moment |
 | 1952-06-11 00:31 | mw | 6.5 | 6.8 | 0.3 | ISC-GEM v13.0 (Di Giacomo et al. 2015), catalogue entry 893012 | the catalogue value is the Centennial ABE1 Ms 6.5 converted; ISC-GEM lists a direct Mw from a published moment |
 | 1959-06-14 00:11 | mw | 7.9 | 7.2 | 0.2 | Abe (1982), p. 323, Table 1 | seismic moment 87 × 10^25 dyn cm (Wyss 1970) against the converted Abe mB 7.5; ISC-GEM direct Mw 7.10 |
-| 1960-06-06 05:55 | mw | 7.2 | 7.7 | 0.2 | Kanamori and Rivera (2017); Ruiz and Madariaga (2018), Summary, p. 93; p. 14 | Aysén slow event: M0 4.5e20 N m, Mw 7.7 from long-period records; ISC-GEM direct Mw 7.70; the Centennial value is Pacheco and Sykes Mw 7.2; not matched to Ruiz and Madariaga in A3 because the paper gives the month only |
+| 1960-06-06 05:55 | mw | 7.2 | 7.7 | 0.2 | ISC-GEM v13.0 (Di Giacomo et al. 2015); Kanamori and Rivera (2017), catalogue entry 879416; Summary, p. 93 | ISC-GEM direct Mw 7.7 ± 0.2 (q B, s d) from the long-period moment of Kanamori and Rivera (M0 4.5e20 N m, slow event, source ≥ 190 s); the Centennial Mw 7.2 is Pacheco and Sykes' Ms 7.1 converted (1992, Table 4, p. 1339, type u), so the direct Mw goes first |
 | 1962-02-14 06:36 | mw | 7.7 | 7.1 | 0.2 | ISC-GEM v13.0 (Di Giacomo et al. 2015), catalogue entry 17291428 | the catalogue value is the Centennial ABE1 mB 7.5 converted; ISC-GEM lists a direct Mw from a published moment |
 | 1962-08-03 08:56 | mw | 7.5 | 6.8 | 0.4 | ISC-GEM v13.0 (Di Giacomo et al. 2015), catalogue entry 875121 | the catalogue value is the Centennial ABE1 mB 7.2 converted; ISC-GEM lists a direct Mw from a published moment |
 | 1967-03-13 16:06 | mw | 7.1 | 5.7 | 0.3 | ISC-GEM v13.0 (Di Giacomo et al. 2015), catalogue entry 837800 | the catalogue value is the Centennial BRK UK 7.3 converted; ISC-GEM lists a direct Mw from a published moment |
@@ -95,7 +95,7 @@ Notes on these:
 | 1949-12-17 | -54.0 | 7.8 | crustal | Lomnitz (2004) |
 | 1958-09-04 | -33.8 | 6.3 | crustal | Ruiz and Madariaga (2018) |
 | 1960-05-22 | -38.1 | 7.8 | interface | Ruiz and Madariaga (2018) |
-| 1960-06-06 | -45.7 | 7.2 | crustal | Ruiz and Madariaga (2018) |
+| 1960-06-06 | -45.7 | 7.2 | crustal | Ruiz and Madariaga (2018), p. 50; Cabello et al. (2025), Table 7 |
 
 For the other 304 nothing was found in the papers read. Full list: `A6/no_depth.csv`.
 
