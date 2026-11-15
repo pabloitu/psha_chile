@@ -1,0 +1,2788 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns="http://openquake.org/xmlns/nrml/0.5" xmlns:gml="http://www.opengis.net/gml">
+    <sourceModel name="Modelo_Fallas_Simples">
+        <sourceGroup rup_interdep="indep" src_interdep="indep" tectonicRegion="Active Shallow Crust">
+            <simpleFaultSource id="3" name="Zofri">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.08503283239924 -20.202115452765895
+                            -70.02261616550362 -20.168171007985563
+                            -69.88953444955519 -20.162748532218927
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>57.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00020179471428939604 0.00016289576229345644 0.00013149516560236627 0.00010614750398260235 8.568598358823479e-05 6.916872755375178e-05 5.583541987912633e-05 4.5072306855081985e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="5" name="Zofri">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.1476823967252 -20.204839336466137
+                            -69.97477539107138 -20.19918047839633
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>57.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00020954197358073046 0.00016914962138184247 0.00013654349973275147 0.00011022269613705007 8.89756214503003e-05 7.182423847284402e-05 5.797904131622583e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="16" name="Tarapaca">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.15578141048366 -20.341588719743584
+                            -69.96286998236377 -20.33656346912875
+                            -69.85870524644992 -20.30378690284323
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00019651846576579281 0.00015863658965690523 0.00012805701225026482 0.00010337210615741855 8.344558524087e-05 6.736019952604727e-05 5.437551270197638e-05 4.38938186407749e-05 3.543262801822303e-05 2.8602458550087405e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="36" name="Blanco">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -69.92730800975681 -19.29504897762814
+                            -70.16142183604887 -19.354828256718633
+                            -70.09006327300159 -19.34266703405632
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00020582318486399515 0.00016614768485959954 0.00013412023141341368 0.00010826654906198838 8.739655100699164e-05 7.054955749577469e-05 5.695007417914365e-05 4.597209485267346e-05 3.7110285379000415e-05 2.995672234046178e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="38" name="Pisagua">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.20239388906668 -19.620682400072667
+                            -70.16324926294311 -19.618573908059375
+                            -70.05887887276174 -19.57429556049169
+                            -69.93542461695245 -19.484812102296644
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0002100416429921046 0.00016955297203424742 0.00013686909850884653 0.00011048553087492027 8.918779085787528e-05 7.199550905098568e-05 5.811729692655278e-05 4.6914317942485374e-05 3.787088086340672e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="39" name="Aroma">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -69.32619428603743 -19.646849090513058
+                            -69.28313634366731 -19.50194751026936
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>53.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>163.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00015963055039893784 0.000121931526546911 9.313566312278399e-05 7.114035222041974e-05 5.433954668227958e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="42" name="Chomache">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.00068545097275 -21.19872387980314
+                            -70.06570355542445 -21.146796887012833
+                            -70.10038840380173 -21.096243841180296
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00031541101331144486 0.00024092221850178141 0.0001840250115505843 0.0001405648888956345 0.0001073684920531127
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="48" name="Paposo">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.45668041357021 -25.037842127512135
+                            -70.3533424936611 -24.63104213128929
+                            -70.28527263172651 -24.113260519157564
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>72.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-135.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00021312151621312057 0.00017203915358697706 0.00013887603134976812 0.00011210559736746899 9.049556528199303e-05 7.305119037779715e-05 5.896947987433451e-05 4.7602229870115465e-05 3.842618746911491e-05 3.101896460397857e-05 2.5039594830380337e-05 2.0212838090320734e-05 1.6316510967255003e-05 1.3171259224207878e-05 1.0632301838269156e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="49" name="Pichilemu">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.05485958630084 -34.298593762192354
+                            -71.87721320202763 -34.49406856751034
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>55.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0004566778061492637 0.00033389499263519144 0.00024412367889499687 0.00017848836284388878 0.00013049981802213686 9.541351734346008e-05 6.976055162242631e-05 5.100466577651707e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="55" name="Carranza">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.63408203975428 -35.58422507722548
+                            -72.54555169295622 -35.572019911889356
+                            -72.43415154965425 -35.52468854134304
+                            -72.21835184666037 -35.410095552967334
+                            -72.13031550016018 -35.34154487119878
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>65.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.000248385983613809 0.00018160470040952807 0.00013277829421370332 9.70794003378988e-05 7.097854378817138e-05 5.1895187452272424e-05 3.7942599791054446e-05 2.774131763620894e-05 2.028276155116025e-05 1.4829519691028045e-05 1.0842441435398002e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="61" name="Santa Maria">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.50118377271292 -36.97523949370765
+                            -73.43790242541303 -37.04147102442845
+                            -73.3544874631259 -37.071878294447686
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0024055650021825737 0.0017588025909555578 0.0012859293143795097 0.0009401931803398973 0.0006874119801711012
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="64" name="Santa Maria">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.42314272615585 -36.80455729388399
+                            -73.47111450572982 -36.89824131178705
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.002660191838870451 0.0019449702229618147 0.0014220437462188428
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="68" name="Santa Maria">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.54741744425962 -37.008089733354495
+                            -73.49179799008516 -36.96533227876159
+                            -73.4765026399848 -36.91510095884212
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.002206908868553317 0.001613557327485504 0.0011797348255657063 0.0008625502391176003
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="69" name="Santa Maria">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.4386118873287 -36.68480165737054
+                            -73.49857661112168 -36.79690961928344
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.002362324986057072 0.0017271881251957506 0.0012628147428590658 0.0009232932137033467
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="70" name="Santa Maria">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.59034870992497 -36.91770812043336
+                            -73.49856968634191 -36.82886688879586
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.002251343275302713 0.0016460450589113865 0.0012034878757448816 0.0008799170224555384
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="77" name="Aeropuerto / Cerro Moreno">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.4225220686385 -23.411572017334663
+                            -70.35514573868483 -23.299054479880283
+                            -70.30900521172111 -23.06872035575975
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00019906512356054662 0.0001606923410388867 0.0001297164867792827 0.00010471169212904754 8.452694596319884e-05 6.823311178144636e-05 5.508015805286804e-05 4.446263305191659e-05 3.589179493660697e-05 2.8973114171337107e-05 2.3388112694503374e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="79" name="Chuculay 4">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -69.93063752210395 -21.145948322057393
+                            -69.85659412391965 -21.146122132230573
+                            -69.82826296496381 -21.164198454994676
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>70.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00025242515521493896 0.0002037664278054993 0.00016448739851327026 0.0001327799901144156
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="82" name="Chuculay 2">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -69.93133276549469 -21.1105778250066
+                            -69.79697702227173 -21.096672961687773
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>70.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0002347786535997188 0.00018952155354035085 0.00015298843700495228 0.00012349762557341544 9.96916095154201e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="84" name="Laguna Verde*">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.66551184179804 -33.097104304719835
+                            -71.51162448118481 -33.18440393469376
+                            -71.47195413657408 -33.23031707347411
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00013448661380159458 9.832841955568648e-05 7.189175055431775e-05 5.25628686103025e-05 3.8430767580995987e-05 2.8098236186734278e-05 2.0543718653069413e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="91" name="Marga-Marga*">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.55686673651064 -33.011177336964465
+                            -71.26272979434447 -33.205066814681686
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0003424962493603967 0.00025041239385386916 0.00018308628813520705 0.00013386154090555652 9.787140433136685e-05 7.155760886207219e-05 5.231856455968015e-05 3.825214734133154e-05 2.796763994841449e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="93" name="Lolco">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.33269418788643 -37.805746023859854
+                            -71.30404733002024 -38.02640408128326
+                            -71.40059386031834 -38.09799502285199
+                            -71.49049209753224 -38.251377000448144
+                            -71.6247487336671 -38.318479389712024
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>81.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-135.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0004081950777280311 0.00033332490454806126 0.00027218724098873273 0.00022226330270013275 0.00018149629478486716 0.0001482066747882285 0.00012102295794974292 9.882521399142987e-05 8.069892759114234e-05 6.589732165847332e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="100" name="Rio Cuervo">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.08985546066094 -45.81173802429032
+                            -73.07951883382708 -45.70480740363871
+                            -73.09930099874208 -45.65437179372327
+                            -73.09751882123658 -45.59555995222996
+                            -73.06945299286127 -45.399638457248955
+                            -73.03862972078497 -45.25476126571982
+                            -72.95930280557997 -45.05734037066151
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.001156252553784396 0.0009441754522586924 0.0007709970297839755 0.0006295825828914321 0.0005141060385035534 0.0004198099280510138 0.00034280938656777564 0.0002799321018074916 0.0002285876195133571 0.0001866606204054331 0.00015242377204994145
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="110" name="Los Palos">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.87361716999635 -45.811150114985765
+                            -72.71665366933132 -45.500219051268175
+                            -72.69655962312805 -45.308367694513436
+                            -72.72075267579532 -45.201526182287466
+                            -72.72850514659518 -45.04340252650536
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.001156252553784396 0.0009441754522586924 0.0007709970297839755 0.0006295825828914321 0.0005141060385035534 0.0004198099280510138 0.00034280938656777564 0.0002799321018074916 0.0002285876195133571 0.0001866606204054331 0.00015242377204994145
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="131" name="Lago Yulton">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.01092833997086 -45.179819475388456
+                            -72.9170076106127 -45.090621515070836
+                            -72.79231777894233 -44.89892329487412
+                            -72.54668195730642 -44.700855175725735
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0003971304492474908 0.0003242897239852199 0.00026480927181907475 0.00021623858313976282 0.00017657661499948977 0.00014418935100275998 0.00011774248216648978 9.614643529715666e-05 7.851148413262785e-05 6.411109389190663e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="135" name="Fiordo Aysen - Puerto Cisnes">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.28267691970404 -45.268894910271854
+                            -73.06150875152764 -45.12952866711424
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0009806554485108994 0.0008007859516307563 0.000653907691333291 0.000533969493238563 0.00043603007502191035
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="142" name="Rio Blanco">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.71240255063714 -45.44769181972168
+                            -72.61397625470033 -45.655009130666826
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0010252306961704859 0.000837185313068518 0.0006836307682120767 0.0005582408338403158 0.00045584962388654267
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="146" name="Cachet">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.16913182227574 -47.101539099050115
+                            -73.18053775561287 -46.86035114259113
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>75.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>13.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0006633607766724282 0.0005416887160814503 0.0004423334563159826 0.0003612017026897487 0.0002949509429211562 0.0002408517404050216
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="147" name="El Salton">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.1066368145373 -47.49002398631785
+                            -72.91416169700466 -47.58222194378766
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>80.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>60.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0021159376030292615 0.0017278373455284547
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="177" name="Troyo 4">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.36457191775975 -38.41780996116074
+                            -71.3410345724875 -38.26644124007112
+                            -71.34404195757025 -38.18053465005403
+                            -71.31792738554037 -38.05756080668584
+                            -71.1687992282018 -37.899034563993894
+                            -71.12056759851583 -37.87911685685742
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>58.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>135.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0016677883694638798 0.0013618865816610983 0.0011120925743742683 0.0009081151915528248 0.0007415508565849682 0.0006055373569531638 0.0004944711308870273 0.0004037764086280834 0.00032971669725617735 0.0002692408425219729 0.00021985732565318783
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="186" name="Las Raices">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.57378119184847 -38.550192976724475
+                            -71.44937891120776 -38.47119553534566
+                            -71.32457479009446 -38.41835820856443
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>85.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0008559493892547462 0.0006989531820405811 0.0005707528468593324 0.0004660667131480629 0.00038058186183374994 0.0003107764392322859
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="187" name="Ranquil">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.27987844573363 -38.272988053655695
+                            -71.10090484108548 -38.153342143425164
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0008623999385434086 0.0007042205868752826 0.0005750541167901588 0.0004695790543480304 0.0003834499777398564
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="188" name="Malalcahuello">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.65708442530592 -38.86863920623432
+                            -71.60756712842021 -38.601752588111424
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0025729929076498672 0.002101060650017573 0.001715689087959579 0.0014010014639600971 0.001144033097717396 0.0009341972598468106 0.0007628490137624052
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="208" name="Maqueo">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.99998337053609 -40.275944673407935
+                            -71.90976770591487 -40.154185312302275
+                            -71.8690645411956 -40.047582168082556
+                            -71.85128452436129 -39.81920579431193
+                            -71.81552632777777 -39.702427050467975
+                            -71.81034447371843 -39.593850819759496
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.001156252553784396 0.0009441754522586924 0.0007709970297839755 0.0006295825828914321 0.0005141060385035534 0.0004198099280510138 0.00034280938656777564 0.0002799321018074916 0.0002285876195133571 0.0001866606204054331 0.00015242377204994145
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="230" name="Maihue">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.06930668685408 -40.350985832530114
+                            -72.04033127786613 -40.155165323320944
+                            -72.04153145281424 -39.95213794131291
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.002069485933528004 0.0016899057310935512 0.0013799472292688503 0.0011268405808260806 0.0009201581536340548 0.0007513849271194589 0.0006135676855903086 0.000501028555688325
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="236" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.30438407646392 -41.5339751122616
+                            -72.19158082889209 -41.431429403344225
+                            -72.07600794640956 -41.40435622775766
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0008061092982348495 0.0006582546423268258 0.0005375191367890422 0.00043892865136982125 0.00035842139899279745 0.00029268059593521613
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="240" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.28965548091566 -41.47710231521961
+                            -72.2156238917292 -41.39172142030725
+                            -72.14071187885008 -41.25709081638803
+                            -72.11644460693304 -41.18038513536567
+                            -72.0303221697323 -41.064113250326216
+                            -71.95369562095613 -40.91233729103311
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0003971304492474908 0.0003242897239852199 0.00026480927181907475 0.00021623858313976282 0.00017657661499948977 0.00014418935100275998 0.00011774248216648978 9.614643529715666e-05 7.851148413262785e-05 6.411109389190663e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="269" name="Caburgua">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.90907227186779 -39.37451356874618
+                            -71.83513800101787 -39.277592048134466
+                            -71.78763601469029 -39.09530705697506
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0025729929076498672 0.002101060650017573 0.001715689087959579 0.0014010014639600971 0.001144033097717396 0.0009341972598468106 0.0007628490137624052
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="270" name="Caburgua">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.7828348859212 -39.49638741984353
+                            -71.77116287017026 -39.33175013186303
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00364672669964808 0.0029778527360953284 0.0024316620487974 0.001985652362149722
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="271" name="Neltume">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.97776435853825 -39.80693588858037
+                            -71.91795200957756 -39.69685120252092
+                            -71.92112901759003 -39.52592817324654
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0025729929076498672 0.002101060650017573 0.001715689087959579 0.0014010014639600971 0.001144033097717396 0.0009341972598468106 0.0007628490137624052
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="273" name="Reigol - Pirehueico">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.54319961616932 -39.38731321563233
+                            -71.54264719051537 -39.510249317152216
+                            -71.57784666169402 -39.634587732437865
+                            -71.67409986371769 -39.83468468704865
+                            -71.69768554665063 -39.97519451891185
+                            -71.71594748498842 -40.00435625393794
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0013899565723662184 0.00113501403394827 0.0009268324513667617 0.00075683504098917 0.0006180181524982143 0.0005046627285096601 0.0004120986875827143 0.0003365125235400484 0.00027479019446419753 0.00022438882862167324
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="284" name="Reigol - Pirehueico">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.49358040181403 -39.251626453298115
+                            -71.50047864797119 -39.163682073269
+                            -71.4686362290787 -39.107004078375496
+                            -71.43534684598012 -38.825353786647895
+                            -71.37491309426383 -38.56328592760343
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.001156252553784396 0.0009441754522586924 0.0007709970297839755 0.0006295825828914321 0.0005141060385035534 0.0004198099280510138 0.00034280938656777564 0.0002799321018074916 0.0002285876195133571 0.0001866606204054331 0.00015242377204994145
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="285" name="Los Banos">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.73280680918685 -39.970163666420035
+                            -71.78560890592621 -39.81822129207893
+                            -71.75851317624205 -39.730786594725544
+                            -71.71590732846039 -39.676088830535036
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0007336219447431439 0.0005990627473190601 0.0004891840787983923 0.00039945909509606076 0.0003261912551342988 0.000266362028634008 0.00021750653698184277
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="286" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.15102012397949 -40.6957654166406
+                            -72.13035455411932 -40.53189219177119
+                            -72.02167506325355 -40.28440131157123
+                            -71.96592125126472 -40.06760709509132
+                            -71.86726984242927 -39.860670882655086
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.001156252553784396 0.0009441754522586924 0.0007709970297839755 0.0006295825828914321 0.0005141060385035534 0.0004198099280510138 0.00034280938656777564 0.0002799321018074916 0.0002285876195133571 0.0001866606204054331 0.00015242377204994145
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="299" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.4291962537041 -42.63582909753478
+                            -72.41565744593436 -42.476857283037134
+                            -72.43094319667114 -42.38819992498651
+                            -72.46675552884454 -42.3078405467038
+                            -72.46094754609231 -42.11481688049457
+                            -72.3756422688756 -41.808161726182675
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-135.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.001156252553784396 0.0009441754522586924 0.0007709970297839755 0.0006295825828914321 0.0005141060385035534 0.0004198099280510138 0.00034280938656777564 0.0002799321018074916 0.0002285876195133571 0.0001866606204054331 0.00015242377204994145
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="312" name="Sollipulli cluster">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.95459350138896 -39.020148501252265
+                            -71.66866278296101 -38.891373777977435
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0009256196883801327 0.0007558447201136517 0.0006172094739292782 0.000504002375846161 0.00041155945523882264 0.0003360721959139837
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="315" name="Lolco">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.45031408382789 -38.19768290843945
+                            -71.47602411651974 -38.33642176025597
+                            -71.56314313924446 -38.378529287396645
+                            -71.64486907874493 -38.491576589388046
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>81.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-135.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0021239460896734777 0.0017343769345433814 0.001416261630039083 0.0011564942803215037 0.0009443728418875824 0.0007711582146752341 0.0006297142036321586 0.0005142135176801231
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="320" name="Escorial">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.63387454477436 -38.77367445661082
+                            -71.50382901829454 -38.66438538187981
+                            -71.35902993468369 -38.46879841041829
+                            -71.29450168570418 -38.45608627835901
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0004810582580363169 0.00039282369310893005 0.0003207729028447305 0.00026193749767253037 0.0002138935429971707 0.00017466169655892493 0.00014262566236160134 0.00011646560158782347 9.51037571262922e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="328" name="Mititus">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.3653107730737 -23.3807486975943
+                            -70.28856543434745 -23.248153017842426
+                            -70.21634394483294 -23.04483709970132
+                            -70.17850085103512 -22.86804110184368
+                            -70.17471132926437 -22.713113343406008
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>75.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>2.030281608223119e-05 1.6389144354276527e-05 1.3229891438577018e-05 1.0679631815608586e-05 8.62097291171927e-06 6.959151329166277e-06 5.617670733705768e-06 4.534780604650877e-06 3.660633758567201e-06 2.954991802826922e-06 2.385372897340062e-06 1.9255565629390673e-06 1.5543767103300378e-06
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="346" name="Sistema de Falla Salar">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -68.33865831782708 -23.46848663105311
+                            -68.33162765818986 -23.19474756115096
+                            -68.3511396892452 -23.07793043424209
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>37.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>7.78669074013237e-06 5.9477530229661725e-06 4.543106590823955e-06 3.4701873826789973e-06 2.650653298610032e-06 2.024663839336634e-06 1.5465106902011072e-06 1.181280204861008e-06 9.023040909048265e-07 6.892121523016454e-07 5.264449044046168e-07
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="348" name="Sistema de Falla Salar">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -68.33299033523576 -23.66444769170755
+                            -68.32633990176504 -23.63331157247103
+                            -68.34870954121232 -23.545344478265008
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>37.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>6.84819883886682e-06 5.23089932618168e-06 3.995548085630007e-06 3.051942602809547e-06 2.331182969451269e-06
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="349" name="Sistema de falla Peine">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -68.1415920011699 -23.569688465050604
+                            -68.14038283120266 -23.522228555303514
+                            -68.08778395066872 -23.363525034652582
+                            -68.09080687423784 -23.235957634137435
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>37.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>7.787818474630444e-06 5.94861442693018e-06 4.543764561995779e-06 3.470689964604598e-06 2.6510371886689887e-06 2.024957068300622e-06 1.546734668976583e-06 1.1814512878644785e-06 9.024347702248392e-07 6.893119698424733e-07
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="375" name="Sistema de Fallas Mejillones">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.39680237812723 -22.81710049109472
+                            -70.32822332814402 -22.713227620258408
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>70.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-75.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.000487649277706543 0.0003936475794402661 0.0003177661156968458 0.00025651194001660526
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="384" name="Puerto Aldea">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.53158221624625 -30.831199137829913
+                            -71.57738551452985 -30.72895870557977
+                            -71.61110255224094 -30.595906088095433
+                            -71.58314334748746 -30.516748858772758
+                            -71.61172502069309 -30.409113700237015
+                            -71.5995479825533 -30.33537713274842
+                            -71.62044105660942 -30.216823035454695
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>65.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-10.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>9.148848162862537e-05 7.385270723490383e-05 5.961649235872631e-05 4.812452101252617e-05 3.8847799175257475e-05 3.13593043423405e-05 2.5314328989371676e-05 2.0434613127463982e-05 1.649553554607173e-05 1.3315774135504034e-05 1.0748959337060313e-05 8.6769365155958e-06
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="388" name="Punta Mano - Lago Yulton">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.93483669086055 -45.62445210468087
+                            -72.8889456322351 -45.41905620338105
+                            -72.91452435491499 -45.16903701864345
+                            -72.89548181763172 -45.02982989883071
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0013899565723662184 0.00113501403394827 0.0009268324513667617 0.00075683504098917 0.0006180181524982143 0.0005046627285096601 0.0004120986875827143 0.0003365125235400484 0.00027479019446419753 0.00022438882862167324
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="398" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.55227900856937 -42.15253676376062
+                            -72.55285117793949 -42.0772010766683
+                            -72.49162901306846 -41.96095525128379
+                            -72.46313972631725 -41.867047887649846
+                            -72.3762231149048 -41.80949767178009
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.002069485933528004 0.0016899057310935512 0.0013799472292688503 0.0011268405808260806 0.0009201581536340548 0.0007513849271194589 0.0006135676855903086 0.000501028555688325
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="400" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.3756422688756 -41.808161726182675
+                            -72.26987118640608 -41.380490566086735
+                            -72.25951600116247 -41.138866998712956
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0013899565723662184 0.00113501403394827 0.0009268324513667617 0.00075683504098917 0.0006180181524982143 0.0005046627285096601 0.0004120986875827143 0.0003365125235400484 0.00027479019446419753 0.00022438882862167324
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="404" name="Puyuhuapi">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.7124056883718 -44.62937985459655
+                            -72.62890436124724 -44.487295579627244
+                            -72.56747477763884 -44.32674942634492
+                            -72.50381739255857 -44.22697276598035
+                            -72.37907659001257 -43.891330028557945
+                            -72.33825486407068 -43.67739394657332
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0009689748950744125 0.0007912478176068091 0.00064611901923368 0.0005276094009057283 0.0004308365357426859 0.000351813520024692 0.00028728471845777565 0.0002345916366533301 0.00019156339495927013 0.00015642729132134376 0.0001277357684923845 0.00010430677674282811
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="412" name="Golfo de Penas">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -74.69947478593258 -47.68806892184324
+                            -74.18950101585915 -47.10388763360737
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0013899565723662184 0.00113501403394827 0.0009268324513667617 0.00075683504098917 0.0006180181524982143 0.0005046627285096601 0.0004120986875827143 0.0003365125235400484 0.00027479019446419753 0.00022438882862167324
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="413" name="Riesco / Manihuales">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.3114472643797 -45.881401260959365
+                            -73.20605296637126 -45.856647902778434
+                            -73.16012173592935 -45.81577735803859
+                            -72.96461297041219 -45.72492929555051
+                            -72.76631308518068 -45.58872655528626
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0004810582580363169 0.00039282369310893005 0.0003207729028447305 0.00026193749767253037 0.0002138935429971707 0.00017466169655892493 0.00014262566236160134 0.00011646560158782347 9.51037571262922e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="415" name="Seno Elefante">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.67490563158958 -46.32501237641998
+                            -73.61637769167709 -46.116424080606805
+                            -73.616157662646 -45.948761335667086
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.002069485933528004 0.0016899057310935512 0.0013799472292688503 0.0011268405808260806 0.0009201581536340548 0.0007513849271194589 0.0006135676855903086 0.000501028555688325
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="416" name="Canal Costa">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.56489070773995 -45.781978711348415
+                            -73.4927209175363 -45.4488535207733
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.002069485933528004 0.0016899057310935512 0.0013799472292688503 0.0011268405808260806 0.0009201581536340548 0.0007513849271194589 0.0006135676855903086 0.000501028555688325
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="419" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.44748287483475 -43.15886537104001
+                            -72.47630678493016 -43.015185880423985
+                            -72.48991425593812 -42.69275964184396
+                            -72.5067700359084 -42.62582712192409
+                            -72.490230922519 -42.51877394795929
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0013899565723662184 0.00113501403394827 0.0009268324513667617 0.00075683504098917 0.0006180181524982143 0.0005046627285096601 0.0004120986875827143 0.0003365125235400484 0.00027479019446419753 0.00022438882862167324
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="421" name="Palena">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.33825486407068 -43.67739394657332
+                            -72.3330104064051 -43.6077985736452
+                            -72.35795701720252 -43.467568385072866
+                            -72.41402458646547 -43.3469083804174
+                            -72.43230081592986 -43.21926356446187
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0016854468678301395 0.00137630620013165 0.0011238673806190376 0.0009177302907584671 0.0007494023770951597 0.0006119487701901464 0.0004997065779118423 0.00040805158237472927 0.0003332077287721905
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="434" name="Chuculay 2">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -69.79199638702363 -21.103969297245214
+                            -69.74114839388324 -21.101280450232537
+                            -69.68031461652629 -21.06478018345865
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>70.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0002146834764014547 0.00017330002256685432 0.0001398938489588793 0.00011292721539594764 9.115880413606889e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="438" name="Cachet">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.24089415034473 -47.612429844861424
+                            -73.25595354621913 -47.48494478177622
+                            -73.24056741765219 -47.25314295778122
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>75.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>13.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0005244800904810659 0.0004282811960153989 0.00034972687465054927 0.00028558080062997547 0.00023320024739291082 0.00019042721101751825 0.00015549950354388757
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="440" name="Cachet*">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.258864435845 -47.21393506345237
+                            -73.23605256917068 -46.99567778400251
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>75.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>13.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0008623999385434086 0.0007042205868752826 0.0005750541167901588 0.0004695790543480304 0.0003834499777398564
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="443" name="Pelluhue">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.30943788954693 -35.66721458308649
+                            -72.59886210270383 -35.799997791564806
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>65.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0003513696506255302 0.00025690008432223947 0.00018782969219817533 0.0001373296290047468 0.0001004070590856486 7.341152515514813e-05 5.367403521905466e-05 3.9243184916915266e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="453" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.61994865980279 -39.18789452341349
+                            -71.82920758636101 -39.07479303906746
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0006130959735216204 0.0005006433639286906 0.00040881654532183364 0.00033383238402953853
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="454" name="Caleta del Cobre / Coloso">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.32688611090526 -24.450394721039515
+                            -70.39580181849908 -23.97793638505607
+                            -70.45756777553237 -23.757565550409765
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>72.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0002486993155413509 0.000200758799503888 0.00016205953559024193 0.00013082013411430196 0.00010560259491891576 8.524611390372874e-05 6.88136493356722e-05 5.5548788303012884e-05 4.484092780606902e-05 3.6197167713918205e-05 2.921962177446707e-05 2.3587102266971573e-05 1.9040335211961308e-05 1.537002557077659e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="464" name="Quitralco">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.02403748314327 -45.36759181221231
+                            -73.117565900346 -45.445991688265735
+                            -73.20717451539156 -45.55607176529969
+                            -73.27226640906747 -45.595175935421025
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0007336219447431439 0.0005990627473190601 0.0004891840787983923 0.00039945909509606076 0.0003261912551342988 0.000266362028634008 0.00021750653698184277
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="478" name="Mejillones">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.4823420024814 -23.43267152806851
+                            -70.51133269454817 -23.18469106054397
+                            -70.48472607734658 -23.08773427391759
+                            -70.50024483702958 -23.0062428497277
+                            -70.45323423307337 -22.92025600780846
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>65.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-75.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00023511329752635242 0.00018979168984058957 0.00015320650048944673 0.00012367365405691744 9.983370587362026e-05 8.058926458074738e-05 6.505447743157103e-05 5.25142530572953e-05 4.2391344655201014e-05 3.421977838503021e-05 2.762340383974844e-05 2.22985792341562e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="494" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.52362041365114 -41.098915023309644
+                            -72.3395584322758 -41.06536288259093
+                            -72.2588433757212 -41.07327612339435
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0009551009091360226 0.0007799185652690427 0.0006368677514939869 0.0005200549787567763 0.00042466772779006903
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="496" name="Santa Maria">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.5421162150912 -37.03077204189617
+                            -73.63918954306291 -37.064404430919694
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0034063041685494645 0.0024904821078590078
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="497" name="Estero Francisco">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.74215569223139 -46.47482176121525
+                            -73.67834703578706 -46.42421489610052
+                            -73.5868146188995 -46.310679494263184
+                            -73.48078429785704 -46.10949313959668
+                            -73.40861450765334 -46.02412155896275
+                            -73.28435933091833 -45.75622478904273
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.001156252553784396 0.0009441754522586924 0.0007709970297839755 0.0006295825828914321 0.0005141060385035534 0.0004198099280510138 0.00034280938656777564 0.0002799321018074916 0.0002285876195133571 0.0001866606204054331 0.00015242377204994145
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="498" name="Teresa">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.38521227112938 -46.27916021886898
+                            -73.421187151266 -46.334277695759
+                            -73.52003556019292 -46.42850547794541
+                            -73.69759964750568 -46.57570544654908
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.002069485933528004 0.0016899057310935512 0.0013799472292688503 0.0011268405808260806 0.0009201581536340548 0.0007513849271194589 0.0006135676855903086 0.000501028555688325
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="504" name="Chuculay 3">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -69.8080834238109 -21.15520324343487
+                            -69.66373355965601 -21.09593376303269
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>70.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00021307756051361205 0.00017200367100655446 0.00013884738856788755 0.00011208247591057121 9.047690083203477e-05 7.303612377997193e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="518" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.44385494584901 -41.26058253405665
+                            -72.47709055758315 -41.285034447581666
+                            -72.54150433815465 -41.28701275823215
+                            -72.59452305099796 -41.2423820796692
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0013075528507298804 0.001067724607525696 0.0008718850919712564
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="520" name="Chaquivin">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.12323924869236 -37.9939755391398
+                            -71.31265922624226 -38.06245883111012
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0010438585720182235 0.0008523965081016369 0.0006960519619234193 0.0005683837616562402
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="532" name="Sistema de Falla Salar*">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -68.32620764926355 -23.497015478081778
+                            -68.30081508624721 -23.543568510578268
+                            -68.28146837126826 -23.693203257824052
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>37.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>7.512724285313256e-06 5.738487641275408e-06 4.383262204024509e-06 3.3480925202375425e-06 2.5573928736862552e-06 1.9534281895881893e-06 1.4920983518568394e-06
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="536" name="Pisagua">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.01401180829828 -19.547310577820838
+                            -69.89498371252824 -19.53488197142582
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0002672736937569942 0.0002157526882646463 0.00017416312783758028 0.00014059057776820476
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="539" name="Atajana*">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.25504693217016 -19.335631341812928
+                            -69.9569286859101 -19.22966101364483
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.000238022777391092 0.00019214032390721083 0.0001551024001812594 0.00012520409070198655 0.00010106912794509655 8.158654055398563e-05 6.585951353199446e-05 5.3164106398171985e-05 4.291592903648092e-05 3.464324127392225e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="541" name="Punta de Lobos">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.10038840380173 -21.096243841180296
+                            -70.13423850880008 -21.015361577274916
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>86.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-88.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.000353585185311422 0.00027008101708381367 0.0002062975453136749
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="553" name="Salar Grande">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -69.93097611235765 -21.228034237689883
+                            -69.95260640925835 -21.13505169188204
+                            -69.98898967783134 -21.08826924233165
+                            -70.07447094787591 -20.883585624776742
+                            -70.12366600778 -20.85249900602429
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-21.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0002452334127757342 0.0001979610013800458 0.000159801054937112 0.00012899700941595619 0.00010413090479789922 8.405811408437305e-05 6.785465426555898e-05 5.477465388858157e-05 4.42160193886189e-05 3.569271974865508e-05 2.8812413705970158e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="561" name="Lago Laja">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.31270485244693 -37.2019912988593
+                            -71.31658851354905 -37.0696646546001
+                            -71.29205387678496 -37.00184539325028
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>70.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0003520173419495034 0.0002707472532021446 0.00020823995406175593 0.00016016368755278562
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="562" name="Caleta Herradura">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.5330440068754 -23.39537502403806
+                            -70.56858831409937 -23.30195172229412
+                            -70.56224422029447 -23.261062733358415
+                            -70.57771338056801 -23.20787663060196
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>63.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-75.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>1.5466130697528094e-05 1.2484802481451593e-05 1.0078169908765372e-05 8.135451791155162e-06 6.567221672721114e-06 5.301291385629979e-06 4.279388112036909e-06
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="574" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.15823725174772 -40.49853579479105
+                            -72.4574236965463 -40.31194161931023
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0005874781786028884 0.00047972432420497434 0.00039173442625769676 0.00031988342673630875 0.00026121116716264756 0.00021330043430703018
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="581" name="El Yolki">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.49093281819495 -35.418521033219065
+                            -72.3538603624657 -35.48095415501018
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>65.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-68.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.005006718627165735 0.0036606076683253224 0.0026764133356117522 0.001956830393222019
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="590" name="Golfo de Penas">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -74.18950101585915 -47.10388763360737
+                            -74.09726323910718 -46.99820401110617
+                            -73.8299785432751 -46.618332791724924
+                            -73.71396780606938 -46.399843152639335
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.001156252553784396 0.0009441754522586924 0.0007709970297839755 0.0006295825828914321 0.0005141060385035534 0.0004198099280510138 0.00034280938656777564 0.0002799321018074916 0.0002285876195133571 0.0001866606204054331 0.00015242377204994145
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="591" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.72558890600317 -43.98866727247662
+                            -72.73057021124623 -43.80118906252517
+                            -72.7523068152073 -43.679373509979484
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0025729929076498672 0.002101060650017573 0.001715689087959579 0.0014010014639600971 0.001144033097717396 0.0009341972598468106 0.0007628490137624052
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="592" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.83223411960887 -43.6139372748853
+                            -72.81710395698201 -43.665084903245656
+                            -72.83551725211947 -43.817265092509956
+                            -72.77619443742333 -43.993648576820306
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.002069485933528004 0.0016899057310935512 0.0013799472292688503 0.0011268405808260806 0.0009201581536340548 0.0007513849271194589 0.0006135676855903086 0.000501028555688325
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="596" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.9974096680217 -45.002589282069664
+                            -72.7124056883718 -44.62937985459655
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-135.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0016854468678301395 0.00137630620013165 0.0011238673806190376 0.0009177302907584671 0.0007494023770951597 0.0006119487701901464 0.0004997065779118423 0.00040805158237472927 0.0003332077287721905
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="598" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.83053594777573 -42.69760356035596
+                            -72.80381803857159 -42.90636552874611
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0034495997541736344 0.0028168823475011305 0.002300216467160635 0.0018783162173921215 0.0015337999109594257
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="600" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.57648938757512 -42.698962098721836
+                            -72.6333691732487 -42.423128365681464
+                            -72.61372467835116 -42.2056084898399
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0016854468678301395 0.00137630620013165 0.0011238673806190376 0.0009177302907584671 0.0007494023770951597 0.0006119487701901464 0.0004997065779118423 0.00040805158237472927 0.0003332077287721905
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="608" name="Lanalhue">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.54862916490401 -38.81109203097242
+                            -73.04510575952315 -38.10248654741616
+                            -73.30042705566404 -37.92245336872793
+                            -73.48163984810049 -37.84422160024661
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>0.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0034389177553525996 0.00251432717582336 0.001838322866908944 0.0013440696960584186 0.0009827018857139905 0.0007184917560583695 0.0005253174040149055 0.00038408008530933606 0.00028081596155730195 0.00020531552476052095 0.00015011420459832458 0.00010975436196786153 8.02457036174899e-05 5.8670770196374775e-05 4.289649314864346e-05 3.136330268535238e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="614" name="Morguilla">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.25626773157052 -38.40875223682622
+                            -73.30990577513137 -38.286936185156776
+                            -73.4230323865354 -37.935133326641676
+                            -73.57341936900866 -37.73844425939501
+                            -73.66563181185859 -37.582736551350706
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>0.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0014925562530700525 0.0010912662109170848 0.0007978673772863409 0.0005833520229704554 0.0004265114634228175 0.00031183920046213713 0.00022799782722008775 0.0001666981224299012 0.00012187951245180498 8.911087502941877e-05 6.51524434974147e-05 4.763549782540504e-05 3.482817422134314e-05 2.5464239379594162e-05 1.8617900641599482e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="623" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.64685786110135 -38.05619236948223
+                            -71.74366515792065 -38.23530340223016
+                            -71.82241054720896 -38.33511443738132
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0007336219447431439 0.0005990627473190601 0.0004891840787983923 0.00039945909509606076 0.0003261912551342988 0.000266362028634008 0.00021750653698184277
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="625" name="Bio-Bio - Alumine">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.32990694425001 -38.09955799870261
+                            -71.33394615299255 -38.15514281908577
+                            -71.2895299735294 -38.2340900737978
+                            -71.2789101654717 -38.32051794774503
+                            -71.22342740465098 -38.47949890924724
+                            -71.17330248532141 -38.55992358370639
+                            -71.08678238050243 -38.64794297528806
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>72.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0004443303796908403 0.00036283235511461084 0.00029628250494511234 0.0002419390704801445 0.00019756317989697017 0.00016132660993341594 0.00013173646570267098 0.0001075736755578843 8.784276708281723e-05 7.173085505119062e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="661" name="Anticura - Todos Los Santos">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.16343911212527 -41.0502374971627
+                            -72.17033936646857 -40.94500860606229
+                            -72.15213372748951 -40.82084505855255
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0028946652072978692 0.0023637325792645104 0.0019301823548333785 0.0015761528844643578 0.0012870586600195908 0.001050989412676458
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="670" name="Topocalma">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.63573858396842 -34.38273443624519
+                            -71.76241680319288 -34.318997765134725
+                            -71.92411877865868 -34.16291567291995
+                            -71.94071770955463 -34.102458484871136
+                            -71.94202129035023 -33.993247369670314
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0002708258388312559 0.0001980113555867129 0.00014477384104297867 0.00010584981345253764 7.739093559457939e-05 5.6583537720546255e-05 4.13704359092494e-05 3.0247542593997287e-05 2.21151605698009e-05 1.6169258230092888e-05 1.1821976642957324e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="674" name="Paposo">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.31653285111014 -24.105255191373942
+                            -70.29151866975076 -23.9966259816037
+                            -70.32309863409466 -23.798802412401358
+                            -70.29741531486485 -23.651627239905167
+                            -70.22902962092024 -23.472650210638676
+                            -70.11620161771043 -23.24514807682226
+                            -69.95743644133864 -22.995776052322924
+                            -69.88929436923974 -22.748435935370082
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>70.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-72.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00011182517392498323 9.02691976559156e-05 7.28684585003115e-05 5.882197230168532e-05 4.748315659024734e-05 3.833006734643957e-05 3.094137307384304e-05 2.4976960229203645e-05 2.0162277246145283e-05 1.6275696482677588e-05 1.313831234251518e-05 1.0605705961228936e-05 8.561297372422959e-06 6.9109791433972955e-06 5.578784457869627e-06
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="675" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -69.71038169545886 -21.60916941373739
+                            -69.8187308653371 -21.5539930222601
+                            -69.91567485910741 -21.53842649868392
+                            -70.01942230869253 -21.582280179186853
+                            -70.0821668234401 -21.648262577955563
+                            -70.08778235127443 -21.6730089717866
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>75.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0002272086826331352 0.0001834108077981579 0.00014805562898091018 0.00011951569013891606 9.647725174449881e-05 7.787981723029714e-05 6.286731661767269e-05 5.074870023152906e-05 4.096612856648768e-05 3.306929403254656e-05 2.6694692568670482e-05 2.1548890963155112e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="683" name="Carino Botado">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.54873368810917 -32.867296183272174
+                            -70.55163921148039 -32.74047306617899
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>40.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0003959587251540705 0.0003045439086130757 0.0002342339905181804 0.0001801564922573382 0.00013856384221038373
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="687" name="San Ramon">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.5439590093008 -33.7781397849231
+                            -70.52004700324088 -33.48096948277584
+                            -70.52398761890056 -33.42760659578468
+                            -70.54828555683292 -33.38340249243106
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>50.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00036186844085801307 0.00027832403324295324 0.00021406748623049797 0.0001646458199355113 0.00012663411197834989 9.739815030121434e-05 7.491188222427413e-05 5.761700895785313e-05 4.431499546775125e-05 3.408401197541215e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="710" name="Knokeke">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -66.67698358402515 -54.677022402961484
+                            -67.86050952159712 -54.59881398627641
+                            -67.82855073312982 -54.59746855552936
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-5.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0017889664701949673 0.0014210265782509002 0.0011287615333983269 0.0008966071562489674 0.0007122003796644018 0.0005657208703488009 0.00044936806029084584 0.0003569457380722928 0.00028353207801532117 0.0002252175350176177 0.00017889664701949866 0.0001421026578250977
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="720" name="Deseado">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -67.96960999950181 -54.475618755900825
+                            -68.38267517222135 -54.40463906464106
+                            -68.72619559844804 -54.37677684367634
+                            -69.45891053729144 -54.23615339236511
+                            -69.80866048909024 -54.13951069036602
+                            -69.95786913934927 -54.12628010274449
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-5.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0013287652046638798 0.0010554757193837105 0.0008383941649724061 0.0006659601570656704 0.0005289909559586803 0.00042019245223177856 0.0003337707288257348 0.00026512351383077586 0.00021059509272509962 0.00016728162824592517 0.0001328765204663894 0.00010554757193837212 8.383941649724158e-05 6.6596015706572e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="721" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.4875820989347 -53.406549932633254
+                            -72.3723085494999 -53.53478679837201
+                            -72.16119730011525 -53.67617908999296
+                            -71.7571680062984 -53.83961403116257
+                            -71.14369877577786 -53.994865030196934
+                            -70.66181105353724 -54.209410200520324
+                            -70.22170826622346 -54.35022956913929
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-5.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0011528394490986653 0.0009157329245230587 0.0007273925174153057 0.0005777884143101525 0.00045895365118312615 0.000364559843564565 0.0002895801769900002 0.00023002171079960585 0.0001827127394877109 0.00014513388781891106 0.00011528394490986777 9.157329245230674e-05 7.273925174153149e-05 5.777884143101715e-05 4.5895365118315777e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="722" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -70.84610964654291 -53.937371471616075
+                            -70.58446740424728 -54.106402531451636
+                            -70.24246383303944 -54.20483312974511
+                            -69.54372168200996 -54.35341994467467
+                            -68.16007161051635 -54.577761463320826
+                            -67.2071358484406 -54.53882632347603
+                            -66.54703060407905 -54.5611940455687
+                            -66.32083321478098 -54.53495729254496
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-5.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0008770894928385223 0.0006966969485416408 0.0005534060572728758 0.0004395860565592891 0.0003491756163161492 0.00027736005091717633 0.00022031491962807686 0.00017500236119158768 0.0001390093166378956 0.00011041902509520844 8.77089492838532e-05 6.966969485416477e-05 5.534060572728826e-05 4.395860565593037e-05 3.4917561631615846e-05 2.773600509171705e-05 2.203149196280826e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="726" name="None">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.3651413788715 -53.16698893159389
+                            -73.19761872132688 -53.27655876117785
+                            -72.43158379455645 -53.60091398619147
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-5.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0017889664701949673 0.0014210265782509002 0.0011287615333983269 0.0008966071562489674 0.0007122003796644018 0.0005657208703488009 0.00044936806029084584 0.0003569457380722928 0.00028353207801532117 0.0002252175350176177 0.00017889664701949866 0.0001421026578250977
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="727" name="Bahia Indio">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.08876326771059 -53.828828370133124
+                            -71.27813744188938 -53.72031814966283
+                            -71.61419958983919 -53.45598127591512
+                            -71.75665774266065 -53.370173178749155
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-5.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00032191110712974353 0.000255703081464509 0.000203112177313263 0.00016133773725624965 0.00012815512002916702 0.00010179723026364915 8.086041421514533e-05 6.422971008258896e-05 5.101947222675546e-05 4.052620731044324e-05 3.219111071297605e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="728" name="Rio San Juan">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.1879173400132 -53.44990908223832
+                            -71.11793790081344 -53.55702416373413
+                            -70.97046291862875 -53.670791329855945
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>90.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-5.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0005067627384707798 0.000402535951473538 0.00031974567174703524 0.00025398301499955254 0.00020174587995454573 0.00016025244868719498 0.00012729304467594266
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="731" name="Exploradores">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.29899170642315 -46.35988160931499
+                            -73.15395174240678 -46.50467212242831
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00041723321823611015 0.0003407052907568206 0.00027821393426062375 0.0002271845941835492
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="733" name="Exploradores">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.26754161334988 -46.293924722475765
+                            -72.9993528984401 -46.51219172823705
+                            -72.90814035689826 -46.55223044347868
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00018727480024033843 0.0001529253004759626 0.00012487610450338707 0.00010197162554139946 8.326823179588642e-05 6.799537017872356e-05 5.552382062194721e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="734" name="Exploradores">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.18443555524713 -46.56284639485378
+                            -73.1322781287678 -46.6641581673382
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>60.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>90.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0007304461658564267 0.0005964694622648341
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1001" name="Falla Huequi">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.7533558266182 -42.2362730921966
+                            -72.5617071100554 -42.3940837689798
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0007123337199167016 0.0005816791582082687 0.0004749889463795786 0.00038786760020375705 0.0003167258447475503 0.00025863274137451984
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1002" name="Falla Chacao">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.2481918337962 -41.7640190119823
+                            -72.7007921979803 -42.0017738742498
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0003694863665775365 0.00030171605340455557 0.00024637601036604795 0.00020118630679057735 0.00016428519148392698 0.0001341523912410488 0.00010954647776304089 8.945372258572303e-05 7.304633291590513e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1003" name="Falla Fiordo Reñihue">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.877340035546 -42.2869013782201
+                            -72.5957190146925 -42.5380264119603
+                            -72.2960043060518 -42.7399024720502
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.000304712233402375 0.0002488226381336848 0.00020318417989490566 0.0001659166194411334 0.0001354845865510419 0.00011063432496839091 9.034203943634548e-05 7.377171679630064e-05 6.024068344071783e-05 4.919148013628587e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1004" name="Falla Chaiten">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -73.1217608538669 -42.7262298708664
+                            -72.4938835455948 -43.0063321192145
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0003694863665775365 0.00030171605340455557 0.00024637601036604795 0.00020118630679057735 0.00016428519148392698 0.0001341523912410488 0.00010954647776304089 8.945372258572303e-05 7.304633291590513e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1005" name="Falla Lago Yelcho">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.426579739842 -43.2185566802097
+                            -71.8701603599785 -43.5216633953343
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0003694863665775365 0.00030171605340455557 0.00024637601036604795 0.00020118630679057735 0.00016428519148392698 0.0001341523912410488 0.00010954647776304089 8.945372258572303e-05 7.304633291590513e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1006" name="Falla Estuario Reloncavi">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.5504027825536 -41.7476731906383
+                            -72.3506650514121 -41.6673977701317
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-135.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0010799921379727004 0.0008819025410743858 0.0007201460682976917 0.0005880585841751101
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1007" name="Falla Calbuco-Reloncavi">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.6619951006512 -41.3170674929397
+                            -72.3328153158664 -41.4250136219758
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0007351408307571047 0.0006003030428621637 0.0004901968822741654 0.0004002861325600278 0.00032686659934782743 0.0002669135028133745 0.00021795686107497285
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1008" name="Falla Rio Puelo">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.3068084716067 -41.5470848082006
+                            -72.2016306371674 -41.621746679975
+                            -72.1290707287765 -41.7233450816057
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0008081552609207248 0.0006599253393885689 0.0005388833985575423 0.0004400426834798969 0.0003593310979750127 0.00029342344008733594
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1010" name="Falla Riñihue-Choshuenco 020a">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.33602409805 -39.7933721732859
+                            -71.9628894887286 -39.9674820437074
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0005917151862726699 0.0004831841899754289 0.000394559691653117 0.00032219048865261835 0.0002630950732531388 0.00021483879880981597 0.0001754335757919504 0.00014325596533610468
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1011" name="Falla Riñihue-Choshuenco 020b">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.8790138139997 -40.0585472749831
+                            -71.5366763726241 -40.1682733936383
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0007351408307571047 0.0006003030428621637 0.0004901968822741654 0.0004002861325600278 0.00032686659934782743 0.0002669135028133745 0.00021795686107497285
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1012" name="Falla Pellaifa">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.1901030342794 -39.4474487423609
+                            -71.9936861491347 -39.5476018780331
+                            -71.9244074813295 -39.6209512072804
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0007351408307571047 0.0006003030428621637 0.0004901968822741654 0.0004002861325600278 0.00032686659934782743 0.0002669135028133745 0.00021795686107497285
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1013" name="Falla Panguipulli">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.2180590603276 -39.7049897312665
+                            -72.1086644539246 -39.7811095771409
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0016733180023955896 0.0013664019824332165
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1014" name="Falla Malalcahuello 006a">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.6410439139032 -38.2417754906061
+                            -71.5889155610983 -38.0083206307724
+                            -71.5623498584295 -37.9741890906742
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>180.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.001473332038405318 0.0012030969697196061 0.0009824277765079748 0.0008022332034294331 0.0006550894916390068 0.0005349345305346884 0.0004368181074656096
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1015" name="Falla Sollipulli-Icalma">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.6684725646664 -39.0345135705608
+                            -71.5164949738053 -38.9721884618885
+                            -71.3347306663801 -38.8482034007368
+                            -71.1738845136372 -38.7782977351245
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-135.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0004825553273040648 0.0003940461734816758 0.0003217711587664465 0.00026275265586030795 0.0002145591868031785 0.00017520524955651497 0.00014306951815733245 0.00011682804640604284 9.539972317544044e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1016" name="Falla Villarrica-Quetrupillan-Lanin">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.5746630981377 -39.5819537208527
+                            -72.202441720738 -39.2908493696658
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.00039829762176548506 0.0003252428164877482 0.00026558755035491335 0.00021687411167213542 0.00017709557639552064 0.00014461312573017443 0.00011808852913832372 9.642901115401827e-05 7.874223059591259e-05 6.429951738607829e-05
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1017" name="Falla Callaqui">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -71.5514546375092 -37.9643986963377
+                            -71.1050168672002 -37.8130811592626
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>-135.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0011834303725453397 0.0009663683799508578 0.000789119383306234 0.0006443809773052367 0.0005261901465062777 0.00042967759761963195 0.0003508671515839008 0.00028651193067220936
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+            <simpleFaultSource id="1018" name="Falla Futrono">
+                <simpleFaultGeometry>
+                    <gml:LineString>
+                        <gml:posList>
+                            -72.0803523375102 -40.3610830459788
+                            -72.3880515964995 -40.0967282581135
+                        </gml:posList>
+                    </gml:LineString>
+                    <dip>87.0</dip>
+                    <upperSeismoDepth>0.0</upperSeismoDepth>
+                    <lowerSeismoDepth>12.0</lowerSeismoDepth>
+                </simpleFaultGeometry>
+                <rake>45.0</rake>
+                <magScaleRel>Leonard2014_SCR</magScaleRel>
+                <ruptAspectRatio>1.0</ruptAspectRatio>
+                <incrementalMFD binWidth="0.1" minMag="6.0">
+                    <occurRates>0.0005917151862726699 0.0004831841899754289 0.000394559691653117 0.00032219048865261835 0.0002630950732531388 0.00021483879880981597 0.0001754335757919504 0.00014325596533610468
+</occurRates>
+                </incrementalMFD>
+            </simpleFaultSource>
+        </sourceGroup>
+    </sourceModel>
+</nrml>

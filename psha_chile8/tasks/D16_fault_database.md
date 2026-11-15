@@ -101,8 +101,8 @@ Copy every input into `psha_chile8/data/` as a dated file with its sha256, and g
 
 1. **Map** every segment of the system in the GEM/SARA database (CL-056b to j, AR-0056a, b, d, g, and any other).
 2. **Overlap:** show where the Chilean and Argentine traces run parallel (within 5 km). Propose one trace per section, by a stated general rule (for example, the more detailed mapping).
-3. **Slip rate:** the database gives 3 mm/yr; GPS studies give 4–7 mm/yr. Find and read the GPS and geological studies, giving the reference and page for each value used.
-4. **Mmax:** the old model took one value for the whole system, 8.0 + 0.2 (the 17 Dec 1949 doublet, Mw 7.5–7.8, which is 8.0 in the old catalogue). Give the system length and area, the Mmax from Wells and Coppersmith 1994 and from Leonard 2014, and the observed maximum in the frozen catalogue.
+3. **Slip rate:** from GPS only (Pablo, 15 Nov): about 4–7 mm/yr; the database value of 3 mm/yr is not used. Find and read the GPS studies, give the reference, page and value of each, and set `sr` (preferred), `sr_lo` and `sr_hi` from them, with the rule stated. Geological rates only as context.
+4. **Mmax** (rule in DECISIONS, Crustal and faults): the old model took one value for the whole system, 8.0 + 0.2 (the 17 Dec 1949 doublet, Mw 7.5–7.8, which is 8.0 in the old catalogue). Give the system length and area, the Mmax from Wells and Coppersmith 1994 and from Leonard 2014, and the observed maximum in the frozen catalogue.
 5. **One source or several:** one system source against separate segments. Give what each implies for the rates at Mw ≥ 6.5 and 7.
 6. **Proposal:** propose DECISIONS lines. Pablo decides.
 7. **Puerto Williams:** that result went from 0.10 to 0.02 g between psha_chile7 runs. Say whether the clean database contains every segment near Puerto Williams.

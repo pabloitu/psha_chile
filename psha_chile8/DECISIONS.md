@@ -116,16 +116,18 @@ New lines are added from the project conversations ("write the brief"); Claude C
 - Large intra-arc event reported by Kanamori (> 7.5, probably multi-rupture): open. Its Mmax may change the fault hazard significantly; check whether it is Aysén 1960 (9 Nov).
 - Fault source: shapefile `crustal_faults_chile_updated` is authoritative, read in code (6 Oct).
 - Fault database rebuilt in D16 (Pablo, 15 Nov): only properties of the faults, each with its source, plain field names. The columns `id_area`, `min_mag`, `max_mag`, `a_val`, `b_val`, `usd`, `lsd` were values of the GEM area source each fault lies in, not of the fault, and are removed; the old "observed + 0.2" fault Mmax branch and the fault b read them. CHAF (Maldonado et al. 2021) is used to find important faults missing from the GEM database; exploration only, nothing added without Pablo.
+- Two fault databases are compared before one is chosen (Pablo, 15 Nov): A, GEM/SARA cleaned (D16); B, the crustal faults of the official CSN model MASCSN26 (Bravo Sagua et al. 2026, v1.1; built on CHAF proved and probable, with Magallanes–Fagnano) for Chile plus GEM outside Chile (D16b). MASCSN publishes OpenQuake sources only, so its slip rates are restored from the moment rates (μ 30 GPa, its 0–12 km geometry) and its Mmax from the last MFD bin, checked against its system values (report Table 17). Both go through B13 with our rules.
 - Slip rate: reported average, one value (30 Sep).
 - Aseismic coefficient ψ 0.6 / 0.8 / 1.0, weights 0.25 / 0.5 / 0.25 (6 Oct).
-- Mmax: observed + 0.2 / Wells and Coppersmith 1994 area / Leonard 2014 area, 1/3 each; Leonard where no observed maximum (6 Oct).
+- Fault Mmax: Leonard (2014) from the fault area (or the system area where segments are joined), one value, no branches. Sensitivity only: the class maximum, i.e. the background Mmax of the crustal class the fault lies in (observed maximum + 0.2: forearc, arc, backarc, Patagonia, the last set by the Magallanes–Fagnano 1949 event), to see whether it lowers the hazard a lot. It becomes a branch only if multi-fault ruptures are put in the model; no earthquake is attributed to single fault traces (Pablo, 15 Nov). Wells and Coppersmith 1994 dropped.
 - MFD shapes: AL-I, AL-II, AL-III, Youngs–Coppersmith, tapered, hybrid, 1/6 each (6 Oct).
 - Fault seismogenic depth 10 / 20 km, checked in the new tornado (9 Nov).
-- Fault Mmin and background cap 6.0 inside down-dip-aware fault buffers (5 km margin), background hypocentre 10 km (6 Oct).
+- Fault Mmin 6.0, background hypocentre 10 km (6 Oct). Join of faults and background as in the US NSHM 2023 (Field et al. 2024, BSSA 114, "Merging with other source models"): per crustal class the background above Mw 6.0 is the catalogue fit minus the summed fault MFD, never below zero (a bulge is reported, not hidden); it is spread by the smoothed pattern times a weight rising linearly with the 3-D distance from the fault surface, 0 at the fault and 1 at 12 km, so no cell near a fault is left without large magnitudes; fault ruptures stay on the fault surfaces (Pablo, 15 Nov; details in B13).
 - Multi-fault ruptures: not in the model (aborted, future work) (Oct).
 
 ## Magallanes–Fagnano
 - Own analysis (plan D): segments, Chilean / Argentine overlap, slip rate (3 mm/yr database vs 4–7 GPS), Mmax, single or joined source (24 Oct).
+- Slip rate of the Magallanes–Fagnano system from GPS only (about 4–7 mm/yr, references and values fixed in D16); the 3 mm/yr of the database is not used (Pablo, 15 Nov).
 - Mmax: to be checked thoroughly in D. Old model used a system value 8.0 + 0.2 from the 1949 event (6 Oct).
 
 ## GMMs
@@ -162,6 +164,8 @@ New lines are added from the project conversations ("write the brief"); Claude C
 - Declustered catalog for rates (campaign, Sep) → full catalog for rates, declustered only for the pattern (30 Sep).
 - Completeness-window event weights for the pattern (Hiemer style) → equal weights (30 Sep).
 - Interface Mmax by moment closure → historical per segment, closure a diagnostic (6 Oct).
+- Background cut at Mw 6.0 inside 5 km down-dip-aware fault buffers (6 Oct) → linear taper over 12 km as in the US NSHM 2023 (15 Nov; the cap left buffer cells away from the fault with no source of Mw ≥ 6).
+- Fault Mmax: observed + 0.2 / Wells and Coppersmith / Leonard, 1/3 each (6 Oct; the observed branch read the GEM area-zone max_mag) → Leonard alone, class maximum as a sensitivity (15 Nov).
 - Hand classes for unknown-depth events near cities → withdrawn, sensitivity instead (3 Nov).
 - Local catalogue first for location and depth everywhere, no exceptions (11 Nov) → first only inside its own network (A4, 11 Nov).
 - Centennial before ISC-GEM for every magnitude before 1976 (13 Nov) → only within the same level, moment-based before converted (13 Nov, after A6: 38 converted Centennial values had replaced ISC-GEM direct Mw, 0.4 high on average). Mechanisms ComCat first (10 Nov) → GCMT first (13 Nov).
