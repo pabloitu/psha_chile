@@ -93,6 +93,7 @@ New lines are added from the project conversations ("write the brief"); Claude C
 - Rupture scaling: Strasser 2010 / Thingbaijam 2017, 0.5 / 0.5; Allen and Hayes stated (6 Oct).
 - (a, b) branches at 5th / ML / 95th of N(≥ controlling M), weights 0.185 / 0.63 / 0.185 (6 Oct). Controlling M 8.8, at most Mmax − 0.3. The pair of a branch is the expected (a, b) at that percentile from the bootstrap covariance of (a, b) (correlation 0.99), not a single bootstrap replicate; whether the branches stay is decided with the tornado (Pablo, 15 Nov).
 - Rate convention full vs declustered: open, decided with the new tornado at hand (9 Nov). Old tree had 0.5 / 0.5.
+- No outer-rise source in the model; outer-rise events stay a catalogue class only (Pablo, 15 Nov).
 - Antarctic interface: PB2002 trench, dip 30°, 10–50 km, geodetic only, χ 0.5, 1.8 cm/yr, b of the southern segment, Mmax 8.5 from the area; inside every interface branch; Scotia–Antarctic trench left out (Oct).
 
 ## In-slab
@@ -114,8 +115,11 @@ New lines are added from the project conversations ("write the brief"); Claude C
 - Backarc own b; Patagonia crustal borrows the forearc b with its own rate (Oct).
 - Background Mmax: observed maximum + 0.2 per class (Sep): forearc 7.4, arc 7.9, backarc 7.7, Patagonia 8.0 on the frozen catalogue. Tapered shape: corner at the observed maximum (Statistics).
 - Large intra-arc event reported by Kanamori (> 7.5, probably multi-rupture): open. Its Mmax may change the fault hazard significantly; check whether it is Aysén 1960 (9 Nov).
-- Fault source: shapefile `crustal_faults_chile_updated` is authoritative, read in code (6 Oct).
+- Fault source: `data/faults/faults_gem_extra_2026-11-15.shp` (D16, 138 faults), read in code; built by `model/faults/curate.py` from Pablo's edit of the clean database. GEM SARA cleaned and edited by Pablo (130 segments; far Argentine faults and redundant traces removed), plus Bajo Molle, Marga Marga and Laguna Verde (both extended to their CHAF strands), Carranza, Mejillones northern section, Valparaíso, Quintay and Santa María (Pablo, 15 Nov).
 - Fault database rebuilt in D16 (Pablo, 15 Nov): only properties of the faults, each with its source, plain field names. The columns `id_area`, `min_mag`, `max_mag`, `a_val`, `b_val`, `usd`, `lsd` were values of the GEM area source each fault lies in, not of the fault, and are removed; the old "observed + 0.2" fault Mmax branch and the fault b read them. CHAF (Maldonado et al. 2021) is used to find important faults missing from the GEM database; exploration only, nothing added without Pablo.
+- Faults added from CHAF get one simplified trace through their strands and the properties of the similar GEM forearc faults: dip 72°, 0–20 km, 0.5 mm/yr (class 0.1–1). No other CHAF fault is added this round (El Yolki, Lago Laja, Aroma, Pisagua, Paposo, Tarapacá, the Liquiñe–Ofqui branches left out) (Pablo, 15 Nov).
+- Dip from the source text: the given number, the midpoint of a given range, GEM's class value for an open class (">60" 72°, "<45" 37°); "90" is vertical, 90° (not GEM's 87°) (Pablo, 15 Nov).
+- Liquiñe–Ofqui keeps the GEM slip rates (class values 3.0 / 0.5 mm/yr); the Holocene site rates of 14–19 mm/yr are not used (Pablo, 15 Nov).
 - Two fault databases are compared before one is chosen (Pablo, 15 Nov): A, GEM/SARA cleaned (D16); B, the crustal faults of the official CSN model MASCSN26 (Bravo Sagua et al. 2026, v1.1; built on CHAF proved and probable, with Magallanes–Fagnano) for Chile plus GEM outside Chile (D16b). MASCSN publishes OpenQuake sources only, so its slip rates are restored from the moment rates (μ 30 GPa, its 0–12 km geometry) and its Mmax from the last MFD bin, checked against its system values (report Table 17). Both go through B13 with our rules.
 - Slip rate: reported average, one value (30 Sep).
 - Aseismic coefficient ψ 0.6 / 0.8 / 1.0, weights 0.25 / 0.5 / 0.25 (6 Oct).
@@ -128,7 +132,10 @@ New lines are added from the project conversations ("write the brief"); Claude C
 ## Magallanes–Fagnano
 - Own analysis (plan D): segments, Chilean / Argentine overlap, slip rate (3 mm/yr database vs 4–7 GPS), Mmax, single or joined source (24 Oct).
 - Slip rate of the Magallanes–Fagnano system from GPS only (about 4–7 mm/yr, references and values fixed in D16); the 3 mm/yr of the database is not used (Pablo, 15 Nov).
-- Mmax: to be checked thoroughly in D. Old model used a system value 8.0 + 0.2 from the 1949 event (6 Oct).
+- Trace: one trace per section, each national database inside its own country, cut at the border (68° 36′ 38″ W; AR-0056a 174 → 55 km); strands beside the main trace removed, since the GPS rate is the motion of the whole zone. Main trace: CL-056b, c, d and AR-0056a, b, d, g, 490 km, kept as separate segments in the file (Pablo, 15 Nov).
+- Slip rate 5.9 mm/yr (4.4–6.8) on every segment: rate on the fault of Mendoza et al. (2015, Table 3); bounds the lowest and highest central GPS values (Mendoza et al. 2011, 4.4; Mendoza et al. 2015, Model 1, 6.8). All GPS lies east of 68.6° W (D16, 15 Nov).
+- One system source: the segments are joined end to end in the model (B13), bridging the gap of about 60 km between CL-056b and c. Separate segments only as a sensitivity (2.6 times more events of Mw ≥ 6.5, none above 7.6) (Pablo, 15 Nov).
+- Mmax of the system: Leonard (2014) on the system area, about 8.0 (7.98 on the summed traces, 8.00 on the 517 km end to end, 20 km width); the observed maximum is Mw 7.8 (1949 doublet, frozen catalogue) (D16, 15 Nov).
 
 ## GMMs
 - Interface and in-slab: AG20, Parker (SA_S), Kuehn, Montalva, 0.25 each; Montalva must be in for both subduction types (6 Oct).
@@ -166,6 +173,7 @@ New lines are added from the project conversations ("write the brief"); Claude C
 - Interface Mmax by moment closure → historical per segment, closure a diagnostic (6 Oct).
 - Background cut at Mw 6.0 inside 5 km down-dip-aware fault buffers (6 Oct) → linear taper over 12 km as in the US NSHM 2023 (15 Nov; the cap left buffer cells away from the fault with no source of Mw ≥ 6).
 - Fault Mmax: observed + 0.2 / Wells and Coppersmith / Leonard, 1/3 each (6 Oct; the observed branch read the GEM area-zone max_mag) → Leonard alone, class maximum as a sensitivity (15 Nov).
+- Fault source: the shapefile `crustal_faults_chile_updated` (6 Oct) → `data/faults/faults_gem_extra_2026-11-15.shp` (D16, 15 Nov). Magallanes–Fagnano Mmax 8.0 + 0.2 from the old catalogue (6 Oct) → Leonard on the system area, about 8.0; slip rate 3 mm/yr → 5.9 from GPS (15 Nov).
 - Hand classes for unknown-depth events near cities → withdrawn, sensitivity instead (3 Nov).
 - Local catalogue first for location and depth everywhere, no exceptions (11 Nov) → first only inside its own network (A4, 11 Nov).
 - Centennial before ISC-GEM for every magnitude before 1976 (13 Nov) → only within the same level, moment-based before converted (13 Nov, after A6: 38 converted Centennial values had replaced ISC-GEM direct Mw, 0.4 high on average). Mechanisms ComCat first (10 Nov) → GCMT first (13 Nov).

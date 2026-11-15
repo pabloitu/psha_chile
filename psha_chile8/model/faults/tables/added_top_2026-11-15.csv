@@ -1,0 +1,21 @@
+rank,name,system,km_span,sr_rule,sr_rule_src,mo,region
+1,Sistema de Fallas Mejillones,Atacama,45.24994613322965,0.5,median GEM sr of the system,1.3574983839968896e+16,north of 27° S
+2,Pisagua,East–West,12.720956523196387,0.5,median GEM sr of the system,3816286956958916.0,north of 27° S
+3,Aroma,not assigned,16.72055938132328,0.5,class 0.1–1 (0.5),5016167814396984.0,north of 27° S
+4,Garces / Tinguiririca / Guanaco,Central Andean,34.31529917322772,0.5,class 0.1–1 (0.5),1.0294589751968316e+16,27–38° S
+5,Lago Laja / Segmento Central,Lago Laja,48.070725753608,0.5,class 0.1–1 (0.5),1.44212177260824e+16,27–38° S
+6,Pichilemu,Central Coastal Forearc,15.060325921816037,0.5,median GEM sr of the system,4518097776544811.0,27–38° S
+7,El Yolki,Central Coastal Forearc,13.899601408558738,0.5,median GEM sr of the system,4169880422567621.0,27–38° S
+8,Tarapaca / Zofri,East–West,42.4226698418252,0.5,median GEM sr of the system,1.2726800952547558e+16,north of 27° S
+9,Valparaiso / Quintay / Laguna Verde,Central Coastal Forearc,51.625743483948035,0.5,median GEM sr of the system,1.5487723045184412e+16,27–38° S
+10,Caburgua W / Caburgua,Liquiñe–Ofqui,23.18612155543302,3.0,median GEM sr of the system,4.173501879977944e+16,south of 38° S
+11,"unnamed, 42.4° S 72.5° W",Liquiñe–Ofqui,69.44513148911219,3.0,median GEM sr of the system,1.2500123668040195e+17,south of 38° S
+12,Rio Blanco / Los Palos,Liquiñe–Ofqui,37.485467734334016,3.0,median GEM sr of the system,6.7473841921801224e+16,south of 38° S
+13,Marga-Marga,Central Coastal Forearc,26.39977721765104,0.5,median GEM sr of the system,7919933165295311.0,27–38° S
+14,Lago Cabrera,Liquiñe–Ofqui,9.568709955129336,3.0,median GEM sr of the system,1.7223677919232804e+16,south of 38° S
+15,Salar del Carmen,Atacama,5.523325492830709,0.5,median GEM sr of the system,1656997647849212.8,north of 27° S
+16,Cerro Mollecillo,Atacama,3.371364210393449,0.5,median GEM sr of the system,1011409263118034.8,north of 27° S
+17,Maihue / Los Guindos,Liquiñe–Ofqui,98.10013694943231,3.0,median GEM sr of the system,1.765802465089781e+17,south of 38° S
+18,"unnamed, 41.4° S 72.3° W",Liquiñe–Ofqui,58.07498183810882,3.0,median GEM sr of the system,1.0453496730859589e+17,south of 38° S
+19,"unnamed, 39.1° S 71.7° W",Liquiñe–Ofqui Transverse,22.031741852201442,0.5,median GEM sr of the system,6609522555660433.0,south of 38° S
+20,Paposo,Atacama,31.5288354008732,0.5,median GEM sr of the system,9458650620261958.0,north of 27° S

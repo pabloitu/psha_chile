@@ -1522,3 +1522,124 @@ After Pablo's reply to the four open questions of the B11 entry.
 - **Suggested commit:** as the B11 entry, with `psha_chile8/LEARNINGS.md psha_chile8/REFERENCES.md` added.
 - **Pablo, 15 Nov (later):** historical events count for the in-slab Mmax; the source MFDs will be evenly discretized in OpenQuake (bin rates from the fitted line, so the tapered line needs no upper magnitude from OpenQuake). DECISIONS (In-slab) and FITS.md updated. The observed maximum 8.0 comes from Santiago 1647 (shallow) and Calama 1950 (intermediate); Chillán 1939 is Mw 7.8 in the catalogue.
 
+
+## 2026-11-15: C14, in-slab depth model (Claude Code)
+
+- **Done.** `model/inslab/`: `depth.py` (inputs, Slab2 sampling, Riedel-Hornig reader, one-to-one matching, A7 depth rule for unclassed events, regions, bounds, bootstrap, cells, held-out check), `bench.py` (step 1), `run.py` (steps 2–4, settings at the top), `figs.py`; 8 tests in `model/inslab/tests/` pass (synthetic double zone recovered, weights sum to 1, hypocentres inside their layers, upper < hypocentres < lower on the cell table). Cell table `model/inslab/tables/depth_cells_2026-11-15.csv` (13 847 cells: lon, lat, top, thk, w1–w3, h1–h3, h_one, usd, lsd, layer bounds b1 b2, n_events, region, double-zone index, old psha_chile7 depths). Report `model/inslab/REPORT_C14.md`. Inputs copied to `data/` with `data/SHA256SUMS` (Riedel-Hornig, Slab2 dep / thk / unc, grid); `.gitignore` gains `data/riedel_hornig_*` and `data/*.xyz`.
+- **Results.** Layers by slab-top region (≤ 50, 50–150, > 150 km), equal-count cut: 0–17.8–27.0–62.5, 0–13.2–25.1–42.0, 0–23.9–33.4–69.8 km below the top; inner bounds stable within 4 km under 2 000 resamples. 50 nearest events (held-out 2020–2021: −0.741 per event against −0.751 / −0.745 for 25 / 100, −0.844 for 50 km, −1.096 regional). Double zone: bottom-layer weight 0.34–0.36 at 20–24° S (index +0.10 to +0.16); one zone at 24–34° S; 34–40° S positive on few events. Mean hypocentre within −6 to +4 km of the old thickness-fraction depth in half the cells; lower depth median +7 km.
+- **Benchmark.** Inside Chile Potin and ISC-EHB L1 agree with Riedel-Hornig within 2–4 km (spread 4–5); ISC is 12 km shallow at 0–70 km; CSN web spread 5–7. East of the Chile border every teleseismic depth is 10–50 km shallower than Riedel-Hornig, at all latitudes 22–34° S, growing eastward: their eastern events are too deep, as they say. Potin agrees with Riedel-Hornig there (−2 km), but both use Chilean stations only, so that is no test. Riedel-Hornig not recommended as a location source (report section 2).
+- **Departures from the brief (for Pablo).** (1) Catalogue depths selected by source (Potin, ISC-EHB L1, GCCEL), not by listed σ ≤ 5 km: the listed σ is set per depth range, so the σ cut is a cut on depth (Potin then only at 30–70 km; median d 3.7 km against 22.6 for Riedel-Hornig over the same slab). `SELECT = "sigma"` gives the literal version. (2) Local-network depths left out east of the Chile border everywhere, not only under the flat slab (7 139 events, 5 662 of them in the flat slab); `POTIN_OUT = "flat"` gives the DECISIONS version. (3) Stability judged on the two inner bounds only: no scheme keeps the 97.5 % bound within 5 km in its small regions.
+- **OpenQuake (3.26 installed source read):** ruptures centred on the hypocentre, width cut to the seismogenic range and length extended, then shifted vertically into [usd, lsd]; a large rupture fills the zone whatever layer its hypocentre is in. Collapsed point sources and the far-site approximation average the hypocentral depths (for C15).
+- **Proposed lines for DECISIONS and LEARNINGS:** in `REPORT_C14.md` section 3 (four In-slab lines; two Pitfalls lines).
+- **Open:** report section 4 (the two departures, central-Chile double zone not seen, jump of the lower depth at slab top 50 km, sparse south of 40° S, small events stand for large ones, Jujuy nest cells, low match rate at 26–28° S and south of 36° S).
+- **Commands** (from `psha_chile8/model/inslab/`, conda `psha_renta`): `python bench.py` (25 s), `OMP_NUM_THREADS=4 python run.py` (about 6 min with the bootstrap; `REUSE_BOOT = True` reuses `tables/bounds_bootstrap.csv`, 2 min); `pytest model/inslab/tests` from `psha_chile8/`. All were run in this session (the final `run.py` with the bootstrap of the same event set reused).
+- **PLAN:** C14 ticked (cell table exists, tests pass). DATA.md: three input rows and a new section "In-slab depth runs". FIGURES.md: four rows.
+- **Suggested commit:**
+  - `git add psha_chile8/model/inslab/*.py psha_chile8/model/inslab/tests psha_chile8/model/inslab/REPORT_C14.md psha_chile8/model/inslab/figs psha_chile8/model/inslab/tables/depth_cells_2026-11-15.csv psha_chile8/model/inslab/tables/rh_*.csv psha_chile8/model/inslab/tables/bounds_*.csv psha_chile8/model/inslab/tables/neighbours_heldout.csv psha_chile8/model/inslab/tables/choice.csv psha_chile8/model/inslab/tables/events_log.csv psha_chile8/model/inslab/tables/d_summary.csv psha_chile8/data/inslab_grid_01_2026-11-15.csv psha_chile8/data/SHA256SUMS psha_chile8/.gitignore psha_chile8/WORKLOG.md psha_chile8/PLAN.md psha_chile8/DATA.md psha_chile8/FIGURES.md`
+  - Message: `C14: in-slab depth model, Riedel-Hornig benchmark, three layers below the slab top with weights and hypocentres per cell`
+  - Leave out `tables/rh_matched.csv` (9 MB) and `tables/depth_events_2026-11-15.csv` (12 MB) if only summaries are wanted.
+
+## 2026-11-15: D16 fault database, faults missing from GEM, Magallanes–Fagnano (Claude Code)
+
+Brief `tasks/D16_fault_database.md`. Report `model/faults/REPORT_D16.md`, fields in `model/faults/FIELDS.md`.
+
+- **Inputs frozen** in `data/` with sha256 in `data/SHA256SUMS`, rows in DATA.md (Other inputs): `crustal_faults_chile_updated_2026-11-15.*`, `crustal_faults_chile_2026-11-15.*`, `sara_active_faults_2026-11-15.*`, `chaf_pangea_v1_2026-11-15.*`.
+- **Step 1, clean database** (`model/faults/db.py`): `data/faults/faults_2026-11-15.gpkg` (layer `faults`, EPSG:4326; the gpkg FID column is `gpkg_fid` so that our `fid` field is free) and `.csv`.
+  - 160 rows, none removed.
+  - The 156 GEM rows are identical to the SARA release, area-source fields and max_mag 0 of the Fagnano segments included. Only 4 rows were added by hand, and all four lie on CHAF strands (now `CHAF-100601`, `-300201`, `-300301`, `-300901`). Their old lengths were wrong (Bajo Molle 19 → 8.3 km).
+  - Area-source fields removed. Dip from the source text: 124 rows change, 89 of them 87° → 90°.
+  - Kinematics filled for 3 rows (AR-0005a assumed reverse).
+  - sr_kind: class 140, range 15, measured 5.
+  - 4 duplicate pairs flagged. Systems by rule for 113 rows.
+- **Step 2** (`model/faults/chaf.py`):
+  - At 2 km, 374 of 958 CHAF strands (40 % of the length) lie on GEM traces; 1 km 274, 5 km 535.
+  - 10 of the 17 CHAF systems are absent from GEM.
+  - San Ramón is not missing: CHAF's San Ramón strands lie on GEM's segment.
+  - 146 missing faults, ranked by class and then by the median BSSA14 PGA at the most-affected city (`tables/missing_2026-11-15.csv`).
+  - The top 20 add about 10 % to the moment rate of the GEM faults with the slip-rate rule "median GEM rate of the system". Several lie within 1–13 km of Iquique, Valparaíso, Pucón, Hornopirén and Puerto Aysén.
+  - Literature for the top 20 in the report. Literature agents read the papers from the web; nothing was downloaded into the repo.
+  - Map: `figs/gem_chaf_map.png`.
+- **Step 3** (`model/faults/fagnano.py`):
+  - AR-0056a overlaps CL-056c, d, e, i over 75–90 km, all in Chile. Proposed rule: each national database inside its own country (AR-0056a cut at the border, 174 → 55 km), 639 km of trace.
+  - GPS slip rate 5.9 (4.4–6.8) mm/yr: Mendoza et al. 2015, Table 3; Mendoza et al. 2011. All GPS is east of 68.6° W.
+  - Mmax: Leonard 2014 on the system area gives 8.10, WC94 8.17; observed 7.8 (1949, frozen catalogue).
+  - One system source against 13 segments: N(≥ 6.5) 0.024 against 0.061 per yr; N(≥ 7) 0.0072 against 0.0059.
+  - Puerto Williams: every SARA segment near the city is in the database. GEM's release lacks AR-0056c, e, f (ID gaps).
+  - Figure: `figs/fagnano_segments.png`.
+- **Tests:** `model/faults/tests/` (11), all pass.
+- **Commands** (env `psha_renta`, from `psha_chile8/model/faults/`; all were run in this session):
+  - `python db.py` (40 s)
+  - `python chaf.py` (3 min)
+  - `python fagnano.py` (10 s)
+  - `pytest model/faults/tests` from `psha_chile8/`
+  - Outside PyCharm, the shell needs `GDAL_DATA` and `PROJ_DATA` of the env (`conda activate psha_renta` sets them; calling the env's python directly does not).
+- **Proposed DECISIONS lines:** see REPORT_D16.md section 4: fault database file, dip rule, no CHAF fault added this round, Fagnano territory rule, Fagnano slip rate 5.9 (4.4–6.8), one system source with Mmax 8.1.
+- **Proposed LEARNINGS lines:**
+  - Pitfalls / Source models: "The area-source fields and max_mag 0 of the old fault file come from GEM's SARA release itself; a fault file can carry values of another source type without a sign of it. Check every column of a database against what it describes (D16)."
+  - Crustal and faults: "GEM traces are coarser than CHAF; the GEM–CHAF match depends on the distance (40 % of the CHAF length at 2 km, 56 % at 5 km) (D16)."
+  - Crustal and faults: "140 of 160 GEM segments carry an activity-class slip rate (0.5 or 3.0 mm/yr), not a measured one; the Liquiñe–Ofqui master fault is measured at 14–19 mm/yr against 3.0 in the database (D16)."
+- **Open questions:** REPORT_D16.md section 4, items 1–8. The main ones: the Liquiñe–Ofqui rates; the Fagnano rate in Chile (geology 8–16 mm/yr, no GPS); Fagnano dip and depth (GPS: 63–66° S, 11–15 km); keep 90° or GEM's 87°.
+- **PLAN:** D16 ticked, ← on B13.
+- **FIGURES.md:** two rows. **DATA.md:** four input rows and a "Fault database" section.
+- **Suggested commit:**
+  - `git add psha_chile8/model/faults psha_chile8/data/faults psha_chile8/data/crustal_faults_chile_updated_2026-11-15.* psha_chile8/data/crustal_faults_chile_2026-11-15.* psha_chile8/data/sara_active_faults_2026-11-15.* psha_chile8/data/chaf_pangea_v1_2026-11-15.* psha_chile8/data/SHA256SUMS psha_chile8/DATA.md psha_chile8/FIGURES.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`
+  - Message: `D16: clean crustal fault database with sources per value, CHAF comparison and ranked missing faults, Magallanes-Fagnano overlap, GPS slip rate, Mmax and source options`
+- **Pablo, 15 Nov (after D16):** keep 90° for vertical faults; adopt the territory rule for Magallanes–Fagnano; one Fagnano system source; Liquiñe–Ofqui keeps the GEM slip rates (CHAF gives a rate on 2 of its 379 LOFS strands: Liquiñe 20.4 ± 2.5 and 13.6 mm/yr, Escorial 23.8–28.6 mm/yr horizontal). Not yet in DECISIONS. Pending: the fault source may change to the "MASCSN" database inside Chile with GEM outside (to be clarified).
+- **Pablo, 15 Nov (later): GEM base fixed in one go** (`db.py` rerun; 164 rows).
+  - Magallanes–Fagnano territory cut applied in the database: AR-0056a 174 → 55 km; CL-056d 44.3 → 43.5 km.
+  - Hand rows extended to all their CHAF strands: Marga Marga 8.3 → 34.6 km, Laguna Verde 6.7 → 23.4 km.
+  - Added from CHAF as simplified traces (`geo.trace`), with dip 72 and 0.5 mm/yr (class 0.1–1) as the similar GEM forearc faults:
+    - Mejillones, northern section (38.9 km; CL-049 already holds the southern 36 km of the Mejillones fault)
+    - Valparaíso (52.0 km, dextral as in CHAF)
+    - Quintay (47.9 km, normal and SW as its parallel neighbours)
+    - Santa María (11.1 km, only the CHAF reverse strand "Santa Maria (SMFS)"; the other strands are short normal faults on the island)
+  - Pichilemu (CL-003) and Zofri (CL-055) were already in GEM; the CHAF "missing" parts are a 15 km second Pichilemu strand and the separate Tarapacá fault.
+  - Not added (Pablo): El Yolki, Lago Laja, Aroma, Pisagua, Paposo, Liquiñe–Ofqui branches.
+  - Shapefiles for review: `data/faults/faults_gem_2026-11-15.shp` (156 GEM rows) and `data/faults/faults_gem_extra_2026-11-15.shp` (164 rows).
+  - `chaf.py` and `fagnano.py` were not rerun; the missing-fault table predates the additions.
+
+## 2026-11-15: C14 revised, kernel depth model (Claude Code)
+
+Follows the C14 entry above; replaces its method and its departures list.
+
+- **Pablo, 15 Nov:** zone per place from the slab top to the 95 % depth of the in-slab events (not the slab bottom); three layers inside it by a cheap smooth method; in-slab only; final catalogue depths, not per source; then: keep Riedel-Hornig inside Chile, for the depths only; instrumental period only; then, after the run with all final depths: drop ISC, CSN web and ComCat depths.
+- **Done.** `depth.py`: kernel of the in-slab rate pattern (psha_chile7 settings: power 1.5, 25 neighbours, 5 km floor, 500 km) spreads every event's distance below the top onto the cells; `zone()` gives per cell the 95 % distance (lower depth), three equal layers, shares (+1 event per layer), medians, one-layer median. The region / bootstrap code of the first version is gone. `run.py` (`RUN = "2026-11-15c"`, `T_FROM = 1990`, `DROP`), `figs.py` (`maps_zone.png` replaces `maps_vs_old.png`, `hist_d_top.png` dropped), tests rewritten (8 pass). Frozen catalogue unchanged (checksums verified).
+- **Results.** 30 150 catalogue events (Potin 28 097, ISC-EHB 2 046) and 40 654 Riedel-Hornig events. Zone 30–45 km below the top from 16 to 34° S; 60–90 km where events are few (south, shallow slab). Held-out 2020–2021: kernel −0.778 per event, 50 nearest −0.769, equal shares −1.099. Bottom layer heaviest at 20–22° S (lower plane of the northern double zone); one zone at 24–34° S; top layer heaviest south of 34° S. With ISC, CSN web and ComCat depths the lower depth is a median 6 km and in 5 % of cells 52 km deeper (sensitivity table). Report `model/inslab/REPORT_C14.md` rewritten (benchmark section unchanged).
+- **Proposed DECISIONS and LEARNINGS lines:** `REPORT_C14.md` section 3 (they replace those of the entry above).
+- **Open:** report section 4: sparse areas (thick zones and lower-depth spikes where few events; a floor on the effective number or a cap at the Slab2 bottom are the simple fixes), the northern upper plane falls in the middle third, central-Chile double zone not seen, small events stand for large ones, nest cells, Riedel-Hornig match rate in places.
+- **Commands** (from `psha_chile8/model/inslab/`, conda `psha_renta`): `python bench.py` (25 s); `OMP_NUM_THREADS=8 python run.py` (about 8 min: model, held-out, all-depths sensitivity, figures); `pytest model/inslab/tests` from `psha_chile8/`. All run in this session.
+- **Suggested commit** (replaces the one above):
+  - `git add psha_chile8/model/inslab/*.py psha_chile8/model/inslab/tests psha_chile8/model/inslab/REPORT_C14.md psha_chile8/model/inslab/figs psha_chile8/model/inslab/tables/depth_cells_2026-11-15c.csv psha_chile8/model/inslab/tables/depth_cells_2026-11-15_v1.csv psha_chile8/model/inslab/tables/*_2026-11-15c.csv psha_chile8/model/inslab/tables/rh_*.csv psha_chile8/data/inslab_grid_01_2026-11-15.csv psha_chile8/data/SHA256SUMS psha_chile8/.gitignore psha_chile8/WORKLOG.md psha_chile8/PLAN.md psha_chile8/DATA.md psha_chile8/FIGURES.md`
+  - Message: `C14: in-slab depth model (kernel, zone to the 95 % depth, three layers), Riedel-Hornig benchmark`
+  - Leave out `tables/rh_matched.csv` (9 MB) and `tables/depth_events_2026-11-15c.csv` (8 MB) if only summaries are wanted.
+- **Pablo, 15 Nov (later): GEM fault file final.**
+  - Pablo edited `data/faults/faults_gem_extra_2026-11-15.shp` by hand. That edit is frozen untouched as `faults_gem_extra_pablo_2026-11-15.*` (sha256 in `data/SHA256SUMS`).
+  - `model/faults/curate.py` rebuilds `faults_gem_extra_2026-11-15.shp` and `.csv` (152 faults) from it.
+  - 12 removed (traces deleted): CL-044a, b, e, f (Chuculay), CL-051 Ordoñez, CL-050 Mititus, CL-040 Bolfín, CL-006mmm Los Palos, CL-006eee Punta Colas, PE-43a, PE-38, PE-47.
+  - 4 traces edited, lengths recomputed: CL-006ddd 80.7 → 65.1 km, AR-0028a 36.4 → 6.4 km, Mejillones north 38.9 → 19.7 km, Valparaíso 52.0 → 33.2 km.
+  - Magallanes–Fagnano slip rate set to 5.9 (4.4–6.8) mm/yr, from GPS (DECISIONS).
+  - `db.py` no longer writes the extra shapefile, so a rerun cannot overwrite the edit.
+  - Commands: `python db.py` (only if the inputs change) and then `python curate.py`.
+  - This file is the fault input for B13.
+- **Pablo, 15 Nov (later):** Las Peñas AR-0028a deleted (`REMOVE` in `curate.py`). **Final fault file: `data/faults/faults_gem_extra_2026-11-15.shp` / `.csv`, 151 faults** (143 GEM, 4 hand-added faults traced to CHAF, 4 added from CHAF). Written into REPORT_D16.md ("Final fault file"), FIELDS.md and DATA.md.
+  - Proposed DECISIONS line (Crustal and faults): "Fault source: `data/faults/faults_gem_extra_2026-11-15.shp` (D16, 151 faults: GEM SARA cleaned and edited by Pablo, plus Bajo Molle, Marga Marga, Laguna Verde, Carranza, Mejillones north, Valparaíso, Quintay, Santa María); replaces the shapefile `crustal_faults_chile_updated` (15 Nov)."
+  - Proposed DECISIONS lines (Magallanes–Fagnano): territory rule; slip rate 5.9 (4.4–6.8) mm/yr; one system source, Mmax 8.1.
+  - Suggested commit: add `psha_chile8/model/faults/curate.py psha_chile8/data/faults/faults_gem_extra_2026-11-15.* psha_chile8/data/faults/faults_gem_extra_pablo_2026-11-15.* psha_chile8/data/faults/faults_gem_2026-11-15.*` to the D16 commit above.
+- **Pablo, 15 Nov (later): second edit.**
+  - 7 far Argentine faults removed: AR-0002a, AR-0050a, AR-0268a, AR-0005a, AR-0054a, AR-0350a, AR-0045b.
+  - Frozen as `faults_gem_extra_pablo_2026-11-15b.*`; `curate.py` now reads it.
+  - **Final file: 144 faults** (136 GEM, 4 hand-added faults traced to CHAF, 4 added from CHAF). REPORT_D16.md, FIELDS.md and DATA.md updated.
+  - Edit `faults_gem_extra_pablo_2026-11-15b.shp` for further changes; `curate.py` overwrites `faults_gem_extra_2026-11-15.shp`.
+- **Pablo, 15 Nov (later):** Magallanes–Fagnano strands beside the main trace deleted (CL-056e, f, g, h, i, j; `REMOVE` in `curate.py`).
+  - **Final file: 138 faults.** Fagnano is 7 segments, 490 km.
+  - Mmax of the system: Leonard 7.98 on the summed area, 8.00 on the end-to-end length 517 km. This replaces 8.1 in the proposed DECISIONS line.
+  - Segments stay separate in the file; B13 joins them into one system source and bridges the 60 km gap between CL-056b and c.
+- **DECISIONS.md edited by Claude Code at Pablo's word (15 Nov).**
+  - Crustal and faults: fault source line replaced; three new lines (added faults, dip rule, Liquiñe–Ofqui rates).
+  - Magallanes–Fagnano: the "to be checked" Mmax line replaced by trace, slip rate, one source and Mmax lines.
+  - Superseded: fault source and Fagnano Mmax and slip rate.
+  - LEARNINGS lines proposed above, not added.
+  - Suggested commit for the whole D16 session:
+    - `git add psha_chile8/model/faults psha_chile8/data/faults psha_chile8/data/*_2026-11-15.* psha_chile8/data/SHA256SUMS psha_chile8/DATA.md psha_chile8/DECISIONS.md psha_chile8/FIGURES.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`
+    - `data/*_2026-11-15.*` also matches the C14 inputs of that date; check with `git status` first.
+    - Message: `D16: clean crustal fault database, CHAF comparison, faults added and GEM file edited (138 faults), Magallanes-Fagnano trace, GPS slip rate, single source and Mmax`

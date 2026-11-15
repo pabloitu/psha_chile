@@ -1,0 +1,5 @@
+name,length,chaf_ids,trace_on_chaf,chaf_id,chaf_name,chaf_system,chaf_refs,chaf_slip,chaf_throw,chaf_dip,chaf_dipdir,chaf_sense
+Bajo Molle,8.301027757728296,101401;101403;100601;100605;100604;100603;100602;191201;190904;190903;191001;191101;191102;194201;191103,1.0,100601,Bajo Molle / Los Pacos*,EWFS,"Allmendinger et al. (2009); Gonzalez et al. (2015) I.S.; Sepulveda & Quezada (2015); Iquique-Geologia-Ordenamiento, Sernageomin (2013)",0.4 +/- 0.1 mm/yr,0.38 +/- 0.02 mm/yr,30-32,N,Reverse
+Marga Marga,34.632422935763955,300201;300202,1.0,300202,Marga-Marga,CFTF,,,,,SW,Normal
+Laguna Verde,23.447195804300904,300301;300305;300302;300303;300304;300307;300306,1.0,300305,Laguna Verde,CFTF,Valdivia et al. (2017); Wall et al. (1996; Sernageomin),,,,SW,Normal
+Carranza,36.50625882160898,300902;300901,1.0,300901,Carranza*,CFTF,Jara-Munoz et al. (2015),,~0.4 mm/yr,,SE,Normal

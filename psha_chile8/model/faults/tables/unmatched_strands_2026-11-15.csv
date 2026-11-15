@@ -1,0 +1,586 @@
+F_id,F_system,F_name,FT_name,map_data,lat,long,type,geom,strike,dip,dipdir,rake,sense,length_km,min_z_km,max_z_km,width_km,area_km2,age,activity,recent_act,Xev_geom,onset,throw_rate,h_slip_rat,slip_rate,aseismic_s,paleo_ev,ass_seism,Mmax_r,Mmax_e,rec_int,notes,source,map_scale,refs,L,seg1,seg2,seg5,grp
+100401,EWFS,Zofri,Zofri Norte,,-20.1794,-70.0465,observed,,66,57,SE,,Reverse,10.876,0,,,,,Probable,Offsets Pleistocene-Holocene eolianites,,,,,,,,,,,,,ref,,Sepulveda & Quezada (2015),10.332416682817412,-1,-1,2,0
+100406,EWFS,Zofri,Zofri Norte,,-20.1633,-69.9441,observed,,90,,S,,Reverse,12.557,0,,,,,Probable,,,,,,,,,,,,,,unif,,,11.838441066305176,-1,-1,-1,0
+100504,EWFS,Cavancha,,,-20.2353,-70.1419,inferred,,92,~90,S,,Reverse,1.974,,,,,,Probable,,,,,,,,,,,,,,ref,,Sepulveda & Quezada (2015),1.8549306412649325,-1,-1,2,0
+100503,EWFS,Cavancha,,,-20.2367,-70.1116,observed,,94,,S,,Reverse,1.327,0,,,,,Probable,,,,,,,,,,,,,,ref,,Sepulveda & Quezada (2015),1.253468902902889,-1,-1,2,0
+100502,EWFS,Cavancha,,,-20.2368,-70.1247,covered,,94,,S,,Reverse,1.713,,,,,,Probable,,,,,,,,,,,,,,ref,,Sepulveda & Quezada (2015),1.6101341306197825,-1,-1,2,0
+100501,EWFS,Cavancha,,,-20.2366,-70.1003,covered,,90,65,SE,,Reverse,1.37,,,,,,Probable,,,,,,,,,,,,,,ref,,Sepulveda & Quezada (2015),1.2882287355390067,-1,-1,2,0
+100505,EWFS,Cavancha,,,-20.2388,-70.0911,observed,,121,,S,,Reverse,0.767,0,,,,,Probable,,,,,,,,,,,,,,ref,,Sepulveda & Quezada (2015),0.732002195567703,-1,-1,2,0
+100705,EWFS,Tarapaca,,,-20.3391,-70.1443,covered,,81,,S,,Reverse,2.6,,,,,,Probable,,,,,,,,,,,,,,ref,,,2.4441977438978553,-1,-1,156,0
+100703,EWFS,Tarapaca,,,-20.3288,-69.9445,observed,,80,,S,,Reverse,20.386,0,,,,,Probable,,,,,,,,,,,,,,unif,,,19.263046703053128,-1,-1,-1,0
+100706,EWFS,Tarapaca,,,-20.3377,-70.1317,observed,,88,,S,,Reverse,0.467,0,,,,,Probable,,,,,,,,,,,,,,ref,,,0.43853916136232796,-1,-1,156,0
+100707,EWFS,Tarapaca,,,-20.3351,-70.1184,covered,,80,,S,,Reverse,2.281,,,,,,Probable,,,,,,,,,,,,,,ref,,,2.1454648932606974,-1,-1,156,0
+100701,EWFS,Tarapaca,,,-20.3351,-70.0979,observed,,97,,S,,Reverse,2.325,0,,,,Holocene,Probable,"Offsets Pleistocene colluvium, possibly Holocene?",,,,,,,,,,,,,ref,,Sepulveda & Quezada (2015),2.1840246044127944,-1,-1,156,0
+100704,EWFS,Tarapaca,,,-20.3335,-70.0756,covered,,85,,S,,Reverse,2.801,,,,,,Probable,,,,,,,,,,,,,,ref,,,2.639011963035611,-1,-1,156,0
+100702,EWFS,Tarapaca,,,-20.3371,-70.0441,observed,,95,,S,,Reverse,4.752,0,,,,,Probable,,,,,,,,,,,,,,ref,,,4.483680178647266,-1,-1,156,0
+100301,EWFS,Blanco,,,-19.3026,-70.0307,inferred,,73,,,,,23.42,,,,,,Probable,,,,,,,,,,,,,,unif,,Garcia & Fuentes (2012); Caprio (2007) en Allmendinger et al. (2010),22.342261489446177,-1,-1,0,1
+100302,EWFS,Blanco,,,-19.3434,-70.0937,covered,,68,,,,,15.721,,,,,,Probable,,,,,,,,,,,,,,ref,,Garcia & Fuentes (2012); Caprio (2007) en Allmendinger et al. (2010),14.979153921487695,-1,-1,-1,1
+100303,EWFS,Blanco,,,-19.3208,-70.045,covered,,37,,,,,3.875,,,,,,Probable,,,,,,,,,,,,,,ref,,Garcia & Fuentes (2012); Caprio (2007) en Allmendinger et al. (2010),3.782073033841127,-1,-1,-1,1
+103001,not assigned,Aroma,,Focal Mechanisms,-19.5751,-69.3087,registered,,17,53,E,-165 +/- 15,Dextral,16.889,2,15,,,Historic,Proved,,Seismicity coincident with Aroma flexure geometry,,,,,,,Associated with 2011 Mw 6.3 earthquake and its afterschocks,6.3,,,Seismic event also known as Chusmiza.,ref,,Legrand et al. (2007); David (2007),16.72055938132328,-1,-1,-1,2
+200403,CDFS,Bahia Inglesa,,,-27.1439,-70.85,inferred,,16,,E,,Normal,0.899,,,,,,Probable,,,,,,,,,,,,,,ref,,Marquardt et al. (1999); Marquardt et al. (2004); Lavenu (2005),0.8873734398183392,-1,-1,-1,3
+200301,CDFS,Calderilla,,,-27.0743,-70.8465,observed,,38,,E,,Normal,3.798,0,,,,,Probable,,,,,,,,,,,,,,unif,1:30000,Marquardt et al. (1999); Marquardt et al. (2004); Lavenu (2005),3.6113523485898376,-1,-1,-1,3
+200401,CDFS,Bahia Inglesa,Sur,,-27.1356,-70.847,observed,,22,70,E,,Normal,2.045,0,,,,,Probable,Offsets MIS-5 deposits,,,,,0.27 mm/yr,,,,,,,,ref,,Marquardt et al. (1999); Marquardt et al. (2004); Lavenu (2005),2.007786027144745,-1,-1,-1,3
+300906,CFTF,Carranza,,,-35.5613,-72.5226,observed,,66,,SE,,Normal,7.42,0,,,,,Probable,,,,,,,,,,,,,,ref,,Jara-Munoz et al. (2015),6.289681623112313,-1,-1,-1,4
+300903,CFTF,Carranza,,,-35.5782,-72.6036,observed,,70,,SE,,Normal,4.136,0,,,,,Probable,,,,,,,,,,,,,,ref,,Jara-Munoz et al. (2015),3.4692535330520053,-1,-1,-1,4
+300904,CFTF,Carranza,,,-35.5728,-72.6031,observed,,70,,NW,,Normal,3.67,0,,,,,Probable,,,,,,,,,,,,,,ref,,Jara-Munoz et al. (2015),3.0762791600956483,-1,-1,-1,4
+300905,CFTF,Carranza,,,-35.5637,-72.6038,observed,,70,,SE,,Normal,3.696,0,,,,,Probable,,,,,,,,,,,,,,ref,,Jara-Munoz et al. (2015),3.096436254233124,-1,-1,-1,4
+300601,CFTF,Topocalma,,,-34.1384,-71.949,observed,,172,,,,,5.331,0,,,,,Probable,,,,,,,,,,,,,,ref,,Jara-Munoz et al. (2015),5.283377850370121,-1,-1,74,5
+300602,CFTF,Topocalma,,,-34.1373,-72.0032,observed,,8,,E,,Reverse,5.218,0,,,,,Probable,,,,,,,,,,,,,,ref,,Jara-Munoz et al. (2015),5.181553641988866,-1,-1,-1,5
+300502,CFTF,Pichilemu,,,-34.4738,-71.901,blind,,162,74,SW,,Normal-Dextral,15.06,20-25,,,,Historic,Proved,,,,,,,,,Associated with Mw 6.9 earthquake in 2010,6.7,,,,unif,,Aron et al. (2014); Ruiz et al. (2014); Aron et al. (2013); Ryder et al. (2012); Farias et al. (2011),15.060325921816037,-1,-1,-1,6
+301103,SMFS,Santa Maria (SMFS),,,-37.0177,-73.4619,observed,,140,,SW,,Reverse,12.477,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),11.472834502664394,-1,-1,-1,7
+301105,SMFS,Santa Maria,,,-36.9835,-73.521,observed,,87,,,,Normal,2.016,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),1.613496505787237,-1,-1,-1,7
+301107,SMFS,Santa Maria,,,-37.0727,-73.5217,observed,,79,,,,Normal,2.195,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),1.7703685383103325,-1,-1,-1,7
+301106,SMFS,Santa Maria,,,-36.8317,-73.4256,observed,,16,,,,Normal,5.634,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),5.492480580521255,-1,-1,-1,7
+301108,SMFS,Santa Maria,,,-36.8717,-73.4485,observed,,30,,,,Normal,7.839,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),7.429731955718336,-1,-1,-1,7
+301117,SMFS,Santa Maria,,,-36.9379,-73.4814,observed,Fold,17,,,,,5.868,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),5.754060210073905,-1,-1,-1,7
+301118,SMFS,Santa Maria,,,-37.0505,-73.5426,observed,Fold,104,,,,,3.801,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),3.0833188591522953,-1,-1,-1,7
+301119,SMFS,Santa Maria,,,-37.0081,-73.5474,observed,Fold,53,,,,,4.133,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),3.6187843900486842,-1,-1,-1,7
+301101,SMFS,Santa Maria,,,-36.7369,-73.4602,observed,Fold,28,,,,,14.225,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),13.597299091958178,-1,-1,-1,7
+301120,SMFS,Santa Maria,,,-36.8949,-73.5655,observed,Fold,45,,,,,6.18,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),5.57864267307046,-1,-1,-1,7
+301109,SMFS,Santa Maria,,,-36.9372,-73.5867,observed,,75,,S,,Normal,6.605,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),5.39469219784599,-1,-1,-1,7
+301110,SMFS,Santa Maria,,,-36.9733,-73.6119,observed,,68,,S,,Normal,7.762,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),6.466959948572426,-1,-1,-1,7
+301112,SMFS,Santa Maria,,,-37.0566,-73.3833,observed,Fold,115,,,,,8.518,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),7.142106153875725,-1,-1,-1,7
+301113,SMFS,Santa Maria,,,-37.0091,-73.2669,observed,Fold,85,,,,,8.989,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),7.209191475467536,-1,-1,-1,8
+102501,ATFS,La Rinconada / Graben La Port_,,,-23.4528,-70.5163,observed,,172,,E,,Normal,4.042,0,,,,,Probable,,,,,,,,,,,,,,unif,,,3.998693144016378,-1,-1,17,9
+300305,CFTF,Laguna Verde,,,-33.1808,-71.5173,inferred,,129,,SW,,Normal,9.481,,,,,,Probable,,,,,,,,,,,,,,ref,,Valdivia et al. (2017); Wall et al. (1996; Sernageomin),8.559773871665975,-1,-1,-1,10
+300302,CFTF,Laguna Verde,,,-33.2102,-71.4885,observed,,134,,SW,,Normal,0.499,0,,,,,Probable,,,,,,,,,,,,,,ref,,Valdivia et al. (2017); Wall et al. (1996; Sernageomin),0.4574876954390011,-1,-1,-1,10
+300303,CFTF,Laguna Verde,,,-33.2161,-71.4842,observed,,144,,SW,,Normal,0.56,0,,,,,Probable,,,,,,,,,,,,,,ref,,Valdivia et al. (2017); Wall et al. (1996; Sernageomin),0.5292752808405493,-1,-1,-1,10
+300304,CFTF,Laguna Verde,,,-33.2258,-71.4772,observed,,135,,SW,,Normal,1.475,0,,,,,Probable,,,,,,,,,,,,,,ref,,Valdivia et al. (2017); Wall et al. (1996; Sernageomin),1.3561410015146498,-1,-1,-1,10
+300306,CFTF,Laguna Verde,,,-33.1484,-71.5655,covered,,125,,SW,,Normal,2.328,,,,,,Probable,,,,,,,,,,,,,,ref,,Valdivia et al. (2017); Wall et al. (1996; Sernageomin),2.0800636931502647,-1,-1,158,10
+501902,LOFS,,,,-45.343,-73.0937,inferred,,10,,,,,4.159,,,,,,Probable,,,,,,,,,,,,,,ref,1:40000,Villalobos-Claramunt et al. (2015); Vargas et al. (2013),4.111739388677372,-1,-1,41,11
+501003,LOFS,Los Palos,,,-45.6137,-72.7558,inferred,,12,,,,,10.096,,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),9.962518175966654,-1,-1,39,12
+500706,LOFS,Lago Meullin,,,-45.1792,-72.9497,observed,,38,,,,,3.397,0,,,,,Probable,,,,,,,,,,,,,,unif,1:150000,Vargas et al. (2013),3.061036425557518,-1,-1,40,13
+500704,LOFS,Lago Meullin,,,-45.1962,-72.9633,inferred,,42,,,,,3.829,,,,,,Probable,,,,,,,,,,,,,,unif,1:150000,Vargas et al. (2013),3.374343194463803,-1,-1,40,13
+501901,LOFS,,,,-45.3057,-73.0901,observed,,5,,,,,4.798,0,,,,,Probable,,,,,,,,,,,,,,ref,1:40000,Vargas et al. (2013),4.778450687765248,-1,-1,41,11
+500901,LOFS,,,,-45.542,-72.7481,observed,,12,,,,,9.448,0,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),9.317611119176588,-1,-1,39,12
+500902,LOFS,,,,-45.6989,-72.8141,inferred,,26,,,,,27.5,,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),26.09234797220386,-1,-1,-1,12
+501101,LOFS,Rio Blanco,,,-45.559,-72.6619,inferred,,153,,,,,9.914,,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),9.370525946637912,-1,-1,39,12
+501103,LOFS,Rio Blanco,,,-45.5422,-72.6589,inferred,,168,,,,,10.693,,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),10.515081330643158,-1,-1,39,12
+501705,CCFS,Cachet,,,-46.91,-73.1715,inferred,,175,,,,,11.877,,,,,,Probable,,,,,,,,,,,,,,ref,1:200000,Georgieva et al. (2016),11.759775094804313,-1,-1,-1,14
+501702,CCFS,Cachet,,,-47.0474,-73.1705,observed,,179,,,,,15.171,0,,,,,Probable,,,,,,,,,,,,,,ref,1:200000,Georgieva et al. (2016),15.148635483376658,-1,-1,-1,14
+501801,CCFS,El Salton,,,-47.5307,-73.0194,observed,Staircase morphology,116,50-80,SSW,~60,Normal,23.761,0,,,,Late Quaternary (<125 ka),Probable,Associated with a marked knickpoint in the Baker river,Baker river course controlled by fault,,1.2 mm/yr,,,,,,,,,,ref,1:200000,Georgieva et al. (2016),17.7542728708424,-1,-1,-1,15
+400303,LLFS,Lago Laja,,,-37.1611,-71.3205,observed,,171,,E,,Normal,6.176,0,,,,,Probable,,Offsets alluvial fans,,,,,,,,,,,,unif,,Melnick et al. (2006),6.12549606827106,-1,-1,-1,16
+400307,LLFS,Lago Laja,Segmento Norte,Seismic reflection and bathymetry,-37.2176,-71.3079,observed,Horst & graben,158,,W,,Normal,2.203,0,,,,Holocene,Proved,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),2.139399916273759,-1,-1,-1,16
+400305,LLFS,Lago Laja,Segmento Norte,Seismic reflection and bathymetry,-37.2043,-71.3114,observed,Horst & graben,168,,W,,Normal,0.818,0,,,,Holocene,Proved,,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.8094445318868319,-1,-1,-1,16
+400316,LLFS,Lago Laja,Segmento Central,,-37.2275,-71.3058,inferred,,12,,,,,1.845,,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.824324990166798,-1,-1,-1,16
+400319,LLFS,Lago Laja,Segmento Central,Seismic reflection and bathymetry,-37.3073,-71.2891,observed,,1,,W,,Normal,1.812,0,,,,,Probable,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.8066214053220413,-1,-1,-1,16
+400318,LLFS,Lago Laja,Segmento Central,Seismic reflection and bathymetry,-37.3367,-71.2995,observed,,25,,W,,Normal,1.449,0,,,,,Probable,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.396092604492933,-1,-1,-1,16
+400324,LLFS,Lago Laja,Segmento Sur,,-37.3904,-71.3057,inferred,,165,,,,,0.918,,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.9016469492515853,-1,-1,-1,16
+400323,LLFS,Lago Laja,Segmento Sur,,-37.3998,-71.3016,inferred,,147,,,,,0.969,,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.9115520267691287,-1,-1,-1,16
+400322,LLFS,Lago Laja,Segmento Sur,,-37.4225,-71.2797,inferred,,135,,,,,2.918,,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),2.6332139067667724,-1,-1,-1,16
+400326,LLFS,Lago Laja,Segmento Sur,,-37.431,-71.271,inferred,,133,,NE,,,1.006,,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.9004211890360339,-1,-1,-1,16
+400325,LLFS,Lago Laja,Segmento Sur,,-37.4001,-71.2889,inferred,,147,,SW,,Normal,1.992,,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.876668678940123,-1,-1,-1,16
+400502,LLFS,,,,-37.2911,-71.3697,observed,,60,,S,,Normal,6.322,0,,,,Holocene,Probable,Offsets glacial pediment,Extends towards lake Laja,,,,,,,,,,,,unif,,Melnick et al. (2006),5.378775034987661,-1,-1,-1,16
+400501,LLFS,,Segmento Central,,-37.315,-71.3774,observed,,62,,S,,Normal,6.06,0,,,,,Probable,Offsets glacial morphology,,,,,,,,,,,,,unif,,Melnick et al. (2006),5.130171663793007,-1,-1,-1,16
+400330,LLFS,Lago Laja,Segmento Central,Seismic reflection and bathymetry,-37.2417,-71.2915,observed,,176,,W,,Normal,1.883,0,,,,,Probable,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.8753782929469132,-1,-1,-1,16
+400329,LLFS,Lago Laja,,,-37.1555,-71.2433,observed,,71,,,,,6.669,0,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),5.492232849540048,-1,-1,-1,16
+400328,LLFS,Lago Laja,,,-37.1717,-71.2774,observed,,56,,,,,1.075,0,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.9315281758085396,-1,-1,-1,16
+400327,LLFS,Lago Laja,,,-37.1727,-71.2784,observed,,63,,,,,1.834,0,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.5480370326944202,-1,-1,-1,16
+400333,LLFS,Lago Laja,,,-37.1836,-71.2991,observed,,60,,,,,0.533,0,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.45376269311805556,-1,-1,-1,16
+400332,LLFS,Lago Laja,,,-37.1869,-71.3049,observed,,59,,,,,0.569,0,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.48633438612547825,-1,-1,-1,16
+400331,LLFS,Lago Laja,,,-37.1695,-71.2408,observed,,78,,,,,7.538,0,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),6.170480891470364,-1,-1,-1,16
+400505,LLFS,,Segmento Central,,-37.2816,-71.3459,observed,,59,,,,,0.493,0,,,,Holocene,Proved,,,,,,,,,,,,,,unif,,,0.4213796753291663,-1,-1,-1,16
+400504,LLFS,,,,-37.2814,-71.3492,observed,,38,,,,,0.378,0,,,,Holocene,Proved,,Sublacustrine scarp,,,,1.7 mm/yr,,,,,,,,unif,,Melnick et al. (2006),0.34954357413873965,-1,-1,-1,16
+400503,LLFS,,Segmento Central,,-37.2845,-71.3558,observed,,46,,,,,0.512,0,,,,Holocene,Proved,,,,,,,,,,,,,,unif,,,0.45932147257777717,-1,-1,-1,16
+400901,LOFS,Lomin,,,-37.9458,-71.1565,observed,,96,,,,,8.751,0,,,,,Probable,,,,,,,,,,,,,,unif,,,7.027010408133399,-1,-1,88,17
+401003,LOFS,Chaquilvin,,,-38.0462,-71.172,observed,,112,,S,,Normal,12.393,0,,,,,Probable,,,,,,,,,,,,,,unif,,,10.287381016487203,-1,-1,83,18
+402601,LOFS,Troyo,,,-38.5503,-71.4664,observed,,65,,SE,,Normal,3.212,0,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Melnick et al. (2006b),2.6472537940415037,-1,-1,76,19
+402315,LOFS,Escorial,,,-38.6351,-71.4871,observed,,47,,,,,0.8,0,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Melnick et al. (2006b),0.7113710423782271,-1,-1,77,20
+402307,LOFS,Escorial,,,-38.495,-71.3823,observed,,34,,,,,5.252,0,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Melnick et al. (2006b),4.729067112625993,-1,-1,77,19
+402302,LOFS,Escorial,,,-38.4582,-71.3344,inferred,,73,,,,Dextral-Normal,8.693,,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Melnick et al. (2006b),7.112541728851633,-1,-1,79,19
+402303,LOFS,Escorial,,,-38.4878,-71.3768,inferred,,45,,,,,2.886,,,,,,Probable,,,,,,,,,,,,,,unif,,,2.5874288200640763,-1,-1,77,19
+401302,LOFS,Malalcahuello,,,-38.6759,-71.6075,inferred,,21,,,,,8.52,,,,,,Probable,,,,,,,,,,,,,,unif,1:50000,Melnick et al. (2006b); Naranjo & Moreno (2005; Sernageomin),8.262076892820609,-1,-1,86,21
+407501,LOFS,,,,-40.2686,-71.9651,observed,,32,,,,Dextral,8.471,0,,,,,Probable,,,,,,,,,,,,,,unif,1:100000,Guzman-Marin et al. (2015),7.88464165812197,-1,-1,54,22
+407301,LOFS,Cullao,,,-40.3526,-71.9817,observed,Simple fault,158,,SW,,Normal,6.799,0,,,,,Probable,,,,,,,,,,,,,,unif,1:100000,Guzman-Marin et al. (2015),6.563892959840923,-1,-1,96,22
+407102,LOFS,Correntoso,,,-40.2844,-71.843,inferred,,31,,,,,4.428,,,,,,Probable,,,,,,,,,,,,,,unif,1:100000,Guzman-Marin et al. (2015),4.161206219372401,-1,-1,59,23
+407003,LOFS,Clavel,,,-40.3751,-71.8193,observed,,172,,,,,3.309,0,,,,,Probable,,Offsets glacial valley,,,,,,,,,,,Fault with segments of different behaviour.,unif,1:100000,Guzman-Marin et al. (2015),3.2844536849464316,-1,-1,59,24
+408203,LOFS,,,,-40.1723,-72.0665,inferred,,61,,SE,,Normal,6.651,,,,,,Probable,,,,,,,,,,,,,,unif,1:100000,Guzman-Marin et al. (2015),5.525947338533457,-1,-1,-1,22
+408201,LOFS,,,,-40.1453,-72.003,inferred,,64,,SE,,Normal,3.465,,,,,,Probable,,,,,,,,,,,,,,unif,1:100000,Guzman-Marin et al. (2015),2.821512130759729,-1,-1,-1,22
+407701,LOFS,,,,-40.4151,-72.0626,observed,,21,,,,,3.255,0,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Lara et al. (2006),3.1489906321174583,-1,-1,34,25
+406604,LOFS,Maihue,,,-40.0596,-72.0503,observed,,175,,,,,5.547,0,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Lemus et al. (2015; Sernageomin),5.517176577961631,-1,-1,57,22
+406603,LOFS,Maihue,,,-40.1127,-72.0433,observed,,177,,,,,1.446,0,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Lemus et al. (2015; Sernageomin),1.4420128441190663,-1,-1,-1,22
+406607,LOFS,Maihue,,,-40.1187,-72.0432,observed,,176,,,,,0.801,0,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Lemus et al. (2015; Sernageomin),0.7979220785739741,-1,-1,-1,22
+406605,LOFS,Maihue,,,-40.1411,-72.0412,observed,,175,,,,,2.525,0,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Lemus et al. (2015; Sernageomin),2.5141141931145383,-1,-1,-1,22
+406606,LOFS,Maihue,,,-40.1716,-72.0419,observed,,8,,,,,3.746,0,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Lemus et al. (2015; Sernageomin),3.7094885659250445,-1,-1,-1,22
+406601,LOFS,Maihue,,,-40.0197,-72.0451,inferred,,2,,,,,14.324,,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Lemus et al. (2015; Sernageomin),14.258246494690885,-1,-1,57,22
+406608,LOFS,Maihue,,,-40.2081,-72.0474,inferred,,11,,,,,4.354,,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Lemus et al. (2015; Sernageomin),4.294957478011372,-1,-1,-1,22
+406602,LOFS,Maihue,,,-40.2073,-72.0524,inferred,,11,,,,,6.491,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Lemus et al. (2015; Sernageomin),6.426029153718092,-1,-1,-1,22
+406407,LOFS,,,,-40.0533,-71.9659,observed,,11,,,,,2.791,0,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Moreno & Lara (2007; Sernageomin),2.7430849902643546,-1,-1,-1,22
+406408,LOFS,,,,-40.0254,-71.9498,inferred,,32,,,,,4.155,,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Moreno & Lara (2007; Sernageomin),3.852301194207262,-1,-1,-1,22
+409601,LOFS,,,,-41.4571,-72.2231,inferred,,52,,,,Dextral,20.711,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006); Cembrano et al. (2000),17.72467442248053,-1,-1,19,26
+408601,LOFS,,,,-41.1066,-72.2051,observed,Graben,62,,NNW,,Normal,14.291,0,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006),11.729998853570823,-1,-1,20,27
+408501,LOFS,,,,-41.1482,-72.4219,observed,Graben,58,,NNW,,Normal,16.846,0,,,,,Probable,Offsets MIS 5e deposits,Scarp with triangular facets,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006),14.098101227927478,-1,-1,-1,28
+409602,LOFS,,,,-41.4069,-72.1151,inferred,,80,,S,,Dextral-Normal,9.642,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006),7.373201979057308,-1,-1,-1,26
+406102,LOFS,,,,-39.844,-71.8723,observed,,5,,,,,4.634,0,,,,,Probable,,,,,,,,,,,,,,unif,1:50000,Moreno & Lara (2007; Sernageomin),4.579654747988333,-1,-1,54,22
+406001,LOFS,Fuy,,,-39.9137,-71.8965,covered,,17,,,,,12.325,,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Moreno & Lara (2007; Sernageomin),11.990922657369017,-1,-1,54,22
+406409,LOFS,,,,-39.9861,-71.9331,covered,,33,,,,,4.536,,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Moreno & Lara (2007; Sernageomin),4.158424912625055,-1,-1,55,22
+405902,LOFS,,,,-39.8217,-71.8075,observed,,36,,,,,2.452,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Lara & Moreno (2004; Sernageomin),2.2631842032463076,-1,-1,54,22
+405702,LOFS,Los Banos,,,-39.8239,-71.7814,observed,,146,,,,,1.5,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Lara & Moreno (2004; Sernageomin),1.396572494801086,-1,-1,-1,22
+405303,LOFS,,,,-39.6872,-71.7247,inferred,,42,,,,,3.183,,,,,,Probable,,,,,,,,,,,,,,unif,,"Astudillo et al. (2019, en proceso de publicacion)",2.8788538810034257,-1,-1,-1,22
+405302,LOFS,,,,-39.6872,-71.7368,inferred,,5,,,,,4.216,,,,,,Probable,,,,,,,,,,,,,,unif,,Lara & Moreno (2004; Sernageomin),4.177417335524303,-1,-1,-1,22
+405818,LOFS,,,,-39.7277,-71.7728,observed,,115,,,,,2.2,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Lara & Moreno (2004; Sernageomin),1.7939034804690404,-1,-1,54,22
+405501,LOFS,,,,-39.6637,-71.784,observed,,10,,,,,3.689,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Lara & Moreno (2004; Sernageomin),3.6570452313287842,-1,-1,54,22
+405101,LOFS,,,,-39.6279,-71.8855,observed,,36,,,,,7.064,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Lara & Moreno (2004; Sernageomin),6.5201668386174365,-1,-1,65,22
+403505,LOFS,Caburgua,,,-39.3521,-71.8942,inferred,,31,,,,Dextral,6.851,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Sanchez et al. (2013),6.453388190931215,-1,-1,-1,29
+404701,LOFS,,,,-39.5808,-71.8777,observed,,42,,,,,6.158,0,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Sanchez et al. (2013); Lara & Moreno (2004; Sernageomin),5.5543648229367,-1,-1,-1,22
+402502,LOFS,Reigol - Pirehueico,,,-39.0845,-71.4674,covered,,11,,,,Dextral,15.514,,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Moreno & Lara (2008; Sernageomin),15.204124020023452,-1,-1,-1,30
+402504,LOFS,Reigol - Pirehueico,,,-39.158,-71.4961,inferred,,45,,,,Dextral,1.37,,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Moreno & Lara (2008; Sernageomin),1.2268267561347928,-1,-1,-1,30
+402503,LOFS,Reigol - Pirehueico,,,-39.2052,-71.4981,covered,,176,,,,Dextral,10.083,,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Moreno & Lara (2008; Sernageomin),10.026243449831037,-1,-1,-1,30
+405701,LOFS,Los Banos,,,-39.9242,-71.7567,observed,,157,,,,Sinistral,11.877,0,,,,,Probable,,,,,,,,,,,,,,unif,,Lara & Moreno (2004; Sernageomin),11.444635524417809,-1,-1,-1,22
+407602,LOFS,,,,-40.3461,-72.0192,observed,,5,,,,,4.364,0,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,Astudillo et al. (2018),4.34619334264591,-1,-1,34,22
+402807,LOFS,,,,-39.7662,-71.799,observed,,21,,,,,0.862,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Astudillo et al. (2018); Lara & Moreno (2004; Sernageomin),0.8365866192319612,-1,-1,54,22
+402801,LOFS,,,,-39.7775,-71.8015,observed,,19,,,,,1.148,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Astudillo et al. (2018); Lara & Moreno (2004; Sernageomin),1.1208667937695898,-1,-1,54,22
+403001,LOFS,,,,-39.7643,-71.772,observed,,9,,,,,0.604,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Astudillo et al. (2018); Lara & Moreno (2004; Sernageomin),0.5995110721348827,-1,-1,-1,22
+405812,LOFS,,,,-39.762,-71.7589,observed,,3,,,,,0.801,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Astudillo et al. (2018); Lara & Moreno (2004; Sernageomin),0.7971718099972467,-1,-1,-1,22
+409101,LOFS,,,,-42.3987,-72.4283,inferred,,176,,,,,51.341,,,,,,Probable,,,,,,,,,,,,,,unif,1:500000,Aguilera et al. (2014),50.695169213384105,-1,-1,25,31
+409302,LOFS,,,,-41.2974,-72.2147,inferred,,9,,,,,11.954,,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Cembrano & Lara (2009),11.82662442955078,-1,-1,19,26
+409303,LOFS,,,,-41.2053,-72.206,inferred,,8,,,,,4.932,,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Cembrano & Lara (2009),4.902290308417549,-1,-1,-1,26
+409201,LOFS,,,,-41.3267,-72.2506,inferred,,22,,,,,7.972,,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Cembrano & Lara (2009),7.661079514564839,-1,-1,19,26
+404601,LOFS,,,,-39.6135,-71.8839,inferred,,27,,,,,13.528,,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Lemus et al. (2015; Sernageomin); Sielfeld et al. (2019),12.906096004018291,-1,-1,65,22
+404101,LOFS,,,,-39.633,-71.85,inferred,,3,,,,,21.957,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Sielfeld et al. (2019),21.823131195880602,-1,-1,65,22
+404901,LOFS,Llonquen,,,-39.6492,-71.8785,inferred,,49,,,,,8.326,,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Sielfeld et al. (2019),7.282731352758029,-1,-1,65,22
+404801,LOFS,,,,-39.5571,-71.9012,inferred,,41,,,,,6.51,,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Sielfeld et al. (2019),5.897515909523905,-1,-1,-1,22
+404301,LOFS,El Venado,,,-39.6238,-71.9165,observed,,179,,,,,19.114,0,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Sielfeld et al. (2019),19.028912478804425,-1,-1,62,22
+402701,LOFS,Sollipulli cluster,,Microseismicity,-38.9443,-71.8072,inferred,,66,,,,Sinistral,35.085,0,18,,,,Probable,,,,,,,,,Associted with seismic activity in 2004,,,,It occurs in close proximity to fumaroles and surficial geothermal activity.,ref,1:250000,Sielfeld et al. (2019),28.809749213463576,-1,-1,-1,32
+403401,LOTF,,,Microseismicity,-39.1912,-71.7363,inferred,,115,,NNE,,,7.135,,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Sielfeld et al. (2019),5.851202769071017,-1,-1,67,33
+403104,LOFS,,,,-38.3949,-71.7093,inferred,Pull-apart basin,34,,,,,8.443,,,,,,Probable,,,,,,,,,,,,,,ref,1:500000,Perez-Flores et al. (2017b); Perez-Flores et al. (2017); Perez-Flores et al. (2016),7.90004625079001,-1,-1,-1,34
+403201,LOFS,,,,-38.1366,-71.4892,inferred,,36,,,,Dextral,41.091,,,,,,Probable,,,,,,,,,,,,,,unif,1:500000,Sielfeld et al. (2019),38.128701397232774,-1,-1,-1,35
+401402,LOFS,,,,-38.1728,-71.6863,inferred,,32,,,,,5.652,,,,,,Probable,,,,,,,,,,,,,,ref,1:500000,Sielfeld et al. (2019),5.32373678512647,-1,-1,90,36
+401403,LOFS,,,,-38.2886,-71.7814,inferred,,38,,,,,14.191,,,,,,Probable,,,,,,,,,,,,,,ref,1:500000,Sielfeld et al. (2017; 2019),13.076608723659662,-1,-1,-1,36
+403102,LOFS,,,,-38.3428,-71.52,inferred,Pull-apart basin,63,,SE,,Normal,9.376,,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Perez-Flores et al. (2017b),7.819657696807299,-1,-1,80,37
+402401,LOFS,,,Microseismicity,-38.4916,-71.6449,inferred,,34,,,,,11.784,,,,,,Probable,,,,,,,,,,,,,,ref,1:500000,Sielfeld et al. (2019),11.03434154782482,-1,-1,86,37
+301401,CAFS,Melado,,Seismicity,-36.1164,-70.9136,inferred,,22,,,,Dextral,30.398,,,,,,Probable,,,,,,,,,Associated with Mw 6.2 earthquake in 2004,6.2,,,,ref,1:500000,Cardona et al. (2018); Cardona et al. (2015) en Sielfeld et al (2019),29.565952275201532,-1,-1,-1,38
+101904,ATFS,Salar del Carmen,Sierra del Ancla,,-23.7348,-70.3368,observed,,26,,E,,Normal,5.637,0,,,,,Probable,,,,,,,,,,,,,,unif,,Gonzalez & Carrizo (2003); Ewiak et al. (2015),5.523325492830709,-1,-1,9,39
+100304,EWFS,Blanco,,,-19.3174,-70.0101,covered,,74,,,,,19.257,,,,,,Probable,,,,,,,,,,,,,,ref,,Garcia & Fuentes (2012),18.29600733324006,-1,-1,-1,1
+102804,SdAF,Sistema de Falla Salar,,,-23.437,-68.3347,covered,,1,,E,,Reverse,7.997,,,,,,Probable,,,,,,,,,,,,,,ref,,Jordan et al. (2002); Reutter et al. (2006),7.940415348980072,-1,-1,-1,40
+102805,SdAF,Sistema de Falla Salar,,,-23.6415,-68.3179,covered,,3,,,,,6.197,,,,,,Probable,,,,,,,,,,,,,,ref,,Jordan et al. (2002); Reutter et al. (2006),6.125193398396692,-1,-1,-1,40
+102803,SdAF,Sistema de Falla Salar,,,-23.604,-68.333,covered,,172,,,,,13.805,,,,,,Probable,,,,,,,,,,,,,,ref,,Jordan et al. (2002); Reutter et al. (2006),13.656225079738475,-1,-1,-1,40
+102903,SdAF,Sistema de falla Peine,,,-23.5446,-68.1346,covered,,1,,,,,5.557,,,,,,Probable,,,,,,,,,,,,,,ref,,Jordan et al. (2002); Reutter et al. (2006),5.48909624719889,-1,-1,-1,41
+102902,SdAF,Sistema de falla Peine,,,-23.3705,-68.089,covered,,12,,,,,6.364,,,,,,Probable,,,,,,,,,,,,,,ref,,Jordan et al. (2002); Reutter et al. (2006),6.268657990721093,-1,-1,-1,41
+102905,SdAF,Sistema de falla Peine,,,-23.3197,-68.086,covered,,8,,,,,4.324,,,,,,Probable,,,,,,,,,,,,,,ref,,Jordan et al. (2002); Reutter et al. (2006),4.294597935656864,-1,-1,-1,41
+102904,SdAF,Sistema de falla Peine,,,-23.2619,-68.0887,covered,,175,,,,,5.35,,,,,,Probable,,,,,,,,,,,,,,ref,,Jordan et al. (2002); Reutter et al. (2006),5.318174862009516,-1,-1,-1,41
+102802,SdAF,Sistema de Falla Salar,,,-23.2386,-68.3319,inferred,,178,,E,,Reverse,36.0,,,,,,Probable,,,,,,,,,,,,,,ref,,Cembrano et al. (2007),35.75624861430784,-1,-1,-1,40
+102207,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-23.0648,-70.487,observed,,178,,E,,Normal,7.468,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),7.406408220246999,-1,-1,17,42
+102205,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-23.0278,-70.4943,observed,,156,,E,,Normal,1.63,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.602730377380818,-1,-1,-1,42
+102206,ATFS,Sistema de Fallas Mejillones,,,-23.013,-70.4997,inferred,,171,,,,Normal,1.515,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.5037296346709053,-1,-1,-1,42
+102202,ATFS,Sistema de Fallas Mejillones,,,-22.9549,-70.4802,inferred,,27,,W,,Normal,9.931,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),9.709528052544634,-1,-1,-1,42
+102213,ATFS,Sistema de Fallas Mejillones,,,-22.9046,-70.496,inferred,,167,,W,,Normal,3.986,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),3.944275313874056,-1,-1,-1,42
+102226,ATFS,Sistema de Fallas Mejillones,,,-22.8913,-70.4719,inferred,,12,,E,,Normal,5.737,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),5.69016786380621,-1,-1,-1,42
+102227,ATFS,Sistema de Fallas Mejillones,,,-22.8836,-70.4636,inferred,,14,,E,,Normal,4.151,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),4.112018905286745,-1,-1,-1,42
+102228,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-22.904,-70.4673,observed,,9,,E,,Normal,1.212,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.2034113709116772,-1,-1,-1,42
+102229,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-22.9207,-70.4838,observed,,6,,,,,1.277,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.268772270603846,-1,-1,-1,42
+102222,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-22.9185,-70.4803,observed,,10,,,,,1.92,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.9053610049901937,-1,-1,-1,42
+102223,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-22.8575,-70.4639,observed,,20,,E,,Normal,1.542,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.5215211304651057,-1,-1,-1,42
+102224,ATFS,Sistema de Fallas Mejillones,,,-22.844,-70.4585,inferred,,22,,E,,Normal,1.188,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.169781619575052,-1,-1,-1,42
+102225,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-22.8403,-70.4572,observed,,19,,E,,Normal,1.039,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.025955461608425,-1,-1,-1,42
+102218,ATFS,Sistema de Fallas Mejillones,,,-22.8207,-70.4506,inferred,,18,,W,,Normal,2.928,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),2.893449145201059,-1,-1,-1,42
+102219,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-22.8027,-70.4447,observed,,19,,W,,Normal,1.042,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.028820659563117,-1,-1,-1,42
+102220,ATFS,Sistema de Fallas Mejillones,,,-22.7953,-70.4424,inferred,,19,,W,,Normal,0.592,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),0.5840975750010174,-1,-1,-1,42
+102221,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-22.8579,-70.4558,observed,,19,,E,,Normal,1.14,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.1251917632345516,-1,-1,-1,42
+102214,ATFS,Sistema de Fallas Mejillones,,,-22.8452,-70.4516,inferred,,20,,E,,Normal,1.688,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.6654767053987236,-1,-1,-1,42
+102215,ATFS,Sistema de Fallas Mejillones,,,-22.7982,-70.4258,inferred,,28,,E,,Normal,6.598,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),6.46121610219437,-1,-1,-1,42
+102216,ATFS,Sistema de Fallas Mejillones,,,-22.7851,-70.4074,inferred,,28,,E,,Normal,1.777,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.7399347137143857,-1,-1,-1,42
+102217,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-22.7725,-70.3996,observed,,39,,E,,Normal,0.985,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),0.9526984804405202,-1,-1,-1,42
+102209,ATFS,Sistema de Fallas Mejillones,,,-22.7904,-70.374,inferred,,39,,NW,,Normal,7.068,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),6.8312947661624825,-1,-1,-1,42
+102210,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-22.7603,-70.3518,observed,,32,,NW,,Normal,2.167,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),2.1132110539803524,-1,-1,-1,42
+102211,ATFS,Sistema de Fallas Mejillones,,,-22.7405,-70.34,inferred,,30,,NW,,Normal,2.381,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),2.327553593079905,-1,-1,-1,42
+102212,ATFS,Sistema de Fallas Mejillones,,Seismic reflection,-22.7601,-70.3448,observed,,25,,NW,,Normal,1.62,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.5914322799695055,-1,-1,-1,42
+102204,ATFS,Sistema de Fallas Mejillones,,,-22.7294,-70.3342,observed,,27,,NW,,Normal,1.303,0,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.2770251979017875,-1,-1,-1,42
+102203,ATFS,Sistema de Fallas Mejillones,,,-22.7178,-70.3292,inferred,,14,,NW,,Normal,1.057,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),1.047030820639197,-1,-1,-1,42
+102208,ATFS,Sistema de Fallas Mejillones,,,-22.7441,-70.3385,inferred,,19,,NW,,Normal,2.178,,,,,Holocene,Proved,offsets Holocene alluvial fans,,,,,,,,,,,,Submarine trace,ref,,Gonzalez-Alfaro et al. (2015),2.150276800727787,-1,-1,-1,42
+301102,SMFS,Santa Maria,,,-36.842,-73.5193,observed,,49,,E,,Normal,5.838,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),5.202077336605281,-1,-1,-1,7
+301121,SMFS,Santa Maria,,,-36.8921,-73.5237,observed,,15,,E,,Normal,4.667,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),4.592332861533038,-1,-1,-1,7
+200502,LVFS,Puerto Aldea,,,-30.2583,-71.6169,inferred,,171,,E,,Normal-Sinistral,9.224,,,,,,Probable,,,,,,,,,,,,,Submarine trace,ref,,Aviles et al. (2015),9.137820365921767,-1,-1,-1,43
+301201,not assigned,Las Melosas,,Focal Mechanisms,-33.8398,-70.1671,blind,Two possible fault planes,21,,,,,3.317,,,,,,Probable,,,,,,,,,Associated with Mw 6.9 earthquake in 1958,6.3,7,,,ref,,Sepulveda et al. (2008); Alvarado et al. (2009),3.230166953934282,-1,-1,-1,44
+501104,LOFS,Rio Blanco,,,-45.6422,-72.62,inferred,,154,,,,,7.18,,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),6.816039657583079,-1,-1,-1,12
+502401,LOFS,Rio Ventisquero,,,-44.3672,-72.5302,inferred,,47,,,,Dextral,14.594,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Arancibia et al. (1999); Perez et al. (2009),12.511144273918514,-1,-1,47,45
+409801,LOFS,,,,-42.3641,-72.6316,inferred,,180,,,,,35.32,,,,,,Probable,,,,,,,,,,,,,,ref,1:500000,Herve et al. (2017); Sernageomin (2000); Aguilera et al. (2014),35.06779717584243,-1,-1,-1,31
+409701,LOFS,,,,-42.3868,-72.5598,inferred,,8,,,,,33.583,,,,,,Probable,,,,,,,,,,,,,,ref,1:500000,Herve et al. (2017); Sernageomin (2000); Aguilera et al. (2014),33.1887455364126,-1,-1,-1,31
+502202,LOFS,,,,-44.7738,-72.6439,inferred,,51,,,,Dextral,29.679,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Arancibia et al. (1999),24.792604439983087,-1,-1,31,46
+502201,LOFS,,,,-44.9301,-72.8141,inferred,,39,,,,Dextral,17.05,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Arancibia et al. (1999),15.21149346303264,-1,-1,31,46
+502001,LOFS,Maca,,,-45.1479,-73.2027,observed,,23,,,,,5.257,0,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),5.0499015731315255,-1,-1,-1,47
+501903,LOFS,,,,-45.2474,-73.0819,inferred,,5,,,,,7.697,,,,,,Probable,,,,,,,,,,,,,,ref,1:40000,Vargas et al. (2013),7.6483835332000725,-1,-1,41,11
+502002,LOFS,Maca,,,-45.0831,-73.1927,inferred,,1,,,,,9.429,,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),9.39036394850238,-1,-1,-1,47
+502101,LOFS,Maca,,,-45.1679,-73.2262,inferred,,30,,,,,7.263,,,,,,Probable,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),6.781317959807935,-1,-1,-1,47
+502902,LOFS,Golfo de Penas,,,-47.3674,-74.4067,inferred,,41,,,,Dextral,86.358,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Forsythe & Nelson (1985),75.51984137259993,-1,-1,35,48
+405703,LOFS,Los Banos,,,-39.8527,-71.776,inferred,,175,,,,,4.858,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Sanchez et al. (2013),4.831225857259721,-1,-1,-1,22
+400304,LLFS,Lago Laja,Segmento Norte,,-37.0598,-71.3092,observed,Horst & graben,25,,SE,,Normal,0.985,0,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.9429401335128331,-1,-1,-1,16
+400334,LLFS,Lago Laja,Segmento Norte,,-37.0962,-71.31,observed,Asymmetric horst & graben,180,,,,,1.716,0,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.6372853989297675,-1,-1,-1,16
+200302,CDFS,Calderilla,,,-27.0731,-70.842,observed,,18,,E,,Normal,0.422,0,,,,,Probable,,,,,,,,,,,,,,unif,1:30000,Marquardt et al. (1999); Marquardt et al. (2004); Lavenu (2005),0.4161724438682525,-1,-1,-1,3
+100902,EWFS,Chuculay 2,,,-21.0973,-69.7326,observed,,71,,S,,Reverse,13.688,0,,,,,Probable,,,,,,,,,,,,,,unif,,Allmendinger et al. (2009),12.92150433554927,-1,-1,6,49
+501704,CCFS,Cachet,,,-47.5535,-73.2494,inferred,,172,,E,,Dextral,6.628,,,,,,Probable,,,,,,,,,,,,,,ref,1:200000,Georgieva et al. (2016),6.583347021760716,-1,-1,-1,14
+501703,CCFS,Cachet,,,-47.4038,-73.2433,observed,,2,,E,,Dextral,33.624,0,,,,,Probable,,,,,,,,,,,,,,ref,1:200000,Georgieva et al. (2016),33.48026351216932,-1,-1,-1,14
+501701,CCFS,Cachet*,,,-47.1109,-73.2522,observed,,6,60-90,E,10-15,Dextral,24.531,0,,,,,Probable,,,3 Ma,,,1-3 mm/yr,,,Suspected associated microseismicity,,,,,ref,1:200000,Georgieva et al. (2016),24.37418643526749,-1,-1,-1,14
+400320,LLFS,Lago Laja,Segmento Central,Seismic reflection and bathymetry,-37.3119,-71.2927,observed,,1,,E,,Normal,2.473,0,,,,,Probable,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),2.4658952438370028,-1,-1,-1,16
+400313,LLFS,Lago Laja,Segmento Central,Seismic reflection and bathymetry,-37.2716,-71.3042,observed,,14,,SE,,Normal,1.501,0,,,,,Probable,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.4801772435954588,-1,-1,-1,16
+301001,CFTF,Pelluhue,,,-35.7368,-72.4571,observed,,65,,NW,,Normal,36.29,0,,,,,Probable,Offsets MIS 5e marine terrace,,,~0.2 mm/yr,,,,,,,,,,ref,,Jara-Munoz et al. (2015),30.814497391586308,-1,-1,-1,50
+400317,LLFS,Lago Laja,,Seismic reflection and bathymetry,-37.3677,-71.3071,inferred,,179,,E,,Normal,5.071,,,,,,Probable,offsets 7.1-ka lacustrine marker,,,,,2.6 mm/yr,,,,,,,,unif,,Melnick et al. (2006),5.054598498346918,-1,-1,-1,16
+400310,LLFS,Lago Laja,Segmento Norte,Seismic reflection and bathymetry,-37.2177,-71.3067,observed,Horst & graben,172,,E,,Normal,0.845,0,,,,Holocene,Proved,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.8393934646813359,-1,-1,-1,16
+400311,LLFS,Lago Laja,,Seismic reflection and bathymetry,-37.2272,-71.3073,observed,Horst & graben,172,,E,,Normal,1.784,0,,,,Holocene,Proved,offsets 7.1-ka lacustrine marker,Complex hort-graben system affecting sediments of the Laja lake,,,,>0.77 mm/yr,,,,,,,Displacement along this segment rises towards the center of the lake.,unif,,Melnick et al. (2006),1.7735247542088322,-1,-1,-1,16
+400312,LLFS,Lago Laja,Segmento Norte,Seismic reflection and bathymetry,-37.2223,-71.3069,observed,Horst & graben,159,,E,,Normal,0.55,0,,,,Holocene,Proved,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.53487861952132,-1,-1,-1,16
+400314,LLFS,Lago Laja,Segmento Central,Seismic reflection and bathymetry,-37.2902,-71.3033,observed,,163,,W,,Normal,1.498,0,,,,,Probable,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.4684626365426867,-1,-1,-1,16
+400315,LLFS,Lago Laja,Segmento Central,Seismic reflection and bathymetry,-37.2716,-71.309,observed,,174,,E,,Normal,6.149,0,,,,,Probable,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),6.105967137784466,-1,-1,-1,16
+400309,LLFS,Lago Laja,Segmento Norte,,-37.202,-71.3127,inferred,,173,,,,Normal,1.213,,,,,,Probable,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.2060323029428606,-1,-1,-1,16
+400321,LLFS,Lago Laja,Segmento Sur,,-37.4299,-71.272,inferred,,135,,NE,,Normal,1.024,,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),0.9243785841449272,-1,-1,-1,16
+403504,LOFS,Caburgua W,,,-39.2535,-71.8276,inferred,,16,,,,Dextral,14.049,,,,,,Probable,,,,,,,,,,,,,,ref,1:250000,Sielfeld et al. (2019),13.785108205456673,-1,-1,67,29
+403301,LOTF,,,Microseismicity,-39.1324,-71.722,inferred,,118,subvert,NNE,,Sinistral,26.487,1,"9,9",,,,Probable,,,,,,,,,,,,,,ref,1:250000,Sielfeld et al. (2019),22.031741852201442,-1,-1,-1,51
+300202,CFTF,Marga-Marga,,,-33.1119,-71.3994,inferred,,123,,SW,,Normal,29.72,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,,26.39977721765104,-1,-1,-1,52
+405401,LOFS,,,,-39.7256,-71.7869,observed,,13,,E,,Reverse,3.901,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Lara & Moreno (2004; Sernageomin); Sanchez et al. (2013),3.8207093014429896,-1,-1,54,22
+408202,LOFS,,,,-40.1986,-72.1654,inferred,,85,,S,,Normal,10.137,,,,,,Probable,,,,,,,,,,,,,,unif,1:100000,Guzman-Marin et al. (2015),7.8222750002703645,-1,-1,58,22
+406609,LOFS,Maihue,,,-40.2316,-72.072,observed,,27,,SE,,Normal,7.217,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Guzman-Marin et al. (2015),6.874105784884312,-1,-1,-1,22
+406401,LOFS,Los Guindos,,,-40.157,-71.9852,observed,,14,,,,Dextral,21.25,0,,,,,Probable,,Affects fluvial terraces adjacent to lake Maihue,,,,,,,,,,,,ref,1:250000,Astudillo et al. (2018); Lemus et al. (2015; Sernageomin),20.92565030450621,-1,-1,54,22
+408401,LOFS,,,,-41.0703,-72.3517,observed,Graben,84,,S,,Normal,20.397,0,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006),15.693199123924511,-1,-1,53,53
+301104,SMFS,Santa Maria,,,-37.0308,-73.5421,observed,,64,,,,Normal,1.674,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),1.4099163661411622,-1,-1,-1,7
+502701,LOFS,Estero Francisco,,,-46.3798,-73.6387,inferred,,43,,,,Dextral,25.334,,,,,,Probable,,,,,,,,,,,,,,unif,,Georgieva et al. (2016),21.93963542958903,-1,-1,36,48
+300702,CFTF,Puertecillo,,,-34.0577,-71.9416,observed,,179,,W,,Normal,13.631,0,,,,,Probable,,,,,,,,,,,,,,ref,,Jara-Munoz et al. (2015),13.575751026129641,-1,-1,73,5
+408901,LOFS,,,,-41.5082,-72.3424,inferred,,19,,E,,Dextral-Normal,43.587,,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006); Aguilera et al. (2014),42.155970868876565,-1,-1,25,26
+301116,SMFS,Santa Maria,,,-37.0644,-73.2081,observed,,65,,Norte,,Normal,7.522,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),6.311000315657887,-1,-1,-1,8
+301115,SMFS,Santa Maria,,,-37.0434,-73.2064,observed,,60,,Norte,,Normal,5.435,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),4.639965633117731,-1,-1,-1,8
+301114,SMFS,Santa Maria,,,-36.9606,-73.2054,observed,,110,,Norte,,Normal,5.894,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),4.8593076613507575,-1,-1,-1,8
+400302,LLFS,Lago Laja,Segmento Norte,,-37.0668,-71.3124,observed,,34,,NW,,Normal,1.896,0,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.7751953798533282,-1,-1,-1,16
+408701,LOTF,,,,-41.2584,-72.576,observed,Graben,134,,NE,,Normal,6.228,0,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006),5.481990345226876,-1,-1,-1,54
+408702,LOTF,,,,-41.2862,-72.4866,observed,Graben,75,,NNW,,Normal,11.81,0,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006),9.342540860183927,-1,-1,-1,54
+301111,SMFS,Santa Maria,,,-37.0534,-73.6044,observed,,72,,Norte,,Normal,8.569,0,,,,post 50 ka,Probable,,,,,,,,,,,,,Submarine trace,ref,,Jara-Munoz et al. (2017),7.041484162178081,-1,-1,-1,7
+403101,LOFS,,,,-38.283,-71.5562,inferred,Pull-apart basin,63,,SE,,Normal-Dextral,16.721,,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Perez-Flores et al. (2017b),13.922188761353453,-1,-1,81,35
+101402,ATFS,Cerro Mollecillo,,,-20.3375,-70.123,inferred,,19,,E,,Reverse,3.418,,,,,,Probable,,,,,,,,,,,,,,ref,,Sepulveda & Quezada (2015); Sernageomin (2013),3.371364210393449,-1,-1,156,55
+400801,LOFS,Laguna El Barco,,,-37.9011,-71.3129,observed,,171,,E,,Normal,22.376,0,,,,,Probable,,,,,,,,,,,,,,unif,1:500000,Melnick et al. (2006); Sielfeld et al. (2019),22.185530441565685,-1,-1,75,56
+102801,SdAF,Sistema de Falla Salar*,,,-23.5922,-68.2914,covered,,167,,W,,Reverse,23.317,,,,,,Probable,Offsets Holocene evaporites,,,,,,,,,,,,,ref,,Jordan et al. (2002); Reutter et al. (2006),22.992591266136962,-1,-1,-1,40
+100102,EWFS,Pisagua,,,-19.5475,-69.9546,observed,Blind fault,84,,S,,Reverse,13.47,0,,,,Historic,Proved,,,,,,,,,,,,,,ref,,Allmendinger et al. (2005); Gonzalez et al. (2015),12.720956523196387,-1,-1,1,57
+401605,LOFS,Troyo 1,,,-38.502,-71.4088,observed,,36,,SE,,Normal,14.559,0,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Perez-Flores et al. (2016); Melnick et al. (2006b),13.369145756084313,-1,-1,77,19
+102901,SdAF,Sistema de falla Peine*,,,-23.4439,-68.108,covered,,25,,W,,Reverse,16.986,,,,,,Probable,,,,,,,,,,,,,,ref,,Jordan et al. (2002); Reutter et al. (2006),16.625273168005414,-1,-1,-1,41
+200201,CDFS,Loreto,,,-27.0836,-70.8098,observed,,35,,NW,,Normal,1.614,0,,,,,Probable,,Offsets Quaternary marine deposits,,,,,,,,,,,,unif,1:30000,Marquardt et al. (1999); Marquardt et al. (2004); Lavenu (2005),1.550984718061165,-1,-1,-1,3
+200202,CDFS,Loreto,,,-27.0943,-70.82,observed,,58,,NW,,Normal,2.483,0,,,,,Probable,,Offsets Quaternary marine deposits,,,,,,,,,,,,unif,1:30000,Marquardt et al. (1999); Marquardt et al. (2004); Lavenu (2005),2.2927254214234036,-1,-1,-1,3
+200501,LVFS,Puerto Aldea,,,-30.5621,-71.6008,observed,,172,65,E,,Normal-Sinistral,64.549,0,10-20,,,,Probable,,Offsets Pleistocene marine terrace,,,,,,,,,7.0,500-1500 a,,ref,,Heinze (2003); Aviles et al. (2012); Saillard et al. (2009); Ota et al. (1995),63.08999662136482,-1,-1,-1,43
+200404,CDFS,Bahia Inglesa,,,-27.1159,-70.8385,inferred,,20,,W,,Normal,0.909,,,,,,Probable,,,,,,,,,,,,,,ref,,Marquardt et al. (1999); Marquardt et al. (2004); Lavenu (2005),0.8948510950189522,-1,-1,-1,3
+200402,CDFS,Bahia Inglesa,Norte,,-27.1203,-70.8405,observed,,25,80,W,,Normal,0.865,0,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Marquardt et al. (1999); Marquardt et al. (2004); Lavenu (2005),0.846334563021566,-1,-1,-1,3
+200101,CDFS,Caldera,,,-27.0896,-70.8349,observed,,63,high,W,,Normal,6.414,0,,,,,Probable,Offsets MIS 5e marine terrace,,,,,,,,,,,,,unif,1:30000,Marquardt et al. (1999); Marquardt et al. (2004); Lavenu (2005),5.880672190619274,-1,-1,-1,3
+405301,LOFS,,,,-39.7332,-71.7662,observed,,54,,NW,,Reverse,10.513,0,,,,,Probable,,,,,,,,,,,,,,ref,1:100000,Astudillo et al. (2018); Lara & Moreno (2004; Sernageomin),9.057151666151386,-1,-1,-1,22
+400306,LLFS,Lago Laja,Segmento Norte,Seismic reflection and bathymetry,-37.2037,-71.3147,observed,Horst & graben,159,,E,,Normal,2.0,0,,,,Holocene,Proved,offsets 7.1-ka lacustrine marker,,,,,,,,,,,,,unif,,Melnick et al. (2006),1.9484913559221981,-1,-1,-1,16
+400308,LLFS,Lago Laja,Segmento Norte,,-37.0444,-71.291,observed,,47,,NW,,Normal,4.239,0,,,,,Probable,,,,,,,,,,,,,,unif,,Melnick et al. (2006),3.800584645254521,-1,-1,-1,16
+400301,LLFS,Lago Laja,Segmento Norte*,,-37.0662,-71.3156,observed,Asymmetric horst & graben,13,,W,,Normal,15.656,0,,,,Holocene,Probable,offsets 7.1-ka lacustrine marker,,,,,0.50 +/- 0.02 mm/yr,,,,,,,,unif,,Melnick et al. (2006),15.374931777980715,-1,-1,-1,16
+409003,LOFS,Lago Cabrera,,,-41.837,-72.418,observed,Pull-apart basin,57,,SE,,Normal,11.522,0,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006); Aguilera et al. (2014),9.568709955129336,-1,-1,25,58
+410401,LOFS,,,,-39.5175,-71.9133,inferred,,66,,,,,8.476,,,,,,Probable,,,,,,,,,,,,,,unif,1:50000,Sanchez et al. (2013),6.898836603461,-1,-1,-1,22
+401501,LOTF,Bio-Bio - Alumine,,,-38.2161,-71.299,observed,,166,,,,Sinistral-Reverse,29.209,0,,,,,Probable,,Pronounced triangular facets along the scarp,,,,,,,,,,,,unif,1:250000,Munoz & Stern (1988); Melnick et al. (2006c); Perez-Flores  et al. (2016),28.403650877014922,-1,-1,79,59
+300803,CFTF,El Yolki,,,-35.4335,-72.4397,observed,En echelon sections,105,,SW,,Normal-Sinistral,1.632,0,,,,Holocene,Proved,,,,,,,,,,,,,,ref,1:5000,Melnick et al. (2019); Jara-Munoz et al. (2015),1.3534711432253976,-1,-1,-1,60
+300802,CFTF,El Yolki,,,-35.4656,-72.3923,inferred,En echelon sections,116,,SW,,Normal-Sinistral,8.41,,,,,Holocene,Proved,,,,,,,,,,,,,,ref,1:25000,Melnick et al. (2019); Jara-Munoz et al. (2015),7.178689783820297,-1,-1,159,60
+300801,CFTF,El Yolki*,,,-35.4216,-72.4732,observed,En echelon sections,102,,SW,,Normal-Sinistral,2.059,0,,,,Holocene,Probable,offsets 4-ka marker,En echelon left-stepping geometry,,~0.2 mm/yr,,5-6 mm/yr,,Trenching suggests slip during the past 4.5 ka,,,,,Submarine continuance is suggested.,ref,1:5000,Melnick et al. (2019); Jara-Munoz et al. (2015),1.7041150726706333,-1,-1,-1,60
+300804,CFTF,El Yolki,,,-35.4185,-72.4866,inferred,En echelon sections,93,,SW,,Normal-Sinistral,1.032,,,,,Holocene,Proved,,,,,,,,,,,,,,ref,1:5000,Melnick et al. (2019); Jara-Munoz et al. (2015),0.8442942815494598,-1,-1,-1,60
+300805,CFTF,El Yolki,,,-35.4284,-72.4558,observed,En echelon sections,109,,SW,,Normal-Sinistral,2.198,0,,,,Holocene,Proved,,,,,,,,,,,,,,ref,1:5000,Melnick et al. (2019); Jara-Munoz et al. (2015),1.8482194744705147,-1,-1,-1,60
+300806,CFTF,El Yolki,,,-35.4355,-72.4438,observed,En echelon sections,100,,SW,,Normal-Sinistral,1.025,0,,,,Holocene,Proved,,,,,,,,,,,,,,ref,1:5000,Melnick et al. (2019); Jara-Munoz et al. (2015),0.8433623980248351,-1,-1,-1,60
+300807,CFTF,El Yolki,,,-35.4394,-72.435,observed,En echelon sections,106,,SW,,Normal-Sinistral,0.971,0,,,,Holocene,Proved,,,,,,,,,,,,,,ref,1:5000,Melnick et al. (2019); Jara-Munoz et al. (2015),0.8066156402296067,-1,-1,-1,60
+300808,CFTF,El Yolki,,,-35.4453,-72.4245,observed,En echelon sections,106,,SW,,Normal-Sinistral,1.988,0,,,,Holocene,Proved,,,,,,,,,,,,,,ref,1:5000,Melnick et al. (2019); Jara-Munoz et al. (2015),1.656409929508252,-1,-1,-1,60
+300809,CFTF,El Yolki,,,-35.4502,-72.4048,observed,En echelon sections,101,,SW,,Normal-Sinistral,2.256,0,,,,Holocene,Proved,,,,,,,,,,,,,,ref,1:5000,Melnick et al. (2019); Jara-Munoz et al. (2015),1.8606617114266237,-1,-1,-1,60
+300810,CFTF,El Yolki,,,-35.4521,-72.3875,inferred,En echelon sections,87,,SW,,Normal-Sinistral,1.474,,,,,Holocene,Proved,,,,,,,,,,,,,,ref,1:5000,Melnick et al. (2019); Jara-Munoz et al. (2015),1.203737934906052,-1,-1,159,60
+502901,LOFS,Golfo de Penas,,,-46.7682,-73.9409,observed,,34,,,,Dextral,95.04,0,,,,,Probable,,,,,,,,,,,,,,unif,1:250000,Forsythe & Nelson (1985),86.5586512677513,-1,-1,37,48
+406901,LOFS,,,,-43.8199,-72.729,observed,,175,,,,,34.692,0,,,,,Probable,,Associated with knickpoint of the Palena River,,,,,,,,,,,,map,,,34.50329209598533,-1,-1,-1,61
+410601,LOFS,,,,-43.6884,-72.8175,observed,,180,,,,,21.355,0,,,,,Probable,,Offsets the rio Tictoc thalweg,,,,,,,,,,,,map,,,21.124008779029456,-1,-1,-1,61
+407801,LOFS,,,,-43.861,-72.7591,inferred,,171,,,,,8.977,,,,,,Probable,,,,,,,,,,,,,Associated to geothermal activity.,map,,,8.851473711896757,-1,-1,-1,61
+408801,LOFS,,,,-43.9059,-72.7383,inferred,,173,,,,,17.443,,,,,,Probable,,,,,,,,,,,,,Associated to geothermal activity.,map,,,17.290901771324528,-1,-1,-1,61
+410602,LOFS,,,,-43.9024,-72.8093,inferred,,161,,,,,20.753,,,,,,Probable,,,,,,,,,,,,,,map,,,20.189969391180234,-1,-1,-1,61
+502303,LOFS,,,,-44.9231,-72.9406,inferred,,36,,,,,22.565,,,,,,Probable,,,,,,,,,,,,,,map,,,20.52624718231447,-1,-1,-1,62
+502304,LOFS,,,,-44.7127,-72.7713,inferred,,39,,,,,29.826,,,,,,Probable,,,,,,,,,,,,,,map,,,26.759718353273286,-1,-1,46,62
+404001,LOFS,,,,-42.7683,-72.8237,inferred,,173,~40,E,,,23.443,,,,,,Probable,,,,,,,,,,,,,"Plane inferred as feeding conduit to the Chaiten 2008 volcanic eruption.
+",map,,Wicks et al. (2011),23.301437374045236,-1,-1,-1,63
+409903,LOFS,,,,-42.6206,-72.5067,inferred,,180,,,,,19.79,,,,,,Probable,,,,,,,,,,,,,,map,,,19.558449000584364,-1,-1,23,64
+403701,LOFS,,,,-42.6024,-72.5875,inferred,,168,,,,,20.589,,,,,,Probable,,,,,,,,,,,,,,map,,,20.28019450597307,-1,-1,-1,31
+410701,LAFS,,,Lidar,-38.0784,-73.0012,observed,,121,,SW,,Reverse,22.898,0,,,,,Probable,,,,,,,,,,,,,,map,,,19.483060940366876,-1,-1,-1,65
+412101,LAFS,,,Lidar,-38.6815,-72.6878,observed,Anticlinal,114,,,,,25.555,0,,,,,Possible,,,,,,,,,,,,,,map,,,21.0404747319398,-1,-1,70,66
+411101,SFFS,ZFMV,,Lidar,-38.7283,-73.3958,observed,,103,~90,,,Sinistral,1.681,0,,,,,Probable,Offsets MIS 5e marine terrace,,,,,,,,,,,,with striae,map,,,1.332957407077012,-1,-1,-1,67
+400206,LAFS,Morguilla,,TDX,-38.251,-73.3207,inferred,,163,,E,,,12.773,,,,,,Probable,,,,,,,,,,,,,,map,,,12.520716183474862,-1,-1,-1,65
+400207,LAFS,Morguilla,,TDX,-38.0042,-73.4032,inferred,,161,,,,,24.272,,,,,,Probable,,,,,,,,,,,,,,map,,,23.67801931223421,-1,-1,-1,65
+400112,LAFS,Lanalhue,,TDX,-37.9008,-73.3458,inferred,,117,,,,,28.086,,,,,,Probable,,,,,,,,,,,,,,map,,,23.54658055514316,-1,-1,-1,65
+400109,LAFS,Lanalhue,,TDX,-38.0851,-73.0658,inferred,,129,,,,,17.344,,,,,,Probable,,,,,,,,,,,,,,map,,,15.208938160220935,-1,-1,70,65
+400205,LAFS,Morguilla,,TDX,-37.7965,-73.5277,inferred,,139,,E,,,15.62,,,,,,Probable,,,,,,,,,,,,,,map,,,14.279100544896547,-1,-1,-1,65
+400111,LAFS,Lanalhue,,TDX,-38.7927,-72.5642,inferred,,139,,,,,7.891,,,,,,Probable,,,,,,,,,,,,,,map,,,7.18551379661524,-1,-1,70,66
+400203,LAFS,Morguilla,,Lidar,-37.6583,-73.6223,observed,,149,,E,,Reverse,20.148,0,,,,,Probable,,,,,,,,,,,,,,map,,,19.10376979391885,-1,-1,-1,65
+400204,LAFS,Morguilla,,Lidar,-37.9073,-73.4394,observed,,146,,E,,Reverse,8.452,0,,,,,Probable,,,,,,,,,,,,,,map,,,7.926667664648813,-1,-1,-1,65
+400104,LAFS,Lanalhue,,Lidar,-38.0254,-73.1549,observed,,104,,N,,Reverse,20.632,0,,,,,Probable,,,,,,,,,,,,,,map,,,16.69601227780305,-1,-1,70,65
+400201,LAFS,Morguilla*,,Lidar,-38.1906,-73.3391,observed,Blind thrust,160,,ENE,,Reverse,9.281,0,,,,,Probable,Offsets MIS 5e marine terrace,Extends along a marked fault-line scarp eroded by the sea and partly covered by active dunes. Small metric scarps evident in LiDAR data.,,,,,,,Associated with an alignment of crustal microseismicity,,,,,map,,Melnick et al. (2006); Stefer et al. (2010); Melnick et al. (2009),9.042831962191661,-1,-1,-1,65
+400202,LAFS,Morguilla,,Lidar,-38.3481,-73.2837,observed,,156,,E,,Reverse,13.259,0,,,,,Probable,,,,,,,,,,,,,,map,,,12.793357016275113,-1,-1,-1,65
+411102,SFFS,,,TDX,-38.7198,-73.4291,inferred,,104,,,,,6.518,,,,,,Probable,,,,,,,,,,,,,,map,,,5.190633980525219,-1,-1,-1,67
+400102,LAFS,Lanalhue,,Lidar,-38.5587,-72.6982,observed,,140,,NE,,Reverse,4.459,0,,,,,Probable,,,,,,,,,,,,,,map,,,4.081304452028374,-1,-1,70,68
+400107,LAFS,Lanalhue,,Lidar,-38.2572,-72.9522,observed,,153,,NE,,Reverse,3.779,0,,,,,Probable,,,,,,,,,,,,,,map,,,3.620582630246925,-1,-1,70,65
+400101,LAFS,Lanalhue*,,Lidar,-38.1831,-72.9939,observed,,151,~90,NE,,Reverse,12.647,0,,,,,Probable,Offsets Quaternary Malleco Fm.,,~275 Ma,,,,,,Associated with clusters of crustal microseismicity,,,,"Structure inherited from Paleozoic tectonics that connects the Eastern and Western metamorphic Series (Glodny et al., 2008).",map,,Melnick et al. (2006); Haberland et al. (2006); Glodny et al.(2008); Melnick et al. (2009),12.052721967271745,-1,-1,70,65
+400106,LAFS,Lanalhue,,Lidar,-38.5018,-72.7477,observed,,145,,NE,,Reverse,10.675,0,,,,,Probable,,,,,,,,,,,,,,map,,,9.935691760902337,-1,-1,70,68
+401401,LOFS,,,,-38.1419,-71.6919,inferred,,30,,,,,17.797,,,,,,Probable,,,,,,,,,Alignment of microseismcity,,,,,ref,1:500000,Sielfeld et al. (2019),16.871274396157897,-1,-1,-1,36
+401502,LOTF,Bio-Bio - Alumine,,,-38.5676,-71.1651,inferred,,140,,SW,,Sinistral,22.176,,,,,,Probable,,,,,,,,,,,,,,ref,1:50000,Sielfeld et al. (2017); Rosenau (2004),20.25967822672591,-1,-1,78,69
+404402,LOFS,Neltume,,,-39.6831,-71.9138,inferred,,18,,,,,6.317,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,"Astudillo et al. (2019, en proceso de publicacion)",6.166371582377493,-1,-1,65,22
+411901,LOFS,,,,-39.7307,-71.8576,inferred,,10,,,,,20.209,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,"Astudillo et al. (2019, en proceso de publicacion)",19.86999193056166,-1,-1,54,22
+406701,LOFS,,,,-39.8434,-71.7988,inferred,,16,,,,,12.103,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,"Astudillo et al. (2019, en proceso de publicacion)",11.790855409590012,-1,-1,54,22
+402802,LOFS,,,,-39.8015,-71.8119,inferred,,21,,,,,4.649,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,"Astudillo et al. (2019, en proceso de publicacion)",4.483654832226931,-1,-1,54,22
+406802,LOFS,,,,-39.6374,-71.8022,inferred,,170,,,,,1.014,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,"Astudillo et al. (2019, en proceso de publicacion)",1.0040030340557455,-1,-1,54,22
+406803,LOFS,,,,-39.6249,-71.8009,inferred,,177,,,,,0.675,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,"Astudillo et al. (2019, en proceso de publicacion)",0.6715824125395908,-1,-1,65,22
+407401,LOFS,,,,-39.6478,-71.806,inferred,,1,,,,,4.567,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,"Astudillo et al. (2019, en proceso de publicacion)",4.495266545433005,-1,-1,65,22
+410801,LOFS,,,,-39.6556,-71.81,inferred,,2,,,,,3.186,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,"Astudillo et al. (2019, en proceso de publicacion)",3.167652285357503,-1,-1,54,22
+410901,LOFS,,,,-39.7167,-71.7708,inferred,,22,,,,,4.454,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,Astudillo et al. (2019; en proceso de publicacion),4.297600740605755,-1,-1,54,22
+411001,LOFS,,,,-39.7138,-71.7586,inferred,,17,,,,,3.394,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,Astudillo et al. (2019; en proceso de publicacion),3.3194869750650566,-1,-1,-1,22
+403002,LOFS,,,,-39.7445,-71.7635,inferred,,23,,,,,3.244,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,Astudillo et al. (2019; en proceso de publicacion),3.125247754621277,-1,-1,-1,22
+403003,LOFS,,,,-39.7848,-71.7816,inferred,,24,,,,,1.519,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,Astudillo et al. (2019; en proceso de publicacion),1.461638508031555,-1,-1,-1,22
+411501,LOFS,,,,-39.8528,-71.8206,inferred,,36,,,,,2.088,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,Astudillo et al. (2019; en proceso de publicacion),1.9283521915631705,-1,-1,54,22
+411301,LOFS,,,,-39.7573,-71.7534,inferred,,2,,,,,6.557,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,Astudillo et al. (2019; en proceso de publicacion),6.4925317045098225,-1,-1,-1,22
+411601,LOFS,,,,-39.8054,-71.7559,inferred,,9,,,,,3.99,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,Astudillo et al. (2019; en proceso de publicacion),3.925768919800574,-1,-1,-1,22
+402806,LOFS,,,,-39.7537,-71.7915,inferred,,18,,,,,1.089,,,,,,Probable,,,,,,,,,,,,,,ref,1:25000,Astudillo et al. (2019; en proceso de publicacion),1.057855432726863,-1,-1,54,22
+494401,LOTF,,,,-44.1512,-72.8106,inferred,,102,,,,,44.375,,,,,,Possible,,,,,,,,,,,,,,map,,,32.61024786012995,-1,-1,-1,70
+497201,SFFS,,,Lidar,-38.7621,-73.3602,observed,,48,,SE,,Reverse,9.615,0,,,,,Possible,,,,,,,,,,,,,,map,,,8.49263690405376,-1,-1,-1,67
+494702,SFFS,,,Lidar,-39.3344,-72.6716,inferred,,72,,,,,17.503,,,,,,Possible,,,,,,,,,,,,,,map,,,13.998225158683134,-1,-1,-1,71
+494701,SFFS,,,Lidar,-39.4469,-73.0403,inferred,,76,,,,,6.355,,,,,,Possible,,,,,,,,,,,,,,map,,,5.006688276698837,-1,-1,-1,72
+497102,LAFS,,,Lidar,-38.6136,-73.0757,inferred,,110,,N,,Reverse,21.124,,,,,,Possible,,,,,,,,,,,,,,map,,,17.1162126088866,-1,-1,-1,73
+494703,SFFS,,,Lidar,-39.3868,-72.8256,inferred,,72,,,,,11.136,,,,,,Possible,,,,,,,,,,,,,,map,,,8.878625867251452,-1,-1,-1,74
+495203,SFFS,Curinanco,,Lidar,-39.7504,-73.2805,observed,,97,,,,,4.585,0,,,,,Possible,,,,,,,,,,,,,,map,,,3.551873329005706,-1,-1,-1,75
+495204,SFFS,Curinanco,,Lidar,-39.7536,-73.2621,observed,,101,,,,,1.952,0,,,,,Possible,,Associated with folds and en echelon faults; Quanternary sediments displaced on seismic line along Rio Cruces,,,,,,,,,,,,map,,,1.5217905391554358,-1,-1,-1,75
+495201,SFFS,Curinanco,,Lidar,-39.7226,-73.3845,observed,,106,,,,,5.0,0,,,,,Possible,,,,,,,,,,,,,,map,,,3.94351865333612,-1,-1,-1,75
+495202,SFFS,Curinanco,,Lidar,-39.7376,-73.3301,observed,,108,,,,,6.069,0,,,,,Possible,,,,,,,,,,,,,,map,,,4.826233462458281,-1,-1,-1,75
+494901,SFFS,,,Lidar,-39.6139,-73.2351,inferred,,92,,,,,14.685,,,,,,Possible,,,,,,,,,,,,,,map,,,11.339607788261013,-1,-1,-1,76
+495901,SFFS,,,Lidar,-39.9758,-73.5794,observed,,57,,,,,20.204,0,,,,,Possible,,,,,,,,,,,,,,map,,,17.075089933059125,-1,-1,-1,77
+495301,SFFS,,,Lidar,-39.8064,-73.1998,inferred,,23,,,,,6.12,,,,,,Possible,,,,,,,,,,,,,,map,,,5.907896682297251,-1,-1,-1,78
+494802,SFFS,Estero Ralicura,,Lidar,-39.5637,-73.2429,inferred,,91,,,,,6.538,,,,,,Possible,,,,,,,,,,,,,,map,,,5.0479954857956875,-1,-1,-1,79
+390403,CFTF,Valparaiso,,,-33.2438,-71.4115,covered,,134,,,,,4.17,,,,,,Possible,,,,,,,,,,,,,,unif,,,3.8299870825148656,-1,-1,-1,10
+390404,CFTF,Valparaiso,,,-33.2029,-71.4546,observed,,135,,,,Dextral,4.987,,,,,,Possible,,,,,,,,,,,,,,unif,,,4.586349976335425,-1,-1,-1,10
+194001,CdSF,Tucucaro,,,-23.916,-68.3905,observed,,18,50,W,,Reverse,67.573,0,,,,,Possible,,,,,,,,,,,,,,unif,,Niemeyer (1984),66.17211476808536,-1,-1,-1,80
+390405,CFTF,Valparaiso,,,-33.2533,-71.3983,observed,,127,,,,Dextral,2.873,0,,,,,Possible,,,,,,,,,,,,,,unif,,,2.5847391814884406,-1,-1,-1,10
+390406,CFTF,Valparaiso,,,-33.1234,-71.5175,covered,,147,,,,,2.374,,,,,,Possible,,,,,,,,,,,,,,ref,,,2.260548927613365,-1,-1,-1,10
+390407,CFTF,Valparaiso,,,-33.1069,-71.533,observed,,133,,,,Dextral,4.23,0,,,,,Possible,,,,,,,,,,,,,,ref,,,3.875059338761098,-1,-1,-1,10
+390409,CFTF,Valparaiso,,,-33.1745,-71.4781,covered,,144,,,,,3.637,,,,,,Possible,,,,,,,,,,,,,,ref,,,3.4340790065385485,-1,-1,-1,10
+390409,CFTF,Valparaiso,,,-33.1483,-71.4995,observed,,138,,,,,3.554,,,,,,Possible,,,,,,,,,,,,,,ref,,,3.295432065147532,-1,-1,-1,10
+390201,CFTF,Quintay,,,-33.2366,-71.5805,inferred,,120,,,,,9.1,,,,,,Possible,,,,,,,,,,,,,,unif,,Wall et al. (1996; Sernageomin),8.011753050349794,-1,-1,-1,10
+390208,CFTF,Quintay,,,-33.2565,-71.5391,covered,,123,,,,,1.331,,,,,,Possible,,,,,,,,,,,,,,ref,,Wall et al. (1996; Sernageomin),1.1818170939456452,-1,-1,-1,10
+390410,CFTF,Valparaiso,,,-33.0854,-71.5652,inferred,,123,,,,,4.904,,,,,,Possible,,,,,,,,,,,,,,ref,,,4.36088332472482,-1,-1,-1,10
+390411,CFTF,Valparaiso,,,-33.2694,-71.3789,covered,,125,,,,,3.371,,,,,,Possible,,,,,,,,,,,,,,unif,,,3.010117995360053,-1,-1,-1,10
+390207,CFTF,Quintay,,,-33.383,-71.2847,covered,,110,,,,,10.288,,,,,,Possible,,,,,,,,,,,,,,ref,,Wall et al. (1996; Sernageomin),8.811707974790682,-1,-1,-1,10
+390209,CFTF,Quintay,,,-33.3298,-71.4246,covered,,118,,,,,17.343,,,,,,Possible,,,,,,,,,,,,,,ref,,Wall et al. (1996; Sernageomin),15.164240096724624,-1,-1,-1,10
+390204,CFTF,Quintay,,,-33.3633,-71.3403,inferred,,105,,,,,2.378,,,,,,Possible,,,,,,,,,,,,,,ref,,Wall et al. (1996; Sernageomin),2.0165381503736426,-1,-1,-1,10
+391501,WATF,,,TDX,-36.6083,-71.7565,inferred,,25,,E,,Reverse,4.902,,,,,,Possible,,,,,,,,,,,,,,map,,,4.730743588025054,-1,-1,-1,81
+391201,WATF,,,TDX,-37.5408,-72.128,inferred,,4,,E,,Reverse,4.723,,,,,,Possible,,,,,,,,,,,,,,map,,,4.687249399865559,-1,-1,-1,82
+494803,SFFS,Estero Ralicura,,Lidar,-39.561,-73.1694,inferred,,91,,,,,2.945,,,,,,Possible,,,,,,,,,,,,,,map,,,2.29335072171235,-1,-1,-1,79
+391401,WATF,Renico,,TDX,-37.2062,-71.8838,inferred,,0,,E,,Reverse,12.564,,,,,,Possible,,,,,,,,,,,,,,map,,,12.082837722018073,-1,-1,-1,83
+390602,WATF,Mesamavida,,TDX,-36.0799,-71.5449,inferred,,172,,E,,Reverse,12.289,,,,,Holocene,Possible,,,,,,,,,,,,,,map,,,12.192201319026298,-1,-1,-1,84
+392201,WATF,Los Maitenes,,TDX,-35.5969,-71.3651,inferred,,39,,E,,Reverse,6.067,,,,,,Possible,,,,,,,,,,,,,,map,,,5.627454506417869,-1,-1,-1,85
+391901,WATF,Canteras,,TDX,-37.3664,-71.9978,inferred,,30,,E,,Reverse,8.29,,,,,,Possible,,,,,,,,,,,,,,map,,,7.859252008713892,-1,-1,-1,83
+391701,WATF,Huepil,,TDX,-37.2776,-71.9197,inferred,,19,,E,,Reverse,9.762,,,,,,Possible,,,,,,,,,,,,,,map,,,9.54614071084371,-1,-1,-1,83
+391301,WATF,,,TDX,-34.3812,-70.7626,inferred,,20,,E,,Reverse,10.003,,,,,,Possible,,,,,,,,,,,,,,map,,,9.770468869496046,-1,-1,-1,86
+391101,WATF,Machali,,TDX,-34.1515,-70.645,inferred,,14,,E,,Reverse,27.09,,,,,,Possible,,,,,,,,,,,,,,map,,,26.218741571040717,-1,-1,-1,87
+391801,WATF,,,TDX,-35.2458,-71.2028,inferred,,27,,E,,Reverse,6.177,,,,,,Possible,,,,,,,,,,,,,,map,,,5.940056156821181,-1,-1,-1,88
+391601,WATF,,,TDX,-34.514,-70.8734,inferred,,27,,E,,Reverse,26.36,,,,,,Possible,,,,,,,,,,,,,,map,,,25.392874700631317,-1,-1,-1,86
+392001,WATF,Cachapoal,,TDX,-36.39,-71.7409,inferred,,18,,E,,Reverse,43.978,,,,,,Possible,,,,,,,,,,,,,,map,,,42.48395703740424,-1,-1,-1,81
+390603,WATF,Mesamavida,,TDX,-35.9263,-71.4904,inferred,,28,,E,,Reverse,5.76,,,,,,Possible,,,,,,,,,,,,,,map,,,5.51033657591741,-1,-1,-1,84
+392101,WATF,,,TDX,-33.7418,-70.5364,inferred,,15,,E,,Reverse,27.326,,,,,,Possible,,,,,,,,,,,,,,map,,,26.663863959812492,-1,-1,-1,89
+390507,WATF,Carino Botado,,TDX,-32.9645,-70.5288,inferred,,171,,E,,Reverse,30.247,,,,,,Possible,,,,,,,,,,,,,,map,,,29.991289782995388,-1,-1,-1,90
+495601,not assigned,Llecue,,Lidar,-39.7781,-72.544,inferred,,29,,,,Reverse,17.833,,,,,,Possible,,,,,,,,,,,,,Took relevance after the environmental-impact study made for the San Pedro (Colbun) hydroelectrical proyect for being a known structure with scarce background.,ref,1:25000,Duhart et al. (2003; Sernageomin),16.927877595402908,-1,-1,-1,91
+495101,SFFS,,,Lidar,-39.6582,-73.2488,inferred,,41,,,,,8.479,,,,,,Possible,,,,,,,,,,,,,,map,,,7.694599646912315,-1,-1,-1,76
+495501,SFFS,,,Lidar,-39.799,-73.3659,inferred,,114,,,,,8.086,,,,,,Possible,,,,,,,,,,,,,,map,,,6.561073761282707,-1,-1,-1,92
+495401,SFFS,,,Lidar,-39.821,-73.3004,inferred,,116,,,,,5.356,,,,,,Possible,,,,,,,,,,,,,,map,,,4.385377835451218,-1,-1,-1,92
+494704,SFFS,,,Lidar,-39.4268,-72.9508,inferred,,72,,,,,3.831,,,,,,Possible,,,,,,,,,,,,,,map,,,3.060167055535225,-1,-1,-1,72
+494601,SFFS,,,Lidar,-39.4474,-73.1747,inferred,,97,,,,,18.354,,,,,,Possible,,,,,,,,,,,,,,map,,,14.283470109754951,-1,-1,-1,72
+495001,SFFS,,,Lidar,-39.6302,-73.2428,inferred,,86,,,,,12.494,,,,,,Possible,,,,,,,,,,,,,,map,,,9.661995370085235,-1,-1,-1,76
+494705,SFFS,,,Lidar,-39.4356,-72.9852,inferred,,67,,,,,4.613,,,,,,Possible,,,,,,,,,,,,,,map,,,3.7461249252582394,-1,-1,-1,72
+495802,SFFS,,,Lidar,-40.1632,-73.1798,inferred,,99,,,,,2.371,,,,,,Possible,,,,,,,,,,,,,,map,,,1.8304205338438406,-1,-1,-1,93
+495801,SFFS,,,Lidar,-40.1625,-73.1103,inferred,,97,,,,,12.865,,,,,,Possible,,,,,,,,,,,,,,map,,,9.937932909577324,-1,-1,-1,93
+494501,SFFS,,,Lidar,-39.0962,-73.0344,inferred,,63,,,,,14.146,,,,,,Possible,,,,,,,,,,,,,,map,,,11.684520075648459,-1,-1,-1,94
+495803,SFFS,,,Lidar,-40.1614,-73.2207,inferred,,97,,,,,4.735,,,,,,Possible,,,,,,,,,,,,,,map,,,3.6445367740995738,-1,-1,-1,93
+496001,SFFS,,,Lidar,-40.1524,-73.276,inferred,,90,,,,,5.653,,,,,,Possible,,,,,,,,,,,,,,map,,,4.343628069603772,-1,-1,-1,93
+494801,SFFS,Estero Ralicura*,,Lidar,-39.5649,-73.208,observed,,88,80,S,,Sinistral,4.777,0,,,,,Possible,,,,,,,,,,,,,,map,,Mella et al. (2012; SERNAGEOMIN),3.7023069616999207,-1,-1,-1,79
+495702,SFFS,,,Lidar,-40.1729,-73.3885,inferred,,100,,,,,13.683,,,,,,Possible,,,,,,,,,,,,,,map,,,10.60878550395304,-1,-1,-1,93
+495701,SFFS,,,Lidar,-40.1793,-73.2868,inferred,,79,,,,,7.394,,,,,,Possible,,,,,,,,,,,,,,map,,,5.745660537534954,-1,-1,-1,93
+496801,SFFS,,,TDX,-40.656,-73.6832,inferred,,37,,,,,23.449,,,,,,Possible,,,,,,,,,,,,,,map,,,21.476295503058154,-1,-1,-1,95
+496401,SFFS,,,TDX,-40.6384,-73.7594,inferred,,30,,,,,27.141,,,,,,Possible,,,,,,,,,,,,,,map,,,25.461751591941574,-1,-1,-1,95
+497001,LAFS,Tirua,,Lidar,-38.3972,-73.2997,inferred,,104,,NNE,,Reverse,51.578,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,,,,,,map,,,41.273361760778876,-1,-1,-1,65
+390508,WATF,Carino Botado,,TDX,-32.6693,-70.561,inferred,,176,,E,,Reverse,15.403,,,,,,Possible,,,,,,,,,,,,,,map,,,15.331642400620341,-1,-1,-1,90
+490103,LOTF,BAF,,,-38.0843,-71.4224,inferred,,146,,,,Sinistral,5.037,,,,,,Possible,,,,,,,,,,,,,,unif,1:500000,Sielfeld et al. (2017),4.720124430462271,-1,-1,81,96
+496201,LOTF,,,,-38.8378,-71.5732,inferred,,95,,,,,18.416,,,,,,Possible,,Evident triangular facets along scarp,,,,,,,,,,,,map,,,14.457318366738805,-1,-1,-1,97
+496302,SFFS,,,TDX,-40.1542,-73.4583,inferred,,103,,,,,4.062,,,,,,Possible,,,,,,,,,,,,,,map,,,3.1651402501981396,-1,-1,-1,93
+496301,SFFS,,,TDX,-40.1405,-73.4988,inferred,,98,,,,,8.791,,,,,,Possible,,,,,,,,,,,,,,map,,,6.790100316627616,-1,-1,-1,93
+496303,SFFS,,,TDX,-40.1966,-73.2636,inferred,,98,,,,,25.274,,,,,,Possible,,,,,,,,,,,,,,map,,,19.497556579721945,-1,-1,-1,93
+496701,SFFS,,,TDX,-40.6822,-73.7274,inferred,,46,,,,,9.417,,,,,,Possible,,,,,,,,,,,,,,map,,,8.294936857232573,-1,-1,-1,95
+496601,SFFS,,,TDX,-40.6961,-73.7597,inferred,,37,,,,,11.126,,,,,,Possible,,,,,,,,,,,,,,map,,,10.222925732452492,-1,-1,-1,95
+496501,SFFS,,,TDX,-40.6091,-73.6832,inferred,,39,,,,,11.616,,,,,,Possible,,,,,,,,,,,,,,map,,,10.534058136829684,-1,-1,-1,95
+496502,SFFS,,,TDX,-40.6652,-73.749,inferred,,48,,,,,6.472,,,,,,Possible,,,,,,,,,,,,,,map,,,5.650907297284595,-1,-1,-1,95
+591801,LOTF,,,,-45.3681,-72.9483,inferred,,94,,,,,13.045,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),9.225104303508207,-1,-1,45,98
+591501,LOFS,,,,-45.3883,-72.9603,observed,,48,,,,,4.053,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Villalobos-Claramunt et al. (2015); Vargas et al. (2013),3.436779586472116,-1,-1,45,99
+591902,LOTF,,,,-45.3299,-72.9336,inferred,,91,,,,,2.981,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),2.0997039301726357,-1,-1,40,98
+591301,LOFS,,,,-45.3969,-72.9153,observed,,44,,,,,2.828,0,,,,,Possible,,,,,,,,,,,,,,ref,1:40000,Villalobos-Claramunt et al. (2015); Vargas et al. (2013),2.4606411432696813,-1,-1,40,99
+591701,LOTF,,,,-45.3954,-72.9321,observed,,101,,,,,5.191,0,,,,,Possible,,,,,,,,,,,,,,ref,1:40000,Villalobos-Claramunt et al. (2015); Vargas et al. (2013),3.72934638770334,-1,-1,40,98
+591401,LOFS,,,,-45.3883,-72.9291,observed,,1,,,,,3.313,0,,,,,Possible,,,,,,,,,,,,,,ref,1:40000,Villalobos-Claramunt et al. (2015); Vargas et al. (2013),3.305328895786797,-1,-1,40,99
+590902,LOFS,Acantilada,,,-45.4219,-72.8551,inferred,,47,,,,,15.066,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),12.888283712183421,-1,-1,40,100
+590901,LOFS,,,,-45.368,-72.796,observed,,32,,,,,2.759,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),2.550520543193348,-1,-1,43,100
+591002,LOFS,,,,-45.5304,-73.0553,inferred,,42,,,,,3.362,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),2.954867037807372,-1,-1,41,100
+590802,LOFS,Acantilada,,,-45.5331,-73.0066,inferred,,42,,,,,3.691,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),3.235098547369231,-1,-1,-1,100
+493602,LOFS,,,,-45.6987,-73.0149,inferred,,26,,,,,8.645,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),8.077132474405339,-1,-1,39,101
+592401,LOFS,,,,-45.1428,-72.7843,inferred,,11,,,,,7.312,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),7.225669475863309,-1,-1,43,13
+590801,LOFS,Acantilada,,,-45.4939,-72.9551,observed,,59,,,,,12.031,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),9.553406823410883,-1,-1,40,100
+493601,LOFS,,,,-45.6057,-72.985,observed,,33,,,,,6.544,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),6.010534037165997,-1,-1,40,101
+192201,EWFS,,,,-20.9966,-69.8922,observed,,95,,S,,Reverse,12.977,,,,,,Possible,,,,,,,,,,,,,,unif,,Gonzalez et al. (2003),12.159476998318857,-1,-1,-1,102
+192701,EWFS,,,,-21.2873,-69.9733,observed,,77,,,,,9.062,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),8.485271282600065,-1,-1,-1,103
+192301,ATFS,Nueva Victoria,,,-20.9477,-69.6699,observed,,154,,,,,25.602,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Allmendinger et al. (2009),25.12431514650285,-1,-1,-1,104
+194101,ATFS,,,,-21.0628,-69.8104,observed,,155,,,,Dextral,14.122,0,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Allmendinger et al. (2009); Reijs & McClay (1998),13.897353415506952,-1,-1,5,105
+390301,CFTF,El Quisco,,,-33.4979,-71.5071,inferred,,119,,,,,48.599,,,,,,Possible,,,,,,,,,,,,,,unif,,,42.64385435919008,-1,-1,-1,106
+193601,ATFS,Vinchuca,,,-23.0533,-70.2654,observed,,2,,,,,25.804,,,,,,Possible,,,,,,,,,,,,,,unif,,,25.625446030563246,-1,-1,12,107
+592202,LOTF,,,,-45.2411,-72.8108,inferred,,108,,,,,5.345,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),3.9492521801611282,-1,-1,43,108
+592001,LOTF,,,,-45.2525,-72.8556,observed,,107,,,,,4.261,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),3.1350561432491717,-1,-1,40,108
+592203,LOTF,,,,-45.2165,-72.9477,observed,,93,,,,,6.674,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),4.7185349973575565,-1,-1,40,108
+592201,LOTF,,,,-45.2274,-72.8663,observed,,100,,,,,10.532,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),7.558812997935813,-1,-1,40,108
+592101,LOTF,,,,-45.2414,-72.9113,observed,,97,,,,,17.917,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),12.80170125802078,-1,-1,40,108
+592002,LOTF,,,,-45.2714,-72.81,inferred,,111,,,,,8.145,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),6.113608862485409,-1,-1,43,108
+592502,LOTF,,,Seismicity,-42.8097,-72.5415,inferred,,67,,,,,28.873,,,,,,Possible,,,,,,,,,,,,,One of two possible planes.,unif,1:250000,Lange et al. (2008),22.633230244492765,-1,-1,-1,109
+491101,LOTF,,,,-39.8878,-71.7855,observed,,141,,,,,3.041,,,,,,Possible,,,,,,,,,,,,,,ref,,Lara & Moreno (2004; Sernageomin),2.7811786131329175,-1,-1,-1,110
+491201,LOFS,,,,-39.8997,-71.7939,inferred,,30,,,,,1.819,,,,,,Possible,,,,,,,,,,,,,,ref,,Lara & Moreno (2004; Sernageomin),1.7123535021005536,-1,-1,54,22
+492001,LOFS,,,,-40.0755,-72.1846,inferred,,33,,,,,13.474,,,,,,Possible,,,,,,,,,,,,,,ref,1:500000,Sanchez et al. (2013),12.570948678875187,-1,-1,-1,111
+493801,LOFS,Lolco,en vn. Lonquimay,,-38.3749,-71.5717,inferred,,35,70,E,,,3.1,,,,,,Possible,,,,,,,,,Associated with Mw 5.3 earthquake in 1989 with dextral focla mecanism,5.2,,,,unif,,Barrientos & Acevedo-Aranguiz (1992),2.89029295755474,-1,-1,80,37
+490101,LOTF,BAF,,,-37.8789,-71.6508,inferred,,137,,,,Sinistral,19.028,,,,,,Possible,,,,,,,,,,,,,,unif,1:500000,Sielfeld et al. (2019),17.27833481163348,-1,-1,-1,112
+490102,LOTF,BAF,,,-38.0088,-71.4966,inferred,,125,,,,Sinistral,16.784,,,,,,Possible,,,,,,,,,,,,,,unif,1:500000,Sielfeld et al. (2019),14.510331818846346,-1,-1,-1,96
+193501,ATFS,Cerro Fortuna,,,-23.4313,-70.3167,observed,,179,,,,,40.177,,,,,,Possible,,,,,,,,,,,,,,unif,,Armijo & Thiele (1990); Ewiak et al. (2015),39.840293092031935,-1,-1,-1,113
+193301,ATFS,Ordonez,,,-22.9765,-70.0799,observed,,23,,E,,Normal,52.221,0,,,,,Possible,,,,,,,,,,,,,,ref,,Cortes et al. (2007; Sernageomin); Allmendinger & Gonzalez (2009),51.24037435372119,-1,-1,-1,114
+193401,ATFS,Cerro Gordo*,,,-23.265,-70.3743,observed,,15,,E,,Normal-Sinistral,6.789,,,,,,Possible,,,,,,,,,,,,,,ref,,Cortes et al. (2007; Sernageomin); Lavenu (2005),6.709907282072294,-1,-1,10,115
+193402,ATFS,Cerro Gordo,,,-23.2323,-70.3639,observed,,27,,,,,1.84,,,,,,Possible,,,,,,,,,,,,,,ref,,Cortes et al. (2007; Sernageomin); Lavenu (2005),1.8021357919424388,-1,-1,10,115
+192601,ATFS,Chomache,,,-21.2602,-69.9329,observed,,135,,,,,9.434,,,,,,Possible,,,,,,,,,,,,,,unif,,,9.097348223664609,-1,-1,-1,116
+193201,ATFS,,,,-22.8784,-70.0701,observed,,179,,E,,Normal,20.273,0,,,,,Possible,,,,,,,,,,,,,,unif,1:500000,Allmendinger & Gonzalez (2009),20.094913889101623,-1,-1,-1,114
+192502,ATFS,Salar del Carmen,,,-21.3393,-69.894,observed,,173,,,,,12.933,,,,,,Possible,,,,,,,,,,,,,,unif,,Allmendinger et al. (2009),12.85097236393211,-1,-1,-1,116
+591201,LOTF,,,,-45.4088,-72.638,inferred,,98,,,,Sinistral,7.22,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),5.132451752210628,-1,-1,-1,117
+591101,LOFS,,,,-45.4398,-72.6519,inferred,,165,,,,,5.328,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),5.215316805152441,-1,-1,42,118
+592301,LOFS,,,,-45.0713,-72.7622,observed,,43,,,,,15.456,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),13.50005345936082,-1,-1,43,13
+592302,LOFS,,,,-45.1404,-72.8448,inferred,,52,,,,,9.659,,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),8.004427695906175,-1,-1,40,13
+590101,CCFS,Cachet,,,-47.3396,-73.1154,observed,,139,,,,,21.163,0,,,,,Possible,,,,,,,,,,,,,,unif,,Georgieva et al. (2016),18.585777883713956,-1,-1,-1,14
+590201,EXFS,Exploradores,,,-46.4233,-73.239,observed,,138,60-80,SW,,Reverse,24.489,0,,,,,Possible,,,,,,,,,,,,,,unif,,Georgieva et al. (2016),21.387992336741707,-1,-1,-1,119
+493404,LOTF,,,,-45.3173,-72.6712,observed,,118,,,,,3.689,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),2.883016198688781,-1,-1,42,120
+492302,LOTF,,,,-45.2972,-72.6756,observed,,120,,,,,4.398,0,,,,,Possible,,,,,,,,,,,,,,ref,1:150000,Vargas et al. (2013),3.4774250188473697,-1,-1,42,120
+590301,EXFS,Exploradores,,,-46.5681,-73.1917,observed,,146,,,,,13.016,0,,,,,Possible,,,,,,,,,,,,,,unif,,,11.858295611880292,-1,-1,-1,121
+490201,LLFS,Sierra Velluda,,,-37.4945,-71.4085,observed,Simple fault,159,,,,,8.471,0,,,,,Possible,,"Exposed in the core of the Sierra Velluda Volcano, juxtaposing lava and pyroclasitc deposits.",,,,1.3 +/- 0.3 mm/yr,,,,,,,,unif,,Melnick et al. (2006),8.224316164342865,-1,-1,-1,122
+590601,EXFS,Exploradores,,,-46.3804,-73.2185,inferred,,131,,,,,18.793,,,,,,Possible,,,,,,,,,,,,,,unif,,Georgieva et al. (2016),15.765216172030232,-1,-1,-1,119
+590401,EXFS,Exploradores,,,-46.4341,-73.0961,inferred,,127,,SW,,Reverse,47.139,,,,,,Possible,,,,,,,,,,,,,,unif,,Georgieva et al. (2016),38.49449821936458,-1,-1,-1,119
+490901,LOTF,,,,-39.7848,-71.7816,inferred,,121,,,,,15.092,,,,,,Possible,,,,,,,,,,,,,,unif,1:250000,Sanchez et al. (2013),12.623352694351164,-1,-1,-1,123
+490301,LOFS,,,,-37.9738,-71.318,inferred,,157,,,,,13.569,,,,,,Possible,,,,,,,,,,,,,,unif,,Melnick et al. (2006),12.88761177797689,-1,-1,75,56
+490403,LOTF,,,,-38.209,-71.2649,inferred,,125,,,,,12.086,,,,,,Possible,,,,,,,,,,,,,,ref,,Perez-Flores et al. (2016),10.418553427283385,-1,-1,79,59
+190201,EWFS,,,,-19.3254,-69.9751,observed,Fold,72,,,,,8.112,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015); Allmendinger et al. (2010),7.705455324508683,-1,-1,-1,1
+190301,EWFS,,,,-19.3374,-69.9637,observed,Fold,64,,,,,5.8,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015); Allmendinger et al. (2010),5.532935201556076,-1,-1,-1,1
+194501,EWFS,Punta Negra,,,-20.1602,-70.1024,observed,,66,,S,,Reverse,9.862,0,,,,,Possible,,,,,,,,,,,,,,unif,,Garcia-Perez et al. (2018); Sepulveda & Quezada (2015); Marquardt et al. (2007; Sernageomin),9.359724070403711,-1,-1,-1,0
+190101,EWFS,,,,-19.4,-70.1668,observed,,73,,,,,3.57,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),3.3902599558217026,-1,-1,-1,1
+190102,EWFS,,,,-19.3866,-70.1111,observed,,65,,,,,8.101,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),7.730642057944501,-1,-1,-1,1
+190401,EWFS,,,,-19.6413,-70.0278,observed,,86,,,,,14.204,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),13.404611687448964,-1,-1,-1,124
+190501,EWFS,,,,-19.6551,-70.0511,observed,,81,,,,,12.717,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),12.029615712063958,-1,-1,-1,124
+192001,EWFS,Barranco Alto,,,-20.6239,-70.1486,observed,,61,,Norte,,Reverse,10.122,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Allmendinger et al. (2005); Gonzalez et al. (2015),9.63691848422356,-1,-1,-1,125
+192002,EWFS,Laguna El Barco,,,-20.6969,-70.1213,observed,,60,,Norte,,Reverse,9.223,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Allmendinger et al. (2005); Gonzalez et al. (2015),8.794312954462354,-1,-1,-1,125
+194301,EWFS,,,,-20.1282,-69.9724,observed,,85,,,,,9.757,,,,,,Possible,,,,,,,,,,,,,,ref,,,9.16877062759144,-1,-1,-1,0
+190601,EWFS,,,,-19.7175,-69.9797,observed,,117,,,,,16.401,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),15.659074667501848,-1,-1,-1,124
+191801,EWFS,,,,-20.577,-69.9571,observed,,98,,,,,12.042,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),11.336300891898944,-1,-1,-1,126
+191901,EWFS,,,,-20.5745,-69.8684,observed,,107,,,,,11.359,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),10.72268270929183,-1,-1,-1,126
+192004,EWFS,,,,-20.6549,-70.0371,observed,,109,,,,,14.398,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),13.623790989318096,-1,-1,-1,125
+192003,EWFS,,,,-20.6551,-69.9415,observed,,134,,,,,14.335,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),13.82111414795365,-1,-1,-1,125
+190902,EWFS,Estacion Las Carpas,,,-20.2789,-70.1011,inferred,,109,,S,,Reverse,3.337,,,,,,Possible,,,,,,,,,,,,,,unif,,Sepulveda & Quezada (2015),3.158639280215078,-1,-1,156,0
+190905,EWFS,Estacion Las Carpas,,,-20.3056,-70.0335,observed,,120,,S,,Normal-Reverse,1.39,0,,,,,Possible,,,,,,,,,,,,,,unif,,Garcia-Perez et al. (2018); Sepulveda & Quezada (2015); Marquardt et al. (2007; Sernageomin),1.3246555917751734,-1,-1,156,0
+192501,ATFS,Salar Grande,,,-21.1859,-69.9137,observed,,154,,E,,Normal,15.319,,,,,,Possible,,,,,,,,,,,,,,ref,,Gonzalez et al. (2003),15.030099702415576,-1,-1,3,116
+190901,EWFS,Estacion Las Carpas,,,-20.2832,-70.0793,observed,,111,,S,,Reverse,8.647,0,,,,,Possible,,,,,,,,,,,,,,unif,,Garcia-Perez et al. (2018); Sepulveda & Quezada (2015); Marquardt et al. (2007; Sernageomin),8.189841832178438,-1,-1,156,0
+190801,EWFS,Alto Hospicio,,,-20.2684,-70.0841,observed,,104,,S,,Reverse,7.019,0,,,,,Possible,,,,,,,,,,,,,,unif,,Garcia-Perez et al. (2018); Sepulveda & Quezada (2015); Marquardt et al. (2007; Sernageomin),6.6348945210245525,-1,-1,156,0
+190802,EWFS,Alto Hospicio,,,-20.2723,-70.0636,observed,,110,,S,,Reverse,2.796,0,,,,,Possible,,,,,,,,,,,,,,unif,,Garcia-Perez et al. (2018); Sepulveda & Quezada (2015); Marquardt et al. (2007; Sernageomin),2.645433728985085,-1,-1,156,0
+190702,EWFS,Los Condores,,,-20.2607,-70.0902,inferred,,124,,S,,Reverse,1.584,,,,,,Possible,,,,,,,,,,,,,,unif,,Garcia-Perez et al. (2018); Sepulveda & Quezada (2015); Marquardt et al. (2007; Sernageomin),1.5163814081705191,-1,-1,-1,0
+190703,EWFS,Los Condores,,,-20.2693,-70.0831,observed,,152,,S,,Reverse,0.963,0,,,,,Possible,,,,,,,,,,,,,,unif,,Garcia-Perez et al. (2018); Sepulveda & Quezada (2015); Marquardt et al. (2007; Sernageomin),0.9442585584261678,-1,-1,156,0
+190701,EWFS,Los Condores,,,-20.2534,-70.1051,observed,,89,,S,,Reverse,2.238,0,,,,,Possible,,,,,,,,,,,,,,unif,,Garcia-Perez et al. (2018); Sepulveda & Quezada (2015); Marquardt et al. (2007; Sernageomin),2.1335602544577066,-1,-1,2,0
+193802,CdSF,Escarpe El Bordo,,,-22.9546,-68.4889,observed,,11,,,,,8.101,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Cembrano et al. (2007),8.034410368177443,-1,-1,-1,127
+492801,LOTF,,,,-42.0103,-72.545,inferred,,158,,,,,7.492,,,,,,Possible,,,,,,,,,,,,,,unif,,Aguilera et al. (2014),7.228896698996205,-1,-1,26,128
+193901,CdSF,Frontal Domeyko thrust,,,-23.1308,-68.4737,observed,,25,,W,,Reverse,93.614,0,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Cembrano et al. (2007),91.44181120665576,-1,-1,-1,127
+193801,CdSF,Escarpe El Bordo,,,-23.1296,-68.5438,observed,,31,,,,,30.716,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Cembrano et al. (2007),29.876082138605817,-1,-1,-1,127
+492701,LOFS,,,,-42.103,-72.5097,inferred,,171,,,,,7.001,,,,,,Possible,,,,,,,,,,,,,,ref,1:250000,Aguilera et al. (2014),6.922737501584295,-1,-1,26,31
+492501,LOFS,,,,-42.1257,-72.5217,inferred,,166,,,,,11.228,,,,,,Possible,,,,,,,,,,,,,,ref,1:250000,Aguilera et al. (2014),10.957859163422865,-1,-1,26,31
+492901,LOTF,,,,-42.2468,-72.3935,inferred,,146,,,,,7.71,,,,,,Possible,,,,,,,,,,,,,,unif,1:250000,Aguilera et al. (2014),7.111419187374548,-1,-1,-1,129
+492601,LOTF,,,,-42.2433,-72.4134,inferred,,155,,,,,11.315,,,,,,Possible,,,,,,,,,,,,,,unif,1:250000,Aguilera et al. (2014),10.70400063625171,-1,-1,25,129
+390401,CFTF,Valparaiso,,,-33.343,-71.2664,inferred,,126,,,,,10.559,,,,,,Possible,,,,,,,,,,,,,,unif,,,9.463647873452766,-1,-1,-1,10
+390205,CFTF,Quintay,,,-33.1924,-71.6515,observed,,120,,,,,9.324,0,,,,,Possible,,,,,,,,,,,,,,unif,,Wall et al. (1996; Sernageomin),8.198237722234984,-1,-1,-1,10
+390402,CFTF,Valparaiso,,,-33.2769,-71.3409,inferred,,144,,,,,3.876,,,,,,Possible,,,,,,,,,,,,,,unif,,,3.6533302696672325,-1,-1,-1,10
+390412,CFTF,Valparaiso,,,-33.0561,-71.5987,observed,,143,,,,,4.36,0,,,,,Possible,,,,,,,,,,,,,,unif,,,4.101766006388094,-1,-1,-1,10
+390505,WATF,Carino Botado,E,,-32.7516,-70.548,inferred,,173,,E,,Reverse,2.736,,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Troncoso (2014); Medina (2018),2.6974797586917916,-1,-1,-1,90
+390504,WATF,Carino Botado,D,,-32.7643,-70.5525,observed,,137,,E,,Reverse,0.35,0,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Troncoso (2014); Medina (2018),0.32487483823157487,-1,-1,-1,90
+390206,CFTF,Quintay,,,-33.2832,-71.4999,inferred,,117,,,,,4.552,,,,,,Possible,,,,,,,,,,,,,,unif,,Wall et al. (1996; Sernageomin),3.974917575261638,-1,-1,-1,10
+590501,EXFS,Exploradores,,,-46.507,-73.0641,observed,,127,,SW,,Reverse,24.386,0,,,,,Possible,,,,,,,,,,,,,,unif,,Georgieva et al. (2016),19.816751976275928,-1,-1,-1,119
+191401,EWFS,,,,-20.3849,-69.923,observed,,86,,,,,21.117,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),19.913595938110124,-1,-1,-1,0
+191501,EWFS,,,,-20.403,-70.0362,observed,,101,,,,,11.721,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),11.047727760877951,-1,-1,-1,0
+191701,EWFS,,,,-20.5167,-69.8968,observed,,104,,,,,18.83,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),17.846997544691536,-1,-1,-1,130
+191301,EWFS,,,,-20.3603,-69.9815,observed,,88,,,,,12.975,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),12.226973655895783,-1,-1,-1,0
+192801,EWFS,,,,-21.3689,-69.9311,observed,,80,,,,,9.064,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),8.475858453201555,-1,-1,-1,131
+192901,EWFS,,,,-21.3402,-69.7861,observed,,90,,,,,31.961,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),30.0513959383514,-1,-1,-1,131
+191601,EWFS,,,,-20.4145,-69.8871,observed,,79,,,,,15.971,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),15.04668899499072,-1,-1,-1,0
+192101,EWFS,,,,-20.9914,-70.1058,observed,,92,,,,,8.618,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),8.063059632490269,-1,-1,8,132
+194401,EWFS,,,,-20.0736,-70.0188,observed,,68,,,,,24.55,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),23.288766483665093,-1,-1,-1,133
+193701,CdSF,Cordillera de la Sal,,,-23.649,-68.5346,observed,,12,,,,,30.47,,,,,,Possible,,,,,,,,,,,,,,unif,,,29.93940331222154,-1,-1,-1,127
+193001,EWFS,,,,-21.5646,-69.8022,observed,,109,,Norte,,Reverse,24.917,0,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),23.43050688075808,-1,-1,-1,134
+193101,EWFS,,,,-21.5384,-69.9157,observed,,80,,Norte,,Reverse,15.127,0,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Gonzalez et al. (2015),14.130884791728004,-1,-1,-1,134
+193704,CdSF,Cordillera de la Sal,,,-23.3354,-68.5005,observed,,20,,,,,39.476,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Cembrano et al. (2007),38.78259446518609,-1,-1,-1,127
+193705,CdSF,Cordillera de la Sal,,,-23.0615,-68.342,observed,,40,,,,,32.943,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Cembrano et al. (2007),31.760764562027465,-1,-1,-1,127
+193702,CdSF,Cordillera de la Sal,,,-23.3714,-68.4186,observed,,25,,,,,42.913,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Cembrano et al. (2007),41.92276642981621,-1,-1,-1,127
+193703,CdSF,Cordillera de la Sal,,,-23.2436,-68.4191,observed,,24,,,,,34.56,,,,,,Possible,,,,,,,,,,,,,Neogene fault,unif,,Cembrano et al. (2007),33.93997326220794,-1,-1,-1,127
+494303,LOTF,Ensenada,,,-41.1547,-72.5505,inferred,,129,,,,Normal,17.879,,,,,,Possible,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006),15.353963569555303,-1,-1,53,54
+494302,LOTF,Ensenada,,,-41.3287,-72.3399,observed,,142,,,,Sinistral,13.403,0,,,,,Possible,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006),12.165879548588219,-1,-1,20,54
+301302,CAFS,El Fierro,,,-34.9915,-70.4271,observed,,2,,,,,6.868,0,,,,,Possible,,,,,,,,,,,,,,ref,1:50000,Gonzalez (2008); Charrier et al. (2004); Comte et al. (2008),6.632650981736239,-1,-1,-1,135
+391002,CAFS,Guanaco,,,-34.8287,-70.4123,observed,,38,,NW,,Reverse,1.612,0,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Giambiagi et al. (2019),1.5053099296074588,-1,-1,-1,135
+301303,CAFS,El Fierro,,,-34.9489,-70.4268,observed,,36,,,,,2.002,0,,,,,Possible,,,,,,,,,,,,,,ref,1:50000,Gonzalez (2008); Charrier et al. (2004); Comte et al. (2008),1.8796611854983267,-1,-1,-1,135
+301301,CAFS,El Fierro*,,,-35.0602,-70.4396,observed,,176,,W,,Reverse,6.783,0,,6,382,Historic,Proved,,,Late Miocene (reactivation),,,,,,Associated with Mw 6.4 earthquake in 2004,6.5,,,Seismic event also known as Curico- or Teno 2004.,ref,1:50000,Gonzalez (2008); Charrier et al. (2004); Comte et al. (2008),6.6241048445141235,-1,-1,-1,135
+390802,CAFS,Garces,,,-34.8595,-70.3992,inferred,,24,,NW,,Reverse,16.828,,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Giambiagi et al. (2019),16.266620945514603,-1,-1,-1,135
+390702,CAFS,Tinguiririca,,,-34.9025,-70.4098,inferred,,52,,NW,,Dextral-Reverse,4.375,,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Giambiagi et al. (2019),3.9002854951142605,-1,-1,-1,135
+391004,CAFS,Guanaco,,,-34.8036,-70.403,observed,,14,,NW,,Dextral,4.056,0,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Giambiagi et al. (2019),3.9985761266302493,-1,-1,-1,135
+391003,CAFS,Guanaco,,,-34.865,-70.4345,inferred,,30,,NW,,Reverse,8.078,,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Giambiagi et al. (2019),7.710988834071775,-1,-1,-1,135
+390801,CAFS,Garces*,,,-34.9342,-70.4412,observed,,24,60-75,NW,,Reverse,2.544,0,,,,,Possible,,,,,,,,,,,,,Controls the localization of geothermal manifestations.,ref,1:25000,Giambiagi et al. (2019),2.460537479363612,-1,-1,-1,135
+390701,CAFS,Tinguiririca*,,,-34.9195,-70.4301,observed,,54,,NW,,Reverse,1.539,0,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Giambiagi et al. (2019),1.360646357916295,-1,-1,-1,135
+390703,CAFS,Tinguiririca,,,-34.842,-70.3611,inferred,,27,,NW,,Reverse,13.001,,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Giambiagi et al. (2019),12.482057076874213,-1,-1,-1,135
+391001,CAFS,Guanaco*,,,-34.9154,-70.4592,observed,,27,65-85,NW,,Dextral-Reverse,4.532,0,,,,,Possible,,,,,,,,,,,,,Also known as El Baule.,ref,1:25000,Giambiagi et al. (2019),4.3434937508521765,-1,-1,-1,135
+390501,WATF,Carino Botado,A,,-32.7967,-70.5476,observed,,1,,E,,Reverse,3.757,0,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Troncoso (2014); Medina (2018),3.7278912518709686,-1,-1,-1,90
+390506,WATF,Carino Botado,F,,-32.791,-70.5302,inferred,,154,,E,,Reverse,6.424,,,,,,Possible,,,,,,,,,,,,,,ref,1:250000,Troncoso (2014); Medina (2018),6.146738955964939,-1,-1,-1,90
+390503,WATF,Carino Botado,C,,-32.7615,-70.5545,inferred,,148,,E,,Reverse,0.443,,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Troncoso (2014); Medina (2018),0.42179403766653234,-1,-1,-1,90
+390502,WATF,Carino Botado,B,,-32.7725,-70.5529,inferred,,2,,E,,Reverse,1.296,,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Troncoso (2014); Medina (2018),1.2739192948858895,-1,-1,-1,90
+390601,WATF,Mesamavida,,,-35.987,-71.5296,observed,,35,,E,,Reverse,8.923,0,,,,Holocene,Probable,Marked scarp with frontal colluvial wedge,5-m-high linear and steep scarp evident on LiDAR DTM,,,,,,,,,,,Has generated at least two events not yet dated.,unif,1:250000,Sepulveda (2019),8.295345760312234,-1,-1,-1,84
+493903,LOTF,Catripulli,,,-39.4744,-71.5122,inferred,,124,,SW,,Sinistral-Reverse,7.802,,,,,,Possible,,,,,,,,,,,,,,ref,1:50000,Moreno & Lara (2008; Sernageomin),6.628920062033272,-1,-1,60,136
+494301,LOTF,Ensenada,,,-41.2354,-72.4372,observed,,131,,SW,,Sinistral-Normal,15.052,0,,,,,Possible,,,,,,,,,,,,,,unif,1:250000,Rosenau (2004); Rosenau et al. (2006),13.023429643546498,-1,-1,-1,54
+496901,LAFS,,,Lidar,-37.9851,-72.9659,observed,,75,,N,,Reverse,31.528,0,,,,,Possible,,,,,,,,,,,,,,map,,,25.43713728940946,-1,-1,-1,65
+497101,LAFS,,,Lidar,-38.5859,-73.1127,inferred,,110,,N,,Reverse,10.571,,,,,,Possible,,,,,,,,,,,,,,map,,,8.573931656386344,-1,-1,-1,73
+291003,LVFS,Quillaicillo,,,-31.4118,-71.5776,inferred,Fault system,164,,W,,Normal,4.026,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,4.026196079410702,-1,-1,-1,137
+291201,LVFS,Angostura 1,,,-31.506,-71.5568,inferred,Fault system,4,,W,,Normal,3.105,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,3.1051398968497668,-1,-1,-1,137
+291101,LVFS,Angostura 1,,,-31.5177,-71.5504,inferred,Fault system,177,,W,,Normal,2.623,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,2.623352354946639,-1,-1,-1,137
+291002,LVFS,Quillaicillo,,,-31.4521,-71.5725,inferred,Fault system,180,,W,,Normal,3.987,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,3.987299152814964,-1,-1,-1,137
+290501,LVFS,,,,-30.8137,-71.6896,inferred,Fault system,10,,W,,Normal,5.107,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,5.107433261984039,-1,-1,-1,138
+292201,LVFS,Caleta Sierra,,,-31.087,-71.6424,inferred,Fault system,15,,W,,Normal,5.618,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,5.617851753090115,-1,-1,-1,139
+290401,LVFS,Punta Sierra,,,-31.1017,-71.6244,inferred,Fault system,9,,W,,Normal,7.618,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,7.617708372513871,-1,-1,-1,139
+290802,LVFS,,,,-31.3011,-71.6097,inferred,Fault system,13,,W,,Normal,3.894,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,3.8944182773476403,-1,-1,-1,139
+292101,LVFS,Casuto,,,-31.8061,-71.4655,inferred,Fault system,38,,W,,Normal,15.633,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,15.633486893794343,-1,-1,-1,140
+290901,LVFS,Totoral,,,-31.3038,-71.6137,inferred,Fault system,7,,W,,Normal,4.856,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,4.8560701137007065,-1,-1,-1,139
+290301,LVFS,,,,-31.0333,-71.6235,inferred,Fault system,163,,W,,Normal,18.9,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,Saillard et al. (2009); Paskoff (1970),18.900343072646415,-1,-1,-1,139
+290701,LVFS,Canela,,,-31.285,-71.6013,inferred,Fault system,15,,W,,Normal,3.265,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,3.2651485618772513,-1,-1,-1,139
+290601,LVFS,Las Palmas,,,-31.2222,-71.6079,inferred,Fault system,175,,W,,Normal,4.19,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,4.189583949993192,-1,-1,-1,139
+290801,LVFS,,,,-31.2785,-71.6054,inferred,Fault system,175,,W,,Normal,1.453,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,1.452747561534102,-1,-1,-1,139
+290101,LVFS,Quebrada Palo Cortado,,,-30.4642,-71.668,inferred,Fault system,36,,W,,Normal,9.116,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,Saillard et al. (2009),9.116341288798537,-1,-1,-1,43
+291801,LVFS,Huentelauquen,,,-31.6295,-71.5271,inferred,Fault system,4,,W,,Normal,5.745,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,5.744862307707067,-1,-1,-1,137
+290201,LVFS,El Fraile,,,-31.1834,-71.5957,inferred,Fault system,167,,W,,Normal,8.382,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,Saillard et al. (2009),8.382290717715938,-1,-1,-1,139
+291401,LVFS,Los Paihuenes,,,-31.5437,-71.5617,inferred,Fault system,162,,W,,Normal,6.682,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,6.682185843821604,-1,-1,-1,137
+290302,LVFS,Hornillos,,,-31.1477,-71.6054,inferred,Fault system,180,,W,,Normal,3.687,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,3.6874284773674004,-1,-1,-1,139
+291901,LVFS,,,,-31.7034,-71.5315,inferred,Fault system,164,,W,,Normal,3.816,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,3.816437467472865,-1,-1,-1,137
+291501,LVFS,,,,-31.5797,-71.5516,inferred,Fault system,141,,W,,Normal,1.494,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,1.4936411729729697,-1,-1,-1,137
+291301,LVFS,,,,-31.5582,-71.5264,inferred,Fault system,147,,W,,Normal,7.452,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,7.451849292048039,-1,-1,-1,137
+291001,LVFS,Quillaicillo,,,-31.3846,-71.5883,inferred,Fault system,166,,W,,Normal,3.103,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,3.102922437716354,-1,-1,-1,137
+291701,LVFS,,,,-31.5964,-71.564,inferred,Fault system,171,,W,,Normal,2.419,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,2.4188207447039685,-1,-1,-1,137
+292002,LVFS,El Gauchal,,,-31.7964,-71.4814,inferred,Fault system,40,,W,,Normal,13.472,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,13.472383921110394,-1,-1,-1,140
+291601,LVFS,,,,-31.5787,-71.5571,inferred,Fault system,163,,W,,Normal,1.576,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,1.5757949874839035,-1,-1,-1,137
+292001,LVFS,El Gauchal,,,-31.7188,-71.4239,inferred,Fault system,23,,W,,Normal,4.808,,,,,,Possible,Offsets MIS 5e marine terrace,,,,,,,,Associated crustal seismicity following the 2015 Illapel earthquake,,,,,map,,,4.8084692570374425,-1,-1,-1,140
+392501,not assigned,Rio Colorado,,,-33.6011,-70.3818,inferred,,63,65,NW,,Reverse-Dextral,22.893,,,,,,Possible,Offsets fluvial conglomerates trom terrace 5,Tentative fluvial alignment,,,,,,,,,,,,ref,,Lavenu & Cembrano (2008); Piquer et al. (2019),22.892731202344926,-1,-1,-1,141
+497301,LOFS,,,,-27.1704,-70.8691,inferred,,132,,,,,6.973,,,,,,Probable,,,,,,,,,,,,,,map,,,6.972808872736861,-1,-1,53,142
+503501,LOFS,,,,-27.1768,-70.878,inferred,,23,,,,,10.194,,,,,,Probable,,,,,,,,,,,,,,map,,,10.193811059288382,-1,-1,-1,143
+503401,LOFS,,,,-27.1736,-70.8752,inferred,,15,,,,,4.5,,,,,,Probable,,,,,,,,,,,,,,map,,,4.49985336953028,-1,-1,46,62
+292301,not assigned,Cabo Leones,,,-27.1711,-70.8758,inferred,,13,,,,,15.952,,,,,,Possible,,,,,,,,,,,,,,map,,,15.951960534739639,-1,-1,-1,144
+292702,CDFS,,,,-27.1744,-70.8791,observed,,60,,,,Normal,1.942,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),1.9415176108742038,-1,-1,-1,3
+292701,CDFS,,,,-27.1718,-70.89,observed,,56,,,,Normal,0.982,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),0.9815168692823777,-1,-1,-1,3
+292601,CDFS,,,,-27.1783,-70.8704,observed,,106,,,,Normal,2.505,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),2.5049619642508025,-1,-1,-1,3
+292801,CDFS,,,,-27.1786,-70.8779,observed,,169,,,,Normal,0.448,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),0.4482194719200279,-1,-1,-1,3
+293001,CDFS,,,,-27.1856,-70.8843,observed,,160,,,,Normal,0.679,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),0.6787136725486316,-1,-1,-1,3
+292501,CDFS,,,,-44.8831,-72.9375,observed,,140,,,,,1.135,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),1.1345808777449922,-1,-1,-1,3
+292901,CDFS,,,,-40.9192,-72.2306,observed,,114,,,,Normal,1.213,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),1.2127920008337953,-1,-1,-1,3
+293002,CDFS,,,,-23.9535,-70.3008,observed,,148,,,,,0.431,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),0.43050353226805677,-1,-1,-1,3
+293102,CDFS,,,,-45.7953,-73.3091,observed,,146,,,,Normal,0.719,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),0.7189491085257671,-1,-1,-1,3
+293103,CDFS,,,,-27.1886,-70.8803,observed,,136,,,,Normal,0.478,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),0.4781440186472228,-1,-1,-1,3
+293101,CDFS,,,,-27.1491,-70.9075,observed,,134,,,,Normal,0.445,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),0.44545707986819094,-1,-1,-1,3
+293401,CDFS,,,,-27.1881,-70.8808,observed,,54,,,,Normal,1.074,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),1.07392281766344,-1,-1,-1,3
+293301,CDFS,,,,-27.1922,-70.8761,observed,,50,,,,Normal,3.529,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),3.5285775954056215,-1,-1,-1,3
+293501,CDFS,,,,-27.1979,-70.8741,observed,,63,,,,Normal,1.144,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),1.144345166589754,-1,-1,-1,3
+293201,CDFS,,,,-27.1824,-70.8518,observed,,111,,,,Normal,0.971,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),0.9707532091026163,-1,-1,-1,3
+293202,CDFS,,,,-27.1904,70.8354,observed,,101,,,,Normal,1.612,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),1.612346591565115,-1,-1,-1,3
+293601,CDFS,,,,-27.194,-70.8565,observed,,65,,,,Normal,1.238,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),1.237868331976229,-1,-1,-1,3
+293801,CDFS,,,,-27.1979,-70.8458,observed,,123,,,,Normal,2.011,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),2.011346892531552,-1,-1,-1,3
+293802,CDFS,,,,-27.1931,-70.8309,observed,,143,,,,,0.611,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),0.61065559910091,-1,-1,-1,3
+293701,CDFS,,,,-27.2003,-70.8646,observed,,72,,,,Normal,2.007,0,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),2.0074647592673003,-1,-1,-1,3
+292503,CDFS,,,,-27.1317,-70.9149,inferred,,162,,,,Reverse,1.216,,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),1.216115650097892,-1,-1,-1,3
+292502,CDFS,,,,-27.2025,-70.8589,inferred,,149,,,,Reverse,3.611,,,,,,Possible,,,,,,,,,,,,,,unif,1:25000,Marquardt et al. (2004),3.61070266598538,-1,-1,-1,3
+292401,CDFS,Morro Copiapo,,,-27.1573,-70.9288,inferred,,29,,,,Reverse,9.245,,,,,,Possible,,,,,,,,,,,,,,ref,1:25000,Marquardt et al. (2004),9.24534313736927,-1,-1,-1,3
+103101,ATFS,Paposo,,,-27.2022,-70.8428,observed,,0,,E,,Normal,31.529,0,,,,,Probable,,,,,,,,,,,,,,map,,,31.5288354008732,-1,-1,-1,145
