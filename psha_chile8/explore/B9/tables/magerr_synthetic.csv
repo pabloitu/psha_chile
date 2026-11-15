@@ -1,0 +1,16 @@
+case,variant,db_true,r5,r7,r8,db_true_sd,r5_sd,r7_sd,r8_sd
+errors as listed,none,-0.0237,1.1009,1.2292,1.3003,0.0116,0.0131,0.061,0.099
+errors as listed,instrumental,-0.0245,1.0087,1.1304,1.1979,0.0116,0.0116,0.0566,0.0922
+errors as listed,modern only,-0.0387,1.0276,1.2297,1.3467,0.0115,0.0119,0.0612,0.1027
+errors as listed,all events,-0.0058,1.0015,1.0297,1.0451,0.011,0.0114,0.0479,0.075
+errors as listed,"move and N*, all events",-0.0019,0.9986,1.0085,1.0145,0.0116,0.0125,0.0503,0.0768
+historical exact,none,-0.0058,1.0998,1.1302,1.1466,0.0098,0.0154,0.0443,0.0704
+historical exact,instrumental,-0.0051,1.0035,1.028,1.0412,0.0092,0.0135,0.0366,0.0588
+historical exact,modern only,-0.0212,1.0236,1.1292,1.187,0.0096,0.0139,0.0437,0.0717
+historical exact,all events,0.0061,0.9991,0.972,0.9594,0.0098,0.0135,0.0378,0.0586
+historical exact,"move and N*, all events",0.0096,0.9978,0.9555,0.936,0.0116,0.016,0.0453,0.0687
+historical from regression,none,0.0049,1.0971,1.074,1.0638,0.0121,0.0153,0.0541,0.0826
+historical from regression,instrumental,0.006,0.9991,0.9728,0.9609,0.0116,0.0134,0.0475,0.0721
+historical from regression,modern only,-0.0106,1.0195,1.0718,1.1002,0.0118,0.0138,0.0537,0.0845
+historical from regression,all events,0.0138,0.9961,0.9357,0.9079,0.0117,0.0134,0.0463,0.0689
+historical from regression,"move and N*, all events",0.0175,0.9952,0.9195,0.885,0.013,0.0153,0.0516,0.0759

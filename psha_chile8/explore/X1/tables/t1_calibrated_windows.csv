@@ -1,0 +1,73 @@
+key,pair,T_,D_,how
+isc|iscgem,isc|iscgem,13.75060022354126,201.93838706199506,calibrated
+iscgem|isc,isc|iscgem,13.75060022354126,201.93838706199506,calibrated
+isc|iscehb,isc|iscehb,5.0,33.34910945501064,calibrated
+iscehb|isc,isc|iscehb,5.0,33.34910945501064,calibrated
+isc|csn_isc,csn_isc|isc,5.939999580383301,78.99332511006972,calibrated
+csn_isc|isc,csn_isc|isc,5.939999580383301,78.99332511006972,calibrated
+isc|comcat,comcat|isc,6.179999890327454,68.63314669475926,calibrated
+comcat|isc,comcat|isc,6.179999890327454,68.63314669475926,calibrated
+isc|gcmt,gcmt|isc,5.294499969482438,51.44561092680673,calibrated
+gcmt|isc,gcmt|isc,5.294499969482438,51.44561092680673,calibrated
+isc|centennial,centennial|isc,13.093400098085352,273.18021334569875,calibrated
+centennial|isc,centennial|isc,13.093400098085352,273.18021334569875,calibrated
+isc|potin,isc|potin,7.242472524209867,64.02090684106219,via csn
+potin|isc,isc|potin,7.242472524209867,64.02090684106219,via csn
+isc|csn,csn|isc,5.239600009918204,57.87558237517907,calibrated
+csn|isc,csn|isc,5.239600009918204,57.87558237517907,calibrated
+iscgem|iscehb,iscehb|iscgem,5.0,25.0,calibrated
+iscehb|iscgem,iscehb|iscgem,5.0,25.0,calibrated
+iscgem|csn_isc,csn_isc|iscgem,13.161799621582018,209.6066772700077,calibrated
+csn_isc|iscgem,csn_isc|iscgem,13.161799621582018,209.6066772700077,calibrated
+iscgem|comcat,comcat|iscgem,5.0,44.69164137847429,calibrated
+comcat|iscgem,comcat|iscgem,5.0,44.69164137847429,calibrated
+iscgem|gcmt,gcmt|iscgem,5.015499901771552,47.565898917190225,calibrated
+gcmt|iscgem,gcmt|iscgem,5.015499901771552,47.565898917190225,calibrated
+iscgem|centennial,centennial|iscgem,18.495399974584767,363.5076942357503,calibrated
+centennial|iscgem,centennial|iscgem,18.495399974584767,363.5076942357503,calibrated
+iscgem|potin,iscgem|potin,9.31555699348388,76.40981824537803,via csn
+potin|iscgem,iscgem|potin,9.31555699348388,76.40981824537803,via csn
+iscgem|csn,csn|iscgem,7.860000133514404,71.33979847746895,calibrated
+csn|iscgem,csn|iscgem,7.860000133514404,71.33979847746895,calibrated
+iscehb|csn_isc,csn_isc|iscehb,10.699999370574952,165.07906793723936,calibrated
+csn_isc|iscehb,csn_isc|iscehb,10.699999370574952,165.07906793723936,calibrated
+iscehb|comcat,comcat|iscehb,5.0,42.34923003706534,calibrated
+comcat|iscehb,comcat|iscehb,5.0,42.34923003706534,calibrated
+iscehb|gcmt,gcmt|iscehb,5.0,46.3559905435292,calibrated
+gcmt|iscehb,gcmt|iscehb,5.0,46.3559905435292,calibrated
+iscehb|centennial,centennial|iscehb,5.0,25.0,calibrated
+centennial|iscehb,centennial|iscehb,5.0,25.0,calibrated
+iscehb|potin,iscehb|potin,7.0710678118654755,59.8907639519416,via csn
+potin|iscehb,iscehb|potin,7.0710678118654755,59.8907639519416,via csn
+iscehb|csn,csn|iscehb,5.0,53.27110031960446,calibrated
+csn|iscehb,csn|iscehb,5.0,53.27110031960446,calibrated
+csn_isc|comcat,comcat|csn_isc,7.749010071754454,104.22498777000568,calibrated
+comcat|csn_isc,comcat|csn_isc,7.749010071754454,104.22498777000568,calibrated
+csn_isc|gcmt,csn_isc|gcmt,12.534999809265173,196.67875419742802,calibrated
+gcmt|csn_isc,csn_isc|gcmt,12.534999809265173,196.67875419742802,calibrated
+csn_isc|centennial,centennial|csn_isc,31.347800173759566,450.0,calibrated
+centennial|csn_isc,centennial|csn_isc,31.347800173759566,450.0,calibrated
+csn_isc|potin,csn_isc|potin,5.0,53.533620664652304,calibrated
+potin|csn_isc,csn_isc|potin,5.0,53.533620664652304,calibrated
+csn_isc|csn,csn|csn_isc,5.0,25.0,calibrated
+csn|csn_isc,csn|csn_isc,5.0,25.0,calibrated
+comcat|gcmt,comcat|gcmt,5.0,34.52012915354471,calibrated
+gcmt|comcat,comcat|gcmt,5.0,34.52012915354471,calibrated
+comcat|centennial,centennial|comcat,15.775999946594267,293.91297901893967,calibrated
+centennial|comcat,centennial|comcat,15.775999946594267,293.91297901893967,calibrated
+comcat|potin,comcat|potin,7.0710678118654755,65.64120015528862,via csn
+potin|comcat,comcat|potin,7.0710678118654755,65.64120015528862,via csn
+comcat|csn,comcat|csn,5.0,59.6630009330811,calibrated
+csn|comcat,comcat|csn,5.0,59.6630009330811,calibrated
+gcmt|centennial,centennial|gcmt,6.304599742889406,39.43352985484711,calibrated
+centennial|gcmt,centennial|gcmt,6.304599742889406,39.43352985484711,calibrated
+gcmt|potin,gcmt|potin,8.853939774451025,84.15752904296082,via csn
+potin|gcmt,gcmt|potin,8.853939774451025,84.15752904296082,via csn
+gcmt|csn,csn|gcmt,7.307000036239623,79.58263766130756,calibrated
+csn|gcmt,csn|gcmt,7.307000036239623,79.58263766130756,calibrated
+centennial|potin,centennial|potin,31.744047878838014,450.0,via csn_isc
+potin|centennial,centennial|potin,31.744047878838014,450.0,via csn_isc
+centennial|csn,centennial|csn,7.0710678118654755,58.84564664664126,via iscehb
+csn|centennial,centennial|csn,7.0710678118654755,58.84564664664126,via iscehb
+potin|csn,csn|potin,5.0,27.369572110024396,calibrated
+csn|potin,csn|potin,5.0,27.369572110024396,calibrated

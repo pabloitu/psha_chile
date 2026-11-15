@@ -1,0 +1,736 @@
+match,loc,by,group,n,unknown,share
+baseline,L-a,per,1964–1975,1651,495,0.29981829194427617
+baseline,L-a,per,1976–1999,5183,734,0.14161682423306965
+baseline,L-a,per,2000–2014,7443,678,0.09109230149133414
+baseline,L-a,per,2015 on,5354,386,0.07209562943593575
+baseline,L-a,per,< 1964,586,120,0.20477815699658702
+baseline,L-a,band,-52–-50°S,1,0,0.0
+baseline,L-a,band,14–16°S,519,124,0.23892100192678228
+baseline,L-a,band,16–18°S,1274,224,0.17582417582417584
+baseline,L-a,band,18–20°S,1330,94,0.07067669172932331
+baseline,L-a,band,20–22°S,2124,97,0.04566854990583804
+baseline,L-a,band,22–24°S,2546,148,0.05813040062843677
+baseline,L-a,band,24–26°S,1619,149,0.09203211859172329
+baseline,L-a,band,26–28°S,1078,142,0.13172541743970315
+baseline,L-a,band,28–30°S,1384,83,0.05997109826589595
+baseline,L-a,band,30–32°S,2628,186,0.07077625570776255
+baseline,L-a,band,32–34°S,1909,199,0.10424305919329492
+baseline,L-a,band,34–36°S,1287,198,0.15384615384615385
+baseline,L-a,band,36–38°S,1067,188,0.17619493908153702
+baseline,L-a,band,38–40°S,509,142,0.27897838899803534
+baseline,L-a,band,40–42°S,184,55,0.29891304347826086
+baseline,L-a,band,42–44°S,137,34,0.24817518248175183
+baseline,L-a,band,44–46°S,331,150,0.45317220543806647
+baseline,L-a,band,46–48°S,30,15,0.5
+baseline,L-a,band,48–50°S,15,4,0.26666666666666666
+baseline,L-a,band,50–52°S,35,17,0.4857142857142857
+baseline,L-a,band,52–54°S,26,16,0.6153846153846154
+baseline,L-a,band,54–56°S,10,6,0.6
+baseline,L-a,band,56–58°S,171,141,0.8245614035087719
+baseline,L-a,band,58–60°S,3,1,0.3333333333333333
+baseline,L-a,setting,arc,3860,190,0.04922279792746114
+baseline,L-a,setting,backarc,4557,289,0.06341891595347816
+baseline,L-a,setting,coast,3467,429,0.12373810210556677
+baseline,L-a,setting,forearc,2753,266,0.09662186705412278
+baseline,L-a,setting,offshore,4497,868,0.19301756726706693
+baseline,L-a,setting,outer rise,1083,371,0.3425669436749769
+baseline,L-b 44°S,per,1964–1975,1651,495,0.29981829194427617
+baseline,L-b 44°S,per,1976–1999,5183,749,0.1445109010225738
+baseline,L-b 44°S,per,2000–2014,7443,801,0.10761789600967352
+baseline,L-b 44°S,per,2015 on,5354,408,0.07620470676129996
+baseline,L-b 44°S,per,< 1964,586,120,0.20477815699658702
+baseline,L-b 44°S,band,-52–-50°S,1,0,0.0
+baseline,L-b 44°S,band,14–16°S,519,124,0.23892100192678228
+baseline,L-b 44°S,band,16–18°S,1274,225,0.17660910518053374
+baseline,L-b 44°S,band,18–20°S,1330,94,0.07067669172932331
+baseline,L-b 44°S,band,20–22°S,2124,102,0.0480225988700565
+baseline,L-b 44°S,band,22–24°S,2546,203,0.07973291437549096
+baseline,L-b 44°S,band,24–26°S,1619,169,0.10438542310067943
+baseline,L-b 44°S,band,26–28°S,1078,154,0.14285714285714285
+baseline,L-b 44°S,band,28–30°S,1384,92,0.06647398843930635
+baseline,L-b 44°S,band,30–32°S,2628,218,0.08295281582952815
+baseline,L-b 44°S,band,32–34°S,1909,206,0.10790990047145102
+baseline,L-b 44°S,band,34–36°S,1287,204,0.1585081585081585
+baseline,L-b 44°S,band,36–38°S,1067,189,0.17713214620431114
+baseline,L-b 44°S,band,38–40°S,509,142,0.27897838899803534
+baseline,L-b 44°S,band,40–42°S,184,55,0.29891304347826086
+baseline,L-b 44°S,band,42–44°S,137,34,0.24817518248175183
+baseline,L-b 44°S,band,44–46°S,331,157,0.4743202416918429
+baseline,L-b 44°S,band,46–48°S,30,15,0.5
+baseline,L-b 44°S,band,48–50°S,15,4,0.26666666666666666
+baseline,L-b 44°S,band,50–52°S,35,18,0.5142857142857142
+baseline,L-b 44°S,band,52–54°S,26,16,0.6153846153846154
+baseline,L-b 44°S,band,54–56°S,10,6,0.6
+baseline,L-b 44°S,band,56–58°S,171,145,0.847953216374269
+baseline,L-b 44°S,band,58–60°S,3,1,0.3333333333333333
+baseline,L-b 44°S,setting,arc,3860,190,0.04922279792746114
+baseline,L-b 44°S,setting,backarc,4557,436,0.0956769804696072
+baseline,L-b 44°S,setting,coast,3467,432,0.12460340351889242
+baseline,L-b 44°S,setting,forearc,2753,267,0.09698510715583
+baseline,L-b 44°S,setting,offshore,4497,874,0.19435179008227707
+baseline,L-b 44°S,setting,outer rise,1083,374,0.34533702677746997
+baseline,"L-b 44°S, lon ≤ -68.0",per,1964–1975,1651,495,0.29981829194427617
+baseline,"L-b 44°S, lon ≤ -68.0",per,1976–1999,5183,739,0.1425815164962377
+baseline,"L-b 44°S, lon ≤ -68.0",per,2000–2014,7443,787,0.10573693403197636
+baseline,"L-b 44°S, lon ≤ -68.0",per,2015 on,5354,408,0.07620470676129996
+baseline,"L-b 44°S, lon ≤ -68.0",per,< 1964,586,120,0.20477815699658702
+baseline,"L-b 44°S, lon ≤ -68.0",band,-52–-50°S,1,0,0.0
+baseline,"L-b 44°S, lon ≤ -68.0",band,14–16°S,519,124,0.23892100192678228
+baseline,"L-b 44°S, lon ≤ -68.0",band,16–18°S,1274,225,0.17660910518053374
+baseline,"L-b 44°S, lon ≤ -68.0",band,18–20°S,1330,94,0.07067669172932331
+baseline,"L-b 44°S, lon ≤ -68.0",band,20–22°S,2124,102,0.0480225988700565
+baseline,"L-b 44°S, lon ≤ -68.0",band,22–24°S,2546,203,0.07973291437549096
+baseline,"L-b 44°S, lon ≤ -68.0",band,24–26°S,1619,168,0.10376775787523163
+baseline,"L-b 44°S, lon ≤ -68.0",band,26–28°S,1078,154,0.14285714285714285
+baseline,"L-b 44°S, lon ≤ -68.0",band,28–30°S,1384,89,0.06430635838150289
+baseline,"L-b 44°S, lon ≤ -68.0",band,30–32°S,2628,204,0.0776255707762557
+baseline,"L-b 44°S, lon ≤ -68.0",band,32–34°S,1909,203,0.10633839706652698
+baseline,"L-b 44°S, lon ≤ -68.0",band,34–36°S,1287,202,0.15695415695415696
+baseline,"L-b 44°S, lon ≤ -68.0",band,36–38°S,1067,188,0.17619493908153702
+baseline,"L-b 44°S, lon ≤ -68.0",band,38–40°S,509,142,0.27897838899803534
+baseline,"L-b 44°S, lon ≤ -68.0",band,40–42°S,184,55,0.29891304347826086
+baseline,"L-b 44°S, lon ≤ -68.0",band,42–44°S,137,34,0.24817518248175183
+baseline,"L-b 44°S, lon ≤ -68.0",band,44–46°S,331,157,0.4743202416918429
+baseline,"L-b 44°S, lon ≤ -68.0",band,46–48°S,30,15,0.5
+baseline,"L-b 44°S, lon ≤ -68.0",band,48–50°S,15,4,0.26666666666666666
+baseline,"L-b 44°S, lon ≤ -68.0",band,50–52°S,35,18,0.5142857142857142
+baseline,"L-b 44°S, lon ≤ -68.0",band,52–54°S,26,16,0.6153846153846154
+baseline,"L-b 44°S, lon ≤ -68.0",band,54–56°S,10,6,0.6
+baseline,"L-b 44°S, lon ≤ -68.0",band,56–58°S,171,145,0.847953216374269
+baseline,"L-b 44°S, lon ≤ -68.0",band,58–60°S,3,1,0.3333333333333333
+baseline,"L-b 44°S, lon ≤ -68.0",setting,arc,3860,190,0.04922279792746114
+baseline,"L-b 44°S, lon ≤ -68.0",setting,backarc,4557,412,0.09041035769146369
+baseline,"L-b 44°S, lon ≤ -68.0",setting,coast,3467,432,0.12460340351889242
+baseline,"L-b 44°S, lon ≤ -68.0",setting,forearc,2753,267,0.09698510715583
+baseline,"L-b 44°S, lon ≤ -68.0",setting,offshore,4497,874,0.19435179008227707
+baseline,"L-b 44°S, lon ≤ -68.0",setting,outer rise,1083,374,0.34533702677746997
+baseline,L-b 46°S,per,1964–1975,1651,495,0.29981829194427617
+baseline,L-b 46°S,per,1976–1999,5183,749,0.1445109010225738
+baseline,L-b 46°S,per,2000–2014,7443,799,0.10734918715571679
+baseline,L-b 46°S,per,2015 on,5354,403,0.07527082555098992
+baseline,L-b 46°S,per,< 1964,586,120,0.20477815699658702
+baseline,L-b 46°S,band,-52–-50°S,1,0,0.0
+baseline,L-b 46°S,band,14–16°S,519,124,0.23892100192678228
+baseline,L-b 46°S,band,16–18°S,1274,225,0.17660910518053374
+baseline,L-b 46°S,band,18–20°S,1330,94,0.07067669172932331
+baseline,L-b 46°S,band,20–22°S,2124,102,0.0480225988700565
+baseline,L-b 46°S,band,22–24°S,2546,203,0.07973291437549096
+baseline,L-b 46°S,band,24–26°S,1619,169,0.10438542310067943
+baseline,L-b 46°S,band,26–28°S,1078,154,0.14285714285714285
+baseline,L-b 46°S,band,28–30°S,1384,92,0.06647398843930635
+baseline,L-b 46°S,band,30–32°S,2628,218,0.08295281582952815
+baseline,L-b 46°S,band,32–34°S,1909,206,0.10790990047145102
+baseline,L-b 46°S,band,34–36°S,1287,204,0.1585081585081585
+baseline,L-b 46°S,band,36–38°S,1067,189,0.17713214620431114
+baseline,L-b 46°S,band,38–40°S,509,142,0.27897838899803534
+baseline,L-b 46°S,band,40–42°S,184,55,0.29891304347826086
+baseline,L-b 46°S,band,42–44°S,137,34,0.24817518248175183
+baseline,L-b 46°S,band,44–46°S,331,150,0.45317220543806647
+baseline,L-b 46°S,band,46–48°S,30,15,0.5
+baseline,L-b 46°S,band,48–50°S,15,4,0.26666666666666666
+baseline,L-b 46°S,band,50–52°S,35,18,0.5142857142857142
+baseline,L-b 46°S,band,52–54°S,26,16,0.6153846153846154
+baseline,L-b 46°S,band,54–56°S,10,6,0.6
+baseline,L-b 46°S,band,56–58°S,171,145,0.847953216374269
+baseline,L-b 46°S,band,58–60°S,3,1,0.3333333333333333
+baseline,L-b 46°S,setting,arc,3860,190,0.04922279792746114
+baseline,L-b 46°S,setting,backarc,4557,436,0.0956769804696072
+baseline,L-b 46°S,setting,coast,3467,429,0.12373810210556677
+baseline,L-b 46°S,setting,forearc,2753,267,0.09698510715583
+baseline,L-b 46°S,setting,offshore,4497,873,0.1941294196130754
+baseline,L-b 46°S,setting,outer rise,1083,371,0.3425669436749769
+baseline,"L-b 46°S, lon ≤ -68.0",per,1964–1975,1651,495,0.29981829194427617
+baseline,"L-b 46°S, lon ≤ -68.0",per,1976–1999,5183,739,0.1425815164962377
+baseline,"L-b 46°S, lon ≤ -68.0",per,2000–2014,7443,785,0.10546822517801961
+baseline,"L-b 46°S, lon ≤ -68.0",per,2015 on,5354,403,0.07527082555098992
+baseline,"L-b 46°S, lon ≤ -68.0",per,< 1964,586,120,0.20477815699658702
+baseline,"L-b 46°S, lon ≤ -68.0",band,-52–-50°S,1,0,0.0
+baseline,"L-b 46°S, lon ≤ -68.0",band,14–16°S,519,124,0.23892100192678228
+baseline,"L-b 46°S, lon ≤ -68.0",band,16–18°S,1274,225,0.17660910518053374
+baseline,"L-b 46°S, lon ≤ -68.0",band,18–20°S,1330,94,0.07067669172932331
+baseline,"L-b 46°S, lon ≤ -68.0",band,20–22°S,2124,102,0.0480225988700565
+baseline,"L-b 46°S, lon ≤ -68.0",band,22–24°S,2546,203,0.07973291437549096
+baseline,"L-b 46°S, lon ≤ -68.0",band,24–26°S,1619,168,0.10376775787523163
+baseline,"L-b 46°S, lon ≤ -68.0",band,26–28°S,1078,154,0.14285714285714285
+baseline,"L-b 46°S, lon ≤ -68.0",band,28–30°S,1384,89,0.06430635838150289
+baseline,"L-b 46°S, lon ≤ -68.0",band,30–32°S,2628,204,0.0776255707762557
+baseline,"L-b 46°S, lon ≤ -68.0",band,32–34°S,1909,203,0.10633839706652698
+baseline,"L-b 46°S, lon ≤ -68.0",band,34–36°S,1287,202,0.15695415695415696
+baseline,"L-b 46°S, lon ≤ -68.0",band,36–38°S,1067,188,0.17619493908153702
+baseline,"L-b 46°S, lon ≤ -68.0",band,38–40°S,509,142,0.27897838899803534
+baseline,"L-b 46°S, lon ≤ -68.0",band,40–42°S,184,55,0.29891304347826086
+baseline,"L-b 46°S, lon ≤ -68.0",band,42–44°S,137,34,0.24817518248175183
+baseline,"L-b 46°S, lon ≤ -68.0",band,44–46°S,331,150,0.45317220543806647
+baseline,"L-b 46°S, lon ≤ -68.0",band,46–48°S,30,15,0.5
+baseline,"L-b 46°S, lon ≤ -68.0",band,48–50°S,15,4,0.26666666666666666
+baseline,"L-b 46°S, lon ≤ -68.0",band,50–52°S,35,18,0.5142857142857142
+baseline,"L-b 46°S, lon ≤ -68.0",band,52–54°S,26,16,0.6153846153846154
+baseline,"L-b 46°S, lon ≤ -68.0",band,54–56°S,10,6,0.6
+baseline,"L-b 46°S, lon ≤ -68.0",band,56–58°S,171,145,0.847953216374269
+baseline,"L-b 46°S, lon ≤ -68.0",band,58–60°S,3,1,0.3333333333333333
+baseline,"L-b 46°S, lon ≤ -68.0",setting,arc,3860,190,0.04922279792746114
+baseline,"L-b 46°S, lon ≤ -68.0",setting,backarc,4557,412,0.09041035769146369
+baseline,"L-b 46°S, lon ≤ -68.0",setting,coast,3467,429,0.12373810210556677
+baseline,"L-b 46°S, lon ≤ -68.0",setting,forearc,2753,267,0.09698510715583
+baseline,"L-b 46°S, lon ≤ -68.0",setting,offshore,4497,873,0.1941294196130754
+baseline,"L-b 46°S, lon ≤ -68.0",setting,outer rise,1083,371,0.3425669436749769
+baseline,L-c,per,1964–1975,1651,495,0.29981829194427617
+baseline,L-c,per,1976–1999,5183,734,0.14161682423306965
+baseline,L-c,per,2000–2014,7443,678,0.09109230149133414
+baseline,L-c,per,2015 on,5354,386,0.07209562943593575
+baseline,L-c,per,< 1964,586,120,0.20477815699658702
+baseline,L-c,band,-52–-50°S,1,0,0.0
+baseline,L-c,band,14–16°S,519,124,0.23892100192678228
+baseline,L-c,band,16–18°S,1274,224,0.17582417582417584
+baseline,L-c,band,18–20°S,1330,94,0.07067669172932331
+baseline,L-c,band,20–22°S,2124,97,0.04566854990583804
+baseline,L-c,band,22–24°S,2546,148,0.05813040062843677
+baseline,L-c,band,24–26°S,1619,149,0.09203211859172329
+baseline,L-c,band,26–28°S,1078,142,0.13172541743970315
+baseline,L-c,band,28–30°S,1384,83,0.05997109826589595
+baseline,L-c,band,30–32°S,2628,186,0.07077625570776255
+baseline,L-c,band,32–34°S,1909,199,0.10424305919329492
+baseline,L-c,band,34–36°S,1287,198,0.15384615384615385
+baseline,L-c,band,36–38°S,1067,188,0.17619493908153702
+baseline,L-c,band,38–40°S,509,142,0.27897838899803534
+baseline,L-c,band,40–42°S,184,55,0.29891304347826086
+baseline,L-c,band,42–44°S,137,34,0.24817518248175183
+baseline,L-c,band,44–46°S,331,150,0.45317220543806647
+baseline,L-c,band,46–48°S,30,15,0.5
+baseline,L-c,band,48–50°S,15,4,0.26666666666666666
+baseline,L-c,band,50–52°S,35,17,0.4857142857142857
+baseline,L-c,band,52–54°S,26,16,0.6153846153846154
+baseline,L-c,band,54–56°S,10,6,0.6
+baseline,L-c,band,56–58°S,171,141,0.8245614035087719
+baseline,L-c,band,58–60°S,3,1,0.3333333333333333
+baseline,L-c,setting,arc,3860,190,0.04922279792746114
+baseline,L-c,setting,backarc,4557,289,0.06341891595347816
+baseline,L-c,setting,coast,3467,429,0.12373810210556677
+baseline,L-c,setting,forearc,2753,266,0.09662186705412278
+baseline,L-c,setting,offshore,4497,868,0.19301756726706693
+baseline,L-c,setting,outer rise,1083,371,0.3425669436749769
+baseline,L-d,per,1964–1975,1651,495,0.29981829194427617
+baseline,L-d,per,1976–1999,5183,734,0.14161682423306965
+baseline,L-d,per,2000–2014,7443,678,0.09109230149133414
+baseline,L-d,per,2015 on,5354,386,0.07209562943593575
+baseline,L-d,per,< 1964,586,120,0.20477815699658702
+baseline,L-d,band,-52–-50°S,1,0,0.0
+baseline,L-d,band,14–16°S,519,124,0.23892100192678228
+baseline,L-d,band,16–18°S,1274,224,0.17582417582417584
+baseline,L-d,band,18–20°S,1330,94,0.07067669172932331
+baseline,L-d,band,20–22°S,2124,97,0.04566854990583804
+baseline,L-d,band,22–24°S,2546,148,0.05813040062843677
+baseline,L-d,band,24–26°S,1619,149,0.09203211859172329
+baseline,L-d,band,26–28°S,1078,142,0.13172541743970315
+baseline,L-d,band,28–30°S,1384,83,0.05997109826589595
+baseline,L-d,band,30–32°S,2628,186,0.07077625570776255
+baseline,L-d,band,32–34°S,1909,199,0.10424305919329492
+baseline,L-d,band,34–36°S,1287,198,0.15384615384615385
+baseline,L-d,band,36–38°S,1067,188,0.17619493908153702
+baseline,L-d,band,38–40°S,509,142,0.27897838899803534
+baseline,L-d,band,40–42°S,184,55,0.29891304347826086
+baseline,L-d,band,42–44°S,137,34,0.24817518248175183
+baseline,L-d,band,44–46°S,331,150,0.45317220543806647
+baseline,L-d,band,46–48°S,30,15,0.5
+baseline,L-d,band,48–50°S,15,4,0.26666666666666666
+baseline,L-d,band,50–52°S,35,17,0.4857142857142857
+baseline,L-d,band,52–54°S,26,16,0.6153846153846154
+baseline,L-d,band,54–56°S,10,6,0.6
+baseline,L-d,band,56–58°S,171,141,0.8245614035087719
+baseline,L-d,band,58–60°S,3,1,0.3333333333333333
+baseline,L-d,setting,arc,3860,190,0.04922279792746114
+baseline,L-d,setting,backarc,4557,289,0.06341891595347816
+baseline,L-d,setting,coast,3467,429,0.12373810210556677
+baseline,L-d,setting,forearc,2753,266,0.09662186705412278
+baseline,L-d,setting,offshore,4497,868,0.19301756726706693
+baseline,L-d,setting,outer rise,1083,371,0.3425669436749769
+nb_order,L-a,per,1964–1975,1651,495,0.29981829194427617
+nb_order,L-a,per,1976–1999,5121,734,0.14333138058972858
+nb_order,L-a,per,2000–2014,7228,671,0.09283342556723852
+nb_order,L-a,per,2015 on,5281,380,0.07195606892633971
+nb_order,L-a,per,< 1964,584,118,0.20205479452054795
+nb_order,L-a,band,-52–-50°S,1,0,0.0
+nb_order,L-a,band,14–16°S,519,124,0.23892100192678228
+nb_order,L-a,band,16–18°S,1270,224,0.1763779527559055
+nb_order,L-a,band,18–20°S,1309,92,0.07028265851795264
+nb_order,L-a,band,20–22°S,2098,97,0.046234509056244044
+nb_order,L-a,band,22–24°S,2505,146,0.058283433133732535
+nb_order,L-a,band,24–26°S,1590,147,0.09245283018867924
+nb_order,L-a,band,26–28°S,1061,139,0.13100848256361922
+nb_order,L-a,band,28–30°S,1355,82,0.06051660516605166
+nb_order,L-a,band,30–32°S,2554,185,0.07243539545810493
+nb_order,L-a,band,32–34°S,1895,199,0.10501319261213721
+nb_order,L-a,band,34–36°S,1257,196,0.15592680986475735
+nb_order,L-a,band,36–38°S,1023,188,0.18377321603128055
+nb_order,L-a,band,38–40°S,494,142,0.2874493927125506
+nb_order,L-a,band,40–42°S,180,55,0.3055555555555556
+nb_order,L-a,band,42–44°S,136,34,0.25
+nb_order,L-a,band,44–46°S,330,150,0.45454545454545453
+nb_order,L-a,band,46–48°S,30,15,0.5
+nb_order,L-a,band,48–50°S,14,3,0.21428571428571427
+nb_order,L-a,band,50–52°S,35,17,0.4857142857142857
+nb_order,L-a,band,52–54°S,26,16,0.6153846153846154
+nb_order,L-a,band,54–56°S,10,6,0.6
+nb_order,L-a,band,56–58°S,170,140,0.8235294117647058
+nb_order,L-a,band,58–60°S,3,1,0.3333333333333333
+nb_order,L-a,setting,arc,3823,190,0.04969918911849333
+nb_order,L-a,setting,backarc,4443,284,0.06392077425163178
+nb_order,L-a,setting,coast,3388,427,0.12603305785123967
+nb_order,L-a,setting,forearc,2721,265,0.09739066519661889
+nb_order,L-a,setting,offshore,4418,863,0.1953372566772295
+nb_order,L-a,setting,outer rise,1072,369,0.34421641791044777
+nb_order,L-b 44°S,per,1964–1975,1651,495,0.29981829194427617
+nb_order,L-b 44°S,per,1976–1999,5121,737,0.14391720367115798
+nb_order,L-b 44°S,per,2000–2014,7228,726,0.10044272274488102
+nb_order,L-b 44°S,per,2015 on,5281,395,0.0747964400681689
+nb_order,L-b 44°S,per,< 1964,584,118,0.20205479452054795
+nb_order,L-b 44°S,band,-52–-50°S,1,0,0.0
+nb_order,L-b 44°S,band,14–16°S,519,124,0.23892100192678228
+nb_order,L-b 44°S,band,16–18°S,1270,224,0.1763779527559055
+nb_order,L-b 44°S,band,18–20°S,1309,92,0.07028265851795264
+nb_order,L-b 44°S,band,20–22°S,2098,98,0.04671115347950429
+nb_order,L-b 44°S,band,22–24°S,2505,167,0.06666666666666667
+nb_order,L-b 44°S,band,24–26°S,1590,154,0.09685534591194969
+nb_order,L-b 44°S,band,26–28°S,1061,149,0.14043355325164938
+nb_order,L-b 44°S,band,28–30°S,1355,87,0.06420664206642067
+nb_order,L-b 44°S,band,30–32°S,2554,201,0.07870007830853563
+nb_order,L-b 44°S,band,32–34°S,1895,200,0.10554089709762533
+nb_order,L-b 44°S,band,34–36°S,1257,197,0.15672235481304694
+nb_order,L-b 44°S,band,36–38°S,1023,188,0.18377321603128055
+nb_order,L-b 44°S,band,38–40°S,494,142,0.2874493927125506
+nb_order,L-b 44°S,band,40–42°S,180,55,0.3055555555555556
+nb_order,L-b 44°S,band,42–44°S,136,34,0.25
+nb_order,L-b 44°S,band,44–46°S,330,156,0.4727272727272727
+nb_order,L-b 44°S,band,46–48°S,30,15,0.5
+nb_order,L-b 44°S,band,48–50°S,14,3,0.21428571428571427
+nb_order,L-b 44°S,band,50–52°S,35,18,0.5142857142857142
+nb_order,L-b 44°S,band,52–54°S,26,16,0.6153846153846154
+nb_order,L-b 44°S,band,54–56°S,10,6,0.6
+nb_order,L-b 44°S,band,56–58°S,170,144,0.8470588235294118
+nb_order,L-b 44°S,band,58–60°S,3,1,0.3333333333333333
+nb_order,L-b 44°S,setting,arc,3823,190,0.04969918911849333
+nb_order,L-b 44°S,setting,backarc,4443,346,0.07787530947557957
+nb_order,L-b 44°S,setting,coast,3388,429,0.1266233766233766
+nb_order,L-b 44°S,setting,forearc,2721,266,0.09775817714075707
+nb_order,L-b 44°S,setting,offshore,4418,868,0.19646899049343594
+nb_order,L-b 44°S,setting,outer rise,1072,372,0.34701492537313433
+nb_order,"L-b 44°S, lon ≤ -68.0",per,1964–1975,1651,495,0.29981829194427617
+nb_order,"L-b 44°S, lon ≤ -68.0",per,1976–1999,5121,735,0.14352665495020503
+nb_order,"L-b 44°S, lon ≤ -68.0",per,2000–2014,7228,722,0.09988931931377974
+nb_order,"L-b 44°S, lon ≤ -68.0",per,2015 on,5281,395,0.0747964400681689
+nb_order,"L-b 44°S, lon ≤ -68.0",per,< 1964,584,118,0.20205479452054795
+nb_order,"L-b 44°S, lon ≤ -68.0",band,-52–-50°S,1,0,0.0
+nb_order,"L-b 44°S, lon ≤ -68.0",band,14–16°S,519,124,0.23892100192678228
+nb_order,"L-b 44°S, lon ≤ -68.0",band,16–18°S,1270,224,0.1763779527559055
+nb_order,"L-b 44°S, lon ≤ -68.0",band,18–20°S,1309,92,0.07028265851795264
+nb_order,"L-b 44°S, lon ≤ -68.0",band,20–22°S,2098,98,0.04671115347950429
+nb_order,"L-b 44°S, lon ≤ -68.0",band,22–24°S,2505,167,0.06666666666666667
+nb_order,"L-b 44°S, lon ≤ -68.0",band,24–26°S,1590,153,0.09622641509433963
+nb_order,"L-b 44°S, lon ≤ -68.0",band,26–28°S,1061,149,0.14043355325164938
+nb_order,"L-b 44°S, lon ≤ -68.0",band,28–30°S,1355,86,0.06346863468634686
+nb_order,"L-b 44°S, lon ≤ -68.0",band,30–32°S,2554,198,0.07752545027407988
+nb_order,"L-b 44°S, lon ≤ -68.0",band,32–34°S,1895,199,0.10501319261213721
+nb_order,"L-b 44°S, lon ≤ -68.0",band,34–36°S,1257,197,0.15672235481304694
+nb_order,"L-b 44°S, lon ≤ -68.0",band,36–38°S,1023,188,0.18377321603128055
+nb_order,"L-b 44°S, lon ≤ -68.0",band,38–40°S,494,142,0.2874493927125506
+nb_order,"L-b 44°S, lon ≤ -68.0",band,40–42°S,180,55,0.3055555555555556
+nb_order,"L-b 44°S, lon ≤ -68.0",band,42–44°S,136,34,0.25
+nb_order,"L-b 44°S, lon ≤ -68.0",band,44–46°S,330,156,0.4727272727272727
+nb_order,"L-b 44°S, lon ≤ -68.0",band,46–48°S,30,15,0.5
+nb_order,"L-b 44°S, lon ≤ -68.0",band,48–50°S,14,3,0.21428571428571427
+nb_order,"L-b 44°S, lon ≤ -68.0",band,50–52°S,35,18,0.5142857142857142
+nb_order,"L-b 44°S, lon ≤ -68.0",band,52–54°S,26,16,0.6153846153846154
+nb_order,"L-b 44°S, lon ≤ -68.0",band,54–56°S,10,6,0.6
+nb_order,"L-b 44°S, lon ≤ -68.0",band,56–58°S,170,144,0.8470588235294118
+nb_order,"L-b 44°S, lon ≤ -68.0",band,58–60°S,3,1,0.3333333333333333
+nb_order,"L-b 44°S, lon ≤ -68.0",setting,arc,3823,190,0.04969918911849333
+nb_order,"L-b 44°S, lon ≤ -68.0",setting,backarc,4443,340,0.07652487058293946
+nb_order,"L-b 44°S, lon ≤ -68.0",setting,coast,3388,429,0.1266233766233766
+nb_order,"L-b 44°S, lon ≤ -68.0",setting,forearc,2721,266,0.09775817714075707
+nb_order,"L-b 44°S, lon ≤ -68.0",setting,offshore,4418,868,0.19646899049343594
+nb_order,"L-b 44°S, lon ≤ -68.0",setting,outer rise,1072,372,0.34701492537313433
+nb_order,L-b 46°S,per,1964–1975,1651,495,0.29981829194427617
+nb_order,L-b 46°S,per,1976–1999,5121,737,0.14391720367115798
+nb_order,L-b 46°S,per,2000–2014,7228,725,0.1003043718871057
+nb_order,L-b 46°S,per,2015 on,5281,390,0.07384964968755918
+nb_order,L-b 46°S,per,< 1964,584,118,0.20205479452054795
+nb_order,L-b 46°S,band,-52–-50°S,1,0,0.0
+nb_order,L-b 46°S,band,14–16°S,519,124,0.23892100192678228
+nb_order,L-b 46°S,band,16–18°S,1270,224,0.1763779527559055
+nb_order,L-b 46°S,band,18–20°S,1309,92,0.07028265851795264
+nb_order,L-b 46°S,band,20–22°S,2098,98,0.04671115347950429
+nb_order,L-b 46°S,band,22–24°S,2505,167,0.06666666666666667
+nb_order,L-b 46°S,band,24–26°S,1590,154,0.09685534591194969
+nb_order,L-b 46°S,band,26–28°S,1061,149,0.14043355325164938
+nb_order,L-b 46°S,band,28–30°S,1355,87,0.06420664206642067
+nb_order,L-b 46°S,band,30–32°S,2554,201,0.07870007830853563
+nb_order,L-b 46°S,band,32–34°S,1895,200,0.10554089709762533
+nb_order,L-b 46°S,band,34–36°S,1257,197,0.15672235481304694
+nb_order,L-b 46°S,band,36–38°S,1023,188,0.18377321603128055
+nb_order,L-b 46°S,band,38–40°S,494,142,0.2874493927125506
+nb_order,L-b 46°S,band,40–42°S,180,55,0.3055555555555556
+nb_order,L-b 46°S,band,42–44°S,136,34,0.25
+nb_order,L-b 46°S,band,44–46°S,330,150,0.45454545454545453
+nb_order,L-b 46°S,band,46–48°S,30,15,0.5
+nb_order,L-b 46°S,band,48–50°S,14,3,0.21428571428571427
+nb_order,L-b 46°S,band,50–52°S,35,18,0.5142857142857142
+nb_order,L-b 46°S,band,52–54°S,26,16,0.6153846153846154
+nb_order,L-b 46°S,band,54–56°S,10,6,0.6
+nb_order,L-b 46°S,band,56–58°S,170,144,0.8470588235294118
+nb_order,L-b 46°S,band,58–60°S,3,1,0.3333333333333333
+nb_order,L-b 46°S,setting,arc,3823,190,0.04969918911849333
+nb_order,L-b 46°S,setting,backarc,4443,346,0.07787530947557957
+nb_order,L-b 46°S,setting,coast,3388,427,0.12603305785123967
+nb_order,L-b 46°S,setting,forearc,2721,266,0.09775817714075707
+nb_order,L-b 46°S,setting,offshore,4418,867,0.19624264373019465
+nb_order,L-b 46°S,setting,outer rise,1072,369,0.34421641791044777
+nb_order,"L-b 46°S, lon ≤ -68.0",per,1964–1975,1651,495,0.29981829194427617
+nb_order,"L-b 46°S, lon ≤ -68.0",per,1976–1999,5121,735,0.14352665495020503
+nb_order,"L-b 46°S, lon ≤ -68.0",per,2000–2014,7228,721,0.09975096845600442
+nb_order,"L-b 46°S, lon ≤ -68.0",per,2015 on,5281,390,0.07384964968755918
+nb_order,"L-b 46°S, lon ≤ -68.0",per,< 1964,584,118,0.20205479452054795
+nb_order,"L-b 46°S, lon ≤ -68.0",band,-52–-50°S,1,0,0.0
+nb_order,"L-b 46°S, lon ≤ -68.0",band,14–16°S,519,124,0.23892100192678228
+nb_order,"L-b 46°S, lon ≤ -68.0",band,16–18°S,1270,224,0.1763779527559055
+nb_order,"L-b 46°S, lon ≤ -68.0",band,18–20°S,1309,92,0.07028265851795264
+nb_order,"L-b 46°S, lon ≤ -68.0",band,20–22°S,2098,98,0.04671115347950429
+nb_order,"L-b 46°S, lon ≤ -68.0",band,22–24°S,2505,167,0.06666666666666667
+nb_order,"L-b 46°S, lon ≤ -68.0",band,24–26°S,1590,153,0.09622641509433963
+nb_order,"L-b 46°S, lon ≤ -68.0",band,26–28°S,1061,149,0.14043355325164938
+nb_order,"L-b 46°S, lon ≤ -68.0",band,28–30°S,1355,86,0.06346863468634686
+nb_order,"L-b 46°S, lon ≤ -68.0",band,30–32°S,2554,198,0.07752545027407988
+nb_order,"L-b 46°S, lon ≤ -68.0",band,32–34°S,1895,199,0.10501319261213721
+nb_order,"L-b 46°S, lon ≤ -68.0",band,34–36°S,1257,197,0.15672235481304694
+nb_order,"L-b 46°S, lon ≤ -68.0",band,36–38°S,1023,188,0.18377321603128055
+nb_order,"L-b 46°S, lon ≤ -68.0",band,38–40°S,494,142,0.2874493927125506
+nb_order,"L-b 46°S, lon ≤ -68.0",band,40–42°S,180,55,0.3055555555555556
+nb_order,"L-b 46°S, lon ≤ -68.0",band,42–44°S,136,34,0.25
+nb_order,"L-b 46°S, lon ≤ -68.0",band,44–46°S,330,150,0.45454545454545453
+nb_order,"L-b 46°S, lon ≤ -68.0",band,46–48°S,30,15,0.5
+nb_order,"L-b 46°S, lon ≤ -68.0",band,48–50°S,14,3,0.21428571428571427
+nb_order,"L-b 46°S, lon ≤ -68.0",band,50–52°S,35,18,0.5142857142857142
+nb_order,"L-b 46°S, lon ≤ -68.0",band,52–54°S,26,16,0.6153846153846154
+nb_order,"L-b 46°S, lon ≤ -68.0",band,54–56°S,10,6,0.6
+nb_order,"L-b 46°S, lon ≤ -68.0",band,56–58°S,170,144,0.8470588235294118
+nb_order,"L-b 46°S, lon ≤ -68.0",band,58–60°S,3,1,0.3333333333333333
+nb_order,"L-b 46°S, lon ≤ -68.0",setting,arc,3823,190,0.04969918911849333
+nb_order,"L-b 46°S, lon ≤ -68.0",setting,backarc,4443,340,0.07652487058293946
+nb_order,"L-b 46°S, lon ≤ -68.0",setting,coast,3388,427,0.12603305785123967
+nb_order,"L-b 46°S, lon ≤ -68.0",setting,forearc,2721,266,0.09775817714075707
+nb_order,"L-b 46°S, lon ≤ -68.0",setting,offshore,4418,867,0.19624264373019465
+nb_order,"L-b 46°S, lon ≤ -68.0",setting,outer rise,1072,369,0.34421641791044777
+nb_order,L-c,per,1964–1975,1651,495,0.29981829194427617
+nb_order,L-c,per,1976–1999,5121,734,0.14333138058972858
+nb_order,L-c,per,2000–2014,7228,671,0.09283342556723852
+nb_order,L-c,per,2015 on,5281,380,0.07195606892633971
+nb_order,L-c,per,< 1964,584,118,0.20205479452054795
+nb_order,L-c,band,-52–-50°S,1,0,0.0
+nb_order,L-c,band,14–16°S,519,124,0.23892100192678228
+nb_order,L-c,band,16–18°S,1270,224,0.1763779527559055
+nb_order,L-c,band,18–20°S,1309,92,0.07028265851795264
+nb_order,L-c,band,20–22°S,2098,97,0.046234509056244044
+nb_order,L-c,band,22–24°S,2505,146,0.058283433133732535
+nb_order,L-c,band,24–26°S,1590,147,0.09245283018867924
+nb_order,L-c,band,26–28°S,1061,139,0.13100848256361922
+nb_order,L-c,band,28–30°S,1355,82,0.06051660516605166
+nb_order,L-c,band,30–32°S,2554,185,0.07243539545810493
+nb_order,L-c,band,32–34°S,1895,199,0.10501319261213721
+nb_order,L-c,band,34–36°S,1257,196,0.15592680986475735
+nb_order,L-c,band,36–38°S,1023,188,0.18377321603128055
+nb_order,L-c,band,38–40°S,494,142,0.2874493927125506
+nb_order,L-c,band,40–42°S,180,55,0.3055555555555556
+nb_order,L-c,band,42–44°S,136,34,0.25
+nb_order,L-c,band,44–46°S,330,150,0.45454545454545453
+nb_order,L-c,band,46–48°S,30,15,0.5
+nb_order,L-c,band,48–50°S,14,3,0.21428571428571427
+nb_order,L-c,band,50–52°S,35,17,0.4857142857142857
+nb_order,L-c,band,52–54°S,26,16,0.6153846153846154
+nb_order,L-c,band,54–56°S,10,6,0.6
+nb_order,L-c,band,56–58°S,170,140,0.8235294117647058
+nb_order,L-c,band,58–60°S,3,1,0.3333333333333333
+nb_order,L-c,setting,arc,3823,190,0.04969918911849333
+nb_order,L-c,setting,backarc,4443,284,0.06392077425163178
+nb_order,L-c,setting,coast,3388,427,0.12603305785123967
+nb_order,L-c,setting,forearc,2721,265,0.09739066519661889
+nb_order,L-c,setting,offshore,4418,863,0.1953372566772295
+nb_order,L-c,setting,outer rise,1072,369,0.34421641791044777
+nb_order,L-d,per,1964–1975,1651,495,0.29981829194427617
+nb_order,L-d,per,1976–1999,5121,734,0.14333138058972858
+nb_order,L-d,per,2000–2014,7228,671,0.09283342556723852
+nb_order,L-d,per,2015 on,5281,380,0.07195606892633971
+nb_order,L-d,per,< 1964,584,118,0.20205479452054795
+nb_order,L-d,band,-52–-50°S,1,0,0.0
+nb_order,L-d,band,14–16°S,519,124,0.23892100192678228
+nb_order,L-d,band,16–18°S,1270,224,0.1763779527559055
+nb_order,L-d,band,18–20°S,1309,92,0.07028265851795264
+nb_order,L-d,band,20–22°S,2098,97,0.046234509056244044
+nb_order,L-d,band,22–24°S,2505,146,0.058283433133732535
+nb_order,L-d,band,24–26°S,1590,147,0.09245283018867924
+nb_order,L-d,band,26–28°S,1061,139,0.13100848256361922
+nb_order,L-d,band,28–30°S,1355,82,0.06051660516605166
+nb_order,L-d,band,30–32°S,2554,185,0.07243539545810493
+nb_order,L-d,band,32–34°S,1895,199,0.10501319261213721
+nb_order,L-d,band,34–36°S,1257,196,0.15592680986475735
+nb_order,L-d,band,36–38°S,1023,188,0.18377321603128055
+nb_order,L-d,band,38–40°S,494,142,0.2874493927125506
+nb_order,L-d,band,40–42°S,180,55,0.3055555555555556
+nb_order,L-d,band,42–44°S,136,34,0.25
+nb_order,L-d,band,44–46°S,330,150,0.45454545454545453
+nb_order,L-d,band,46–48°S,30,15,0.5
+nb_order,L-d,band,48–50°S,14,3,0.21428571428571427
+nb_order,L-d,band,50–52°S,35,17,0.4857142857142857
+nb_order,L-d,band,52–54°S,26,16,0.6153846153846154
+nb_order,L-d,band,54–56°S,10,6,0.6
+nb_order,L-d,band,56–58°S,170,140,0.8235294117647058
+nb_order,L-d,band,58–60°S,3,1,0.3333333333333333
+nb_order,L-d,setting,arc,3823,190,0.04969918911849333
+nb_order,L-d,setting,backarc,4443,284,0.06392077425163178
+nb_order,L-d,setting,coast,3388,427,0.12603305785123967
+nb_order,L-d,setting,forearc,2721,265,0.09739066519661889
+nb_order,L-d,setting,offshore,4418,863,0.1953372566772295
+nb_order,L-d,setting,outer rise,1072,369,0.34421641791044777
+nb_calibrated,L-a,per,1964–1975,1651,495,0.29981829194427617
+nb_calibrated,L-a,per,1976–1999,5150,731,0.14194174757281552
+nb_calibrated,L-a,per,2000–2014,7356,672,0.09135399673735727
+nb_calibrated,L-a,per,2015 on,5335,383,0.07179006560449859
+nb_calibrated,L-a,per,< 1964,585,119,0.20341880341880342
+nb_calibrated,L-a,band,-52–-50°S,1,0,0.0
+nb_calibrated,L-a,band,14–16°S,519,124,0.23892100192678228
+nb_calibrated,L-a,band,16–18°S,1272,224,0.1761006289308176
+nb_calibrated,L-a,band,18–20°S,1329,94,0.07072987208427389
+nb_calibrated,L-a,band,20–22°S,2117,97,0.04581955597543694
+nb_calibrated,L-a,band,22–24°S,2526,146,0.05779889152810768
+nb_calibrated,L-a,band,24–26°S,1601,148,0.0924422236102436
+nb_calibrated,L-a,band,26–28°S,1075,140,0.13023255813953488
+nb_calibrated,L-a,band,28–30°S,1367,80,0.058522311631309436
+nb_calibrated,L-a,band,30–32°S,2597,185,0.0712360415864459
+nb_calibrated,L-a,band,32–34°S,1904,199,0.10451680672268908
+nb_calibrated,L-a,band,34–36°S,1278,198,0.15492957746478872
+nb_calibrated,L-a,band,36–38°S,1051,188,0.17887725975261656
+nb_calibrated,L-a,band,38–40°S,504,141,0.27976190476190477
+nb_calibrated,L-a,band,40–42°S,182,55,0.3021978021978022
+nb_calibrated,L-a,band,42–44°S,136,34,0.25
+nb_calibrated,L-a,band,44–46°S,330,149,0.45151515151515154
+nb_calibrated,L-a,band,46–48°S,30,15,0.5
+nb_calibrated,L-a,band,48–50°S,15,4,0.26666666666666666
+nb_calibrated,L-a,band,50–52°S,35,17,0.4857142857142857
+nb_calibrated,L-a,band,52–54°S,26,16,0.6153846153846154
+nb_calibrated,L-a,band,54–56°S,10,6,0.6
+nb_calibrated,L-a,band,56–58°S,169,139,0.8224852071005917
+nb_calibrated,L-a,band,58–60°S,3,1,0.3333333333333333
+nb_calibrated,L-a,setting,arc,3857,190,0.04926108374384237
+nb_calibrated,L-a,setting,backarc,4494,283,0.06297285269247886
+nb_calibrated,L-a,setting,coast,3432,427,0.12441724941724942
+nb_calibrated,L-a,setting,forearc,2743,266,0.09697411593146191
+nb_calibrated,L-a,setting,offshore,4472,864,0.19320214669051877
+nb_calibrated,L-a,setting,outer rise,1079,370,0.34291010194624655
+nb_calibrated,L-b 44°S,per,1964–1975,1651,495,0.29981829194427617
+nb_calibrated,L-b 44°S,per,1976–1999,5150,741,0.14388349514563106
+nb_calibrated,L-b 44°S,per,2000–2014,7356,756,0.10277324632952692
+nb_calibrated,L-b 44°S,per,2015 on,5335,397,0.07441424554826617
+nb_calibrated,L-b 44°S,per,< 1964,585,119,0.20341880341880342
+nb_calibrated,L-b 44°S,band,-52–-50°S,1,0,0.0
+nb_calibrated,L-b 44°S,band,14–16°S,519,124,0.23892100192678228
+nb_calibrated,L-b 44°S,band,16–18°S,1272,224,0.1761006289308176
+nb_calibrated,L-b 44°S,band,18–20°S,1329,94,0.07072987208427389
+nb_calibrated,L-b 44°S,band,20–22°S,2117,99,0.04676428908833254
+nb_calibrated,L-b 44°S,band,22–24°S,2526,176,0.06967537608867776
+nb_calibrated,L-b 44°S,band,24–26°S,1601,159,0.09931292941911306
+nb_calibrated,L-b 44°S,band,26–28°S,1075,153,0.14232558139534884
+nb_calibrated,L-b 44°S,band,28–30°S,1367,87,0.06364301389904901
+nb_calibrated,L-b 44°S,band,30–32°S,2597,206,0.07932229495571813
+nb_calibrated,L-b 44°S,band,32–34°S,1904,205,0.10766806722689076
+nb_calibrated,L-b 44°S,band,34–36°S,1278,203,0.15884194053208137
+nb_calibrated,L-b 44°S,band,36–38°S,1051,189,0.17982873453853473
+nb_calibrated,L-b 44°S,band,38–40°S,504,141,0.27976190476190477
+nb_calibrated,L-b 44°S,band,40–42°S,182,55,0.3021978021978022
+nb_calibrated,L-b 44°S,band,42–44°S,136,34,0.25
+nb_calibrated,L-b 44°S,band,44–46°S,330,156,0.4727272727272727
+nb_calibrated,L-b 44°S,band,46–48°S,30,15,0.5
+nb_calibrated,L-b 44°S,band,48–50°S,15,4,0.26666666666666666
+nb_calibrated,L-b 44°S,band,50–52°S,35,18,0.5142857142857142
+nb_calibrated,L-b 44°S,band,52–54°S,26,16,0.6153846153846154
+nb_calibrated,L-b 44°S,band,54–56°S,10,6,0.6
+nb_calibrated,L-b 44°S,band,56–58°S,169,143,0.8461538461538461
+nb_calibrated,L-b 44°S,band,58–60°S,3,1,0.3333333333333333
+nb_calibrated,L-b 44°S,setting,arc,3857,190,0.04926108374384237
+nb_calibrated,L-b 44°S,setting,backarc,4494,379,0.08433466844681797
+nb_calibrated,L-b 44°S,setting,coast,3432,430,0.1252913752913753
+nb_calibrated,L-b 44°S,setting,forearc,2743,267,0.0973386802770689
+nb_calibrated,L-b 44°S,setting,offshore,4472,869,0.1943202146690519
+nb_calibrated,L-b 44°S,setting,outer rise,1079,373,0.3456904541241891
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",per,1964–1975,1651,495,0.29981829194427617
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",per,1976–1999,5150,734,0.14252427184466018
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",per,2000–2014,7356,744,0.10114192495921696
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",per,2015 on,5335,397,0.07441424554826617
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",per,< 1964,585,119,0.20341880341880342
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,-52–-50°S,1,0,0.0
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,14–16°S,519,124,0.23892100192678228
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,16–18°S,1272,224,0.1761006289308176
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,18–20°S,1329,94,0.07072987208427389
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,20–22°S,2117,99,0.04676428908833254
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,22–24°S,2526,176,0.06967537608867776
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,24–26°S,1601,158,0.09868831980012492
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,26–28°S,1075,151,0.14046511627906977
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,28–30°S,1367,84,0.061448427212874905
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,30–32°S,2597,198,0.07624181748170966
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,32–34°S,1904,202,0.10609243697478991
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,34–36°S,1278,202,0.15805946791862285
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,36–38°S,1051,188,0.17887725975261656
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,38–40°S,504,141,0.27976190476190477
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,40–42°S,182,55,0.3021978021978022
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,42–44°S,136,34,0.25
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,44–46°S,330,156,0.4727272727272727
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,46–48°S,30,15,0.5
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,48–50°S,15,4,0.26666666666666666
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,50–52°S,35,18,0.5142857142857142
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,52–54°S,26,16,0.6153846153846154
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,54–56°S,10,6,0.6
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,56–58°S,169,143,0.8461538461538461
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",band,58–60°S,3,1,0.3333333333333333
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",setting,arc,3857,190,0.04926108374384237
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",setting,backarc,4494,360,0.0801068090787717
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",setting,coast,3432,430,0.1252913752913753
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",setting,forearc,2743,267,0.0973386802770689
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",setting,offshore,4472,869,0.1943202146690519
+nb_calibrated,"L-b 44°S, lon ≤ -68.0",setting,outer rise,1079,373,0.3456904541241891
+nb_calibrated,L-b 46°S,per,1964–1975,1651,495,0.29981829194427617
+nb_calibrated,L-b 46°S,per,1976–1999,5150,741,0.14388349514563106
+nb_calibrated,L-b 46°S,per,2000–2014,7356,754,0.10250135943447526
+nb_calibrated,L-b 46°S,per,2015 on,5335,392,0.07347703842549204
+nb_calibrated,L-b 46°S,per,< 1964,585,119,0.20341880341880342
+nb_calibrated,L-b 46°S,band,-52–-50°S,1,0,0.0
+nb_calibrated,L-b 46°S,band,14–16°S,519,124,0.23892100192678228
+nb_calibrated,L-b 46°S,band,16–18°S,1272,224,0.1761006289308176
+nb_calibrated,L-b 46°S,band,18–20°S,1329,94,0.07072987208427389
+nb_calibrated,L-b 46°S,band,20–22°S,2117,99,0.04676428908833254
+nb_calibrated,L-b 46°S,band,22–24°S,2526,176,0.06967537608867776
+nb_calibrated,L-b 46°S,band,24–26°S,1601,159,0.09931292941911306
+nb_calibrated,L-b 46°S,band,26–28°S,1075,153,0.14232558139534884
+nb_calibrated,L-b 46°S,band,28–30°S,1367,87,0.06364301389904901
+nb_calibrated,L-b 46°S,band,30–32°S,2597,206,0.07932229495571813
+nb_calibrated,L-b 46°S,band,32–34°S,1904,205,0.10766806722689076
+nb_calibrated,L-b 46°S,band,34–36°S,1278,203,0.15884194053208137
+nb_calibrated,L-b 46°S,band,36–38°S,1051,189,0.17982873453853473
+nb_calibrated,L-b 46°S,band,38–40°S,504,141,0.27976190476190477
+nb_calibrated,L-b 46°S,band,40–42°S,182,55,0.3021978021978022
+nb_calibrated,L-b 46°S,band,42–44°S,136,34,0.25
+nb_calibrated,L-b 46°S,band,44–46°S,330,149,0.45151515151515154
+nb_calibrated,L-b 46°S,band,46–48°S,30,15,0.5
+nb_calibrated,L-b 46°S,band,48–50°S,15,4,0.26666666666666666
+nb_calibrated,L-b 46°S,band,50–52°S,35,18,0.5142857142857142
+nb_calibrated,L-b 46°S,band,52–54°S,26,16,0.6153846153846154
+nb_calibrated,L-b 46°S,band,54–56°S,10,6,0.6
+nb_calibrated,L-b 46°S,band,56–58°S,169,143,0.8461538461538461
+nb_calibrated,L-b 46°S,band,58–60°S,3,1,0.3333333333333333
+nb_calibrated,L-b 46°S,setting,arc,3857,190,0.04926108374384237
+nb_calibrated,L-b 46°S,setting,backarc,4494,379,0.08433466844681797
+nb_calibrated,L-b 46°S,setting,coast,3432,427,0.12441724941724942
+nb_calibrated,L-b 46°S,setting,forearc,2743,267,0.0973386802770689
+nb_calibrated,L-b 46°S,setting,offshore,4472,868,0.19409660107334525
+nb_calibrated,L-b 46°S,setting,outer rise,1079,370,0.34291010194624655
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",per,1964–1975,1651,495,0.29981829194427617
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",per,1976–1999,5150,734,0.14252427184466018
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",per,2000–2014,7356,742,0.10087003806416531
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",per,2015 on,5335,392,0.07347703842549204
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",per,< 1964,585,119,0.20341880341880342
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,-52–-50°S,1,0,0.0
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,14–16°S,519,124,0.23892100192678228
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,16–18°S,1272,224,0.1761006289308176
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,18–20°S,1329,94,0.07072987208427389
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,20–22°S,2117,99,0.04676428908833254
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,22–24°S,2526,176,0.06967537608867776
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,24–26°S,1601,158,0.09868831980012492
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,26–28°S,1075,151,0.14046511627906977
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,28–30°S,1367,84,0.061448427212874905
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,30–32°S,2597,198,0.07624181748170966
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,32–34°S,1904,202,0.10609243697478991
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,34–36°S,1278,202,0.15805946791862285
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,36–38°S,1051,188,0.17887725975261656
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,38–40°S,504,141,0.27976190476190477
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,40–42°S,182,55,0.3021978021978022
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,42–44°S,136,34,0.25
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,44–46°S,330,149,0.45151515151515154
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,46–48°S,30,15,0.5
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,48–50°S,15,4,0.26666666666666666
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,50–52°S,35,18,0.5142857142857142
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,52–54°S,26,16,0.6153846153846154
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,54–56°S,10,6,0.6
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,56–58°S,169,143,0.8461538461538461
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",band,58–60°S,3,1,0.3333333333333333
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",setting,arc,3857,190,0.04926108374384237
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",setting,backarc,4494,360,0.0801068090787717
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",setting,coast,3432,427,0.12441724941724942
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",setting,forearc,2743,267,0.0973386802770689
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",setting,offshore,4472,868,0.19409660107334525
+nb_calibrated,"L-b 46°S, lon ≤ -68.0",setting,outer rise,1079,370,0.34291010194624655
+nb_calibrated,L-c,per,1964–1975,1651,495,0.29981829194427617
+nb_calibrated,L-c,per,1976–1999,5150,731,0.14194174757281552
+nb_calibrated,L-c,per,2000–2014,7356,672,0.09135399673735727
+nb_calibrated,L-c,per,2015 on,5335,383,0.07179006560449859
+nb_calibrated,L-c,per,< 1964,585,119,0.20341880341880342
+nb_calibrated,L-c,band,-52–-50°S,1,0,0.0
+nb_calibrated,L-c,band,14–16°S,519,124,0.23892100192678228
+nb_calibrated,L-c,band,16–18°S,1272,224,0.1761006289308176
+nb_calibrated,L-c,band,18–20°S,1329,94,0.07072987208427389
+nb_calibrated,L-c,band,20–22°S,2117,97,0.04581955597543694
+nb_calibrated,L-c,band,22–24°S,2526,146,0.05779889152810768
+nb_calibrated,L-c,band,24–26°S,1601,148,0.0924422236102436
+nb_calibrated,L-c,band,26–28°S,1075,140,0.13023255813953488
+nb_calibrated,L-c,band,28–30°S,1367,80,0.058522311631309436
+nb_calibrated,L-c,band,30–32°S,2597,185,0.0712360415864459
+nb_calibrated,L-c,band,32–34°S,1904,199,0.10451680672268908
+nb_calibrated,L-c,band,34–36°S,1278,198,0.15492957746478872
+nb_calibrated,L-c,band,36–38°S,1051,188,0.17887725975261656
+nb_calibrated,L-c,band,38–40°S,504,141,0.27976190476190477
+nb_calibrated,L-c,band,40–42°S,182,55,0.3021978021978022
+nb_calibrated,L-c,band,42–44°S,136,34,0.25
+nb_calibrated,L-c,band,44–46°S,330,149,0.45151515151515154
+nb_calibrated,L-c,band,46–48°S,30,15,0.5
+nb_calibrated,L-c,band,48–50°S,15,4,0.26666666666666666
+nb_calibrated,L-c,band,50–52°S,35,17,0.4857142857142857
+nb_calibrated,L-c,band,52–54°S,26,16,0.6153846153846154
+nb_calibrated,L-c,band,54–56°S,10,6,0.6
+nb_calibrated,L-c,band,56–58°S,169,139,0.8224852071005917
+nb_calibrated,L-c,band,58–60°S,3,1,0.3333333333333333
+nb_calibrated,L-c,setting,arc,3857,190,0.04926108374384237
+nb_calibrated,L-c,setting,backarc,4494,283,0.06297285269247886
+nb_calibrated,L-c,setting,coast,3432,427,0.12441724941724942
+nb_calibrated,L-c,setting,forearc,2743,266,0.09697411593146191
+nb_calibrated,L-c,setting,offshore,4472,864,0.19320214669051877
+nb_calibrated,L-c,setting,outer rise,1079,370,0.34291010194624655
+nb_calibrated,L-d,per,1964–1975,1651,495,0.29981829194427617
+nb_calibrated,L-d,per,1976–1999,5150,731,0.14194174757281552
+nb_calibrated,L-d,per,2000–2014,7356,672,0.09135399673735727
+nb_calibrated,L-d,per,2015 on,5335,383,0.07179006560449859
+nb_calibrated,L-d,per,< 1964,585,119,0.20341880341880342
+nb_calibrated,L-d,band,-52–-50°S,1,0,0.0
+nb_calibrated,L-d,band,14–16°S,519,124,0.23892100192678228
+nb_calibrated,L-d,band,16–18°S,1272,224,0.1761006289308176
+nb_calibrated,L-d,band,18–20°S,1329,94,0.07072987208427389
+nb_calibrated,L-d,band,20–22°S,2117,97,0.04581955597543694
+nb_calibrated,L-d,band,22–24°S,2526,146,0.05779889152810768
+nb_calibrated,L-d,band,24–26°S,1601,148,0.0924422236102436
+nb_calibrated,L-d,band,26–28°S,1075,140,0.13023255813953488
+nb_calibrated,L-d,band,28–30°S,1367,80,0.058522311631309436
+nb_calibrated,L-d,band,30–32°S,2597,185,0.0712360415864459
+nb_calibrated,L-d,band,32–34°S,1904,199,0.10451680672268908
+nb_calibrated,L-d,band,34–36°S,1278,198,0.15492957746478872
+nb_calibrated,L-d,band,36–38°S,1051,188,0.17887725975261656
+nb_calibrated,L-d,band,38–40°S,504,141,0.27976190476190477
+nb_calibrated,L-d,band,40–42°S,182,55,0.3021978021978022
+nb_calibrated,L-d,band,42–44°S,136,34,0.25
+nb_calibrated,L-d,band,44–46°S,330,149,0.45151515151515154
+nb_calibrated,L-d,band,46–48°S,30,15,0.5
+nb_calibrated,L-d,band,48–50°S,15,4,0.26666666666666666
+nb_calibrated,L-d,band,50–52°S,35,17,0.4857142857142857
+nb_calibrated,L-d,band,52–54°S,26,16,0.6153846153846154
+nb_calibrated,L-d,band,54–56°S,10,6,0.6
+nb_calibrated,L-d,band,56–58°S,169,139,0.8224852071005917
+nb_calibrated,L-d,band,58–60°S,3,1,0.3333333333333333
+nb_calibrated,L-d,setting,arc,3857,190,0.04926108374384237
+nb_calibrated,L-d,setting,backarc,4494,283,0.06297285269247886
+nb_calibrated,L-d,setting,coast,3432,427,0.12441724941724942
+nb_calibrated,L-d,setting,forearc,2743,266,0.09697411593146191
+nb_calibrated,L-d,setting,offshore,4472,864,0.19320214669051877
+nb_calibrated,L-d,setting,outer rise,1079,370,0.34291010194624655

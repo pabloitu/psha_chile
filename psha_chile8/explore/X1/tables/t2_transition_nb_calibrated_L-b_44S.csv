@@ -1,0 +1,8 @@
+cls,"above slab, deep","above slab, shallow",below slab,in slab,interface band,outside Slab2,unknown depth
+"above slab, deep",383,8,0,32,0,0,7
+"above slab, shallow",19,1113,0,9,0,0,5
+below slab,5,8,246,414,0,0,53
+in slab,7,13,27,9122,0,0,31
+interface band,0,0,0,1,5520,1,1
+outside Slab2,0,0,0,0,0,641,11
+unknown depth,0,0,0,0,0,0,2400

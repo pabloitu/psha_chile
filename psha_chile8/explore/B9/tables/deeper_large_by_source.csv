@@ -1,0 +1,25 @@
+era,mw_kind,depth_kind,n,events,mean_mw,w1,cls
+1900–1975,centennial,measured,2.61,6,7.15,0,interface
+1900–1975,centennial,unknown,5.65,9,7.14,0,interface
+1900–1975,iscgem,measured,1.21,2,7.05,0,interface
+1900–1975,iscgem,unknown,1.55,2,7.1,0,interface
+1900–1975,rm18,assigned,5.0,5,8.02,5,interface
+1900–1975,rm18,measured,6.0,6,8.03,6,interface
+1900–1975,rm18,unknown,1.6,2,7.4,1,interface
+1976 on,direct,measured,20.0,20,7.52,20,interface
+1900–1975,centennial,assigned,1.0,1,7.8,1,intraslab_shallow
+1900–1975,centennial,measured,1.48,6,7.15,0,intraslab_shallow
+1900–1975,centennial,unknown,2.7,9,7.14,0,intraslab_shallow
+1900–1975,iscgem,measured,0.55,2,7.05,0,intraslab_shallow
+1900–1975,iscgem,unknown,0.33,2,7.1,0,intraslab_shallow
+1900–1975,rm18,measured,1.0,1,7.4,1,intraslab_shallow
+1900–1975,rm18,unknown,0.34,1,7.0,0,intraslab_shallow
+1976 on,direct,measured,1.0,1,7.4,1,intraslab_shallow
+1900–1975,a6,measured,3.0,3,7.17,3,intraslab_intermediate
+1900–1975,centennial,measured,14.0,14,7.4,14,intraslab_intermediate
+1900–1975,centennial,unknown,6.32,7,7.31,2,intraslab_intermediate
+1900–1975,iscgem,measured,2.0,2,7.35,2,intraslab_intermediate
+1900–1975,rm18,assigned,2.0,2,7.5,2,intraslab_intermediate
+1900–1975,rm18,measured,1.0,1,8.0,1,intraslab_intermediate
+1900–1975,rm18,unknown,0.86,1,7.0,0,intraslab_intermediate
+1976 on,direct,measured,7.0,7,7.29,7,intraslab_intermediate

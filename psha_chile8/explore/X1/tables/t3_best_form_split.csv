@@ -1,0 +1,341 @@
+scale,method,best_form,best_split,dbic_exp_vs_lin
+ARE ML,CSQ η(TC),quadratic,none,-1.7337001234241587
+ARE ML,CSQ η(TC) + eq. error,quadratic,none,-1.7337001234241596
+ARE ML,CSQ η=1,quadratic,none,-2.666039875752541
+ARE ML,OLS,quadratic,none,-3.545770974036973
+AUST Mw,CSQ η(TC),linear,none,1.790362798635181
+AUST Mw,CSQ η(TC) + eq. error,linear,none,1.7903627986351793
+AUST Mw,CSQ η=1,linear,none,1.938165201205324
+AUST Mw,OLS,quadratic,none,-1.5246889322698038
+BJI MS,CSQ η(TC),linear,none,4.667549425354748
+BJI MS,CSQ η(TC) + eq. error,linear,none,4.667549425354748
+BJI MS,CSQ η=1,linear,none,2.359188089643469
+BJI MS,OLS,quadratic,none,-1.5407021556207994
+BJI Ms,CSQ η(TC),linear,none,5.160368729905315
+BJI Ms,CSQ η(TC) + eq. error,linear,none,5.160368729905315
+BJI Ms,CSQ η=1,quadratic,none,-10.164717359246367
+BJI Ms,OLS,quadratic,none,-44.0501759395537
+BJI Ms7,CSQ η(TC),linear,none,4.665596969061681
+BJI Ms7,CSQ η(TC) + eq. error,linear,none,4.665596969061681
+BJI Ms7,CSQ η=1,exponential,none,-6.930237295432107
+BJI Ms7,OLS,quadratic,depth,-16.80880567346128
+BJI Msz,CSQ η(TC),exponential,none,-2.017363174421696
+BJI Msz,CSQ η(TC) + eq. error,exponential,none,-2.017363174421689
+BJI Msz,CSQ η=1,quadratic,none,-22.346769793155495
+BJI Msz,OLS,quadratic,none,-33.0044881579785
+BJI mB,CSQ η(TC),exponential,depth,4.2436460174323685
+BJI mB,CSQ η(TC) + eq. error,exponential,depth,4.2436460174323685
+BJI mB,CSQ η=1,exponential,depth,-25.851045353404345
+BJI mB,OLS,quadratic,depth,-70.77702723356686
+BRK Ms,CSQ η(TC),quadratic,none,-5.6102064045934075
+BRK Ms,CSQ η(TC) + eq. error,quadratic,none,-4.348053798527543
+BRK Ms,CSQ η=1,quadratic,none,-2.2290914680953033
+BRK Ms,OLS,linear,none,1.257339897045302
+BRK mb,CSQ η(TC),linear,none,
+BRK mb,CSQ η(TC) + eq. error,linear,none,
+BRK mb,CSQ η=1,linear,none,
+BRK mb,OLS,linear,none,3.2569762312163206
+BRK;NEIC MS,CSQ η(TC),exponential,none,-0.6561544134313326
+BRK;NEIC MS,CSQ η(TC) + eq. error,exponential,none,-0.6561544134313309
+BRK;NEIC MS,CSQ η=1,exponential,none,-0.010202680980871293
+BRK;NEIC MS,OLS,exponential,none,-0.8615852068489644
+BRK;NEIC Mb,CSQ η(TC),linear,none,
+BRK;NEIC Mb,CSQ η(TC) + eq. error,linear,none,
+BRK;NEIC Mb,CSQ η=1,linear,none,
+BRK;NEIC Mb,OLS,linear,none,3.2482151831851986
+CATAC M,CSQ η(TC),linear,none,3.9386858081723233
+CATAC M,CSQ η(TC) + eq. error,linear,none,3.9386858081723233
+CATAC M,CSQ η=1,linear,none,3.922847686370936
+CATAC M,OLS,linear,none,2.628151725566971
+CATAC MLv,CSQ η(TC),linear,none,2.918925864464665
+CATAC MLv,CSQ η(TC) + eq. error,linear,none,2.9189258644646685
+CATAC MLv,CSQ η=1,linear,none,2.3351977481494366
+CATAC MLv,OLS,linear,none,1.2585921771930586
+CATAC Mw(mB),CSQ η(TC),linear,none,3.7914050415045892
+CATAC Mw(mB),CSQ η(TC) + eq. error,linear,none,2.0454840836368717
+CATAC Mw(mB),CSQ η=1,quadratic,none,0.5932337876556648
+CATAC Mw(mB),OLS,quadratic,none,-1.7074613991179515
+CATAC MwMwp,CSQ η(TC),quadratic,none,1.9511590708009634
+CATAC MwMwp,CSQ η(TC) + eq. error,quadratic,none,1.951159070800962
+CATAC MwMwp,CSQ η=1,linear,none,4.203817699143999
+CATAC MwMwp,OLS,linear,none,3.63365280754776
+CATAC Mwp,CSQ η(TC),linear,none,2.9882133259768686
+CATAC Mwp,CSQ η(TC) + eq. error,linear,none,2.9882133259768686
+CATAC Mwp,CSQ η=1,linear,none,4.26768768176363
+CATAC Mwp,OLS,linear,none,3.65750087018821
+CATAC mB,CSQ η(TC),linear,none,3.918257663867859
+CATAC mB,CSQ η(TC) + eq. error,linear,none,3.9182576638678626
+CATAC mB,CSQ η=1,linear,none,3.86843185607745
+CATAC mB,OLS,quadratic,none,0.4254623822453034
+CATAC mb,CSQ η(TC),quadratic,none,17.631107518048395
+CATAC mb,CSQ η(TC) + eq. error,quadratic,none,17.63110751804841
+CATAC mb,CSQ η=1,linear,none,
+CATAC mb,OLS,quadratic,none,-0.334343022767726
+CSN Mww,CSQ η(TC),linear,none,4.744065690561158
+CSN Mww,CSQ η(TC) + eq. error,linear,none,4.744065690561158
+CSN Mww,CSQ η=1,linear,none,4.746085296831708
+CSN Mww,OLS,linear,depth,4.8138620722297105
+CSN web Mw,CSQ η(TC),quadratic,depth,4.980503794090627
+CSN web Mw,CSQ η(TC) + eq. error,linear,none,4.98050379409063
+CSN web Mw,CSQ η=1,linear,none,4.969203624614892
+CSN web Mw,OLS,quadratic,none,-10.378780375571353
+Cent BRK Ms,CSQ η(TC),quadratic,none,-5.375026087903059
+Cent BRK Ms,CSQ η(TC) + eq. error,quadratic,none,-3.9657800381892265
+Cent BRK Ms,CSQ η=1,quadratic,none,-2.086287633951315
+Cent BRK Ms,OLS,linear,none,1.2984886476300517
+Cent BRK mb,CSQ η(TC),linear,none,
+Cent BRK mb,CSQ η(TC) + eq. error,linear,none,
+Cent BRK mb,CSQ η=1,linear,none,
+Cent BRK mb,OLS,linear,none,3.237974125654013
+Cent GS Mw,CSQ η(TC),linear,none,2.5582264928073926
+Cent GS Mw,CSQ η(TC) + eq. error,linear,none,2.558226492807389
+Cent GS Mw,CSQ η=1,linear,none,2.7598271051670693
+Cent GS Mw,OLS,linear,none,0.7188187199224103
+Cent HRV Ms,CSQ η(TC),quadratic,none,-21.823957974926515
+Cent HRV Ms,CSQ η(TC) + eq. error,quadratic,none,-21.823957974926515
+Cent HRV Ms,CSQ η=1,quadratic,none,-9.785095774849253
+Cent HRV Ms,OLS,quadratic,none,-262.3599942463212
+Cent HRV Mw,CSQ η(TC),linear,none,3.9279857296550915
+Cent HRV Mw,CSQ η(TC) + eq. error,linear,none,3.927985729655088
+Cent HRV Mw,CSQ η=1,linear,none,4.028275190404685
+Cent HRV Mw,OLS,linear,none,4.666771915158506
+Cent ISC Ms,CSQ η(TC),quadratic,none,-34.02506118882705
+Cent ISC Ms,CSQ η(TC) + eq. error,quadratic,none,-34.02506118882704
+Cent ISC Ms,CSQ η=1,quadratic,none,-23.210594603636878
+Cent ISC Ms,OLS,quadratic,none,-15.156828868731722
+Cent ISC mb,CSQ η(TC),linear,none,
+Cent ISC mb,CSQ η(TC) + eq. error,linear,depth,
+Cent ISC mb,CSQ η=1,linear,none,
+Cent ISC mb,OLS,exponential,depth,-20.854228088391693
+Cent NEIC Ms,CSQ η(TC),quadratic,none,
+Cent NEIC Ms,CSQ η(TC) + eq. error,quadratic,none,
+Cent NEIC Ms,CSQ η=1,quadratic,none,-10.356953400726507
+Cent NEIC Ms,OLS,quadratic,none,-9.244458926549303
+Cent NEIC mb,CSQ η(TC),linear,none,
+Cent NEIC mb,CSQ η(TC) + eq. error,linear,depth,
+Cent NEIC mb,CSQ η=1,linear,none,
+Cent NEIC mb,OLS,exponential,none,-20.654682511550696
+Cent NEIS mb,CSQ η(TC),quadratic,none,
+Cent NEIS mb,CSQ η(TC) + eq. error,quadratic,none,
+Cent NEIS mb,CSQ η=1,linear,none,
+Cent NEIS mb,OLS,exponential,none,-9.924635169852465
+EUROP mb,CSQ η(TC),linear,none,4.172680629503915
+EUROP mb,CSQ η(TC) + eq. error,linear,none,4.172680629503901
+EUROP mb,CSQ η=1,linear,none,4.1190354818591715
+EUROP mb,OLS,quadratic,none,4.1352312592258045
+GFZ M,CSQ η(TC),quadratic,none,-31.28100635194849
+GFZ M,CSQ η(TC) + eq. error,quadratic,none,-33.50829834890803
+GFZ M,CSQ η=1,quadratic,none,-37.88623079028014
+GFZ M,OLS,quadratic,none,-41.69537644044544
+GFZ Mw,CSQ η(TC),quadratic,none,-6.120550160444566
+GFZ Mw,CSQ η(TC) + eq. error,quadratic,none,-6.120550160444594
+GFZ Mw,CSQ η=1,quadratic,none,-3.685935226796289
+GFZ Mw,OLS,quadratic,depth,-26.311283764238397
+GFZ Mw(mB),CSQ η(TC),linear,none,3.8942236349591512
+GFZ Mw(mB),CSQ η(TC) + eq. error,linear,none,3.8942236349591504
+GFZ Mw(mB),CSQ η=1,linear,none,3.760135581792265
+GFZ Mw(mB),OLS,linear,none,3.77180029710326
+GFZ mB,CSQ η(TC),linear,none,4.735098435785899
+GFZ mB,CSQ η(TC) + eq. error,linear,none,4.735098435785899
+GFZ mB,CSQ η=1,linear,none,3.8967216833937313
+GFZ mB,OLS,linear,none,3.9035359894551664
+GFZ mb,CSQ η(TC),quadratic,depth,-126.8120213115588
+GFZ mb,CSQ η(TC) + eq. error,exponential,none,-97.63795363142754
+GFZ mb,CSQ η=1,exponential,none,-86.73716507565629
+GFZ mb,OLS,quadratic,depth,-46.769353092872066
+GS Mw,CSQ η(TC),linear,none,2.5562926305077127
+GS Mw,CSQ η(TC) + eq. error,linear,none,2.55629263050772
+GS Mw,CSQ η=1,linear,none,2.751649838745358
+GS Mw,OLS,linear,none,0.7150611062029242
+GUC MD,CSQ η(TC),linear,none,
+GUC MD,CSQ η(TC) + eq. error,linear,none,
+GUC MD,CSQ η=1,linear,none,
+GUC MD,OLS,linear,none,2.8222320592301138
+GUC ML,CSQ η(TC),linear,depth+period,
+GUC ML,CSQ η(TC) + eq. error,linear,depth,
+GUC ML,CSQ η=1,linear,depth,
+GUC ML,OLS,exponential,depth+period,-236.43855136393148
+GUC MS,CSQ η(TC),linear,none,3.4756137503691846
+GUC MS,CSQ η(TC) + eq. error,linear,none,3.452868572517147
+GUC MS,CSQ η=1,linear,none,3.455815759864265
+GUC MS,OLS,linear,none,3.096369774060733
+GUC MW,CSQ η(TC),linear,none,4.522078802263508
+GUC MW,CSQ η(TC) + eq. error,linear,none,4.522078802263511
+GUC MW,CSQ η=1,quadratic,none,-1.8386609745550402
+GUC MW,OLS,quadratic,none,-4.821047418959523
+GUC Mwr,CSQ η(TC),quadratic,none,-20.99373593879514
+GUC Mwr,CSQ η(TC) + eq. error,quadratic,none,-20.993735938795112
+GUC Mwr,CSQ η=1,quadratic,none,-28.701750262681742
+GUC Mwr,OLS,quadratic,depth,-42.25801280953084
+GUC md,CSQ η(TC),quadratic,none,-4.01022338575018
+GUC md,CSQ η(TC) + eq. error,linear,none,1.2220583613877984
+GUC md,CSQ η=1,linear,none,2.882483219984927
+GUC md,OLS,linear,none,1.3066870342079309
+IPGP Mw,CSQ η(TC),linear,none,1.552660687145817
+IPGP Mw,CSQ η(TC) + eq. error,linear,none,1.5526606871458029
+IPGP Mw,CSQ η=1,linear,none,2.3296975382382925
+IPGP Mw,OLS,exponential,none,-3.7565191423297506
+ISC MS,CSQ η(TC),quadratic,none,-383.12387437997154
+ISC MS,CSQ η(TC) + eq. error,quadratic,none,-383.12387437997154
+ISC MS,CSQ η=1,quadratic,none,-239.57950662163512
+ISC MS,OLS,quadratic,period,-462.91991569237643
+ISC mb,CSQ η(TC),exponential,none,-920.3586319461957
+ISC mb,CSQ η(TC) + eq. error,exponential,none,-708.4514960968654
+ISC mb,CSQ η=1,exponential,none,-671.540704025015
+ISC mb,OLS,exponential,depth+period,-537.7172458641826
+ISC-GEM Mw,CSQ η(TC),linear,none,1.842889017419111
+ISC-GEM Mw,CSQ η(TC) + eq. error,linear,none,1.8428890174186563
+ISC-GEM Mw,CSQ η=1,linear,none,1.933028276491541
+ISC-GEM Mw,OLS,quadratic,depth+period,6.244985230689053
+LDG Mb,CSQ η(TC),exponential,none,-39.78318676960376
+LDG Mb,CSQ η(TC) + eq. error,exponential,none,-39.78318676960376
+LDG Mb,CSQ η=1,quadratic,none,
+LDG Mb,OLS,quadratic,none,-16.72773784437547
+LDG Ms,CSQ η(TC),quadratic,depth,-27.744274078564914
+LDG Ms,CSQ η(TC) + eq. error,quadratic,depth,-23.598525590911684
+LDG Ms,CSQ η=1,quadratic,depth,-25.760834069666423
+LDG Ms,OLS,quadratic,depth,-18.392279103788294
+MOS MB,CSQ η(TC),exponential,none,-0.6947693791238336
+MOS MB,CSQ η(TC) + eq. error,exponential,none,-0.6947693791238336
+MOS MB,CSQ η=1,quadratic,none,-3.591827605826701
+MOS MB,OLS,quadratic,none,-1.825774547978913
+MOS MS,CSQ η(TC),exponential,depth,-13.390055171395062
+MOS MS,CSQ η(TC) + eq. error,exponential,depth,-13.390055171395062
+MOS MS,CSQ η=1,exponential,depth,-36.684251180188255
+MOS MS,OLS,exponential,depth,-54.464633713800026
+MOS Mb,CSQ η(TC),linear,none,
+MOS Mb,CSQ η(TC) + eq. error,linear,depth,
+MOS Mb,CSQ η=1,linear,none,
+MOS Mb,OLS,exponential,none,-17.322211851900988
+MOS Ms,CSQ η(TC),linear,none,4.555523578741408
+MOS Ms,CSQ η(TC) + eq. error,linear,none,4.194141319485592
+MOS Ms,CSQ η=1,linear,none,4.514146793466724
+MOS Ms,OLS,linear,none,4.33445574562017
+MOS mb,CSQ η(TC),linear,depth+period,
+MOS mb,CSQ η(TC) + eq. error,linear,depth,
+MOS mb,CSQ η=1,linear,depth,
+MOS mb,OLS,exponential,period,-128.61817024783824
+NEIC M,CSQ η(TC),exponential,none,-0.14836048083646247
+NEIC M,CSQ η(TC) + eq. error,exponential,none,-0.1483604808364607
+NEIC M,CSQ η=1,quadratic,none,-1.8552835311520788
+NEIC M,OLS,quadratic,none,-9.987298544552552
+NEIC ME,CSQ η(TC),exponential,none,-20.00848418114418
+NEIC ME,CSQ η(TC) + eq. error,exponential,none,-20.008484181144176
+NEIC ME,CSQ η=1,quadratic,none,-22.324655221178514
+NEIC ME,OLS,quadratic,none,-26.251954382277276
+NEIC MS,CSQ η(TC),quadratic,none,-63.707617292246624
+NEIC MS,CSQ η(TC) + eq. error,quadratic,none,-63.70761729224661
+NEIC MS,CSQ η=1,quadratic,none,-49.14082950583847
+NEIC MS,OLS,quadratic,period,-68.87176543024611
+NEIC MSZ,CSQ η(TC),quadratic,none,-38.33376409266879
+NEIC MSZ,CSQ η(TC) + eq. error,quadratic,none,-38.33376409266879
+NEIC MSZ,CSQ η=1,quadratic,none,-27.352503370883124
+NEIC MSZ,OLS,quadratic,none,-32.57765899854093
+NEIC MW,CSQ η(TC),linear,none,4.2430330963123595
+NEIC MW,CSQ η(TC) + eq. error,linear,none,4.243033096312331
+NEIC MW,CSQ η=1,linear,none,2.2554231304803807
+NEIC MW,OLS,linear,depth,-1.1589914618260764
+NEIC Ms_20,CSQ η(TC),exponential,none,-5.0765506560884575
+NEIC Ms_20,CSQ η(TC) + eq. error,exponential,none,-5.0765506560884575
+NEIC Ms_20,CSQ η=1,exponential,none,-4.612284276227726
+NEIC Ms_20,OLS,exponential,none,-14.381614875241837
+NEIC Mwb,CSQ η(TC),linear,none,5.320063232696924
+NEIC Mwb,CSQ η(TC) + eq. error,linear,none,5.320063232696924
+NEIC Mwb,CSQ η=1,linear,none,5.378742745539768
+NEIC Mwb,OLS,linear,period,3.2219021124051324
+NEIC Mwr,CSQ η(TC),quadratic,depth,-38.78385652906718
+NEIC Mwr,CSQ η(TC) + eq. error,quadratic,depth,-38.78385652906718
+NEIC Mwr,CSQ η=1,quadratic,none,-32.115619753066824
+NEIC Mwr,OLS,quadratic,depth,-57.5493276637186
+NEIC Mww,CSQ η(TC),quadratic,none,-6.643570413955672
+NEIC Mww,CSQ η(TC) + eq. error,quadratic,none,-6.643570413955672
+NEIC Mww,CSQ η=1,quadratic,none,-6.760436798978276
+NEIC Mww,OLS,quadratic,depth,-25.84929403141564
+NEIC mb,CSQ η(TC),exponential,none,-828.3083193886233
+NEIC mb,CSQ η(TC) + eq. error,exponential,none,-609.4890116272327
+NEIC mb,CSQ η=1,exponential,none,-594.7750555221663
+NEIC mb,OLS,exponential,period,-359.7772602574608
+NEIC mw,CSQ η(TC),quadratic,none,-1.9717860192545587
+NEIC mw,CSQ η(TC) + eq. error,quadratic,none,-1.9717860192545587
+NEIC mw,CSQ η=1,quadratic,none,0.005643616821103592
+NEIC mw,OLS,quadratic,none,-3.202197176732227
+NEIS MS,CSQ η(TC),linear,none,2.3090734959941708
+NEIS MS,CSQ η(TC) + eq. error,linear,none,2.3090734959941717
+NEIS MS,CSQ η=1,quadratic,none,-0.3565949957463621
+NEIS MS,OLS,quadratic,none,-2.2939319032150554
+NEIS MSZ,CSQ η(TC),quadratic,none,
+NEIS MSZ,CSQ η(TC) + eq. error,quadratic,none,
+NEIS MSZ,CSQ η=1,quadratic,none,-4.711421133921396
+NEIS MSZ,OLS,quadratic,none,-7.725956615769482
+NEIS mb,CSQ η(TC),exponential,none,-101.21608565725327
+NEIS mb,CSQ η(TC) + eq. error,exponential,none,-45.577320034639186
+NEIS mb,CSQ η=1,quadratic,none,-43.391046655337135
+NEIS mb,OLS,exponential,none,-35.806576943591
+PEK MS,CSQ η(TC),exponential,none,-7.9898634474453
+PEK MS,CSQ η(TC) + eq. error,exponential,none,-7.917517467651425
+PEK MS,CSQ η=1,quadratic,none,-7.220390262490454
+PEK MS,OLS,quadratic,none,-3.4108118754627057
+PEK Mb,CSQ η(TC),exponential,none,-2.684680969227614
+PEK Mb,CSQ η(TC) + eq. error,exponential,none,-2.684680969227621
+PEK Mb,CSQ η=1,quadratic,none,-4.660458812776902
+PEK Mb,OLS,quadratic,none,-2.5852324397753073
+PTWC Mwp,CSQ η(TC),linear,none,3.841429521447532
+PTWC Mwp,CSQ η(TC) + eq. error,linear,none,3.841429521447532
+PTWC Mwp,CSQ η=1,linear,none,3.834823299080517
+PTWC Mwp,OLS,linear,none,3.840160931948178
+Potin W,CSQ η(TC),linear,none,3.9240186382648865
+Potin W,CSQ η(TC) + eq. error,linear,none,3.9240186382648865
+Potin W,CSQ η=1,quadratic,none,0.5435071883333258
+Potin W,OLS,quadratic,none,-2.3689928268916276
+Potin c,CSQ η(TC),exponential,none,-13.90454174662348
+Potin c,CSQ η(TC) + eq. error,exponential,none,-2.263711348180845
+Potin c,CSQ η=1,linear,none,3.397719490342478
+Potin c,OLS,exponential,none,-2.4067832810501812
+Potin l,CSQ η(TC),linear,depth,
+Potin l,CSQ η(TC) + eq. error,linear,depth,
+Potin l,CSQ η=1,linear,depth,
+Potin l,OLS,exponential,depth,-84.96111313622539
+Potin ww,CSQ η(TC),exponential,none,-14.460630352482497
+Potin ww,CSQ η(TC) + eq. error,exponential,none,-14.460630352482525
+Potin ww,CSQ η=1,quadratic,none,-35.583203962438915
+Potin ww,OLS,quadratic,depth,-56.65712834486595
+RSNC Mwp,CSQ η(TC),linear,none,
+RSNC Mwp,CSQ η(TC) + eq. error,linear,none,
+RSNC Mwp,CSQ η=1,linear,none,
+RSNC Mwp,OLS,linear,none,3.560631390665911
+RSNC mB,CSQ η(TC),linear,none,
+RSNC mB,CSQ η(TC) + eq. error,linear,none,
+RSNC mB,CSQ η=1,linear,none,
+RSNC mB,OLS,exponential,none,-4.850753611261801
+RSNC mb,CSQ η(TC),linear,none,
+RSNC mb,CSQ η(TC) + eq. error,linear,none,
+RSNC mb,CSQ η=1,exponential,none,-19.3635590170473
+RSNC mb,OLS,exponential,none,-18.729996422066662
+SCB Ml,CSQ η(TC),linear,none,
+SCB Ml,CSQ η(TC) + eq. error,linear,none,
+SCB Ml,CSQ η=1,linear,none,
+SCB Ml,OLS,linear,none,3.33924345446907
+SJA MD,CSQ η(TC),linear,none,
+SJA MD,CSQ η(TC) + eq. error,linear,none,
+SJA MD,CSQ η=1,linear,none,
+SJA MD,OLS,exponential,none,-27.788670152803853
+SJA ML,CSQ η(TC),linear,depth+period,
+SJA ML,CSQ η(TC) + eq. error,linear,period,
+SJA ML,CSQ η=1,linear,depth+period,
+SJA ML,OLS,exponential,period,-302.45346957181846
+SJA MW,CSQ η(TC),linear,period,
+SJA MW,CSQ η(TC) + eq. error,linear,period,
+SJA MW,CSQ η=1,exponential,none,-221.35913773051917
+SJA MW,OLS,exponential,depth+period,-206.18216907443679
+SJA Md,CSQ η(TC),linear,none,3.6490480642067666
+SJA Md,CSQ η(TC) + eq. error,exponential,none,-0.7429302502301809
+SJA Md,CSQ η=1,exponential,none,-0.9433719052279521
+SJA Md,OLS,quadratic,none,-1.3071496015440829
+USGS;NEIC Mw,CSQ η(TC),linear,none,4.049380994676163
+USGS;NEIC Mw,CSQ η(TC) + eq. error,linear,none,4.049380994676159
+USGS;NEIC Mw,CSQ η=1,linear,none,4.008024619686616
+USGS;NEIC Mw,OLS,linear,depth,3.5103160584774002
+VAO mb,CSQ η(TC),linear,depth,
+VAO mb,CSQ η(TC) + eq. error,linear,depth,
+VAO mb,CSQ η=1,linear,depth,
+VAO mb,OLS,exponential,depth,-156.49925688386134

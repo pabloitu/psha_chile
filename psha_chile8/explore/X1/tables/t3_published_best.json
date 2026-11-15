@@ -1,0 +1,11 @@
+{
+ "ISC mb": "DG15 exp",
+ "NEIC mb": "S06",
+ "ISC MS": "L23 exp",
+ "NEIC MS": "W16 ODR",
+ "NEIC Ms_20": "L23 exp",
+ "GUC ML": "C25 CSN ML \u2264 50 km",
+ "CSN web Ml": "P19 Chile ML",
+ "GUC MW": "C25 CSN Mw",
+ "NEIC Mww": "C25 USGS Mw"
+}

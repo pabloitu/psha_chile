@@ -1,0 +1,358 @@
+cls,group,case,N7,b,N7_base,b_base,base,N7_lo,N7_hi,ratio
+interface,catalogue,mb before 1990 lowered by 0.1,0.22718,1.0582,0.2376,1.05206,network+counts,0.21028,0.26748,0.95616
+interface,catalogue,floor 5.5 before 1990,0.25497,1.04564,0.2376,1.05206,network+counts,0.21028,0.26748,1.0731
+interface,catalogue,four old in-slab events at the ISC-GEM value,0.23688,1.05259,0.2376,1.05206,network+counts,0.21028,0.26748,0.997
+interface,catalogue,four old in-slab events left out,0.23688,1.05259,0.2376,1.05206,network+counts,0.21028,0.26748,0.997
+interface,catalogue,no events before 1976 at M >= 7,0.21476,1.07012,0.2376,1.05206,network+counts,0.21028,0.26748,0.90387
+interface,catalogue,interface band ± 10 km,0.25042,0.99357,0.2376,1.05206,network+counts,0.21028,0.26748,1.05396
+interface,catalogue,interface band ± 20 km,0.24067,1.06873,0.2376,1.05206,network+counts,0.21028,0.26748,1.01294
+interface,weights,weight-1 events only,0.21308,1.01174,0.2376,1.05206,network+counts,0.21028,0.26748,0.89683
+interface,declustering,Gardner–Knopoff,0.20162,0.7611,0.2376,1.05206,network+counts,0.21028,0.26748,0.84858
+interface,declustering,nearest neighbour,0.10913,1.02762,0.2376,1.05206,network+counts,0.21028,0.26748,0.45929
+interface,magnitude error,CEUS-SSC correction,0.21311,1.05204,0.2376,1.05206,network+counts,0.21028,0.26748,0.89693
+interface,magnitude error,plain weight,0.2165,1.05053,0.2376,1.05206,network+counts,0.21028,0.26748,0.91119
+interface,completeness table,table: network,0.2275,1.05985,0.2376,1.05206,network+counts,0.21028,0.26748,0.95751
+interface,completeness table,table: data,0.20009,1.09107,0.2376,1.05206,network+counts,0.21028,0.26748,0.84215
+interface,completeness table,table: recent,0.44499,0.96269,0.2376,1.05206,network+counts,0.21028,0.26748,1.8729
+interface,completeness table,table: isc,0.38594,0.91932,0.2376,1.05206,network+counts,0.21028,0.26748,1.62435
+interface,completeness table,table: old,0.27446,1.03119,0.2376,1.05206,network+counts,0.21028,0.26748,1.15514
+interface,completeness table,table: network+Lomnitz,0.22156,1.06446,0.2376,1.05206,network+counts,0.21028,0.26748,0.9325
+interface,completeness table,table: data+Lomnitz,0.19931,1.09168,0.2376,1.05206,network+counts,0.21028,0.26748,0.83885
+interface,completeness table,table: data+counts,0.21179,1.08067,0.2376,1.05206,network+counts,0.21028,0.26748,0.89137
+interface,completeness table,table: network+long,0.22798,1.05931,0.2376,1.05206,network+counts,0.21028,0.26748,0.95954
+interface,completeness table,table: data+long,0.2047,1.08676,0.2376,1.05206,network+counts,0.21028,0.26748,0.86155
+interface,completeness table,table: network+old,0.23972,1.05047,0.2376,1.05206,network+counts,0.21028,0.26748,1.00893
+interface,completeness table,table: data+old,0.21344,1.07924,0.2376,1.05206,network+counts,0.21028,0.26748,0.89831
+interface,fit floor,floor 5.0 (network table),0.31883,0.96758,0.2376,1.05206,network+counts,0.21028,0.26748,1.34191
+interface,fit floor,floor 5.5 (network table),0.33075,0.95663,0.2376,1.05206,network+counts,0.21028,0.26748,1.39208
+interface,fit floor,floor 6.0 (network table),0.35581,0.90786,0.2376,1.05206,network+counts,0.21028,0.26748,1.49755
+antarctic_interface,catalogue,mb before 1990 lowered by 0.1,0.00754,1.06006,0.00777,1.05613,network,0.00409,0.01371,0.97081
+antarctic_interface,catalogue,floor 5.5 before 1990,0.00823,1.05206,0.00777,1.05613,network,0.00409,0.01371,1.05868
+antarctic_interface,catalogue,four old in-slab events at the ISC-GEM value,0.00777,1.05613,0.00777,1.05613,network,0.00409,0.01371,1.0
+antarctic_interface,catalogue,four old in-slab events left out,0.00777,1.05613,0.00777,1.05613,network,0.00409,0.01371,1.0
+antarctic_interface,catalogue,no events before 1976 at M >= 7,0.00873,1.03557,0.00777,1.05613,network,0.00409,0.01371,1.12373
+antarctic_interface,catalogue,interface band ± 10 km,0.00777,1.05613,0.00777,1.05613,network,0.00409,0.01371,1.0
+antarctic_interface,catalogue,interface band ± 20 km,0.00777,1.05613,0.00777,1.05613,network,0.00409,0.01371,1.0
+antarctic_interface,weights,weight-1 events only,0.00777,1.05613,0.00777,1.05613,network,0.00409,0.01371,1.0
+antarctic_interface,declustering,Gardner–Knopoff,0.00988,0.81429,0.00777,1.05613,network,0.00409,0.01371,1.27123
+antarctic_interface,declustering,nearest neighbour,0.00437,1.02468,0.00777,1.05613,network,0.00409,0.01371,0.56295
+antarctic_interface,magnitude error,CEUS-SSC correction,0.00451,1.14902,0.00777,1.05613,network,0.00409,0.01371,0.58045
+antarctic_interface,magnitude error,plain weight,0.00734,1.04412,0.00777,1.05613,network,0.00409,0.01371,0.94487
+antarctic_interface,completeness table,table: data,0.00207,1.33153,0.00777,1.05613,network,0.00409,0.01371,0.2662
+antarctic_interface,completeness table,table: recent,0.02152,0.90038,0.00777,1.05613,network,0.00409,0.01371,2.76977
+antarctic_interface,completeness table,table: isc,0.00973,0.96887,0.00777,1.05613,network,0.00409,0.01371,1.25258
+antarctic_interface,fit floor,floor 5.0 (network table),0.0078,1.03463,0.00777,1.05613,network,0.00409,0.01371,1.00455
+antarctic_interface,fit floor,floor 5.5 (network table),0.01022,0.94277,0.00777,1.05613,network,0.00409,0.01371,1.31508
+antarctic_interface,fit floor,floor 6.0 (network table),0.01084,0.83959,0.00777,1.05613,network,0.00409,0.01371,1.39492
+intraslab_shallow,catalogue,mb before 1990 lowered by 0.1,0.07619,1.04623,0.0821,1.03797,network+counts,0.06765,0.09573,0.92792
+intraslab_shallow,catalogue,floor 5.5 before 1990,0.07835,1.04094,0.0821,1.03797,network+counts,0.06765,0.09573,0.95433
+intraslab_shallow,catalogue,four old in-slab events at the ISC-GEM value,0.08007,1.0424,0.0821,1.03797,network+counts,0.06765,0.09573,0.97526
+intraslab_shallow,catalogue,four old in-slab events left out,0.08007,1.0424,0.0821,1.03797,network+counts,0.06765,0.09573,0.97526
+intraslab_shallow,catalogue,no events before 1976 at M >= 7,0.08363,1.03459,0.0821,1.03797,network+counts,0.06765,0.09573,1.01864
+intraslab_shallow,catalogue,interface band ± 10 km,0.0843,1.09876,0.0821,1.03797,network+counts,0.06765,0.09573,1.02678
+intraslab_shallow,catalogue,interface band ± 20 km,0.08056,0.99592,0.0821,1.03797,network+counts,0.06765,0.09573,0.9812
+intraslab_shallow,weights,weight-1 events only,0.0441,1.02464,0.0821,1.03797,network+counts,0.06765,0.09573,0.53709
+intraslab_shallow,declustering,Gardner–Knopoff,0.07776,0.83312,0.0821,1.03797,network+counts,0.06765,0.09573,0.94709
+intraslab_shallow,declustering,nearest neighbour,0.06187,1.01305,0.0821,1.03797,network+counts,0.06765,0.09573,0.75356
+intraslab_shallow,magnitude error,CEUS-SSC correction,0.06635,1.05895,0.0821,1.03797,network+counts,0.06765,0.09573,0.80806
+intraslab_shallow,magnitude error,plain weight,0.07519,1.03832,0.0821,1.03797,network+counts,0.06765,0.09573,0.91577
+intraslab_shallow,completeness table,table: network,0.08477,1.03226,0.0821,1.03797,network+counts,0.06765,0.09573,1.03245
+intraslab_shallow,completeness table,table: data,0.10627,0.96096,0.0821,1.03797,network+counts,0.06765,0.09573,1.29432
+intraslab_shallow,completeness table,table: recent,0.10356,0.99505,0.0821,1.03797,network+counts,0.06765,0.09573,1.26131
+intraslab_shallow,completeness table,table: isc,0.05024,1.14628,0.0821,1.03797,network+counts,0.06765,0.09573,0.61186
+intraslab_shallow,completeness table,table: network+Lomnitz,0.07767,1.0478,0.0821,1.03797,network+counts,0.06765,0.09573,0.94598
+intraslab_shallow,completeness table,table: data+Lomnitz,0.0954,0.97953,0.0821,1.03797,network+counts,0.06765,0.09573,1.16191
+intraslab_shallow,completeness table,table: data+counts,0.10216,0.96778,0.0821,1.03797,network+counts,0.06765,0.09573,1.24424
+intraslab_shallow,completeness table,table: network+long,0.08006,1.04234,0.0821,1.03797,network+counts,0.06765,0.09573,0.97507
+intraslab_shallow,completeness table,table: data+long,0.09848,0.974,0.0821,1.03797,network+counts,0.06765,0.09573,1.19942
+intraslab_shallow,completeness table,table: network+old,0.08384,1.03426,0.0821,1.03797,network+counts,0.06765,0.09573,1.02108
+intraslab_shallow,completeness table,table: data+old,0.10392,0.96484,0.0821,1.03797,network+counts,0.06765,0.09573,1.26576
+intraslab_shallow,fit floor,floor 5.0 (network table),0.05143,1.15783,0.0821,1.03797,network+counts,0.06765,0.09573,0.62637
+intraslab_shallow,fit floor,floor 5.5 (network table),0.06473,1.08227,0.0821,1.03797,network+counts,0.06765,0.09573,0.78835
+intraslab_shallow,fit floor,floor 6.0 (network table),0.06893,1.04101,0.0821,1.03797,network+counts,0.06765,0.09573,0.83958
+intraslab_intermediate,catalogue,mb before 1990 lowered by 0.1,0.14612,1.13648,0.15978,1.1245,network+counts,0.14034,0.18085,0.91451
+intraslab_intermediate,catalogue,floor 5.5 before 1990,0.15154,1.13147,0.15978,1.1245,network+counts,0.14034,0.18085,0.94845
+intraslab_intermediate,catalogue,four old in-slab events at the ISC-GEM value,0.15883,1.12559,0.15978,1.1245,network+counts,0.14034,0.18085,0.9941
+intraslab_intermediate,catalogue,four old in-slab events left out,0.15753,1.12701,0.15978,1.1245,network+counts,0.14034,0.18085,0.98593
+intraslab_intermediate,catalogue,no events before 1976 at M >= 7,0.14415,1.14262,0.15978,1.1245,network+counts,0.14034,0.18085,0.90221
+intraslab_intermediate,catalogue,interface band ± 10 km,0.15978,1.1245,0.15978,1.1245,network+counts,0.14034,0.18085,1.0
+intraslab_intermediate,catalogue,interface band ± 20 km,0.15978,1.1245,0.15978,1.1245,network+counts,0.14034,0.18085,1.0
+intraslab_intermediate,weights,weight-1 events only,0.14576,1.13558,0.15978,1.1245,network+counts,0.14034,0.18085,0.9123
+intraslab_intermediate,declustering,Gardner–Knopoff,0.19827,0.95813,0.15978,1.1245,network+counts,0.14034,0.18085,1.24092
+intraslab_intermediate,declustering,nearest neighbour,0.14681,1.12729,0.15978,1.1245,network+counts,0.14034,0.18085,0.91887
+intraslab_intermediate,magnitude error,CEUS-SSC correction,0.12796,1.14386,0.15978,1.1245,network+counts,0.14034,0.18085,0.80085
+intraslab_intermediate,magnitude error,plain weight,0.13763,1.13443,0.15978,1.1245,network+counts,0.14034,0.18085,0.86142
+intraslab_intermediate,completeness table,table: network,0.16446,1.11936,0.15978,1.1245,network+counts,0.14034,0.18085,1.0293
+intraslab_intermediate,completeness table,table: data,0.14373,1.14609,0.15978,1.1245,network+counts,0.14034,0.18085,0.89956
+intraslab_intermediate,completeness table,table: recent,0.16921,1.11608,0.15978,1.1245,network+counts,0.14034,0.18085,1.05907
+intraslab_intermediate,completeness table,table: isc,0.13142,1.15792,0.15978,1.1245,network+counts,0.14034,0.18085,0.82256
+intraslab_intermediate,completeness table,table: network+Lomnitz,0.14899,1.13691,0.15978,1.1245,network+counts,0.14034,0.18085,0.93252
+intraslab_intermediate,completeness table,table: data+Lomnitz,0.13264,1.16051,0.15978,1.1245,network+counts,0.14034,0.18085,0.83019
+intraslab_intermediate,completeness table,table: data+counts,0.14037,1.15035,0.15978,1.1245,network+counts,0.14034,0.18085,0.87853
+intraslab_intermediate,completeness table,table: network+long,0.15345,1.13163,0.15978,1.1245,network+counts,0.14034,0.18085,0.96041
+intraslab_intermediate,completeness table,table: data+long,0.13568,1.15641,0.15978,1.1245,network+counts,0.14034,0.18085,0.84917
+intraslab_intermediate,completeness table,table: network+old,0.16086,1.12331,0.15978,1.1245,network+counts,0.14034,0.18085,1.00679
+intraslab_intermediate,completeness table,table: data+old,0.14123,1.14926,0.15978,1.1245,network+counts,0.14034,0.18085,0.8839
+intraslab_intermediate,fit floor,floor 5.0 (network table),0.15144,1.13822,0.15978,1.1245,network+counts,0.14034,0.18085,0.9478
+intraslab_intermediate,fit floor,floor 5.5 (network table),0.18486,1.05759,0.15978,1.1245,network+counts,0.14034,0.18085,1.157
+intraslab_intermediate,fit floor,floor 6.0 (network table),0.2421,0.87858,0.15978,1.1245,network+counts,0.14034,0.18085,1.51524
+jujuy_nest,catalogue,mb before 1990 lowered by 0.1,0.00606,1.45082,0.00648,1.44089,network,0.00423,0.0094,0.93496
+jujuy_nest,catalogue,floor 5.5 before 1990,0.00785,1.41249,0.00648,1.44089,network,0.00423,0.0094,1.21027
+jujuy_nest,catalogue,four old in-slab events at the ISC-GEM value,0.00648,1.44089,0.00648,1.44089,network,0.00423,0.0094,1.0
+jujuy_nest,catalogue,four old in-slab events left out,0.00648,1.44089,0.00648,1.44089,network,0.00423,0.0094,1.0
+jujuy_nest,catalogue,no events before 1976 at M >= 7,0.00602,1.45395,0.00648,1.44089,network,0.00423,0.0094,0.92831
+jujuy_nest,catalogue,interface band ± 10 km,0.00648,1.44089,0.00648,1.44089,network,0.00423,0.0094,1.0
+jujuy_nest,catalogue,interface band ± 20 km,0.00648,1.44089,0.00648,1.44089,network,0.00423,0.0094,1.0
+jujuy_nest,weights,weight-1 events only,0.00648,1.44089,0.00648,1.44089,network,0.00423,0.0094,1.0
+jujuy_nest,declustering,Gardner–Knopoff,0.03012,0.73539,0.00648,1.44089,network,0.00423,0.0094,4.64581
+jujuy_nest,declustering,nearest neighbour,0.00506,1.45566,0.00648,1.44089,network,0.00423,0.0094,0.77993
+jujuy_nest,magnitude error,CEUS-SSC correction,0.00473,1.47338,0.00648,1.44089,network,0.00423,0.0094,0.72925
+jujuy_nest,magnitude error,plain weight,0.00582,1.43275,0.00648,1.44089,network,0.00423,0.0094,0.89798
+jujuy_nest,completeness table,table: data,0.00671,1.46915,0.00648,1.44089,network,0.00423,0.0094,1.03533
+jujuy_nest,completeness table,table: recent,0.01603,1.29808,0.00648,1.44089,network,0.00423,0.0094,2.4718
+jujuy_nest,completeness table,table: isc,0.01337,1.23494,0.00648,1.44089,network,0.00423,0.0094,2.06239
+jujuy_nest,fit floor,floor 5.0 (network table),0.01254,1.26861,0.00648,1.44089,network,0.00423,0.0094,1.9343
+jujuy_nest,fit floor,floor 5.5 (network table),0.02265,1.05129,0.00648,1.44089,network,0.00423,0.0094,3.49267
+jujuy_nest,fit floor,floor 6.0 (network table),0.02482,0.99972,0.00648,1.44089,network,0.00423,0.0094,3.82765
+forearc,catalogue,mb before 1990 lowered by 0.1,0.03527,1.03174,0.03639,1.02766,network,0.02863,0.04703,0.9693
+forearc,catalogue,floor 5.5 before 1990,0.03801,1.02576,0.03639,1.02766,network,0.02863,0.04703,1.04456
+forearc,catalogue,four old in-slab events at the ISC-GEM value,0.03632,1.02802,0.03639,1.02766,network,0.02863,0.04703,0.99795
+forearc,catalogue,four old in-slab events left out,0.03632,1.02802,0.03639,1.02766,network,0.02863,0.04703,0.99795
+forearc,catalogue,no events before 1976 at M >= 7,0.03611,1.02891,0.03639,1.02766,network,0.02863,0.04703,0.99221
+forearc,catalogue,interface band ± 10 km,0.03115,1.15407,0.03639,1.02766,network,0.02863,0.04703,0.85601
+forearc,catalogue,interface band ± 20 km,0.04008,0.94615,0.03639,1.02766,network,0.02863,0.04703,1.10143
+forearc,weights,weight-1 events only,0.01331,1.0326,0.03639,1.02766,network,0.02863,0.04703,0.36569
+forearc,declustering,Gardner–Knopoff,0.03244,0.78273,0.03639,1.02766,network,0.02863,0.04703,0.8915
+forearc,declustering,nearest neighbour,0.01905,0.98135,0.03639,1.02766,network,0.02863,0.04703,0.5236
+forearc,magnitude error,CEUS-SSC correction,0.0285,1.05679,0.03639,1.02766,network,0.02863,0.04703,0.78319
+forearc,magnitude error,plain weight,0.03536,1.01359,0.03639,1.02766,network,0.02863,0.04703,0.97155
+forearc,completeness table,table: data,0.02013,1.12351,0.03639,1.02766,network,0.02863,0.04703,0.55315
+forearc,completeness table,table: recent,0.07558,0.9214,0.03639,1.02766,network,0.02863,0.04703,2.07685
+forearc,completeness table,table: isc,0.03724,0.99144,0.03639,1.02766,network,0.02863,0.04703,1.02334
+forearc,fit floor,floor 5.0 (network table),0.037,1.0135,0.03639,1.02766,network,0.02863,0.04703,1.0168
+forearc,fit floor,floor 5.5 (network table),0.04522,0.93494,0.03639,1.02766,network,0.02863,0.04703,1.24261
+forearc,fit floor,floor 6.0 (network table),0.03879,1.04232,0.03639,1.02766,network,0.02863,0.04703,1.06598
+arc,catalogue,mb before 1990 lowered by 0.1,0.01042,1.07617,0.01102,1.06972,network,0.0053,0.01896,0.9459
+arc,catalogue,floor 5.5 before 1990,0.01155,1.06404,0.01102,1.06972,network,0.0053,0.01896,1.04827
+arc,catalogue,four old in-slab events at the ISC-GEM value,0.01102,1.06972,0.01102,1.06972,network,0.0053,0.01896,1.0
+arc,catalogue,four old in-slab events left out,0.01102,1.06972,0.01102,1.06972,network,0.0053,0.01896,1.0
+arc,catalogue,no events before 1976 at M >= 7,0.00863,1.11268,0.01102,1.06972,network,0.0053,0.01896,0.7839
+arc,catalogue,interface band ± 10 km,0.01102,1.06972,0.01102,1.06972,network,0.0053,0.01896,1.0
+arc,catalogue,interface band ± 20 km,0.01102,1.06972,0.01102,1.06972,network,0.0053,0.01896,1.0
+arc,weights,weight-1 events only,0.01064,1.06771,0.01102,1.06972,network,0.0053,0.01896,0.96611
+arc,declustering,Gardner–Knopoff,0.01174,0.93834,0.01102,1.06972,network,0.0053,0.01896,1.06544
+arc,declustering,nearest neighbour,0.00635,1.08775,0.01102,1.06972,network,0.0053,0.01896,0.57677
+arc,magnitude error,CEUS-SSC correction,0.00837,1.10015,0.01102,1.06972,network,0.0053,0.01896,0.76014
+arc,magnitude error,plain weight,0.01023,1.06303,0.01102,1.06972,network,0.0053,0.01896,0.92851
+arc,completeness table,table: data,0.00623,1.15695,0.01102,1.06972,network,0.0053,0.01896,0.56522
+arc,completeness table,table: recent,0.0166,1.00714,0.01102,1.06972,network,0.0053,0.01896,1.50673
+arc,completeness table,table: isc,0.01093,1.04078,0.01102,1.06972,network,0.0053,0.01896,0.99261
+arc,fit floor,floor 5.0 (network table),0.01213,1.03859,0.01102,1.06972,network,0.0053,0.01896,1.10084
+arc,fit floor,floor 5.5 (network table),0.01428,0.95181,0.01102,1.06972,network,0.0053,0.01896,1.2964
+arc,fit floor,floor 6.0 (network table),0.01318,1.0204,0.01102,1.06972,network,0.0053,0.01896,1.19675
+backarc,catalogue,mb before 1990 lowered by 0.1,0.03311,0.90807,0.03728,0.89518,network,0.02552,0.05301,0.8881
+backarc,catalogue,floor 5.5 before 1990,0.03277,0.90245,0.03728,0.89518,network,0.02552,0.05301,0.87889
+backarc,catalogue,four old in-slab events at the ISC-GEM value,0.03728,0.89518,0.03728,0.89518,network,0.02552,0.05301,1.0
+backarc,catalogue,four old in-slab events left out,0.03728,0.89518,0.03728,0.89518,network,0.02552,0.05301,1.0
+backarc,catalogue,no events before 1976 at M >= 7,0.04299,0.87005,0.03728,0.89518,network,0.02552,0.05301,1.15302
+backarc,catalogue,interface band ± 10 km,0.03728,0.89518,0.03728,0.89518,network,0.02552,0.05301,1.0
+backarc,catalogue,interface band ± 20 km,0.03728,0.89518,0.03728,0.89518,network,0.02552,0.05301,1.0
+backarc,weights,weight-1 events only,0.0327,0.90959,0.03728,0.89518,network,0.02552,0.05301,0.87708
+backarc,declustering,Gardner–Knopoff,0.0151,0.96768,0.03728,0.89518,network,0.02552,0.05301,0.40498
+backarc,declustering,nearest neighbour,0.01316,1.02853,0.03728,0.89518,network,0.02552,0.05301,0.35304
+backarc,magnitude error,CEUS-SSC correction,0.03102,0.91279,0.03728,0.89518,network,0.02552,0.05301,0.83214
+backarc,magnitude error,plain weight,0.03405,0.89563,0.03728,0.89518,network,0.02552,0.05301,0.91331
+backarc,completeness table,table: data,0.04022,0.83938,0.03728,0.89518,network,0.02552,0.05301,1.07882
+backarc,completeness table,table: recent,0.01493,1.02557,0.03728,0.89518,network,0.02552,0.05301,0.40035
+backarc,completeness table,table: isc,0.03162,0.94338,0.03728,0.89518,network,0.02552,0.05301,0.84804
+backarc,fit floor,floor 5.0 (network table),0.02295,1.0245,0.03728,0.89518,network,0.02552,0.05301,0.61547
+backarc,fit floor,floor 5.5 (network table),0.016,1.15644,0.03728,0.89518,network,0.02552,0.05301,0.42916
+backarc,fit floor,floor 6.0 (network table),0.00906,1.51669,0.03728,0.89518,network,0.02552,0.05301,0.243
+patagonia,catalogue,mb before 1990 lowered by 0.1,0.01996,0.74764,0.01985,0.75506,network,0.0102,0.03408,1.00558
+patagonia,catalogue,floor 5.5 before 1990,0.01953,0.75899,0.01985,0.75506,network,0.0102,0.03408,0.98382
+patagonia,catalogue,four old in-slab events at the ISC-GEM value,0.01985,0.75506,0.01985,0.75506,network,0.0102,0.03408,1.0
+patagonia,catalogue,four old in-slab events left out,0.01985,0.75506,0.01985,0.75506,network,0.0102,0.03408,1.0
+patagonia,catalogue,no events before 1976 at M >= 7,0.01669,0.78615,0.01985,0.75506,network,0.0102,0.03408,0.84071
+patagonia,catalogue,interface band ± 10 km,0.01985,0.75506,0.01985,0.75506,network,0.0102,0.03408,1.0
+patagonia,catalogue,interface band ± 20 km,0.01985,0.75506,0.01985,0.75506,network,0.0102,0.03408,1.0
+patagonia,weights,weight-1 events only,0.01985,0.75506,0.01985,0.75506,network,0.0102,0.03408,1.0
+patagonia,declustering,Gardner–Knopoff,0.01357,0.74868,0.01985,0.75506,network,0.0102,0.03408,0.68348
+patagonia,declustering,nearest neighbour,0.01249,0.80272,0.01985,0.75506,network,0.0102,0.03408,0.62934
+patagonia,magnitude error,CEUS-SSC correction,0.01918,0.74892,0.01985,0.75506,network,0.0102,0.03408,0.96639
+patagonia,magnitude error,plain weight,0.01803,0.7659,0.01985,0.75506,network,0.0102,0.03408,0.90854
+patagonia,completeness table,table: data,0.02513,0.7141,0.01985,0.75506,network,0.0102,0.03408,1.26605
+patagonia,completeness table,table: recent,0.02103,0.75267,0.01985,0.75506,network,0.0102,0.03408,1.05927
+patagonia,completeness table,table: isc,0.00792,0.94705,0.01985,0.75506,network,0.0102,0.03408,0.39891
+patagonia,fit floor,floor 5.0 (network table),0.01428,0.84237,0.01985,0.75506,network,0.0102,0.03408,0.71961
+patagonia,fit floor,floor 5.5 (network table),0.0139,0.86467,0.01985,0.75506,network,0.0102,0.03408,0.70008
+patagonia,fit floor,floor 6.0 (network table),0.01826,0.65181,0.01985,0.75506,network,0.0102,0.03408,0.91999
+outer_rise,catalogue,mb before 1990 lowered by 0.1,0.02549,1.04863,0.02672,1.04186,network,0.01725,0.03944,0.95398
+outer_rise,catalogue,floor 5.5 before 1990,0.02678,1.0439,0.02672,1.04186,network,0.01725,0.03944,1.00219
+outer_rise,catalogue,four old in-slab events at the ISC-GEM value,0.02672,1.04186,0.02672,1.04186,network,0.01725,0.03944,1.0
+outer_rise,catalogue,four old in-slab events left out,0.02672,1.04186,0.02672,1.04186,network,0.01725,0.03944,1.0
+outer_rise,catalogue,no events before 1976 at M >= 7,0.02144,1.08039,0.02672,1.04186,network,0.01725,0.03944,0.80243
+outer_rise,catalogue,interface band ± 10 km,0.02672,1.04186,0.02672,1.04186,network,0.01725,0.03944,1.0
+outer_rise,catalogue,interface band ± 20 km,0.02672,1.04186,0.02672,1.04186,network,0.01725,0.03944,1.0
+outer_rise,weights,weight-1 events only,0.02672,1.04186,0.02672,1.04186,network,0.01725,0.03944,1.0
+outer_rise,declustering,Gardner–Knopoff,0.03941,0.86339,0.02672,1.04186,network,0.01725,0.03944,1.47514
+outer_rise,declustering,nearest neighbour,0.02479,0.98291,0.02672,1.04186,network,0.01725,0.03944,0.92781
+outer_rise,magnitude error,CEUS-SSC correction,0.02294,1.05146,0.02672,1.04186,network,0.01725,0.03944,0.85882
+outer_rise,magnitude error,plain weight,0.02437,1.04408,0.02672,1.04186,network,0.01725,0.03944,0.91209
+outer_rise,completeness table,table: data,0.01763,1.1214,0.02672,1.04186,network,0.01725,0.03944,0.65994
+outer_rise,completeness table,table: recent,0.03375,1.01252,0.02672,1.04186,network,0.01725,0.03944,1.26307
+outer_rise,completeness table,table: isc,0.02023,1.08254,0.02672,1.04186,network,0.01725,0.03944,0.75736
+outer_rise,fit floor,floor 5.0 (network table),0.02609,1.0418,0.02672,1.04186,network,0.01725,0.03944,0.97647
+outer_rise,fit floor,floor 5.5 (network table),0.03132,0.95271,0.02672,1.04186,network,0.01725,0.03944,1.17236
+outer_rise,fit floor,floor 6.0 (network table),0.0396,0.7398,0.02672,1.04186,network,0.01725,0.03944,1.48213
+seg1 45.6–37° S,catalogue,mb before 1990 lowered by 0.1,0.03363,1.01437,0.0341,1.01314,network+counts,0.02292,0.048,0.98622
+seg1 45.6–37° S,catalogue,floor 5.5 before 1990,0.0379,1.00398,0.0341,1.01314,network+counts,0.02292,0.048,1.11165
+seg1 45.6–37° S,catalogue,four old in-slab events at the ISC-GEM value,0.0341,1.01314,0.0341,1.01314,network+counts,0.02292,0.048,1.0
+seg1 45.6–37° S,catalogue,four old in-slab events left out,0.0341,1.01314,0.0341,1.01314,network+counts,0.02292,0.048,1.0
+seg1 45.6–37° S,catalogue,no events before 1976 at M >= 7,0.02406,1.07519,0.0341,1.01314,network+counts,0.02292,0.048,0.70559
+seg1 45.6–37° S,catalogue,interface band ± 10 km,0.03677,0.94528,0.0341,1.01314,network+counts,0.02292,0.048,1.07837
+seg1 45.6–37° S,catalogue,interface band ± 20 km,0.03324,1.04276,0.0341,1.01314,network+counts,0.02292,0.048,0.97484
+seg1 45.6–37° S,weights,weight-1 events only,0.03114,0.94591,0.0341,1.01314,network+counts,0.02292,0.048,0.91335
+seg1 45.6–37° S,declustering,Gardner–Knopoff,0.02758,0.79125,0.0341,1.01314,network+counts,0.02292,0.048,0.80892
+seg1 45.6–37° S,declustering,nearest neighbour,0.01305,1.00842,0.0341,1.01314,network+counts,0.02292,0.048,0.38285
+seg1 45.6–37° S,magnitude error,CEUS-SSC correction,0.03349,1.00436,0.0341,1.01314,network+counts,0.02292,0.048,0.98219
+seg1 45.6–37° S,magnitude error,plain weight,0.02949,1.02325,0.0341,1.01314,network+counts,0.02292,0.048,0.86487
+seg1 45.6–37° S,completeness table,table: network,0.03398,1.01384,0.0341,1.01314,network+counts,0.02292,0.048,0.99659
+seg1 45.6–37° S,completeness table,table: data,0.04097,1.00018,0.0341,1.01314,network+counts,0.02292,0.048,1.20156
+seg1 45.6–37° S,completeness table,table: recent,0.06645,0.92566,0.0341,1.01314,network+counts,0.02292,0.048,1.94893
+seg1 45.6–37° S,completeness table,table: isc,0.04301,0.92758,0.0341,1.01314,network+counts,0.02292,0.048,1.26139
+seg1 45.6–37° S,completeness table,table: old,0.05102,0.94901,0.0341,1.01314,network+counts,0.02292,0.048,1.49637
+seg1 45.6–37° S,completeness table,table: network+Lomnitz,0.03225,1.02302,0.0341,1.01314,network+counts,0.02292,0.048,0.94589
+seg1 45.6–37° S,completeness table,table: data+Lomnitz,0.03769,1.01524,0.0341,1.01314,network+counts,0.02292,0.048,1.1054
+seg1 45.6–37° S,completeness table,table: data+counts,0.04057,1.00189,0.0341,1.01314,network+counts,0.02292,0.048,1.1898
+seg1 45.6–37° S,completeness table,table: network+long,0.03174,1.02566,0.0341,1.01314,network+counts,0.02292,0.048,0.93098
+seg1 45.6–37° S,completeness table,table: data+long,0.03735,1.0167,0.0341,1.01314,network+counts,0.02292,0.048,1.09535
+seg1 45.6–37° S,completeness table,table: network+old,0.03587,1.00413,0.0341,1.01314,network+counts,0.02292,0.048,1.05215
+seg1 45.6–37° S,completeness table,table: data+old,0.04267,0.99275,0.0341,1.01314,network+counts,0.02292,0.048,1.25138
+seg1 45.6–37° S,fit floor,floor 5.0 (network table),0.05699,0.86878,0.0341,1.01314,network+counts,0.02292,0.048,1.6716
+seg1 45.6–37° S,fit floor,floor 5.5 (network table),0.0667,0.80668,0.0341,1.01314,network+counts,0.02292,0.048,1.95622
+seg1 45.6–37° S,fit floor,floor 6.0 (network table),0.07059,0.72705,0.0341,1.01314,network+counts,0.02292,0.048,2.07026
+seg2 37–32° S,catalogue,mb before 1990 lowered by 0.1,0.06285,1.10405,0.06618,1.09667,network+counts,0.05328,0.08339,0.94962
+seg2 37–32° S,catalogue,floor 5.5 before 1990,0.0693,1.093,0.06618,1.09667,network+counts,0.05328,0.08339,1.04711
+seg2 37–32° S,catalogue,four old in-slab events at the ISC-GEM value,0.06618,1.09667,0.06618,1.09667,network+counts,0.05328,0.08339,1.0
+seg2 37–32° S,catalogue,four old in-slab events left out,0.06618,1.09667,0.06618,1.09667,network+counts,0.05328,0.08339,1.0
+seg2 37–32° S,catalogue,no events before 1976 at M >= 7,0.05994,1.11444,0.06618,1.09667,network+counts,0.05328,0.08339,0.90571
+seg2 37–32° S,catalogue,interface band ± 10 km,0.06749,1.04163,0.06618,1.09667,network+counts,0.05328,0.08339,1.0198
+seg2 37–32° S,catalogue,interface band ± 20 km,0.0677,1.11053,0.06618,1.09667,network+counts,0.05328,0.08339,1.02289
+seg2 37–32° S,weights,weight-1 events only,0.05705,1.0617,0.06618,1.09667,network+counts,0.05328,0.08339,0.86208
+seg2 37–32° S,declustering,Gardner–Knopoff,0.06014,0.71425,0.06618,1.09667,network+counts,0.05328,0.08339,0.90871
+seg2 37–32° S,declustering,nearest neighbour,0.02241,1.0885,0.06618,1.09667,network+counts,0.05328,0.08339,0.33854
+seg2 37–32° S,magnitude error,CEUS-SSC correction,0.05946,1.09632,0.06618,1.09667,network+counts,0.05328,0.08339,0.89839
+seg2 37–32° S,magnitude error,plain weight,0.0596,1.09482,0.06618,1.09667,network+counts,0.05328,0.08339,0.90056
+seg2 37–32° S,completeness table,table: network,0.06155,1.10967,0.06618,1.09667,network+counts,0.05328,0.08339,0.93006
+seg2 37–32° S,completeness table,table: data,0.04348,1.18469,0.06618,1.09667,network+counts,0.05328,0.08339,0.657
+seg2 37–32° S,completeness table,table: recent,0.1467,0.97869,0.06618,1.09667,network+counts,0.05328,0.08339,2.21659
+seg2 37–32° S,completeness table,table: isc,0.10745,0.96058,0.06618,1.09667,network+counts,0.05328,0.08339,1.62355
+seg2 37–32° S,completeness table,table: old,0.07018,1.09697,0.06618,1.09667,network+counts,0.05328,0.08339,1.06035
+seg2 37–32° S,completeness table,table: network+Lomnitz,0.06235,1.10725,0.06618,1.09667,network+counts,0.05328,0.08339,0.94207
+seg2 37–32° S,completeness table,table: data+Lomnitz,0.04648,1.17244,0.06618,1.09667,network+counts,0.05328,0.08339,0.70228
+seg2 37–32° S,completeness table,table: data+counts,0.04816,1.16604,0.06618,1.09667,network+counts,0.05328,0.08339,0.72762
+seg2 37–32° S,completeness table,table: network+long,0.06564,1.09808,0.06618,1.09667,network+counts,0.05328,0.08339,0.99181
+seg2 37–32° S,completeness table,table: data+long,0.04892,1.16314,0.06618,1.09667,network+counts,0.05328,0.08339,0.7392
+seg2 37–32° S,completeness table,table: network+old,0.06643,1.09603,0.06618,1.09667,network+counts,0.05328,0.08339,1.00367
+seg2 37–32° S,completeness table,table: data+old,0.0481,1.16627,0.06618,1.09667,network+counts,0.05328,0.08339,0.72671
+seg2 37–32° S,fit floor,floor 5.0 (network table),0.08189,1.03449,0.06618,1.09667,network+counts,0.05328,0.08339,1.23731
+seg2 37–32° S,fit floor,floor 5.5 (network table),0.07955,1.04624,0.06618,1.09667,network+counts,0.05328,0.08339,1.20203
+seg2 37–32° S,fit floor,floor 6.0 (network table),0.08302,1.03556,0.06618,1.09667,network+counts,0.05328,0.08339,1.25442
+seg3 32–26° S,catalogue,mb before 1990 lowered by 0.1,0.05898,1.08624,0.06175,1.07967,network+counts,0.04939,0.07597,0.95509
+seg3 32–26° S,catalogue,floor 5.5 before 1990,0.06724,1.07104,0.06175,1.07967,network+counts,0.04939,0.07597,1.08889
+seg3 32–26° S,catalogue,four old in-slab events at the ISC-GEM value,0.06175,1.07967,0.06175,1.07967,network+counts,0.04939,0.07597,1.0
+seg3 32–26° S,catalogue,four old in-slab events left out,0.06175,1.07967,0.06175,1.07967,network+counts,0.04939,0.07597,1.0
+seg3 32–26° S,catalogue,no events before 1976 at M >= 7,0.05799,1.09086,0.06175,1.07967,network+counts,0.04939,0.07597,0.93911
+seg3 32–26° S,catalogue,interface band ± 10 km,0.06473,1.02544,0.06175,1.07967,network+counts,0.04939,0.07597,1.0482
+seg3 32–26° S,catalogue,interface band ± 20 km,0.0636,1.09342,0.06175,1.07967,network+counts,0.04939,0.07597,1.0299
+seg3 32–26° S,weights,weight-1 events only,0.05542,1.04915,0.06175,1.07967,network+counts,0.04939,0.07597,0.89747
+seg3 32–26° S,declustering,Gardner–Knopoff,0.0579,0.75951,0.06175,1.07967,network+counts,0.04939,0.07597,0.93767
+seg3 32–26° S,declustering,nearest neighbour,0.03432,1.05623,0.06175,1.07967,network+counts,0.04939,0.07597,0.55575
+seg3 32–26° S,magnitude error,CEUS-SSC correction,0.06043,1.05758,0.06175,1.07967,network+counts,0.04939,0.07597,0.97861
+seg3 32–26° S,magnitude error,plain weight,0.05818,1.07073,0.06175,1.07967,network+counts,0.04939,0.07597,0.94218
+seg3 32–26° S,completeness table,table: network,0.06069,1.08273,0.06175,1.07967,network+counts,0.04939,0.07597,0.98288
+seg3 32–26° S,completeness table,table: data,0.05805,1.0933,0.06175,1.07967,network+counts,0.04939,0.07597,0.94005
+seg3 32–26° S,completeness table,table: recent,0.10529,1.00462,0.06175,1.07967,network+counts,0.04939,0.07597,1.70507
+seg3 32–26° S,completeness table,table: isc,0.12959,0.89204,0.06175,1.07967,network+counts,0.04939,0.07597,2.09854
+seg3 32–26° S,completeness table,table: old,0.07657,1.04015,0.06175,1.07967,network+counts,0.04939,0.07597,1.24002
+seg3 32–26° S,completeness table,table: network+Lomnitz,0.05601,1.09701,0.06175,1.07967,network+counts,0.04939,0.07597,0.90695
+seg3 32–26° S,completeness table,table: data+Lomnitz,0.0537,1.10742,0.06175,1.07967,network+counts,0.04939,0.07597,0.86968
+seg3 32–26° S,completeness table,table: data+counts,0.05931,1.08942,0.06175,1.07967,network+counts,0.04939,0.07597,0.9604
+seg3 32–26° S,completeness table,table: network+long,0.0588,1.08831,0.06175,1.07967,network+counts,0.04939,0.07597,0.95223
+seg3 32–26° S,completeness table,table: data+long,0.05649,1.09819,0.06175,1.07967,network+counts,0.04939,0.07597,0.91483
+seg3 32–26° S,completeness table,table: network+old,0.06083,1.08235,0.06175,1.07967,network+counts,0.04939,0.07597,0.98504
+seg3 32–26° S,completeness table,table: data+old,0.05831,1.09248,0.06175,1.07967,network+counts,0.04939,0.07597,0.94431
+seg3 32–26° S,fit floor,floor 5.0 (network table),0.10539,0.93296,0.06175,1.07967,network+counts,0.04939,0.07597,1.70669
+seg3 32–26° S,fit floor,floor 5.5 (network table),0.09793,0.96964,0.06175,1.07967,network+counts,0.04939,0.07597,1.58595
+seg3 32–26° S,fit floor,floor 6.0 (network table),0.09944,0.95778,0.06175,1.07967,network+counts,0.04939,0.07597,1.61042
+seg4 26–17.6° S,catalogue,mb before 1990 lowered by 0.1,0.06605,0.99325,0.06948,0.98672,network+counts,0.05171,0.08548,0.95062
+seg4 26–17.6° S,catalogue,floor 5.5 before 1990,0.07406,0.98155,0.06948,0.98672,network+counts,0.05171,0.08548,1.06587
+seg4 26–17.6° S,catalogue,four old in-slab events at the ISC-GEM value,0.06864,0.98886,0.06948,0.98672,network+counts,0.05171,0.08548,0.98781
+seg4 26–17.6° S,catalogue,four old in-slab events left out,0.06864,0.98886,0.06948,0.98672,network+counts,0.05171,0.08548,0.98781
+seg4 26–17.6° S,catalogue,no events before 1976 at M >= 7,0.06909,0.98772,0.06948,0.98672,network+counts,0.05171,0.08548,0.99427
+seg4 26–17.6° S,catalogue,interface band ± 10 km,0.07637,0.92409,0.06948,0.98672,network+counts,0.05171,0.08548,1.09911
+seg4 26–17.6° S,catalogue,interface band ± 20 km,0.06934,1.00332,0.06948,0.98672,network+counts,0.05171,0.08548,0.99795
+seg4 26–17.6° S,weights,weight-1 events only,0.06467,0.94643,0.06948,0.98672,network+counts,0.05171,0.08548,0.93071
+seg4 26–17.6° S,declustering,Gardner–Knopoff,0.04665,0.80881,0.06948,0.98672,network+counts,0.05171,0.08548,0.67139
+seg4 26–17.6° S,declustering,nearest neighbour,0.0343,0.96421,0.06948,0.98672,network+counts,0.05171,0.08548,0.49361
+seg4 26–17.6° S,magnitude error,CEUS-SSC correction,0.05365,1.01583,0.06948,0.98672,network+counts,0.05171,0.08548,0.77207
+seg4 26–17.6° S,magnitude error,plain weight,0.06366,0.98821,0.06948,0.98672,network+counts,0.05171,0.08548,0.91622
+seg4 26–17.6° S,completeness table,table: network,0.06787,0.99091,0.06948,0.98672,network+counts,0.05171,0.08548,0.9768
+seg4 26–17.6° S,completeness table,table: data,0.05584,1.03554,0.06948,0.98672,network+counts,0.05171,0.08548,0.8037
+seg4 26–17.6° S,completeness table,table: recent,0.10649,0.92694,0.06948,0.98672,network+counts,0.05171,0.08548,1.53251
+seg4 26–17.6° S,completeness table,table: isc,0.10005,0.88872,0.06948,0.98672,network+counts,0.05171,0.08548,1.43987
+seg4 26–17.6° S,completeness table,table: old,0.06304,1.0164,0.06948,0.98672,network+counts,0.05171,0.08548,0.90732
+seg4 26–17.6° S,completeness table,table: network+Lomnitz,0.06305,1.00401,0.06948,0.98672,network+counts,0.05171,0.08548,0.90742
+seg4 26–17.6° S,completeness table,table: data+Lomnitz,0.05385,1.04212,0.06948,0.98672,network+counts,0.05171,0.08548,0.77507
+seg4 26–17.6° S,completeness table,table: data+counts,0.05841,1.02736,0.06948,0.98672,network+counts,0.05171,0.08548,0.84058
+seg4 26–17.6° S,completeness table,table: network+long,0.06425,1.00055,0.06948,0.98672,network+counts,0.05171,0.08548,0.92465
+seg4 26–17.6° S,completeness table,table: data+long,0.05453,1.03976,0.06948,0.98672,network+counts,0.05171,0.08548,0.78479
+seg4 26–17.6° S,completeness table,table: network+old,0.0673,0.99242,0.06948,0.98672,network+counts,0.05171,0.08548,0.96851
+seg4 26–17.6° S,completeness table,table: data+old,0.05614,1.03456,0.06948,0.98672,network+counts,0.05171,0.08548,0.8079
+seg4 26–17.6° S,fit floor,floor 5.0 (network table),0.07406,0.96369,0.06948,0.98672,network+counts,0.05171,0.08548,1.06586
+seg4 26–17.6° S,fit floor,floor 5.5 (network table),0.08327,0.91879,0.06948,0.98672,network+counts,0.05171,0.08548,1.19838
+seg4 26–17.6° S,fit floor,floor 6.0 (network table),0.09147,0.86148,0.06948,0.98672,network+counts,0.05171,0.08548,1.31646
+intraslab,catalogue,mb before 1990 lowered by 0.1,0.21918,1.11293,0.2388,1.10186,network+counts,0.21351,0.26317,0.91785
+intraslab,catalogue,floor 5.5 before 1990,0.22676,1.10795,0.2388,1.10186,network+counts,0.21351,0.26317,0.9496
+intraslab,catalogue,four old in-slab events at the ISC-GEM value,0.2361,1.10391,0.2388,1.10186,network+counts,0.21351,0.26317,0.98867
+intraslab,catalogue,four old in-slab events left out,0.2347,1.10492,0.2388,1.10186,network+counts,0.21351,0.26317,0.98284
+intraslab,catalogue,no events before 1976 at M >= 7,0.22222,1.1145,0.2388,1.10186,network+counts,0.21351,0.26317,0.93055
+intraslab,catalogue,interface band ± 10 km,0.24377,1.11625,0.2388,1.10186,network+counts,0.21351,0.26317,1.02081
+intraslab,catalogue,interface band ± 20 km,0.23417,1.09546,0.2388,1.10186,network+counts,0.21351,0.26317,0.98063
+intraslab,weights,weight-1 events only,0.18697,1.11803,0.2388,1.10186,network+counts,0.21351,0.26317,0.78295
+intraslab,declustering,Gardner–Knopoff,0.27151,0.93377,0.2388,1.10186,network+counts,0.21351,0.26317,1.13696
+intraslab,declustering,nearest neighbour,0.20468,1.10382,0.2388,1.10186,network+counts,0.21351,0.26317,0.85712
+intraslab,magnitude error,CEUS-SSC correction,0.19128,1.12197,0.2388,1.10186,network+counts,0.21351,0.26317,0.801
+intraslab,magnitude error,plain weight,0.20934,1.10903,0.2388,1.10186,network+counts,0.21351,0.26317,0.87665
+intraslab,completeness table,table: network,0.24574,1.09676,0.2388,1.10186,network+counts,0.21351,0.26317,1.02907
+intraslab,completeness table,table: data,0.22238,1.1173,0.2388,1.10186,network+counts,0.21351,0.26317,0.93123
+intraslab,completeness table,table: recent,0.26372,1.08523,0.2388,1.10186,network+counts,0.21351,0.26317,1.10436
+intraslab,completeness table,table: isc,0.18163,1.1548,0.2388,1.10186,network+counts,0.21351,0.26317,0.76059
+intraslab,completeness table,table: network+Lomnitz,0.22399,1.11323,0.2388,1.10186,network+counts,0.21351,0.26317,0.93798
+intraslab,completeness table,table: data+Lomnitz,0.20599,1.13106,0.2388,1.10186,network+counts,0.21351,0.26317,0.8626
+intraslab,completeness table,table: data+counts,0.21704,1.12168,0.2388,1.10186,network+counts,0.21351,0.26317,0.90887
+intraslab,completeness table,table: network+long,0.23059,1.10801,0.2388,1.10186,network+counts,0.21351,0.26317,0.96563
+intraslab,completeness table,table: data+long,0.21083,1.12684,0.2388,1.10186,network+counts,0.21351,0.26317,0.88287
+intraslab,completeness table,table: network+old,0.24138,1.09997,0.2388,1.10186,network+counts,0.21351,0.26317,1.01078
+intraslab,completeness table,table: data+old,0.21932,1.11981,0.2388,1.10186,network+counts,0.21351,0.26317,0.91841
+intraslab,fit floor,floor 5.0 (network table),0.20278,1.14344,0.2388,1.10186,network+counts,0.21351,0.26317,0.84917
+intraslab,fit floor,floor 5.5 (network table),0.24953,1.06426,0.2388,1.10186,network+counts,0.21351,0.26317,1.04492
+intraslab,fit floor,floor 6.0 (network table),0.31091,0.92012,0.2388,1.10186,network+counts,0.21351,0.26317,1.30196
+crustal,catalogue,mb before 1990 lowered by 0.1,0.0912,0.98265,0.09686,0.97571,network,0.07908,0.11852,0.94156
+crustal,catalogue,floor 5.5 before 1990,0.09501,0.97916,0.09686,0.97571,network,0.07908,0.11852,0.98094
+crustal,catalogue,four old in-slab events at the ISC-GEM value,0.09677,0.97587,0.09686,0.97571,network,0.07908,0.11852,0.9991
+crustal,catalogue,four old in-slab events left out,0.09677,0.97587,0.09686,0.97571,network,0.07908,0.11852,0.9991
+crustal,catalogue,no events before 1976 at M >= 7,0.09419,0.98061,0.09686,0.97571,network,0.07908,0.11852,0.97243
+crustal,catalogue,interface band ± 10 km,0.08385,1.05787,0.09686,0.97571,network,0.07908,0.11852,0.86567
+crustal,catalogue,interface band ± 20 km,0.1024,0.93635,0.09686,0.97571,network,0.07908,0.11852,1.0572
+crustal,weights,weight-1 events only,0.07016,0.96063,0.09686,0.97571,network,0.07908,0.11852,0.7243
+crustal,declustering,Gardner–Knopoff,0.06855,0.87392,0.09686,0.97571,network,0.07908,0.11852,0.70773
+crustal,declustering,nearest neighbour,0.04812,0.99633,0.09686,0.97571,network,0.07908,0.11852,0.49675
+crustal,magnitude error,CEUS-SSC correction,0.07991,0.995,0.09686,0.97571,network,0.07908,0.11852,0.82498
+crustal,magnitude error,plain weight,0.0905,0.97075,0.09686,0.97571,network,0.07908,0.11852,0.93429
+crustal,completeness table,table: data,0.18779,0.79282,0.09686,0.97571,network,0.07908,0.11852,1.93873
+crustal,completeness table,table: recent,0.12112,0.94396,0.09686,0.97571,network,0.07908,0.11852,1.25044
+crustal,completeness table,table: isc,0.08712,0.98028,0.09686,0.97571,network,0.07908,0.11852,0.89945
+crustal,fit floor,floor 5.0 (network table),0.08507,1.00351,0.09686,0.97571,network,0.07908,0.11852,0.87827
+crustal,fit floor,floor 5.5 (network table),0.08775,0.98872,0.09686,0.97571,network,0.07908,0.11852,0.90596
+crustal,fit floor,floor 6.0 (network table),0.07789,1.08218,0.09686,0.97571,network,0.07908,0.11852,0.80419

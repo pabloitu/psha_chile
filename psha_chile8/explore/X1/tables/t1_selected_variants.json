@@ -1,0 +1,35 @@
+{
+ "baseline": {
+  "variant": "5s 50km | x1.5 M6, x2 M7, x3 M8 | hungarian | anchor",
+  "tw": "5",
+  "dw": "50",
+  "scale": "x1.5 M6, x2 M7, x3 M8",
+  "assign": "hungarian",
+  "order": "anchor",
+  "splits": "121",
+  "false_merges": "202",
+  "n_ge45": "22746"
+ },
+ "nb_order": {
+  "variant": "5s 50km | x2 M7, x3 M8 | hungarian | cluster",
+  "tw": "5",
+  "dw": "50",
+  "scale": "x2 M7, x3 M8",
+  "assign": "hungarian",
+  "order": "cluster",
+  "splits": "50",
+  "false_merges": "285",
+  "n_ge45": "22371"
+ },
+ "nb_calibrated": {
+  "variant": "calibrated | x2 M7, x3 M8 | hungarian | anchor",
+  "tw": "cal",
+  "dw": "cal",
+  "scale": "x2 M7, x3 M8",
+  "assign": "hungarian",
+  "order": "anchor",
+  "splits": "103",
+  "false_merges": "279",
+  "n_ge45": "22604"
+ }
+}
