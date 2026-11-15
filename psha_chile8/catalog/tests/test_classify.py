@@ -122,7 +122,7 @@ def test_mechanism_modes():
 
 
 def test_subclasses_and_the_jujuy_nest():
-    g = frame(z=[200.0, 200.0, 150.0, 60.0, 5.0, 5.0], top=[190.0, 190.0, 140.0, 45.0, 100.0, np.nan],
+    g = frame(z=[200.0, 200.0, 140.0, 60.0, 5.0, 5.0], top=[190.0, 190.0, 130.0, 45.0, 100.0, np.nan],
               lon=[-66.9, -65.0, -66.9, -72.0, -70.0, -72.0], lat=[-24.0, -24.0, -24.0, -33.0, -33.0, -50.0],
               zone=["backarc", "backarc", "backarc", "forearc", "arc", "forearc"], pat=[False] * 5 + [True])
     o = w(g)

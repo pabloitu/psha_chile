@@ -142,7 +142,10 @@ def test_maule_moment_check():
     assert abs(G.tensor_m0(m)[0] / 2.257e22 - 1) < 0.01
     R = pd.DataFrame({"event_id": ["maule"], "src": ["comcat"], "src_id": ["official20100227063411530_30"]})
     r = G.mechanisms(R).iloc[0]
-    assert r.mech_src == "ComCat duputel" and abs(r.mech_mw - 8.8) < 0.06 and r.mech_flag == ""
+    assert r.mech_src == "ComCat LD" and r.mech_id.endswith("_GCMT") and abs(r.mech_mw - 8.8) < 0.06 and r.mech_flag == ""
+    R = pd.concat([R, pd.DataFrame({"event_id": ["maule"], "src": ["gcmt"], "src_id": ["C201002270634A"]})])
+    r = G.mechanisms(R).iloc[0]
+    assert r.mech_src == "GCMT" and abs(r.mech_mw - 8.8) < 0.06
     c = pd.read_csv(G.SRC / f"comcat_mt_{G.FROZEN}_mechs.csv")
     w = c[c.code.str.endswith("20100227063411530_22_C_WCMT")]
     assert abs(float(w.m0.iloc[0]) / G.tensor_m0(w).iloc[0] - 1) > G.M0_TOL

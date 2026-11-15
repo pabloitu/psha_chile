@@ -20,12 +20,12 @@ def line(a, b, s=0.2, sy=0.1, lo=3.5, hi=6.5):
 
 
 def events(rows):
-    """rows: per event a dict scale -> value (key yr for the year)."""
+    """rows: per event a dict scale -> value (key yr for the year, key gem for the ISC-GEM flag)."""
     e = pd.DataFrame({"event_id": [f"e{i}" for i in range(len(rows))], "yr": [r.get("yr", 2015.0) for r in rows],
                       "z": 20.0, "lat": -33.0, "lon": -72.0})
     M = pd.DataFrame([{"event_id": f"e{i}", "scale": k, "mag": v, "err": np.nan, "src": "isc", "src_id": str(i),
-                       "agency": k.split()[-2], "mag_type": k.split()[-1], "note": None}
-                      for i, r in enumerate(rows) for k, v in r.items() if k != "yr"])
+                       "agency": k.split()[-2], "mag_type": k.split()[-1], "note": "preferred" if k.startswith("Cent ") else f"q=B s={r['gem']}" if k == "ISC-GEM Mw" and "gem" in r else None}
+                      for i, r in enumerate(rows) for k, v in r.items() if k not in ("yr", "gem")])
     return e, M
 
 
@@ -155,20 +155,32 @@ def test_one_mw_per_event():
                    {"ISC MS": 4.64}, {"ISC MS": 4.64, "ISC mb": 4.5}, {"ISC MS": 5.6, "ISC mb": 5.0},
                    {"ISC-GEM Mw": 6.5, "Cent ABE1 Ms": 6.9, "ISC mb": 6.0, "yr": 1970.0},
                    {"Cent ABE1 Ms": 6.9, "ISC mb": 6.0, "yr": 1970.0}, {"ISC-GEM Mw": 6.5, "ISC mb": 6.0, "yr": 1980.0},
-                   {"Cabello Mw": 7.4, "yr": 1850.0}, {"MOS mb": 4.4}, {"PAS MS": 6.0, "yr": 1930.0}])
+                   {"Cabello Mw": 7.4, "yr": 1850.0}, {"MOS mb": 4.4}, {"PAS MS": 6.0, "yr": 1930.0},
+                   {"ISC-GEM Mw": 7.1, "Cent ABE1 mB": 7.5, "yr": 1959.0}, {"ISC-GEM Mw": 6.4, "Cent ISC mb": 6.0, "yr": 1970.0},
+                   {"Cent ABE1 Ms": 7.0, "Cent P&S Mw": 7.3, "yr": 1930.0},
+                   {"ISC-GEM Mw": 7.1, "Cent ABE1 mB": 7.5, "yr": 1959.0, "gem": "d"},
+                   {"ISC-GEM Mw": 7.7, "Cent P&S Mw": 7.2, "yr": 1960.0, "gem": "d"},
+                   {"ISC-GEM Mw": 6.0, "Cent ABE1 Ms": 6.9, "yr": 1970.0, "gem": "p"}, {"ISC-GEM Mw": 6.2, "yr": 1950.0, "gem": "p"}])
+    e.loc[11, "z"] = 100.0
     R = G.reference(M)[0]
     rm = pd.DataFrame([{"event_id": "e1", "src_id": "X 2010", "mag": 6.2, "sig": 0.2, "note": "6.2", "flags": ""}])
     w = G.assign(e, M, R, F, RM, ["ISC MS", "ISC mb", "MOS mb"], judge="own")
-    assert w.mw_kind.tolist() == ["direct", "direct", "none", "proxy", "proxy", "iscgem", "centennial", "proxy", "cabello",
-                                  "none", "none"]
+    assert w.mw_kind.tolist() == ["direct", "direct", "none", "proxy", "proxy", "centennial", "centennial", "proxy", "cabello",
+                                  "none", "none", "centennial", "iscgem", "centennial", "iscgem", "centennial", "centennial", "iscgem"]
+    assert w.mw.tolist()[14:] == [7.1, 7.2, round(G.MS_DG15(6.9) + 1e-9, 1), 6.2]
+    assert w["flags"].tolist()[14:] == ["", "", "converted_from_ms", "iscgem_proxy"]
     assert w.mw_type.tolist()[:2] == ["Mww", "Mw"] and w.mw.tolist()[:2] == [5.1, 6.0]
     assert abs((4.64 + 1.0) / 1.2 - 4.7) < 1e-9 and w["flags"][2] == "no_mw"
     assert w.mw_type[3] == "mb" and w.mw_type[4] == "MS" and w.relation_id[4] == "ISC MS"
-    assert w.mw[5] == 6.5 and abs(w.mw_raw[6] - G.MS_DG15(6.9)) < 1e-3 and "converted_from_ms" in w["flags"][6]
+    assert abs(w.mw_raw[5] - G.MS_DG15(6.9)) < 1e-3 and abs(w.mw_raw[6] - G.MS_DG15(6.9)) < 1e-3 and "converted_from_ms" in w["flags"][6]
+    assert abs(w.mw_raw[11] - (2.4 * 7.5 + 10.0 - 16.1) / 1.5) < 1e-3 and w["flags"][11] == "converted_from_mb" and w.mw_sigma[11] == G.SIG_MB
+    assert abs(G.MB_A82(7.5, False) - (2.4 * 7.5 + 9.6 - 16.1) / 1.5) < 1e-9 and w.mw[12] == 6.4 and w.mw[13] == 7.3 and w.mw_type[13] == "Mw"
     assert w.mw_type[7] == "mb" and w.mw[8] == 7.4 and w.mw_sigma[8] == G.SIG_CAB
     assert abs(w.mw_raw[4] - (5.6 + 1.0) / 1.2) < 1e-3 and abs(w.mw[4] - w.mw_raw[4]) < 0.1 and w.native_value[4] == 5.6
-    swap = G.assign(e, M, R, F, rm, ["ISC MS", "ISC mb"], old=["Centennial", "ISC-GEM"], judge="own")
-    assert swap.mw_kind[5] == "centennial" and swap.mw_kind[1] == "rm18" and swap.mw[1] == 6.2 and swap.mw_src_id[1] == "X 2010"
+    rm = pd.DataFrame([{"event_id": i, "src_id": "X", "mag": 6.2, "sig": 0.2, "note": "6.2", "flags": ""} for i in ("e1", "e4", "e15")])
+    swap = G.assign(e, M, R, F, rm, ["ISC MS", "ISC mb"], old=[G.OLD[i] for i in (1, 0, 3, 2)], judge="own")
+    assert swap.mw_kind[5] == "iscgem" and swap.mw[5] == 6.5 and swap.mw_kind[15] == "rm18" and swap.mw[15] == 6.2
+    assert swap.mw_kind[1] == "direct" and swap.mw[1] == 6.0 and swap.mw_kind[4] == "rm18" and swap.mw_src_id[4] == "X"
     assert set(w.columns) == {"event_id", "mw", "mw_sigma", "mw_kind", "mw_src", "mw_src_id", "mw_agency", "mw_type",
                               "native_value", "relation_id", "mw_raw", "flags"}
 
@@ -238,3 +250,44 @@ def test_gcmt_line_is_continuous_and_keeps_the_order():
     assert np.allclose(y[x >= G.M_HI], x[x >= G.M_HI]) and abs((x - y)[0] - 0.25 * 0.6) < 0.03
     step = G.reference(M, lower="step")[0].y.reindex(e.event_id[3000:]).to_numpy()
     assert np.diff(step).max() > 0.02
+
+
+def test_a6_corrections_only_accepted_rows(tmp_path):
+    d = pd.DataFrame({"event_id": ["a", "b", "c"], "mw": [7.0, 6.5, 6.0], "mw_sigma": [0.2, 0.2, 0.2], "mw_kind": "iscgem",
+                      "depth": [np.nan, 30.0, 10.0], "depth_sigma": np.nan, "depth_kind": ["unknown", "measured", "measured"],
+                      "flags": ["", "x", ""]})
+    o = pd.DataFrame([["a", "mw", 7.0, 7.7, 0.1, "ref", "p. 1", "why", "accepted"], ["b", "mw", 6.5, 6.9, 0.1, "ref", "p. 1", "why", "proposed"],
+                      ["a", "depth", "", 15, 5, "ref", "p. 2", "why", "accepted"], ["b", "class_hint", "", "in-slab", "", "ref", "", "why", "accepted"],
+                      ["zz", "mw", 5.0, 6.0, "", "ref", "", "not in the table", "accepted"]],
+                     columns=["event_id", "property", "old_value", "new_value", "sigma", "reference", "page", "reason", "status"])
+    f = tmp_path / "o.csv"
+    o.to_csv(f, index=False)
+    w, n = G.overrides(d, {"mw": "mw", "depth": "depth", "class_hint": "a6_class_hint"}, f=f)
+    assert n == 3 and w.mw.tolist() == [7.7, 6.5, 6.0] and w.mw_sigma[0] == 0.1 and w.mw_kind.tolist() == ["a6", "iscgem", "iscgem"]
+    assert w.depth[0] == 15 and w.depth_sigma[0] == 5 and w.depth_kind[0] == "measured" and w["flags"].tolist() == ["a6_mw;a6_depth", "x;a6_class_hint", ""]
+    assert w.a6_class_hint.tolist()[1] == "in-slab" and w.a6_class_hint.isna().sum() == 2
+    o["status"] = "proposed"
+    o.to_csv(f, index=False)
+    w, n = G.overrides(d, {"mw": "mw", "depth": "depth", "class_hint": "a6_class_hint"}, f=f)
+    assert n == 0 and w.equals(d)
+    assert G.overrides(d, {"mw": "mw"}, f=tmp_path / "none.csv")[1] == 0
+
+
+def test_guc_mw_comes_last_and_is_not_a_fitting_pair():
+    e, M = events([{"GUC MW": 6.0, "GCMT Mw": 5.39}, {"GUC MW": 5.0, "CSN Mww": 4.8}, {"GUC MW": 5.0}, {"GUC MW": 5.2, "ISC mb": 5.0},
+                   {"NEIC Mww": 5.2, "ISC mb": 5.1}])
+    R = G.reference(M)[0].reindex(e.event_id)
+    assert R.scale.tolist() == ["GCMT Mw", "CSN Mww", "GUC MW", "GUC MW", "NEIC Mww"]
+    assert R.fit.tolist() == [True, True, False, False, True]
+
+
+def test_relations_leave_out_pairs_below_the_floor_and_guc_mw_pairs():
+    g = np.random.default_rng(5)
+    y = np.round(g.uniform(3.0, 6.5, 900), 1)
+    rows = [{"NEIC Mww": a, "ISC mb": round(0.5 + 0.9 * a + g.normal(0, 0.1), 1)} for a in y]
+    rows += [{"GUC MW": 5.0, "ISC mb": 9.0} for _ in range(200)]
+    e, M = events(rows)
+    R = G.reference(M)[0]
+    F = G.relations(M, R, e, quiet=True, boot=0, forms=("linear",))
+    assert F["ISC mb"]["n"] == int((y >= G.FIT_MIN).sum())
+    assert G.relations(M, R, e, quiet=True, boot=0, forms=("linear",), floor=None)["ISC mb"]["n"] == 900

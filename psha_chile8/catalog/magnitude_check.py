@@ -721,7 +721,7 @@ def main():
            "(b) weighted mean of the converted scales, with their correlations": dict(mean=True),
            "(b) inverse-variance mean of the converted scales": dict(mean=True, corr=False),
            "(c) straight lines only": dict(forms=("linear",)),
-           "(d) Centennial before ISC-GEM": dict(old=G.OLD[::-1]),
+           "(d) ISC-GEM before the Centennial inside each level": dict(old=[G.OLD[i] for i in (1, 0, 3, 2)]),
            "(e) no slope correction": dict(sy=0.0), "(e) slope correction with σ 0.15": dict(sy=0.15),
            "(f) forward chi-square regression": dict(method="fwd"),
            "(g) surface-wave scales only where their own value reaches Mw 5": dict(judge="own"),

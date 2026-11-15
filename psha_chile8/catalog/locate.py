@@ -14,15 +14,15 @@ import numpy as np
 import pandas as pd
 
 from match import SRC, OUT, FROZEN, DATES, tsec, tstr, year
-from magnitude import manifest
+from magnitude import manifest, overrides
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 
 # settings
-RUN = "2026-11-13b"
+RUN = "2026-11-14b"
 A3 = "2026-11-11"
-MW = "2026-11-13b"
+MW = "2026-11-14b"
 ARC = REPO / "data" / "intraarc.shp"
 LAND = Path.home() / ".local/share/cartopy/shapefiles/natural_earth/physical/ne_10m_land.shp"
 X3_SIGMA = HERE.parent / "explore" / "X3" / "tables" / "x3_depth_error_model.csv"
@@ -56,6 +56,9 @@ OFF_KM = 20.0
 DOMAIN = {"lat": (-58.0, -17.0), "lon": (-78.5, -65.0)}
 M0_TOL = 0.10
 MECH_DIFF = 0.4
+# properties of the A6 table applied here (property -> column); the last two only add a column
+A6_LOC = {k: k for k in ["time", "lon", "lat", "depth", "strike1", "dip1", "rake1", "strike2", "dip2", "rake2"]}
+A6_LOC.update(exists="a6_exists", class_hint="a6_class_hint")
 WPHASE = r"(?i)(?:_mww$|_WCMT$|^moment-tensor:duputel)"
 GCMT_COPY = r"(?i)(?:_GCMT$|_HRV$|_gcmt$|_mwc$|gcmt)"
 NM = lambda m0: (2 / 3) * (np.log10(m0) - 9.1)
@@ -290,16 +293,16 @@ def tensor_m0(m):
 
 def mechanisms(R, d=SRC):
     """
-    One mechanism per event: a ComCat W-phase tensor, then another ComCat tensor of the USGS, then GCMT (our
-    file, then its copies in ComCat), then a ComCat focal mechanism (nodal planes only). Within a rank a product
+    One mechanism per event: GCMT (our file, then its copies in ComCat), then a ComCat W-phase tensor, then
+    another ComCat tensor, then a ComCat focal mechanism (nodal planes only). Within a rank a product
     whose scalar moment agrees with its tensor within M0_TOL comes first. M0 is the moment of the tensor; a
     listed moment that differs is flagged.
     """
     c = pd.read_csv(Path(d) / f"comcat_mt_{FROZEN}_mechs.csv", dtype={"src_id": str})
     g = pd.read_csv(Path(d) / f"gcmt_{FROZEN}_mechs.csv", dtype={"src_id": str})
     ft = c.code.str.startswith("focal-mechanism")
-    c["rank"] = np.where(ft, 4, np.where(c.code.str.contains(WPHASE), 0, np.where(c.code.str.contains(GCMT_COPY), 3, 1)))
-    g["rank"] = 2
+    c["rank"] = np.where(ft, 4, np.where(c.code.str.contains(GCMT_COPY), 1, np.where(c.code.str.contains(WPHASE), 2, 3)))
+    g["rank"] = 0
     ev = lambda s: R[R.src == s].drop_duplicates("src_id").set_index("src_id").event_id
     m = pd.concat([c.assign(event_id=c.src_id.map(ev("comcat"))), g.assign(event_id=g.src_id.map(ev("gcmt")))], ignore_index=True)
     m = m[m.event_id.notna()]
@@ -345,6 +348,10 @@ def main():
     e, R, allo = records()
     dflt = defaults(allo)
     loc, W, R = build(e, R, dflt)
+    loc, n6 = overrides(loc, A6_LOC)
+    print("A6 corrections applied:", n6)
+    if n6:
+        loc["in_domain"] = loc.lat.between(*DOMAIN["lat"]) & loc.lon.between(*DOMAIN["lon"])
     loc = loc.sort_values("time", kind="stable").reset_index(drop=True)
     files = {OUT / f"locations_{RUN}.csv": loc, OUT / f"defaults_{RUN}.csv": dflt}
     bad = loc[loc.mech_flag == "m0_listed_differs_from_tensor"][["event_id", "time", "lat", "lon", "mech_src", "mech_id", "mech_m0", "mech_mw"]]

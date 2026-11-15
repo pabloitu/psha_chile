@@ -3,10 +3,12 @@
 Every native magnitude of the frozen source tables is joined to its event through the A3 links. Measured Mw
 (GCMT, W-phase and regional moment magnitudes) is put on one scale and is the reference. Every other agency and
 scale is converted by a relation fitted on Chilean pairs: the native magnitude is regressed on the reference Mw,
-the slope corrected for the reference error, and the relation inverted. Each event takes Ruiz and Madariaga
-(2018), else its measured Mw, else (before 1976) ISC-GEM, the Centennial catalogue or Cabello, else the first
-converted scale of a fixed priority list (surface-wave scales only for events not deeper than 60 km). Method
-note in MAGNITUDES.md; checks in magnitude_check.py.
+the slope corrected for the reference error, and the relation inverted. From 1976 each event takes its measured
+Mw, else Ruiz and Madariaga (2018), else the first converted scale of a fixed priority list (surface-wave scales
+only for events not deeper than 60 km). Before 1976 a moment-based value goes before a converted one and the
+Centennial catalogue before ISC-GEM inside each level: Ruiz and Madariaga, a Centennial Mw, an ISC-GEM direct Mw,
+a Centennial Ms or mB converted, an ISC-GEM proxy Mw, Cabello. Method note in MAGNITUDES.md; checks in
+magnitude_check.py.
 """
 import hashlib
 import json
@@ -20,18 +22,23 @@ import pandas as pd
 from match import SRC, OUT, FROZEN, DATES, tsec, year
 
 # settings
-RUN = "2026-11-13b"
+RUN = "2026-11-14b"
 A3 = "2026-11-11"
-LOC = "2026-11-13b"
+LOC = "2026-11-14b"
 SEED = 1
 SRCS = ["gcmt", "isc", "csn", "comcat", "iscgem", "centennial", "cabello"]
 CODA, CODA_AG, CODA_BEFORE = ["md", "mc", "c"], ["GUC", "CSN", "guc", "GUC;NEIC"], 1990
 GC = "GCMT Mw"
 WFAM = ["NEIC Mww", "GUC Mwr", "CSN web Mw", "NEIC Mwr", "GFZ Mw", "CSN Mww"]
+# the CSN moment magnitude of the ISC Bulletin: not used to fit relations or the offsets of the others; as the Mw of
+# an event it comes after every other measured moment magnitude
+LAST = "GUC MW"
+# relations are fitted on pairs whose reference Mw reaches FIT_MIN (the offsets use pairs from BINS[0] on)
+FIT_MIN = 4.0
 M_HI, M_CSN = 5.4, 5.0
 # a regional Mw of the CSN further than REG_TOL from the median of the event's other moment magnitudes is not used
 # when the event has REG_N of them or more; with fewer the pair goes to the review list and the order decides
-REG, REG_OTHER, REG_TOL, REG_N = ["GUC Mwr", "CSN web Mw"], [GC, "NEIC Mww", "NEIC Mwr", "NEIC Mwb", "GFZ Mw", "CSN Mww"], 0.3, 2
+REG, REG_OTHER, REG_TOL, REG_N = ["GUC Mwr", "CSN web Mw", "GUC MW"], [GC, "NEIC Mww", "NEIC Mwr", "NEIC Mwb", "GFZ Mw", "CSN Mww"], 0.3, 2
 SY = {"G": 0.08, "W": 0.10}
 BINS = np.round(np.arange(4.5, 6.51, 0.25), 2)
 GBINS = [4.5, 4.75, 5.0, 5.25, 5.4]
@@ -57,9 +64,17 @@ LOWER, RAMP = "ramp0", (4.75, 6.0)
 # converted scales: the global references (ISC, NEIC: mb and surface-wave types) and the national networks of
 # Chile and Argentina (CSN / GUC ML with the web Ml and Mlv, INPRES / SJA ML); every other agency is left out
 PROXY = r"^(?:(?:ISC|NEIC) (?:mb|MS|MSZ|Ms_20)|GUC ML|CSN Mlv?|SJA ML)$"
-PRE76, OLD = 1976, ["ISC-GEM", "Centennial"]
+# before PRE76: a moment-based value before a converted one, the Centennial before ISC-GEM inside each level
+# (S. Ruiz, 13 Nov). Centennial: an Mw, else its preferred magnitude converted; an entry with mb only leaves the
+# event to the next source. ISC-GEM: direct (flag d of its table), else proxy
+PRE76, OLD = 1976, ["Centennial Mw", "ISC-GEM direct", "Centennial converted", "ISC-GEM proxy"]
+CENT_TY = {"Mw": 0, "mB": 1, "Ms": 2, "UK": 3}
 CAB_BEFORE = 1904
-SIG_RM, SIG_GEM, SIG_CENT, SIG_CAB = 0.2, 0.2, 0.25, 0.5
+# corrections of the large-event review (plan A6): rows with status 'accepted' are applied as the last step
+A6 = Path(__file__).resolve().parent / "overrides_A6.csv"
+A6_MW = {"mw": "mw"}
+A6_ALSO = {"mw": {"mw_kind": "a6"}, "depth": {"depth_kind": "measured", "depth_src": "a6"}}
+SIG_RM, SIG_GEM, SIG_CENT, SIG_MB, SIG_CAB = 0.2, 0.2, 0.25, 0.3, 0.5
 BIG, BIG_DIFF = 7.0, 0.3
 PROXY_REVIEW = 6.5
 # priority of the converted scales, by the σ of their relations (written by the run of RUN; an empty list
@@ -73,6 +88,8 @@ COMCAT = {("us", "mww"): "NEIC Mww", ("us", "mwr"): "NEIC Mwr", ("us", "mwb"): "
 ALIAS = {("isc", "GCMT", "MW"): GC, ("gcmt", "GCMT", "Mw"): GC, ("isc", "GUC", "Mww"): "CSN Mww",
          ("csn", "CSN", "Mww"): "CSN Mww", ("csn", "CSN", "Mw"): "CSN web Mw"}
 MS_DG15 = lambda x: np.exp(-0.222 + 0.233 * x) + 2.863
+# Abe (1982): log M0 = 2.4 mB + 10.0 (deep and intermediate, eq. 5) or + 9.6 (shallow, eq. 7), M0 in dyn cm
+MB_A82 = lambda x, deep: (2.4 * x + np.where(deep, 10.0, 9.6) - 16.1) / 1.5
 
 
 # inputs
@@ -97,8 +114,9 @@ def load(d=SRC, out=OUT):
     Returns
     -------
     e : events (event_id, t, yr, lat, lon, z)
-    M : one row per event and scale (the first source in SRCS that gives it): event_id, scale, mag, err, src,
-        src_id, agency, mag_type, note
+    M : one row per event and scale (the first source in SRCS that gives it; ISC-GEM from its own table, which
+        has the direct / proxy flag, before its copy in ComCat): event_id, scale, mag, err, src, src_id, agency,
+        mag_type, note
     rm : Ruiz and Madariaga (2018) values on the events they name: event_id, src_id, mag, sig, flags
     """
     e = pd.read_csv(Path(out) / f"events_{A3}.csv", usecols=["event_id", "time", "lon", "lat", "depth"], low_memory=False)
@@ -126,6 +144,7 @@ def load(d=SRC, out=OUT):
         rows.append(m[~coda])
     M = pd.concat(rows, ignore_index=True)
     M["o"] = M.src.map({s: i for i, s in enumerate(SRCS)})
+    M.loc[(M.src == "iscgem") & (M.scale == "ISC-GEM Mw"), "o"] = -1
     M["p"] = M.note.eq("preferred")
     M = M.sort_values(["o", "p"], ascending=[True, False], kind="stable").drop_duplicates(["event_id", "scale"])
     M["err"] = pd.to_numeric(M.mag_err, errors="coerce")
@@ -171,7 +190,7 @@ def offsets(W):
     Returns the table and, per member, the shift (to add) per bin of BINS.
     """
     rows, off = [], {WFAM[0]: np.zeros(len(BINS) - 1)}
-    for c in [GC] + WFAM[1:]:
+    for c in [GC] + WFAM[1:] + [LAST]:
         x = W[[WFAM[0], c]].dropna()
         d, mm = (x[c] - x[WFAM[0]]).to_numpy(), x.mean(axis=1).to_numpy()
         k = (mm >= BINS[0]) & (mm < BINS[-1])
@@ -212,21 +231,22 @@ def reference(M, gcmt_first=False, lower=LOWER):
     GCMT at M_HI and above, then the W family in the order of WFAM (each member shifted to NEIC Mww). Below M_HI
     the W family, then GCMT lowered by its measured offset to the W family (lower: a line in the GCMT value that
     is zero at M_HI, a free line, one step per bin, or nothing), with CSN Mww after GCMT below M_CSN. Above or below is judged on the GCMT value, else on the W value.
-    gcmt_first puts the unshifted GCMT first at every size.
+    gcmt_first puts the unshifted GCMT first at every size. LAST (shifted by its own offset) is taken only where
+    nothing else exists, and those events are marked fit = False.
 
     Returns
     -------
-    R : per event y, sig, scale (the member taken), flag
+    R : per event y, sig, scale (the member taken), flag, fit (usable as a pair for the relations)
     tab : offsets table
     W : member values per event
     """
-    W = M[M.scale.isin([GC] + WFAM)].pivot(index="event_id", columns="scale", values="mag").reindex(columns=[GC] + WFAM)
+    W = M[M.scale.isin([GC] + WFAM + [LAST])].pivot(index="event_id", columns="scale", values="mag").reindex(columns=[GC] + WFAM + [LAST])
     tab, off = offsets(W)
     for r in outliers(M).query("dropped").itertuples():
         W.loc[r.event_id, r.scale] = np.nan
     g = W[GC].to_numpy()
     sh = {}
-    for c in WFAM:
+    for c in WFAM + [LAST]:
         v = W[c].to_numpy()
         sh[c] = v + off[c][np.clip(np.digitize(np.nan_to_num(v, nan=5.0), BINS) - 1, 0, len(BINS) - 2)]
     main, cw = first([(c, sh[c]) for c in WFAM[:-1]]), sh[WFAM[-1]]
@@ -267,7 +287,9 @@ def reference(M, gcmt_first=False, lower=LOWER):
         lo = first(fam + [(GC + " lowered", gl), (WFAM[-1], cw)])
         y = np.where(judge >= M_HI, hi, np.where(judge >= M_CSN, mid[0], lo[0]))
         nm = np.where(judge >= M_HI, first([(GC, g)] + fam + [(WFAM[-1], cw)])[1], np.where(judge >= M_CSN, mid[1], lo[1]))
-    R = pd.DataFrame({"y": y, "scale": nm}, index=W.index)
+    k = np.isnan(y) & np.isfinite(sh[LAST])
+    y, nm = np.where(k, sh[LAST], y), np.where(k, LAST, nm)
+    R = pd.DataFrame({"y": y, "scale": nm, "fit": ~k}, index=W.index)
     R["flag"] = np.where((R.scale == GC + " lowered") | ((R.scale == GC).to_numpy() & (g - y > 0.005)), "gcmt_lowered", "")
     R["scale"] = R.scale.replace(GC + " lowered", GC)
     R["sig"] = np.where(R.scale == GC, SY["G"], SY["W"])
@@ -413,16 +435,18 @@ def fit_scale(sc, x, y, yr, z, sy, forms=("linear", "hinge"), method="inv", boot
             "cv": {f"{a} | {b}": float(np.mean(v)) for (a, b), v in loss.items()}}
 
 
-def relations(M, R, e, sy=None, quiet=False, **kw):
+def relations(M, R, e, sy=None, quiet=False, floor=FIT_MIN, **kw):
     """
     Relations of the scales of PROXY with at least N_LINE pairs against the reference (kw to fit_scale).
-    sy overrides the reference error (default: the rms of the reference σ of the pairs).
+    sy overrides the reference error (default: the rms of the reference σ of the pairs). Pairs whose reference is
+    LAST, or below floor, are left out.
 
     CSN web Ml takes the GUC ML relation. CSN web Mlv gets its own with N_ALL pairs; otherwise the ML relation
     after subtracting its median residual against it (flagged).
     """
     a = e.set_index("event_id")
-    P = M[M.scale.str.contains(PROXY)].join(R[["y", "sig"]], on="event_id", how="inner")
+    R = R[R.fit] if "fit" in R else R
+    P = M[M.scale.str.contains(PROXY)].join(R[["y", "sig"]][R.y >= (-9 if floor is None else floor)], on="event_id", how="inner")
     P = P.join(a[["yr", "z"]], on="event_id")
     P = P[P.yr.notna()]
     F = {}
@@ -525,8 +549,11 @@ def proxies(e, M, F, scales=None, judge=None):
 
 def assign(e, M, R, F, rm, prio, old=OLD, P=None, judge=None):
     """
-    One Mw per event: Ruiz and Madariaga, else the reference Mw, else before PRE76 the sources of old in their
-    order and Cabello before CAB_BEFORE, else the first eligible scale of prio, else none. A scale of NOT_BELOW
+    One Mw per event. From PRE76: the reference Mw, else Ruiz and Madariaga, else the first eligible scale of
+    prio, else none. Before PRE76: Ruiz and Madariaga, else the reference Mw, else the levels of old in their order
+    and Cabello before CAB_BEFORE (Centennial: an Mw as given, else its preferred magnitude, mB by Abe (1982) with
+    the depth limit SW_Z, Ms and untyped values (less 0.2) by Di Giacomo et al. (2015); ISC-GEM: direct where its
+    table flags the value d, proxy otherwise), else the first eligible scale of prio. A scale of NOT_BELOW
     is eligible when its own converted value reaches NOT_BELOW_MW; with judge 'other' when the converted value
     of the event's first other scale does (its own value if there is no other scale).
 
@@ -558,25 +585,37 @@ def assign(e, M, R, F, rm, prio, old=OLD, P=None, judge=None):
     cab = first([(c, wide(c)) for c in ["Cabello Mw", "Cabello final"]])
     k = (yr < CAB_BEFORE) & np.isfinite(cab[0])
     raw[k], mw[k], sig[k], kind[k], sc[k], rel[k], flags[k] = cab[0][k], cab[0][k], SIG_CAB, "cabello", cab[1][k], "", ""
-    cent = M[M.scale.str.startswith("Cent ")].assign(ty=lambda d: d.mag_type.map({"Mw": 0, "mB": 1, "Ms": 2, "UK": 3}))
-    cent = cent[cent.ty.notna()].sort_values("ty", kind="stable").drop_duplicates("event_id").set_index("event_id")
-    cv = np.where(cent.ty < 2, cent.mag, MS_DG15(cent.mag - 0.2 * (cent.ty == 3)))
+    cent = M[M.scale.str.startswith("Cent ")].assign(ty=lambda d: d.mag_type.map(CENT_TY))
+    cent = cent[(cent.ty == 0) | (cent.ty.notna() & cent.note.eq("preferred"))]
+    cent = cent.sort_values("ty", kind="stable").drop_duplicates("event_id").set_index("event_id")
+    deep = e.set_index("event_id").z.reindex(cent.index).to_numpy(float) > SW_Z
+    cv = np.select([cent.ty == 0, cent.ty == 1], [cent.mag, MB_A82(cent.mag, deep)], MS_DG15(cent.mag - 0.2 * (cent.ty == 3)))
     cm = e.event_id.map(pd.Series(cv, index=cent.index)).to_numpy(float)
-    gem = wide("ISC-GEM Mw")
-    gs = e.event_id.map(M[M.scale == "ISC-GEM Mw"].set_index("event_id").err).fillna(SIG_GEM).to_numpy()
+    cs = e.event_id.map(pd.Series(np.where(cent.ty == 1, SIG_MB, SIG_CENT), index=cent.index)).to_numpy(float)
+    cmw = e.event_id.isin(cent.index[cent.ty == 0]).to_numpy()
+    cn = e.event_id.map(cent.scale).to_numpy()
+    g = M[M.scale == "ISC-GEM Mw"].set_index("event_id")
+    gem, gs = wide("ISC-GEM Mw"), e.event_id.map(g.err).fillna(SIG_GEM).to_numpy()
+    gd = e.event_id.isin(g.index[g.note.astype(str).str.contains("s=d")]).to_numpy()
+    lev = {"Centennial Mw": (cm, cs, cmw), "Centennial converted": (cm, cs, ~cmw), "ISC-GEM direct": (gem, gs, gd),
+           "ISC-GEM proxy": (gem, gs, ~gd)}
     for nm in old[::-1]:
-        v, s, c = (gem, gs, "ISC-GEM Mw") if nm == "ISC-GEM" else (cm, np.full(n, SIG_CENT), e.event_id.map(cent.scale).to_numpy())
-        k = (yr < PRE76) & np.isfinite(v)
-        raw[k], mw[k], sig[k], kind[k], rel[k], flags[k] = v[k], v[k], s[k], nm.lower().replace("-", ""), "", ""
-        sc[k] = c[k] if nm != "ISC-GEM" else c
-        if nm != "ISC-GEM":
+        v, s, ok = lev[nm]
+        k = (yr < PRE76) & np.isfinite(v) & ok
+        gm = nm.startswith("ISC-GEM")
+        raw[k], mw[k], sig[k], kind[k], rel[k], flags[k] = v[k], v[k], s[k], "iscgem" if gm else "centennial", "", ""
+        sc[k] = "ISC-GEM Mw" if gm else cn[k]
+        if nm == "ISC-GEM proxy":
+            add(k, "iscgem_proxy")
+        if nm == "Centennial converted":
             add(k & e.event_id.isin(cent.index[cent.ty >= 2]).to_numpy(), "converted_from_ms")
+            add(k & e.event_id.isin(cent.index[cent.ty == 1]).to_numpy(), "converted_from_mb")
     # measured Mw
     r = R.reindex(e.event_id)
     k = r.y.notna().to_numpy()
     raw[k], mw[k], sig[k], kind[k], sc[k], rel[k], flags[k] = r.y[k], r.y[k], r.sig[k], "direct", r.scale[k], "", r.flag[k]
     r = rm.drop_duplicates("event_id").set_index("event_id").reindex(e.event_id)
-    k = r.mag.notna().to_numpy()
+    k = r.mag.notna().to_numpy() & ((yr < PRE76) | (kind != "direct"))
     raw[k], mw[k], sig[k], kind[k], sc[k], rel[k], flags[k] = r.mag[k], r.mag[k], r.sig[k], "rm18", "rm2018", "", r["flags"][k]
     add(kind == "none", "no_mw")
     src = Mi.reindex(pd.MultiIndex.from_arrays([e.event_id, sc]))
@@ -651,6 +690,36 @@ def old_big(e, M, mw):
     return d[d.yr < PRE76].drop(columns="yr").sort_values("time").reset_index()
 
 
+def overrides(d, cols, flag="flags", f=A6):
+    """
+    Accepted rows of the A6 table applied to d (one row per event).
+
+    cols maps a property of the table to a column of d (created if missing). The value replaces the column's,
+    the row's sigma goes to <column>_sigma where d has it, the columns of A6_ALSO are set, and the flag
+    a6_<property> is added. Returns the table and the number of rows applied.
+    """
+    if not Path(f).exists():
+        return d, 0
+    o = pd.read_csv(f, dtype=str)
+    o = o[(o.status == "accepted") & o.property.isin(list(cols)) & o.event_id.isin(d.event_id)]
+    d = d.copy()
+    at = pd.Series(d.index, index=d.event_id)
+    for r in o.itertuples():
+        j, c = at[r.event_id], cols[r.property]
+        if c not in d:
+            d[c] = None
+        num = pd.api.types.is_numeric_dtype(d[c])
+        d.loc[j, c] = (float(r.new_value) if pd.notna(r.new_value) else np.nan) if num else r.new_value
+        if c + "_sigma" in d and pd.notna(r.sigma):
+            d.loc[j, c + "_sigma"] = float(r.sigma)
+        for k, v in A6_ALSO.get(r.property, {}).items():
+            if k in d:
+                d.loc[j, k] = v
+        old = d.loc[j, flag]
+        d.loc[j, flag] = f"{old};a6_{r.property}" if isinstance(old, str) and old else f"a6_{r.property}"
+    return d, len(o)
+
+
 def sha(f):
     return hashlib.sha256(Path(f).read_bytes()).hexdigest()
 
@@ -668,6 +737,10 @@ def main():
     print("events", len(e), "magnitude rows", len(M), "with a reference Mw", len(R), R.scale.value_counts().to_dict())
     print("reference σ from three members:", {k: round(v, 3) for k, v in ref_sigma(W).items()})
     F = relations(M, R, e)
+    F0 = relations(M, R, e, quiet=True, floor=None, boot=0)
+    at = [f"mw_at_{v}" for v in AT[:3]]
+    fl = rel_table(F).set_index("relation_id")[["form", "n"] + at].join(
+        rel_table(F0).set_index("relation_id")[["form", "n"] + at], how="outer", lsuffix="", rsuffix="_no_floor").reset_index()
     prio = priority(F)
     print("priority by σ:", json.dumps(prio))
     if PRIORITY and PRIORITY != prio:
@@ -677,12 +750,15 @@ def main():
     mw = assign(e, M, R, F, rm, prio, P=P)
     if COMBINE == "mean":
         mw = combine(e, R, F, P, prio, mw)
+    mw, n6 = overrides(mw, A6_MW)
+    print("A6 corrections applied:", n6)
     big = old_big(e, M, mw)
     none = e.merge(mw[mw.mw_kind == "none"][["event_id"]], on="event_id").drop(columns=["t", "yr"])
     x = mw[(mw.mw_kind == "proxy") & (mw.mw >= PROXY_REVIEW) & (e.yr >= PRE76).to_numpy()]
     large = e[["event_id", "time", "lat", "lon", "z"]].merge(x, on="event_id").sort_values("mw", ascending=False)
     json.dump({k: {**r, "cv": r["cv"]} for k, r in F.items()}, open(OUT / f"relations_{RUN}.json", "w"), default=float)
     files = {OUT / f"mw_{RUN}.csv": mw, OUT / f"relations_{RUN}.csv": rel_table(F), OUT / f"mw_offsets_{RUN}.csv": tab.round(3),
+             OUT / f"relations_floor_{RUN}.csv": fl,
              OUT / "review" / f"mw_iscgem_centennial_{RUN}.csv": big, OUT / "review" / f"no_mw_{RUN}.csv": none,
              OUT / "review" / f"mw_large_proxy_{RUN}.csv": large, OUT / "review" / f"mw_reference_dropped_{RUN}.csv": outliers(M)}
     for f, d in files.items():

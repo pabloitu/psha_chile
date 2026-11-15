@@ -806,3 +806,22 @@ Against DECISIONS, LEARNINGS and PREFERENCES:
 - **Potin dates.** The Mc maps are described as 2010 to "mid-2022" although the catalogue ends in mid-2020 (P24 p. 5). RH26 quote Potin as 1985–2020 (p. 8).
 - **Cabello matching rule.** CSN locations are replaced by Potin's only when the origin times match to the second (C25 p. 7–8). This is irrelevant to us after 1900, except as a warning for A3.
 - **EV02 Table 1.** The 106 Chilean rows match the page images. Rows elsewhere in the world remain OCR (see `refs/catalogs/txt/INDEX.md`).
+
+## Cards: tectonic classification of subduction earthquakes (read 13 Nov 2026 for A7)
+
+### Haynie et al. 2026: CatSep, the USGS subduction catalogue separation tool
+- Ref: Haynie, K.L., Thompson, E.M., Hearne, M., Hayes, G.P., Shelly, D.R., Shumway, A.M., Llenos, A.L., Michael, A.J., Powers, P.M. (2026). Subduction zone earthquake catalog separation tool: implementation in the USGS 2025 Puerto Rico and U.S. Virgin Islands National Seismic Hazard Model. Seismological Research Letters 97(2A), 1191–. doi:10.1785/0220250078. PDF not in `refs/` (read from a copy Pablo supplied).
+- What it is: scores between 0 and 1 ("plausibility scores") for crustal, interface and intraslab from linear ramps; the event takes the class with the highest score. Used for the Alaska 2023 and Puerto Rico 2025 hazard models. Follows STREC and García et al. (2012).
+- Use for us: A7, the published precedent for class scores per event and for the size of the interface band.
+- Method: interface score = p_flex × p_sz × p_kagan. p_flex = 1 inside a "flex zone" of ± 15 km about the Slab2 surface (0 to 0.4 between the Moho and the top of the zone). p_sz falls from 1 at the Slab2 seismogenic depth to 0 at that depth + 15 km. p_kagan (only with a moment tensor) = 1 for a Kagan angle up to 30° between the mechanism and the slab orientation, falling to 0.25 at 53°. Crustal = (1 − interface) × p_diff × p_moho, with p_diff a ramp over depth − slab depth from −20 to +20 km and p_moho from the CRUST1.0 Moho to the slab. Intraslab = 1 − interface − crustal. West of the Slab2 region: outer rise.
+- Numbers to keep: the ± 15 km and the other ramp values were set by minimising the Brier score on 107 hand-classified global events (95 with moment tensors). Brier 0.010 crustal, 0.155 interface, 0.097 intraslab; of the events it calls interface 81.6 % are (crustal 87.5 %, intraslab 76 %). Quality A to D from the score, A at ≥ 0.8 with a moment tensor.
+- Default depths: the scores are averaged over the depth distribution of nearby hypocentres (Mw ≥ 4 since 1973).
+- Caveats by the authors: event depth uncertainty is not considered; the ± 15 km stands for the combined depth and slab errors. A mechanism can only lower the interface score, never raise it (a taper that rewards thrusts is named as future work). The intraslab score "lacks a logical framework". Vertical, not perpendicular, distance to the slab. A fully probabilistic version with distributions for all errors is future work.
+
+### García et al. 2012: global earthquake discrimination scheme (STREC)
+- Ref: García, D., Wald, D.J., Hearne, M.G. (2012). A global earthquake discrimination scheme to optimize ground-motion prediction equation selection. BSSA 102(1), 185–203. doi:10.1785/0120110124. PDF not in `refs/` (read from a copy Pablo supplied).
+- What it is: fixed rules for ShakeMap that pick the event type from region, depth, slab model and focal mechanism.
+- Use for us: A7, the origin of the mechanism test and of the depth tolerances.
+- Subduction rules: a reverse mechanism is interface-like if, for either nodal plane, the P-axis strike is within 30° of the normal to the trench, the P-axis plunge within 30° of the interface dip, and the rake within 60° of 90°. Such an event is interface only if its depth is also within ± 20 km of the interface and above the lower limit of interface events (50 km in their table). Otherwise it is intraslab if it lies deeper than 10 km above the interface, else upper plate. Without a mechanism a composite of historical mechanisms is used.
+- Numbers to keep: the 20 km and 10 km "consider the combined effect of the uncertainties in hypocentral and interface depths". Validation on their Atlas events: misclassified 7 % (21 % before); interface 85 % right, intraslab 65 %. They expect a floor of 3–4 % that rules cannot remove. Principal-axis errors of global mechanisms 10–15°.
+- Caveat for us: the mechanism test must hold together with the depth test; the mechanism alone never makes an event interface.

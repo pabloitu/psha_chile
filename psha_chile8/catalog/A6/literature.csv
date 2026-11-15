@@ -1,0 +1,250 @@
+event_id,property,value,reference,page,read,note
+cl15430101000000,Mw,>7.7,Ruiz and Madariaga (2018),text 3.1.1,yes,Tarapaca 1543
+cl16150917000330,Mw,7.5-7.9,Ruiz and Madariaga (2018),p. 6,yes,Arica 1615
+cl16150917000330,class hint,interface,Ruiz and Madariaga (2018),p. 6,yes,local tsunami at Arica; Lomnitz 7.5 / Comte and Pardo 7.9
+cl17300708100000,Mw,>9.0,Ruiz and Madariaga (2018),"p. 4, p. 11",yes,Central Chile 1730
+cl17300708100000,class hint,interface,Ruiz and Madariaga (2018),"p. 4, p. 11",yes,domain megathrust; rupture > 600 km; damage 28S to Concepcion 38S
+cl17510525053000,Mw,~9,Ruiz and Madariaga (2018),p. 9,yes,Concepcion 1751
+cl17510525053000,class hint,interface,Ruiz and Madariaga (2018),p. 9,yes,domain megathrust; > 600 km; tsunami destroyed old Concepcion
+cl18190411150000,Mw,<8.5,Ruiz and Madariaga (2018),p. 9,yes,Copiapo 1819
+cl18190411150000,class hint,interface,Ruiz and Madariaga (2018),p. 9,yes,tsunami; Lomnitz 8.5 'probably smaller'; foreshocks 3-4 April 1819
+cl18371107113000,Mw,8.0-9.25,Ruiz and Madariaga (2018),p. 14,yes,Valdivia 1837
+cl18371107113000,class hint,interface,Ruiz and Madariaga (2018),p. 14,yes,domain A-B-C; ~500 km in the southern 1960 zone; trans-Pacific tsunami
+cl18680813164500,Mw,~9,Ruiz and Madariaga (2018),fig 1 bar,yes,Southern Peru 1868
+cl18680813164500,class hint,interface,Ruiz and Madariaga (2018),fig 1 bar,yes,domain megathrust; giant megathrust of southern Peru
+cl18770510021600,Mw,8.7-9.0,Ruiz and Madariaga (2018),p. 7,yes,Iquique 1877
+cl18770510021600,class hint,interface,Ruiz and Madariaga (2018),p. 7,yes,domain megathrust; giant tsunamigenic; did not break south of Mejillones
+cl18800815124800,Mw,7.5,Ruiz and Madariaga (2018),p. 11,yes,Illapel 1880
+cl18800815124800,class hint,interface,Ruiz and Madariaga (2018),p. 11,yes,small tsunami; deep submarine cable break off Limari
+cl19060817004004,Mw,8.2,Ruiz and Madariaga (2018),"p. 16, Table 1, Fig. 6",yes,Valparaiso 1906
+cl19060817004004,class hint,interface,Ruiz and Madariaga (2018),"p. 16, Table 1, Fig. 6",yes,domain C-B; Okal 2005 / Carvajal 2017b Mw 8.0-8.2
+cl19090608054637,Mw,~7 (Ms),Ruiz and Madariaga (2018),text 4.3,yes,Taltal 1909
+cl19181204114751,Mw,7.8,Ruiz and Madariaga (2018),"p. 9, p. 16",yes,Copiapo 1918
+cl19181204114751,class hint,interface,Ruiz and Madariaga (2018),"p. 9, p. 16",yes,domain probably C; text also cites 18 Dec 1918 events
+cl19221111043243,Mw,~8.5,Ruiz and Madariaga (2018),"p. 16, Table 2, Fig. 5",yes,Atacama 1922
+cl19221111043243,class hint,interface,Ruiz and Madariaga (2018),"p. 16, Table 2, Fig. 5",yes,domain megathrust; trans-Pacific tsunami; ISC/USGS wrongly list 70 km depth or a location near Argentina
+cl19270414062338,Mw,7.2,Ruiz and Madariaga (2018),fig 6; text 5,yes,Mendoza 1927
+cl19270414062338,class hint,in-slab,Ruiz and Madariaga (2018),fig 6; text 5,yes,intermediate depth
+cl19281201040617,Mw,7.7,Ruiz and Madariaga (2018),p. 16,yes,Talca 1928
+cl19281201040617,class hint,interface,Ruiz and Madariaga (2018),p. 16,yes,domain C; bottom of the plate interface; no tsunami
+cl19360713111218,Mw,~7 (Ms),Ruiz and Madariaga (2018),text 4.3,yes,Taltal 1936
+cl19390125033214,Mw,7.8,Ruiz and Madariaga (2018),p. 9,yes,Chillan 1939
+cl19390125033214,class hint,in-slab,Ruiz and Madariaga (2018),p. 9,yes,intermediate depth (local date 24 Jan)
+cl19430406160718,Mw,7.9,Ruiz and Madariaga (2018),"p. 11, p. 16",yes,Illapel 1943
+cl19430406160718,class hint,interface,Ruiz and Madariaga (2018),"p. 11, p. 16",yes,domain B; reverse mechanism; small tsunami
+cl19450913111713,Mw,7.1,Ruiz and Madariaga (2018),p. 9,yes,Santiago 1945
+cl19450913111713,class hint,in-slab,Ruiz and Madariaga (2018),p. 9,yes,intermediate depth; damage in Santiago
+cl19501209213851,Mw,8.0,Ruiz and Madariaga (2018),"p. 5, Fig. 4",yes,Calama 1950
+cl19501209213851,class hint,in-slab,Ruiz and Madariaga (2018),"p. 5, Fig. 4",yes,~100 km depth; tensional (Kausel and Campos 1992)
+cl19580904215116,Mw,6.3,Ruiz and Madariaga (2018),fig 6; text 5,yes,Las Melosas 1958
+cl19580904215116,class hint,crustal,Ruiz and Madariaga (2018),fig 6; text 5,yes,shallow intraplate
+cl18591005120000,Mw,~7.0,Ruiz and Madariaga (2018),text 4.1,yes,Copiapo 1959
+cl19600521100257,Mw,8.1,Ruiz and Madariaga (2018),p. 14,yes,Concepcion 1960
+cl19600521100257,class hint,interface,Ruiz and Madariaga (2018),p. 14,yes,domain C; foreshock of Valdivia; bottom of the interface
+cl19600522185602,Mw,7.8 (Ms),Ruiz and Madariaga (2018),p. 14,yes,Valdivia 1960 foreshock
+cl19600522185602,class hint,interface,Ruiz and Madariaga (2018),p. 14,yes,15 min before the mainshock
+cl19600522191120,Mw,9.5,Ruiz and Madariaga (2018),"p. 16, Fig. 6",yes,Valdivia 1960
+cl19600522191120,class hint,interface,Ruiz and Madariaga (2018),"p. 16, Fig. 6",yes,domain megathrust; ~1000 km
+cl19600606055549,Mw,7.7,Ruiz and Madariaga (2018),p. 14,yes,Aysen 1960 slow event
+cl19600606055549,class hint,crustal,Ruiz and Madariaga (2018),p. 14,yes,slow aftershock of Valdivia probably on the Liquine-Ofqui fault (Kanamori and Rivera 2017)
+cl19650328163316,Mw,7.4,Ruiz and Madariaga (2018),p. 11,yes,La Ligua 1965
+cl19650328163316,class hint,in-slab,Ruiz and Madariaga (2018),p. 11,yes,intermediate depth
+cl19661228081805,Mw,7.7,Ruiz and Madariaga (2018),"p. 9, p. 16",yes,Taltal 1966
+cl19661228081805,class hint,interface,Ruiz and Madariaga (2018),"p. 9, p. 16",yes,domain B; text says deeper part of the interface; table and figure say B
+cl19671221022524,Mw,7.4,Ruiz and Madariaga (2018),p. 16,yes,Tocopilla 1967
+cl19671221022524,class hint,interface,Ruiz and Madariaga (2018),p. 16,yes,domain C; 
+cl19710709030319,Mw,7.8,Ruiz and Madariaga (2018),p. 16,yes,La Ligua 1971
+cl19710709030319,class hint,interface,Ruiz and Madariaga (2018),p. 16,yes,domain C; bottom of the contact zone
+cl19750510142741,Mw,7.7,Ruiz and Madariaga (2018),p. 16,yes,Arauco 1975
+cl19750510142741,class hint,interface,Ruiz and Madariaga (2018),p. 16,yes,domain C; table gives 14 October 1975; Arauco earthquake is 10 May 1975 (Cabello has M7.8 on that date)
+cl19811016032540,Mw,7.2,Ruiz and Madariaga (2018),p. 11,yes,Papudo 1981
+cl19811016032540,class hint,outer rise,Ruiz and Madariaga (2018),p. 11,yes,
+cl19831004185217,Mw,7.7,Ruiz and Madariaga (2018),"p. 9, p. 16",yes,Copiapo 1983
+cl19831004185217,class hint,interface,Ruiz and Madariaga (2018),"p. 9, p. 16",yes,domain probably C; table 1 gives 4 November 1983 Mw 7.4; text and figure give 4 October 1983 Mw 7.7
+cl19850303224709,Mw,8.0,Ruiz and Madariaga (2018),p. 16,yes,Valparaiso 1985
+cl19850303224709,class hint,interface,Ruiz and Madariaga (2018),p. 16,yes,domain C-B; 
+cl19870305091704,Mw,7.6,Ruiz and Madariaga (2018),p. 9,yes,Antofagasta 1987
+cl19870305091704,class hint,interface,Ruiz and Madariaga (2018),p. 9,yes,southern end of the 1995 rupture (Cerro Paranal)
+cl19870808154857,Mw,7.2 (Ms),Ruiz and Madariaga (2018),fig 4; text 3.1,yes,Arica 1987
+cl19870808154857,class hint,in-slab,Ruiz and Madariaga (2018),fig 4; text 3.1,yes,intermediate depth
+cl19941210033932,Mw,6.2,Ruiz and Madariaga (2018),text 4.2,yes,Mejillones 1994
+cl19941210033932,class hint,interface,Ruiz and Madariaga (2018),text 4.2,yes,precursory activity of 1995
+cl19950730051122,Mw,8.0,Ruiz and Madariaga (2018),"p. 9, p. 16",yes,Antofagasta 1995
+cl19950730051122,class hint,interface,Ruiz and Madariaga (2018),"p. 9, p. 16",yes,domain C; 
+cl19971015010334,Mw,7.1,Ruiz and Madariaga (2018),p. 11,yes,Punitaqui 1997
+cl19971015010334,class hint,in-slab,Ruiz and Madariaga (2018),p. 11,yes,intermediate depth
+cl20010409090055,Mw,7.0,Ruiz and Madariaga (2018),fig 6,yes,Papudo 2001
+cl20010409090055,class hint,outer rise,Ruiz and Madariaga (2018),fig 6,yes,
+cl20010724050006,Mw,6.3,Ruiz and Madariaga (2018),fig 4; text 3.1,yes,Aroma 2001
+cl20010724050006,class hint,crustal,Ruiz and Madariaga (2018),fig 4; text 3.1,yes,shallow intraplate
+cl20040828134124,Mw,6.4,Ruiz and Madariaga (2018),fig 6; text 5,yes,Curico 2004
+cl20040828134124,class hint,crustal,Ruiz and Madariaga (2018),fig 6; text 5,yes,shallow intraplate (Cabello: Pearce et al. 2020)
+cl20050613224432,Mw,7.8,Ruiz and Madariaga (2018),p. 5,yes,Tarapaca 2005
+cl20050613224432,class hint,in-slab,Ruiz and Madariaga (2018),p. 5,yes,intermediate depth
+cl20070421175343,Mw,6.2,Ruiz and Madariaga (2018),fig 7; text 6,yes,Aysen 2007
+cl20070421175343,class hint,crustal,Ruiz and Madariaga (2018),fig 7; text 6,yes,Liquine-Ofqui swarm (max Mw 6.3)
+cl20071114154050,Mw,7.8,Ruiz and Madariaga (2018),p. 16,yes,Tocopilla 2007
+cl20071114154050,class hint,interface,Ruiz and Madariaga (2018),p. 16,yes,domain C; 
+cl20071216080916,Mw,6.7,Ruiz and Madariaga (2018),fig 4; text 3.1,yes,Michilla 2007
+cl20071216080916,class hint,in-slab,Ruiz and Madariaga (2018),fig 4; text 3.1,yes,intermediate depth
+cl20100227063411,Mw,8.8,Ruiz and Madariaga (2018),table 2; fig 6,yes,Maule 2010
+cl20100227063411,class hint,interface,Ruiz and Madariaga (2018),table 2; fig 6,yes,domain megathrust; ~500 km
+cl20100227080120,Mw,7.4,Ruiz and Madariaga (2018),fig 6; fig 7; text 5.6,yes,Maule outer rise 2010
+cl20100227080120,class hint,outer rise,Ruiz and Madariaga (2018),fig 6; fig 7; text 5.6,yes,1.5 h after the mainshock
+cl20100311145523,Mw,7.0,Ruiz and Madariaga (2018),fig 6; text 5.6,yes,Pichilemu 2010a
+cl20100311145523,class hint,crustal,Ruiz and Madariaga (2018),fig 6; text 5.6,yes,shallow normal intraplate; figure labels it 2011
+cl20100311143944,Mw,6.9,Ruiz and Madariaga (2018),fig 6; text 5.6,yes,Pichilemu 2010b
+cl20100311143944,class hint,crustal,Ruiz and Madariaga (2018),fig 6; text 5.6,yes,shallow normal intraplate; figure labels it 2011
+cl20110102202010,Mw,7.1,Ruiz and Madariaga (2018),fig 7; text 5.6,yes,Arauco 2011
+cl20110102202010,class hint,interface,Ruiz and Madariaga (2018),fig 7; text 5.6,yes,domain B; bimodal: interplate to shallow intraplate
+cl20120325223705,Mw,7.2,Ruiz and Madariaga (2018),table 1; fig 6,yes,Constitucion 2012
+cl20120325223705,class hint,interface,Ruiz and Madariaga (2018),table 1; fig 6,yes,domain C; bottom of the seismogenic contact
+cl20140316211627,Mw,6.7,Ruiz and Madariaga (2018),text 3.1.5.4,yes,Iquique foreshock 2014
+cl20140316211627,class hint,crustal,Ruiz and Madariaga (2018),text 3.1.5.4,yes,upper-plate reverse fault (one interpretation)
+cl20140401234645,Mw,8.2,Ruiz and Madariaga (2018),p. 16,yes,Iquique 2014
+cl20140401234645,class hint,interface,Ruiz and Madariaga (2018),p. 16,yes,domain B; 
+cl20140403024315,Mw,7.7,Ruiz and Madariaga (2018),p. 16,yes,Iquique aftershock 2014
+cl20140403024315,class hint,interface,Ruiz and Madariaga (2018),p. 16,yes,domain C; 
+cl20150211185720,Mw,6.7,Ruiz and Madariaga (2018),fig 4; fig 5,yes,Jujuy 2015
+cl20150211185720,class hint,in-slab,Ruiz and Madariaga (2018),fig 4; fig 5,yes,intermediate depth
+cl20150916225432,Mw,8.3,Ruiz and Madariaga (2018),p. 16,yes,Illapel 2015
+cl20150916225432,class hint,interface,Ruiz and Madariaga (2018),p. 16,yes,domain B-A-C; 
+cl20161225142224,Mw,7.6,Ruiz and Madariaga (2018),table 1; fig 7; text 6.4,yes,Chiloe 2016
+cl20161225142224,class hint,interface,Ruiz and Madariaga (2018),table 1; fig 7; text 6.4,yes,domain C; 20 km patch at the deep interface
+cl20170424213828,Mw,6.9,Ruiz and Madariaga (2018),text 4.4; text 5.5.1,yes,Valparaiso 2017
+cl20170424213828,class hint,interface,Ruiz and Madariaga (2018),text 4.4; text 5.5.1,yes,preceded by a swarm and slow slip
+cl15751216183000,Mw,,Ruiz and Madariaga (2018),,yes,Valdivia 1575
+cl16041124183000,Mw,,Ruiz and Madariaga (2018),,yes,Arica 1604
+cl15621028100000,existence,"""Great earthquake""; might have been a storm (Thayer Ojeda)",Lomnitz (2004),"p. 370, Table 1",yes,no magnitude given
+cl15700208050000,Mw,8,Lomnitz (2004),"p. 370, Table 1",yes,"Concepción; epicentre probably offshore, major tsunami"
+cl15750317060000,Mw,7 to 7.5,Lomnitz (2004),"p. 370, Table 1",yes,possibly La Ligua
+cl15751216183000,Mw,8 to 8.5,Lomnitz (2004),"p. 370, Table 1",yes,"Valdivia; tsunami, as in 1960"
+cl16041124183000,Mw,8 to 8.5,Lomnitz (2004),"p. 370, Table 1",yes,Arica; tsunami along 1 200 km of coast
+cl16150917000330,Mw,7.5,Lomnitz (2004),"p. 370, Table 1",yes,"Arica, 16 September; possible tsunami"
+cl16470514023000,Mw,about 8,Lomnitz (2004),"p. 370, Table 1",yes,"Santiago, 13 May 10:30 PM local"
+cl16470514023000,class hint,crustal,Lomnitz (2004),"p. 370, Table 1",yes,"range fault along the coastal batholith (Lomnitz 1970) or San Ramón fault (Rauld 2002); ""remains unresolved"""
+cl16570315233000,Mw,8 or slightly less,Lomnitz (2004),"p. 371, Table 1",yes,Concepción; tsunami; offshore epicentre compatible
+cl16810310000000,Mw,7 to 7.5?,Lomnitz (2004),"p. 371, Table 1",yes,Arica; no tsunami
+cl16870712070000,Mw,7 to 7.5,Lomnitz (2004),"p. 371, Table 1",yes,Aconcagua valley (or 1688?)
+cl17150823000000,Mw,8,Lomnitz (2004),"p. 371, Table 1",yes,"22 August, Moquegua (Peru), ruined Arica"
+cl17300708100000,Mw,8.5 to 9,Lomnitz (2004),"p. 371, Table 1",yes,"tsunami at Concepción, Callao, Japan"
+cl17371224000000,Mw,7.5,Lomnitz (2004),"p. 371, Table 1",yes,Valdivia to Chiloé; little known
+cl17510525053000,Mw,8.5,Lomnitz (2004),"p. 371, Table 1",yes,Concepción; tsunami across the Pacific
+cl17960330104500,Mw,7.5,Lomnitz (2004),"p. 372, Table 1",yes,Copiapó
+cl18190411150000,Mw,8.5 (11 April),Lomnitz (2004),"p. 372, Table 1",yes,"triple event 3, 4, 11 April; large tsunami"
+cl18221120023000,Mw,8 to 8.5,Lomnitz (2004),"p. 372, Table 1",yes,19 November local; epicentre probably near La Ligua; coastal uplift
+cl18290926143000,Mw,7,Lomnitz (2004),"p. 372, Table 1",yes,Valparaíso
+cl18350220153000,Mw,8 to 8.5,Lomnitz (2004),"p. 372, Table 1",yes,"Concepción; uplift, tsunami"
+cl18371107113000,Mw,8,Lomnitz (2004),"p. 372, Table 1",yes,Valdivia; coastal epicentre between Valdivia and Castro; trans-Pacific tsunami
+cl18471008153000,Mw,7,Lomnitz (2004),"p. 372, Table 1",yes,La Ligua
+cl18491217100000,Mw,7.5,Lomnitz (2004),"p. 372, Table 1",yes,Coquimbo; tsunami 16 feet
+cl18491217100000,time,"17 November 1849, 6 AM",Lomnitz (2004),"p. 372, Table 1",yes,the catalogue (CERESIS) has 17 December
+cl18510402104800,Mw,7.5,Lomnitz (2004),"p. 373, Table 1",yes,Casablanca
+cl18510402104800,time,"2 April 1850, 6:48 AM",Lomnitz (2004),"p. 373, Table 1",yes,the catalogue (CERESIS) has 2 April 1851
+cl18501206105200,Mw,7 to 7.5,Lomnitz (2004),"p. 373, Table 1",yes,"Maipo valley, as in 1958"
+cl18510526171000,Mw,7.5,Lomnitz (2004),"p. 373, Table 1",yes,Huasco; tsunami 10 feet
+cl18591005120000,Mw,7.5,Lomnitz (2004),"p. 373, Table 1",yes,Copiapó; severe tsunami damage in Caldera
+cl18680813164500,Mw,8.5,Lomnitz (2004),"p. 373, Table 1",yes,Arica; epicentre probably near Islay
+cl18690824163000,Mw,7.5,Lomnitz (2004),"p. 373, Table 1",yes,Pica area; possibly a large aftershock of 1868
+cl18711005090000,Mw,7,Lomnitz (2004),"p. 373, Table 1",yes,Iquique
+cl18770510021600,Mw,8,Lomnitz (2004),"p. 373, Table 1",yes,"Iquique, 9 May local; destructive tsunami"
+cl18780123000000,existence,"""Large aftershock on 23 January 1878"" of the 1877 earthquake",Lomnitz (2004),"p. 373, Table 1",yes,no magnitude or location given
+cl18790202103000,Mw,7,Lomnitz (2004),"p. 373, Table 1",yes,"Magellan Straits; ""similar to 1949"""
+cl18800815124800,Mw,7.5,Lomnitz (2004),"p. 373, Table 1",yes,Illapel and Petorca; submarine cable break off the Limarí
+cl19060817004004,Mw,8.6 (Gutenberg and Richter),Lomnitz (2004),"p. 373, Table 1",yes,no tsunami damage; coastal uplift
+cl19221111043243,Mw,8.4 (Richter),Lomnitz (2004),"p. 374, Table 1",yes,epicentre off Huasco; tsunami 7–9 m
+cl19281201040617,Mw,8.4 (Richter),Lomnitz (2004),"p. 374, Table 1",yes,epicentre off Putú; tsunami 1.5 m
+cl19390125033214,Mw,8.3,Lomnitz (2004),"p. 374, Table 1",yes,Chillán
+cl19390125033214,depth,60,Lomnitz (2004),"p. 374, Table 1",yes,"""at a depth of 60 km""; no surface faulting, no tsunami"
+cl19430406160718,Mw,8.3,Lomnitz (2004),"p. 374, Table 1",yes,epicentre off the Limarí; minor tsunami at Los Vilos
+cl19491217150757,Mw,7.5,Lomnitz (2004),"p. 374, Table 1",yes,"Punta Arenas, 15:06 GMT; foreshock around 2:50 AM local"
+cl19491217150757,class hint,crustal,Lomnitz (2004),"p. 374, Table 1",yes,"""Epicenter on the Lake Fagnano Fault"""
+cl19491217065332,class hint,crustal,Lomnitz (2004),"p. 374, Table 1",yes,foreshock of the event on the Lake Fagnano Fault
+cl19530506171648,Mw,7.5,Lomnitz (2004),"p. 374, Table 1",yes,"Chillán, ""as in 1939 but weaker"""
+cl19530506171648,depth,60,Lomnitz (2004),"p. 374, Table 1",yes,"""Focal depth 60 km"""
+cl19600521100257,Mw,7.9,Lomnitz (2004),"p. 374, Table 1",yes,21 May 6:02 AM
+cl19600522185602,Mw,7.9,Lomnitz (2004),"p. 374, Table 1",yes,"22 May 2:56 PM, fifteen minutes before the mainshock"
+cl19600522191120,Mw,8.3 to 9.6; reference Mw 9.6,Lomnitz (2004),"p. 374–375, Table 1",yes,
+cl19571129221950,Mw,7.8,Abe (1982),"p. 323, Table 1",yes,"M0 650 × 10^25 dyn cm (from Wyss 1970), depth 170 km, mB 7.4; Mw by Hanks and Kanamori"
+cl19590614001206,Mw,7.2,Abe (1982),"p. 323, Table 1",yes,"M0 87 × 10^25 dyn cm (from Wyss 1970), depth 100 km, mB 7.5; Mw by Hanks and Kanamori"
+cl19390125033214,depth,80–100,Barrientos and CSN Team (2018),p. 2,yes,M 7.8
+cl19390125033214,depth,80,Leyton et al. (2009b),p. 1,yes,Ms 7.8
+cl19450913111713,depth,70,Leyton et al. (2009b),p. 1,yes,Ms 7.1
+cl19501209213851,depth,90,Leyton et al. (2009b),p. 1,yes,Ms 8.0
+cl19580904215116,Mw,6.9,Barrientos and CSN Team (2018),p. 2,yes,depth < 10 km
+cl19580904215116,Mw,6.8,Cabello et al. (2025),p. 10,yes,15 km; its longitude is about 10° east of the valley
+cl19600606055549,Mw,7.7,Riquelme et al. (2018),p. 2,yes,
+cl19600606055549,class hint,crustal,Cabello et al. (2025),"p. 10, Table 7",yes,"45.785° S 72.889° W, 15 km, Mw 7.7"
+cl19650328163316,depth,70,Leyton et al. (2009b),p. 1,yes,Ms 7.1 (abstract) or 7.5 (introduction)
+cl19971015010334,depth,58,Leyton et al. (2009b),p. 1,yes,
+cl20050613224432,Mw,7.8,Ekström et al. (2012),p. 6,yes,"centroid 94.5 km, M0 5.3 × 10^27 dyn cm"
+cl20071114154050,Mw,7.7,Ekström et al. (2012),p. 6,yes,"M0 4.8 × 10^27 dyn cm, 37.6 km"
+cl19160621213242,Mw,7.08,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 913818; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19221111043243,Mw,8.3,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 912062; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19281201040617,Mw,7.7,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 908986; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19430406160718,Mw,8.1,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 899789; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19440115234931,Mw,6.92,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 899270; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19501209213851,Mw,8.2,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 896170; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19520611003143,Mw,6.83,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 893012; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19571129221950,Mw,7.7,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 887612; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19590614001206,Mw,7.1,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 882240; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19600521100257,Mw,8.1,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 879106; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19600522103247,Mw,6.8,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 879128; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19600522191120,Mw,9.55,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 879136; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.25, q=B s=d"
+cl19600606055549,Mw,7.7,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 879416; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.2, q=B s=d"
+cl19600620020114,Mw,7.0,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 879577; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19620214063605,Mw,7.1,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 17291428; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.2, q=B s=d"
+cl19620227124046,Mw,6.2,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 874301; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.2, q=B s=d"
+cl19620803085619,Mw,6.8,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 875121; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19630205203920,Mw,6.4,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 871787; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19630519010303,Mw,6.4,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 872336; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19631203230347,Mw,6.3,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 873644; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19650328163316,Mw,7.4,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 858940; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19661228081805,Mw,7.67,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 841046; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19670313160653,Mw,5.7,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 837800; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19671221022524,Mw,7.3,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 828604; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19700615111451,Mw,6.79,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 794605; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19710709030319,Mw,7.8,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 782010; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.3, q=B s=d"
+cl19740102104233,Mw,7.04,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 752200; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.4, q=C s=d"
+cl19740818104411,Mw,6.9,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 738898; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.2, q=B s=d"
+cl19750510142741,Mw,7.3,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 728800; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.2, q=B s=d"
+cl19060817004004,Mw,8.2,ISC-GEM v13.0 (Di Giacomo et al. 2015),"catalogue entry 16957911; magnitude source d, p. 9",yes,"direct Mw from a published seismic moment (the original paper not identified), uncertainty 0.2, q=B s=d"
+cl20100227082528,Mw,6.32,ISC-GEM v13.0 (Di Giacomo et al. 2015),catalogue entry 14869030,yes,"proxy Mw (q=C, s=p), uncertainty 0.52"
+cl20110107045559,Mw,5.7,"ISC Bulletin, GUC MW",ISC event of 2011-01-07 04:55,yes,CSN moment magnitude; Potin et al. (2024) file gives the same value (code W)
+cl20250502125832,Mw,7.4 (Mww); 7.6 (Mwc),"USGS ComCat, event us7000pwkn",origin and moment-tensor products,yes,M0 1.54e20 N m; no GCMT product attached; read by a sub-agent on 13 Nov 2026
+cl20250502125832,depth,"10 (operator assigned); W-phase centroid 23.5, Mwc centroid 24.7","USGS ComCat, event us7000pwkn",origin product,yes,the hypocentre depth is fixed; centroid depths are not used as depths (DECISIONS); read by a sub-agent on 13 Nov 2026
+cl20250502125832,mechanism,128/57/88 and 311/33/93 (W-phase); finite fault 310/39/78,"USGS ComCat, event us7000pwkn",moment-tensor and finite-fault products,yes,reverse; read by a sub-agent on 13 Nov 2026
+cl20250502125832,class hint,"reverse faulting at shallow depth beneath the Drake Passage, Antarctica–Scotia convergence","USGS ComCat, event us7000pwkn",tectonic summary,yes,no fault named; none of the four classes stated; read by a sub-agent on 13 Nov 2026
+cl20250502130940,existence,"us7000pwkz, 13:09:40, mb 5.7, 57.24° S 67.20° W, 10 km; also us7000pwl0 at 13:10:08, mb 5.6","USGS ComCat, event us7000pwkn",ComCat catalogue,yes,two aftershocks 28 s apart; read by a sub-agent on 13 Nov 2026
+cl19600606055549,Mw,7.7,Kanamori and Rivera (2017),"Summary, p. 93",yes,"M0 4.5e20 N m, source process at least 190 s; origin 05:55:49.1, 45.7° S 73.502° W, 15 km, Ms 6.9 (Rothé); read by a sub-agent on 13 Nov 2026"
+cl19600606055549,mechanism,"84/86/2 (model used); N–S right-lateral strike-slip consistent, not unique",Kanamori and Rivera (2017),Summary; Fig. 4,yes,read by a sub-agent on 13 Nov 2026
+cl19600606055549,depth,"not constrained; synthetics at 11–12 km; ""may have occurred in a somewhat deeper high-temperature ductile environment""",Kanamori and Rivera (2017),Summary,yes,read by a sub-agent on 13 Nov 2026
+cl19600606055549,class hint,slip on the Liquiñe-Ofqui fault suggested by mechanism and proximity; the paper does not call it crustal,Kanamori and Rivera (2017),Summary; Discussion,yes,read by a sub-agent on 13 Nov 2026
+cl18780123000000,epicentre,-20.000 -70.300,"CSN, Grandes terremotos en Chile (web table)",csn.uchile.cl/sismologia/grandes-terremotos-en-chile,yes,"Ms 7.9, 40 km, 08:00 local; read by a sub-agent on 13 Nov 2026"
+cl18780123000000,epicentre,-19.92 -70.335,"NOAA NCEI significant earthquake database, event 2253","ngdc.noaa.gov/hazel, event 2253",yes,"Ms 7.9, 40 km; from the CERESIS catalogue (Askew and Algermissen 1985); read by a sub-agent on 13 Nov 2026"
+cl18780123000000,epicentre,"18.5 S 70.5 W, magnitude 7; destroyed Pica, Tarapacá and Mamiña, 60–70 km from the shore","Soloviev and Go (1975), quoted in NOAA NCEI tsunami event 1090",event comment,no,"quotation in the NOAA page, the book not seen"
+cl18780123000000,Mw,not found,Comte and Pardo (1991),,no,paper could not be opened (publisher blocked)
+cl19180520175507,depth,80,Abe and Kanamori (1979),"p. 3591, Table 2",yes,"depth of Gutenberg and Richter; listed among the large intermediate and deep earthquakes; 28.5° S 71.5° W, M 7.5, mB 7.6, T 6 s"
+cl19180520175507,class hint,in-slab,Abe and Kanamori (1979),"p. 3591, Table 2",yes,listed as an intermediate-depth event (80 km); no mechanism
+cl19180520175507,Mw,Ms 7.9,"CSN, Grandes terremotos en Chile (web table)",web table,yes,"28.5° S 71.5° W, no depth; read by a sub-agent on 13 Nov 2026"
+cl19180520175507,Mw,not listed (no Ms),"Abe (1981), Table A-II as transcribed in CaltechDATA (doi:10.22002/D1.1170)",data file,yes,the shallow-event list has no row for this event; read by a sub-agent on 13 Nov 2026
+cl19340301214515,depth,120,Astiz and Kanamori (1986),"p. 1620; Table 1, p. 1617",yes,"pP−P times from nine stations in Gutenberg's notepads, consistent with sS−S times of the ISC Bulletin; ""considered a good estimate"""
+cl19340301214515,mechanism,12/80/-60,Astiz and Kanamori (1986),"p. 1620, Fig. 5",yes,steeply dipping normal fault preferred; data too incomplete to determine the mechanism uniquely
+cl19340301214515,class hint,in-slab,Astiz and Kanamori (1986),p. 1620,yes,"intermediate depth, down-dip tensional"
+cl19340301214515,Mw,Ms 7.1,Astiz and Kanamori (1986),"p. 1617, Table 1",yes,from Gutenberg and Richter (1954); no moment given
+cl19340301214515,depth,120,Abe and Kanamori (1979),"p. 3591, Table 2",yes,"40° S 72.5° W, M 7.1, mB 7.3, T 8 s"
+cl19480511085546,depth,70,Abe and Kanamori (1979),"p. 3591, Table 2",yes,"depth of Gutenberg and Richter; 17.5° S 70.5° W, M 7.3, mB 7.4, T 5 s; no moment found"
+cl19710617210041,mechanism,2/70/-104,"Astiz (1987, PhD thesis, Caltech)","Table 1.3, p. 123–127",yes,"depth 93 km, mB 7.2; normal faulting, down-dip tension; no moment given; read by a sub-agent on 13 Nov 2026"
+cl19710617210041,class hint,in-slab,"Astiz (1987, PhD thesis, Caltech)",Table 1.3; section on the Altiplano and northern Chile,yes,"intermediate depth, down-dip tensional; read by a sub-agent on 13 Nov 2026"
+cl19710617210041,Mw,Ms 7.0,"CSN, Grandes terremotos en Chile (web table)",web table,yes,"25.402° S 69.058° W, 76 km; read by a sub-agent on 13 Nov 2026"
+cl19250515115705,Mw,Ms 7.1; mB 7.1,"Abe (1981), Table A-II as transcribed in CaltechDATA (doi:10.22002/D1.1170)",data file,yes,"26.0° S 71.5° W, depth 50 km (Gutenberg and Richter); read by a sub-agent on 13 Nov 2026"
+cl19250515115705,Mw,Ms 7.1,"CSN, Grandes terremotos en Chile (web table)",web table,yes,"26.0° S 71.5° W, 50 km; read by a sub-agent on 13 Nov 2026"
+cl19490420032909,Mw,7.1,Astiz and Kanamori (1986),"p. 1619, Fig. 4",yes,M0 6.0 × 10^26 dyn cm from P waveforms at Pasadena and Tucson; Mw by Hanks and Kanamori
+cl19490420032909,depth,63,Astiz and Kanamori (1986),p. 1619,yes,from P and SH synthetics
+cl19490420032909,mechanism,350/70/-130,Astiz and Kanamori (1986),"p. 1619, Fig. 4",yes,steeply dipping normal fault
+cl19490420032909,class hint,in-slab,Astiz and Kanamori (1986),p. 1619–1620,yes,"intermediate depth, tension axis parallel to the slab dip"
+cl19710508004947,Mw,7.2,Astiz and Kanamori (1986),"p. 1618, Fig. 3",yes,"M0 8.0 × 10^26 dyn cm from P waves, ""Mw = 7.2""; depth 150 km, source 3 s long"
+cl19710508004947,mechanism,12/80/100,Astiz and Kanamori (1986),"p. 1617–1618, Fig. 3",yes,first motions of WWSSN stations and waveforms; the figure prints rake −100
+cl19710508004947,class hint,in-slab,Astiz and Kanamori (1986),p. 1620,yes,intermediate depth
+cl19291019101256,depth,100,Abe and Kanamori (1979),"p. 3591, Table 2",yes,"23° S 69° W, M 7.5, mB 7.4; depth of Gutenberg and Richter"
+cl19390418062244,depth,100,Abe and Kanamori (1979),"p. 3591, Table 2",yes,"27° S 70.5° W, M 7.4, mB 7.3; depth of Gutenberg and Richter"

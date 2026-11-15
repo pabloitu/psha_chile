@@ -24,7 +24,7 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 
 # settings
-RUN, CAT = "2026-11-14a", "2026-11-13e"
+RUN, CAT = "2026-11-14c", "2026-11-14b"
 SLAB, SLAB_V = REPO / "data" / "slab_2.0", "02.23.18"
 TRENCH = REPO / "data" / "shapefiles" / "sam_nazca_trench.shp"
 TRENCH_AN = REPO / "data" / "shapefiles" / "sam_antarctica_trench.shp"
@@ -61,7 +61,7 @@ TOP_BINS, LAT_BINS, MAG_BINS = [50.0, 100.0], [24.0, 30.0, 38.0], [5.5]
 TOP_LAB, LAT_LAB, MAG_LAB = ["≤ 50 km", "50–100 km", "> 100 km"], ["17–24° S", "24–30° S", "30–38° S", "38–46° S"], ["Mw 4.5–5.5", "Mw ≥ 5.5"]
 SHARE_FROM, SHARE_MMIN, SHARE_N = 1976, 4.5, 30
 # in-slab sub-classes
-NEST = {"lon": -66.9, "lat": -24.0, "radius_deg": 0.8, "depth": (170.0, 320.0)}
+NEST = {"lon": -66.9, "lat": -24.0, "radius_deg": 0.8, "depth": (150.0, 320.0)}
 # assigned depths of events with a literature class and no measured depth: interface on the slab top within IF_Z;
 # in-slab at SLAB_FRAC of the Slab2 thickness below the top (the hypocentre of the in-slab sources)
 IF_Z, SLAB_FRAC, SIG_ASSIGNED = (10.0, 50.0), 0.30, 20.0

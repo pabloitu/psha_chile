@@ -14,8 +14,8 @@ For the events reviewed in Ruiz and Madariaga (2018): Mw and class from the pape
 | period | Mw | epicentre | depth | mechanism | notes |
 |---|---|---|---|---|---|
 | before 1904 | Cabello (CERESIS-GEM rows) **S** | Cabello **S** | unknown (historical estimates only) **P** | none **P** | Centennial has 1900–1903 but only M ≥ 7; used as a cross-check **P** |
-| 1904–1963 | ISC-GEM or Centennial **?** (Q1) | Centennial, then ISC-GEM **S** (Q1) | ISC-GEM, then Centennial, fixed depths flagged **P** | literature only **P** | global catalogues reach only M ≈ 6–7 here (section 3) |
-| 1964–1975 | ISC-GEM or Centennial **?** (Q1); below M 5.5: **?** (Q2) | Centennial, then ISC-GEM **S**; below M 5.5: **?** (Q2) | ISC-GEM / ISC-EHB **P** | literature, ComCat **P** | both global catalogues stop near M 5.5 |
+| 1904–1963 | Centennial (Mw as given, Ms and mB converted), then ISC-GEM **S** (Q1, 13 Nov) | Centennial, then ISC-GEM **S** (Q1) | ISC-GEM, then Centennial, fixed depths flagged **P** | literature only **P** | global catalogues reach only M ≈ 6–7 here (section 3) |
+| 1964–1975 | Centennial (Mw as given, Ms and mB converted), then ISC-GEM **S** (Q1, 13 Nov); below M 5.5: **?** (Q2) | Centennial, then ISC-GEM **S**; below M 5.5: **?** (Q2) | ISC-GEM / ISC-EHB **P** | literature, ComCat **P** | both global catalogues stop near M 5.5 |
 | 1976–1981 | GCMT Mw where it exists, else as above **P** | as above | as above | ComCat, then GCMT **S** | GCMT starts 1976 |
 | 1982 – 2020-07-16 | direct Mw (GCMT, CSN Mww, USGS Mww), else converted proxy from the ISC Bulletin (GUC ML, NEIC / ISC mb); Potin magnitudes a check only **S** (Pablo 10 Nov) | Potin **S** | Potin **S** | ComCat, then GCMT **S** | Potin et al. (2024) ends 2020-07-16 |
 | 2020-07-16 – today | GCMT Mw ≥ about 5, else CSN homogenized to Mw **P** | CSN **S** | CSN **S** | ComCat, then GCMT **S** | CSN catalogue not relocated |
@@ -34,7 +34,7 @@ Other properties:
 
 ## 4. Questions for S. Ruiz
 
-1. **Centennial vs ISC-GEM, 1904–1999.** They overlap fully. The Centennial lists magnitudes compiled from other catalogues; ISC-GEM recomputed Ms and mb from station amplitudes and converted them to Mw with uncertainties. Does your order (Centennial first) hold for magnitude too, or only for location?
+1. **Centennial vs ISC-GEM, 1904–1999.** They overlap fully. The Centennial lists magnitudes compiled from other catalogues; ISC-GEM recomputed Ms and mb from station amplitudes and converted them to Mw with uncertainties. Does your order (Centennial first) hold for magnitude too, or only for location? **Answered (S. Ruiz, 13 Nov): the Centennial comes first for magnitude too.** Before 1976: Ruiz and Madariaga > Centennial (Mw types as given, Ms and mB converted by their type) > ISC-GEM (events the Centennial lacks) > Cabello (before 1904).
 2. **Events below the global thresholds before 1982** (below about M 6.5 before 1964, below M 5.5 in 1964–1981). ISC Bulletin, ComCat, or leave them out? They matter only for completeness windows reaching back before 1982.
 
 ## 5. Changes
@@ -46,3 +46,4 @@ Other properties:
 | 2026-11-10 | RM18 disagreements by corroboration; Potin magnitudes a check only | Pablo |
 | 2026-11-11 | GCCEL added; location order after the local catalogue; EHB at depth open | Pablo |
 | 2026-11-11 | local catalogue first for epicentre and depth, no exceptions; measured depths before fixed ones; Potin magnitudes not used; Mw rules in DECISIONS (A5) and WORKPLAN_A3-A5 | Pablo |
+| 2026-11-13 | question 1 answered: Centennial before ISC-GEM for magnitude before 1976 | S. Ruiz, Pablo |
