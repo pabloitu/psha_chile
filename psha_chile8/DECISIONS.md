@@ -115,6 +115,7 @@ New lines are added from the project conversations ("write the brief"); Claude C
 - Background Mmax: observed maximum + 0.2 per class (Sep): forearc 7.4, arc 7.9, backarc 7.7, Patagonia 8.0 on the frozen catalogue. Tapered shape: corner at the observed maximum (Statistics).
 - Large intra-arc event reported by Kanamori (> 7.5, probably multi-rupture): open. Its Mmax may change the fault hazard significantly; check whether it is Aysén 1960 (9 Nov).
 - Fault source: shapefile `crustal_faults_chile_updated` is authoritative, read in code (6 Oct).
+- Fault database rebuilt in D16 (Pablo, 15 Nov): only properties of the faults, each with its source, plain field names. The columns `id_area`, `min_mag`, `max_mag`, `a_val`, `b_val`, `usd`, `lsd` were values of the GEM area source each fault lies in, not of the fault, and are removed; the old "observed + 0.2" fault Mmax branch and the fault b read them. CHAF (Maldonado et al. 2021) is used to find important faults missing from the GEM database; exploration only, nothing added without Pablo.
 - Slip rate: reported average, one value (30 Sep).
 - Aseismic coefficient ψ 0.6 / 0.8 / 1.0, weights 0.25 / 0.5 / 0.25 (6 Oct).
 - Mmax: observed + 0.2 / Wells and Coppersmith 1994 area / Leonard 2014 area, 1/3 each; Leonard where no observed maximum (6 Oct).

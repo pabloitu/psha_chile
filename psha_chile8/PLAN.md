@@ -25,14 +25,14 @@ Tick a box when its "done when" holds. Detail of each step lives in its task bri
 - [x] B10 method per source type picked and documented (DECISIONS, Statistics, 15 Nov)
 - [ ] B11 fitting code, tested on synthetic catalogs (known Mc, b, a recovered) ← (code, tests, method comparison and fits in `fits/`, 15 Nov; for Pablo to review: `fits/FITS.md`)
 - [ ] B12 fits: crustal, interface, in-slab classes (shallow, intermediate, Jujuy nest)
-- [ ] B13 faults and background join cleanly at M6 (domain-wide)
+- [ ] B13 faults and background join cleanly at M6 (domain-wide) (after D16: reads the clean fault database)
 
 ## C. In-slab double-zone model
 - [ ] C14 in-slab depth model: Riedel-Hornig et al. (2026) frozen and benchmarked; three layers below the slab top, weights and hypocentres per cell from well-located events (Jujuy nest removed first); the double zone shows through the weights
 - [ ] C15 one layer against three tested in the tornado; lower seismogenic depth and rupture geometry options decided
 
 ## D. Magallanes–Fagnano
-- [ ] D16 segments (Chilean / Argentine overlap), geometry, slip rate, Mmax, single or joined source
+- [ ] D16 fault database: GEM/SARA faults cleaned (fault properties only, area-source fields removed, plain field names, source per value), compared with CHAF (Maldonado et al. 2021) for important missing faults (exploration, nothing added), Magallanes–Fagnano segments, overlap, slip rate, Mmax, single or joined source (`tasks/D16_fault_database.md`; runs before B13)
 
 ## E. New tornado round
 - [ ] E17 double-zone construction plus the choices reopened by the new catalog → final logic tree

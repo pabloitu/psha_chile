@@ -22,7 +22,7 @@ Copy each into `psha_chile8/data/` as a dated file with its sha256, and give it 
 
 - **Fits:** `fits/tables/fits_2026-11-15.csv`, both shapes, with `fits/gr.py` for the bin rates.
 - **Catalogue:** the frozen catalogue `catalog/frozen/2026-11-14/` (class weights, completeness table of DECISIONS).
-- **Faults:** `../data/active_faults/crustal_faults_chile_updated.shp`, which is authoritative.
+- **Faults:** the clean database of D16, `data/faults/faults_<date>.gpkg`, with its field description `model/faults/FIELDS.md` and the D16 proposals for Magallanes–Fagnano. Stop if D16 is not done. Do not read the area-source fields of the old shapefile: they are removed in D16. The "observed + 0.2" Mmax branch needs an observed fault maximum; where the database has none, use the Leonard rule as psha_chile7 did for missing values, and report how many faults that affects.
 - **Grid and arc:** the crustal grid `../ssm/data/grid_01_crustal.csv`; the arc polygon `data/intraarc.shp`.
 - **Old code (read only):**
   - `psha_chile7/crustal/s03_faults.py` (moment balance, the six MFD shapes, the Mmax branches, the Fagnano system, down-dip-aware buffers)
@@ -43,13 +43,13 @@ Copy each into `psha_chile8/data/` as a dated file with its sha256, and give it 
   - fault Mmin 6.0
   - buffers with a 5 km margin on the down-dip side
 - **Bin grid:** the same 0.1 bin edges as `gr.rates`, so fault and background bins line up.
-- **Magallanes–Fagnano:** keep the system rule of psha_chile7 for now. Plan D revisits it.
+- **Magallanes–Fagnano:** use the D16 proposal Pablo accepted in DECISIONS; if none is accepted yet, the psha_chile7 system rule, stated as provisional.
   - List which segments are read. The Puerto Williams result changed from 0.10 g to 0.02 g between runs, probably because the Fagnano segments were missing. Make sure they are present, and say how many are read and how many are skipped, with the reason.
 - **Tests:**
   - every shape returns the target moment rate
   - Mmax lands on the bin grid
   - buffers contain their trace
-- **Fault b:** report what the code uses (database value, or the default 0.8) and its effect on fault N(≥ 6). Keep the psha_chile7 rule unless the brief's report step shows a reason.
+- **Fault b:** the old code took an area-zone b from the database. Compare the b of the crustal class the fault lies in (B11) with 0.8 and report the effect on fault N(≥ 6); use the class b in the reference unless the report shows a reason.
 
 ## Step 2: background
 
