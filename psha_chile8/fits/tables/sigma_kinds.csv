@@ -1,0 +1,25 @@
+mw_kind,period,n,sigma_min,sigma_median,sigma_max,count_mean,count_min,n_sigma_high,sigma_from
+a6,before 1904,1.0,0.3,0.3,0.3,0.804,0.804,0.0,the sigma column of overrides_A6.csv; else that of the value replaced
+a6,1904–1963,3.0,0.2,0.2,0.2,0.908,0.908,0.0,the sigma column of overrides_A6.csv; else that of the value replaced
+a6,1964–1975,1.0,0.2,0.2,0.2,0.908,0.908,0.0,the sigma column of overrides_A6.csv; else that of the value replaced
+a6,2000–2010,1.0,0.52,0.52,0.52,0.52,0.52,0.0,the sigma column of overrides_A6.csv; else that of the value replaced
+a6,from 2011,1.0,0.1,0.1,0.1,0.976,0.976,0.0,the sigma column of overrides_A6.csv; else that of the value replaced
+cabello,before 1904,104.0,0.5,0.5,0.5,0.546,0.546,0.0,set: 0.5 (SIG_CAB)
+centennial,before 1904,2.0,0.25,0.25,0.25,0.86,0.86,0.0,"set: 0.25, 0.30 for a converted mB (SIG_CENT, SIG_MB)"
+centennial,1904–1963,101.0,0.25,0.25,0.3,0.846,0.804,0.0,"set: 0.25, 0.30 for a converted mB (SIG_CENT, SIG_MB)"
+centennial,1964–1975,23.0,0.25,0.25,0.3,0.855,0.804,0.0,"set: 0.25, 0.30 for a converted mB (SIG_CENT, SIG_MB)"
+direct,1964–1975,3.0,0.08,0.08,0.08,0.985,0.985,0.0,"set: 0.08 GCMT, 0.10 W-phase and regional Mw (SY)"
+direct,1976–1989,361.0,0.08,0.08,0.08,0.985,0.985,0.0,"set: 0.08 GCMT, 0.10 W-phase and regional Mw (SY)"
+direct,1990–1999,281.0,0.08,0.08,0.08,0.985,0.985,0.0,"set: 0.08 GCMT, 0.10 W-phase and regional Mw (SY)"
+direct,2000–2010,612.0,0.08,0.08,0.1,0.985,0.976,0.0,"set: 0.08 GCMT, 0.10 W-phase and regional Mw (SY)"
+direct,from 2011,1139.0,0.08,0.1,0.1,0.98,0.976,0.0,"set: 0.08 GCMT, 0.10 W-phase and regional Mw (SY)"
+iscgem,1904–1963,240.0,0.2,0.23,1.02,0.788,0.081,14.0,the ISC-GEM uncertainty column of Mw (unc); 0.2 where empty (SIG_GEM)
+iscgem,1964–1975,302.0,0.2,0.29,1.12,0.771,0.048,13.0,the ISC-GEM uncertainty column of Mw (unc); 0.2 where empty (SIG_GEM)
+proxy,1964–1975,328.0,0.16,0.274,0.275,0.868,0.833,0.0,"scatter of the conversion relation less the reference error, larger outside the fitted range (relations table)"
+proxy,1976–1989,754.0,0.14,0.236,0.426,0.873,0.645,0.0,"scatter of the conversion relation less the reference error, larger outside the fitted range (relations table)"
+proxy,1990–1999,280.0,0.14,0.182,0.275,0.892,0.833,0.0,"scatter of the conversion relation less the reference error, larger outside the fitted range (relations table)"
+proxy,2000–2010,655.0,0.14,0.191,0.426,0.892,0.645,0.0,"scatter of the conversion relation less the reference error, larger outside the fitted range (relations table)"
+proxy,from 2011,244.0,0.129,0.214,0.274,0.882,0.834,0.0,"scatter of the conversion relation less the reference error, larger outside the fitted range (relations table)"
+rm18,before 1904,8.0,0.2,0.3,0.625,0.778,0.389,1.0,"set: 0.2, +0.1 for bounds and approximate values, half the range for a range (SIG_RM)"
+rm18,1904–1963,14.0,0.2,0.2,0.3,0.878,0.804,0.0,"set: 0.2, +0.1 for bounds and approximate values, half the range for a range (SIG_RM)"
+rm18,1964–1975,5.0,0.2,0.2,0.2,0.908,0.908,0.0,"set: 0.2, +0.1 for bounds and approximate values, half the range for a range (SIG_RM)"

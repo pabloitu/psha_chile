@@ -77,6 +77,58 @@ DOIs and citation details were read from page 1 of each PDF on 10 Nov 2026 (R1).
 | Hayes, G.P., Moore, G.L., Portner, D.E., Hearne, M., Flamme, H., Furtney, M., Smoczyk, G.M. (2018). Slab2, a comprehensive subduction zone geometry model. Science 362, 58–61. doi:10.1126/science.aat4723 (printed on p. 4) | slab geometry (thickness and uncertainty grids are in the supplement, not in refs) | hayes_etal_2018.pdf | [x] |
 | Leyton, F., Ruiz, J., Campos, J., Kausel, E. (2009). Intraplate and interplate earthquakes in Chilean subduction zone: a theoretical and observational comparison. PEPI 175, 37–46. doi:10.1016/j.pepi.2008.03.017 | intermediate-depth events | leyton_etal_2009b.pdf | [x] |
 
+## F. Large events (A6) and tectonic classification (A7)
+
+Added 14 Nov 2026 (A8). Citation details as noted when each was read (WORKLOG, `catalog/A6/REPORT.md`, `catalog/LITERATURE.md`); page 1 was not re-opened for this list.
+
+| ref | for | file | pdf |
+|---|---|---|---|
+| Abe, K. (1982). Magnitude, seismic moment and apparent stress for major deep earthquakes. J. Phys. Earth 30(4), 321–330. doi:10.4294/jpe1952.30.321 | mB to seismic moment for intermediate and deep events before 1976; moment of 1959-06-14 | not in `refs/` (read from J-STAGE) | [ ] |
+| Abe, K., Kanamori, H. (1979). Temporal variation of the activity of intermediate and deep focus earthquakes. J. Geophys. Res. 84(B7), 3589–3595 | mB and depths of large intermediate-depth events (Table 2) | not in `refs/` (read on page images) | [ ] |
+| Astiz, L., Kanamori, H. (1986). Interplate coupling and temporal variation of mechanisms of intermediate-depth earthquakes in Chile. Bull. Seismol. Soc. Am. 76(6), 1614–1622 | depth of 1934-03-01; moments of 1949-04-20 and 1971-05-08; in-slab class of these (pp. 1617–1620) | not in `refs/` (read on page images) | [ ] |
+| Astiz Delgado, L. (1987). PhD thesis, California Institute of Technology. doi:10.7907/278K-HZ75 | the same events; read by a sub-agent, to open again before citing | not in `refs/` | [ ] |
+| Kanamori, H., Rivera, L. (2017). An Mw = 7.7 slow earthquake in 1960 near the Aysén Fjord region, Chile. Geophys. J. Int. 211(1), 93–106. doi:10.1093/gji/ggx292 | Mw of the Aysén event of 1960-06-06; read by a sub-agent, to open again before citing | not in `refs/` | [ ] |
+| Haynie, K.L., Thompson, E.M., Hearne, M., Hayes, G.P., Shelly, D.R., Shumway, A.M., Llenos, A.L., Michael, A.J., Powers, P.M. (2026). Subduction zone earthquake catalog separation tool: implementation in the USGS 2025 Puerto Rico and U.S. Virgin Islands National Seismic Hazard Model. Seismol. Res. Lett. 97(2A), 1191–. doi:10.1785/0220250078 | depth scores of the classification (interface, in-slab, crustal) | not in `refs/` (copy supplied by Pablo) | [ ] |
+| García, D., Wald, D.J., Hearne, M.G. (2012). A global earthquake discrimination scheme to optimize ground-motion prediction equation selection. Bull. Seismol. Soc. Am. 102(1), 185–203. doi:10.1785/0120110124 | mechanism and depth used together for the interface class | not in `refs/` (copy supplied by Pablo) | [ ] |
+| Specht, S., Heidbach, O., Cotton, F., Zang, A. (2017). Data-driven earthquake focal mechanism cluster analysis. GFZ Scientific Technical Report STR17/01. doi:10.2312/GFZ.b103-17012 | clusters of nodal planes in strike, rake and dip; check of the interface mechanism | von_specht_etal_2017.pdf | [x] |
+| von Specht, S., Cotton, F. (2020). A link between machine learning and optimization in ground-motion model development: weighted mixed-effects regression with data-driven probabilistic earthquake classification. Bull. Seismol. Soc. Am. 110(6), 2777–2800. doi:10.1785/0120190133 | class probabilities from mechanism clusters for Chile | vonspecht_cotton_2020.pdf | [x] |
+
+Riedel-Hornig et al. (2026, section D) was also used in A7, as the reference of local depths and classes (`explore/X5`); Hayes et al. (2018, section E) for Slab2. Cited in notes but not read: Kagan (1991, GJI 106, 709–716; rotation angle between double couples); Astiz, Lay and Kanamori (1988); Abe (1981); Pacheco and Sykes (1992); Comte and Pardo (1991).
+
+## G. Earthquake statistics (B9, added 15 Nov 2026)
+
+Read on 15 Nov for the magnitude-error correction; notes in `explore/B9/MAG_ERROR_REFS.md`. DOIs are from the page headers or from search results, not all from page 1.
+
+| ref | for | file | pdf |
+|---|---|---|---|
+| EPRI, U.S. DOE, U.S. NRC (2012). Central and Eastern United States Seismic Source Characterization for Nuclear Facilities. NUREG-2115 / EPRI 1021097. Volume 1, §3.3.1; Volume 2, §5.3.2 | E[M], N*, why counts are weighted and magnitudes not moved; weights per magnitude bin | ceus_vol_I.pdf, ceus_vol_II.pdf (ceus_2013.pdf is Volume 3, not used) | [x] |
+| Mueller, C.S. (2019). Earthquake catalogs for the USGS National Seismic Hazard Maps. Seismol. Res. Lett. 90(1), 251–261. doi:10.1785/0220170108 | how the USGS applies the correction, per kind of magnitude | muller_2019.pdf | [x] |
+| Musson, R.M.W. (2012). The effect of magnitude uncertainty on earthquake activity rates. Bull. Seismol. Soc. Am. 102(6), 2771–2775 *(DOI to check)* | direction of the bias by kind of conversion | accepted version read on the web (nora.nerc.ac.uk/id/eprint/500525) | [ ] |
+| Felzer, K.R. (2008). Calculating California seismicity rates. Appendix I of UCERF2, USGS Open-File Report 2007-1437I | correction for magnitude error and rounding | felzer_ucerf2_appedix_I_2008.pdf | [x] |
+| Felzer, K.R. (2013). Estimate of the seismicity rate and magnitude-frequency distribution of earthquakes in California from 1850 to 2011. Appendix L of UCERF3, USGS Open-File Report 2013-1165 | the correction in UCERF3 | felzer_ucerf_2011.pdf | [x] |
+| Rollins, C., Gerstenberger, M.C., et al. (2024). The magnitude–frequency distributions of earthquakes in Aotearoa New Zealand and on adjoining subduction zones, using a new integrated earthquake catalog. Bull. Seismol. Soc. Am. 114(1), 150–181. doi:10.1785/0120230177 *(author list to complete)* | Monte Carlo correction; the rate without it is 14–16 % higher | rollins_etal_2022.pdf | [x] |
+| Michael, A.J., Llenos, A.L. (2026). Capturing the uncertainty of seismicity observations in earthquake rate estimates. Bull. Seismol. Soc. Am. 116(2), 786–. doi:10.1785/0120240245 | Monte Carlo over b, Mc and magnitudes for the USGS model | michael_llenos_2026.pdf | [x] |
+| Llenos, A.L., Shelly, D.R., Shumway, A.M. (2026). Magnitude conversion relations create substantial differences in seismic hazard models. Seismol. Res. Lett. *(volume and DOI to check)* | orthogonal against least-squares conversions for the USGS catalogue (counter-position to our inverse fit, cited in `catalog/MAGNITUDES.md`); conversions move rates more than the error correction | llenos_etal_2026.pdf | [x] |
+| Petersen, M.D., et al. (2024). The 2023 US 50-State National Seismic Hazard Model: overview and implications. Earthquake Spectra 40(1). doi:10.1177/87552930231215428 | catalogue of the 2023 model follows Mueller (2019) | petersen_etal_2024.pdf | [x] |
+
+Added in B11 (15 Nov 2026), read from the PDFs:
+
+| ref | for | file | pdf |
+|---|---|---|---|
+| Kagan, Y.Y. (2002a). Seismic moment distribution revisited: I. Statistical results. Geophys. J. Int. 148, 520–541 *(DOI to check)* | the tapered Gutenberg–Richter distribution (section 2.2.4) and the other shapes; the form fitted in `fits/gr.py` | kagan_2002a.pdf | [x] |
+| Kagan, Y.Y. (2002b). Seismic moment distribution revisited: II. Moment conservation principle. Geophys. J. Int. 149, 731–754 *(DOI to check)* | moment rate of each shape (eq. 7) and the maximum or corner moments with the same moment rate (eq. 12): corner = Mmax × (β / Γ(2 − β))^(1/(1 − β)) in moment, β = 2b/3; his example Mmax 8.35 against corner 8.10. Basis of "corner at the observed maximum" | kagan_2002b.pdf | [x] |
+
+Used in B11 and not read: Aki (1965), Utsu (1965): b by maximum likelihood and its binning correction. DerSimonian and Laird (1986): random-effects pooling. Ogata and Katsura (1993), now tried (fails on our catalogue). Bird and Kagan (2004): corner 9.6 for subduction, as before.
+
+Used in B9 and not read (methods written from memory; read and note the page before citing):
+
+- Tinti, S., Mulargia, F. (1985). Effects of magnitude uncertainties on estimating the parameters in the Gutenberg–Richter frequency–magnitude law. BSSA 75, 1681–1697. `tinti_mulargia_1985.pdf` in `refs/catalogs/` is another paper of theirs (An improved method for the analysis of the completeness of a seismic catalogue, Lettere al Nuovo Cimento 42, 1985).
+- Weichert (1980), BSSA 70: the estimator. Kijko and Smit (2012), BSSA 102: b from sub-catalogues (abstract seen). Tinti and Mulargia (1987): binned b.
+- Cao and Gao (2002); Woessner and Wiemer (2005): Mc by b-stability. Clauset, Shalizi and Newman (2009): the KS test for Mc. Stepp (1972).
+- van der Elst (2021), JGR: b-positive. Gardner and Knopoff (1974) with the windows of van Stiphout et al. (2012); Zaliapin and Ben-Zion (2013): declustering.
+- Rhoades (1996), Tectonophysics 258; Rhoades and Dowrick (2000), 12WCEE: the magnitude shift with event errors. Hakimhashemi and Grünthal (2012), BSSA 102(6); Ogata and Katsura (1993), GJI 113; Kijko and Smit (2017): other completeness methods found by search, not tried.
+- Meletti et al. (2021), Annals of Geophysics 64(1), doi:10.4401/ag-8579; Visini et al. (2022), NHESS preprint, doi:10.5194/nhess-2022-60; Danciu et al. (2024), NHESS 24, doi:10.5194/nhess-24-3049-2024: searched on the web for a magnitude-error correction, none found.
+
 ## Corrections made in R1 (10 Nov 2026)
 - Potin et al. (2024): SRL volume 96(1), not 95(1).
 - Cabello et al. (2025): authors Cabello, Montalva, Leyton; article 105639.
@@ -84,3 +136,17 @@ DOIs and citation details were read from page 1 of each PDF on 10 Nov 2026 (R1).
 - Di Giacomo et al. ISC-GEM part I: printed in 2015 (online 2014).
 - Hanks and Kanamori (1979): issue B5. Lomnitz (2004): pages 368–378. Gasperini et al. (2013): pages 2227–2246. Poulos et al. (2019): BSSA 109(1), 66–74.
 - File names now as in `refs/catalogs/`; Engdahl and Villaseñor (2002) and Giesecke et al. (2004) added; Albini et al. (2013) report listed separately from the GHEA dataset.
+
+## To read before citing (added 13 Nov 2026)
+
+Found by web search during A4 / A5; only abstracts or citing text were seen. Do not cite until the paper is read and the page noted. Full entries in `catalog/RULES_LOCATION_MAGNITUDE.md` section 5.
+
+- Gomberg, Shedlock and Roecker (1990), BSSA 80(6A): depth needs a station within ~1.4 focal depths.
+- Bondár, Myers, Engdahl and Bergman (2004), GJI 156: epicentre accuracy from network criteria (criteria differ between summaries).
+- Bondár and Storchak (2011), GJI 186: ISC locator and default depths (grid not confirmed).
+- Bergman et al. (2023), SRL 94(1): GCCEL (the data documentation was read; the paper was not).
+- Engdahl et al. (2020), Earth and Space Science 7: ISC-EHB 1964–2016.
+- Husen, Kissling, Flueh and Asch (1999), GJI 138: offshore depths in northern Chile (volume and pages to check).
+- Münchmeyer et al. (2025), arXiv:2501.14396: CSN depths offshore (journal to check).
+- Husen and Hardebeck (2010), CORSSA: location accuracy (DOI to check).
+- Lolli, Randazzo, Vannucci and Gasperini (2020), SRL 91(6): HORUS, GCMT discarded below 5.4 (pages to check).

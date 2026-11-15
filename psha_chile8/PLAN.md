@@ -22,8 +22,8 @@ Tick a box when its "done when" holds. Detail of each step lives in its task bri
 
 ## B. Earthquake statistics
 - [x] B9 method comparison: completeness (incl. spatial), b-value methods, with / without declustering (`explore/B9/REPORT.md`, 14–15 Nov)
-- [ ] B10 method per source type picked and documented ← (DECISIONS, Statistics, written 15 Nov; to be confirmed and turned into the B11 brief)
-- [ ] B11 fitting code, tested on synthetic catalogs (known Mc, b, a recovered)
+- [x] B10 method per source type picked and documented (DECISIONS, Statistics, 15 Nov)
+- [ ] B11 fitting code, tested on synthetic catalogs (known Mc, b, a recovered) ← (code, tests, method comparison and fits in `fits/`, 15 Nov; for Pablo to review: `fits/FITS.md`)
 - [ ] B12 fits: crustal, interface, in-slab classes (shallow, intermediate, Jujuy nest)
 - [ ] B13 faults and background join cleanly at M6 (domain-wide)
 

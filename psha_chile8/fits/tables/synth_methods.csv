@@ -1,0 +1,15 @@
+scenario,method,n,b_bias,b_sd,b_cover,N5_bias,N5_sd,N5_cover,N7_bias,N7_sd,N7_cover,N8_bias,N8_sd
+large class (interface),"Weichert, open line (reference)",400,0.0026,0.0171,0.875,0.0167,0.0249,0.8125,0.0078,0.0836,0.87,0.0058,0.1219
+large class (interface),"Weichert, no magnitude-error weight",400,-0.0257,0.0167,,0.1164,0.0274,,0.2598,0.0985,,0.3413,0.1553
+large class (interface),"Weichert, line cut at Mmax",400,0.0024,0.0173,0.8775,0.0167,0.0249,0.8075,0.0056,0.0839,0.8675,-0.0221,0.118
+large class (interface),"tapered, corner 9.6",400,0.0032,0.017,0.8425,0.0165,0.0249,0.78,0.0047,0.0828,0.845,-0.0021,0.1203
+large class (interface),"Aki–Utsu, Mw ≥ 5.0 from 1976",400,-0.0012,0.0228,0.92,0.0341,0.027,0.6,0.0462,0.1175,0.8875,0.0567,0.1733
+large class (interface),"Ogata–Katsura, Mw ≥ 3.5 from 1976",400,0.0006,0.0232,0.9025,0.0383,0.026,0.51,0.042,0.1192,0.8675,0.0483,0.1752
+large class (interface),"least squares, cumulative",400,0.0125,0.0386,0.88,0.0504,0.1164,0.8725,-0.0095,0.0996,0.85,-0.0269,0.1742
+small class (forearc),"Weichert, open line (reference)",400,0.0021,0.0439,0.89,0.0176,0.0559,0.87,0.0289,0.2164,0.8675,0.05,0.3241
+small class (forearc),"Weichert, no magnitude-error weight",400,-0.0257,0.0431,,0.1254,0.0615,,0.2899,0.2571,,0.4011,0.4163
+small class (forearc),"Weichert, line cut at Mmax",400,0.0021,0.0439,0.885,0.0173,0.0558,0.885,0.0036,0.2134,0.8675,-0.1975,0.3644
+small class (forearc),"tapered, corner 9.6",400,0.0022,0.0438,0.8775,0.0175,0.0558,0.845,0.0279,0.2156,0.8625,0.0451,0.3216
+small class (forearc),"Aki–Utsu, Mw ≥ 5.0 from 1976",400,-0.0,0.0574,0.875,0.036,0.0621,0.8125,0.0749,0.2948,0.8475,0.122,0.45
+small class (forearc),"Ogata–Katsura, Mw ≥ 3.5 from 1976",400,-0.0007,0.0588,0.88,0.044,0.0631,0.7425,0.0885,0.307,0.86,0.1404,0.47
+small class (forearc),"least squares, cumulative",400,0.0376,0.1103,0.765,0.1034,0.2951,0.8025,-0.0617,0.2749,0.75,-0.0568,0.4771
