@@ -1,2 +1,10 @@
 __pycache__/
 catalog/sources/raw/
+catalog/frozen/*/catalog_*.csv
+catalog/frozen/*/locations_*.csv
+catalog/frozen/*/classes_*.csv
+catalog/frozen/*/mw_*.csv
+explore/*/cache/
+catalog/merged/
+catalog/cache/
+explore/*/data/
