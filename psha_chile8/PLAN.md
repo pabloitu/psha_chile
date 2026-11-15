@@ -19,6 +19,7 @@ Tick a box when its "done when" holds. Detail of each step lives in its task bri
 - [x] A6 large events reviewed one by one against the literature
 - [x] A7 events classified with class weights (interface, in-slab, crustal, outer rise) and sub-classes; new class names for events and source models
 - [x] A8 final catalog frozen, dated, with a decisions note (`catalog/frozen/2026-11-14/`)
+- [ ] A9 catalogue revision after S3: Aysén 1960 Mw, split no-depth events in the crustal classes, arc–Patagonia boundary; new frozen run `2026-11-16` and refits (`tasks/A9_catalog_revision.md`; sessions A6, A7, B11/B12)
 
 ## B. Earthquake statistics
 - [x] B9 method comparison: completeness (incl. spatial), b-value methods, with / without declustering (`explore/B9/REPORT.md`, 14–15 Nov)
@@ -26,6 +27,7 @@ Tick a box when its "done when" holds. Detail of each step lives in its task bri
 - [ ] B11 fitting code, tested on synthetic catalogs (known Mc, b, a recovered) (code, tests, method comparison and fits in `fits/`, 15 Nov; for Pablo to review: `fits/FITS.md`)
 - [x] B12a fits on the full catalogue: crustal, interface, in-slab classes (shallow, intermediate, Jujuy nest) (B11, `fits/tables/fits_2026-11-15.csv`)
 - [x] B12 declustered catalogues (Gardner–Knopoff, nearest neighbour) and their fits with the B11 methods, for the declustered interface branch and the smoothed patterns (`tasks/B12_declustered.md`; before S2 and S3) (`catalog/declustered/`, `fits/tables/fits_declustered_2026-11-15.csv`, `fits/DECLUSTER.md`, 15 Nov; method to be picked by Pablo; step 0 refit `fits_2026-11-15b.csv`)
+- [x] B14 focal mechanisms per class: nodal-plane distribution (normal / reverse / strike-slip shares, one plane per type, both nodal planes) from the catalogue mechanisms, for the OpenQuake point sources; not a tornado factor; used from S5 (`tasks/B14_mechanisms.md`) (`model/mechanisms/npd_2026-11-15.csv`, report `model/mechanisms/REPORT_B14.md`, 15 Nov)
 
 ## C. In-slab double-zone model
 - [x] C14 in-slab depth model: Riedel-Hornig et al. (2026) frozen and benchmarked; three layers below the slab top, weights and hypocentres per cell from well-located events (Jujuy nest removed first); the double zone shows through the weights (`model/inslab/REPORT_C14.md`, run 2026-11-15e: zone to 0.475 of the Slab2 thickness, three slices for the hypocentre distribution, kernel weights; 15 Nov) (final run 2026-11-15e)
@@ -36,11 +38,11 @@ Tick a box when its "done when" holds. Detail of each step lives in its task bri
 - [x] D16b fault database B: MASCSN26 faults for Chile (slip rate and Mmax restored from its OpenQuake files and checked against its report) plus GEM outside Chile; A against B per class and near the cities (`tasks/D16b_fault_options.md`; database `data/faults/faults_B_2026-11-15.gpkg`, report `model/faults/REPORT_D16b.md`, 15 Nov)
 
 ## S. Source models (OpenQuake), after C14 and the fault database (no outer-rise source)
-- [ ] S1 interface: complex-fault sources for the full margin and the four segments; seismic branch from the B11 fits (tapered and cut shapes, (a, b) branches, the three b options) and geodetic branch (coupling χ); rupture scaling, 10–50 km; Antarctic interface (geodetic only) (`tasks/S1_interface.md`; declustered branch from B12) ←
-- [ ] S2 in-slab: point sources on the in-slab grid for shallow, intermediate and Jujuy nest; 2-D smoothed pattern scaled to the B11 rates; three-layer depths and seismogenic depths from C14 (and the one-layer version); nodal planes
-- [ ] S3 crustal source model: smoothed background per class (forearc, arc, backarc, Patagonia) joined with the faults by the US NSHM 2023 taper; totals checked against the catalogue fits at M6, 6.5, 7, for fault databases A and B (`tasks/B13_faults_background.md`, after D16 and D16b)
-- [ ] S4 crustal faults as OpenQuake sources: simple-fault sources from the chosen database (A or B, or both into the tornado) with the fault tree (coupling ψ, MFD shapes, seismogenic depth), Magallanes–Fagnano as decided in D16
-- [ ] S5 source logic tree assembled and written as NRML; checks: rates per class against the fits, moment rates, a short OpenQuake run at the 14 cities against the psha_chile6 reference
+- [x] S1 interface: complex-fault sources for the full margin and the four segments; seismic branch from the B11 fits (tapered and cut shapes, (a, b) branches, the three b options) and geodetic branch (coupling χ); rupture scaling, 10–50 km; Antarctic interface (geodetic only) (`tasks/S1_interface.md`; declustered branch from B12) (`model/interface/REPORT_S1.md`, 240 NRML files and `branches.json`, reference tree 72 files × 2 scaling relations, tests pass, both OpenQuake check jobs read every file; 15 Nov)
+- [x] S2 in-slab: point sources on the in-slab grid for shallow, intermediate and Jujuy nest; 2-D smoothed pattern scaled to the B11 rates; three-layer depths and seismogenic depths from C14 (and the one-layer version); nodal planes (`tasks/S2_inslab.md`) (NRML 72 files and tests in `model/inslab/`, report `REPORT_S2.md`, 15 Nov; all 72 files read by the OpenQuake parser, rates as built)
+- [x] S3 crustal model: fault MFDs for databases A and B (two variants), smoothed background per class, the join of DECISIONS (background above 6.0 = fit minus faults, bulge reported), checked against the catalogue fits (`tasks/S3_crustal.md`; replaces the B13 brief) (`model/crustal/REPORT_S3.md`, 15 Nov; kernel n = 5 every class; arc and Patagonia bulge)
+- [x] S4 crustal OpenQuake sources: background point sources and simple-fault sources for every branch, fault logic tree (in `tasks/S3_crustal.md`, same session) (`model/crustal/nrml/`, 124 files and `branches.json`, all read by OpenQuake's converter with the rates of the tables; no-faults job calc 501 ran; ticked on the parse check, the fault-database jobs skipped (Pablo))
+- [ ] S5 source logic tree assembled and written as NRML; checks: rates per class against the fits, moment rates, a short OpenQuake run at the 14 cities against the psha_chile6 reference ←
 
 ## E. New tornado round
 - [ ] E17 double-zone construction plus the choices reopened by the new catalog → final logic tree
@@ -69,3 +71,7 @@ Tick a box when its "done when" holds. Detail of each step lives in its task bri
 - [ ] K27 clean public repo from the finished work; pinned environment; regression test against the paper numbers
 - [ ] K28 data and code archive with DOI; WORKLOG becomes the decisions register, FIGURES.md the figure manifest
 - [ ] K29 submitted
+
+## GM. Ground-motion models
+- [x] GM1 residuals of the subduction GMMs on the Bastías et al. (2026) database (`tasks/GM1_gmm_residuals.md`, `gmm/REPORT_GM1.md`, 15 Nov)
+- [ ] GM2 GMM selection and weights (Pablo)

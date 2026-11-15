@@ -1,0 +1,168 @@
+cls,event_id,date,mw,w,lon,lat,fault_A,km_A,fault_B,km_B,near
+arc,cl19291019101256,1929-10-19,7.8,0.074,-68.737,-23.038,de Atacama segmento Salar del Carmen?,121.833,Sistema de Falla Salar,39.791,False
+arc,cl19600606055549,1960-06-06,7.7,1.0,-73.502,-45.7,Falla Canal Costa 006ww,3.215,Canal Costa,3.466,True
+arc,cl19260428111348,1926-04-28,7.3,0.074,-68.164,-22.665,de Atacama segmento Salar del Carmen?,173.826,Sistema de Falla Salar,49.966,False
+arc,cl19190302032635,1919-03-02,7.2,0.382,-72.222,-41.401,Falla Peulla-Cochamo 006ff,1.813,unnamed,0.139,True
+arc,cl19271121231233,1927-11-21,7.1,1.0,-73.622,-45.112,Falla Canal Costa 006ww,14.784,Fiordo Aysen - Puerto Cisnes,31.868,False
+arc,cl19170727025150,1917-07-27,6.9,0.438,-70.062,-30.984,Sistema de fallas El Tigre,77.38,Sistema de fallas El Tigre,77.38,False
+arc,cl19070613091810,1907-06-13,6.8,0.382,-72.153,-40.055,Falla Neltume 006x,5.619,Maihue,9.54,True
+arc,cl19140130073545,1914-01-30,6.5,0.454,-69.989,-34.951,San Ramon 01a,156.77,San Ramon,140.231,False
+arc,cl20040828134124,2004-08-28,6.5,1.0,-70.413,-35.196,Falla Pichilemu,137.718,Topocalma,143.879,False
+backarc,cl18941027193000,1894-10-27,7.5,0.438,-68.4,-30.5,Falla Las Tapias-Villicum,58.174,Falla Las Tapias-Villicum,58.174,False
+backarc,cl19771123092626,1977-11-23,7.5,1.0,-67.802,-31.083,Falla Las Chacras,25.193,Falla Las Chacras,25.193,False
+backarc,cl19440115234931,1944-01-15,7.1,1.0,-68.491,-31.496,Falla Las Tapias-Villicum,15.838,Falla Las Tapias-Villicum,15.838,False
+backarc,cl18610320230000,1861-03-20,7.0,0.454,-68.9,-32.9,Falla Cerro La Cal,4.728,Falla Cerro La Cal,4.728,True
+backarc,cl19520611003143,1952-06-11,6.8,0.438,-68.483,-31.672,Falla Rinconada,12.937,Falla Rinconada,12.937,False
+backarc,cl19201217190004,1920-12-17,6.7,0.454,-68.412,-31.905,Falla Cerro Salinas,16.456,Falla Cerro Salinas,16.456,False
+backarc,cl19771123093459,1977-11-23,6.6,0.438,-67.53,-31.217,Falla Las Chacras,0.533,Falla Las Chacras,0.533,True
+backarc,cl19980522044851,1998-05-22,6.6,1.0,-65.424,-17.785,Falla Sama-Calientes,479.255,Aroma,449.23,False
+backarc,cl19410703071146,1941-07-03,6.5,0.438,-68.043,-31.798,Falla Niquizanga,8.179,Falla Niquizanga,8.179,True
+backarc,cl19771124020232,1977-11-24,6.5,1.0,-67.734,-31.611,Falla Niquizanga,11.714,Falla Niquizanga,11.714,False
+backarc,cl20210119024620,2021-01-19,6.5,1.0,-68.903,-31.866,Falla Maradona-Acequion,4.996,Falla Maradona-Acequion,4.996,True
+forearc,cl15130101000000,1513-01-01,8.7,0.13,-72.3,-17.21,Falla Chololo,113.99,Falla Chololo,113.99,False
+forearc,cl16041124183000,1604-11-24,8.7,0.13,-71.9,-17.4,Falla Chololo,66.562,Falla Chololo,66.562,False
+forearc,cl15751216183000,1575-12-16,8.3,0.092,-73.96,-39.8,Falla Futrono,138.202,Falla Futrono,138.202,False
+forearc,cl18221120023000,1822-11-20,8.3,0.059,-71.93,-32.55,Marga Marga,62.386,Marga-Marga*,62.258,False
+forearc,cl18350220153000,1835-02-20,8.3,0.059,-73.35,-36.13,Santa María,95.359,Santa Maria,62.431,False
+forearc,cl15700208050000,1570-02-08,8.0,0.059,-73.5,-36.75,Santa María,25.462,Santa Maria,2.176,True
+forearc,cl16570315233000,1657-03-15,8.0,0.059,-73.03,-36.83,Santa María,43.641,Santa Maria,35.185,False
+forearc,cl18780123000000,1878-01-23,7.9,0.13,-70.3,-20.05,Zofri,23.716,Zofri,23.598,False
+forearc,cl15430101000000,1543-01-01,7.7,0.13,-70.8,-19.0,Atajaña,68.534,Atajana*,68.477,False
+forearc,cl15621028100000,1562-10-28,7.7,0.092,-73.15,-38.7,Falla Lanalhue 004b,37.72,Morguilla,33.924,False
+forearc,cl15900101000000,1590-01-01,7.7,0.13,-72.9,-17.2,Falla Chololo,173.382,Falla Chololo,173.382,False
+forearc,cl17371224000000,1737-12-24,7.5,0.092,-73.9,-39.8,Falla Futrono,133.243,Falla Futrono,133.243,False
+forearc,cl17960330104500,1796-03-30,7.5,0.14,-70.25,-27.35,Paranal,264.344,Paposo,258.146,False
+forearc,cl18330918104500,1833-09-18,7.5,0.13,-71.01,-18.251,Falla Sama-Calientes,69.967,Falla Sama-Calientes,69.967,False
+forearc,cl18491217100000,1849-12-17,7.5,0.055,-71.37,-29.95,Falla Pismanta-Las Flores,206.163,Puerto Aldea,38.388,False
+forearc,cl18510402104800,1851-04-02,7.5,0.059,-71.77,-33.22,Quintay,9.619,Laguna Verde*,16.781,True
+forearc,cl18510526171000,1851-05-26,7.5,0.14,-70.35,-27.35,Paranal,263.816,Paposo,257.544,False
+forearc,cl18690824163000,1869-08-24,7.5,0.13,-70.23,-19.55,Pisagua,9.502,Pisagua,8.444,True
+forearc,cl19140130033606,1914-01-30,7.5,0.059,-73.309,-34.763,Carranza,116.181,El Yolki,104.413,False
+forearc,cl19530506171648,1953-05-06,7.5,0.031,-72.866,-37.093,Santa María,50.274,Santa Maria,43.619,False
+forearc,cl15200101000000,1520-01-01,7.4,0.092,-74.0,-40.0,Falla Pullehue-Cordon Caulle 023a,137.475,unnamed,135.828,False
+forearc,cl16041201000000,1604-12-01,7.4,0.055,-71.25,-29.899,Falla Pismanta-Las Flores,195.197,Puerto Aldea,50.345,False
+forearc,cl16391201000000,1639-12-01,7.4,0.055,-71.349,-29.949,Falla Pismanta-Las Flores,204.155,Puerto Aldea,39.77,False
+forearc,cl18221125121500,1822-11-25,7.4,0.059,-71.629,-33.049,Valparaíso,2.083,Laguna Verde*,6.351,True
+forearc,cl18311008013000,1831-10-08,7.4,0.13,-71.6,-18.5,Falla Chololo,93.81,Falla Chololo,93.81,False
+forearc,cl18330425143000,1833-04-25,7.4,0.055,-71.25,-28.46,Falla Pismanta-Las Flores,265.916,Puerto Aldea,198.847,False
+forearc,cl18330918130000,1833-09-18,7.4,0.074,-70.349,-18.5,Falla Sama-Calientes,70.126,Falla Sama-Calientes,70.126,False
+forearc,cl18431217221500,1843-12-17,7.4,0.055,-71.25,-29.899,Falla Pismanta-Las Flores,195.197,Puerto Aldea,50.345,False
+forearc,cl18450604021500,1845-06-04,7.4,0.074,-70.349,-18.5,Falla Sama-Calientes,70.126,Falla Sama-Calientes,70.126,False
+forearc,cl18470308150000,1847-03-08,7.4,0.059,-71.269,-32.45,Marga Marga,68.103,Marga-Marga*,68.025,False
+forearc,cl15750317060000,1575-03-17,7.3,0.059,-71.9,-33.4,Quintay,32.25,Laguna Verde*,40.114,False
+forearc,cl16810310000000,1681-03-10,7.3,0.074,-70.35,-18.5,Falla Sama-Calientes,70.19,Falla Sama-Calientes,70.19,False
+forearc,cl19390418062244,1939-04-18,7.3,0.055,-70.705,-27.138,Paranal,241.549,Paposo,235.074,False
+forearc,cl19201210042549,1920-12-10,7.2,0.092,-74.988,-39.456,Falla Lanalhue 004b,217.101,Morguilla,189.798,False
+forearc,cl19281202042026,1928-12-02,7.2,0.059,-72.74,-35.712,Carranza,32.202,Pelluhue,16.158,False
+forearc,cl19330223080919,1933-02-23,7.2,0.074,-69.965,-20.297,Bajo Molle,9.66,Tarapaca,4.242,True
+forearc,cl19601202091048,1960-12-02,7.2,0.782,-70.08,-24.669,Paranal,28.067,Paposo,27.955,False
+forearc,cl19060830023826,1906-08-30,7.1,0.074,-70.092,-18.358,Falla Sama-Calientes,42.925,Falla Sama-Calientes,42.925,False
+forearc,cl19100906200301,1910-09-06,7.1,0.055,-70.699,-27.421,Paranal,272.783,Paposo,266.323,False
+forearc,cl19250515115705,1925-05-15,7.1,0.055,-70.546,-25.5,Paranal,58.944,Paposo,52.418,False
+forearc,cl19310318080224,1931-03-18,7.1,0.059,-71.546,-33.825,Falla Topocalma 002b,46.762,Topocalma,41.165,False
+forearc,cl19460802191852,1946-08-02,7.1,0.192,-70.568,-26.449,Paranal,163.993,Paposo,157.552,False
+forearc,cl19600620125946,1960-06-20,7.1,0.501,-73.322,-39.212,Falla Lanalhue 004b,82.759,Lanalhue,80.348,False
+forearc,cl19620214063605,1962-02-14,7.1,0.242,-73.0,-38.09,Falla Lanalhue 004b,9.206,Lanalhue,4.127,True
+forearc,cl18290926143000,1829-09-26,7.0,0.059,-71.63,-33.05,Valparaíso,2.202,Laguna Verde*,6.208,True
+forearc,cl18471008153000,1847-10-08,7.0,0.438,-71.18,-31.61,Marga Marga,159.975,Puerto Aldea,93.071,False
+forearc,cl18591005120000,1859-10-05,7.0,0.055,-71.24,-27.24,Paranal,263.812,Paposo,257.279,False
+forearc,cl18711005090000,1871-10-05,7.0,0.13,-70.17,-20.2,Zofri,2.671,Zofri,2.627,True
+forearc,cl19040319062757,1904-03-19,7.0,0.055,-71.753,-29.262,Falla Pismanta-Las Flores,259.827,Puerto Aldea,107.186,False
+forearc,cl19061226055320,1906-12-26,7.0,0.13,-70.607,-19.551,Atajaña,44.443,Pisagua,43.311,False
+forearc,cl19090608054637,1909-06-08,7.0,0.055,-70.502,-26.154,Paranal,130.839,Paposo,124.437,False
+forearc,cl19200820161542,1920-08-20,7.0,0.059,-72.887,-37.911,Falla Lanalhue 004b,29.403,Lanalhue,25.107,False
+forearc,cl19360713111218,1936-07-13,7.0,0.14,-70.023,-24.715,Paranal,34.536,Paposo,34.622,False
+forearc,cl19401004075500,1940-10-04,7.0,0.097,-70.718,-20.592,Salar Grande,69.024,Tarapaca,65.075,False
+forearc,cl19401011184119,1940-10-11,7.0,0.092,-73.933,-42.042,Falla Chacao,64.683,Falla Chacao,64.683,False
+forearc,cl19600620020114,1960-06-20,7.0,0.306,-73.324,-38.265,Falla Lanalhue 004b,25.065,Morguilla,0.6,True
+forearc,cl20100311145523,2010-03-11,7.0,1.0,-72.347,-34.222,Falla Pichilemu,37.498,Pichilemu,28.396,False
+forearc,cl19060819093408,1906-08-19,6.9,0.472,-72.721,-39.228,Falla Lanalhue 004b,44.905,Falla Villarrica-Quetrupillan-Lanin,45.421,False
+forearc,cl19190309031658,1919-03-09,6.9,0.092,-74.365,-41.422,Falla Chacao,100.602,Falla Chacao,100.602,False
+forearc,cl19281120203512,1928-11-20,6.9,0.13,-69.931,-23.111,de Atacama segmento Salar del Carmen?,7.886,Paposo,8.808,True
+forearc,cl19420708065543,1942-07-08,6.9,0.055,-70.189,-24.602,Paranal,16.045,Paposo,16.116,False
+forearc,cl19550419202410,1955-04-19,6.9,0.059,-71.935,-30.128,Falla Pismanta-Las Flores,259.407,Puerto Aldea,31.922,False
+forearc,cl19561218023111,1956-12-18,6.9,0.616,-70.172,-25.502,Paranal,64.132,Paposo,59.205,False
+forearc,cl20100311143944,2010-03-11,6.9,1.0,-71.946,-34.337,Falla Pichilemu,5.004,Pichilemu,5.435,True
+forearc,cl17730629000000,1773-06-29,6.8,0.14,-70.349,-27.35,Paranal,263.819,Paposo,257.548,False
+forearc,cl17750317000000,1775-03-17,6.8,0.059,-71.629,-33.049,Valparaíso,2.083,Laguna Verde*,6.351,True
+forearc,cl17920807000000,1792-08-07,6.8,0.074,-70.349,-18.5,Falla Sama-Calientes,70.126,Falla Sama-Calientes,70.126,False
+forearc,cl18010101000000,1801-01-01,6.8,0.055,-71.25,-29.949,Falla Pismanta-Las Flores,194.651,Puerto Aldea,46.575,False
+forearc,cl18160120170000,1816-01-20,6.8,0.059,-73.03,-36.829,Santa María,43.706,Santa Maria,35.177,False
+forearc,cl18221105000000,1822-11-05,6.8,0.14,-70.349,-27.35,Paranal,263.819,Paposo,257.548,False
+forearc,cl18221123023000,1822-11-23,6.8,0.059,-71.629,-33.049,Valparaíso,2.083,Laguna Verde*,6.351,True
+forearc,cl18291001160300,1829-10-01,6.8,0.059,-71.599,-33.399,Quintay,15.779,Laguna Verde*,22.254,False
+forearc,cl18311224164500,1831-12-24,6.8,0.059,-73.03,-36.829,Santa María,43.706,Santa Maria,35.177,False
+forearc,cl18360426223000,1836-04-26,6.8,0.059,-73.03,-36.829,Santa María,43.706,Santa Maria,35.177,False
+forearc,cl18360703123000,1836-07-03,6.8,0.13,-70.26,-22.55,de Atacama segmento Salar del Carmen?,41.578,Sistema de Fallas Mejillones,19.7,False
+forearc,cl18460313110000,1846-03-13,6.8,0.14,-70.349,-27.35,Paranal,263.819,Paposo,257.548,False
+forearc,cl18470119145000,1847-01-19,6.8,0.14,-70.349,-27.35,Paranal,263.819,Paposo,257.548,False
+forearc,cl18540114231000,1854-01-14,6.8,0.055,-71.349,-29.949,Falla Pismanta-Las Flores,204.155,Puerto Aldea,39.77,False
+forearc,cl18571107152100,1857-11-07,6.8,0.14,-70.349,-27.35,Paranal,263.819,Paposo,257.548,False
+forearc,cl18580410123000,1858-04-10,6.8,0.055,-71.25,-29.899,Falla Pismanta-Las Flores,195.197,Puerto Aldea,50.345,False
+forearc,cl18580424111500,1858-04-24,6.8,0.055,-71.25,-29.899,Falla Pismanta-Las Flores,195.197,Puerto Aldea,50.345,False
+forearc,cl18600920233000,1860-09-20,6.8,0.074,-70.349,-18.5,Falla Sama-Calientes,70.126,Falla Sama-Calientes,70.126,False
+forearc,cl18640112060900,1864-01-12,6.8,0.14,-70.349,-27.35,Paranal,263.819,Paposo,257.548,False
+forearc,cl18660622000000,1866-06-22,6.8,0.14,-70.349,-27.35,Paranal,263.819,Paposo,257.548,False
+forearc,cl18681012052000,1868-10-12,6.8,0.14,-70.349,-27.35,Paranal,263.819,Paposo,257.548,False
+forearc,cl18690430025600,1869-04-30,6.8,0.438,-71.67,-35.43,Carranza,43.081,Carranza,43.004,False
+forearc,cl18710325145600,1871-03-25,6.8,0.059,-71.629,-33.049,Valparaíso,2.083,Laguna Verde*,6.351,True
+forearc,cl18760211210000,1876-02-11,6.8,0.438,-71.18,-31.62,Marga Marga,158.89,Puerto Aldea,94.108,False
+forearc,cl18761026140000,1876-10-26,6.8,0.074,-69.629,-22.07,de Atacama segmento Salar del Carmen?,23.217,unnamed,52.077,False
+forearc,cl18770727034000,1877-07-27,6.8,0.055,-71.349,-29.949,Falla Pismanta-Las Flores,204.155,Puerto Aldea,39.77,False
+forearc,cl18900919153000,1890-09-19,6.8,0.14,-70.349,-27.35,Paranal,263.819,Paposo,257.548,False
+forearc,cl18920314140000,1892-03-14,6.8,0.074,-70.349,-18.5,Falla Sama-Calientes,70.126,Falla Sama-Calientes,70.126,False
+forearc,cl18930222212500,1893-02-22,6.8,0.055,-71.25,-29.899,Falla Pismanta-Las Flores,195.197,Puerto Aldea,50.345,False
+forearc,cl18960314023000,1896-03-14,6.8,0.059,-71.629,-33.049,Valparaíso,2.083,Laguna Verde*,6.351,True
+forearc,cl18960614142000,1896-06-14,6.8,0.074,-70.349,-18.5,Falla Sama-Calientes,70.126,Falla Sama-Calientes,70.126,False
+forearc,cl18980723021700,1898-07-23,6.8,0.059,-73.03,-36.829,Santa María,43.706,Santa Maria,35.177,False
+forearc,cl19020305190300,1902-03-05,6.8,0.074,-70.0,-20.0,Zofri,22.713,Zofri,18.58,False
+forearc,cl19031207144400,1903-12-07,6.8,0.14,-70.0,-27.0,Paranal,229.012,Paposo,223.118,False
+forearc,cl19170215004828,1917-02-15,6.8,0.059,-71.789,-30.519,Sistema de fallas El Tigre,245.124,Puerto Aldea,18.788,False
+forearc,cl19240129015458,1924-01-29,6.8,0.055,-70.715,-28.183,Falla Pismanta-Las Flores,255.384,Puerto Aldea,242.823,False
+forearc,cl19600522103043,1960-05-22,6.8,0.177,-73.17,-37.961,Falla Lanalhue 004b,6.593,Lanalhue,4.431,True
+forearc,cl19600522103247,1960-05-22,6.8,0.064,-73.472,-37.994,Falla Lanalhue 004b,18.097,Morguilla,5.768,True
+forearc,cl20071115150557,2007-11-15,6.8,0.392,-70.5,-23.017,"Mejillones, northern section",0.263,Mejillones,0.225,True
+forearc,cl20150917041027,2015-09-17,6.8,0.433,-71.732,-31.549,Marga Marga,163.691,Puerto Aldea,82.268,False
+forearc,cl19221111180935,1922-11-11,6.7,0.055,-71.482,-28.037,Falla Pismanta-Las Flores,315.227,Puerto Aldea,242.985,False
+forearc,cl19560108205423,1956-01-08,6.7,0.176,-70.631,-19.051,Atajaña,50.765,Atajana*,50.728,False
+forearc,cl19600525083441,1960-05-25,6.7,0.007,-75.742,-44.822,Falla Canal Costa 006ww,184.627,Canal Costa,189.741,False
+forearc,cl20010626041832,2001-06-26,6.7,0.277,-71.517,-17.844,Falla Chololo,24.654,Falla Chololo,24.654,False
+forearc,cl20100227103037,2010-02-27,6.7,0.007,-71.981,-33.367,Quintay,35.07,Laguna Verde*,42.0,False
+forearc,cl20140316211627,2014-03-16,6.7,1.0,-70.853,-19.983,Zofri,77.914,Zofri,77.856,False
+forearc,cl19050426214300,1905-04-26,6.6,0.13,-70.0,-21.0,Salar Grande,1.823,Salar Grande,2.506,True
+forearc,cl19070805063900,1907-08-05,6.6,0.055,-70.966,-24.365,Coloso,62.939,Caleta del Cobre / Coloso,62.94,False
+forearc,cl19220312165154,1922-03-12,6.6,0.092,-73.714,-39.205,Falla Lanalhue 004b,109.728,Morguilla,97.196,False
+forearc,cl19470121200649,1947-01-21,6.6,0.273,-70.289,-24.335,Paranal,1.873,Paposo,2.567,True
+forearc,cl19560609100829,1956-06-09,6.6,0.289,-71.445,-30.238,Falla Pismanta-Las Flores,211.781,Puerto Aldea,16.307,False
+forearc,cl19600521105358,1960-05-21,6.6,0.438,-72.324,-37.065,Santa María,98.217,Lago Laja,89.39,False
+forearc,cl19611018165157,1961-10-18,6.6,0.286,-73.403,-36.763,Santa María,25.548,Santa Maria,5.202,True
+forearc,cl19611209111811,1961-12-09,6.6,0.006,-75.752,-43.694,Falla Chaiten,238.881,unnamed,234.626,False
+forearc,cl19620717053209,1962-07-17,6.6,0.007,-75.491,-43.06,Falla Chaiten,196.706,Falla Chaiten,196.71,False
+forearc,cl19880814175310,1988-08-14,6.6,0.342,-71.111,-27.344,Paranal,271.385,Paposo,264.842,False
+forearc,cl19930711133622,1993-07-11,6.6,0.598,-70.127,-25.242,Paranal,43.018,Paposo,40.3,False
+forearc,cl20010623212736,2001-06-23,6.6,0.269,-72.549,-17.125,Falla Chololo,141.913,Falla Chololo,141.913,False
+forearc,cl20150921173957,2015-09-21,6.6,1.0,-71.542,-31.754,Marga Marga,140.015,Puerto Aldea,102.885,False
+forearc,cl18311008021500,1831-10-08,6.5,0.13,-71.016,-18.468,Falla Sama-Calientes,90.055,Falla Sama-Calientes,90.055,False
+forearc,cl18770510012800,1877-05-10,6.5,0.13,-71.183,-18.329,Falla Chololo,73.084,Falla Chololo,73.084,False
+forearc,cl19270228140756,1927-02-28,6.5,0.055,-71.095,-28.697,Falla Pismanta-Las Flores,237.028,Puerto Aldea,176.704,False
+forearc,cl19280112130643,1928-01-12,6.5,0.055,-71.809,-29.861,Falla Pismanta-Las Flores,249.221,Puerto Aldea,43.768,False
+forearc,cl19301017084638,1930-10-17,6.5,0.438,-71.177,-32.632,Marga Marga,55.125,Marga-Marga*,55.081,False
+forearc,cl19341204172433,1934-12-04,6.5,0.074,-69.752,-19.298,Atajaña,24.757,Blanco,18.641,False
+forearc,cl19370314115546,1937-03-14,6.5,0.055,-70.795,-24.883,Paranal,37.335,Paposo,37.112,False
+forearc,cl19430415113445,1943-04-15,6.5,0.059,-71.769,-32.057,Marga Marga,108.255,Marga-Marga*,108.134,False
+forearc,cl19441222223144,1944-12-22,6.5,0.274,-70.238,-25.702,Paranal,82.954,Paposo,77.267,False
+forearc,cl19551117065333,1955-11-17,6.5,1.0,-70.155,-26.406,Paranal,161.258,Paposo,155.329,False
+forearc,cl19551206043105,1955-12-06,6.5,0.13,-70.338,-20.61,Salar Grande,35.474,Salar Grande,35.212,False
+forearc,cl19570729171519,1957-07-29,6.5,0.13,-70.94,-23.409,Caleta Herradura,39.722,Caleta Herradura,39.748,False
+forearc,cl19600523002547,1960-05-23,6.5,0.092,-73.925,-38.565,Falla Lanalhue 004b,86.815,Morguilla,60.697,False
+forearc,cl19820128142615,1982-01-28,6.5,0.055,-71.609,-27.361,Paranal,289.444,Paposo,282.986,False
+forearc,cl19850303233832,1985-03-03,6.5,0.31,-71.28,-32.819,Marga Marga,32.798,Marga-Marga*,32.765,False
+forearc,cl19870813152309,1987-08-13,6.5,1.0,-70.962,-17.939,Falla Sama-Calientes,44.309,Falla Sama-Calientes,44.309,False
+forearc,cl19930315160857,1993-03-15,6.5,0.574,-70.971,-26.694,Paranal,197.995,Paposo,191.452,False
+forearc,cl20150916225915,2015-09-16,6.5,0.366,-71.732,-31.62,Marga Marga,155.885,Puerto Aldea,89.925,False
+forearc,cl20150917035514,2015-09-17,6.5,0.355,-71.735,-31.499,Marga Marga,169.276,Puerto Aldea,76.926,False
+patagonia,cl19491217065332,1949-12-17,7.8,1.0,-69.562,-53.972,"Falla Lago Fagnano, sección occidental",27.439,Deseado,23.708,False
+patagonia,cl19491217150757,1949-12-17,7.8,1.0,-70.057,-53.996,"Falla Lago Fagnano, sección occidental",21.216,Deseado,16.0,False
+patagonia,cl18790202103000,1879-02-02,7.0,1.0,-70.67,-53.0,"Falla Lago Fagnano, sección occidental",114.801,Rio San Juan,60.894,False
+patagonia,cl19500130005635,1950-01-30,6.9,1.0,-71.073,-53.472,"Falla Lago Fagnano, sección occidental",55.902,Rio San Juan,6.198,True
+patagonia,cl19700614000010,1970-06-14,6.5,1.0,-74.036,-52.033,"Falla Lago Fagnano, sección occidental",104.058,unnamed,134.24,False

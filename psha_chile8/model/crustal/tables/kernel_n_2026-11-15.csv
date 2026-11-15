@@ -1,0 +1,9 @@
+option,unit,test,n_own,exp_own,n,exponent,source,median_d_train
+gk,forearc,46.1143,5,1.5,5,1.5,own,53.037413459062186
+gk,arc,18.360500000000002,5,1.5,5,1.5,crustal family,126.58134339108764
+gk,backarc,25.2096,5,1.5,5,1.5,own,87.33847036973472
+gk,patagonia,14.0,5,1.5,5,1.5,crustal family,216.70896447005796
+nn,forearc,54.684099999999994,5,1.5,5,1.5,own,40.487136995741864
+nn,arc,18.0,5,1.5,5,1.5,crustal family,97.30003975876826
+nn,backarc,25.2518,5,1.5,5,1.5,own,67.87112627644365
+nn,patagonia,17.0,5,1.5,5,1.5,crustal family,145.4359997794244

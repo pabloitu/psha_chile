@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">
+<logicTree logicTreeID="lt_crustal">
+<logicTreeBranchingLevel branchingLevelID="bl1">
+<logicTreeBranchSet uncertaintyType="sourceModel" branchSetID="bs1">
+<logicTreeBranch branchID="bg0"><uncertaintyModel>../nrml/cr_bg_B_taper_gk.xml</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="bg1"><uncertaintyModel>../nrml/cr_bg_B_taper_nn.xml</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="bg2"><uncertaintyModel>../nrml/cr_bg_B_trunc_gk.xml</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="bg3"><uncertaintyModel>../nrml/cr_bg_B_trunc_nn.xml</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+<logicTreeBranchingLevel branchingLevelID="bl2">
+<logicTreeBranchSet uncertaintyType="extendModel" branchSetID="bs2">
+<logicTreeBranch branchID="f00"><uncertaintyModel>../nrml/cr_flt_B_psi060_z10_al1.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f01"><uncertaintyModel>../nrml/cr_flt_B_psi060_z10_al2.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f02"><uncertaintyModel>../nrml/cr_flt_B_psi060_z10_al3.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f03"><uncertaintyModel>../nrml/cr_flt_B_psi060_z10_yc.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f04"><uncertaintyModel>../nrml/cr_flt_B_psi060_z10_tap.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f05"><uncertaintyModel>../nrml/cr_flt_B_psi060_z10_hyb.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f06"><uncertaintyModel>../nrml/cr_flt_B_psi060_z20_al1.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f07"><uncertaintyModel>../nrml/cr_flt_B_psi060_z20_al2.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f08"><uncertaintyModel>../nrml/cr_flt_B_psi060_z20_al3.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f09"><uncertaintyModel>../nrml/cr_flt_B_psi060_z20_yc.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f10"><uncertaintyModel>../nrml/cr_flt_B_psi060_z20_tap.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f11"><uncertaintyModel>../nrml/cr_flt_B_psi060_z20_hyb.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f12"><uncertaintyModel>../nrml/cr_flt_B_psi080_z10_al1.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f13"><uncertaintyModel>../nrml/cr_flt_B_psi080_z10_al2.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f14"><uncertaintyModel>../nrml/cr_flt_B_psi080_z10_al3.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f15"><uncertaintyModel>../nrml/cr_flt_B_psi080_z10_yc.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f16"><uncertaintyModel>../nrml/cr_flt_B_psi080_z10_tap.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f17"><uncertaintyModel>../nrml/cr_flt_B_psi080_z10_hyb.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f18"><uncertaintyModel>../nrml/cr_flt_B_psi080_z20_al1.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f19"><uncertaintyModel>../nrml/cr_flt_B_psi080_z20_al2.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f20"><uncertaintyModel>../nrml/cr_flt_B_psi080_z20_al3.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f21"><uncertaintyModel>../nrml/cr_flt_B_psi080_z20_yc.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f22"><uncertaintyModel>../nrml/cr_flt_B_psi080_z20_tap.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f23"><uncertaintyModel>../nrml/cr_flt_B_psi080_z20_hyb.xml</uncertaintyModel><uncertaintyWeight>0.041666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f24"><uncertaintyModel>../nrml/cr_flt_B_psi100_z10_al1.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f25"><uncertaintyModel>../nrml/cr_flt_B_psi100_z10_al2.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f26"><uncertaintyModel>../nrml/cr_flt_B_psi100_z10_al3.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f27"><uncertaintyModel>../nrml/cr_flt_B_psi100_z10_yc.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f28"><uncertaintyModel>../nrml/cr_flt_B_psi100_z10_tap.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f29"><uncertaintyModel>../nrml/cr_flt_B_psi100_z10_hyb.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f30"><uncertaintyModel>../nrml/cr_flt_B_psi100_z20_al1.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f31"><uncertaintyModel>../nrml/cr_flt_B_psi100_z20_al2.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f32"><uncertaintyModel>../nrml/cr_flt_B_psi100_z20_al3.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f33"><uncertaintyModel>../nrml/cr_flt_B_psi100_z20_yc.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f34"><uncertaintyModel>../nrml/cr_flt_B_psi100_z20_tap.xml</uncertaintyModel><uncertaintyWeight>0.020833333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="f35"><uncertaintyModel>../nrml/cr_flt_B_psi100_z20_hyb.xml</uncertaintyModel><uncertaintyWeight>0.020833333337</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+</logicTree>
+</nrml>

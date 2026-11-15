@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">
+<logicTree logicTreeID="lt_crustal">
+<logicTreeBranchingLevel branchingLevelID="bl1">
+<logicTreeBranchSet uncertaintyType="sourceModel" branchSetID="bs1">
+<logicTreeBranch branchID="bg_gk"><uncertaintyModel>cr_bg_nofaults_taper_gk.xml</uncertaintyModel><uncertaintyWeight>0.500000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="bg_nn"><uncertaintyModel>cr_bg_nofaults_taper_nn.xml</uncertaintyModel><uncertaintyWeight>0.500000000000</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+</logicTree>
+</nrml>
