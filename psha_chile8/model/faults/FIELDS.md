@@ -40,3 +40,26 @@ The database holds only properties of the faults. No Mmax, a or b: those are com
 Removed from the model file: `id_area`, `min_mag`, `max_mag`, `a_val`, `b_val`, `usd`, `lsd` (values of the GEM area source each fault lies in), `ogc_fid`, `id_sys` (empty), `downt_side` (empty in every row), `len_st` and `length_km` (replaced by `length`), `az_tr` (computable from the trace). Renamed: `id_seg` → `gem_id`, `id_flt` → `gem_flt`, `rup_type` → `kin`, `dips` → `dip_txt`, `slip_rates` → `sr_txt`, `slip_rate` → `sr`, `upp_sd` → `z_top`, `low_sd` → `z_bot`.
 
 CHAF activity classes (Maldonado et al. 2021, p. 3–4): **Proved**, a historical earthquake or robust published evidence of Holocene slip; **Probable**, geological or geomorphic evidence of rupture or deformation in the last 125 ka (MIS 5e); **Possible**, evidence of Quaternary activity.
+
+## Database B (D16b)
+
+`data/faults/faults_B_<date>.gpkg` (layer `faults`) and `.csv`, built by `dbB.py`: the MASCSN26 faults in Chile and the GEM rows of A in Argentina and Peru (`REPORT_D16b.md`). Same fields as above, with these differences:
+
+| field | content |
+|---|---|
+| `fid` | `MASCSN-<source id>` for MASCSN rows; the GEM fid for GEM rows |
+| `system`, `sys_src` | MASCSN rows: the CHAF system of the matched strands (CHAF name), or, without strands, the Table 17 system of the Figure 35 box (p. 76) under its CHAF name; Magallanes for the traces south of 52° S |
+| `kin`, `kin_src` | MASCSN rows: the kind of `db.RAKE` nearest to the MASCSN rake |
+| `dip_dir` | MASCSN rows: perpendicular to the trace, to its right (OpenQuake convention); empty if vertical |
+| `sr_kind` | adds `restored`: the FaultQuake input slip rate restored from the MASCSN rates (`mascsn.py`, `REPORT_D16b.md` section 1). The Magallanes–Fagnano main trace has `measured` (GPS, DECISIONS) |
+| `z_top`, `z_bot` | MASCSN rows: 0 and 12 km, as in the NRML |
+| `src`, `src_ref` | `MASCSN26` and the reference with the repository commit |
+| `mascsn_id` | MASCSN source id (empty for GEM rows) |
+| `mmax_mascsn` | MASCSN Mmax: the last bin centre of its MFD |
+| `b_mascsn` | MASCSN b: the slope of log10 rate against magnitude |
+| `mo_mascsn` | MASCSN moment rate, SCC 1, N m/yr, FaultQuake convention (M0 = 10^(1.5 M + 9.1) at the bin lower edges; whole trace, before any cut at the border) |
+| `sr_mascsn` | restored FaultQuake slip rate, kept where `sr` is replaced by the GPS rate |
+| `t_fq` | FaultQuake seismogenic thickness of the fault (km), restored; not the 12 km of the NRML |
+| `scr_fq` | FaultQuake scaling relation (WC94 kind) restored |
+| `tmean_fq` | FaultQuake mean recurrence of Mmax, whole years, SCC 1 |
+| `fq_how` | how the inputs were restored: `exact, capped` (slip and thickness fixed), `exact`, `system T` (slip × thickness fixed, thickness of the system), `tolerant` |

@@ -1,0 +1,48 @@
+only_in,fid,name,system,class,length,share_in_other,sr,mmax10,mmax20,N6,N7,lon,lat
+A,CL-006aaa,Falla Wager 006aaa,Liquiñe–Ofqui,patagonia,37.72476,0.0,3.0,6.6,6.9,0.0099,3e-05,-75.04292,-47.83943
+A,CL-056d,"Falla Lago Fagnano, sección occidental",Magallanes–Fagnano,patagonia,43.54826,0.26292,5.9,7.7,8.0,0.00449,0.00043,-68.54168,-54.35957
+A,CL-006rr,Falla Quitralco 006rr,Liquiñe–Ofqui,arc,65.18207,0.46779,0.5,6.8,7.1,0.00208,6e-05,-73.3215,-45.64832
+A,CL-015,Falla Catripulli,Liquiñe–Ofqui Transverse,arc,55.12666,0.44399,0.5,6.7,7.0,0.00206,4e-05,-71.80865,-39.30835
+A,CL-006pp,Falla Fiordo Puyuhuapi 006pp,Liquiñe–Ofqui,arc,44.06368,0.49459,0.5,6.6,6.9,0.00194,1e-05,-72.97498,-44.87176
+A,CL-009,Falla Tolhuaca Pemehue,Liquiñe–Ofqui Transverse,arc,35.19578,0.44637,0.5,6.5,6.8,0.00188,0.0,-71.77956,-38.16995
+A,CHAF-390209,Quintay,Central Coastal Forearc,forearc,47.85241,0.0,0.5,6.7,7.0,0.00186,4e-05,-71.47353,-33.2996
+A,CHAF-390401,Valparaíso,Central Coastal Forearc,forearc,33.18486,0.44355,0.5,6.5,6.8,0.00185,0.0,-71.49297,-33.15505
+A,CL-021b,Falla Llifen 021b,Liquiñe–Ofqui Transverse,arc,23.06281,0.0,0.5,6.4,6.7,0.00139,0.0,-71.81182,-40.34026
+A,CL-018,Falla Calafquen,Liquiñe–Ofqui Transverse,arc,12.76501,0.36719,0.5,6.1,6.4,0.00126,0.0,-72.04913,-39.57493
+B,MASCSN-722,unnamed,Magallanes–Fagnano,patagonia,161.62343,0.02906,6.5,7.2,7.5,0.03636,0.00292,-69.75717,-54.30803
+B,MASCSN-592,unnamed,Liquiñe–Ofqui,arc,42.95481,0.0,7.0,6.6,6.9,0.0265,7e-05,-72.83428,-43.80707
+B,MASCSN-591,unnamed,Liquiñe–Ofqui,arc,34.48196,0.0,7.0,6.5,6.8,0.02578,4e-05,-72.72972,-43.83308
+B,MASCSN-598,unnamed,Liquiñe–Ofqui,arc,23.29389,0.42918,7.0,6.4,6.7,0.01962,1e-05,-72.81718,-42.80198
+B,MASCSN-581,El Yolki,Central Coastal Forearc,forearc,14.24222,0.35664,5.6,6.2,6.5,0.01532,0.0,-72.4224,-35.44974
+B,MASCSN-147,El Salton,Cachet,patagonia,17.75074,0.0,4.6,6.3,6.6,0.01182,0.0,-73.0104,-47.53612
+B,MASCSN-69,Santa Maria,Santa María,forearc,13.54472,0.0,4.1,6.2,6.5,0.01116,0.0,-73.46859,-36.74086
+B,MASCSN-70,Santa Maria,Santa María,forearc,12.81265,0.0,3.7,6.2,6.5,0.00953,0.0,-73.54446,-36.87329
+B,MASCSN-518,unnamed,Liquiñe–Ofqui Transverse,arc,15.94643,0.0,3.2,6.2,6.5,0.00891,0.0,-72.52331,-41.28645
+B,MASCSN-285,Los Banos,Liquiñe–Ofqui,arc,34.53365,0.20807,2.0,6.5,6.8,0.00738,1e-05,-71.78561,-39.81821
+B,MASCSN-496,Santa Maria,Santa María,forearc,9.4074,0.0,2.9,6.0,6.3,0.00735,0.0,-73.59065,-37.04759
+B,MASCSN-438,Cachet,Cachet,patagonia,40.0167,0.0,2.0,6.6,6.9,0.00725,2e-05,-73.25251,-47.43309
+B,MASCSN-64,Santa Maria,Santa María,forearc,11.24246,0.0,2.8,6.1,6.4,0.00718,0.0,-73.44713,-36.8514
+B,MASCSN-312,Sollipulli cluster,Liquiñe–Ofqui,arc,28.61198,0.02439,2.0,6.4,6.7,0.00688,1e-05,-71.81163,-38.95576
+B,MASCSN-146,Cachet,Cachet,patagonia,26.82702,0.0,2.0,6.4,6.7,0.00665,1e-05,-73.17483,-46.98095
+B,MASCSN-440,Cachet*,Cachet,patagonia,24.326,0.0,2.0,6.4,6.7,0.00603,0.0,-73.24746,-47.10481
+B,MASCSN-236,unnamed,Liquiñe–Ofqui,arc,24.8998,0.49334,2.0,6.4,6.7,0.00599,0.0,-72.20407,-41.44278
+B,MASCSN-614,Morguilla,Lanalhue,forearc,99.23489,0.0,1.2,7.0,7.3,0.00552,0.00033,-73.41169,-37.9704
+B,MASCSN-727,Bahia Indio,Magallanes–Fagnano,patagonia,67.71083,0.0,1.0,6.8,7.1,0.00427,0.00013,-71.42575,-53.60421
+B,MASCSN-733,Exploradores,Exploradores,patagonia,40.13624,0.0,1.2,6.7,7.0,0.00412,8e-05,-73.09482,-46.4345
+B,MASCSN-734,Exploradores,Exploradores,patagonia,11.94986,0.0,1.2,6.1,6.4,0.00327,0.0,-73.15836,-46.6135
+B,MASCSN-731,Exploradores,Exploradores,patagonia,19.57832,0.0,1.2,6.4,6.7,0.00325,0.0,-73.22647,-46.43228
+B,MASCSN-728,Rio San Juan,Magallanes–Fagnano,patagonia,28.78087,0.0,1.0,6.4,6.8,0.00315,0.0,-71.09485,-53.57483
+B,MASCSN-561,Lago Laja,Lago Laja,arc,22.5263,0.0,0.77,6.4,6.7,0.00222,0.0,-71.3157,-37.09978
+B,MASCSN-683,Carino Botado,Western Andean Thrust Front,forearc,14.06744,0.0,0.6,6.3,6.6,0.00187,0.0,-70.55019,-32.80388
+B,MASCSN-375,Sistema de Fallas Mejillones,Atacama,forearc,13.48784,0.0,0.6,6.2,6.5,0.0015,0.0,-70.36251,-22.76516
+B,MASCSN-675,unnamed,East–West,forearc,47.33486,0.0,0.4,6.7,7.0,0.00145,3e-05,-69.91995,-21.54023
+B,MASCSN-443,Pelluhue,Central Coastal Forearc,forearc,30.04341,0.0,0.4,6.5,6.8,0.00141,0.0,-72.45415,-35.73361
+B,MASCSN-384,Puerto Aldea,Los Vilos–Puerto Aldea,forearc,70.22747,0.0,0.3,6.9,7.2,0.00125,5e-05,-71.5876,-30.52936
+B,MASCSN-36,Blanco,East–West,forearc,33.09407,0.0,0.29,6.6,6.9,0.00097,0.0,-70.07943,-19.33389
+B,MASCSN-16,Tarapaca,East–West,forearc,31.61928,0.41016,0.29,6.6,6.9,0.00093,0.0,-70.00474,-20.33765
+B,MASCSN-39,Aroma,not assigned,arc,16.66456,0.0,0.2,6.3,6.6,0.0006,0.0,-69.30467,-19.5744
+B,MASCSN-328,Mititus,Atacama,forearc,77.4725,0.19434,0.07,6.9,7.2,0.0003,1e-05,-70.2219,-23.06048
+B,MASCSN-349,Sistema de falla Peine,Salar de Atacama,arc,37.76885,0.0,0.01,6.8,7.1,4e-05,0.0,-68.10148,-23.40485
+B,MASCSN-346,Sistema de Falla Salar,Salar de Atacama,arc,43.41522,0.0,0.01,6.9,7.2,4e-05,0.0,-68.33362,-23.27242
+B,MASCSN-532,Sistema de Falla Salar*,Salar de Atacama,arc,22.46089,0.0,0.01,6.6,6.9,3e-05,0.0,-68.29454,-23.59209
+B,MASCSN-348,Sistema de Falla Salar,Salar de Atacama,arc,13.52109,0.0,0.01,6.4,6.7,3e-05,0.0,-68.3336,-23.60476
