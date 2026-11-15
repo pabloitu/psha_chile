@@ -1,0 +1,23 @@
+step,cls,events,records
+flatfile records,all,6679,43050
+matched to the catalogue,all,6672,43040
+after merging duplicate entries,all,6488,43017
+|ΔMw| < 0.5,all,6466,42804
+interface or in-slab,interface,1841,10588
+interface or in-slab,inslab,3363,26043
+interface or in-slab,all,5204,36631
+Mw ≥ 5.0,interface,434,4609
+Mw ≥ 5.0,inslab,444,6409
+Mw ≥ 5.0,all,878,11018
+Rrup ≤ 300 km,interface,431,4326
+Rrup ≤ 300 km,inslab,382,5095
+Rrup ≤ 300 km,all,813,9421
+RotD50 present,interface,431,4326
+RotD50 present,inslab,382,5095
+RotD50 present,all,813,9421
+usable at PGA,interface,431,4326
+usable at PGA,inslab,382,5095
+usable at SA(0.2),interface,431,4324
+usable at SA(0.2),inslab,382,5095
+usable at SA(1.0),interface,429,4291
+usable at SA(1.0),inslab,379,4986

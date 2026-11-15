@@ -1,0 +1,159 @@
+oq_class,model,regime,status,criterion,reason,sites,rupture,distances,component,sigma
+AbrahamsonEtAl2015SInter,Abrahamson et al. (2015),interface,kept,4,"BC Hydro; superseded by its 2018 update and AG20, kept as required (GEM South America set)",backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2015SInterHigh,Abrahamson et al. (2015),interface,variant,,variant of the base model (collapsed),backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2015SInterLow,Abrahamson et al. (2015),interface,variant,,variant of the base model (collapsed),backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2015SInter_scaled,Abrahamson et al. (2015),interface,variant,,variant of the base model (collapsed),backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2015SSlab,Abrahamson et al. (2015),in-slab,kept,4,"BC Hydro; superseded by its 2018 update and AG20, kept as required (GEM South America set)",backarc vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2015SSlabHigh,Abrahamson et al. (2015),in-slab,variant,,variant of the base model (collapsed),backarc vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2015SSlabLow,Abrahamson et al. (2015),in-slab,variant,,variant of the base model (collapsed),backarc vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2015SSlab_scaled,Abrahamson et al. (2015),in-slab,variant,,variant of the base model (collapsed),backarc vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2018SInter,Abrahamson et al. (2018),interface,dropped,"2, 4",BC Hydro update in a PEER report; superseded by Abrahamson & Gülerce (2020),vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2018SInterHigh,Abrahamson et al. (2018),interface,dropped,"2, 4",BC Hydro update in a PEER report; superseded by Abrahamson & Gülerce (2020),vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2018SInterLow,Abrahamson et al. (2018),interface,dropped,"2, 4",BC Hydro update in a PEER report; superseded by Abrahamson & Gülerce (2020),vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2018SSlab,Abrahamson et al. (2018),in-slab,dropped,"2, 4",BC Hydro update in a PEER report; superseded by Abrahamson & Gülerce (2020),vs30,mag ztor,rrup,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2018SSlabHigh,Abrahamson et al. (2018),in-slab,dropped,"2, 4",BC Hydro update in a PEER report; superseded by Abrahamson & Gülerce (2020),vs30,mag ztor,rrup,GEOMETRIC_MEAN,tau and phi
+AbrahamsonEtAl2018SSlabLow,Abrahamson et al. (2018),in-slab,dropped,"2, 4",BC Hydro update in a PEER report; superseded by Abrahamson & Gülerce (2020),vs30,mag ztor,rrup,GEOMETRIC_MEAN,tau and phi
+AbrahamsonGulerce2020SInter,Abrahamson & Gülerce (2020),interface,kept,,"NGA-Sub, global and South America versions; current tree",vs30,mag,rrup,RotD50,tau and phi
+AbrahamsonGulerce2020SSlab,Abrahamson & Gülerce (2020),in-slab,kept,,"NGA-Sub, global and South America versions; current tree",vs30,mag ztor,rrup,RotD50,tau and phi
+Allen2022,Allen (2022),in-slab,dropped,1,far-field model for the North Australian Craton,vs30,hypo_depth mag,rhypo,MEDIAN_HORIZONTAL,tau and phi
+ArroyoEtAl2010SInter,Arroyo et al. (2010),interface,dropped,1,Mexican interface data only,vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+ArtetaEtAl2021Inter,Arteta et al. (2021),interface,variant,,variant of the base model (collapsed); Arteta PHV/THV form: Vs30 variants tested instead,PHV THV,mag,rrup,RotD50,tau and phi
+ArtetaEtAl2021InterVs30,Arteta et al. (2021),interface,kept,,northern South America; Vs30 variants tested,vs30,mag,rrup,RotD50,tau and phi
+ArtetaEtAl2021Slab,Arteta et al. (2021),in-slab,variant,,variant of the base model (collapsed); Arteta PHV/THV form: Vs30 variants tested instead,PHV THV backarc,mag,rhypo,RotD50,tau and phi
+ArtetaEtAl2021SlabVs30,Arteta et al. (2021),in-slab,kept,,northern South America; Vs30 variants tested,backarc vs30,mag,rhypo,RotD50,tau and phi
+Atkinson2022SInter,Atkinson (2022),interface,dropped,1,New Zealand backbone model,vs30,mag,rrup,RotD50,tau and phi
+Atkinson2022SSlab,Atkinson (2022),in-slab,dropped,1,New Zealand backbone model,backarc vs30,mag,rrup,RotD50,tau and phi
+AtkinsonBoore2003SInter,Atkinson & Boore (2003),interface,kept,,global subduction data; unsure on 4 (no newer global model of the same authors); random horizontal component,vs30,hypo_depth mag,rrup,RANDOM_HORIZONTAL,tau and phi
+AtkinsonBoore2003SInterNSHMP2008,Atkinson & Boore (2003),interface,variant,,variant of the base model (collapsed),vs30,hypo_depth mag,rrup,RANDOM_HORIZONTAL,tau and phi
+AtkinsonBoore2003SSlab,Atkinson & Boore (2003),in-slab,kept,,global subduction data; unsure on 4 (no newer global model of the same authors); random horizontal component,vs30,hypo_depth mag,rrup,RANDOM_HORIZONTAL,tau and phi
+AtkinsonBoore2003SSlabCascadia,Atkinson & Boore (2003),in-slab,variant,,variant of the base model (collapsed),vs30,hypo_depth mag,rrup,RANDOM_HORIZONTAL,tau and phi
+AtkinsonBoore2003SSlabCascadiaNSHMP2008,Atkinson & Boore (2003),in-slab,variant,,variant of the base model (collapsed),vs30,hypo_depth mag,rrup,RANDOM_HORIZONTAL,tau and phi
+AtkinsonBoore2003SSlabJapan,Atkinson & Boore (2003),in-slab,variant,,variant of the base model (collapsed),vs30,hypo_depth mag,rrup,RANDOM_HORIZONTAL,tau and phi
+AtkinsonBoore2003SSlabJapanNSHMP2008,Atkinson & Boore (2003),in-slab,variant,,variant of the base model (collapsed),vs30,hypo_depth mag,rrup,RANDOM_HORIZONTAL,tau and phi
+AtkinsonBoore2003SSlabNSHMP2008,Atkinson & Boore (2003),in-slab,variant,,variant of the base model (collapsed),vs30,hypo_depth mag,rrup,RANDOM_HORIZONTAL,tau and phi
+AtkinsonMacias2009,Atkinson & Macias (2009),interface,dropped,"1, 3",stochastic simulations for large Cascadia interface events,,mag,rrup,RANDOM_HORIZONTAL,total only
+AtkinsonMacias2009NSHMP2014,Canada 2015 interface backbone,interface,variant,,variant: backbone of other models,,mag,rrup,RANDOM_HORIZONTAL,total only
+BCHydroESHM20SInter,"BC Hydro, ESHM20 adjustment",interface,variant,,"variant of Abrahamson et al. (2015), Mediterranean adjustment",vs30 xvf,mag,rrup,GEOMETRIC_MEAN,tau and phi
+BCHydroESHM20SInterHigh,"BC Hydro, ESHM20 adjustment",interface,variant,,"variant of Abrahamson et al. (2015), Mediterranean adjustment",vs30 xvf,mag,rrup,GEOMETRIC_MEAN,tau and phi
+BCHydroESHM20SInterLow,"BC Hydro, ESHM20 adjustment",interface,variant,,"variant of Abrahamson et al. (2015), Mediterranean adjustment",vs30 xvf,mag,rrup,GEOMETRIC_MEAN,tau and phi
+BCHydroESHM20SSlab,"BC Hydro, ESHM20 adjustment",in-slab,variant,,"variant of Abrahamson et al. (2015), Mediterranean adjustment",vs30 xvf,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+BCHydroESHM20SSlabHigh,"BC Hydro, ESHM20 adjustment",in-slab,variant,,"variant of Abrahamson et al. (2015), Mediterranean adjustment",vs30 xvf,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+BCHydroESHM20SSlabLow,"BC Hydro, ESHM20 adjustment",in-slab,variant,,"variant of Abrahamson et al. (2015), Mediterranean adjustment",vs30 xvf,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+BahrampouriEtAl2021SInter,Bahrampouri et al. (2021),interface,dropped,8,"Arias intensity, not spectral acceleration",lat lon vs30,hypo_lat hypo_lon mag ztor,rrup,GEOMETRIC_MEAN,tau and phi
+BahrampouriEtAl2021SSlab,Bahrampouri et al. (2021),in-slab,dropped,8,"Arias intensity, not spectral acceleration",lat lon vs30,hypo_lat hypo_lon mag ztor,rrup,GEOMETRIC_MEAN,tau and phi
+BahrampouriEtAldm2021SInter,"Bahrampouri et al. (2021), duration",interface,dropped,8,"significant duration, not spectral acceleration",vs30 z1pt0,mag rake,rrup,GEOMETRIC_MEAN,tau and phi
+BahrampouriEtAldm2021SSlab,"Bahrampouri et al. (2021), duration",in-slab,dropped,8,"significant duration, not spectral acceleration",vs30 z1pt0,mag rake,rrup,GEOMETRIC_MEAN,tau and phi
+CanadaSHM6_InSlab_AbrahamsonEtAl2015SSlab30,Canada SHM6 in-slab models,in-slab,variant,,variant: Canadian adjustments of other base models,backarc vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+CanadaSHM6_InSlab_AbrahamsonEtAl2015SSlab55,Canada SHM6 in-slab models,in-slab,variant,,variant: Canadian adjustments of other base models,backarc vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+CanadaSHM6_InSlab_AtkinsonBoore2003SSlabCascadia30,Canada SHM6 in-slab models,in-slab,variant,,variant: Canadian adjustments of other base models,backarc vs30,hypo_depth mag,rrup,RANDOM_HORIZONTAL,tau and phi
+CanadaSHM6_InSlab_AtkinsonBoore2003SSlabCascadia55,Canada SHM6 in-slab models,in-slab,variant,,variant: Canadian adjustments of other base models,backarc vs30,hypo_depth mag,rrup,RANDOM_HORIZONTAL,tau and phi
+CanadaSHM6_InSlab_GarciaEtAl2005SSlab30,Canada SHM6 in-slab models,in-slab,variant,,variant: Canadian adjustments of other base models,backarc vs30,hypo_depth mag,rhypo rrup,GEOMETRIC_MEAN,tau and phi
+CanadaSHM6_InSlab_GarciaEtAl2005SSlab55,Canada SHM6 in-slab models,in-slab,variant,,variant: Canadian adjustments of other base models,backarc vs30,hypo_depth mag,rhypo rrup,GEOMETRIC_MEAN,tau and phi
+CanadaSHM6_InSlab_ZhaoEtAl2006SSlabCascadia30,Canada SHM6 in-slab models,in-slab,variant,,variant: Canadian adjustments of other base models,backarc vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+CanadaSHM6_InSlab_ZhaoEtAl2006SSlabCascadia55,Canada SHM6 in-slab models,in-slab,variant,,variant: Canadian adjustments of other base models,backarc vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+CanadaSHM6_Interface_AbrahamsonEtAl2015SInter,Canada SHM6 interface models,interface,variant,,variant: Canadian adjustments of other base models,backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+CanadaSHM6_Interface_AtkinsonMacias2009,Canada SHM6 interface models,interface,variant,,variant: Canadian adjustments of other base models,vs30 z1pt0,mag,rjb rrup,RANDOM_HORIZONTAL,total only
+CanadaSHM6_Interface_GhofraniAtkinson2014Cascadia,Canada SHM6 interface models,interface,variant,,variant: Canadian adjustments of other base models,backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+CanadaSHM6_Interface_ZhaoEtAl2006SInterCascadia,Canada SHM6 interface models,interface,variant,,variant: Canadian adjustments of other base models,backarc vs30,mag rake,rrup,GEOMETRIC_MEAN,tau and phi
+ChaoEtAl2020SInter,Chao et al. (2020),interface,dropped,1,Taiwan data,vs30 vs30measured z1pt0,mag ztor,rrup,GEOMETRIC_MEAN,tau and phi
+ChaoEtAl2020SSlab,Chao et al. (2020),in-slab,dropped,1,Taiwan data,vs30 vs30measured z1pt0,mag ztor,rrup,GEOMETRIC_MEAN,tau and phi
+DowrickRhoades2005SInter,Dowrick & Rhoades (2005),interface,dropped,8,intensity prediction equation (MMI),vs30,hypo_depth mag rake,rrup,HORIZONTAL,tau and phi
+DowrickRhoades2005SSlab,Dowrick & Rhoades (2005),in-slab,dropped,8,intensity prediction equation (MMI),vs30,hypo_depth mag rake,rrup,HORIZONTAL,tau and phi
+GarciaEtAl2005SSlab,García et al. (2005),in-slab,dropped,1,Central Mexico in-slab data only,vs30,hypo_depth mag,rhypo rrup,GEOMETRIC_MEAN,tau and phi
+GarciaEtAl2005SSlabVert,García et al. (2005),in-slab,dropped,1,Central Mexico in-slab data only,vs30,hypo_depth mag,rhypo rrup,GEOMETRIC_MEAN,tau and phi
+Geomatrix1993SSlabNSHMP2008,Geomatrix (1993),in-slab,dropped,2,unpublished consultant report,,mag ztor,rrup,GEOMETRIC_MEAN,total only
+GhofraniAtkinson2014,Ghofrani & Atkinson (2014),interface,dropped,"1, 3",records of the Tohoku 2011 earthquake only,backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+GhofraniAtkinson2014Cascadia,Ghofrani & Atkinson (2014),interface,dropped,"1, 3",records of the Tohoku 2011 earthquake only,backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+GhofraniAtkinson2014CascadiaLower,Ghofrani & Atkinson (2014),interface,dropped,"1, 3",records of the Tohoku 2011 earthquake only,backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+GhofraniAtkinson2014CascadiaUpper,Ghofrani & Atkinson (2014),interface,dropped,"1, 3",records of the Tohoku 2011 earthquake only,backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+GhofraniAtkinson2014Lower,Ghofrani & Atkinson (2014),interface,dropped,"1, 3",records of the Tohoku 2011 earthquake only,backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+GhofraniAtkinson2014Upper,Ghofrani & Atkinson (2014),interface,dropped,"1, 3",records of the Tohoku 2011 earthquake only,backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+Gupta2010SSlab,Gupta (2010),in-slab,dropped,1,Indo-Burmese in-slab events,vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+HassaniAtkinson2020SInter,Hassani & Atkinson (2020),interface,dropped,1,equivalent point-source model for Japan,f0 vs30 z2pt5,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+HassaniAtkinson2020SSlab,Hassani & Atkinson (2020),in-slab,dropped,1,equivalent point-source model for Japan,f0 vs30 z2pt5,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+IdiniEtAl2017SInter,Idini et al. (2017),interface,kept,,Chilean data; CSN 2026 model; needs the soil type,soiltype vs30,mag,rhypo rrup,GEOMETRIC_MEAN,tau and phi
+IdiniEtAl2017SSlab,Idini et al. (2017),in-slab,kept,,Chilean data; CSN 2026 model; needs the soil type,soiltype vs30,hypo_depth mag,rhypo rrup,GEOMETRIC_MEAN,tau and phi
+JaimesEtAl2020SSlab,Jaimes & García-Soto (2020),in-slab,dropped,1,Mexican intermediate-depth in-slab data only,vs30,hypo_depth mag,rhypo rrup,GEOMETRIC_MEAN,tau and phi
+JaimesEtAl2020SSlabVHratio,Jaimes & García-Soto (2020),in-slab,dropped,1,Mexican intermediate-depth in-slab data only,vs30,hypo_depth mag,rhypo rrup,VERTICAL_TO_HORIZONTAL_RATIO,tau and phi
+JaimesEtAl2020SSlabVert,Jaimes & García-Soto (2020),in-slab,dropped,1,Mexican intermediate-depth in-slab data only,vs30,hypo_depth mag,rhypo rrup,VERTICAL,tau and phi
+Kanno2006Deep,Kanno et al. (2006),in-slab,dropped,"1, 7",Japanese data; peak square-root-sum-of-squares component,vs30,mag,rrup,PEAK_SRSS_HORIZONTAL,total only
+Kanno2006Shallow,Kanno et al. (2006),interface,dropped,"1, 7",Japanese data; peak square-root-sum-of-squares component,vs30,mag,rrup,PEAK_SRSS_HORIZONTAL,total only
+KuehnEtAl2020SInter,Kuehn et al. (2020),interface,kept,,"NGA-Sub, global and South America versions; current tree",vs30,mag ztor,rrup,RotD50,tau and phi
+KuehnEtAl2020SSlab,Kuehn et al. (2020),in-slab,kept,,"NGA-Sub, global and South America versions; current tree",vs30,mag ztor,rrup,RotD50,tau and phi
+LinLee2008SInter,Lin & Lee (2008),interface,dropped,1,northeastern Taiwan data,vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,total only
+LinLee2008SSlab,Lin & Lee (2008),in-slab,dropped,1,northeastern Taiwan data,vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,total only
+MacedoEtAl2019SInter,Macedo et al. (2019),interface,dropped,8,"Arias intensity, conditional on PGA and SA(1.0)",backarc vs30,mag,rrup,RotD50,tau and phi
+MacedoEtAl2019SSlab,Macedo et al. (2019),in-slab,dropped,8,"Arias intensity, conditional on PGA and SA(1.0)",backarc vs30,mag,rrup,RotD50,tau and phi
+ManeaEtAl2021,Manea et al. (2021),in-slab,dropped,1,Vrancea intermediate-depth events,backarc f0 vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+McVerry2006SInter,McVerry et al. (2006),interface,dropped,"1, 7",New Zealand data; larger of the two horizontal components,vs30,hypo_depth mag rake,rrup,GREATER_OF_TWO_HORIZONTAL,tau and phi
+McVerry2006SInterSC,McVerry et al. (2006),interface,dropped,"1, 7",New Zealand data; larger of the two horizontal components,siteclass,hypo_depth mag rake,rrup,GREATER_OF_TWO_HORIZONTAL,tau and phi
+McVerry2006SSlab,McVerry et al. (2006),in-slab,dropped,"1, 7",New Zealand data; larger of the two horizontal components,vs30,hypo_depth mag rake,rrup,GREATER_OF_TWO_HORIZONTAL,tau and phi
+McVerry2006SSlabSC,McVerry et al. (2006),in-slab,dropped,"1, 7",New Zealand data; larger of the two horizontal components,siteclass,hypo_depth mag rake,rrup,GREATER_OF_TWO_HORIZONTAL,tau and phi
+MegawatiPan2010,Megawati & Pan (2010),interface,dropped,"1, 3",simulations for Sumatran megathrust events,,mag,rhypo,GEOMETRIC_MEAN,total only
+MontalvaEtAl2016SInter,Montalva et al. (2016),interface,dropped,4,superseded by Montalva et al. (2017) (OpenQuake docstring),backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+MontalvaEtAl2016SSlab,Montalva et al. (2016),in-slab,dropped,4,superseded by Montalva et al. (2017) (OpenQuake docstring),backarc vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+MontalvaEtAl2017SInter,Montalva et al. (2017),interface,kept,,Chilean data; current tree and CSN 2026,backarc vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+MontalvaEtAl2017SSlab,Montalva et al. (2017),in-slab,kept,,Chilean data; current tree and CSN 2026,backarc vs30,hypo_depth mag,rhypo,GEOMETRIC_MEAN,tau and phi
+MorikawaFujiwara2013SubInterface,Morikawa & Fujiwara (2013),interface,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubInterfaceNE,Morikawa & Fujiwara (2013),interface,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubInterfaceNENIED,Morikawa & Fujiwara (2013),interface,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth hypo_lat hypo_lon mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubInterfaceNIED,Morikawa & Fujiwara (2013),interface,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth hypo_lat hypo_lon mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubInterfaceSW,Morikawa & Fujiwara (2013),interface,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubInterfaceSWNIED,Morikawa & Fujiwara (2013),interface,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth hypo_lat hypo_lon mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubSlab,Morikawa & Fujiwara (2013),in-slab,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubSlabNE,Morikawa & Fujiwara (2013),in-slab,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubSlabNENIED,Morikawa & Fujiwara (2013),in-slab,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth hypo_lat hypo_lon mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubSlabNIED,Morikawa & Fujiwara (2013),in-slab,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth hypo_lat hypo_lon mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubSlabSW,Morikawa & Fujiwara (2013),in-slab,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+MorikawaFujiwara2013SubSlabSWNIED,Morikawa & Fujiwara (2013),in-slab,dropped,"1, 9",Japanese data; needs Z1.4,lat lon vs30 z1pt4,hypo_depth hypo_lat hypo_lon mag,rrup,GEOMETRIC_MEAN,total only
+NZNSHM2022_AbrahamsonGulerce2020SInter,"AG20, NZ NSHM 2022",interface,variant,,variant of Abrahamson & Gülerce (2020),vs30,mag,rrup,RotD50,tau and phi
+NZNSHM2022_AbrahamsonGulerce2020SSlab,"AG20, NZ NSHM 2022",in-slab,variant,,variant of Abrahamson & Gülerce (2020),backarc vs30,mag ztor,rrup,RotD50,tau and phi
+NZNSHM2022_KuehnEtAl2020SInter,"Kuehn et al. (2020), NZ NSHM 2022",interface,variant,,variant of Kuehn et al. (2020),vs30,mag ztor,rrup,RotD50,tau and phi
+NZNSHM2022_KuehnEtAl2020SSlab,"Kuehn et al. (2020), NZ NSHM 2022",in-slab,variant,,variant of Kuehn et al. (2020),backarc vs30,mag ztor,rrup,RotD50,tau and phi
+NZNSHM2022_ParkerEtAl2020SInter,"Parker et al. (2020), NZ NSHM 2022",interface,variant,,variant of Parker et al. (2020),vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+NZNSHM2022_ParkerEtAl2020SInterB,"Parker et al. (2020), NZ NSHM 2022",interface,variant,,variant of Parker et al. (2020),vs30 z2pt5,mag,rrup,GEOMETRIC_MEAN,tau and phi
+NZNSHM2022_ParkerEtAl2020SSlab,"Parker et al. (2020), NZ NSHM 2022",in-slab,variant,,variant of Parker et al. (2020),backarc vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+NZNSHM2022_ParkerEtAl2020SSlabB,"Parker et al. (2020), NZ NSHM 2022",in-slab,variant,,variant of Parker et al. (2020),backarc vs30 z2pt5,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+NathEtAl2012Lower,Nath et al. (2012),interface,dropped,"1, 8","Shillong Plateau simulations, vertical component",,mag,rrup,VERTICAL,total only
+NathEtAl2012Upper,Nath et al. (2012),interface,dropped,"1, 8","Shillong Plateau simulations, vertical component",,mag,rrup,VERTICAL,total only
+ParkerEtAl2020SInter,Parker et al. (2020),interface,kept,,"NGA-Sub, global and South America (SA_S) versions; current tree",vs30,mag,rrup,GEOMETRIC_MEAN,tau and phi
+ParkerEtAl2020SInterB,Parker et al. (2020),interface,variant,,variant of the base model (collapsed),vs30 z2pt5,mag,rrup,GEOMETRIC_MEAN,tau and phi
+ParkerEtAl2020SSlab,Parker et al. (2020),in-slab,kept,,"NGA-Sub, global and South America (SA_S) versions; current tree",vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+ParkerEtAl2020SSlabB,Parker et al. (2020),in-slab,variant,,variant of the base model (collapsed),vs30 z2pt5,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+PhungEtAl2020SInter,Phung et al. (2020),interface,dropped,1,Taiwan and Japan data,vs30 z1pt0,mag ztor,rrup,GEOMETRIC_MEAN,tau and phi
+PhungEtAl2020SSlab,Phung et al. (2020),in-slab,dropped,1,Taiwan and Japan data,vs30 z1pt0,mag ztor,rrup,GEOMETRIC_MEAN,tau and phi
+SInterCan15Low,Canada 2015 interface backbone,interface,variant,,variant: backbone of other models,backarc vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+SInterCan15Mid,Canada 2015 interface backbone,interface,variant,,variant: backbone of other models,backarc vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+SInterCan15Upp,Canada 2015 interface backbone,interface,variant,,variant: backbone of other models,backarc vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+SSlabCan15Low,Canada 2015 in-slab backbone,in-slab,variant,,variant: backbone of other models,vs30,hypo_depth mag,repi,GEOMETRIC_MEAN,total only
+SSlabCan15Mid,Canada 2015 in-slab backbone,in-slab,variant,,variant: backbone of other models,vs30,hypo_depth mag,repi,GEOMETRIC_MEAN,total only
+SSlabCan15Upp,Canada 2015 in-slab backbone,in-slab,variant,,variant: backbone of other models,vs30,hypo_depth mag,repi,GEOMETRIC_MEAN,total only
+SiEtAl2020SInter,Si et al. (2020),interface,kept,,"NGA-Sub, Japanese data in a PEER report: unsure on 1 and 2; tested by CSN 2026",vs30 z2pt5,hypo_depth mag,rrup,RotD50,tau and phi
+SiEtAl2020SSlab,Si et al. (2020),in-slab,kept,,"NGA-Sub, Japanese data in a PEER report: unsure on 1 and 2; tested by CSN 2026",vs30 z2pt5,hypo_depth mag,rrup,RotD50,tau and phi
+SiMidorikawa1999SInter,Si & Midorikawa (1999),interface,dropped,"1, 4",Japanese data; superseded by Si et al. (2020),vs30,hypo_depth mag,rrup,GREATER_OF_TWO_HORIZONTAL,total only
+SiMidorikawa1999SInterNorthEastCorrection,Si & Midorikawa (1999),interface,dropped,"1, 4",Japanese data; superseded by Si et al. (2020),lat lon vs30,hypo_depth mag,rhypo rrup,GREATER_OF_TWO_HORIZONTAL,total only
+SiMidorikawa1999SInterSouthWestCorrection,Si & Midorikawa (1999),interface,dropped,"1, 4",Japanese data; superseded by Si et al. (2020),lat lon vs30,hypo_depth mag,rrup,GREATER_OF_TWO_HORIZONTAL,total only
+SiMidorikawa1999SSlab,Si & Midorikawa (1999),in-slab,dropped,"1, 4",Japanese data; superseded by Si et al. (2020),vs30,hypo_depth mag,rrup,GREATER_OF_TWO_HORIZONTAL,total only
+SiMidorikawa1999SSlabNorthEastCorrection,Si & Midorikawa (1999),in-slab,dropped,"1, 4",Japanese data; superseded by Si et al. (2020),lat lon vs30,hypo_depth mag,rhypo rrup,GREATER_OF_TWO_HORIZONTAL,total only
+SiMidorikawa1999SSlabSouthWestCorrection,Si & Midorikawa (1999),in-slab,dropped,"1, 4",Japanese data; superseded by Si et al. (2020),lat lon vs30,hypo_depth mag,rrup,GREATER_OF_TWO_HORIZONTAL,total only
+SkarlatoudisEtAlSSlab2013,Skarlatoudis et al. (2013),in-slab,dropped,1,Hellenic arc in-slab data,backarc vs30,hypo_depth mag,rhypo,RotD50,tau and phi
+SkarlatoudisEtAlSSlab2013_scaled,Skarlatoudis et al. (2013),in-slab,dropped,1,Hellenic arc in-slab data,backarc vs30,hypo_depth mag,rhypo,RotD50,tau and phi
+YoungsEtAl1997GSCSSlabBest,Youngs et al. (1997),in-slab,variant,,variant of the base model (collapsed),vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+YoungsEtAl1997GSCSSlabLowerLimit,Youngs et al. (1997),in-slab,variant,,variant of the base model (collapsed),vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+YoungsEtAl1997GSCSSlabUpperLimit,Youngs et al. (1997),in-slab,variant,,variant of the base model (collapsed),vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+YoungsEtAl1997SInter,Youngs et al. (1997),interface,kept,,global subduction data incl. Chile; CSN 2026 model; total σ only,vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+YoungsEtAl1997SInterNSHMP2008,Youngs et al. (1997),interface,variant,,variant of the base model (collapsed),vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+YoungsEtAl1997SSlab,Youngs et al. (1997),in-slab,kept,,global subduction data incl. Chile; CSN 2026 model; total σ only,vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,total only
+Zhang_Zhao2005SInter,Zhang & Zhao (2005),interface,dropped,8,lateral spread displacement,D50_15 F_15 T_15 freeface_ratio slope,hypo_depth mag,rrup,HORIZONTAL,total only
+Zhang_Zhao2005SSlab,Zhang & Zhao (2005),in-slab,dropped,8,lateral spread displacement,D50_15 F_15 T_15 freeface_ratio slope,hypo_depth mag,rrup,HORIZONTAL,total only
+ZhaoEtAl2006SInter,Zhao et al. (2006),interface,dropped,4,superseded by Zhao et al. (2016),vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+ZhaoEtAl2006SInterCascadia,Zhao et al. (2006),interface,dropped,4,superseded by Zhao et al. (2016),vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+ZhaoEtAl2006SInterNSHMP2008,Zhao et al. (2006),interface,dropped,4,superseded by Zhao et al. (2016),vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+ZhaoEtAl2006SSlab,Zhao et al. (2006),in-slab,dropped,4,superseded by Zhao et al. (2016),vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+ZhaoEtAl2006SSlabCascadia,Zhao et al. (2006),in-slab,dropped,4,superseded by Zhao et al. (2016),vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+ZhaoEtAl2006SSlabNSHMP2014,Zhao et al. (2006),in-slab,dropped,4,superseded by Zhao et al. (2016),vs30,hypo_depth mag,rrup,GEOMETRIC_MEAN,tau and phi
+ZhaoEtAl2016SInter,Zhao et al. (2016),interface,kept,,CSN 2026 model; rvolc set to 0,vs30,mag ztor,rrup rvolc,GEOMETRIC_MEAN,tau and phi
+ZhaoEtAl2016SInterSiteSigma,Zhao et al. (2016),interface,variant,,variant of the base model (collapsed),vs30,mag ztor,rrup rvolc,GEOMETRIC_MEAN,tau and phi
+ZhaoEtAl2016SSlab,Zhao et al. (2016),in-slab,kept,,CSN 2026 model; rvolc set to 0,vs30,mag ztor,rrup rvolc,GEOMETRIC_MEAN,tau and phi
+ZhaoEtAl2016SSlabPErg,Zhao et al. (2016),in-slab,variant,,variant of the base model (collapsed),lat lon vs30,mag rake ztor,clat clon rrup rvolc,GEOMETRIC_MEAN,tau and phi
+ZhaoEtAl2016SSlabSiteSigma,Zhao et al. (2016),in-slab,variant,,variant of the base model (collapsed),vs30,mag ztor,rrup rvolc,GEOMETRIC_MEAN,tau and phi
