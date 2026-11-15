@@ -1,0 +1,83 @@
+event_id,property,old_value,new_value,sigma,reference,page,reason,status
+cl15430101000000,mw,7.4,7.7,0.3,Ruiz and Madariaga (2018),"section 3.1.1, p. 6–7","named by the paper as larger than 7.7 (Comte and Pardo 1991, cited there); not matched in A3 because the paper gives the year only",accepted
+cl16150917000330,class_hint,,interface,,Ruiz and Madariaga (2018),p. 6,Arica 1615: class stated by the paper,accepted
+cl16470514023000,class_hint,,in-slab,,Ruiz and Madariaga (2018),p. 16,"Santiago 1647: class and page given by Pablo, 13 Nov (Lomnitz 2004 leaves a crustal fault open)",accepted
+cl17300708100000,class_hint,,interface,,Ruiz and Madariaga (2018),"p. 4, p. 11",Central Chile 1730: class stated by the paper (domain megathrust),accepted
+cl17510525053000,class_hint,,interface,,Ruiz and Madariaga (2018),p. 9,Concepcion 1751: class stated by the paper (domain megathrust),accepted
+cl18190411150000,class_hint,,interface,,Ruiz and Madariaga (2018),p. 9,Copiapo 1819: class stated by the paper,accepted
+cl18371107113000,class_hint,,interface,,Ruiz and Madariaga (2018),p. 14,Valdivia 1837: class stated by the paper (domain A-B-C),accepted
+cl18680813164500,class_hint,,interface,,Ruiz and Madariaga (2018),fig 1 bar,Southern Peru 1868: class stated by the paper (domain megathrust),accepted
+cl18770510021600,class_hint,,interface,,Ruiz and Madariaga (2018),p. 7,Iquique 1877: class stated by the paper (domain megathrust),accepted
+cl18780123000000,lon,-77.0,-70.3,,"CSN, Grandes terremotos en Chile (web table); NOAA NCEI significant earthquake database, event 2253",web table; event 2253,"the catalogue (CERESIS row of Cabello et al.) has 77.0° W, 700 km offshore; both sources give 70.3° W for the same latitude, magnitude and depth",accepted
+cl18800815124800,class_hint,,interface,,Ruiz and Madariaga (2018),p. 11,Illapel 1880: class stated by the paper,accepted
+cl19060817004004,class_hint,,interface,,Ruiz and Madariaga (2018),"p. 16, Table 1, Fig. 6",Valparaiso 1906: class stated by the paper (domain C-B),accepted
+cl19160621213242,mw,7.8,7.1,0.3,ISC-GEM v13.0 (Di Giacomo et al. 2015),catalogue entry 913818,the catalogue value is the Centennial ABE1 mB 7.4 converted; ISC-GEM lists a direct Mw from a published moment,superseded
+cl19180520175507,class_hint,,in-slab,,Abe and Kanamori (1979),"p. 3591, Table 2","listed as an intermediate-depth event at 80 km (depth of Gutenberg and Richter, not a modern measurement)",accepted
+cl19181204114751,class_hint,,interface,,Ruiz and Madariaga (2018),"p. 9, p. 16",Copiapo 1918: class stated by the paper (domain probably C),accepted
+cl19221111043243,class_hint,,interface,,Ruiz and Madariaga (2018),"p. 16, Table 2, Fig. 5",Atacama 1922: class stated by the paper (domain megathrust),accepted
+cl19270414062338,class_hint,,in-slab,,Ruiz and Madariaga (2018),fig 6; text 5,Mendoza 1927: class stated by the paper,accepted
+cl19281201040617,class_hint,,interface,,Ruiz and Madariaga (2018),p. 16,Talca 1928: class stated by the paper (domain C),accepted
+cl19340301214515,class_hint,,in-slab,,Astiz and Kanamori (1986),p. 1620,"120 km deep, steeply dipping normal fault, down-dip tensional",accepted
+cl19340301214515,depth,,120,20,Astiz and Kanamori (1986),p. 1620,"depth phases (pP−P at nine stations, sS−S); the catalogue has no depth (Centennial 35 km fixed, ISC-GEM 15 km, quality C)",accepted
+cl19390125033214,class_hint,,in-slab,,Ruiz and Madariaga (2018),p. 9,Chillan 1939: class stated by the paper,accepted
+cl19430406160718,class_hint,,interface,,Ruiz and Madariaga (2018),"p. 11, p. 16",Illapel 1943: class stated by the paper (domain B),accepted
+cl19450913111713,class_hint,,in-slab,,Ruiz and Madariaga (2018),p. 9,Santiago 1945: class stated by the paper,accepted
+cl19490420032909,class_hint,,in-slab,,Astiz and Kanamori (1986),p. 1619–1620,"63 km deep, steeply dipping normal fault, tension axis parallel to the slab dip",accepted
+cl19490420032909,mw,7.0,7.1,0.2,Astiz and Kanamori (1986),"p. 1619, Fig. 4",seismic moment 6.0 × 10^26 dyn cm from waveform modelling; the catalogue value is the converted Abe mB 7.1,accepted
+cl19491217065332,class_hint,,crustal,,Lomnitz (2004),"p. 374, Table 1",foreshock of the event on the Lake Fagnano Fault,accepted
+cl19491217150757,class_hint,,crustal,,Lomnitz (2004),"p. 374, Table 1","""Epicenter on the Lake Fagnano Fault""",accepted
+cl19501209213851,class_hint,,in-slab,,Ruiz and Madariaga (2018),"p. 5, Fig. 4",Calama 1950: class stated by the paper,accepted
+cl19520611003143,mw,6.5,6.8,0.3,ISC-GEM v13.0 (Di Giacomo et al. 2015),catalogue entry 893012,the catalogue value is the Centennial ABE1 Ms 6.5 converted; ISC-GEM lists a direct Mw from a published moment,superseded
+cl19580904215116,class_hint,,crustal,,Ruiz and Madariaga (2018),fig 6; text 5,Las Melosas 1958: class stated by the paper,accepted
+cl19590614001206,mw,7.9,7.2,0.2,Abe (1982),"p. 323, Table 1",seismic moment 87 × 10^25 dyn cm (Wyss 1970) against the converted Abe mB 7.5; ISC-GEM direct Mw 7.10,accepted
+cl19600521100257,class_hint,,interface,,Ruiz and Madariaga (2018),p. 14,Concepcion 1960: class stated by the paper (domain C),accepted
+cl19600522185602,class_hint,,interface,,Ruiz and Madariaga (2018),p. 14,Valdivia 1960 foreshock: class stated by the paper,accepted
+cl19600522191120,class_hint,,interface,,Ruiz and Madariaga (2018),"p. 16, Fig. 6",Valdivia 1960: class stated by the paper (domain megathrust),accepted
+cl19600606055549,class_hint,,crustal,,Ruiz and Madariaga (2018),p. 14,Aysen 1960 slow event: class stated by the paper,accepted
+cl19600606055549,mw,7.2,7.7,0.2,Kanamori and Rivera (2017); Ruiz and Madariaga (2018),"Summary, p. 93; p. 14","Aysén slow event: M0 4.5e20 N m, Mw 7.7 from long-period records; ISC-GEM direct Mw 7.70; the Centennial value is Pacheco and Sykes Mw 7.2; not matched to Ruiz and Madariaga in A3 because the paper gives the month only",accepted
+cl19620214063605,mw,7.7,7.1,0.2,ISC-GEM v13.0 (Di Giacomo et al. 2015),catalogue entry 17291428,the catalogue value is the Centennial ABE1 mB 7.5 converted; ISC-GEM lists a direct Mw from a published moment,superseded
+cl19620803085619,mw,7.5,6.8,0.4,ISC-GEM v13.0 (Di Giacomo et al. 2015),catalogue entry 875121,the catalogue value is the Centennial ABE1 mB 7.2 converted; ISC-GEM lists a direct Mw from a published moment,superseded
+cl19650328163316,class_hint,,in-slab,,Ruiz and Madariaga (2018),p. 11,La Ligua 1965: class stated by the paper,accepted
+cl19661228081805,class_hint,,interface,,Ruiz and Madariaga (2018),"p. 9, p. 16",Taltal 1966: class stated by the paper (domain B),accepted
+cl19670313160653,mw,7.1,5.7,0.3,ISC-GEM v13.0 (Di Giacomo et al. 2015),catalogue entry 837800,the catalogue value is the Centennial BRK UK 7.3 converted; ISC-GEM lists a direct Mw from a published moment,superseded
+cl19671221022524,class_hint,,interface,,Ruiz and Madariaga (2018),p. 16,Tocopilla 1967: class stated by the paper (domain C),accepted
+cl19700615111451,mw,7.0,6.8,0.3,ISC-GEM v13.0 (Di Giacomo et al. 2015),catalogue entry 794605,the catalogue value is the Centennial USCGS Ms 7.0 converted; ISC-GEM lists a direct Mw from a published moment,superseded
+cl19710508004947,class_hint,,in-slab,,Astiz and Kanamori (1986),p. 1620,150 km deep,accepted
+cl19710508004947,mw,6.0,7.2,0.2,Astiz and Kanamori (1986),"p. 1618, Fig. 3",seismic moment 8.0 × 10^26 dyn cm from P waveforms (150 km deep); the catalogue value is the ISC-GEM proxy from mb 5.85; the event was below the A6 selection,accepted
+cl19710617210041,class_hint,,in-slab,,"Astiz (1987, PhD thesis, Caltech)",Table 1.3,"93 km deep, normal faulting with down-dip tension (read by a sub-agent)",accepted
+cl19710709030319,class_hint,,interface,,Ruiz and Madariaga (2018),p. 16,La Ligua 1971: class stated by the paper (domain C),accepted
+cl19740102104233,mw,7.3,7.0,0.4,ISC-GEM v13.0 (Di Giacomo et al. 2015),catalogue entry 752200,the catalogue value is the Centennial ABE1 mB 7.1 converted; ISC-GEM lists a direct Mw from a published moment,superseded
+cl19740818104411,mw,7.1,6.9,0.2,ISC-GEM v13.0 (Di Giacomo et al. 2015),catalogue entry 738898,the catalogue value is the Centennial NEIS Ms 7.1 converted; ISC-GEM lists a direct Mw from a published moment,superseded
+cl19750510142741,class_hint,,interface,,Ruiz and Madariaga (2018),p. 16,Arauco 1975: class stated by the paper (domain C),accepted
+cl19811016032540,class_hint,,outer rise,,Ruiz and Madariaga (2018),p. 11,Papudo 1981: class stated by the paper,accepted
+cl19831004185217,class_hint,,interface,,Ruiz and Madariaga (2018),"p. 9, p. 16",Copiapo 1983: class stated by the paper (domain probably C),accepted
+cl19850303224709,class_hint,,interface,,Ruiz and Madariaga (2018),p. 16,Valparaiso 1985: class stated by the paper (domain C-B),accepted
+cl19870305091704,class_hint,,interface,,Ruiz and Madariaga (2018),p. 9,Antofagasta 1987: class stated by the paper,accepted
+cl19870808154857,class_hint,,in-slab,,Ruiz and Madariaga (2018),fig 4; text 3.1,Arica 1987: class stated by the paper,accepted
+cl19941210033932,class_hint,,interface,,Ruiz and Madariaga (2018),text 4.2,Mejillones 1994: class stated by the paper,accepted
+cl19950730051122,class_hint,,interface,,Ruiz and Madariaga (2018),"p. 9, p. 16",Antofagasta 1995: class stated by the paper (domain C),accepted
+cl19971015010334,class_hint,,in-slab,,Ruiz and Madariaga (2018),p. 11,Punitaqui 1997: class stated by the paper,accepted
+cl20010409090055,class_hint,,outer rise,,Ruiz and Madariaga (2018),fig 6,Papudo 2001: class stated by the paper,accepted
+cl20010724050006,class_hint,,crustal,,Ruiz and Madariaga (2018),fig 4; text 3.1,Aroma 2001: class stated by the paper,accepted
+cl20040828134124,class_hint,,crustal,,Ruiz and Madariaga (2018),fig 6; text 5,Curico 2004: class stated by the paper,accepted
+cl20050613224432,class_hint,,in-slab,,Ruiz and Madariaga (2018),p. 5,Tarapaca 2005: class stated by the paper,accepted
+cl20070421175343,class_hint,,crustal,,Ruiz and Madariaga (2018),fig 7; text 6,Aysen 2007: class stated by the paper,accepted
+cl20071114154050,class_hint,,interface,,Ruiz and Madariaga (2018),p. 16,Tocopilla 2007: class stated by the paper (domain C),accepted
+cl20071216080916,class_hint,,in-slab,,Ruiz and Madariaga (2018),fig 4; text 3.1,Michilla 2007: class stated by the paper,accepted
+cl20100227063411,class_hint,,interface,,Ruiz and Madariaga (2018),table 2; fig 6,Maule 2010: class stated by the paper (domain megathrust),accepted
+cl20100227080120,class_hint,,outer rise,,Ruiz and Madariaga (2018),fig 6; fig 7; text 5.6,Maule outer rise 2010: class stated by the paper,accepted
+cl20100227082528,mw,7.0,6.3,0.52,ISC-GEM v13.0 (Di Giacomo et al. 2015),catalogue entry 14869030,"the catalogue value comes from CSN ML 6.8 alone, outside the fitted range; ISC-GEM proxy Mw 6.32, ISC and NEIC mb 6.1",accepted
+cl20100311143944,class_hint,,crustal,,Ruiz and Madariaga (2018),fig 6; text 5.6,Pichilemu 2010b: class stated by the paper,accepted
+cl20100311145523,class_hint,,crustal,,Ruiz and Madariaga (2018),fig 6; text 5.6,Pichilemu 2010a: class stated by the paper,accepted
+cl20110102202010,class_hint,,interface,,Ruiz and Madariaga (2018),fig 7; text 5.6,Arauco 2011: class stated by the paper (domain B),accepted
+cl20110107045559,mw,6.6,5.7,0.1,"ISC Bulletin, GUC MW",event 15908420,"the catalogue value comes from CSN ML 6.8 of an event 307 km deep; CSN moment magnitude 5.7 (also in Potin et al. 2024), ISC and NEIC mb 5.1",accepted
+cl20120325223705,class_hint,,interface,,Ruiz and Madariaga (2018),table 1; fig 6,Constitucion 2012: class stated by the paper (domain C),accepted
+cl20140316211627,class_hint,,crustal,,Ruiz and Madariaga (2018),text 3.1.5.4,Iquique foreshock 2014: class stated by the paper,accepted
+cl20140401234645,class_hint,,interface,,Ruiz and Madariaga (2018),p. 16,Iquique 2014: class stated by the paper (domain B),accepted
+cl20140403024315,class_hint,,interface,,Ruiz and Madariaga (2018),p. 16,Iquique aftershock 2014: class stated by the paper (domain C),accepted
+cl20150211185720,class_hint,,in-slab,,Ruiz and Madariaga (2018),fig 4; fig 5,Jujuy 2015: class stated by the paper,accepted
+cl20150916225432,class_hint,,interface,,Ruiz and Madariaga (2018),p. 16,Illapel 2015: class stated by the paper (domain B-A-C),accepted
+cl20161225142224,class_hint,,interface,,Ruiz and Madariaga (2018),table 1; fig 7; text 6.4,Chiloe 2016: class stated by the paper (domain C),accepted
+cl20170424213828,class_hint,,interface,,Ruiz and Madariaga (2018),text 4.4; text 5.5.1,Valparaiso 2017: class stated by the paper,accepted
+cl20010707093844,class_hint,,interface,,,,"thrust on the plate contact, consistent with the interface (Pablo, 14 Nov)",accepted
+cl20150916231839,class_hint,,interface,,,,"thrust on the plate contact, consistent with the interface (Pablo, 14 Nov)",accepted
