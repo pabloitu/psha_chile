@@ -1,7 +1,7 @@
 # S2: in-slab source model for OpenQuake
 
 15 Nov 2026. Brief `tasks/S2_inslab.md`. Code in `model/inslab/`:
-- `smooth.py`: the kernel.
+- `is_smooth.py`: the kernel (renamed from `smooth.py`, 16 Nov, so that pytest from `psha_chile8/` does not take the crustal module).
 - `build.py`: patterns, calibration, MFDs, NRML and tables. Settings are at the top.
 - `figs_s2.py`: figures.
 - `oqcheck.py`: the OpenQuake check.

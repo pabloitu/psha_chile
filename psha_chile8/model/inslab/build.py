@@ -18,7 +18,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / "fits"))
 import gr as G  # noqa: E402
-import smooth as S  # noqa: E402
+import is_smooth as S  # noqa: E402
 
 DATE = "2026-11-16"
 # NRML files and figures of a run in a dated folder (the 15 Nov run sits in nrml/ and figs/)

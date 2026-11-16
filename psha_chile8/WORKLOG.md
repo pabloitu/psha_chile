@@ -2365,3 +2365,99 @@ Asked by Pablo in the project chat (outline agreed 15 Nov, then "go ahead creati
 - The shared kernel line (In-slab, "No zonation …", in-slab and crustal alike, candidates 5–100) is left as it is: the crustal rule belongs to S3. If S3 should follow the in-slab rule (score 1–100, first maximum from 5, completeness weights), that line needs changing for both.
 - Calama engine check dropped for now (Pablo, 16 Nov).
 - **Suggested commit:** `git add psha_chile8/DECISIONS.md psha_chile8/WORKLOG.md`; message `S2: in-slab kernel rule (first local maximum from n 5, scored 1-100), completeness weights of the pattern events, superseded line for the A9 rerun`.
+
+## 2026-11-16: crustal classes fitted from 1976, run 2026-11-16c (Claude Code, B11/B12)
+
+Asked by Pablo after the diagnostic of the forearc and arc fits ("From 1976. But keep the Mmax for crustal classes"). DECISIONS read again before and after: the table line of Statistics still says one table for every class, so this needs a new line (proposed below, not written).
+
+- **Rule** (Pablo, 16 Nov): the crustal classes (forearc, arc, backarc, Patagonia) are fitted on the completeness table from 1976 on only, that is "Mw 5.0 from 1976"; the step "5.2 from 1964" and the historical steps (7.0 from 1905, 7.5 from 1830, 8.0 from 1500) are not used for them. Mmax is kept: the largest weight-1 event of any year + 0.2 (forearc 7.2, arc 7.9, backarc 7.7, Patagonia 8.0), and the corner from it. Interface and in-slab units keep the full table. `fits/run.py`: `since=1976` in the crustal units and `table_of()`, used by the fits, the comparison, the declustered fits and the figures; the fits table has a new column `steps`.
+- **Why** (diagnostic of 16 Nov): in 1964–1975 both classes are short at Mw 5.5–5.9 (forearc 0.12 per year against 0.64–0.78 afterwards; arc 0.04 against 0.16–0.67); the class Mc cannot be measured before 2000 (under 100 events per window; 4.6–4.8 pooled over 1976–2026, below the floor). The historical steps counted the arc's Mw 7.5–7.9 bins over 197 years on one event (Aysén 1960) in a region with no early record, and the forearc's Mw 7.0–7.2 bins on 16 fractions of events without depth (2.5 in all).
+
+| unit (tapered) | Mmax | corner | events (counted) | b (sd), 16b → 16c | N(≥ 5) | N(≥ 6) | N(≥ 7) | Mw ≥ 7 fitted / observed from 1976 |
+|---|---|---|---|---|---|---|---|---|
+| forearc | 7.2 | 6.99 → 6.98 | 782 → 710 (195) | 0.961 → 0.929 (0.061) | 3.55 → 3.84 (3.49–4.21) | +16 % | 0.0176 → 0.0213 (+21 %) | 1.0 / 1.0 |
+| arc | 7.9 | 7.70 → 7.71 | 100 → 85 (70) | 1.023 → 1.047 (0.104) | 1.30 → 1.38 (1.12–1.63) | 0 % | 0.0108 → 0.0103 (−5 %) | 0.5 / 0 |
+| backarc | 7.7 | 7.49 → 7.48 | 195 → 171 (121) | 0.979 → 0.934 (0.082) | 2.31 → 2.38 (2.06–2.71) | +14 % | 0.0218 → 0.0274 (+26 %) | 1.4 / 1.0 |
+| Patagonia | 8.0 | 7.78 | 28 → 22 (21) | forearc b | 0.430 → 0.417 (0.28–0.57) | +4 % | 0.0049 → 0.0054 (+12 %) | 0.3 / 0 |
+
+- The cut-line fits move the same way (forearc b 0.968 → 0.926, N(≥ 7) +28 %). Interface, in-slab and nest rows are identical to 16b.
+- **Cross-check against the events left out.** The large events before 1976 no longer enter the fit, so they test it: over 1905–2026 the arc line expects 1.25 events of Mw ≥ 7 and the catalogue has 2 (1927, Aysén 1960; 1.7 by weight); the forearc line expects 2.6 and the catalogue has 3.4 by weight. Both inside the Poisson band.
+- **Still weak, and visible in the table:**
+  - forearc: weight-1 events alone give b 0.846 and N(≥ 5) 1.53 (40 % of the fit); b against the floor 0.92 (5.2), 0.88 (5.4), 0.81 (5.6), 0.82 (6.0);
+  - arc: nothing above Mw 6.5 since 1976, so the line is extrapolated from 6.5 to its Mmax of 7.9; b against the floor rises (1.20 at 5.2, 1.15 at 5.4, 1.12 at 5.6, 1.83 at 6.0 on a handful of events); a pooled crustal b is 0.954;
+  - the sequences of 2000–2010 are a quarter of the window and set the rate (Mw 5.0–5.4: forearc 5.4 per year then against 1.1–2.4, arc 1.8 against 0.7–0.8).
+- **Declustered fits** (`fits_declustered_2026-11-16c.csv`; the crustal classes take the steps from 1976 of whichever table is used, so their "full" and "declustered" table rows now differ only through the declustered Mc): forearc b 0.825 → 0.795 (Gardner–Knopoff per family) and 0.937 → 0.912 (nearest neighbour per family), N(≥ 6) +13 %; arc b 0.936 → 1.000 and 0.974 → 1.014, N(≥ 7) −23 % and −13 %; backarc b 1.004 → 1.020 and 1.050 → 1.060, N(≥ 7) −12 % and −8 %. Checks pass.
+- **Files.** New: the nine `*_2026-11-16c.csv` tables in `fits/tables/`. Nothing of 16 or 16b overwritten; the 16b figures copied to `fits/figs/2026-11-16b/` first. 31 tests pass. `fits/FITS.md` section 10, `fits/DECLUSTER.md` section 8, DATA row.
+- **Downstream.** S3 needs `fits_2026-11-16c.csv` for all four crustal classes (it reads `DATE = "2026-11-16"` in `model/crustal/background.py` and `faults.py`); B13 (faults and background at M6) moves with the forearc and backarc N(≥ 6) (+16 %, +14 %). S1 and S2 unchanged (their units are identical in 16, 16b and 16c).
+- **Proposed lines for DECISIONS** (Pablo adds):
+  - Statistics, after the table line: "Crustal classes (forearc, arc, backarc, Patagonia) use the table from 1976 on only, Mw 5.0 from 1976: 1964–1975 is short of crustal events at Mw 5.5–5.9 and the historical steps rest on one or two events in regions with no early record. Their Mmax still comes from the largest weight-1 event of any year (Pablo, 16 Nov)."
+  - Statistics, Mmax line: "The largest observed event of a unit is taken among the events with class weight 1 (Pablo, 16 Nov)."
+  - Statistics: "Fits: `fits/tables/fits_2026-11-16c.csv` and `fits_declustered_2026-11-16c.csv` (crustal classes from 1976, forearc Mmax 7.2); interface and in-slab rows are those of 2026-11-16."
+  - Superseded: "One completeness table for every class (15 Nov) → the crustal classes from 1976 only (16 Nov)."
+- **Proposed line for LEARNINGS** (Fits pitfalls): "For a small class the completeness table moves the result more than the estimator: forearc N(≥ 5) 3.5–5.0 and arc N(≥ 7) × 2 over five reasonable tables, against a bootstrap interval of ± 9 %. Show the table spread next to the bootstrap."
+- **Open:** the 2000–2010 sequences set the crustal rates (full catalogue by decision); the arc tail from Mw 6.5 to 7.9 is extrapolated.
+- **Commands** (from `psha_chile8/fits/`): `python run.py`, `OMP_NUM_THREADS=1 python run_declustered.py`.
+- **Suggested commit:** add `psha_chile8/fits/run.py psha_chile8/fits/compare.py psha_chile8/fits/run_declustered.py psha_chile8/fits/figs.py psha_chile8/fits/FITS.md psha_chile8/fits/DECLUSTER.md psha_chile8/fits/figs psha_chile8/fits/tables/*_2026-11-16[bc].csv psha_chile8/DATA.md psha_chile8/WORKLOG.md`; message `Fits 2026-11-16c: crustal classes from 1976, Mmax from weight-1 events`.
+- **S1 OpenQuake check (16 Nov):** `if_oqcheck.py` writes the jobs as `preclassical` (`MODE` at the top): every file and the tree are read and checked, no hazard. Margin calc 514 (216 realizations, 55 s), segments calc 515 (504, 103 s); all 240 files load, rates equal the tables (≤ 1.8e-8 in N(≥ 5.5), ≤ 2.1e-6 in N(≥ 8)), last magnitudes equal (`tables/oqcheck_2026-11-16.csv`). `oq engine --run` and `oq run` both wait forever in `poll_queue` behind stale jobs 504–509 (status submitted, no process; 504, 505, 507 are S2/S3, 506, 508, 509 my killed runs): ran with `OQ_CONFIG_FILE` pointing to a private cfg with `[distribution] serialize_jobs = 0`. Pablo: clear the stale rows (`oq abort <id>` or set them failed) before the next `oq engine` run.
+
+- **OpenQuake queue cleared (16 Nov, at Pablo's word):** the 12 stale rows of `~/oqdata/db.sqlite3` (jobs 1, 503–513: submitted or created, is_running 1, no process alive) set to status failed, is_running 0, directly in the database (not `oq abort`, which would signal the stored pids). Backup of the database before the change in the session scratchpad. `oq engine --run` no longer waits.
+
+## 2026-11-16: results deck part 1, additions after Pablo's review (Claude, chat session)
+
+Pablo: the deck did not show the b stability against Cabello and Candia, the conversions, or the large-event check at several magnitudes; is the 32–26° S segment really failing?
+- **Large events, answer:** of 41 counts (12 units at Mw ≥ 6.5, 7, 7.5, 8, fits 2026-11-16b) 37 are inside the Poisson 5–95 % band, about what chance gives. 32–26° S misses only at Mw ≥ 7 (9.9 observed against 17.4 fitted: a deficit of Mw 7.0–7.4) and is inside at 6.5 (29.0 / 29.4), 7.5 (7.4 / 9.4) and 8 (2.6 / 5.0). Intermediate in-slab misses at 7.0 and 7.5: 21.6 events of 1905–1975 against 8.5 fitted; 1976–2026 6.8 against 6.1. Patagonia at 7.5 (1.7 against 0.3). The earlier figures that passed everywhere are test 3 (since 1976, line on 5.0–6.5): per unit on P1, ours 10 of 10, Cabello 10 of 10, Candia 5 of 10.
+- **P1 additions:** `test3()`, `conversions()`, `pairs()` in `p1.py`; tables `test3_`, `pairs_`, `*_conversions_2026-11-16.csv`; REPORT sections. The fits and counts did not change.
+- **Deck:** new slides for the conversion (our relations against Cabello Table 3 and Candia Table 6, pairs with Mw ≥ 6 darker), the b stability (tests 1 and 2), our fits at Mw 6.5–8, and test 3 on three catalogues; their Mw minus ours to the backup. 13 slides plus title, 4 backup. `figures/fig_large.png` is obsolete (delete it). FIGURES rows updated.
+- **Suggested commit:** as in the entry above; message `Results deck part 1: conversions, b stability, large-event checks at several magnitudes`.
+
+## 2026-11-16: B14, 10 % rule and Patagonia on its own (Claude Code)
+- **Done (Pablo's decisions, already in DECISIONS):** `npd.py`: `MIN_SHARE = 0.10` (was 0.05; `PREV_MIN_SHARE = 0.05` kept to pair the 15 Nov rows), `BORROW` removed, so Patagonia is built from its own mechanisms. Plane choice unchanged (the plane closer to the type's mean double couple). Rewritten: `npd_2026-11-16.csv`, `tables/moved_2026-11-16.csv`, `figs/ternary.png` (unchanged in content), `REPORT_B14.md`; new `tables/dropped_2026-11-16.csv` (unrounded shares of the dropped types). Counts and shares unchanged. Tests: 3 pass. DATA row 2026-11-16c.
+- **Dropped types (share before renormalising):** in-slab intermediate reverse 0.0994; Jujuy nest reverse 0.0283 and strike-slip 0.0094; forearc strike-slip 0.0829; backarc normal 0.0407; Patagonia normal 0.0556. New against 5 %: intermediate reverse, forearc strike-slip, Patagonia normal.
+- **Table type weights (N / R / SS):** in-slab shallow 0.38 / 0.51 / 0.11; intermediate 0.84 / 0 / 0.16; Jujuy nest normal only; forearc 0.32 / 0.68 / 0; arc 0.10 / 0.23 / 0.67; backarc 0 / 0.68 / 0.32; Patagonia 0 / 0.24 / 0.76 (strike-slip 115/75/0).
+- **Open:** three types sit near the line: intermediate reverse 0.0994 (dropped by half a weighted event of 803), shallow strike-slip 0.107 and arc normal 0.101 (kept). DECISIONS re-read at the end: lines 125 and 152 match this run.
+- **Suggested commit:** `git add psha_chile8/model/mechanisms psha_chile8/DATA.md psha_chile8/WORKLOG.md`; message `B14: types below 10 % dropped, Patagonia on its own distribution (npd_2026-11-16.csv)`
+
+## 2026-11-16: results deck part 1, motivation slide (Claude, chat session)
+
+- Motivation slide 2 added with the October fits on Cabello et al. (2025) (`if_fmd`, `is_fmd` of the 4 Nov deck, copied unchanged as `figures/old_*.png`).
+
+## 2026-11-16: one b for the crustal family, run 2026-11-16d (Claude Code, B11/B12)
+
+Asked by Pablo after the 16c run left the arc with b 1.05 ± 0.10 ("Yes, shared b"). DECISIONS read again before and after: Statistics still says "Patagonia crustal: b of the forearc ... Backarc ... own fit ... no pooling" and Crustal "Backarc own b; Patagonia borrows the forearc b"; both are replaced by this (proposed below, not written).
+
+- **Rule** (Pablo, 16 Nov): the four crustal classes share one b, that of the crustal family fitted as one unit (all crustal weight together, table from 1976, Mmax 8.0 from its largest weight-1 event); each class keeps its own rate, Mmax and corner. In the bootstrap each class takes the family b of the same replicate. `fits/run.py`: new unit `crustal` (also a row of the tables, "crustal, all classes"), and `b_from="crustal"` for forearc, arc, backarc and Patagonia.
+- **Family:** b 0.975 (sd 0.042) tapered, 0.972 (0.043) cut; 988 events, 406 counted; N(≥ 5) 7.98 per year. Kijko–Smit 0.978, Aki–Utsu 0.974, b-positive 1.10; b against the floor 1.00 (5.2), 1.01 (5.4), 0.97 (5.6), 1.06 (5.8), 1.22 (6.0). Mw ≥ 7 since 1976: 4.3 fitted, 2.0 observed (inside the band).
+
+| unit (tapered) | Mmax | corner | b, 16c → 16d | N(≥ 5) (5–95 %) | N(≥ 6), 16c → 16d | N(≥ 7) (5–95 %), against 16c | Mw ≥ 7 expected over 1905–2026 / observed by weight |
+|---|---|---|---|---|---|---|---|
+| forearc | 7.2 | 6.99 | 0.929 → 0.975 | 3.82 (3.47–4.19) | 0.440 → 0.393 (−10 %) | 0.0179 (0.0127–0.0241), −16 % | 2.6 / 3.5 |
+| arc | 7.9 | 7.69 | 1.047 → 0.975 | 1.39 (1.13–1.64) | 0.123 → 0.147 (+19 %) | 0.0144 (0.0096–0.0201), +40 % | 1.7 / 1.7 |
+| backarc | 7.7 | 7.49 | 0.934 → 0.975 | 2.36 (2.04–2.69) | 0.276 → 0.249 (−10 %) | 0.0227 (0.0158–0.0310), −17 % | 2.7 / 1.9 |
+| Patagonia | 8.0 | 7.79 | 0.929 → 0.975 | 0.416 (0.28–0.57) | 0.049 → 0.044 (−10 %) | 0.0044 (0.0026–0.0067), −19 % | 0.5 / 1.6 |
+
+- N(≥ 5) of every class within 1 % of 16c. The sd of b falls from 0.06–0.10 (own b) to 0.042 for all four. The last column is the cross-check on the large events left out of the fit (cut-line values); all four inside the Poisson band. With its own b Patagonia failed it (0.2 expected).
+- Own b for reference (rows "line cut at Mmax, own b" of the sensitivity table): forearc 0.926, arc 1.043, backarc 0.930, Patagonia 1.166 (22 events).
+- **Arc:** the observed points of 1976–2026 lie under the shared-b line at Mw 6.0–6.5 (about 6.4 events of Mw ≥ 6 observed, 7.5 fitted); nothing above 6.5 since 1976, so the tail to Mmax 7.9 is still extrapolated, now with the family slope.
+- Interface, in-slab and nest rows are identical to 16, 16b and 16c.
+- **Declustered fits** (`fits_declustered_2026-11-16d.csv`): family b 0.923 (0.054) with Gardner–Knopoff per family and 0.999 (0.051) with nearest neighbour per family, taken by the four classes; arc N(≥ 6) 0.106 and 0.109, forearc 0.257 and 0.252. Checks pass.
+- **Tested and not adopted:** a completeness table read on crustal events only (Mc 5.3 in 1976–1989; table "5.0 from 1990, 5.3 from 1964" plus early historical steps; family b 1.06, arc 1.11). Rolling back to 16b was the other option on the table.
+- **Files.** New: the nine `*_2026-11-16d.csv` tables. Nothing of 16, 16b or 16c overwritten; the 16c figures copied to `fits/figs/2026-11-16c/`. 31 tests pass. `fits/FITS.md` section 11, `fits/DECLUSTER.md` section 9, DATA row.
+- **Downstream.** S3 and B13 need `fits_2026-11-16d.csv` for the four crustal classes (b 0.975, forearc Mmax 7.2, rates from 1976). The table has a new row `crustal`: a reader that loops over every unit will meet it. S1 and S2 unchanged.
+- **Proposed lines for DECISIONS** (Pablo adds; they replace lines 92 and 131 for the crustal classes):
+  - Statistics: "The four crustal classes share one b, fitted on the crustal family as one unit (0.975 ± 0.042 on the catalogue of 16 Nov); each class its own rate, Mmax and corner. Jujuy nest: own fit, as before (Pablo, 16 Nov)."
+  - Statistics: "Crustal classes use the table from 1976 on only (Mw 5.0 from 1976); their Mmax comes from the largest weight-1 event of any year (Pablo, 16 Nov)."
+  - Statistics: "The largest observed event of a unit is taken among the events with class weight 1 (Pablo, 16 Nov)."
+  - Statistics: "Fits: `fits/tables/fits_2026-11-16d.csv` and `fits_declustered_2026-11-16d.csv`; interface and in-slab rows are those of 2026-11-16."
+  - Crustal: "Background Mmax: forearc 7.2, arc 7.9, backarc 7.7, Patagonia 8.0; one b for the four classes (Statistics)."
+  - Superseded: "Backarc own b, Patagonia with the forearc b (Oct, 15 Nov) → one b for the crustal family (16 Nov). One completeness table for every class (15 Nov) → crustal classes from 1976 (16 Nov). Largest event among weight ≥ 0.5 (B11) → among weight-1 events (16 Nov)."
+- **Proposed lines for LEARNINGS:**
+  - b-value and rates: "A crustal class of 70–200 counted events cannot hold its own b: arc 1.04 ± 0.10, backarc 0.93 ± 0.09, forearc 0.93 ± 0.06 against a family b of 0.97 ± 0.04 that hardly moves with the table (0.97–1.01). With the family b every class reproduces its events of Mw ≥ 7 since 1905, which are not in the fit."
+  - Completeness: "A completeness table read on crustal events alone gives Mc 5.3 for 1976–1989 and raises b (arc 1.11); not adopted."
+- **Open:** the arc tail from Mw 6.5 to 7.9 is extrapolated; the 2000–2010 sequences set the crustal rates.
+- **Commands** (from `psha_chile8/fits/`): `python run.py`, `OMP_NUM_THREADS=1 python run_declustered.py`.
+- **Suggested commit:** add `psha_chile8/fits/run.py psha_chile8/fits/compare.py psha_chile8/fits/run_declustered.py psha_chile8/fits/figs.py psha_chile8/fits/FITS.md psha_chile8/fits/DECLUSTER.md psha_chile8/fits/figs psha_chile8/fits/tables/*_2026-11-16[bcd].csv psha_chile8/DATA.md psha_chile8/WORKLOG.md`; message `Fits 2026-11-16d: crustal classes from 1976 with one family b, Mmax from weight-1 events`.
+
+
+## 2026-11-16, S2: pytest clash fixed
+- `model/inslab/smooth.py` → `model/inslab/is_smooth.py` (imports in `build.py` and `tests/test_s2.py`, REPORT_S2 line 4). From `psha_chile8/` pytest collected `model/crustal/smooth.py` first under the same module name, and 3 in-slab tests failed. Now `pytest` from `psha_chile8/` gives 311 passed, 2 skipped. `model/crustal` untouched. Not renamed: `build.py` and `oqcheck.py`, which share names with crustal modules but are imported by no other test.
+- **Suggested commit:** `git add -A psha_chile8/model/inslab/smooth.py psha_chile8/model/inslab/is_smooth.py psha_chile8/model/inslab/build.py psha_chile8/model/inslab/tests/test_s2.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/WORKLOG.md`; message `S2: in-slab kernel module renamed is_smooth.py (pytest clash with model/crustal/smooth.py)`.

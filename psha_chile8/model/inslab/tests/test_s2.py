@@ -11,7 +11,7 @@ T = Path(__file__).resolve().parent
 sys.path[:0] = [str(T.parent), str(T)]
 import build as B  # noqa: E402
 import ref_kernels as RK  # noqa: E402
-import smooth as S  # noqa: E402
+import is_smooth as S  # noqa: E402
 
 BUILT = (B.NR / "branches.json").exists()
 built = pytest.mark.skipif(not BUILT, reason="run build.py first")
