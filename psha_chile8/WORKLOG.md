@@ -2461,3 +2461,138 @@ Asked by Pablo after the 16c run left the arc with b 1.05 ± 0.10 ("Yes, shared 
 ## 2026-11-16, S2: pytest clash fixed
 - `model/inslab/smooth.py` → `model/inslab/is_smooth.py` (imports in `build.py` and `tests/test_s2.py`, REPORT_S2 line 4). From `psha_chile8/` pytest collected `model/crustal/smooth.py` first under the same module name, and 3 in-slab tests failed. Now `pytest` from `psha_chile8/` gives 311 passed, 2 skipped. `model/crustal` untouched. Not renamed: `build.py` and `oqcheck.py`, which share names with crustal modules but are imported by no other test.
 - **Suggested commit:** `git add -A psha_chile8/model/inslab/smooth.py psha_chile8/model/inslab/is_smooth.py psha_chile8/model/inslab/build.py psha_chile8/model/inslab/tests/test_s2.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/WORKLOG.md`; message `S2: in-slab kernel module renamed is_smooth.py (pytest clash with model/crustal/smooth.py)`.
+
+
+## 2026-11-16, deck 261116 (part 1): depth slide and text after review
+- Depth slide: the period bars and the weight-1 ratios are gone. New `fig_depth`: share of the events of Mw ≥ 4.5 per period whose depth comes from the catalogue that locates the event, from another catalogue (2 611), from the literature class (31), or none (1 853); next to it, a schematic of how a depth with its error is split between classes. Counts in `presentations/261116_psha8_results/figs/depth_sources.csv`.
+- Slide titles and bullets rewritten in plain language; the summary slide is now "Main findings" (problems and open points).
+- The deck still uses `fits_2026-11-16b`; the later 16d fits (crustal classes) are not in it yet.
+- **Suggested commit:** `git add presentations/261116_psha8_results psha_chile8/FIGURES.md psha_chile8/WORKLOG.md`; message `Deck 261116: depth sources and class-split schematic, plain slide text`.
+
+## 2026-11-16: DECISIONS written for the crustal fits of 16 Nov (Claude Code, B11/B12)
+
+- **DECISIONS.md edited by Claude Code at Pablo's word ("include decisions")**, against the usual rule of proposing only; re-read just before, only the lines of the fits touched. Statistics: new line for the crustal table from 1976; the Mmax rule now says weight-1 events; the fits line points to `fits_2026-11-16d.csv` (the first A9 table kept as its own line); the declustered line names `fits_declustered_2026-11-16d.csv`; "Patagonia with the forearc b, backarc own fit" replaced by the shared crustal b (Jujuy nest unchanged). Crustal and faults: the b line and the background Mmax (forearc 7.2). Superseded: one line. These are the lines proposed in the three entries above.
+- LEARNINGS.md not edited; the proposed lines stay in the entries above.
+- For S3: read `fits_2026-11-16d.csv`; the message for that session is in the conversation with Pablo.
+- Add to the commit: `psha_chile8/DECISIONS.md`.
+- **LEARNINGS.md edited at Pablo's word ("update in learning", 16 Nov):** the lines proposed in today's fit entries, re-read just before and only added to. Completeness: the table unchanged by the A9 revision; the crustal classes against the catalogue-wide table; the crustal-only table tested and not adopted. b-value and rates: the crustal family b; what still sets the crustal rates. Pitfalls, Fits: Mmax from a split event; the table against the bootstrap for small classes; old large events as an independent check. Add `psha_chile8/LEARNINGS.md` to the commit.
+- **Pablo, 16 Nov: crustal declustered rates as a tornado row.** DECISIONS (Crustal and faults) line written at his word. The numbers already exist in `fits_declustered_2026-11-16d.csv`; S3 builds a second background from the rows method gk_family and nn_family, table full, b_option own.
+
+## 2026-11-16 — S3 rerun on fits 2026-11-16d, S2 kernel rule, declustered tornado row (crustal)
+- **Done:**
+  - Crustal code on `fits_2026-11-16d.csv`, `DATE = "2026-11-16d"`.
+  - Completeness table 5.0 from 1976 (`background.TABLE`). Forearc Mmax 7.2 (`background.CLASSES`, `faults.CLASS_MMAX`).
+  - Reran background, faults, join, large, arc, and the LOFS multi-fault (A, 15 km).
+  - New dated outputs; nothing overwritten; no NRML. Report: `REPORT_S3.md` section 9.
+- **S2 kernel rule applied** (copied, not imported):
+  - n scored at 1, 3, 5, 10, 15, 25, 50, 100; n is the first local maximum from 5 (`smooth.first_max`).
+  - Pattern events are weighted w / (t_end − T_c(m)); training events w / (2010 − T_c(m)).
+  - Family rule kept. Figure `figs/kernel_loglik_2026-11-16d.png`.
+  - n before → after: forearc 5 → 5 / 5; backarc 5 → 10 (gk) / 25 (nn); arc and Patagonia 5 → 50 (family) in both options.
+- **Problem with the family rule, for Pablo:**
+  - The arc and Patagonia have fewer than 20 test events, so they take the crustal family n. The family curve mixes four separated classes and rises to n = 50.
+  - The arc has 34 / 50 training events and Patagonia 9, so n = 50 means bandwidths of about 2000 and 950 km. Those patterns are near uniform.
+  - Their own curves give n = 5 from the floor.
+  - Effect on the no-faults background at the cities: Puerto Aysén −82 %, Valparaíso +49 %, La Serena +39 %.
+  - Options:
+    - (a) keep the rule as it is
+    - (b) a class under 20 test events takes its own first maximum from 5
+    - (c) it takes the family's bandwidth in km, not its n
+  - The in-slab classes don't hit this (they all have 20+ test events or n = 5 in the family). The patterns of 16d are not for use until this is decided.
+- **What moved (16 → 16d, tapered):**
+  - Faults / fit at Mw 6, arc: A 3.7 → 3.0, B 10.1 → 8.3, B-mm 5.2 → 4.3 (fit +20 %; fault rates within 2 %).
+  - Patagonia: unchanged (1.65 / 3.5 / 1.3).
+  - Forearc background N(≥ 6): 0.301 → 0.333 (A); N(≥ 7): 0.0235 → 0.0169 (Mmax 7.2).
+  - Backarc: +4 %.
+  - Fault share of N(≥ 6), A: forearc 0.15, backarc 0.20, arc and Patagonia 1 (no background above 6).
+- **Arc count test** (now on 1976–2026 only):
+  - Observed 6.5 (was 9.0). Single faults: A 22.4 (13 % passes), B 61.8 (0 %), B-mm 31.9 (6 %).
+  - LOFS multi-fault, A, 15 km: 7.1 / 9.5 / 11.8 for ψ 0.6 / 0.8 / 1.0, all pass (p 0.58 / 0.27 / 0.10).
+  - Since 1976 no arc event of Mw ≥ 7, so the test no longer sees Aysén or 1927.
+  - Proposed: run the Mw ≥ 7 count on the 1905–2026 window, as the fits' large-event check does.
+- **Tornado row, declustered background** (`lower.py`, `tables/join_decl_2026-11-16d.csv`):
+  - Faults / declustered fit at Mw 6 (gk; nn within 0.04): forearc 0.23 / 0.61 / 0.71, arc 4.2 / 11.4 / 5.9, backarc 0.31, Patagonia 1.8 / 3.8 / 1.4 (A / B / B-mm).
+- **fagnano.py** (`model/faults/`) reads `fits_2026-11-15.csv` only for the Patagonia b of its D16 diagnostic rates table. Nothing in the crustal model uses it. Proposed for its owner: point it to `fits_2026-11-16d.csv` (b 0.972 cut).
+- **PGA at the cities:** not run (no OpenQuake until the fits are settled).
+- **DECISIONS re-read** (Statistics, Crustal, In-slab, Superseded of 16 Nov). The choices hold, except the open family-rule point above.
+- **Proposed DECISIONS lines:**
+  - In-slab, the shared kernel line "No zonation …" (in-slab and crustal): replace "candidates 5–100" by "scored at n 1–100, n the first local maximum from 5; pattern events weighted by their completeness period".
+  - Crustal: "Crustal kernel n (S3, 16 Nov, fits 16d): forearc 5, backarc 10 (gk) / 25 (nn), arc and Patagonia [after Pablo's choice on the family rule]."
+  - Tornado: "Crustal background from the declustered fits (gk_family / nn_family, table full, own b) is a tornado row, a lower bound on the rates (Pablo, 16 Nov)."
+  - Superseded: "Crustal tables on fits 2026-11-16 → 2026-11-16d (S3, 16 Nov). Arc faults / fit at Mw 6: A 3.7 → 3.0; forearc Mmax 7.4 → 7.2; kernel n fixed at 5 → the S2 rule."
+- **Tests:** crustal 14 passed, 2 skipped. Full suite 311 passed, 2 skipped.
+- **Suggested commit:** `git add psha_chile8/model/crustal/{background,smooth,faults,join,large,arc,kernels,multifault,build,lower}.py psha_chile8/model/crustal/REPORT_S3.md psha_chile8/model/crustal/tables/*2026-11-16d* psha_chile8/model/crustal/figs/*2026-11-16d* psha_chile8/WORKLOG.md` — message: "S3: crustal rerun on fits 2026-11-16d with the S2 kernel rule; declustered background tornado row"
+
+
+## 2026-11-16, deck 261116 (part 1): text pass and completeness map
+- Short titles and plain bullets on every slide. New slide "Completeness in space": the Mc map of B9 (`b9_10_mc_all.py`) rerun on the frozen 2026-11-16 catalogue, same shares as B9 (above 5.0: 11 %, 1.5 %, 0 of the cells). The completeness slide now says why one table: mixed windows give interface b 1.06 and miss the Mw ≥ 7 events (B9, 14 Nov catalogue).
+- **Suggested commit:** `git add presentations/261116_psha8_results psha_chile8/FIGURES.md psha_chile8/WORKLOG.md`; message `Deck 261116: short titles, plain text, completeness map`.
+- **S3, kernel n per class (Pablo, 16 Nov):** each class its own first maximum from 5, no family borrowing (only b pools); Patagonia fixed at 5. n: forearc 5 / 5, arc 5 / 5, backarc 10 / 25, Patagonia 5 (gk / nn). Patterns `pattern_{gk,nn}_2026-11-16d.csv` rebuilt; cities rerun (REPORT_S3 9b). This replaces the family-rule open point above. Proposed DECISIONS line (Crustal): "Crustal kernel n per class (S3, Pablo, 16 Nov): each class its own n, the first local maximum from 5 of its own S-test curve; no family n (the crustal family mixes separate classes and prefers broad kernels); Patagonia fixed at n = 5 (9–12 test events). Result on fits 16d: forearc 5, arc 5, backarc 10 (gk) / 25 (nn), Patagonia 5."
+- **S3 figures in the pituplots style (Pablo, 16 Nov):** `model/crustal/figs_s3.py` writes `figs/2026-11-16d/`.
+  - `pattern_{gk,nn}.png`: mesh cells (plot_grid, magma alpha ramp), relief basemap, one colour scale (log₁₀ N(≥ 5) −6 to −2) for every class and the sum.
+  - `mfd_classes.png`: catalogue steps and the 1976–2026 dots, tapered and cut, (a, b) 5–95 % from the fit covariance.
+  - `kernel_loglik.png`.
+  - The old maps and kernel figure were removed from `background.py`. FIGURES.md rows added.
+  - Patagonia under nearest neighbour scores −∞ at every n: one test event lies more than 500 km from all 9 training events. Patagonia's n is fixed at 5.
+  - **Seen on the maps, for Pablo:** each class pattern is normalised over the whole crustal grid, not over its own area. So the arc rate runs into the forearc and backarc, Patagonia reaches 41° S, and the backarc 43° S, at low rates. The in-slab model restricts each class to its domain (`dom_*`); the crustal model does not. Option: a domain per class, from the class polygons (proposal, not done).
+  - Commands: `python figs_s3.py` (30 s) from `model/crustal/`.
+
+
+## 2026-11-16, deck 261116 (part 1): completeness map dropped
+- The map slide is gone. The Mc rule of B9 (b-stability, KS) reads too low in cells with few events: subsamples of the central cell (5 059 events, Mc 4.3) give 3.5 at 150, 3.7 at 300, 4.0 at 500; of the north cell (5 937, Mc 4.8) 3.5 up to 500 and 3.9 at 1 000. The B9 maps share the fault. A b-positive rule has no size bias but scatters ±0.3 in small cells and reads 3.9 in the north. Added to LEARNINGS (Pitfalls); FIGURES row marked dropped. The completeness table is not affected (read from rates and the large-event checks).
+- **Suggested commit:** `git add presentations/261116_psha8_results psha_chile8/FIGURES.md psha_chile8/WORKLOG.md psha_chile8/LEARNINGS.md`; message `Deck 261116: completeness map dropped (Mc biased low in small samples), LEARNINGS note`.
+- **S3 grid check (16 Nov):** `figs_s3.grid_events()` → `model/crustal/figs/2026-11-16d/grid_events.png`, the crustal grid against the complete events (Mw ≥ 5 since 1976) per class.
+  - Weight outside the grid: forearc 9 % (north of 17.5° S), arc 0 %, backarc 84 %, Patagonia 50 %.
+  - Backarc: events east of the grid edge, 65–69° W, 17–38.6° S (Sierras Pampeanas, Cuyo).
+  - Patagonia: all 11 off-grid events at 57–58° S, 65–67° W (Scotia plate boundary, south of Tierra del Fuego).
+  - For Pablo, before a new dated grid.
+
+## 2026-11-16: Scotia events in crustal Patagonia, phase 1 (Claude Code, A7; task from S3)
+
+Read again: CLAUDE.md, DECISIONS (Catalog, Classification, Superseded), `tasks/A9_catalog_revision.md`. Nothing changed in `classify.py` or the frozen folders. Script `explore/A9/a9_scotia.py`, list `explore/A9/scotia_events.csv`.
+
+- **What the events are.** The cluster at 56.6–57.9° S, 65.3–69.4° W lies on the Scotia–Antarctic boundary of PB2002 (SC/AN, Bird 2003; the trace is on disk in `data/pb2002_antarctic_trench_2026-11-15.geojson`), not on the South America–Scotia boundary: 3 to 47 km from SC/AN, 240 to 380 km from the Magallanes–Fagnano system.
+- **Why they are crustal.** 101 events of Mw ≥ 4.5 of the same cluster are already Antarctic interface by position (within 150 km east of the trench), the Mw 7.5 of 2025-05-02 among them. The position rule leaves out an event with a mechanism that is not a thrust; those 13 then find no slab and fall to crustal Patagonia. All 13 are strike-slip. It is a gap in the Antarctic rule, not a missing class.
+- **Rule proposed** (candidate 1 of the brief, with the boundary that fits): an event without a slab whose nearest boundary is SC/AN of PB2002, nearer than the AN\SA trench and nearer than the Magallanes–Fagnano system (the seven traces of the fault source), is a Scotia–Antarctic boundary event and is not crustal; class outer rise, left out of the source model, as the Chile Ridge events. No distance or box is set. Source: Bird (2003) for the boundary; DECISIONS already leaves the Scotia–Antarctic trench out of the interface model (Oct). The plate polygon (candidate 2) was not taken: the Magallanes–Fagnano fault is the plate boundary itself, so events just south of it (2006-01-09 at 54.26° S, 3 km from the trace) would leave Patagonia.
+- **Events that change** (Mw ≥ 4.5, all years): 13, all crustal Patagonia with weight 1: 1984-05-04 Mw 5.4, 1987-06-21 5.4, 1991-03-06 5.1, 2010-01-17 6.2, 2012-04-14 6.2, 2015-03-14 5.0, 2015-10-20 5.5, 2016-07-11 (two, 4.8 and 4.9, at 69.3° W), 2019-09-05 5.1, 2025-05-21 5.1, 2025-07-04 5.6, 2025-08-19 5.2. Positions, depths and distances in the list.
+- **Stay in Patagonia:** the 1949 doublet (21 and 27 km from the Magallanes–Fagnano traces, 261 and 281 km from SC/AN), 1879 (115 against 317 km), 1950-01-30 (56 against 260 km), and every event near the system. The nearest case to the limit is 2003-09-12 Mw 5.5 at 51.6° S 75.6° W: AN\SA at 64 km, SC/AN at 78 km; it stays.
+- **Patagonia weight:** crustal table (Mw 5.0 from 1976): Mw ≥ 5, 22 → 11; Mw ≥ 6, 2 → 0; Mw ≥ 7, 0. All years: Mw ≥ 5, 33 → 22; Mw ≥ 6, 10 → 8; Mw ≥ 7, 3 → 3. Mmax unchanged: the largest event stays 7.8 (1949), Mmax 8.0.
+- **For Pablo:** the 101 Antarctic-interface events south of 52.07° S are all on SC/AN, the boundary the interface model leaves out. They feed no rate (the Antarctic interface is geodetic only), so nothing is proposed for them.
+- **Stopped for Pablo's decision.** Phase 2 as in the brief.
+
+## 2026-11-16, S2: shallow and intermediate on one grid
+- Pablo (16 Nov): the two in-slab classes are smoothed over one grid and added. `build.py` CLASSES: shallow and intermediate domains are all 13 847 in-slab cells (were slab top ≤ 50 / > 50 km); the nest keeps its region. Rebuilt the 2026-11-16 outputs in place (the two-domain version is in commit eb4f784).
+- Why: the two domains left a trough along the 50 km slab-top line, 19–20 % low at slab top 40–60 km.
+- Effect: summed shallow + intermediate rate moves 2.7 % (gk) / 3.0 % (nn); 15–18 % of the shallow rate now lies in cells with slab top > 50 km. Kernel n is 5 everywhere; shallow nn 10 → 5 (on one grid the shallow curve has a clear peak). NRML 669 216 sources, 694 MB (was 350 MB).
+- Checks: 20 tests pass, edge check 1.5e-14, all 72 files read by the OpenQuake parser.
+- **DECISIONS to change** (Pablo): In-slab kernel line of 16 Nov, "Result: 5 for every class and both declustering options, except 10 for the shallow class under nearest neighbour" → "Result: 5 for every class and both declustering options"; new In-slab line: "Shallow and intermediate in-slab patterns are smoothed over all in-slab cells and added; the 50 km slab-top line splits the events for the fits only (two domains left a 20 % trough along it). The Jujuy nest keeps its region (Pablo, 16 Nov, S2)."
+- **Suggested commit:** `git add psha_chile8/model/inslab/build.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/model/inslab/tables/{calibration,edge_check,kernel_n,nest_depths,oqread,pattern,pattern_sums,rates,south36_layers}_2026-11-16.csv psha_chile8/model/inslab/figs/2026-11-16/{pattern_gk,pattern_nn,sections_sources,mfd_sources,kernel_loglik}.png psha_chile8/model/inslab/nrml/2026-11-16/branches.json psha_chile8/WORKLOG.md`; message `S2: shallow and intermediate in-slab patterns on one grid (no trough at the 50 km slab-top line); kernel n 5 everywhere`.
+
+## 2026-11-16 — S3: crustal domain (crustal)
+- **S3 proposal (16 Nov), crustal domain = the crustal grid:** "Crustal events outside the crustal grid (`data/crustal_grid_01_2026-11-15.csv`, 0.1° cells) are left out of the crustal classes and the crustal fits, so that the rate, the pattern and the sources cover the same region."
+  - This replaces the Scotia-specific prompt: the Scotia events at 57–58° S are outside the grid.
+  - Effect, complete events since 1976 by weight: backarc 133 → 22, Patagonia 22 → 11, forearc 209 → 191, arc unchanged.
+  - Mmax unchanged: backarc 1894, 1944 and 1861 are inside the grid; Caucete 1977 is out.
+  - Truncation accepted: sources 130–300 km east of the border are not in the model.
+  - Kept: the three Argentine backarc faults (Niquizanga, Las Chacras) as sources.
+  - Prompt for A7 given to Pablo.
+
+## 2026-11-16: Scotia–Antarctic boundary rule, run `2026-11-16b`, frozen (Claude Code, A7; task from S3)
+
+Pablo: apply it. DECISIONS read again before the run; no change that touches the classes.
+
+- **Rule in `catalog/classify.py`:** `on_scotia()`; `PB`, `FAULTS`, `MF` at the top. An event without a slab, not Antarctic interface and not west of the trench, whose nearest line is SC/AN of PB2002 (nearer than AN\SA and the seven Magallanes–Fagnano traces of `faults_gem_extra_2026-11-15.shp`) is outer rise. Test `test_scotia_antarctic_boundary_events_are_outer_rise`; `pytest catalog`: 128 pass.
+- **Run:** only `classify.py` and `classify_check.py` (`RUN, CAT = "2026-11-16b", "2026-11-16a"`); locations and magnitudes are those of run `2026-11-16`. No epicentre, depth or Mw changes.
+- **Result:** the 13 events of the phase 1 list change (crustal Patagonia → outer rise), and 7 more below Mw 4.5 or outside the domain at 56.1–58.1° S; no other event. Mw ≥ 4.5 in the domain: crustal 1 158.9 → 1 145.9 (Patagonia 54 → 41), outer rise 539 → 552; interface 4 502.8, in-slab 8 075.3, unclassified 3, weight-1 and split counts unchanged. Patagonia in the crustal table (Mw 5.0 from 1976): 22 → 11 at Mw ≥ 5, 2 → 0 at Mw ≥ 6. Largest Patagonia event 7.8 (1949), Mmax 8.0 unchanged. Literature events: 40 right, 34 no depth, 9 split, 2 wrong, as before.
+- **Frozen:** `catalog/frozen/2026-11-16b/` (same contents as `2026-11-16`, `SHA256SUMS` verified, `DECISIONS_NOTE.md`). `catalog/frozen/2026-11-16/` checked against its sums after the run: unchanged.
+- **Documents:** DATA row; `catalog/CLASSIFICATION.md` section 8, one more rule.
+- **Proposed DECISIONS line (Classification):** "An event without a slab whose nearest plate boundary is the Scotia–Antarctic one (SC/AN of PB2002, Bird 2003), nearer than the AN\SA trench and the Magallanes–Fagnano traces, is outer rise and left out of the source model: 13 strike-slip events of Mw 4.8–6.2 south of Cape Horn (S3, A7; Pablo, 16 Nov). Frozen catalogue `2026-11-16b`."
+- **Proposed Superseded line:** "Frozen catalogue `2026-11-16` (A9) → `2026-11-16b` (16 Nov): Scotia–Antarctic boundary events crustal Patagonia → outer rise; Patagonia N(≥ 5) about halved in the crustal table."
+- **For the other sessions:** `fits/gr.py` reads `catalog/frozen/2026-11-16/catalog_2026-11-16.csv` (`CAT`); the refit needs the new path. The declustered catalogues (`fits/decluster.py`, `DATE = "2026-11-16"`) take all classes together, so the clusters do not depend on the classes, but the per-family files do. B14 (`npd_2026-11-16.csv`): the Patagonia planes lose 13 strike-slip mechanisms.
+- **Commit** (from the repo root):
+  - `git add psha_chile8/catalog/classify.py psha_chile8/catalog/tests/test_classify.py psha_chile8/catalog/CLASSIFICATION.md psha_chile8/catalog/merged/MANIFEST.csv psha_chile8/catalog/frozen/2026-11-16b psha_chile8/explore/A9 psha_chile8/DATA.md psha_chile8/WORKLOG.md`
+  - `git commit -m "A7: Scotia–Antarctic boundary events out of crustal Patagonia (nearest boundary, PB2002); catalogue run 2026-11-16b frozen"`
+
+## 2026-11-16, S2: one-grid lines in DECISIONS
+- Written with Pablo's go-ahead: the In-slab kernel line now gives 5 for every class and option (scored on one grid); new In-slab line on smoothing shallow and intermediate over all in-slab cells; the Superseded in-slab sources line adds the two-domain → one-grid change.
+- **Suggested commit** (replaces the one of the previous S2 entry): `git add psha_chile8/DECISIONS.md psha_chile8/model/inslab/build.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/model/inslab/tables/{calibration,edge_check,kernel_n,nest_depths,oqread,pattern,pattern_sums,rates,south36_layers}_2026-11-16.csv psha_chile8/model/inslab/figs/2026-11-16/{pattern_gk,pattern_nn,sections_sources,mfd_sources,kernel_loglik}.png psha_chile8/model/inslab/nrml/2026-11-16/branches.json psha_chile8/WORKLOG.md`; message `S2: shallow and intermediate in-slab patterns on one grid (no trough at the 50 km slab-top line); kernel n 5 everywhere; DECISIONS lines`.

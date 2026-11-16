@@ -41,9 +41,10 @@ N_MIN = 5
 # a class with fewer test events (sum of class weights) takes the n of the in-slab family
 MIN_TEST = 20.0
 
-# classes and their domains on the cells: slab top at the cell against IF_TOP (catalog/classify.py, sub-classes by
-# position), the Jujuy nest region of classify.NEST (0.8° of 66.9° W, 24.0° S, longitude scaled by cos(lat))
-IF_TOP = 50.0
+# classes and their domains on the cells: shallow and intermediate are smoothed over all in-slab cells and added (the
+# 50 km slab-top line of catalog/classify.py only splits the events for the fits; two domains left a 20 % trough along
+# it; Pablo, 16 Nov); the Jujuy nest over its region of classify.NEST (0.8° of 66.9° W, 24.0° S, longitude scaled
+# by cos(lat))
 NEST = dict(lon=-66.9, lat=-24.0, radius_deg=0.8)
 
 
@@ -51,8 +52,8 @@ def nest_r(lon, lat):
     return np.hypot((np.asarray(lon) - NEST["lon"]) * np.cos(np.radians(lat)), np.asarray(lat) - NEST["lat"])
 
 
-CLASSES = {"intraslab_shallow": dict(short="shallow", domain=lambda g: g.top <= IF_TOP),
-           "intraslab_intermediate": dict(short="intermediate", domain=lambda g: g.top > IF_TOP),
+CLASSES = {"intraslab_shallow": dict(short="shallow", domain=lambda g: g.top.notna()),
+           "intraslab_intermediate": dict(short="intermediate", domain=lambda g: g.top.notna()),
            "jujuy_nest": dict(short="nest", domain=lambda g: nest_r(g.lon, g.lat) <= NEST["radius_deg"])}
 
 # MFDs (DECISIONS, Statistics and In-slab): both shapes; (a, b) variants at the 5th / 95th percentile of the rate at the

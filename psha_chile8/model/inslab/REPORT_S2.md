@@ -224,6 +224,12 @@ Completeness weights (Pablo, 16 Nov): each event of the pattern carries its clas
 
 Pattern, share of the rate that moves against 15 Nov (half the summed absolute difference; same n, catalogue and completeness weights): shallow 2.0 % (gk) / 1.5 % (nn), intermediate 1.5 % / 1.3 %, nest 1.6 % / 1.1 %.
 
+One grid for shallow and intermediate (Pablo, 16 Nov). Each class was smoothed over its own domain (slab top ≤ 50 km / > 50 km), so an event near the line kept its kernel on its side and the sum of the two had a trough along the 50 km slab-top line: 19–20 % low at slab top 40–60 km against the same patterns on one grid. Now both classes are smoothed over all 13 847 in-slab cells, each scaled to its own fit, and the files add them; the 50 km line only splits the events for the fits. The Jujuy nest keeps its region. Effect (Gardner–Knopoff / nearest neighbour):
+- the summed shallow + intermediate rate moves 2.7 % / 3.0 %; at slab top 40–50 km ×1.19 / ×1.11, 50–60 km ×1.20 / ×1.28, elsewhere within 3 %;
+- 17.6 % / 15.1 % of the shallow rate lies in cells with slab top > 50 km, 7.3 % / 5.4 % of the intermediate rate in cells with slab top ≤ 50 km;
+- kernel n on the same grid: 5 for every class and option. Shallow under nearest neighbour goes 10 → 5: on one grid a wide shallow kernel puts rate into deep cells where no shallow test event lies, and the shallow curve gets a clear peak (n 3; −4.4 at 5, −15 at 10) instead of the flat curve of its own domain;
+- sources: the shallow and intermediate files hold every cell, 669 216 sources in the 72 files, 694 MB (was 336 888, 350 MB). One source per cell with the two MFDs summed would halve this.
+
 Checks: 20 tests pass; edge check 1.5e-14; all 72 files read by the OpenQuake parser (336 888 sources, all from Mw 5.5, weights 1, no hypocentre outside the zone, rates within 2e-7 of the build, `oqread_2026-11-16.csv`). The Calama engine run was not done (Pablo, 16 Nov: fits and SSM parameters first).
 
 Maps: the pattern maps are drawn as a cell mesh (pituplots `Grid.from_points` and `plot_grid`, 0.1° cells) instead of square markers, which left gaps between cells.
