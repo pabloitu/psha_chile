@@ -94,6 +94,7 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - Fault depth from D90 of crustal seismicity: unusable, depths pile at the 30 km cap.
 - Fault count test: φ = 1 over-predicts observed M ≥ 6 in the buffers (LOFZ region dominant); data pull toward lower φ.
 - Faults carry about 21 % of crustal N(≥ 6).
+- FaultQuake (Tavakolizadeh et al. 2024; used by MASCSN26) on single faults: Mmax conflated from strain-drop, aspect-ratio, length and area estimates; moment rate μ · slip · min(L, LAR) · W, with LAR the aspect-ratio length of Pace and Peruzza (2002); one truncated GR. The conflated Mmax is the same as Leonard or 0.1–0.3 lower; on A it raises the arc bulge from 3.3 to 3.5 times the fit (more Mw 6 for the same moment), so it is no lever on the bulge. The length cap is: it keeps 0.47 of the arc fault moment at 10 km thickness (0.80 at 20 km), 0.08 in Patagonia, but by fault length (long Liquiñe–Ofqui traces 0.19, Fagnano 0.05, short faults 1.0), so it cuts the large events selectively, and it counts the moment of one rupture-length patch for a whole long fault. Not a coupling; a lower ψ does a uniform cut (S3, 16 Nov).
 
 ### GMMs and sites
 - Idini et al. (2017) on the interface: removed (needs a soil class).
@@ -159,6 +160,7 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - Every reported Mw 7.7 of Aysén 1960 (ISC-GEM, ComCat, Cabello, Ruiz and Madariaga) traces back to one paper, Kanamori and Rivera (2017). Count independent determinations, not catalogues (A9).
 - NOAA NCEI tsunami validity grades whether a tsunami happened, not the earthquake. Validity 3–4 is the usable interface signal for historical events (Candia and Macedo's rule); validity 1–2 entries mostly have no runup record (A9).
 - A converted magnitude depends on the depth: an accepted in-slab depth moved 1939-04-18 from Mw 7.3 to 7.6 (A9). Rerun the magnitude step after depth hints.
+- **Large historical events just outside the domain carry unchecked classes.** North of 17° S (`DOMAIN` in `catalog/locate.py`, `in_domain` False) the position rule classes southern-Peru giants without depth as in-slab with weight 1: 1784 Mw 8.4, 1821 Mw 8.2, 1600-02-19 Mw 7.9 and 1600-02-28 Mw 8.1, 1552, 1582, 1715; 1913 Mw 7.8 is split. No fit uses them today. Avoid: if the domain is moved north, or these events feed a spatial model or a hazard check near Arica, each needs an A6 row first, either a class hint with a source or removal. The two 1600 events fall in the days of the Huaynaputina eruption (19 Feb 1600) and may be volcanic (A6, 16 Nov; not checked in a source).
 
 ### Fits
 - **Empty bins above the largest event.** A likelihood that keeps them raises the b of a small class by 0.03–0.06 (forearc, arc, backarc, nest) and lowers N(≥ 7) by up to 23 %. Leave the bins above Mmax out (B11).
