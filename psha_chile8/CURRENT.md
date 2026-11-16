@@ -8,9 +8,11 @@ Last full check: 16 Nov 2026, 21:30 (main conversation).
 
 | input | current | note |
 |---|---|---|
+| source catalogs (A2, A2b) | `catalog/sources/<name>_2026-11-10_{events,mags,mechs}.csv` (11 sources), `gccel_2026-11-11_*`; `sources/MANIFEST.csv` (sha256) | read by `match.py`; downloaded 10 Nov, unchanged since (commits c3ecf3b, 3bb70b3); raw in `sources/raw/` (not in git) |
 | frozen catalogue | `catalog/frozen/2026-11-16e/catalog_2026-11-16e.csv` | as 16c, with Aysén 1960 and 1927-11-21 at the ISC-GEM epicentre |
 | catalogue the fits and models are built on | `catalog/frozen/2026-11-16c/catalog_2026-11-16c.csv` | refit on 16e on hold (Pablo, 16 Nov) |
 | overrides | `catalog/overrides_A6.csv` | |
+| matched events and links (A3) | `catalog/merged/events_2026-11-11.csv`, `links_2026-11-11.csv` (`windows_`, `review/`) | 204 956 events; read by `locate.py` and `magnitude.py`; unchanged since the rerun of 11 Nov (commit 2267cc9) |
 | declustered catalogues | `catalog/declustered/*_2026-11-16e.csv` | built on catalogue 16c (owner: FITS) |
 
 ## Fits (owner: FITS, session B11/B12)
@@ -26,7 +28,7 @@ Last full check: 16 Nov 2026, 21:30 (main conversation).
 
 | input | current | note |
 |---|---|---|
-| sources and tree | `model/interface/nrml_2026-11-16c/` (`branches.json`) | on fits 16f; pad rows inside |
+| sources and tree | `model/interface/nrml_2026-11-16c/` (`branches.json`) | on fits 16f; pad rows inside (`*_pad00`, `*_pad04`, tornado block); `nrml_2026-11-16/` and `nrml_2026-11-16b/` superseded |
 
 ## In-slab (owner: IS, sessions S2, C14/C15, B14)
 
@@ -44,7 +46,7 @@ Last full check: 16 Nov 2026, 21:30 (main conversation).
 | input | current | note |
 |---|---|---|
 | fault database A | `data/faults/faults_gem_extra_2026-11-15.shp` | |
-| fault database B | `data/faults/faults_B_2026-11-15.gpkg` | |
+| fault database B | `data/faults/faults_B_2026-11-15.gpkg` | D16b: 166 faults, MASCSN slips as restored FaultQuake inputs (`t_fq`, `scr_fq`, `tmean_fq`); B-mm moment from `model/faults/compare.py` `budget`; rebuilt MASCSN model `model/faults/nrml/mascsn26_rebuilt_scc{10,075,05}_2026-11-15.xml` (reference only) |
 | crustal grid | `data/crustal_grid_01_2026-11-15.csv` | |
 | sources and tree | `model/crustal/nrml/2026-11-16g/` (`branches.json`) | strict UCERF3 rupture set, thickness tags t10 / t20, 20 tornado rows, equal weights; on fits 16f, catalogue 16c, npd 16d; parse check passed |
 | superseded | `model/crustal/nrml/2026-11-16e/` | old rupture set; hazard results on it are from before |
@@ -60,4 +62,4 @@ Last full check: 16 Nov 2026, 21:30 (main conversation).
 | input | current | note |
 |---|---|---|
 | jobs and code | `hazard/` (`jobs.py`, `config.py`) | reads the three `branches.json` above |
-| tornado results | `hazard/out/` | interface and in-slab on the folders above; crustal on the earlier 16e files |
+| tornado results | `hazard/out/` (`tornado/`, `tornado_prelim/`, `tornado_full/`, `tornado_matrix/`, `trees/`) | all three families on the folders above: interface 16c, in-slab 16c + 16d, crustal 16g (calcs 597–642); family folders read from this file by `hazard/config.py` |
