@@ -2,6 +2,8 @@
 job reads it."""
 import re
 
+import numpy as np
+
 HEAD = '<?xml version="1.0" encoding="utf-8"?>\n<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">\n'
 
 
@@ -40,8 +42,52 @@ def simple_fault(i, name, trace, usd, lsd, dip, rake, trt, mfd_xml, msr, aspect)
             f"</magScaleRel><ruptAspectRatio>{aspect}</ruptAspectRatio>{mfd_xml}<rake>{rake:.1f}</rake></simpleFaultSource>\n")
 
 
-def model(path, name, srcs):
-    write(path, HEAD + f'<sourceModel name="{name}">\n' + "".join(srcs) + "</sourceModel>\n</nrml>\n")
+def model(path, name, srcs, itime=None, trt="Active Shallow Crust"):
+    """Source model; with itime (sources with occurrence probabilities) NRML 0.5 with one source group, which carries
+    the investigation time OpenQuake checks against the job."""
+    if not itime:
+        write(path, HEAD + f'<sourceModel name="{name}">\n' + "".join(srcs) + "</sourceModel>\n</nrml>\n")
+        return
+    h = HEAD.replace("nrml/0.4", "nrml/0.5")
+    write(path, h + f'<sourceModel name="{name}" investigation_time="{itime:.1f}">\n<sourceGroup name="{trt}" '
+          f'tectonicRegion="{trt}">\n' + "".join(srcs) + "</sourceGroup>\n</sourceModel>\n</nrml>\n")
+
+
+def planes(trace, lsd, dip):
+    """Planar surfaces of a fault from the surface to lsd km, one per trace segment, dipping to the right of the
+    trace: [(top_left, top_right, bottom_left, bottom_right), ...] as (lon, lat, depth)."""
+    from openquake.hazardlib.geo.geodetic import azimuth, point_at
+    h = lsd / np.tan(np.radians(dip)) if dip < 89.99 else 0.0
+    out = []
+    for (x0, y0), (x1, y1) in zip(trace[:-1], trace[1:]):
+        if abs(x1 - x0) + abs(y1 - y0) < 1e-6:
+            continue
+        az = (azimuth(x0, y0, x1, y1) + 90.0) % 360.0
+        b0, b1 = point_at(x0, y0, az, h), point_at(x1, y1, az, h)
+        out.append(((x0, y0, 0.0), (x1, y1, 0.0), (b0[0], b0[1], lsd), (b1[0], b1[1], lsd)))
+    return out
+
+
+def sections(path, name, secs):
+    """Geometry model of fault sections: secs is [(section id, planes)]."""
+    tag = ("topLeft", "topRight", "bottomLeft", "bottomRight")
+    s = []
+    for i, pl in secs:
+        ps = "".join("<planarSurface>" + "".join(f'<{k} lon="{p[0]:.5f}" lat="{p[1]:.5f}" depth="{p[2]:.3f}"/>'
+                                                 for k, p in zip(tag, q)) + "</planarSurface>" for q in pl)
+        s.append(f'<section id="{i}">{ps}</section>\n')
+    write(path, HEAD.replace("nrml/0.4", "nrml/0.5") + f'<geometryModel name="{name}">\n' + "".join(s) + "</geometryModel>\n</nrml>\n")
+
+
+def multi_fault(i, name, trt, rups):
+    """Multi-fault source: rups is [(magnitude, [section ids], rake, yearly rate)]; Poisson occurrence probabilities
+    of 0 and 1 events in one year (investigation time of the model 1 yr)."""
+    s = []
+    for m, idx, rake, r in rups:
+        p0 = np.exp(-r)
+        s.append(f'<multiPlanesRupture probs_occur="{p0:.10f} {1 - p0:.10e}"><magnitude>{m:.2f}</magnitude>'
+                 f'<sectionIndexes indexes="{",".join(idx)}"/><rake>{rake:.1f}</rake></multiPlanesRupture>\n')
+    return f'<multiFaultSource id="{i}" name="{name}" tectonicRegion="{trt}">\n' + "".join(s) + "</multiFaultSource>\n"
 
 
 def logic_tree(path, levels, ltid="lt_crustal"):

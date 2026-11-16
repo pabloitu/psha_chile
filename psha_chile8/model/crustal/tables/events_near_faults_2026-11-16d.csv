@@ -1,0 +1,45 @@
+event_id,year,date,mw,cls,w_crustal,lon,lat,fault_A,km_A,fault_B,km_B
+cl19600606055549,1960,1960-06-06,7.7,arc,1.0,-73.502,-45.7,Falla Canal Costa 006ww,3.215,Canal Costa,3.466
+cl19330223080919,1933,1933-02-23,7.2,forearc,0.074,-69.965,-20.297,Bajo Molle,9.66,Tarapaca,4.242
+cl19620214063605,1962,1962-02-14,7.1,forearc,0.242,-73.0,-38.09,Falla Lanalhue 004b,9.206,Lanalhue,4.127
+cl18610320230000,1861,1861-03-20,7.0,backarc,1.0,-68.9,-32.9,Falla Cerro La Cal,4.728,Falla Cerro La Cal,4.728
+cl19600620020114,1960,1960-06-20,7.0,forearc,0.306,-73.324,-38.265,Falla Lanalhue 004b,25.065,Morguilla,0.6
+cl19500130005635,1950,1950-01-30,6.9,patagonia,1.0,-71.073,-53.472,"Falla Lago Fagnano, sección occidental",55.902,Rio San Juan,6.198
+cl19281120203512,1928,1928-11-20,6.9,forearc,0.13,-69.931,-23.111,de Atacama segmento Salar del Carmen?,7.886,Paposo,8.808
+cl20100311143944,2010,2010-03-11,6.9,forearc,1.0,-71.946,-34.337,Falla Pichilemu,5.004,Pichilemu,5.435
+cl19600522103043,1960,1960-05-22,6.8,forearc,0.177,-73.17,-37.961,Falla Lanalhue 004b,6.593,Lanalhue,4.431
+cl20071115150557,2007,2007-11-15,6.8,forearc,0.392,-70.5,-23.017,"Mejillones, northern section",0.263,Mejillones,0.225
+cl19600522103247,1960,1960-05-22,6.8,forearc,0.064,-73.472,-37.994,Falla Lanalhue 004b,18.097,Morguilla,5.768
+cl19070613091810,1907,1907-06-13,6.8,arc,0.382,-72.153,-40.055,Falla Neltume 006x,5.619,Maihue,9.54
+cl19611018165157,1961,1961-10-18,6.6,forearc,0.286,-73.403,-36.763,Santa María,25.548,Santa Maria,5.202
+cl19771123093459,1977,1977-11-23,6.6,backarc,0.438,-67.53,-31.217,Falla Las Chacras,0.533,Falla Las Chacras,0.533
+cl19050426214300,1905,1905-04-26,6.6,forearc,0.13,-70.0,-21.0,Salar Grande,1.823,Salar Grande,2.506
+cl19470121200649,1947,1947-01-21,6.6,forearc,0.273,-70.289,-24.335,Paranal,1.873,Paposo,2.567
+cl20210119024620,2021,2021-01-19,6.5,backarc,1.0,-68.903,-31.866,Falla Maradona-Acequion,4.996,Falla Maradona-Acequion,4.996
+cl19410703071146,1941,1941-07-03,6.5,backarc,0.438,-68.043,-31.798,Falla Niquizanga,8.179,Falla Niquizanga,8.179
+cl19180817065338,1918,1918-08-17,6.4,forearc,0.074,-70.111,-19.379,Atajaña,10.314,Blanco,3.591
+cl19260812221822,1926,1926-08-12,6.4,forearc,0.13,-70.552,-23.139,Mejillones,5.276,Mejillones,5.279
+cl19610408175946,1961,1961-04-08,6.4,forearc,0.568,-72.961,-38.316,Falla Lanalhue 004b,1.642,Lanalhue,5.009
+cl19850304061752,1985,1985-03-04,6.4,forearc,0.059,-71.732,-33.157,Quintay,4.965,Laguna Verde*,9.086
+cl19631203230347,1963,1963-12-03,6.3,forearc,0.13,-69.883,-22.674,de Atacama segmento Salar del Carmen?,1.307,Paposo,8.547
+cl20010724050006,2001,2001-07-24,6.3,arc,1.0,-69.247,-19.557,Pisagua,77.179,Aroma,5.301
+cl19971103191730,1997,1997-11-03,6.2,forearc,1.0,-71.515,-30.81,Sistema de fallas El Tigre,217.32,Puerto Aldea,2.38
+cl20070421175343,2007,2007-04-21,6.2,arc,1.0,-72.628,-45.253,Falla Rio Blanco 006kkk,6.506,Los Palos,6.293
+cl19281201183226,1928,1928-12-01,6.2,forearc,0.059,-72.429,-35.453,Carranza,6.816,El Yolki,0.626
+cl19470413034652,1947,1947-04-13,6.2,forearc,0.059,-71.661,-30.492,Falla Pismanta-Las Flores,232.834,Puerto Aldea,6.661
+cl19560118080723,1956,1956-01-18,6.2,forearc,0.055,-70.346,-24.307,Coloso,0.293,Caleta del Cobre / Coloso,0.261
+cl19601109200620,1960,1960-11-09,6.2,forearc,0.13,-70.403,-23.259,Aeropuerto,5.811,Aeropuerto / Cerro Moreno,5.619
+cl20071114174402,2007,2007-11-14,6.2,forearc,0.79,-70.507,-23.258,Mejillones,0.2,Mejillones,0.42
+cl19651128035645,1965,1965-11-28,6.2,arc,1.0,-73.006,-45.786,Falla Riesco-Mañihuales 006tt,3.628,Riesco / Manihuales,3.9
+cl19601030121437,1960,1960-10-30,6.2,forearc,0.13,-70.318,-23.467,de Atacama segmento Salar del Carmen?,8.366,Paposo,8.773
+cl19621229104104,1962,1962-12-29,6.2,forearc,0.372,-70.044,-20.087,Zofri,12.801,Zofri,9.35
+cl19250811194136,1925,1925-08-11,6.1,forearc,0.059,-72.381,-35.538,Carranza,3.481,Carranza,3.868
+cl19280501001127,1928,1928-05-01,6.1,forearc,0.059,-72.399,-35.488,Carranza,2.071,Carranza,1.688
+cl19771128063129,1977,1977-11-28,6.1,backarc,1.0,-67.45,-31.457,Falla Las Chacras,1.134,Falla Las Chacras,1.134
+cl19510515051839,1951,1951-05-15,6.1,forearc,0.176,-69.86,-21.462,de Atacama segmento Salar del Carmen?,15.317,unnamed,9.355
+cl19540723043334,1954,1954-07-23,6.1,forearc,0.143,-71.51,-30.415,Falla Pismanta-Las Flores,217.905,Puerto Aldea,9.362
+cl19600601050302,1960,1960-06-01,6.1,forearc,0.059,-73.301,-37.92,Falla Lanalhue 004b,4.835,Lanalhue,0.226
+cl20070402024935,2007,2007-04-02,6.1,arc,1.0,-72.993,-45.398,Falla Rio Cuervo 006ddd,5.675,Quitralco,4.037
+cl19610508192338,1961,1961-05-08,6.0,forearc,0.055,-70.4,-24.699,Paranal,3.327,Paposo,2.899
+cl19791127173727,1979,1979-11-27,6.0,backarc,1.0,-67.92,-31.6,Falla Niquizanga,3.992,Falla Niquizanga,3.992
+cl19621115155158,1962,1962-11-15,6.0,forearc,0.092,-72.994,-38.239,Falla Lanalhue 004b,0.325,Lanalhue,3.415

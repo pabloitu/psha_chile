@@ -46,7 +46,7 @@ def classes(lon, lat):
     import classify as K
     z = K.arc_zone(lon, lat)
     top = K.slab_at(np.asarray(lon, float), np.asarray(lat, float))[0]
-    pat = (np.asarray(lat) < K.SOUTH_LAT) | (np.isnan(top) & (np.asarray(lat) < K.GAP_LAT) & (z != "arc"))
+    pat = (np.asarray(lat) < K.arc_end()) | (np.isnan(top) & (np.asarray(lat) < K.GAP_LAT) & (z != "arc"))
     return np.where(pat, "patagonia", z)
 
 

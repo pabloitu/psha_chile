@@ -7,7 +7,8 @@ other row alone; class from the midpoint; b the tapered-fit b of the class (Pata
 branch repeats model/faults/rates.source term by term, so its weighted mean is that function's result (test). In the
 MASCSN-moment variant a MASCSN row carries its FaultQuake budget (their thickness and length cap) times psi in every
 depth branch; the depth branch sets Mmax and the rupture width, as in compare.sources. The class-maximum sensitivity
-replaces the Leonard Mmax by the background Mmax of the class.
+replaces the Leonard Mmax by the background Mmax of the class. A source whose trace lies wholly outside the crustal
+grid is dropped (crustal domain, DECISIONS).
 
 Writes tables/fault_sources_<DATE>.csv, tables/fault_classes_<DATE>.csv and tables/fault_rates_<db>_<DATE>.npz.
 """
@@ -31,17 +32,28 @@ import rates as R  # noqa: E402
 TAB = HERE / "tables"
 
 # settings
-DATE = "2026-11-15"
-DBS = {"A": dict(file=ROOT / "data" / "faults" / f"faults_gem_extra_{DATE}.shp", mm=False, name="A (GEM, D16)"),
-       "B": dict(file=ROOT / "data" / "faults" / f"faults_B_{DATE}.gpkg", mm=False, name="B, our rules"),
-       "Bmm": dict(file=ROOT / "data" / "faults" / f"faults_B_{DATE}.gpkg", mm=True, name="B, MASCSN moment")}
-FITS = ROOT / "fits" / "tables" / f"fits_{DATE}b.csv"
+DATE = "2026-11-16e"
+FDB = "2026-11-15"
+DBS = {"A": dict(file=ROOT / "data" / "faults" / f"faults_gem_extra_{FDB}.shp", mm=False, name="A (GEM, D16)"),
+       "B": dict(file=ROOT / "data" / "faults" / f"faults_B_{FDB}.gpkg", mm=False, name="B, our rules"),
+       "Bmm": dict(file=ROOT / "data" / "faults" / f"faults_B_{FDB}.gpkg", mm=True, name="B, MASCSN moment")}
+FITS = ROOT / "fits" / "tables" / "fits_2026-11-16f.csv"
+# Mmax pad rows (Pablo, 16 Nov): single faults Leonard + FAULT_PAD; the class Mmax of the multi-fault cap follows
+# background.CLASSES (set_pad)
+FAULT_PAD = 0.0
+# crustal domain (DECISIONS): a fault whose trace lies wholly outside the crustal grid is not a source (Pablo, 16 Nov)
+GRID = ROOT / "data" / "crustal_grid_01_2026-11-15.csv"
 # fault models: database and Mmax rule (Leonard, or the class maximum of the sensitivity)
 VARIANTS = {"A": ("A", False), "B": ("B", False), "Bmm": ("Bmm", False),
             "A_cm": ("A", True), "B_cm": ("B", True), "Bmm_cm": ("Bmm", True)}
 NAMES = {**{k: v["name"] for k, v in DBS.items()}, **{k + "_cm": v["name"] + ", class-maximum Mmax" for k, v in DBS.items()}}
 CLASSES = ("forearc", "arc", "backarc", "patagonia")
-CLASS_MMAX = {"forearc": 7.4, "arc": 7.9, "backarc": 7.7, "patagonia": 8.0}
+CLASS_MMAX = {"forearc": 7.2, "arc": 7.9, "backarc": 7.7, "patagonia": 8.0}
+
+
+def class_mmax(c):
+    import background as BG
+    return BG.CLASSES[c]["mmax"]
 NB = 40
 BR = [(p, z, k) for p, z, k in product(R.PSI, R.DEPTH, R.SHAPES)]
 W = np.array([R.PSI[p] * R.DEPTH[z] / len(R.SHAPES) for p, z, k in BR])
@@ -63,7 +75,7 @@ def branch(L, dip, rake, sr, b, z, psi, k, fixed=0.0, Lsr=None, mx=None):
     """Rates on the grid MMIN + DM k of one branch, its Mmax and its moment rate (N m / yr)."""
     Lsr = L if Lsr is None else Lsr
     W_ = z / math.sin(math.radians(dip))
-    mx = R.on_grid(R.leonard(L * W_, rake)) if mx is None else mx
+    mx = R.on_grid(R.leonard(L * W_, rake) + FAULT_PAD) if mx is None else mx
     mo = psi * (R.MU * Lsr * 1e3 * W_ * 1e3 * sr * 1e-3 + fixed)
     return R.grid(*R.mfd(k, b, mx, mo), NB), mx, mo
 
@@ -96,9 +108,10 @@ def trace(x):
     return c
 
 
-def load(db):
+def load(db, split_system=False):
     """
-    Sources of a database with the rates of every branch.
+    Sources of a database with the rates of every branch. With split_system the Magallanes–Fagnano measured traces
+    are separate sources instead of one joined system (the multi-fault row of Fagnano, Pablo, 16 Nov).
 
     Returns
     -------
@@ -108,6 +121,9 @@ def load(db):
     """
     f = read(db)
     b = bvals()
+    if split_system:
+        f = f.copy()
+        f.loc[f.system == "Magallanes–Fagnano", "sr_kind"] = "split"
     s = CP.sources(f, b, mm=DBS[db]["mm"]).reset_index(drop=True)
     rr, cm, tr, fx, ls, sg = np.zeros((len(s), len(BR), NB)), np.zeros((len(s), len(BR), NB)), [], [], [], []
     for i, q in s.iterrows():
@@ -126,7 +142,12 @@ def load(db):
     s["fixed"], s["Lsr"], s["sr_used"], s["trace"] = fx, ls, sg, tr
     s["b"] = [b[c] for c in s.cls]
     s["system"] = s.name == SYSTEM
-    return s, rr, cm
+    import smooth as S
+    g = pd.read_csv(GRID)
+    keep = np.array([(S.cells(g.lon.to_numpy(), g.lat.to_numpy(), *np.asarray(t).T) >= 0).any() for t in s.trace])
+    if (~keep).any():
+        print(db, "outside the crustal grid, not sources:", ", ".join(s.fid[~keep]))
+    return s[keep].reset_index(drop=True), rr[keep], cm[keep]
 
 
 def n_ge(r, M):

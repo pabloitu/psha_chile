@@ -18,12 +18,12 @@ import gr  # noqa: E402
 TAB = F.HERE / "tables"
 
 # settings
-DATE = "2026-11-15"
+DATE = "2026-11-16e"
 M_LARGE, NEAR_KM, PAD, W_MIN = 6.5, 10.0, 0.2, 0.5
 
 
 def main():
-    d = gr.load(mlow=M_LARGE)
+    d = gr.load(BG.CAT, mlow=M_LARGE)
     db = {k: F.read(k) for k in ("A", "B")}
     tr = {k: [geo.tree(g, 0.5) for g in f.geometry] for k, f in db.items()}
     rows = []

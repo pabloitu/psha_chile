@@ -1,0 +1,2128 @@
+{
+ "ready": true,
+ "date": "2026-11-16g",
+ "fits": "fits_2026-11-16f.csv",
+ "catalogue": "catalog_2026-11-16c.csv",
+ "npd": "npd_2026-11-16d.csv",
+ "trt": "Active Shallow Crust",
+ "min_mag": 5.5,
+ "investigation_time": 1.0,
+ "max_distance_km": 300,
+ "point": {
+  "usd": 0.0,
+  "lsd": 30.0,
+  "hypo": 10.0,
+  "msr": "WC1994",
+  "aspect": 1.0
+ },
+ "fault": {
+  "usd": 0.0,
+  "msr": "Leonard2014_Interplate",
+  "aspect": 2.0
+ },
+ "reference": {
+  "db": "A",
+  "jump": 15.0,
+  "t": 10.0,
+  "psi": 0.8,
+  "shape": "taper",
+  "decl": "gk"
+ },
+ "weights": {
+  "decl": {
+   "gk": 0.5,
+   "nn": 0.5
+  },
+  "system": {
+   "seg": 0.5,
+   "mf": 0.5
+  },
+  "seg": "1/36 each (psi x thickness x shape)",
+  "mf": "1/6 each (psi x thickness)"
+ },
+ "rupture_set": "strict UCERF3 path rules on 5 km subsections, merged to whole-fault scenarios (rupset.py); jump 15 km; main traces",
+ "note": "Families add in rate space. A branch lists the files of one sourceModel (background, faults and, for the multi-fault branches, the sections file). Jobs need investigation_time = 1.0.",
+ "tree": [
+  {
+   "id": "seg_gk_psi060_t10_al1",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t10_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t10_al2",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t10_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t10_al3",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t10_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t10_yc",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t10_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t10_tap",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t10_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t10_hyb",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t10_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t20_al1",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t20_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t20_al2",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t20_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t20_al3",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t20_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t20_yc",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t20_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t20_tap",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t20_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi060_t20_hyb",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi060_t20_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t10_al1",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t10_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t10_al2",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t10_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t10_al3",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t10_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t10_yc",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t10_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t10_tap",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t10_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t10_hyb",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t10_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t20_al1",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t20_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t20_al2",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t20_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t20_al3",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t20_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t20_yc",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t20_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t20_tap",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t20_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi080_t20_hyb",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi080_t20_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t10_al1",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t10_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t10_al2",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t10_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t10_al3",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t10_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t10_yc",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t10_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t10_tap",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t10_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t10_hyb",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t10_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t20_al1",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t20_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t20_al2",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t20_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t20_al3",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t20_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t20_yc",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t20_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t20_tap",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t20_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_gk_psi100_t20_hyb",
+   "files": [
+    "cr_bg_seg_A_gk.xml",
+    "cr_seg_A_psi100_t20_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "mf_gk_psi060_t10",
+   "files": [
+    "cr_bg_mf_A_j15_gk.xml",
+    "cr_mf_A_j15_psi060_t10.xml",
+    "cr_sections_A_t10.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "mf_gk_psi080_t10",
+   "files": [
+    "cr_bg_mf_A_j15_gk.xml",
+    "cr_mf_A_j15_psi080_t10.xml",
+    "cr_sections_A_t10.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "mf_gk_psi100_t10",
+   "files": [
+    "cr_bg_mf_A_j15_gk.xml",
+    "cr_mf_A_j15_psi100_t10.xml",
+    "cr_sections_A_t10.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "mf_gk_psi060_t20",
+   "files": [
+    "cr_bg_mf_A_j15_gk.xml",
+    "cr_mf_A_j15_psi060_t20.xml",
+    "cr_sections_A_t20.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "mf_gk_psi080_t20",
+   "files": [
+    "cr_bg_mf_A_j15_gk.xml",
+    "cr_mf_A_j15_psi080_t20.xml",
+    "cr_sections_A_t20.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "mf_gk_psi100_t20",
+   "files": [
+    "cr_bg_mf_A_j15_gk.xml",
+    "cr_mf_A_j15_psi100_t20.xml",
+    "cr_sections_A_t20.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "seg_nn_psi060_t10_al1",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t10_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t10_al2",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t10_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t10_al3",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t10_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t10_yc",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t10_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t10_tap",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t10_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t10_hyb",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t10_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t20_al1",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t20_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t20_al2",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t20_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t20_al3",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t20_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t20_yc",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t20_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t20_tap",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t20_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi060_t20_hyb",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi060_t20_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t10_al1",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t10_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t10_al2",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t10_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t10_al3",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t10_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t10_yc",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t10_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t10_tap",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t10_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t10_hyb",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t10_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t20_al1",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t20_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t20_al2",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t20_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t20_al3",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t20_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t20_yc",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t20_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t20_tap",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t20_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi080_t20_hyb",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi080_t20_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t10_al1",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t10_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t10_al2",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t10_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t10_al3",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t10_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t10_yc",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t10_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t10_tap",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t10_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t10_hyb",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t10_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t20_al1",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t20_al1.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t20_al2",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t20_al2.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t20_al3",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t20_al3.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t20_yc",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t20_yc.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t20_tap",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t20_tap.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "seg_nn_psi100_t20_hyb",
+   "files": [
+    "cr_bg_seg_A_nn.xml",
+    "cr_seg_A_psi100_t20_hyb.xml"
+   ],
+   "weight": 0.006944444444444444
+  },
+  {
+   "id": "mf_nn_psi060_t10",
+   "files": [
+    "cr_bg_mf_A_j15_nn.xml",
+    "cr_mf_A_j15_psi060_t10.xml",
+    "cr_sections_A_t10.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "mf_nn_psi080_t10",
+   "files": [
+    "cr_bg_mf_A_j15_nn.xml",
+    "cr_mf_A_j15_psi080_t10.xml",
+    "cr_sections_A_t10.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "mf_nn_psi100_t10",
+   "files": [
+    "cr_bg_mf_A_j15_nn.xml",
+    "cr_mf_A_j15_psi100_t10.xml",
+    "cr_sections_A_t10.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "mf_nn_psi060_t20",
+   "files": [
+    "cr_bg_mf_A_j15_nn.xml",
+    "cr_mf_A_j15_psi060_t20.xml",
+    "cr_sections_A_t20.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "mf_nn_psi080_t20",
+   "files": [
+    "cr_bg_mf_A_j15_nn.xml",
+    "cr_mf_A_j15_psi080_t20.xml",
+    "cr_sections_A_t20.xml"
+   ],
+   "weight": 0.041666666666666664
+  },
+  {
+   "id": "mf_nn_psi100_t20",
+   "files": [
+    "cr_bg_mf_A_j15_nn.xml",
+    "cr_mf_A_j15_psi100_t20.xml",
+    "cr_sections_A_t20.xml"
+   ],
+   "weight": 0.041666666666666664
+  }
+ ],
+ "tornado": {
+  "reference": {
+   "label": "multi-fault A, jump 15 km, psi 0.8, thickness 10 km, tapered fit, Gardner-Knopoff pattern",
+   "branches": [
+    {
+     "id": "ref",
+     "files": [
+      "cr_bg_mf_A_j15_gk.xml",
+      "cr_mf_A_j15_psi080_t10.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "decl_nn": {
+   "label": "pattern from nearest-neighbour declustering",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j15_nn.xml",
+      "cr_mf_A_j15_psi080_t10.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "fit_cut": {
+   "label": "background fit cut at Mmax",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j15_trunc_gk.xml",
+      "cr_mf_A_j15_psi080_t10.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "rates_declustered": {
+   "label": "background rates from the declustered fits (lower bound)",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j15_declrates_gk.xml",
+      "cr_mf_A_j15_psi080_t10.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "no_faults": {
+   "label": "smoothed seismicity only, no faults",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_nofaults_gk.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "segmented": {
+   "label": "segmented single faults (six MFD shapes, 1/6 each), psi 0.8, thickness 10 km",
+   "branches": [
+    {
+     "id": "r0",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_al1.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r1",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_al2.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r2",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_al3.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r3",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_yc.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r4",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_tap.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r5",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_hyb.xml"
+     ],
+     "weight": 0.16666666666666666
+    }
+   ]
+  },
+  "psi060": {
+   "label": "multi-fault psi 0.6",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j15_gk.xml",
+      "cr_mf_A_j15_psi060_t10.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "psi100": {
+   "label": "multi-fault psi 1.0",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j15_gk.xml",
+      "cr_mf_A_j15_psi100_t10.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "thickness20": {
+   "label": "multi-fault thickness 20 km",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j15_gk.xml",
+      "cr_mf_A_j15_psi080_t20.xml",
+      "cr_sections_A_t20.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "jump5": {
+   "label": "multi-fault jump 5 km",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j5_gk.xml",
+      "cr_mf_A_j5_psi080_t10.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "jump10": {
+   "label": "multi-fault jump 10 km",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j10_gk.xml",
+      "cr_mf_A_j10_psi080_t10.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "splays": {
+   "label": "multi-fault with the NE secondary traces linking",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j15_splays_gk.xml",
+      "cr_mf_A_j15_psi080_t10_splays.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "db_B": {
+   "label": "fault database B, multi-fault 15 km",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_B_j15_gk.xml",
+      "cr_mf_B_j15_psi080_t10.xml",
+      "cr_sections_B_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "db_Bmm": {
+   "label": "fault database Bmm, multi-fault 15 km",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_Bmm_j15_gk.xml",
+      "cr_mf_Bmm_j15_psi080_t10.xml",
+      "cr_sections_Bmm_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "mmax_pad00_mf": {
+   "label": "class Mmax pad 0.0 (background and multi-fault cap), multi-fault reference",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j15_pad00_gk.xml",
+      "cr_mf_A_j15_psi080_t10_pad00.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "mmax_pad04_mf": {
+   "label": "class Mmax pad 0.4 (background and multi-fault cap), multi-fault reference",
+   "branches": [
+    {
+     "id": "r",
+     "files": [
+      "cr_bg_mf_A_j15_pad04_gk.xml",
+      "cr_mf_A_j15_psi080_t10_pad04.xml",
+      "cr_sections_A_t10.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "mmax_pad00_seg": {
+   "label": "class Mmax pad 0.0 (background), segmented reference",
+   "branches": [
+    {
+     "id": "r0",
+     "files": [
+      "cr_bg_seg_A_pad00_gk.xml",
+      "cr_seg_A_psi080_t10_al1.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r1",
+     "files": [
+      "cr_bg_seg_A_pad00_gk.xml",
+      "cr_seg_A_psi080_t10_al2.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r2",
+     "files": [
+      "cr_bg_seg_A_pad00_gk.xml",
+      "cr_seg_A_psi080_t10_al3.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r3",
+     "files": [
+      "cr_bg_seg_A_pad00_gk.xml",
+      "cr_seg_A_psi080_t10_yc.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r4",
+     "files": [
+      "cr_bg_seg_A_pad00_gk.xml",
+      "cr_seg_A_psi080_t10_tap.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r5",
+     "files": [
+      "cr_bg_seg_A_pad00_gk.xml",
+      "cr_seg_A_psi080_t10_hyb.xml"
+     ],
+     "weight": 0.16666666666666666
+    }
+   ]
+  },
+  "mmax_pad04_seg": {
+   "label": "class Mmax pad 0.4 (background), segmented reference",
+   "branches": [
+    {
+     "id": "r0",
+     "files": [
+      "cr_bg_seg_A_pad04_gk.xml",
+      "cr_seg_A_psi080_t10_al1.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r1",
+     "files": [
+      "cr_bg_seg_A_pad04_gk.xml",
+      "cr_seg_A_psi080_t10_al2.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r2",
+     "files": [
+      "cr_bg_seg_A_pad04_gk.xml",
+      "cr_seg_A_psi080_t10_al3.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r3",
+     "files": [
+      "cr_bg_seg_A_pad04_gk.xml",
+      "cr_seg_A_psi080_t10_yc.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r4",
+     "files": [
+      "cr_bg_seg_A_pad04_gk.xml",
+      "cr_seg_A_psi080_t10_tap.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r5",
+     "files": [
+      "cr_bg_seg_A_pad04_gk.xml",
+      "cr_seg_A_psi080_t10_hyb.xml"
+     ],
+     "weight": 0.16666666666666666
+    }
+   ]
+  },
+  "fault_pad02_seg": {
+   "label": "single faults Leonard + 0.2, segmented reference",
+   "branches": [
+    {
+     "id": "r0",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_al1_fpad02.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r1",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_al2_fpad02.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r2",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_al3_fpad02.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r3",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_yc_fpad02.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r4",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_tap_fpad02.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r5",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_hyb_fpad02.xml"
+     ],
+     "weight": 0.16666666666666666
+    }
+   ]
+  },
+  "fault_pad04_seg": {
+   "label": "single faults Leonard + 0.4, segmented reference",
+   "branches": [
+    {
+     "id": "r0",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_al1_fpad04.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r1",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_al2_fpad04.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r2",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_al3_fpad04.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r3",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_yc_fpad04.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r4",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_tap_fpad04.xml"
+     ],
+     "weight": 0.16666666666666666
+    },
+    {
+     "id": "r5",
+     "files": [
+      "cr_bg_seg_A_gk.xml",
+      "cr_seg_A_psi080_t10_hyb_fpad04.xml"
+     ],
+     "weight": 0.16666666666666666
+    }
+   ]
+  }
+ },
+ "files": [
+  {
+   "file": "cr_seg_A_psi060_t10_al1.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 10.0,
+   "fshape": "al1",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t10_al2.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 10.0,
+   "fshape": "al2",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t10_al3.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 10.0,
+   "fshape": "al3",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t10_yc.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 10.0,
+   "fshape": "yc",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t10_tap.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 10.0,
+   "fshape": "tap",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t10_hyb.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 10.0,
+   "fshape": "hyb",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t20_al1.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 20.0,
+   "fshape": "al1",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t20_al2.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 20.0,
+   "fshape": "al2",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t20_al3.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 20.0,
+   "fshape": "al3",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t20_yc.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 20.0,
+   "fshape": "yc",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t20_tap.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 20.0,
+   "fshape": "tap",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi060_t20_hyb.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.6,
+   "thickness": 20.0,
+   "fshape": "hyb",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_al1.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "al1",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_al2.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "al2",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_al3.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "al3",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_yc.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "yc",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_tap.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "tap",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_hyb.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "hyb",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t20_al1.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 20.0,
+   "fshape": "al1",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t20_al2.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 20.0,
+   "fshape": "al2",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t20_al3.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 20.0,
+   "fshape": "al3",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t20_yc.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 20.0,
+   "fshape": "yc",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t20_tap.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 20.0,
+   "fshape": "tap",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t20_hyb.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 20.0,
+   "fshape": "hyb",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t10_al1.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 10.0,
+   "fshape": "al1",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t10_al2.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 10.0,
+   "fshape": "al2",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t10_al3.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 10.0,
+   "fshape": "al3",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t10_yc.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 10.0,
+   "fshape": "yc",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t10_tap.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 10.0,
+   "fshape": "tap",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t10_hyb.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 10.0,
+   "fshape": "hyb",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t20_al1.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 20.0,
+   "fshape": "al1",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t20_al2.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 20.0,
+   "fshape": "al2",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t20_al3.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 20.0,
+   "fshape": "al3",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t20_yc.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 20.0,
+   "fshape": "yc",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t20_tap.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 20.0,
+   "fshape": "tap",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi100_t20_hyb.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 1.0,
+   "thickness": 20.0,
+   "fshape": "hyb",
+   "fault_pad": 0.0,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_al1_fpad02.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "al1",
+   "fault_pad": 0.2,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_al2_fpad02.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "al2",
+   "fault_pad": 0.2,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_al3_fpad02.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "al3",
+   "fault_pad": 0.2,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_yc_fpad02.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "yc",
+   "fault_pad": 0.2,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_tap_fpad02.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "tap",
+   "fault_pad": 0.2,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_hyb_fpad02.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "hyb",
+   "fault_pad": 0.2,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_al1_fpad04.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "al1",
+   "fault_pad": 0.4,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_al2_fpad04.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "al2",
+   "fault_pad": 0.4,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_al3_fpad04.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "al3",
+   "fault_pad": 0.4,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_yc_fpad04.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "yc",
+   "fault_pad": 0.4,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_tap_fpad04.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "tap",
+   "fault_pad": 0.4,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_seg_A_psi080_t10_hyb_fpad04.xml",
+   "kind": "faults",
+   "system": "seg",
+   "db": "A",
+   "psi": 0.8,
+   "thickness": 10.0,
+   "fshape": "hyb",
+   "fault_pad": 0.4,
+   "weight": 0.027777777777777776
+  },
+  {
+   "file": "cr_mf_A_j15_psi060_t10.xml",
+   "sections": "cr_sections_A_t10.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "psi": 0.6,
+   "thickness": 10.0,
+   "splays": false,
+   "pad": 0.2,
+   "scenarios": 75,
+   "n_ruptures": 225,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_A_j15_psi080_t10.xml",
+   "sections": "cr_sections_A_t10.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "psi": 0.8,
+   "thickness": 10.0,
+   "splays": false,
+   "pad": 0.2,
+   "scenarios": 75,
+   "n_ruptures": 225,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_A_j15_psi100_t10.xml",
+   "sections": "cr_sections_A_t10.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "psi": 1.0,
+   "thickness": 10.0,
+   "splays": false,
+   "pad": 0.2,
+   "scenarios": 75,
+   "n_ruptures": 225,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_A_j15_psi060_t20.xml",
+   "sections": "cr_sections_A_t20.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "psi": 0.6,
+   "thickness": 20.0,
+   "splays": false,
+   "pad": 0.2,
+   "scenarios": 75,
+   "n_ruptures": 225,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_A_j15_psi080_t20.xml",
+   "sections": "cr_sections_A_t20.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "psi": 0.8,
+   "thickness": 20.0,
+   "splays": false,
+   "pad": 0.2,
+   "scenarios": 75,
+   "n_ruptures": 225,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_A_j15_psi100_t20.xml",
+   "sections": "cr_sections_A_t20.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "psi": 1.0,
+   "thickness": 20.0,
+   "splays": false,
+   "pad": 0.2,
+   "scenarios": 75,
+   "n_ruptures": 225,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_A_j5_psi080_t10.xml",
+   "sections": "cr_sections_A_t10.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 5.0,
+   "psi": 0.8,
+   "thickness": 10.0,
+   "splays": false,
+   "pad": 0.2,
+   "scenarios": 12,
+   "n_ruptures": 26,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_A_j10_psi080_t10.xml",
+   "sections": "cr_sections_A_t10.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 10.0,
+   "psi": 0.8,
+   "thickness": 10.0,
+   "splays": false,
+   "pad": 0.2,
+   "scenarios": 25,
+   "n_ruptures": 57,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_A_j15_psi080_t10_splays.xml",
+   "sections": "cr_sections_A_t10.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "psi": 0.8,
+   "thickness": 10.0,
+   "splays": true,
+   "pad": 0.2,
+   "scenarios": 121,
+   "n_ruptures": 398,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_A_j15_psi080_t10_pad00.xml",
+   "sections": "cr_sections_A_t10.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "psi": 0.8,
+   "thickness": 10.0,
+   "splays": false,
+   "pad": 0.0,
+   "scenarios": 75,
+   "n_ruptures": 225,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_A_j15_psi080_t10_pad04.xml",
+   "sections": "cr_sections_A_t10.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "psi": 0.8,
+   "thickness": 10.0,
+   "splays": false,
+   "pad": 0.4,
+   "scenarios": 75,
+   "n_ruptures": 225,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_B_j15_psi080_t10.xml",
+   "sections": "cr_sections_B_t10.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "B",
+   "jump": 15.0,
+   "psi": 0.8,
+   "thickness": 10.0,
+   "splays": false,
+   "pad": 0.2,
+   "scenarios": 46,
+   "n_ruptures": 148,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_mf_Bmm_j15_psi080_t10.xml",
+   "sections": "cr_sections_Bmm_t10.xml",
+   "kind": "faults",
+   "system": "mf",
+   "db": "Bmm",
+   "jump": 15.0,
+   "psi": 0.8,
+   "thickness": 10.0,
+   "splays": false,
+   "pad": 0.2,
+   "scenarios": 46,
+   "n_ruptures": 148,
+   "weight": 0.16666666666666666
+  },
+  {
+   "file": "cr_bg_seg_A_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4527556025029806,
+   "N6": 0.27160136222850356,
+   "decl": "gk",
+   "system": "seg",
+   "db": "A",
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_mf_A_j15_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4527556025029806,
+   "N6": 0.27160136222850356,
+   "decl": "gk",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_seg_A_nn.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4527556033192033,
+   "N6": 0.2716013621726895,
+   "decl": "nn",
+   "system": "seg",
+   "db": "A",
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_mf_A_j15_nn.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4527556033192033,
+   "N6": 0.2716013621726895,
+   "decl": "nn",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_mf_A_j15_trunc_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.450347472876874,
+   "N6": 0.2674897244069305,
+   "decl": "gk",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "shape": "trunc"
+  },
+  {
+   "file": "cr_bg_mf_A_j15_declrates_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 0.9636208620723482,
+   "N6": 0.17668356935824886,
+   "decl": "gk",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "shape": "taper",
+   "rates": "declustered"
+  },
+  {
+   "file": "cr_bg_nofaults_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.7077631240127578,
+   "N6": 0.5266088837382813,
+   "decl": "gk",
+   "system": "none",
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_mf_A_j5_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4527556025029806,
+   "N6": 0.27160136222850356,
+   "decl": "gk",
+   "system": "mf",
+   "db": "A",
+   "jump": 5.0,
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_mf_A_j10_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4527556025029806,
+   "N6": 0.27160136222850356,
+   "decl": "gk",
+   "system": "mf",
+   "db": "A",
+   "jump": 10.0,
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_mf_A_j15_splays_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4527556025029806,
+   "N6": 0.27160136222850356,
+   "decl": "gk",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "splays": true,
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_mf_A_j15_pad00_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4528323725466694,
+   "N6": 0.2649812138810717,
+   "decl": "gk",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "pad": 0.0,
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_seg_A_pad00_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4528323725466694,
+   "N6": 0.2649812138810717,
+   "decl": "gk",
+   "system": "seg",
+   "db": "A",
+   "pad": 0.0,
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_mf_A_j15_pad04_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4525923550328472,
+   "N6": 0.2749230545517604,
+   "decl": "gk",
+   "system": "mf",
+   "db": "A",
+   "jump": 15.0,
+   "pad": 0.4,
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_seg_A_pad04_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.4525923550328472,
+   "N6": 0.2749230545517604,
+   "decl": "gk",
+   "system": "seg",
+   "db": "A",
+   "pad": 0.4,
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_mf_B_j15_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.3538247577949727,
+   "N6": 0.17267051752049636,
+   "decl": "gk",
+   "system": "mf",
+   "db": "B",
+   "jump": 15.0,
+   "shape": "taper"
+  },
+  {
+   "file": "cr_bg_mf_Bmm_j15_gk.xml",
+   "kind": "background",
+   "n_sources": 19675,
+   "N55": 1.329039775364427,
+   "N6": 0.14788553508995,
+   "decl": "gk",
+   "system": "mf",
+   "db": "Bmm",
+   "jump": 15.0,
+   "shape": "taper"
+  }
+ ],
+ "check": {
+  "parse": "tables/oqcheck_2026-11-16g.csv: 77 files, 322 738 sources, none missing, rates within 4.3e-6, top magnitudes equal",
+  "section_ids": "unique across the sections files (database and thickness in the id)",
+  "job": "not run (Pablo, 16 Nov: no more engine jobs from S3); the 16e reference ran as calc 532 and the two-thickness case as calc 596 with the same writer"
+ }
+}

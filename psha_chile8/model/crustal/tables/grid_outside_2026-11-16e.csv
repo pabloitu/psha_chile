@@ -1,0 +1,9 @@
+option,unit,events_outside,mass_outside,edge_share_grid,edge_share_extended
+gk,forearc,0.0091,0.1269,0.0129,0.0112
+gk,arc,0.0,0.2283,0.1222,0.0928
+gk,backarc,0.0,0.3927,0.3235,0.1976
+gk,patagonia,0.0,0.3894,0.1097,0.068
+nn,forearc,0.0079,0.1094,0.0106,0.0093
+nn,arc,0.0,0.181,0.1202,0.0962
+nn,backarc,0.0,0.386,0.3364,0.2073
+nn,patagonia,0.0,0.3897,0.1001,0.0632

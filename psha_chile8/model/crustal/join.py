@@ -27,7 +27,7 @@ from chaf import CITIES  # noqa: E402
 TAB, FIG = F.HERE / "tables", F.HERE / "figs"
 
 # settings
-DATE = "2026-11-15"
+DATE = "2026-11-16e"
 MJOIN = 6.0
 REF = (6.0, 6.5, 7.0)
 NEAR_EVENT_KM, NEAR_CITY_KM = 10.0, 50.0
@@ -85,8 +85,8 @@ def mom(r):
 def observed():
     """Yearly observed rate per bin and class inside the completeness table (full catalogue, class weight times
     the magnitude-error count with the class b), on CENTRES, and per completeness period for the figures."""
-    d = gr.load(mlow=BG.MMIN)
-    te = gr.tend(gr.load())
+    d = gr.load(BG.CAT, mlow=BG.MMIN)
+    te = gr.tend(gr.load(BG.CAT))
     yr, T = gr.table_years(BG.TABLE, te)
     k = gr.kbin(d.mw)
     b = F.bvals()
@@ -158,7 +158,7 @@ def tables(ft, fc, obs):
 
 def near_events():
     """Events of Mw >= 6 with a crustal weight within NEAR_EVENT_KM of a fault trace of A or B."""
-    d = gr.load(mlow=6.0)
+    d = gr.load(BG.CAT, mlow=6.0)
     w = d[[f"W_{c}" for c in BG.CLASSES]]
     d = d[w.sum(axis=1) > 0].copy()
     d["cls"] = w.loc[d.index].idxmax(axis=1).str[2:]

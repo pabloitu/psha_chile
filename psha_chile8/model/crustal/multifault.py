@@ -22,7 +22,7 @@ import geo  # noqa: E402
 TAB, FIG = F.HERE / "tables", F.HERE / "figs"
 
 # settings
-DATE = "2026-11-15"
+DATE = "2026-11-16e"
 DB, CLS = "A", "arc"
 PSI = 0.8
 DEPTHS = (10.0, 20.0)
@@ -31,11 +31,30 @@ JUMP_KM, AZ_JUNCTION, AZ_TOTAL, AZ_CUM, RAKE_CUM = 5.0, 60.0, 60.0, 560.0, 180.0
 # only main traces link (Pablo, 15 Nov): slip rate at least MIN_SR mm/yr; in A that is GEM's class 1-5 mm/yr (3.0),
 # the secondary traces (class 0.1-1, 0.5 mm/yr) rupture alone
 MIN_SR = 1.0
+# main-trace slip rate per database: in B the MASCSN rows start at 2 mm/yr, main traces from 3 (15 Nov)
+MAIN_SR = {"A": 1.0, "B": 3.0, "Bmm": 3.0}
 # classes whose faults enter the quick estimate (the Liquine-Ofqui traces south of 46.3 S are classed Patagonia)
 CLASSES_LINK = ("arc", "patagonia")
 # SHERIFS (Chartier et al. 2017): slip increment, number of top bins for the anchor
 DSR, NTOP = 0.01, 3
 SEED = 1
+# Liquine-Ofqui run (Pablo, 16 Nov): the main traces of system LOFS link, every other fault keeps its single-fault
+# rates (six shapes, Leonard); depth 10 km (Sielfeld et al. 2019); chain Mmax capped at the class Mmax
+LOFS = "Liquiñe–Ofqui"
+LOFS_DEPTH = 10.0
+# depths and jumps of the jump-distance study (Pablo, 16 Nov)
+DEPTHS_LOFS = (10.0, 20.0)
+JUMPS_STUDY = (5.0, 10.0, 15.0, 20.0)
+# large-event check before 1976, out of the fit: the historical steps of the B11 table (table_2026-11-16)
+HIST = ((7.0, 1905.0), (7.5, 1830.0))
+PSIS = (0.6, 0.8, 1.0)
+# jump distance of the multi-fault branch: 15 km (Pablo, 16 Nov); 5 and 10 km kept as the quick-estimate comparison
+JUMP_LOFS = 15.0
+JUMPS = (5.0, 10.0, 15.0)
+SEEDS = tuple(range(1, 11))
+# rupture set: "strict" = the UCERF3 path rules on 5 km subsections merged to whole-fault scenarios (rupset.py,
+# Pablo, 16 Nov); "chains" = the earlier whole-fault chains. Scenarios above the class Mmax are dropped.
+RUPSET = "strict"
 
 
 def adiff(a, b):
@@ -121,7 +140,10 @@ def sources(s, ch, z):
     src = [dict(members=(i,), area=A[i] * 1e6, lo=F.R.MMIN, hi=mx[i]) for i in range(len(s))]
     for c in ch:
         a = A[list(c)].sum()
-        hi = F.R.on_grid(F.R.leonard(a, float(s.rake[max(c, key=lambda k: s.L[k])])))
+        big = max(c, key=lambda k: s.L[k])
+        hi = F.R.on_grid(F.R.leonard(a, float(s.rake[big])))
+        if hi > F.class_mmax(s.cls[big]) + 1e-9:
+            continue
         lo = round(max(mx[list(c)]) + F.R.DM, 2)
         if hi >= lo - 1e-9:
             src.append(dict(members=tuple(c), area=a * 1e6, lo=lo, hi=hi))
@@ -158,31 +180,45 @@ def partition(src, budget, b, rng):
     g = g / g.sum()
     wmo = g * F.R.m0(m[kb])
     wmo = wmo / wmo.sum()
-    host = {k: [i for i, q in enumerate(src) if q["lo"] - 1e-9 <= m[k] <= q["hi"] + 1e-9] for k in kb}
-    left = dict(budget)
+    host = {k: np.array([i for i, q in enumerate(src) if q["lo"] - 1e-9 <= m[k] <= q["hi"] + 1e-9], int) for k in kb}
+    fk = list(budget)
+    loc = {f: n for n, f in enumerate(fk)}
+    mem = [np.array([loc[f] for f in q["members"]]) for q in src]
+    left = np.array([budget[f] for f in fk], float)
+    of = [[] for _ in fk]
+    for n, x in enumerate(mem):
+        for f in x:
+            of[f].append(n)
+    alive = np.array([(left[x] > 1e-12).all() for x in mem])
+    topf = {f for t in kb[-NTOP:] for n in host[t] for f in mem[n]}
+    hit = any(left[f] <= 1e-12 for f in topf)
     rate = np.zeros((len(src), nb))
-    nms = {f: 0.0 for f in budget}
+    col = np.zeros(nb)
+    nms = np.zeros(len(fk))
     target = None
     topk = kb[-NTOP:]
     open_ = np.ones(len(kb), bool)
     while open_.any():
         p = wmo * open_
         k = kb[rng.choice(len(kb), p=p / p.sum())]
-        cand = [i for i in host[k] if all(left[f] > 1e-12 for f in src[i]["members"])]
-        if not cand:
+        cand = host[k][alive[host[k]]]
+        if not cand.size:
             open_[list(kb).index(k)] = False
             continue
         i = cand[rng.integers(len(cand))]
-        d = min(DSR, min(left[f] for f in src[i]["members"]))
+        x = mem[i]
+        d = min(DSR, left[x].min())
         dr = F.R.MU * src[i]["area"] * d * 1e-3 / F.R.m0(m[k])
-        if target is not None and rate[:, k].sum() + dr > target[k]:
-            for f in src[i]["members"]:
-                nms[f] += d
+        if target is not None and col[k] + dr > target[k]:
+            nms[x] += d
         else:
             rate[i, k] += dr
-        for f in src[i]["members"]:
-            left[f] -= d
-        if target is None and any(left[f] <= 1e-12 for i2 in set(sum((host[t] for t in topk), [])) for f in src[i2]["members"]):
+            col[k] += dr
+        left[x] -= d
+        for f in x[left[x] <= 1e-12]:
+            alive[of[f]] = False
+            hit = hit or f in topf
+        if target is None and hit:
             r = rate[:, topk].sum(axis=0)
             if len(r) == NTOP:
                 r[0] = min(r[0], 2 * r[1:].mean())
@@ -190,6 +226,7 @@ def partition(src, budget, b, rng):
             lvl = np.mean(r / gl)
             target = np.zeros(nb)
             target[kb] = lvl * g
+    nms = {f: float(nms[loc[f]]) for f in fk}
     return rate, nms
 
 
@@ -296,7 +333,7 @@ def figure(mfds, fit, n, T, tag, rr, s):
         a.set_xlim(4.9, 8.6)
         a.set_ylim(1e-5, 1)
         a.set_xlabel("Mw (0.1 bins)")
-        a.set_title(f"depth {z:g} km, ψ {PSI}")
+        a.set_title(f"thickness {z:g} km, ψ {PSI}")
     np.atleast_1d(ax)[0].set_ylabel("events per year in the bin")
     np.atleast_1d(ax)[0].legend(fontsize=8.5, loc="lower left")
     f.suptitle(f"Crustal arc, database {DB}: multi-fault ruptures (quick estimate)", x=0.06, ha="left")
@@ -346,5 +383,134 @@ def qgis(tag="A"):
     return fl, jp, cg
 
 
+def strict(sl, jk):
+    """Whole-fault scenarios of the strict UCERF3 rupture set at jump jk (rupset.py), as tuples of fault indices."""
+    import rupset as R
+    R.JUMP_KM, R.MIN_SR = jk, MIN_SR
+    rups, _ = R.ruptures(sl, LOFS_DEPTH, main_only=MIN_SR > 0)
+    return [tuple(r["faults"]) for r in R.scenarios(rups)]
+
+
+def lofs(db="A", jumps=JUMPS, depths=(LOFS_DEPTH,), splays=False, tag=None):
+    """Liquine-Ofqui multi-fault branch: SHERIFS on the LOFS faults of database A (main traces link), the other arc
+    faults with their single-fault rates (branch psi and depth, weighted mean of the shapes). Arc count test per
+    jump distance, depth, psi and seed (Mw >= 6 since 1976), and the large-event check before 1976 (HIST). Writes tables/mf_<tag>_<DATE>.csv (one row per run) and figs/mf_<tag>_<DATE>.png."""
+    global PSI, JUMP_KM, MIN_SR
+    tag = tag or (f"{db}_lofs_splays" if splays else f"{db}_lofs")
+    MIN_SR = 0.0 if splays else MAIN_SR[db]
+    import geopandas as gpd
+    import arc
+    from scipy import stats
+    gpd.options.io_engine = "fiona"
+    s, rr, _ = F.load(db)
+    sysn = gpd.read_file(F.DBS[db]["file"]).set_index("fid")["system"]
+    isl = s.fid.map(sysn).eq(LOFS).to_numpy()
+    isarc = (s.cls == CLS).to_numpy()
+    sl = s[isl].reset_index(drop=True)
+    b = F.bvals()[CLS]
+    fit = J.fits()[(CLS, "taper")]
+    n, T = arc.observed()
+    k0 = int(round((F.R.MMIN - J.CENTRES[0]) / 0.1))
+    s6, s7 = J.CENTRES >= 5.95, J.CENTRES >= 6.95
+    o6, o7 = float(n[s6].sum()), float(n[s7].sum())
+    import gr
+    import background as BG
+    d = gr.load(BG.CAT, mlow=6.95)
+    wa = d.W_arc.to_numpy() * gr.magw(d.mw_sigma.to_numpy(), b)
+    te = gr.tend(gr.load(BG.CAT))
+    hist = {M: (float(wa[(d.mw.to_numpy() >= M - 0.05) & (d.t.to_numpy() >= y)].sum()), te - y) for M, y in HIST}
+    la = (sl.cls == CLS).to_numpy()
+    rows, keep = [], {}
+    for jk, z in [(a, c) for a in jumps for c in depths]:
+        JUMP_KM = jk
+        ch = chains(sl, links(sl)) if RUPSET == "chains" else strict(sl, jk)
+        for ps in PSIS:
+            PSI = ps
+            j = [i for i, (p, zz, _) in enumerate(F.BR) if p == ps and zz == z]
+            w = F.W[j] / F.W[j].sum()
+            other = np.zeros(J.CENTRES.size)
+            other[k0:k0 + F.NB] = (rr[isarc & ~isl][:, j] * w[None, :, None]).sum(axis=(0, 1))[:J.CENTRES.size - k0]
+            for sd in SEEDS:
+                src, mx, rate, nms = run(z, sl, ch, b, np.random.default_rng(sd))
+                ia = np.array([la[max(q["members"], key=lambda f: sl.L[f])] for q in src])
+                lin = np.array([len(q["members"]) > 1 for q in src])
+                lo = np.zeros(J.CENTRES.size)
+                lo[k0:k0 + F.NB] = rate[ia].sum(axis=0)[:J.CENTRES.size - k0]
+                tot = lo + other
+                bg = J.background(fit, tot)
+                e6, e7 = float(((tot + bg)[s6] * T[s6]).sum()), float(((tot + bg)[s7] * T[s7]).sum())
+                used = (rate.sum(1) > 0) & lin
+                bud = budget(sl, z)
+                hx = {M: (float((tot + bg)[J.CENTRES >= M - 0.05].sum() * T_), o) for M, (o, T_) in hist.items()}
+                rows.append(dict(jump=jk, depth=z, psi=ps, seed=sd, chains=len(ch), chains_used=int(used.sum()),
+                                 longest_km=max((float(sl.L[list(q["members"])].sum()) for q, u in zip(src, used) if u), default=0.0),
+                                 mmax=float(max(q["hi"] for q, r in zip(src, rate) if r.sum() > 0)),
+                                 N6=float(tot[s6].sum()), N7=float(tot[s7].sum()), N6_lofs=float(lo[s6].sum()),
+                                 N6_other=float(other[s6].sum()), linked_N6=float(rate[lin & ia].sum() / max(rate[ia].sum(), 1e-30)),
+                                 nms_share=float(nms.sum() / bud.sum()), nms_max=float((nms / bud).max()),
+                                 exp6=e6, obs6=o6, p6=float(stats.poisson.cdf(round(o6), e6)),
+                                 exp7=e7, obs7=o7, p7=float(1 - stats.poisson.cdf(round(o7) - 1, e7)),
+                                 **{f"exp{M:g}_hist": e for M, (e, o) in hx.items()},
+                                 **{f"obs{M:g}_hist": o for M, (e, o) in hx.items()},
+                                 **{f"p{M:g}_hist": float(1 - stats.poisson.cdf(round(o) - 1, e)) for M, (e, o) in hx.items()}))
+                keep[(jk, z, ps, sd)] = tot
+    t = pd.DataFrame(rows)
+    t.round(5).to_csv(TAB / f"mf_{tag}_{DATE}.csv", index=False)
+    np.savez_compressed(TAB / f"mf_{tag}_mfd_{DATE}.npz", centres=J.CENTRES,
+                        **{f"j{jk:g}_z{z:g}_psi{ps:g}": np.array([keep[(jk, z, ps, sd)] for sd in SEEDS])
+                           for jk in jumps for z in depths for ps in PSIS})
+    g = t.groupby(["jump", "depth", "psi"]).agg(exp6=("exp6", "mean"), exp6_sd=("exp6", "std"), p6=("p6", "mean"),
+                                        exp7=("exp7", "mean"), p7=("p7", "mean"), N6_lofs=("N6_lofs", "mean"),
+                                        N6_other=("N6_other", "mean"), linked=("linked_N6", "mean"),
+                                        nms=("nms_share", "mean"), nms_max=("nms_max", "max"), longest=("longest_km", "max"),
+                                        mmax=("mmax", "max"), chains=("chains", "first"),
+                                        exp7_hist=("exp7_hist", "mean"), p7_hist=("p7_hist", "mean"),
+                                        exp75_hist=("exp7.5_hist", "mean"), p75_hist=("p7.5_hist", "mean"))
+    with pd.option_context("display.width", 250):
+        print(f"{len(sl)} LOFS faults, {int((sl.sr >= MIN_SR).sum())} main; observed arc Mw>=6 {o6:.2f}, Mw>=7 {o7:.2f}; "
+              f"fit {float((fit[s6] * T[s6]).sum()):.2f}")
+        print("before 1976 (HIST):", {M: round(o, 2) for M, (o, _) in hist.items()})
+        print(g.round(3).to_string())
+    if len(depths) == 1:
+        lofs_figure({(a, p, s_): v for (a, z, p, s_), v in keep.items()}, fit, n, T, tag, jumps, db)
+    return t, g
+
+
+def lofs_figure(keep, fit, n, T, tag, jumps, db):
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    sys.path.insert(0, str(F.ROOT))
+    import palette as P
+    P.apply()
+    m = J.CENTRES
+    ok = (n > 0) & (T > 0)
+    f, ax = plt.subplots(1, len(jumps), figsize=(5.4 * len(jumps) + 1, 5.2), sharey=True, squeeze=False)
+    ax = ax[0]
+    for a, jk in zip(ax, jumps):
+        a.plot(m, np.where(fit > 0, fit, np.nan), color="0.55", lw=2.5, label="catalogue fit")
+        for c, ps in zip(P.SERIES, PSIS):
+            r = np.array([keep[(jk, ps, sd)] for sd in SEEDS])
+            mu = r.mean(axis=0)
+            a.fill_between(m, np.where(r.min(0) > 0, r.min(0), np.nan), np.where(r.max(0) > 0, r.max(0), np.nan), color=c, alpha=0.2, lw=0)
+            a.plot(m, np.where(mu > 0, mu, np.nan), color=c, lw=2, label=f"faults, ψ {ps:g}")
+        a.plot(m[ok], (n / np.where(T > 0, T, 1))[ok], "s", color="k", mfc="white", ms=5, label="observed")
+        a.set_yscale("log")
+        a.set_xlim(4.9, 8.4)
+        a.set_ylim(1e-5, 1)
+        a.set_xlabel("Mw (0.1 bins)")
+        a.set_title(f"jump ≤ {jk:g} km")
+    ax[0].set_ylabel("events per year in the bin")
+    ax[0].legend(fontsize=9, loc="lower left")
+    f.suptitle(f"Crustal arc, {F.DBS[db]['name']}: Liquiñe–Ofqui multi-fault ruptures, thickness 10 km (band: 10 seeds)", x=0.06, ha="left")
+    f.tight_layout()
+    f.savefig(FIG / f"mf_{tag}_{DATE}.png", dpi=160)
+    plt.close(f)
+
+
 if __name__ == "__main__":
-    main()
+    # all rows on the strict rupture set (Pablo, 16 Nov)
+    lofs("A", JUMPS, DEPTHS_LOFS)
+    lofs("A", JUMPS, DEPTHS_LOFS, splays=True)
+    for d in ("B", "Bmm"):
+        lofs(d, (JUMP_LOFS,), DEPTHS_LOFS)

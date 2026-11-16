@@ -10,7 +10,7 @@ import background as BG
 import smooth as S
 
 # settings
-DATE = "2026-11-15"
+DATE = "2026-11-16e"
 KINDS = {"power": "Helmstetter power law", "gauss": "Gaussian"}
 OPTIONS = {"gk": "Gardner–Knopoff", "nn": "nearest neighbour", "full": "full catalogue"}
 NS = BG.CANDS

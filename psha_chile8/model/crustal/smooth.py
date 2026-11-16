@@ -97,3 +97,11 @@ def calibrate(train, test, glon, glat, cands, power=POWER, floor=FLOOR, dmax=DMA
         f = field(D, train[2], radii(train[0], train[1], n, floor), power, dmax, kind)
         out.append((n, loglik(f, idx, test[2])))
     return out
+
+
+def first_max(n, ll):
+    """The n of the first local maximum of the log-likelihood, from small n (as model/inslab/is_smooth.py)."""
+    i = np.argsort(n)
+    n, ll = np.asarray(n)[i], np.asarray(ll, float)[i]
+    up, down = np.r_[True, ll[1:] >= ll[:-1]], np.r_[ll[:-1] >= ll[1:], True]
+    return n[np.argmax(up & down)]

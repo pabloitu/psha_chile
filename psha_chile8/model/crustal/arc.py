@@ -22,19 +22,19 @@ import gr  # noqa: E402
 TAB, FIG = F.HERE / "tables", F.HERE / "figs"
 
 # settings
-DATE = "2026-11-15"
+DATE = "2026-11-16e"
 CLS = "arc"
 BANDS = ((6.0, 9.9), (6.0, 6.9), (7.0, 9.9))
 P_PASS = 0.05
 
 
-def observed():
-    """Weighted counts and observation times per bin on J.CENTRES (arc, full catalogue)."""
-    d = gr.load(mlow=BG.MMIN)
-    te = gr.tend(gr.load())
+def observed(cls=CLS):
+    """Weighted counts and observation times per bin on J.CENTRES (class cls, full catalogue)."""
+    d = gr.load(BG.CAT, mlow=BG.MMIN)
+    te = gr.tend(gr.load(BG.CAT))
     yr, T = gr.table_years(BG.TABLE, te)
     k = gr.kbin(d.mw)
-    w = d[f"W_{CLS}"].to_numpy() * gr.magw(d.mw_sigma.to_numpy(), F.bvals()[CLS])
+    w = d[f"W_{cls}"].to_numpy() * gr.magw(d.mw_sigma.to_numpy(), F.bvals()[cls])
     ok = (w > 0) & (d.t.to_numpy() >= yr[k])
     n = np.bincount(k[ok], w[ok], minlength=yr.size)
     c = gr.centres()

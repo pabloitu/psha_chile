@@ -116,7 +116,7 @@ What it says:
 - **Lowering ψ alone would need ψ 0.10–0.25,** far below the range of DECISIONS (0.6–1.0). It is not a credible fix.
 - psha_chile7 saw the same thing: "φ = 1 over-predicts observed M ≥ 6 in the buffers (LOFZ region dominant)" (LEARNINGS).
 
-**By depth branch** (share of the weight that passes, 10 / 20 km): A 8 / 4 %, B 0 / 0 %, B-mm 0 / 13 %; class maximum: A 100 / 87 %, B 75 / 17 %, B-mm 96 / 96 %.
+**By thickness branch** (share of the weight that passes, 10 / 20 km): A 8 / 4 %, B 0 / 0 %, B-mm 0 / 13 %; class maximum: A 100 / 87 %, B 75 / 17 %, B-mm 96 / 96 %.
 - With our rules a deeper fault has more moment (wider), so 20 km expects more events: A 31.6 against 25.4.
 - In B-mm the MASCSN moment is fixed and the depth only sets Mmax, so 20 km expects fewer (30.8 against 46.9).
 
@@ -132,7 +132,7 @@ What it says:
 - **Near the cities:** the fault rate within 50 km falls 4–7 times at Pucón, Hornopirén and Puerto Aysén (A: 0.050 → 0.008, 0.029 → 0.008, 0.049 → 0.012). The faults still hold 85–89 % of N(≥ 6) there, and the total stays 2–7 times the no-faults background.
 - **The catch:** a short fault now carries events up to Mw 7.9 that its own area cannot hold. These are in effect multi-fault ruptures of the Liquiñe–Ofqui system, which the model does not have explicitly (DECISIONS: no multi-fault ruptures).
 
-**Against the class maximum (Pablo):** it passes the test for the wrong reason. A Mw 7.9 on a 35 km × 20 km fault needs about 38 m of average slip; Leonard puts a Mw 7.9 strike-slip rupture at about 8 000 km² (400 km at 20 km depth). The class maximum is Aysén 1960 + 0.2, an event already in the background fit, copied onto segments that cannot host it. It stays a sensitivity only. MASCSN does not join traces either: 130 independent simple-fault sources, Liquiñe–Ofqui Mmax 6.1–7.1.
+**Against the class maximum (Pablo):** it passes the test for the wrong reason. A Mw 7.9 on a 35 km × 20 km fault needs about 38 m of average slip; Leonard puts a Mw 7.9 strike-slip rupture at about 8 000 km² (400 km at 20 km thickness). The class maximum is Aysén 1960 + 0.2, an event already in the background fit, copied onto segments that cannot host it. It stays a sensitivity only. MASCSN does not join traces either: 130 independent simple-fault sources, Liquiñe–Ofqui Mmax 6.1–7.1.
 
 **Options for the arc (Pablo decides):**
 1. **Keep the Leonard Mmax and accept the bulge.** The arc then has 3–8 times more Mw 6–7 crustal events than observed since 1964. It is the most conservative choice and is rejected by this test.
@@ -323,7 +323,7 @@ Used:
   - two nodal planes (strike 0 and 180, dip 60, reverse)
   - WC1994, aspect 1 for points
   - simple faults WC1994, aspect 2
-  - ψ × depth × shape files per fault branch
+  - ψ × thickness × shape files per fault branch
   - a no-faults branch
 - **Branch IDs are sortable** (`psi080_z20_al2`), and `branches.json` lists every file with its factors (the realization-ordering pitfall).
 - **The two numbers of the brief:**
@@ -344,9 +344,9 @@ Old branches still missing:
 
 Files (`nrml/`, `branches.json`):
 - **Background, 28 files** `cr_bg_<A|B|Bmm|A_cm|B_cm|Bmm_cm|nofaults>_<taper|trunc>_<gk|nn>.xml`, each 19 686 point sources. In each cell the four classes are summed: they share depths, nodal planes and scaling, so one source per cell gives the same hazard as one per class. The per-class rates are `pattern_<option>` × `background_mfd`.
-- **Faults, 216 files** `cr_flt_<A|B|Bmm|A_cm|B_cm|Bmm_cm>_psi<060|080|100>_z<10|20>_<al1|al2|al3|yc|tap|hyb>.xml`: 132 sources in A, 160 in B; 0 to the depth of the branch. Rupture scaling Leonard (2014), aspect 2 (Pablo: Leonard for both Mmax and ruptures; psha_chile7 had WC1994). `_cm` is the class-maximum Mmax sensitivity, with its own background files (the join follows the faults): 28 background files in all.
+- **Faults, 216 files** `cr_flt_<A|B|Bmm|A_cm|B_cm|Bmm_cm>_psi<060|080|100>_z<10|20>_<al1|al2|al3|yc|tap|hyb>.xml`: 132 sources in A, 160 in B; 0 to the thickness of the branch. Rupture scaling Leonard (2014), aspect 2 (Pablo: Leonard for both Mmax and ruptures; psha_chile7 had WC1994). `_cm` is the class-maximum Mmax sensitivity, with its own background files (the join follows the faults): 28 background files in all.
 - **Logic-tree fragments for S5:**
-  - `lt_crustal_<db>_<shape>.xml`: sourceModel = the background of the two declustering options (0.5 / 0.5), extendModel = the 36 fault branches with ψ × depth × shape weights
+  - `lt_crustal_<db>_<shape>.xml`: sourceModel = the background of the two declustering options (0.5 / 0.5), extendModel = the 36 fault branches with ψ × thickness × shape weights
   - `lt_crustal_nofaults_<shape>.xml`
   - `branches.json`: every file with its factors and weights. The tree uses the tapered fit, as S1; the database weights are left to the tornado.
 - `tables/rates_2026-11-15.csv` gives N per source of every file.
@@ -379,9 +379,401 @@ Decided by Pablo during the session (for DECISIONS when he says so):
 5. **The Kanamori event** = Aysén 1960. Proposed: "The intra-arc event of Kanamori is Aysén 1960 (Mw 7.7, arc); all events count, so it sets the arc Mmax 7.9 (rule 1, section 4)." This closes the open item of DECISIONS.
 6. **Fault-database weights** in the tree: not decided (tornado). The fragments are per database.
 7. **min_mag:** background 5.0, faults 6.0. S1 writes the interface from 5.5. MMIN_HAZ must match across families (LEARNINGS); S5 decides.
-8. **B-mm and the depth branch.** As in `compare.sources`, the MASCSN moment does not change with depth. The depth branch still sets Mmax (Leonard on L × z / sin dip) and the rupture width of the MASCSN faults in that variant. "Keeps its own thickness" could instead mean Mmax and width from the FaultQuake T. Not done; the effect is on Mmax only.
+8. **B-mm and the thickness branch.** As in `compare.sources`, the MASCSN moment does not change with depth. The thickness branch still sets Mmax (Leonard on L × z / sin dip) and the rupture width of the MASCSN faults in that variant. "Keeps its own thickness" could instead mean Mmax and width from the FaultQuake T. Not done; the effect is on Mmax only.
 9. **Nodal planes (B14, added to DECISIONS during this session):** the files use the two psha_chile7 planes; DECISIONS takes the class planes of `npd_2026-11-15.csv` from S5. With per-class planes the background must be one point source per class and cell (the files here sum the classes), about four times the size.
 10. **Pattern events:** the complete events of the table (Mw ≥ 5.0 from 1976, …), as the calibration. DECISIONS (Magnitudes) still reads "catalog cut at Mw 4.5 for the spatial pattern". Mw 4.5–4.9 is complete nowhere (B9), so they are not used. Proposed: "The crustal (and in-slab) pattern uses the events complete in the table of DECISIONS."
 11. **Proposed LEARNINGS lines:**
     - "A grid that ends before the events does not lose their rate: a kernel normalised over the grid piles it onto the edge (backarc S3: half the rate in the eastern 0.5°)."
     - "Fault N(≥ 6) depends more on the Mmax rule than on the slip: Leonard against the class maximum is a factor 3–4 at the same moment (S3)."
+
+## 8. Rerun on the A9 catalogue (16 Nov)
+
+Inputs: catalogue `2026-11-16`, `fits_2026-11-16.csv`, `gk_family` / `nn_family_2026-11-16.csv`. Fault databases and grid unchanged (2026-11-15). Outputs dated 2026-11-16; the 2026-11-15 tables stay. No NRML files (Pablo: fits checked first).
+
+- **Arc–Patagonia boundary:** `compare.classes()` now uses `classify.arc_end()` (47.24° S), as for events. Moved to the arc: CL-006vv Teresa and CL-006yy San Rafael (A); MASCSN-146, 440, 498, 590, 731, 733, 734 (B and B-mm). CL-006aaa stays in Patagonia.
+- **Kernel:** n = 5 is now fixed in the code (`N_FIX`, DECISIONS). On the new catalogue the crustal-family calibration under nearest neighbour prefers n = 50, which the arc and Patagonia would have borrowed. Kept in `kernel_n_2026-11-16.csv` as `n_cal`, not used.
+- **Fits (taper):** forearc and backarc within 2 % in N(≥ 6); arc b 1.002 → 1.023, N(≥ 6) 0.130 → 0.123; Patagonia N(≥ 6) 0.067 → 0.045 (−33 %). Mmax unchanged (7.4 / 7.9 / 7.7 / 8.0).
+
+Faults over the fit at Mw 6 (weighted-mean fault rate / fit; 15 Nov → 16 Nov):
+
+| class | A | B | B-mm |
+|---|---|---|---|
+| forearc | 0.17 → 0.17 | 0.43 → 0.44 | 0.50 → 0.51 |
+| arc | 3.3 → 3.7 | 8.8 → 10.1 | 4.6 → 5.2 |
+| backarc | 0.21 → 0.20 | 0.21 → 0.20 | 0.21 → 0.20 |
+| Patagonia | 1.3 → 1.65 | 3.6 → 3.5 | 1.4 → 1.3 |
+
+- Arc faults N(≥ 6): A 0.431 → 0.450, B 1.149 → 1.244, B-mm 0.596 → 0.640 (the moved faults); Patagonia loses the same.
+- **Arc count test** (observed 9.45 → 8.98 weighted Mw ≥ 6): A expected 27.6 → 28.8 (8 → 6 % of the tree passes), B 73.7 → 79.7 (0 %), B-mm 37.9 → 40.6 (6 %). Class maximum: A_cm 94 % (unchanged), B_cm 46 → 35 %, Bmm_cm 96 → 92 %. Mw ≥ 7 passes for A and B-mm, as before.
+- **Puerto Aysén** (rate of Mw ≥ 6 within 50 km): A 0.049, B 0.123, B-mm 0.049, all +1 %; faults 99.9 %. No-faults background 0.0021 → 0.0019 (−7 %). Across the cities the totals move within ±3 % except Copiapó (−5 %); the no-faults background falls 9–18 % at Puerto Montt and Hornopirén.
+- **Mmax rules** (`mmax_rules_2026-11-16.csv`): unchanged; Aysén 1960 still sets the arc at 7.9.
+
+### 8b. Liquiñe–Ofqui multi-fault quick estimate (16 Nov)
+
+`multifault.lofs()`:
+- Database A. The 48 faults of system "Liquiñe–Ofqui" (34 main traces, slip rate ≥ 1 mm/yr) link by the UCERF3 filters and get the SHERIFS partition.
+- The other arc faults keep their single-fault rates (six shapes, Leonard).
+- Thickness 10 km. Chain Mmax is Leonard on the linked area, capped at the class Mmax (7.9). The cap does not bind.
+- 10 seeds per case.
+- Files: `tables/mf_A_lofs_2026-11-16.csv`, `figs/mf_A_lofs_2026-11-16.png`.
+
+Observed arc events: Mw ≥ 6 8.98, Mw ≥ 7 1.74 (the fit gives 8.57). Expected inside the completeness table, mean of 10 seeds:
+
+| jump | ψ | chains | expected Mw ≥ 6 | p | expected Mw ≥ 7 | p(≥ 2) | chain Mmax | longest | NMS |
+|---|---|---|---|---|---|---|---|---|---|
+| 5 km | 0.6 / 0.8 / 1.0 | 27 | 15.0 / 20.0 / 25.2 | 0.07 / 0.005 / 0.000 | 0.44 / 0.57 / 0.71 | 0.07 / 0.11 / 0.16 | 7.4 | 229 km | 5 % |
+| 10 km | 0.6 / 0.8 / 1.0 | 94 | 12.6 / 16.8 / 21.0 | 0.20 / 0.03 / 0.003 | 0.61 / 0.81 / 1.02 | 0.13 / 0.20 / 0.27 | 7.4 | 229 km | 2–3 % |
+| 15 km | 0.6 / 0.8 / 1.0 | 300 | 9.5 / 12.7 / 15.7 | 0.53 / 0.19 / 0.05 | 0.68 / 0.92 / 1.14 | 0.15 / 0.23 / 0.32 | 7.6 | 416 km | 3–5 % |
+
+- **Segmented A at 10 km** (same ψ, mean of the shapes): 19.1 / 25.4 / 31.8. Linking LOFS removes 20–50 % of the Mw ≥ 6 excess. The SHERIFS GR target moves LOFS moment from Mw 6–7 into the chains.
+- **Seed spread:** standard deviation 0.1–0.3 events.
+- **Where the excess sits:** at Mw 6–6.5. Above 6.8 the faults run at or below the fit.
+- **Count test:** passes (p ≥ 0.05) for 10 km with ψ 0.6, and for 15 km with ψ 0.6, 0.8 and 1.0. At 5 km it passes only for ψ 0.6, by a margin.
+- **Aysén 1960 (7.7):** not reached at 10 km thickness. The longest chain, 416 km × 10 km, gives Leonard 7.6. The Mw ≥ 7 rate stays below the observed count (p 0.07–0.32), as you accepted for the tail.
+- **NMS:** small on average (2–5 %). The worst single fault reaches 33–78 %, above the 30–40 % flag of Chartier et al. (2019): a short trace whose slip rate the GR target cannot use.
+- **Not in this estimate:** B, B-mm, subsections, the Coulomb filter.
+
+### 8c. Liquiñe–Ofqui multi-fault, databases B and B-mm, jump 15 km (16 Nov)
+
+`multifault.lofs(db, (15.0,))`:
+- The 65 faults of system "Liquiñe–Ofqui" in B. Main traces have a slip rate ≥ 3 mm/yr (34 of them; MASCSN rows start at 2 mm/yr).
+- Thickness 10 km, 10 seeds.
+- Files: `tables/mf_{B,Bmm}_lofs_2026-11-16.csv`, `figs/mf_{B,Bmm}_lofs_2026-11-16.png`.
+
+Expected arc Mw ≥ 6 against 8.98 observed (ψ 0.6 / 0.8 / 1.0; single faults at 10 km in brackets):
+
+| database | expected Mw ≥ 6 | p | expected Mw ≥ 7 | chains | longest | chain Mmax | NMS mean / max |
+|---|---|---|---|---|---|---|---|
+| A (8b) | 9.5 / 12.7 / 15.7 (19.1 / 25.4 / 31.8) | 0.53 / 0.19 / 0.05 | 0.7 / 0.9 / 1.1 | 300 | 416 km | 7.6 | 3–5 % / 44 % |
+| B | 30.5 / 40.7 / 50.8 (52.6 / 70.1 / 87.7) | 0.000 | 1.6 / 2.2 / 2.7 | 687 | 983 km | 7.9 (cap) | 5–6 % / 35 % |
+| B-mm | 22.0 / 29.5 / 36.9 (36.8 / 49.1 / 61.4) | ≤ 0.002 | 0.7 / 0.9 / 1.2 | 687 | 983 km | 7.9 (cap) | 17–18 % / 79 % |
+
+- **Linking cuts the excess by 40 %** in both B variants, but both still fail. B's LOFS moment is about 3 times A's, from MASCSN slip rates of 2–10.6 mm/yr on more traces. The moment, not the segmentation, drives the excess.
+- **Chain length:** the B traces chain along the whole system (983 km). The class cap of 7.9 binds there; Leonard alone would give more.
+- **Linked share of Mw ≥ 6:** 3–4 %. The excess sits in the single-fault Mw 6–6.5 bins.
+- **B-mm NMS:** the MASCSN budget leaves 17 % of the slip unused, against 5 % in B.
+
+## 9. Rerun on fits 2026-11-16d and the S2 kernel rule (16 Nov)
+
+Inputs: `fits_2026-11-16d.csv` (one family b 0.975; table 5.0 from 1976; forearc Mmax 7.2); declustered catalogues 2026-11-16. Outputs dated `2026-11-16d`. No NRML files.
+
+**Code:**
+- `background.TABLE` is now 5.0 from 1976, the fits' `steps`; the arc test counts on it too.
+- Forearc Mmax is 7.2 in `background.CLASSES` and `faults.CLASS_MMAX`.
+- Kernel: the S2 rule (n scored at 1–100, first local maximum from 5; pattern events weighted w / (t_end − T_c(m)), training events w / (2010 − T_c(m))). `smooth.first_max` is copied from `model/inslab/is_smooth.py`.
+- Figure: `figs/kernel_loglik_2026-11-16d.png`.
+
+**Kernel n per class, before (n = 5 fixed) → after:**
+
+| | forearc | arc | backarc | Patagonia |
+|---|---|---|---|---|
+| Gardner–Knopoff | 5 → 5 | 5 → **50** (family) | 5 → 10 | 5 → **50** (family) |
+| nearest neighbour | 5 → 5 | 5 → **50** (family) | 5 → 25 | 5 → **50** (family) |
+
+- **The family rule breaks for the arc and Patagonia.** Their test sets are under 20 events, so they take the n of all crustal events together, whose curve rises to 50. That family curve mixes four separated classes and so prefers a broad kernel.
+- The arc has 34 / 50 training events and Patagonia 9, so the 50th neighbour is the far end of the class. Median bandwidth: 2000 km (arc), 950 km (Patagonia), against 135 and 280 km with n = 5. Those patterns are close to uniform within the 500 km cut.
+- Their own curves peak at n = 3 and give n = 5 from the floor: arc −3.1 at 5 against −4.2 at 50 (gk).
+- **City backgrounds (no faults)** move by this: Puerto Aysén −82 %, Valparaíso +49 %, La Serena +39 %, Copiapó and Calama +32 %. **Not for use until Pablo decides on the family rule.**
+
+**Rates per class (tapered, full catalogue), 16 → 16d:**
+
+| class | fit N(≥ 6) | fit N(≥ 7) | background N(≥ 6), A | background N(≥ 7), A | fault share of N(≥ 6), A / B / B-mm | faults / fit at 6, A / B / B-mm |
+|---|---|---|---|---|---|---|
+| forearc | 0.361 → 0.393 | 0.0246 → 0.0179 | 0.301 → 0.333 | 0.0235 → 0.0169 | 0.17 → 0.15 / 0.44 → 0.40 / 0.51 → 0.46 | 0.15 / 0.40 / 0.46 |
+| arc | 0.123 → 0.147 | 0.0108 → 0.0144 | 0 → 0 | 0 → 0 | 1 (bulge) | 3.7 → 3.0 / 10.1 → 8.3 / 5.2 → 4.3 |
+| backarc | 0.241 → 0.249 | 0.0218 → 0.0227 | 0.192 → 0.200 | 0.0201 → 0.0209 | 0.20 → 0.20 (all) | 0.20 |
+| Patagonia | 0.045 → 0.044 | 0.0044 → 0.0044 | 0 → 0 | 0 → 0 | 1 (bulge) | 1.65 / 3.5 / 1.3 (unchanged) |
+
+- Fault rates change by less than 2 % (b 0.975 for every class, against 0.98–1.02).
+- The arc bulge shrinks because the fit rose 20 %.
+- Forearc and backarc have no bulge. Their background is the fit minus the faults; the forearc N(≥ 7) falls 28 % (Mmax 7.2).
+
+**Arc count test (table from 1976 only):**
+- Observed 6.5 of Mw ≥ 6 (was 9.0 with the historical steps); none of Mw ≥ 7 since 1976.
+- Expected, single faults: A 22.4 (13 % of the tree passes), B 61.8 (0 %), B-mm 31.9 (6 %).
+- Class maximum: A_cm 94 %, B_cm 52 %, Bmm_cm 96 %.
+- Since 1976 the test no longer sees Aysén 1960 or 1927. The Mw ≥ 7 check needs the 1905–2026 window of the fits' large-event check.
+
+**Liquiñe–Ofqui multi-fault, A, 15 km, 10 seeds:** expected arc Mw ≥ 6 of 7.1 / 9.5 / 11.8 against 6.5 observed (ψ 0.6 / 0.8 / 1.0); p 0.58 / 0.27 / 0.10, all pass. Chains up to 416 km, Mmax 7.6; NMS 4–6 % (worst fault 46 %).
+
+**Tornado row: background from the declustered fits** (`lower.py`; `fits_declustered_2026-11-16d.csv`, gk_family / nn_family, table full, own b; `tables/join_decl_2026-11-16d.csv`, `background_mfd_decl_2026-11-16d.csv`). Faults / declustered fit at Mw 6 (gk; nn within 0.04):
+
+| class | A | B | B-mm |
+|---|---|---|---|
+| forearc | 0.23 | 0.61 | 0.71 |
+| arc | 4.2 | 11.4 | 5.9 |
+| backarc | 0.31 | 0.31 | 0.31 |
+| Patagonia | 1.8 | 3.8 | 1.4 |
+
+**Other:** `model/faults/fagnano.py` reads `fits_2026-11-15.csv` only for Patagonia's cut-line b in its D16 rates table (one system against separate segments). Nothing in the crustal model imports it; following the new fits would change b 0.98 → 0.97 in that diagnostic only.
+
+### 9b. Kernel n per class (Pablo, 16 Nov)
+
+- **Rule:** each class takes its own n: the first local maximum from 5 of its own curve. Only b pools. Patagonia is fixed at n = 5 (9–12 test events). The crustal family is scored for reference only.
+- **n:** forearc 5 / 5, arc 5 / 5, backarc 10 / 25, Patagonia 5 (fixed) (Gardner–Knopoff / nearest neighbour).
+- **Median training bandwidths:** forearc 59 / 44 km, arc 239 / 114 km, backarc 175 / 150 km, Patagonia 700 / 330 km.
+- **No-faults background N(≥ 6) within 50 km, 16 → 16d:**
+  - northern and central cities +13 to +30 %: the forearc fit is +9 %, plus the 1976 table and the new weights
+  - Concepción +16 %, Puerto Williams +14 %, Pucón +4 %
+  - Puerto Montt −3 %, Hornopirén −12 %, Puerto Aysén −11 %
+- **With faults:** the arc and Patagonia have no background above Mw 6. Their pattern does not change the city totals, which move by −2 % (south) to +30 % (Copiapó, forearc).
+
+## 10. Rerun on fits 2026-11-16e, crustal domain = the grid (16 Nov)
+
+Inputs:
+- fits `fits_2026-11-16e.csv` and `fits_declustered_2026-11-16e.csv`;
+- catalogue `2026-11-16c` (events outside the crustal grid in the sub-class `outside`; Scotia events to outer rise);
+- declustered families `*_family_2026-11-16e.csv`.
+
+The crustal code pins its catalogue (`background.CAT`). Outputs dated `2026-11-16e`; figures in `figs/2026-11-16e/`. The join figure is now drawn per 0.1 bin, with the arc twice (single faults, multi-fault).
+
+**Kernel n:** 5 for every class and option. The backarc now has 7 test events, inside the grid: its curve no longer drifts to 10 / 25.
+
+**Per class, tapered, database A (16d → 16e):**
+
+| class | fit N(≥ 6) | background N(≥ 6) | background N(≥ 7) | faults / fit at 6, A / B / B-mm | fault share of N(≥ 6), A |
+|---|---|---|---|---|---|
+| forearc | 0.393 → 0.332 | 0.333 → 0.272 | 0.0169 → 0.0134 | 0.15 → 0.18 / 0.40 → 0.48 / 0.46 → 0.55 | 0.18 |
+| arc | 0.147 → 0.135 | 0 → 0 | 0 → 0 | 3.0 → 3.3 / 8.3 → 9.1 / 4.3 → 4.7 | 1 |
+| backarc | 0.249 → 0.039 | 0.200 → **0** | 0.0209 → **0** | 0.20 → **1.28** (all three) | 1 |
+| Patagonia | 0.044 → 0.020 | 0 → 0 | 0 → 0 | 1.65 → 3.9 / 3.5 → 8.2 / 1.3 → 3.0 | 1 |
+
+- **Backarc: a new bulge.** The class rate fell 84 %, but its faults did not change (0.050 at Mw 6), so the faults now fill the fit from Mw 6 and the backarc has no background above 6.
+  - The three Argentine faults outside the grid (Niquizanga, Las Chacras a and b) carry 0.0095 of the 0.050. Their events are now `outside`, but the faults are still sources.
+  - Without them the backarc faults are 0.041 against the fit's 0.039: a ratio of 1.03, still at the fit.
+- **Patagonia:** the faults are 3–8 times the fit, now that the class rate is halved. Magallanes–Fagnano check since 1905 (A, tree mean; range in brackets):
+  - Mw ≥ 7: 0.68 expected (0.35–1.33)
+  - Mw ≥ 7.5: 0.16 expected (0.04–0.32)
+  - The 1949 doublet (two Mw 7.8) is one sequence. P(≥ 1 of Mw ≥ 7.5) = 0.15 with the tree mean.
+- **Arc count test** (6.48 observed, the fit 6.87): single faults fail (A 22.8, 4 % of the tree passes; B 62.8; B-mm 32.4). The Liquiñe–Ofqui multi-fault branch (A, 15 km) expects 7.3 / 9.8 / 12.2 for ψ 0.6 / 0.8 / 1.0, p 0.41 / 0.15 / 0.04: it passes at ψ 0.6 and 0.8.
+
+**Tornado row, declustered background** (faults / declustered fit at Mw 6, gk; nn in brackets), 16d → 16e:
+
+| class | A | B | B-mm |
+|---|---|---|---|
+| forearc | 0.23 → 0.26 (0.27) | 0.61 → 0.67 (0.69) | 0.71 → 0.78 (0.81) |
+| arc | 4.2 → 4.2 (4.1) | 11.4 → 11.6 (11.4) | 5.9 → 6.0 (5.9) |
+| backarc | 0.31 → 1.23 (1.43) | same | same |
+| Patagonia | 1.8 → 3.5 (4.1) | 3.8 → 7.3 (8.7) | 1.4 → 2.7 (3.2) |
+
+### 10b. Faults outside the grid dropped (Pablo, 16 Nov)
+
+- `faults.load` drops a source whose trace lies wholly outside the crustal grid (`faults.GRID`). That is AR-0025a Niquizanga, AR-0027a and AR-0027b Las Chacras, in A, B and B-mm.
+- Magallanes–Fagnano stays (60 % of its trace is inside). Test added.
+- The 2026-11-16e fault, join, arc and tornado tables and the figures are rewritten with this rule.
+- **Backarc at Mw 6:** faults 0.050 → 0.041 against the fit's 0.039 (ratio 1.28 → 1.03). The background is still 0 above Mw 6, because the faults reach the fit in the Mw 6 bin.
+- **Backarc at Mw ≥ 7:** faults 0.0017, half the fit. The tail above 7 is under the fit (no background there).
+- **Declustered row:** backarc faults / fit 1.00 (gk), 1.16 (nn).
+- Other classes unchanged.
+
+### 10c. Liquiñe–Ofqui multi-fault: jump distance × thickness (16 Nov)
+
+Database A; jumps 5 / 10 / 15 / 20 km; thickness 10 and 20 km; ψ 0.6 / 0.8 / 1.0; 10 seeds (`multifault.lofs("A", JUMPS_STUDY, DEPTHS_LOFS)`).
+- Files: `tables/mf_A_lofs_2026-11-16e.csv`, `figs/2026-11-16e/mf_lofs_study_A.png`.
+- Observed arc events, by weight: Mw ≥ 6 since 1976, 6.48. Before 1976, out of the fit: Mw ≥ 7 since 1905, 1.74; Mw ≥ 7.5 since 1830, 0.90 (Aysén 1960).
+
+Expected arc Mw ≥ 6 since 1976 (p), for ψ 0.6 / 0.8 / 1.0:
+
+| jump | thickness 10 km | thickness 20 km |
+|---|---|---|
+| 5 km | 11.9 (0.05) / 15.9 / 20.0 | 15.4 (0.006) / 20.5 / 25.8 |
+| 10 km | 9.9 (0.14) / 13.1 (0.02) / 16.5 | 12.4 (0.04) / 16.7 / 20.9 |
+| 15 km | 7.3 (0.41) / 9.8 (0.15) / 12.2 (0.04) | 9.3 (0.18) / 12.3 (0.04) / 15.3 (0.006) |
+| 20 km | 5.8 (0.64) / 7.7 (0.35) / 9.8 (0.15) | 7.9 (0.33) / 10.7 (0.10) / 13.1 (0.02) |
+
+Expected Mw ≥ 7 since 1905, against 1.74 observed (ψ 0.6 / 0.8 / 1.0):
+
+| jump | thickness 10 km | thickness 20 km | longest chain, chain Mmax (10 / 20 km) |
+|---|---|---|---|
+| 5 km | 0.4 / 0.6 / 0.7 | 1.3 / 1.7 / 2.2 | 229 km, 7.4 / 7.7 |
+| 10 km | 0.6 / 0.8 / 1.0 | 1.3 / 1.7 / 2.2 | 229 km, 7.4 / 7.7 |
+| 15 km | 0.7 / 0.9 / 1.1 | 1.2 / 1.6 / 2.0 | 416 km, 7.6 / 7.9 |
+| 20 km | 0.5 / 0.6 / 0.8 | 1.0 / 1.4 / 1.7 | 860 km, 7.9 / 7.9 |
+
+- **Reaching Aysén** (≥ 7.7) takes 20 km thickness or a 20 km jump; seeds do not change it. At 20 km thickness and a 15 km jump, Mw ≥ 7.5 since 1830 is 0.38 / 0.51 / 0.62 expected against 0.9 observed.
+- **The trade-off:** thickness 20 km fits the large events, while thickness 10 km fits the Mw 6 count. No single case passes both at ψ 0.8.
+  - Closest: jump 15 km, thickness 20 km, ψ 0.6 (Mw ≥ 6: 9.3, p 0.18; Mw ≥ 7: 1.2 against 1.7).
+  - Also: jump 20 km, thickness 20 km, ψ 0.6–0.8 (7.9–10.7, p 0.33–0.10; Mw ≥ 7: 1.0–1.4).
+- **A 20 km jump** links the whole system (842–860 km chains, the cap 7.9 binds). NMS rises to 10–13 % on average and up to 93 % on one fault, beyond the 30–40 % flag of Chartier et al. (2019) for that fault.
+- **Seed spread:** 0.1–0.5 events. More seeds smooth the curves only.
+- The join figures (`join_*.png`) now show the events of Mw ≥ 7 before 1976 as open diamonds (since 1905; Mw ≥ 7.5 since 1830), out of the fit.
+
+### 10d. Jump × thickness study for B and B-mm (16 Nov)
+
+Same setup as 10c (65 Liquiñe–Ofqui faults; main traces from 3 mm/yr). Figures: `figs/2026-11-16e/mf_lofs_study_{A,B,Bmm}.png`; tables `mf_{B,Bmm}_lofs_2026-11-16e.csv`.
+
+Expected arc Mw ≥ 6 since 1976 (6.5 observed), at ψ 0.6 / 1.0:
+
+| jump | B, 10 km depth | B, 20 km thickness | B-mm, 10 km thickness | B-mm, 20 km depth | longest chain |
+|---|---|---|---|---|---|
+| 5 km | 38.7 / 64.6 | 50.0 / 83.6 | 27.6 / 46.0 | 18.4 / 30.8 | 250 km |
+| 10 km | 28.3 / 47.4 | 36.8 / 61.5 | 21.8 / 36.4 | 14.8 / 24.9 | 690–700 km |
+| 15 km | 23.8 / 39.7 | 31.3 / 52.0 | 17.4 / 29.1 | 12.7 / 21.1 | 930–980 km |
+| 20 km | 18.4 / 30.6 | 24.6 / 41.0 | 13.5 / 22.7 | 10.5 / 17.4 | 1 390–1 480 km |
+
+- **B fails in every case** (p < 0.001).
+- **B-mm passes only** at a 20 km jump, 20 km depth and ψ 0.6 (p 0.10), with chains of 1 400 km.
+- **B's traces link along the whole system** from a 10 km jump (700 km). Its LOFS moment is 2–3 times A's.
+- **B-mm is lower at 20 km thickness than at 10 km:** its moment is MASCSN's, so a wider fault gets less slip per unit area and a higher Mmax.
+- **Code:** the partition is vectorised (same results to 1e-10 on A and B; B at a 20 km jump went from 22 s to 2 s per run). The full study took 18 min for B and B-mm.
+
+### 10e. Checks of the 16e model (figures `figs/2026-11-16e/check_*.png`, `figs_checks.py`)
+
+- **Trade-off** (`check_tradeoff`): only database A multi-fault cases fall inside both Poisson ranges (arc Mw ≥ 6 since 1976 and Mw ≥ 7 since 1905). B never does; B-mm only at chains over 900 km. Single faults are outside for every database.
+- **Liquiñe–Ofqui map** (`check_lofs_map`; A, 15 km, ψ 0.8, one seed): 233–238 chains carry rate.
+  - The main northern (39–41° S) and southern (46–48° S) traces release 60–100 % of their slip in linked ruptures.
+  - The branch and secondary traces stay single.
+- **Fault share of N(≥ 6)** (`check_fault_share_map`): nearly 1 south of 38° S in all databases; 0.2–0.8 in the northern forearc.
+- **Counts by magnitude** (`check_counts`):
+  - forearc: the model falls 2× under the observed count at Mw 6.5 and 7 (the family b 1.01 against its own 0.93)
+  - arc: single faults over at Mw 5.5–6.5, the multi-fault branch close
+  - backarc: within the ranges
+  - Patagonia: faults over at Mw 5.5–6.5, and no source of the 1949 doublet's rate at Mw ≥ 7.5 since 1830
+- **Moment rate** (`check_moments`): observed (Mw < 7 since 1976, 7–7.4 since 1905, ≥ 7.5 since 1830) against fit and faults (A):
+
+| class | observed | fit | A faults |
+|---|---|---|---|
+| forearc | 4.5e18 | 2.7e18 | 0.29e18 |
+| arc | 3.0e18 | 2.4e18 | 2.0e18 |
+| backarc | 1.6e18 | 0.56e18 | 0.29e18 |
+| Patagonia | 5.7e18 | 0.40e18 | 1.2e18 |
+
+  - **Arc:** the faults release about the catalogue moment. The arc bulge is the MFD shape, not the moment, which supports the multi-fault branch over a lower ψ.
+  - **Patagonia:** the faults release a fifth of the catalogue moment (the 1949 doublet) while over-predicting Mw 6.
+  - **Backarc:** San Juan 1944 and 1894 put the observed moment 3× above the fit.
+- **Near-fault share** (`check_near_share`, observed Mw ≥ 6 within 20 km of a trace):
+  - forearc: 13–15 % observed (A) against a model fault share of 18 %, consistent
+  - arc: 28–42 % (A), 50–57 % (B) against 100 %
+  - Patagonia: 0–14 % (A), up to 29 % (B) against 100 % (the 1949 events are 16–27 km from the Fagnano trace)
+  - So the join gives the arc and Patagonia all their Mw ≥ 6 rate on faults, where at most half the observed events are near one.
+
+## 11. OpenQuake source model of the crustal family (S5b, 16 Nov)
+
+Code: `build.py`, `mfsource.py`, `nrml.py`, `oqcheck.py`. Files: `nrml/2026-11-16e/` (59 files, 373 MB), `branches.json` (tree, tornado rows, every file with its factors), `lt_crustal_tree.xml`, `lt_crustal_reference.xml`. Hand-off note for S5: `S5_HANDOFF.md`.
+
+**Modelling decisions** (Pablo's word where marked, the rest mine, written here):
+1. **Fault systems** (Pablo):
+   - Segmented: single-fault simple-fault sources, the six MFD shapes, Leonard Mmax; ψ × thickness × shape with the weights of DECISIONS.
+   - Multi-fault: Liquiñe–Ofqui (system "Liquiñe–Ofqui" of A) by the SHERIFS partition, jump 15 km; ψ (0.6 / 0.8 / 1.0) × thickness (10 / 20 km), equal weights.
+   - The class maximum is gone (its role is taken by the multi-fault ruptures).
+   - Fault system weights 0.5 / 0.5 (Pablo, 16 Nov).
+2. **Multi-fault branch, in OpenQuake** (mine):
+   - Linked ruptures form one `multiFaultSource` per file, with Poisson occurrence probabilities for 1 yr. These files are NRML 0.5 with one source group and `investigation_time = 1`; jobs must use 1 yr.
+   - Sections are one planar surface per trace segment, from the surface to the branch depth, dipping right of the trace (`cr_sections_<db>_z<depth>.xml`; OpenQuake builds a section from one surface only).
+   - Single-fault Liquiñe–Ofqui ruptures are simple-fault sources with their SHERIFS MFD.
+   - The other faults keep their single-fault rates as the mean of the six shapes at that ψ and depth.
+   - Rupture rates are the mean of 10 SHERIFS seeds. 1 060–1 140 linked ruptures per tree file.
+3. **Background**:
+   - Joined (the S3 rule, kept by Pablo) with the branch-mean fault MFD of each fault system. The segmented and the multi-fault (A, 15 km) backgrounds come out equal at N(≥ 5.5) = 1.453 per year: forearc and backarc faults are the same in both, and the arc and Patagonia have no background above Mw 6 in either.
+   - One point source per cell, the classes summed (mine).
+   - Nodal planes: per cell the B14 class distributions mixed by the class rates there, probabilities in 1e-4 (mine). Exact where one class dominates; approximate where classes with different Mmax share a cell.
+   - Depths 0–30 km, hypocentre 10 km (Pablo: keep 10 km); WC1994, aspect 1.
+4. **Source Mmin 5.5** (first bin centre) for the background, as for interface and in-slab (DECISIONS, Hazard runs; Pablo); faults from 6.0. Families add in rate space; one Mmin keeps the tornado and the disaggregation like for like.
+5. **Tree** (flattened, one sourceModel branch per combination; 84 branches; realizations = 84 × GMMs):
+   - declustering gk / nn 0.5 / 0.5 × system 0.5 / 0.5
+   - segmented: 36 branches (ψ 0.25 / 0.5 / 0.25 × depth 0.5 / 0.5 × shape 1/6)
+   - multi-fault: 6 branches, 1/6 each
+6. **Tornado reference** (mine): multi-fault A, jump 15 km, ψ 0.8, thickness 10 km, tapered fit, Gardner–Knopoff pattern. It is the case that passes both count tests best at ψ 0.8 (REPORT_S3 10c).
+7. **Tornado rows** (14 with the reference):
+   - pattern from nearest-neighbour declustering
+   - background fit cut at Mmax
+   - declustered background rates (lower bound; Pablo)
+   - no faults, smoothed seismicity only (Pablo)
+   - segmented system (six shapes 1/6, ψ 0.8, 10 km)
+   - ψ 0.6, ψ 1.0
+   - thickness 20 km
+   - jumps 5, 10 and 20 km (Pablo: 20 km kept as a tornado row although not credible, chains to 860 km)
+   - fault database B and B-mm (multi-fault 15 km; Pablo: tornado only)
+   - Rows with another fault system use the background joined with that system.
+
+**Check** (`tables/oqcheck_2026-11-16e.csv`):
+- All 59 files read by OpenQuake's converter. The multi-fault sources were split against their sections as the engine does (`save_and_split`).
+- 242 230 sources, none missing, rates within 4.2e-6 (5-digit rounding), top magnitudes equal.
+
+**Wording (Pablo, 16 Nov):** the fault parameter formerly called "depth" (the 10 / 20 km branches) is the seismogenic thickness; "depth" is kept for events and the point-source hypocentre. Earlier sections use the old word.
+
+## 12. Strict UCERF3 rupture set for Liquiñe–Ofqui (16 Nov, discussion; no rates)
+
+Code `rupset.py` (UCERF3 path rules on 5 km subsections, strict rule, merge to whole-fault scenarios), `rupset_compare.py`, figure `figs/2026-11-16e/check_strict_scenarios.png`, table `tables/rupset_compare_2026-11-16e.csv`. Database A, 48 LOFS faults.
+
+| depth | jump | traces | subsection ruptures | strict | scenarios | most faults | longest scenario | Mmax (Leonard) |
+|---|---|---|---|---|---|---|---|---|
+| 10 km | 5 | main | 2 249 | 24 | 12 | 3 | 229 km | 7.4 |
+| 10 km | 5 | all | 9 034 | 42 | 22 | 4 | 246 km | 7.4 |
+| 10 km | 10 | main | 4 139 | 50 | 25 | 3 | 229 km | 7.4 |
+| 10 km | 10 | all | 67 783 | 101 | 52 | 5 | 339 km | 7.5 |
+| 10 km | 15 | main | 13 328 | 150 | 75 | 7 | 359 km | 7.5 |
+| 10 km | 15 | all | 182 261 | 239 | 121 | 7 | 359 km | 7.5 |
+| 20 km | 15 | main | 13 328 | 150 | 75 | 7 | 359 km | 7.8 |
+| 20 km | 15 | all | 182 261 | 239 | 121 | 7 | 359 km | 7.8 |
+
+- **The strict scenarios are simple linear chains**, splays included (figure): no T-shapes, no side-by-side strands, no doubling back. The splays appear only as continuations off a fault tip (the Aysén splays onto the southern main trace).
+- **Extents fall:** longest scenario 359 km at 15 km (416 km with the old whole-fault chains; 810 km with splays). Mmax 7.5 at 10 km thickness, 7.8 at 20 km. None reaches the arc cap of 7.9, so the drop-against-clip question does not arise in A.
+- **Aysén (7.7):** reached only at 20 km thickness. At 10 km no scenario passes 7.5.
+- **Subsections are 5 km at both depths** (Pablo, 16 Nov). With half-thickness pieces (10 km in the 20 km branch) nine faults of 10–14 km had one subsection and the two-subsection rule barred them from every linked rupture (22 scenarios instead of 75). The subsection is a resolution for the path rules only; now both thickness branches share the same scenarios and differ only in width and Mmax.
+- **Coulomb proxy** (junction angle > 45° or a change of rake, 10 km depth): 3–7 junctions with main traces (jump 5 / 10 / 15), 9–22 with splays. The worst are a dextral main trace onto a dextral-normal splay at 48–53° (CL-006m with CL-007 and CL-012; CL-006tt with CL-006kkk). Every other junction is below 45°. The NS–NE junctions are Coulomb-compatible (Pablo).
+- **Why strict loses most subsection ruptures:** partial members are nearly always the first or last fault of the path (the rupture ends mid-fault), 23 000 of 28 000 partial memberships at 15 km; mid-path partial members (a splay joining mid-trace) are 5 000. Those end-partial ruptures are what the floating single-fault ruptures and the whole-fault scenarios between them represent.
+
+## 13. SHERIFS on the strict rupture set: one case (16 Nov)
+
+Database A, Liquiñe–Ofqui only, 15 km jump, main traces, strict scenarios (section 12) merged to whole faults; ψ 0.6 / 0.8 / 1.0 × thickness 10 / 20 km; 10 seeds. `multifault.RUPSET = "strict"`; scenarios above the class Mmax are dropped (none in A). Table `tables/mf_A_lofs_2026-11-16e.csv` (overwritten; the chain run of 10c is in the WORKLOG), figure `figs/2026-11-16e/mf_lofs_study_A.png`.
+
+| | chains (10c) | strict |
+|---|---|---|
+| scenarios | 300 | 75 |
+| longest, Mmax (10 / 20 km) | 416 km, 7.6 / 7.9 | 359 km, 7.5 / 7.8 |
+| arc Mw ≥ 6 since 1976 (obs. 6.5), ψ 0.6 / 0.8 / 1.0, 10 km | 7.3 / 9.8 / 12.2 | 9.2 / 12.2 / 15.3 |
+| p, 10 km | 0.41 / 0.15 / 0.04 | 0.19 / 0.04 / 0.006 |
+| arc Mw ≥ 6, 20 km | 9.3 / 12.3 / 15.3 | 11.7 / 15.7 / 19.6 |
+| Mw ≥ 7 since 1905 (obs. 1.7), 10 / 20 km, ψ 0.8 | 0.9 / 1.6 | 0.7 / 1.7 |
+| Mw ≥ 7.5 since 1830 (obs. 0.9), 10 / 20 km, ψ 0.8 | 0.08 / 0.51 | 0.05 / 0.29 |
+| linked share of N(≥ 6) | 9.5 % / 5 % | 7.5 % / 4 % |
+| NMS | 3–4 % / 2 % | 6–7 % / 3 % |
+
+- **The strict set moves less moment into large ruptures:** 75 scenarios against 300, and the longest 359 instead of 416 km. More slip stays in the single faults at Mw 6–6.5, so the Mw ≥ 6 count rises by 25 % and the test passes only at ψ 0.6 and 10 km thickness (p 0.19).
+- **The old chains were passing partly for a wrong reason:** the branching and overlapping chains gave many more long ruptures to spend slip on. The strict set removes them, and the arc bulge comes back in part.
+- **Aysén:** 7.7 reached only at 20 km thickness (Mmax 7.8); Mw ≥ 7.5 since 1830 0.22–0.36 expected against 0.9 observed.
+- Single faults of A, 10 km thickness, ψ 0.8: 25.4 expected. The strict multi-fault halves that; the chains cut it to 40 %.
+
+## 14. Rows on the strict rupture set, and the Fagnano row (16 Nov)
+
+**Liquiñe–Ofqui rows** (`multifault.py`, `tables/mf_A_lofs_2026-11-16e.csv`, `mf_A_lofs_splays_…`, `mf_B_…`, `mf_Bmm_…`; figures `figs/2026-11-16e/mf_lofs_study_*.png`). Arc Mw ≥ 6 since 1976 against 6.5 observed, ψ 0.6 / 0.8 / 1.0:
+
+| row | 10 km thickness | 20 km | Mmax (10 / 20) | passes (p ≥ 0.05) |
+|---|---|---|---|---|
+| A main, 5 km | 12.4 / 16.5 / 20.7 | 16.4 / 21.9 / 27.6 | 7.4 / 7.7 | none |
+| A main, 10 km | 11.1 / 15.0 / 18.7 | 14.3 / 19.0 / 23.9 | 7.4 / 7.7 | ψ 0.6, 10 km (0.07) |
+| A main, 15 km | 9.2 / 12.2 / 15.3 | 11.7 / 15.7 / 19.6 | 7.5 / 7.8 | ψ 0.6, 10 km (0.19); ψ 0.6, 20 km (0.05) |
+| A splays, 5 km | 10.7 / 14.4 / 18.0 | 13.7 / 18.4 / 23.0 | 7.4 / 7.7 | ψ 0.6, 10 km (0.09) |
+| A splays, 10 km | 8.8 / 11.7 / 14.6 | 11.2 / 14.9 / 18.9 | 7.5 / 7.8 | ψ 0.6, 0.8 at 10 km; ψ 0.6 at 20 km |
+| A splays, 15 km | 7.2 / 9.7 / 12.3 | 9.5 / 12.8 / 15.9 | 7.5 / 7.8 | ψ 0.6, 0.8 at 10 km (0.42, 0.15); ψ 0.6 at 20 km (0.17) |
+| B, 15 km | 31 / 41 / 51 | 40 / 53 / 66 | 7.6 / 7.9 | none |
+| B-mm, 15 km | 22 / 29 / 37 | 15 / 20 / 25 | 7.6 / 7.9 | none |
+
+- Splays pass more because the Aysén splays give the single faults more linked partners; their unused slip is 30–35 % (worst fault 90 %), above the 30–40 % flag of Chartier et al. (2019): the 0.5 mm/yr splays are drained by the long ruptures.
+- Best case by the count test and credibility: A, main + splays, 15 km, 10 km thickness (reference ψ 0.8, p 0.15); runner-up main traces only (ψ 0.6 only).
+- Mw ≥ 7 since 1905 (1.7 observed): 0.5–0.9 at 10 km, 1.3–2.2 at 20 km. Aysén (7.7) only at 20 km.
+- No scenario above the arc cap 7.9 in A; B and B-mm reach 7.9 at 20 km with scenarios of 366 km.
+
+**Fagnano row** (`fagnano_row.py`; `tables/mf_fagnano_2026-11-16e.csv`, `figs/2026-11-16e/mf_fagnano.png`). The measured Magallanes–Fagnano traces as separate faults (`faults.load(split_system=True)`), the strict rupture set and SHERIFS with the Patagonia target, against the joined 490 km system source.
+- Three of the seven traces (AR-0056b, d, g, east of 67.6° W, 82 km) lie outside the crustal grid and drop under the domain rule when split; the joined source keeps them because part of it is inside. The split model is therefore 408 km of Fagnano in four traces.
+- **The traces do not chain.** CL-056b (224 km) ends 67 km from CL-056c; CL-056d overlaps CL-056c instead of continuing it, so every three-trace path uses CL-056d in part and fails the strict rule. Strict scenarios: CL-056d + AR-0056a (98 km) and, in the north, CL-006aaa + CL-006zz (130 km). Mmax of the SHERIFS model 7.3 (10 km) / 7.6 (20 km), against 7.7 / 8.0 for the joined source.
+- Patagonia Mw ≥ 6 since 1976: none observed; the joined source expects 2.5–5.5 (ψ 0.6–1.0, 10–20 km), SHERIFS 3.9–8.7. Mw ≥ 7.5 since 1830 (1.7 observed, the 1949 doublet): joined 0.15–0.41, SHERIFS 0–0.16.
+- **Conclusion:** with the measured traces of A, SHERIFS makes Patagonia worse on both counts: more Mw 6 (no long ruptures to spend slip on) and no source for the 1949 doublet. The joined system source is the better representation of Fagnano; the row is kept as a tornado row only. A chain across the 67 km gap between CL-056b and CL-056c would need a trace that is not in A.
+
+## 15. Mmax pad rows (16 Nov; `pad.py`, `tables/pad_rows_2026-11-16e.csv`)
+
+The reference branches (segmented and multi-fault A, 15 km, ψ 0.8, 10 km thickness) with the class Mmax pad 0.0 and 0.4 against 0.2 (fits tables `fits_2026-11-16f_pad00` / `_pad04`, through the background lists, the join and the multi-fault cap), and the single faults with Leonard + 0.2 / 0.4 (`faults.FAULT_PAD`). Rates per year; the large-event checks as section 10c.
+
+**Background pad** (class Mmax 7.0 / 7.7 / 7.5 / 7.8 → 7.2 / 7.9 / 7.7 / 8.0 → 7.4 / 8.1 / 7.9 / 8.2):
+- Moves only the background's tail. N(≥ 6) of the fit within 2 %; the forearc background N(≥ 7) 0.006 / 0.014 / 0.021 (pad 0 / 0.2 / 0.4), and its expected Mw ≥ 7 since 1905 0.8 / 1.8 / 2.7 against 3.5 observed (p 0.04 / 0.26 / 0.50). The backarc is similar in proportion.
+- The arc and Patagonia are untouched: they have no background above Mw 6, and the multi-fault cap (7.7 / 7.9 / 8.1) is above every scenario's Mmax (7.5), so it never binds in A. The multi-fault rows are identical at the three pads.
+- The segmented rows do not change either: the single faults do not read the class Mmax.
+
+**Fault pad** (Leonard + 0 / 0.2 / 0.4 on the single faults, pad 0.2 background):
+- Spreads each fault's moment over 2–4 more bins. Arc faults / fit at Mw 6: 2.97 → 2.13 → 1.58; expected arc Mw ≥ 6 since 1976: 20.4 → 14.7 → 10.8 (p 0.000 / 0.009 / 0.085). Patagonia: 3.3 → 2.5 → 1.9.
+- Fault N(≥ 7) rises (arc 0.002 → 0.008); Mw ≥ 7 since 1905 0.28 → 0.71 → 1.00 against 1.7.
+- The forearc and backarc faults fall below the fit at Mw 6 by more, and the backarc regains a background above 6 (0.013 / 0.020 at Mw ≥ 6).
+- A fault pad of 0.4 gives the segmented reference about the same arc count as the multi-fault branch (10.8 against 12.2), by a different route: more magnitude per fault rather than linked ruptures.
+
+**So:** the background pad is a tail-only factor (the forearc's Mw ≥ 7 check is where it shows); the fault pad is the one that moves the arc bulge. In OpenQuake terms, the rows are: background pad 0.0 and 0.4 (two background files each, segmented and multi-fault), fault pad 0.2 and 0.4 (two segmented fault files).
