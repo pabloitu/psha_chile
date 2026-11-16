@@ -3352,3 +3352,60 @@ Report only; nothing changed. Brief from A7 (Pablo, 16 Nov); the A7 entry "LOFS 
   - The class (crustal arc), Mw and arc Mmax (7.9) do not change. They act at the next run of the chain (A7 reruns and freezes).
 - **Proposed DECISIONS line** (A6 line, after the 1919 epicentre): "1927-11-21 and Aysén 1960-06-06 epicentres to ISC-GEM (1927: Centennial flagged poor; 1960: two A-quality solutions 41 km apart, ISC-GEM with more arrival times and ISC agreeing) (Pablo, 16 Nov, A9)."
 - **Commit:** `git add psha_chile8/catalog/overrides_A6.csv psha_chile8/WORKLOG.md`; message: `A6 (A9): 1927-11-21 and Aysén 1960 epicentres to ISC-GEM`
+
+## 2026-11-16: LOFS epicentres applied, run `2026-11-16e`, frozen (Claude Code, A7)
+
+A6 moved Aysén 1960-06-06 and 1927-11-21 to the ISC-GEM epicentre (accepted lon/lat rows, commit 316c500; Pablo, 16 Nov). DECISIONS read again before the run; no change that touches the classes.
+
+- **Chain:** `locate.py`, `magnitude.py`, `locate.py`, `classify.py` (locations and magnitudes `2026-11-16d`, classes and catalogue `2026-11-16e`), the three checks; `pytest catalog`: 129 pass.
+- **Against `2026-11-16c`:** only the two epicentres changed (1960: 45.748 S 72.919 W; 1927: 44.861 S 72.686 W). No other position, no depth, Mw, weight, class, rule or sub-class. Both stay crustal arc. Literature events and magnitude tests as before.
+- **Frozen:** `catalog/frozen/2026-11-16e/` (`SHA256SUMS` verified, `DECISIONS_NOTE.md` with the change). Folders `2026-11-16`, `16b`, `16c` checked against their sums: unchanged.
+- **Maps** `catalog/figs/classify/lofs_south.png` and `lofs_full.png` redrawn on the new catalogue.
+- **Note:** the fits table `fits_2026-11-16e` (B11/B12) is on catalogue `2026-11-16c`; the catalogue name `2026-11-16e` is a different file. The refit takes the next free fits name.
+- **Not committed yet:** the Scotia and grid rules in `classify.py` and its tests, and the frozen folders `2026-11-16b` and `2026-11-16c`, although the fits `2026-11-16e` are built on run c.
+- **Commit** (from the repo root; it covers runs b, c and e):
+  - `git add psha_chile8/catalog/classify.py psha_chile8/catalog/locate.py psha_chile8/catalog/magnitude.py psha_chile8/catalog/tests/test_classify.py psha_chile8/catalog/CLASSIFICATION.md psha_chile8/catalog/merged/MANIFEST.csv psha_chile8/catalog/figs psha_chile8/catalog/frozen/2026-11-16b psha_chile8/catalog/frozen/2026-11-16c psha_chile8/catalog/frozen/2026-11-16e psha_chile8/explore/A9 psha_chile8/DATA.md psha_chile8/WORKLOG.md`
+  - `git commit -m "A7: Scotia–Antarctic boundary events to outer rise (run 2026-11-16b), crustal events outside the grid in the sub-class outside (2026-11-16c), Aysén 1960 and 1927 at the ISC-GEM epicentre (2026-11-16e); all frozen; LOFS maps"`
+- **Proposed DECISIONS line:** none of mine beyond those of runs b and c; A6 proposed the line for the epicentres.
+
+## 2026-11-16: arc class by latitude, diagnostic for the fault / background mismatch (Claude Code, B11/B12)
+
+Asked by Pablo (the arc b and the Liquiñe–Ofqui faults). Exploration only: no rule, table or script changed; numbers computed inline on `fits/gr.py` (catalogue `2026-11-16c`; the newer frozen catalogue `2026-11-16e` moves two Liquiñe–Ofqui epicentres and is not yet read by the fits). Figure `fits/figs/arc_regions_2026-11-16f.png`. DECISIONS read before and after; unchanged for the fits.
+
+- **The arc class is three regions.** Counted events of Mw ≥ 5 since 1976 (70 in all): north of 32° S 22, 32–38° S 18, Liquiñe–Ofqui (38–47.2° S) 31. Mw ≥ 6: 2, 2 and 3. So 56 % of the arc rate that S3 compares with the Liquiñe–Ofqui faults lies north of 38° S.
+- **Liquiñe–Ofqui is two swarms.** 18 of its 31 events of Mw ≥ 5, and all 3 of Mw ≥ 6, belong to Hudson 1991 (Aug 1991 to early 1992) and the Aysén fjord swarm of 2007–2008. Mw ≥ 5 per period: 2.2 (1976–1989), 12 (1990s), 1 (2000–2006), 17 (2007–2011), 1 (2012–2019), 0 since. Without the swarms 12 events remain and b cannot be fitted (2.0 ± 0.5).
+- **Own b per region** (cut line, 5.0 from 1976): north 1.07 ± 0.29, 32–38° S 0.77 ± 0.27, Liquiñe–Ofqui 1.09 ± 0.18; with "4.5 from 2000" added 1.01 ± 0.16, 1.08 ± 0.18, 1.01 ± 0.10. None differs from the family b (1.006) within its error; the instrumental record gives no lower b for Liquiñe–Ofqui.
+- **Rates, Liquiñe–Ofqui alone:** N(≥ 5) 0.61 per year and N(≥ 6) 0.050–0.060 with the swarms; 0.25–0.28 and 0.025–0.038 without them or declustered. The S3 fault rate at Mw ≥ 6 is 0.447 (database A, `model/crustal/tables/join_2026-11-16e.csv`): 3.3 times the whole-arc fit (0.135), but 7–9 times the Liquiñe–Ofqui seismicity and 12–18 times without the swarms.
+- **The long record points the other way.** Two events of Mw ≥ 7 since 1905, both on Liquiñe–Ofqui (1927 Mw 7.1, Aysén 1960 Mw 7.7): 0.016 per year. The Liquiñe–Ofqui line with the family b expects 0.66 in that time (P of two or more 0.14; 0.30 and P 0.04 without the swarms). With "7.0 from 1905" in the table the Liquiñe–Ofqui b is 0.91 ± 0.18 (0.94 ± 0.11 with 4.5 from 2000; 0.72 ± 0.30 declustered) and N(≥ 7) 0.008–0.009.
+- **Completeness in the Liquiñe–Ofqui box** (all classes, 38–47.3° S, 74.5–70.5° W): 63–85 events of Mw ≥ 3.5 per window before 2007, too few for an Mc; in 1976–1989 the bands hold 4 (3.5–3.9), 15 (4.0–4.4), 25 (4.5–4.9) and 19 (≥ 5.0) events, an inverted distribution. Mc 4.6 in 2007–2011 (the swarm), about 4.0 from 2012. "Mw 5.0 from 1976" cannot be checked there.
+- **Options for Pablo** (nothing applied): (1) split the arc unit at 38° S, with the family b for both parts and their own rates; (2) for Liquiñe–Ofqui, keep the events of Mw ≥ 7 since 1905 in the table (b about 0.9); (3) compare the faults with the Liquiñe–Ofqui rate only, in S3; (4) treat the two swarms as volcanic and leave them out of the Liquiñe–Ofqui rate, as a tornado row.
+- **Commit:** add `psha_chile8/fits/figs/arc_regions_2026-11-16f.png psha_chile8/WORKLOG.md` to the next fits commit.
+
+
+## 2026-11-16: LOFS maps redrawn; refit on `2026-11-16e` on hold (Claude Code, A7)
+
+- **Maps** `catalog/figs/classify/lofs_south.png`, `lofs_full.png` (Pablo): only intra-arc events (crustal weight > 0, sub-class arc) are coloured by reported depth; every other class is grey. Edges: thick black, no measured depth (white fill); orange, weight shared with another class; thin black, one class with a depth. Callouts for intra-arc events only. An A6 epicentre shows as "ISC-GEM (A6; was Centennial)".
+- **Found:** with an A6 lon/lat override, `loc_src` stays `cent_ehb` in the catalogue; only `loc_flags` (`a6_lon;a6_lat`) tells the position came from A6. For `locate.py` (A7) to set `loc_src = a6`, as `depth_src` already does; not changed here.
+- **On hold (Pablo, 16 Nov):** the refit of B11/B12 on catalogue `2026-11-16e` (only two arc epicentres moved against `2026-11-16c`). The prompt is in this conversation; ask for it again when it is due.
+- **S3 (16 Nov): rows on the strict rupture set and the Fagnano row** (REPORT_S3 section 14).
+  - LOFS rows (A main / splays at 5 / 10 / 15 km; B, B-mm at 15 km): best case A with splays, 15 km, 10 km thickness (p 0.42 / 0.15 / 0.04 at ψ 0.6 / 0.8 / 1.0); main only passes at ψ 0.6 (0.19). B and B-mm fail everywhere.
+  - Fagnano row (`fagnano_row.py`, `faults.load(split_system=True)`, `arc.observed(cls)`): the measured traces do not chain (a 67 km gap, an overlap), so SHERIFS gives more Mw 6 and no source for 1949; the joined 490 km source stays the model, the row is a tornado row.
+  - Three Argentine Fagnano traces (82 km) fall outside the grid when split; they stay in the joined source. For Pablo: fine as is, or extend the grid 1° east at Tierra del Fuego?
+  - `background.NPD` → `npd_2026-11-16d.csv` (B14 final, Pablo); takes effect at the rebuild.
+- **Decided by Pablo (16 Nov):** the three Argentine Fagnano traces outside the grid stay dropped when the system is split (the row); the joined source keeps them.
+- **S3 (16 Nov): Mmax pad rows** (`pad.py`, `tables/pad_rows_2026-11-16e.csv`; REPORT_S3 section 15). `background.set_pad()` switches the fits table (16f pad00 / pad04) and the class Mmax; `faults.FAULT_PAD` adds to the Leonard Mmax; the multi-fault cap reads `faults.class_mmax()`. The crustal code now reads `fits_2026-11-16f.csv` (identical to 16e for the crustal classes).
+  - Background pad: tail only; forearc Mw ≥ 7 since 1905 0.8 / 1.8 / 2.7 against 3.5. Arc and Patagonia unchanged (no background above 6; the cap never binds in A).
+  - Fault pad 0.2 / 0.4: arc faults / fit at Mw 6 2.97 → 2.13 → 1.58, expected arc Mw ≥ 6 20.4 → 14.7 → 10.8.
+  - Rows for the files: background pad 0.0 / 0.4 for both systems; fault pad 0.2 / 0.4 for the segmented reference.
+
+## 2026-11-16: Arc Mmax, two Aysén cases for the multi-fault comparison (Claude Code, A6)
+- **Decided (Pablo, 16 Nov):** the arc crustal Mmax is carried in two cases, both compared with the LOFS multi-fault rupture model (S3b):
+  - Aysén 1960 at Mw 7.7 (catalogue, ISC-GEM direct Mw, Kanamori and Rivera's long-period moment): arc Mmax 7.9, the model value.
+  - Aysén at Mw 7.2 (its seismic-wave size, Ms 6.9–7.1; Pacheco and Sykes' converted value): arc Mmax 7.4, a comparison only. 1927-11-21 (Mw 7.1) sets nothing; 7.2 + 0.2 = 7.4.
+- **Why:** the 7.7 is a reliable moment, but the event was slow (source ≥ 190 s, Mw–Ms 0.8), had no reported macroseismic effects, and its LOFS attribution rests on proximity and one non-unique mechanism (Kanamori and Rivera 2017, pp. 93, 100, 103). The arc Mmax rests on that single crustal hint.
+- **For S3b and B11:**
+  - Fit the arc with both Mmax values (corner from Kagan on each).
+  - Show the multi-fault rupture set's largest LOFS ruptures (chain Mmax 7.4–8.3 by jump and depth, S3) against both lines.
+  - Carry the difference into the tornado as a comparison case, not a logic-tree branch.
+  - No catalogue change.
+- **Proposed DECISIONS line** (Crustal, after "Background Mmax"): "Arc Mmax: 7.9 from Aysén 1960 at Mw 7.7; a comparison case with Aysén at its seismic-wave size, Mw 7.2 (Mmax 7.4), shown with the LOFS multi-fault model; not a branch (Pablo, 16 Nov)."
