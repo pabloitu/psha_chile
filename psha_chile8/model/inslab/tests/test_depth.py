@@ -8,7 +8,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import depth as D  # noqa: E402
 
-TABLE = sorted((D.HERE / "tables").glob("depth_cells_2026-11-15e.csv"))
+TABLE = sorted((D.HERE / "tables").glob("depth_cells_2026-11-1[56]*.csv"))
 CELLS = pd.DataFrame({"lon": [-69.0, -69.0], "lat": [-21.0, -29.0]})
 LSD = np.array([40.0, 25.4])
 
@@ -97,3 +97,25 @@ def test_cell_table():
     assert np.allclose(t.usd, t.top)
     f = z / t.thk
     assert f.max() - f.min() < 0.01
+
+
+OPT = D.HERE / "tables" / "depth_cells_2026-11-16b.csv"
+
+
+@pytest.mark.skipif(not OPT.exists(), reason="no C15 tables")
+def test_options():
+    t = pd.read_csv(OPT)
+    f = (t.h_one - t.top) / t.thk
+    assert f.max() - f.min() < 0.01 and (t.h_one > t.usd).all() and (t.h_one < t.lsd).all()
+    ref = pd.read_csv(D.HERE / "tables" / "depth_cells_2026-11-16.csv")
+    assert np.allclose(t[["lsd", "w1", "w2", "w3", "h1", "h2", "h3"]], ref[["lsd", "w1", "w2", "w3", "h1", "h2", "h3"]])
+    for tag, fr in (("065", 0.65), ("0615", 0.615)):
+        x = pd.read_csv(D.HERE / "tables" / f"depth_cells_lsd{tag}_2026-11-16b.csv")
+        assert np.allclose((x.lsd - x.top) / x.thk, fr, atol=1e-3) and (x.h3 < x.lsd).all()
+        assert np.allclose(x[["h1", "h2", "h3", "h_one", "w1"]], t[["h1", "h2", "h3", "h_one", "w1"]])
+
+
+def test_weights_continuous_in_lsd():
+    H, ne = D.histograms(synthetic(), CELLS)
+    a, b = D.zone(H, ne, lsd=LSD), D.zone(H, ne, lsd=LSD + 0.02)
+    assert np.abs(a[["w1", "w2", "w3"]].to_numpy() - b[["w1", "w2", "w3"]].to_numpy()).max() < 0.005

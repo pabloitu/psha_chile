@@ -1,0 +1,4 @@
+events,cells,w1 median,w2 median,w3 median,n_eff median,top slice km (median),top slice inside the ± 15 km band,shallow-slab in-slab weight above 15 km below the top
+all events,4901,0.357,0.385,0.261,947.0,11.285,1.0,0.237
+events over the deeper slab only,4901,0.403,0.383,0.221,3759.322,11.285,1.0,0.237
+events over the shallow slab only,4901,0.179,0.448,0.34,76.596,11.285,1.0,0.237

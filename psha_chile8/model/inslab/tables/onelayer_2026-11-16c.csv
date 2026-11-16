@@ -1,0 +1,19 @@
+group,value,events,median d / thickness
+all,,70789,0.252
+source,Riedel-Hornig,40639,0.279
+source,catalogue,30150,0.214
+slab top ≤ 50 km,False,64684,0.234
+slab top ≤ 50 km,True,6105,0.363
+latitude,"(-42.0, -40.0]",172,0.108
+latitude,"(-40.0, -38.0]",273,0.036
+latitude,"(-38.0, -36.0]",1054,0.262
+latitude,"(-36.0, -34.0]",5874,0.151
+latitude,"(-34.0, -32.0]",8097,0.173
+latitude,"(-32.0, -30.0]",3964,0.308
+latitude,"(-30.0, -28.0]",2159,0.311
+latitude,"(-28.0, -26.0]",1491,0.294
+latitude,"(-26.0, -24.0]",1895,0.233
+latitude,"(-24.0, -22.0]",11101,0.233
+latitude,"(-22.0, -20.0]",29104,0.308
+latitude,"(-20.0, -18.0]",5402,0.14
+latitude,"(-18.0, -16.0]",183,0.196

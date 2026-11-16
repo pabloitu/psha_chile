@@ -7,7 +7,7 @@ import pandas as pd
 import depth as D
 
 # settings
-RUN = "2026-11-15e"
+RUN = "2026-11-16d"
 TAB, FIG = D.HERE / "tables", D.HERE / "figs"
 # instrumental period of the depths (start of the in-slab rate pattern of psha_chile7, SMOOTH_FROM)
 T_FROM = 1990.0
@@ -19,13 +19,18 @@ LOCAL = ["potin", "csn"]
 # for Potin, ISC-EHB and Riedel-Hornig; C14 run 2026-11-15b); the sensitivity case keeps them (Pablo, 15 Nov)
 DROP = ["isc", "csn", "csn_isc", "comcat"]
 V1 = TAB / "depth_cells_2026-11-15_v1.csv"
+# events count with their in-slab class weight, as in the rates (Pablo, 16 Nov); False: in-slab weight 1 only (runs
+# up to 2026-11-16c)
+CLASS_W = True
+# previous run, compared per cell (2026-11-16d: class weights; 2026-11-16c: weight-1 events)
+PREV = TAB / "depth_cells_2026-11-16c.csv"
 
 
 def events(drop=DROP):
     """
-    Events of the depth model: in-slab events of the final catalogue (class weight 1, measured depth, from T_FROM)
-    and of Riedel-Hornig inside Chile (Ml ≥ 2.5, depth error ≤ 5 km, in-slab by the A7 depth rule). An event in both
-    counts once, with the Riedel-Hornig depth.
+    Events of the depth model: in-slab events of the final catalogue (measured depth, from T_FROM) and of
+    Riedel-Hornig inside Chile (Ml ≥ 2.5, depth error ≤ 5 km, in-slab by the A7 depth rule), each with its in-slab
+    weight (CLASS_W) or only those of weight 1. An event in both counts once, with the Riedel-Hornig depth.
 
     Returns
     -------
@@ -56,8 +61,8 @@ def events(drop=DROP):
     note("Riedel-Hornig", "Jujuy nest left out", n)
     q = np.zeros((len(r), 3))
     q[n] = D.inslab_weight(r.z[n], r.sig[n], rtop[n])
-    n &= q[:, 1] == 1
-    note("Riedel-Hornig", "in-slab by the A7 depth rule (weight 1)", n)
+    n &= q[:, 1] > 0 if CLASS_W else q[:, 1] == 1
+    note("Riedel-Hornig", "in-slab by the A7 depth rule" + ("" if CLASS_W else " (weight 1)"), n)
 
     c = D.catalog()
     k = (c.t >= r.t.min() - 60) & (c.t <= r.t.max() + 60)
@@ -67,8 +72,8 @@ def events(drop=DROP):
     yr = D.C.year(c.t)
     m = (c.depth_kind == "measured").to_numpy() & c.in_domain.to_numpy() & c.depth.notna().to_numpy()
     note("catalogue", "measured depth, in the domain", m)
-    m &= (c.cls == "in-slab").to_numpy()
-    note("catalogue", "in-slab, class weight 1", m)
+    m &= (c.w_inslab > 0).to_numpy() if CLASS_W else (c.cls == "in-slab").to_numpy()
+    note("catalogue", "in-slab weight > 0" if CLASS_W else "in-slab, class weight 1", m)
     m &= yr >= T_FROM
     note("catalogue", f"from {T_FROM:.0f}", m)
     top = D.slab_at(c.lon, c.lat)[0]
@@ -84,11 +89,11 @@ def events(drop=DROP):
         m &= ~c.depth_src.isin(drop).to_numpy()
         note("catalogue", f"without depths from {', '.join(drop)}", m)
     cat = pd.DataFrame({"source": "catalogue", "id": c.event_id, "lon": c.lon, "lat": c.lat, "z": c.depth, "top": top,
-                        "mw": c.mw, "yr": yr, "depth_src": c.depth_src})[m]
+                        "mw": c.mw, "yr": yr, "depth_src": c.depth_src, "w": c.w_inslab if CLASS_W else 1.0})[m]
     rh = pd.DataFrame({"source": "Riedel-Hornig", "id": r.id.astype(str), "lon": r.Lon, "lat": r.Lat, "z": r.z, "top": rtop,
-                       "mw": r.Ml, "yr": D.C.year(r.t), "depth_src": "rh"})[n]
+                       "mw": r.Ml, "yr": D.C.year(r.t), "depth_src": "rh", "w": q[:, 1] if CLASS_W else 1.0})[n]
     ev = pd.concat([cat, rh], ignore_index=True)
-    ev["d"], ev["w"] = ev.z - ev.top, 1.0
+    ev["d"] = ev.z - ev.top
     return ev, pd.DataFrame(log)
 
 
@@ -154,15 +159,16 @@ def summary(res):
     return t.drop(columns=["lb", "tb"]).round(2)
 
 
-def compare_v1(res):
-    if not V1.exists():
+def compare(res, ref):
+    """Per-cell change against an earlier cell table: median, 16, 84 % and largest absolute change."""
+    if not ref.exists():
         return pd.DataFrame()
-    v = pd.read_csv(V1)
-    x = res.merge(v, on=["lon", "lat"], suffixes=("", "_v1"))
+    x = res.merge(pd.read_csv(ref), on=["lon", "lat"], suffixes=("", "_ref"))
     rows = []
-    for c in ("lsd", "h1", "h2", "h3", "h_one", "w1", "w2", "w3", "dz_index"):
-        d = x[c] - x[c + "_v1"]
-        rows.append({"quantity": c, "median new − v1": d.median(), "16 %": d.quantile(0.16), "84 %": d.quantile(0.84)})
+    for c in ("lsd", "h1", "h2", "h3", "h_one", "w1", "w2", "w3", "dz_index", "n_events"):
+        d = x[c] - x[c + "_ref"]
+        rows.append({"quantity": c, "median new − ref": d.median(), "16 %": d.quantile(0.16), "84 %": d.quantile(0.84),
+                     "max |change|": d.abs().max(), "cells": len(d)})
     return pd.DataFrame(rows).round(3)
 
 
@@ -177,16 +183,18 @@ def main():
     res = table(g, z)
     res.round(3).to_csv(TAB / f"depth_cells_{RUN}.csv", index=False)
     summary(res).to_csv(TAB / f"depth_summary_{RUN}.csv", index=False)
-    compare_v1(res).to_csv(TAB / f"compare_v1_{RUN}.csv", index=False)
+    compare(res, V1).to_csv(TAB / f"compare_v1_{RUN}.csv", index=False)
+    compare(res, PREV).to_csv(TAB / f"compare_{PREV.stem[12:]}_{RUN}.csv", index=False)
     heldout(ev, g).round(4).to_csv(TAB / f"heldout_{RUN}.csv", index=False)
     es, _ = events(())
     zs, fs = model(es, g)
     s = table(g, zs)
-    pd.DataFrame([{"run": RUN, "fraction": f, "fraction_all_depths": fs, "events": len(ev), "events_all_depths": len(es)}]).round(4).to_csv(
+    pd.DataFrame([{"run": RUN, "fraction": f, "fraction_all_depths": fs, "events": len(ev), "weight": ev.w.sum(), "events_all_depths": len(es)}]).round(4).to_csv(
         TAB / f"fraction_{RUN}.csv", index=False)
     sens = pd.DataFrame({c: (s[c] - res[c]).describe(percentiles=[0.05, 0.5, 0.95]) for c in ("lsd", "w1", "w2", "w3", "h_one", "dz_index")})
     sens.round(3).to_csv(TAB / f"sensitivity_all_depths_{RUN}.csv")
     s.round(3).to_csv(TAB / f"depth_cells_all_depths_{RUN}.csv", index=False)
+    figs.FIG = FIG / RUN
     figs.all_figs(ev, res)
 
 

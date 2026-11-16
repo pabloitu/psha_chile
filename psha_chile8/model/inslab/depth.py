@@ -3,7 +3,7 @@ grid cells with the kernel of the in-slab rate pattern. Per cell: the seismogeni
 fraction of the Slab2 thickness that holds 95 % of all events, three equal layers inside it, the share of the events
 in each layer and their median depth in it.
 
-Inputs are the dated copies in psha_chile8/data and the frozen catalogue of 14 Nov. Entry scripts: bench.py (step 1),
+Inputs are the dated copies in psha_chile8/data and the frozen catalogue 2026-11-16c (depth runs up to 2026-11-16b read 2026-11-16, 2026-11-15e read 2026-11-14c). Entry scripts: bench.py (step 1),
 run.py (steps 2-4).
 """
 import sys
@@ -20,7 +20,7 @@ DATA = ROOT / "data"
 sys.path[:0] = [str(ROOT / "catalog"), str(ROOT)]
 import classify as C  # noqa: E402
 
-CAT = ROOT / "catalog" / "frozen" / "2026-11-14" / "catalog_2026-11-14c.csv"
+CAT = ROOT / "catalog" / "frozen" / "2026-11-16c" / "catalog_2026-11-16c.csv"
 LINKS = ROOT / "catalog" / "merged" / "links_2026-11-11.csv"
 SRC = ROOT / "catalog" / "sources"
 RH = DATA / "riedel_hornig_primary_2026-11-14.csv"
@@ -183,7 +183,8 @@ def inslab_weight(z, s, top, hard=C.HARD):
 
 def nest(lon, lat, z):
     n = C.NEST
-    return (np.hypot(np.asarray(lon) - n["lon"], np.asarray(lat) - n["lat"]) <= n["radius_deg"]) & \
+    lat = np.asarray(lat, float)
+    return (np.hypot((np.asarray(lon) - n["lon"]) * np.cos(np.radians(lat)), lat - n["lat"]) <= n["radius_deg"]) & \
         (np.asarray(z) >= n["depth"][0]) & (np.asarray(z) <= n["depth"][1])
 
 
@@ -253,8 +254,7 @@ def zone(H, neff, lsd, bins=BINS):
     -------
     DataFrame with lsd, w1-w3, h1-h3, h_one, neff; distances in km below the top.
     """
-    x = (bins[:-1] + bins[1:]) / 2
-    C_ = np.cumsum(H, 1)
+    C_ = np.c_[np.zeros(len(H)), np.cumsum(H, 1)]
     tot = C_[:, -1]
     out = []
     for i in range(len(H)):
@@ -263,19 +263,18 @@ def zone(H, neff, lsd, bins=BINS):
             continue
         z = max(float(lsd[i]), 3 * (1 + 2 * EDGE))
         bb = np.array([0.0, z / 3, 2 * z / 3, z])
-        xi = np.clip(x, 0, None)
-        m = x <= z
-        L = np.clip(np.searchsorted(bb, xi, side="right") - 1, 0, 2)
-        n = np.array([H[i][m & (L == l)].sum() for l in range(3)])
+        # cumulative mass at the slice limits, linear inside a bin; events above the top count in the top slice
+        cb = np.interp(bb, bins, C_[i])
+        cb[0] = 0.0
+        n = np.diff(cb)
         ne = neff[i] * n.sum() / tot[i]
         p = (n / n.sum() * ne + 1) / (ne + 3)
         hy = []
         for l in range(3):
-            q = m & (L == l)
-            ok = ne * n[l] / max(n.sum(), 1e-12) >= MIN_LAYER and H[i][q].sum() > 0
-            hv = wquant(xi[q], H[i][q], 50) if ok else (bb[l] + bb[l + 1]) / 2
+            ok = ne * n[l] / max(n.sum(), 1e-12) >= MIN_LAYER and n[l] > 0
+            hv = np.interp((cb[l] + cb[l + 1]) / 2, C_[i], bins) if ok else (bb[l] + bb[l + 1]) / 2
             hy.append(np.clip(hv, bb[l] + EDGE, bb[l + 1] - EDGE))
-        one = np.clip(wquant(xi[m], H[i][m], 50), EDGE, z - EDGE)
+        one = np.clip(np.interp(cb[3] / 2, C_[i], bins), EDGE, z - EDGE)
         out.append([z, *p, *hy, one, neff[i]])
     return pd.DataFrame(out, columns=["lsd", "w1", "w2", "w3", "h1", "h2", "h3", "h_one", "neff"])
 

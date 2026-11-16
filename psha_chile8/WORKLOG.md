@@ -2702,3 +2702,459 @@ Read again before and after: CLAUDE.md, DECISIONS (Statistics, Crustal and fault
   - `git commit -m "GM1: summary figures (ranking, bias, large events, the four GMM sets on scenarios), table of the tornado GMM sets, GEM models scored on the records, handoff note"`
 - **DECISIONS.md edited by Claude Code at Pablo's word ("write into decisions", 16 Nov):** only the lines of the fits. Statistics: the current fits line (`fits_2026-11-16e.csv`, catalogue `2026-11-16c`; the 16d line kept below it), the declustered fits line, the family b (without the `outside` events, 1.009). Crustal and faults: background rates on the grid and the note on the 1949 doublet. Superseded: one line. **Not written, because they belong to A7:** the Scotia–Antarctic rule, the crustal-grid sub-class `outside` and the frozen catalogue `2026-11-16c` (Catalog still names `2026-11-16`); their proposed lines are in the A7 entries above. Git: `git add` was denied to Claude Code in this setup; Pablo commits with the lines above plus `psha_chile8/DECISIONS.md psha_chile8/LEARNINGS.md`.
 - **A7's lines written into DECISIONS.md by the B11/B12 session at Pablo's word ("add them please", 16 Nov),** taken from the two A7 entries above without changing their content: Catalog (frozen catalogue `2026-11-16c` replaces `2026-11-16`), Classification (the Scotia–Antarctic rule; the sub-class `outside` for crustal events outside the crustal grid), Superseded (one line). DECISIONS now agrees with the fits lines that name the catalogue `2026-11-16c`.
+
+## 2026-11-16, GM1 figures redone in the pituplots style; report updated
+
+- **Figures:** `gmm/figs.py` was rewritten in the pituplots report theme with darkgrid panels, and runs alone on the tables (`python figs.py`, 25 s).
+  - New: `resid_example.png`, an introduction that shows one model's residuals.
+  - `z_<class>.png` and `trends_<class>.png` replace the twelve per-period figures. They now show only the eight models of the tornado sets, with the three periods together.
+  - `scores.png` is ordered by mean rank; `tau_phi.png` is relabelled.
+- **REPORT_GM1:**
+  - a short summary at the top;
+  - plain-words guides for residuals, δB, δW, τ, φ, LLH and EDR;
+  - all figures embedded;
+  - `records.py` named correctly.
+- **Commit:**
+  - `git add psha_chile8/gmm/figs.py psha_chile8/gmm/REPORT_GM1.md psha_chile8/gmm/figures`
+  - `git add -u psha_chile8/gmm/figures` (stages the removed old figures)
+  - `git commit -m "GM1: figures in the pituplots style, residual introduction figure, report reading guide"`
+
+## 2026-11-16 — S3 rerun on fits 2026-11-16e (crustal)
+- **Done:**
+  - Crustal code on `fits_2026-11-16e.csv` and `fits_declustered_2026-11-16e.csv`, catalogue `2026-11-16c` (pinned in `background.CAT`), declustered families `_2026-11-16e`; `DATE = "2026-11-16e"`.
+  - Reran background, faults, join, large, arc, lower (tornado row), LOFS multi-fault (A, 15 km), and the figures in `figs/2026-11-16e/`.
+  - Join figure redrawn per 0.1 bin (Pablo: the cumulative one was unreadable); the arc drawn twice (single faults, multi-fault).
+  - Report: `REPORT_S3.md` section 10. Tests: 14 passed, 2 skipped (the fit-list test now allows the 5-decimal rounding of the table, atol 6e-6).
+- **Kernel n:** 5 for every class and option (the backarc's 7 in-grid test events).
+- **What moved (A, tapered, Mw 6):**
+  - Faults / fit: forearc 0.15 → 0.18, arc 3.0 → 3.3, backarc 0.20 → 1.28, Patagonia 1.65 → 3.9.
+  - Background N(≥ 6): forearc 0.333 → 0.272; backarc 0.200 → 0 (the faults now fill the fit from Mw 6); arc and Patagonia 0.
+  - Background N(≥ 7): forearc 0.0169 → 0.0134; backarc 0.0209 → 0.
+  - Same ratios for B and B-mm in REPORT_S3 section 10. The tornado row is there too: backarc 1.23–1.43, Patagonia 2.7–8.7.
+- **For Pablo:**
+  - **(1) Backarc faults outside the grid.** The three Argentine faults (Niquizanga, Las Chacras a and b) are outside the grid, their events are `outside`, but they are still sources: 0.0095 of the backarc's 0.050 at Mw 6.
+    - Proposed: by the same domain rule, faults whose trace lies wholly outside the grid leave the model.
+    - Magallanes–Fagnano stays: its events are inside the grid, and 60 % of its trace is.
+    - Even without the three, the backarc faults are at the fit (1.03), so the backarc has no background above Mw 6.
+  - **(2) Patagonia:** the Magallanes–Fagnano fault expects 0.16 events of Mw ≥ 7.5 since 1905 (0.04–0.32), against the 1949 doublet: P(≥ 1) = 0.15. It does carry the doublet, at the low end.
+  - **(3) Arc:** the multi-fault branch passes at ψ 0.6 and 0.8; single faults fail, as before.
+- **Proposed DECISIONS line (Crustal and faults):** "A crustal fault whose trace lies wholly outside the crustal grid is not a source, by the rule of the crustal domain: AR-0025a Niquizanga, AR-0027a and b Las Chacras (S3, 16 Nov)." This is for Pablo's word.
+- **Follow-up, same day:**
+  - The figure titles are plain now; the reading notes moved out of the figures into `gmm/FIGURES_GUIDE.md`, a study guide that also lists every figure for slides.
+  - Commit: add `psha_chile8/gmm/FIGURES_GUIDE.md psha_chile8/gmm/summary.py` to the lines above.
+
+## 2026-11-16: B14 on catalogue 2026-11-16c (Claude Code)
+- **Done:** `npd.py` on `catalog/frozen/2026-11-16c/catalog_2026-11-16c.csv` and `fits/tables/table_2026-11-16e.csv` (`DATE = "2026-11-16c"`, `PREV = "2026-11-16"`), 10 % rule, no borrow, plane choice unchanged. New `npd_2026-11-16c.csv`, `tables/{counts,shares,dropped,moved}_2026-11-16c.csv`, `figs/ternary_2026-11-16c.png` (and `ternary.png`); `REPORT_B14.md` rewritten. `npd_2026-11-16.csv` kept. Tests: 3 pass. DATA row 2026-11-16c (B14).
+- **Moved:** in-slab classes and the arc unchanged. Forearc 113.4 → 104.3 weighted (17 events `outside`), planes by one 5° step, strike-slip still dropped (0.074). Backarc 50.2 → 8.0 (45 `outside`: 28 reverse, 15 strike-slip, 2 normal). Patagonia 18 → 7: all 11 that left went with the Scotia rule (10 strike-slip, 1 reverse; 56.9–57.9° S, Mw 5.0–6.2), none with `outside`.
+- **Conflict, for Pablo:** backarc (8) and Patagonia (7) are below the B14 family minimum of 15, so the table gives both the pooled crustal distribution (N / R / SS 0.23 / 0.52 / 0.25). DECISIONS says Patagonia keeps its own. Own Patagonia: 0.14 / 0.43 / 0.43 on 7 events (normal = one event), planes not robust. Options: keep the count rule (as written), or Patagonia own regardless; the backarc pooled either way unless the minimum changes.
+- **Proposed DECISIONS line (In-slab and Crustal, replaces the B14 line once chosen):** "Nodal planes per class from the catalogue mechanisms (B14, `npd_2026-11-16c.csv`, on the catalogue 2026-11-16c; Frohlich types, one plane per type and its auxiliary at half weight, types below 10 % dropped and the rest renormalised); backarc and Patagonia below 15 weighted mechanisms take the pooled crustal distribution (16 Nov); used from S5; not a tornado factor." Superseded line: `npd_2026-11-16.csv` → `npd_2026-11-16c.csv` (catalogue 2026-11-16c).
+- **Suggested commit:** `git add psha_chile8/model/mechanisms psha_chile8/DATA.md psha_chile8/WORKLOG.md`; message `B14 on catalogue 2026-11-16c: npd_2026-11-16c.csv, backarc and Patagonia pooled below 15 mechanisms`
+- **Decided by Pablo (16 Nov): crustal faults wholly outside the grid are not sources.** `faults.load` drops them (`faults.GRID`); that is AR-0025a, AR-0027a and AR-0027b in A, B and B-mm. Magallanes–Fagnano stays. Test added (15 passed, 2 skipped).
+  - The 2026-11-16e fault, join, arc and tornado tables and the figures were rewritten in place with the rule. They are this session's own outputs of today.
+  - Backarc faults / fit at Mw 6: 1.28 → 1.03 (A, B, B-mm). The background is still 0 above Mw 6, and the faults at Mw ≥ 7 are half the fit.
+  - The proposed DECISIONS line above stands, now decided.
+
+
+## 2026-11-16, deck 261116: ground-motion part
+- Seven slides after "Summary: catalogue": hazard ours against MASCSN26 and GEM (MASCSN26 report Figure 78, two panels; our psha_chile6 city PGA), records, residuals, bias, LLH on all and on Mw ≥ 6.5 events, the four tornado sets (crop of `gmm/figures/summary_sets.png`), summary. New figures from `presentations/261116_psha8_results/figs/gm.py` on the GM1 tables of 15 Nov; nothing in `gmm/` changed.
+- The MASCSN26 and GEM map values are read from the report's colour scale (Vs30 900 and 760 against our 800): a rough comparison, flagged in the slide notes.
+- **Suggested commit:** `git add presentations/261116_psha8_results psha_chile8/FIGURES.md psha_chile8/WORKLOG.md`; message `Deck 261116: ground-motion part (GM1 residuals, sets, hazard comparison)`.
+
+## 2026-11-16, S2: one source per cell (run 2026-11-16b)
+- **Done** (main conversation, Pablo 16 Nov): shallow and intermediate written as one point source per cell with the summed MFD (EvenlyDiscretized from Mw 5.5), the C14 depths and the two nodal planes; the nest a separate source, unchanged. `build.py`: `RUN = "2026-11-16b"`, `GROUPS`, `guard()`, `write()` returns the drop table and the class shares. Files in `model/inslab/nrml/2026-11-16b/` (48 files, 2 per branch, 336 888 sources, 350 MB); `nrml/2026-11-16/` unchanged. REPORT_S2 section 8.
+- **Near-empty cells:** cut at 1e-8 of the branch total with the 50 km guard around in-slab events of Mw ≥ 7 (in-slab weight ≥ 0.5; 2 700 cells). Nothing is dropped in any branch: the weakest cell holds 1.3e-6 of the total.
+- **Class shares** for S5: `tables/class_share_2026-11-16.csv` (per cell and rate branch, shallow and intermediate shares above Mw 5.5 and in the Mw 7.0 bin).
+- **Checks:** per class, the sum over cells equals the rate table within 4e-15 in every branch; 22 tests pass; all 48 files read by the OpenQuake parser (rates within 2e-7).
+- **Timing** at the 14 cities, reference branch, four in-slab GMMs, `individual_rlzs = true` (queue empty, one job at a time): one file per class (calc 516) 4 min 03 s (preclassical 139 s, classical 234 s), 27 884 sources, 5.0 M ruptures, peak 796 MB; one source per cell (calc 517) 2 min 21 s (80 s, 132 s), 14 037 sources, 2.5 M ruptures, peak 669 MB. PGA 475 yr the same within 0.0006 % at every city (La Serena 0.96 g, Iquique 0.73 g, Calama 0.63 g, Santiago centro 0.59 g).
+- **Code:** `oqcheck.py` writes the timing jobs (`timing_jobs()`, 14 cities, `gmm_lt_4.xml`) into `oqcheck/2026-11-16b/` and reads them (`timing_report()`, cities matched by coordinates since OpenQuake sorts the sites); the parser check reads the group files against `tables/drop_<RUN>.csv`.
+- **Proposed DECISIONS lines** (Pablo adds):
+  - In-slab: "Shallow and intermediate in-slab are written as one point source per cell, the MFD the sum of the two class MFDs (EvenlyDiscretized from Mw 5.5), with the C14 depths of the cell; the Jujuy nest is a separate source (Pablo, 16 Nov, S2; `model/inslab/nrml/2026-11-16b/`). Same hazard as one file per class within 0.001 % at the 14 cities, 58 % of the run time."
+  - In-slab: "A cell is left out when its rate above Mw 5.5 is below 1e-8 of the branch total, unless it lies within 50 km of an in-slab event of Mw ≥ 7 (in-slab weight ≥ 0.5). On the 16 Nov patterns no cell falls below the cut (Pablo, 16 Nov, S2)."
+  - In-slab / Logic tree: "Nodal planes of the in-slab sources from S5: the B14 distributions of shallow and intermediate mixed per cell by the class share of the cell rate (`model/inslab/tables/class_share_2026-11-16.csv`); until then the two fixed planes (Pablo, 16 Nov)."
+- **Suggested commit:** `git add psha_chile8/model/inslab/{build,oqcheck}.py psha_chile8/model/inslab/tests/test_s2.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/model/inslab/tables/{drop_2026-11-16b,oqread_2026-11-16b,timing_2026-11-16b,timing_pga_2026-11-16b,class_share_2026-11-16}.csv psha_chile8/model/inslab/nrml/2026-11-16b/{branches.json,source_lt_inslab.xml} psha_chile8/model/inslab/oqcheck/2026-11-16b/*.{ini,xml,csv} psha_chile8/WORKLOG.md`; message `S2: in-slab shallow and intermediate as one point source per cell with the summed MFD (nrml/2026-11-16b); class shares for S5; 1e-8 cut with 50 km guard (nothing dropped); timing at the 14 cities, same hazard in 58 % of the time`.
+
+## 2026-11-16, S2: in-slab rates against MASCSN26
+- From the MASCSN26 report (Table 16 and Figure 33, Weichert a, b of zones 4–7; Mmax Tables 12–15; §3.3, §8.2), not from its repository. Ours summed over the same zones (latitude band, slab top 50–160 km). REPORT_S2 section 9, `model/inslab/tables/mascsn_compare_2026-11-16.csv`.
+- Zones 5–7 (18–38° S, where both cover the slab): ours −11 % at N(≥ 5.5), −37 % at N(≥ 7). Ratio falls with magnitude (0.9 at 5.5 to 0.4 at 8 in zones 5 and 7) because our b is 1.14–1.16 (full catalogue) against their 0.97–1.07 (Knopoff windows); our own GK-declustered b is 0.93–1.03, close to theirs. Zone 4 (15–18° S) is mostly Peru, outside our grid.
+- Whole model: ours has 25 % of its N(≥ 5.5) under the shallow slab (top < 50 km), which MASCSN does not model as in-slab; total N(≥ 5.5) 10.1 against 8.0 (+26 %), N(≥ 7) 0.176 against 0.218 (−19 %).
+- Nothing changed in the model. Commit: `git add psha_chile8/model/inslab/REPORT_S2.md psha_chile8/model/inslab/tables/mascsn_compare_2026-11-16.csv psha_chile8/WORKLOG.md` (with the 2026-11-16b commit of the previous entry, or after it).
+- **S3 (16 Nov): LOFS jump × depth study** (A; jumps 5 / 10 / 15 / 20 km; depths 10 / 20 km; ψ 0.6–1.0; 10 seeds; REPORT_S3 10c; `figs/2026-11-16e/mf_lofs_study_A.png`).
+  - New in `multifault.lofs`: a depth loop, and the large-event check before 1976 (`HIST`: Mw ≥ 7 since 1905, ≥ 7.5 since 1830, the historical steps of the B11 table, out of the fit).
+  - Depth 20 km reaches Mmax 7.7–7.9 and the Mw ≥ 7 record (1.6 against 1.7 at 15 km, ψ 0.8), but overshoots the Mw ≥ 6 count since 1976 (12.3 against 6.5, p 0.04).
+  - Depth 10 km fits Mw ≥ 6 at 15–20 km jumps but stays at 0.6–1.1 of Mw ≥ 7 (against 1.7).
+  - More seeds only smooth the curves.
+  - Join figures now show the pre-1976 large events (open diamonds).
+  - Open for Pablo: the depth of the multi-fault branch (10, 20 or both as the depth branch), and whether the 20 km jump is acceptable (whole-system chains, NMS up to 93 % on one fault).
+- **S3 queue (Pablo, 16 Nov; not started):**
+  - (1) Fault Mmin raised or fitted, so the arc bulge goes and more moment is left for large ruptures. Discussion only for now.
+  - (2) The LOFS jump × depth study for B and B-MASCSN, as for A (REPORT_S3 10c).
+- **S3 (16 Nov): LOFS jump × depth study for B and B-mm** (REPORT_S3 10d; `figs/2026-11-16e/mf_lofs_study_{A,B,Bmm}.png`).
+  - B fails everywhere: 18–84 expected arc Mw ≥ 6 against 6.5.
+  - B-mm passes only at a 20 km jump, 20 km depth and ψ 0.6 (10.5, p 0.10), with 1 400 km chains.
+  - B's chains reach 700 km at a 10 km jump and 1 460 km at 20 km.
+  - `multifault.partition` vectorised: identical rates; B at a 20 km jump 22 s → 2 s per run.
+  - Memory note kept: rupture extents per jump (Pablo: an 800 km crustal rupture is not credible); fault Mmin stays 6.0 (the Aysén fjord sequence is on a fault).
+- **S3 (16 Nov): six check figures** (`model/crustal/figs_checks.py`, `figs/2026-11-16e/check_*.png`; REPORT_S3 10e; FIGURES rows).
+  - Trade-off: only A multi-fault cases pass both counts.
+  - Moment: the arc faults release about the catalogue moment, so the bulge is the shape. Patagonia faults release 1/5 of the catalogue moment, yet are over at Mw 6.
+  - Near-fault share: arc 30–57 % and Patagonia 0–29 % of the observed Mw ≥ 6 near a trace, against 100 % in the model.
+  - Forearc under by 2× at Mw 6.5–7 with the family b.
+  - Open for Pablo: the join rule (background zero from the first filled bin) gives the arc and Patagonia no off-fault Mw ≥ 6, while half or more of the observed ones are off-fault.
+
+## 2026-11-16 — S3: crustal OpenQuake files ready (2026-11-16e)
+- **Ready for S5:** `model/crustal/nrml/2026-11-16e/branches.json` (`"ready": true`), 59 files, 373 MB.
+  - Tree: 84 branches, flattened: declustering 0.5 / 0.5 × fault system 0.5 / 0.5; segmented 36 branches with the DECISIONS weights; multi-fault 6 branches equal.
+  - Tornado: reference plus 13 rows.
+  - Hand-off note: `model/crustal/S5_HANDOFF.md`.
+  - Jobs need `investigation_time = 1.0` and maximum distance 300 km.
+- **Check:**
+  - `tables/oqcheck_2026-11-16e.csv`: every file read by OpenQuake's converter; multi-fault sources split against their sections as the engine does; rates within 4.2e-6.
+  - Calc 532 (`oqcheck/2026-11-16e/`): the reference branch at Puerto Aysén runs (PGA 475 mean 0.46 g with ASK14 alone; not interpreted). It ran single-process and waited for S5's calc 531.
+- **Code:** `build.py` (rewritten), `mfsource.py` (new), `nrml.py`, `oqcheck.py` (rewritten), `background.py` (`NPD`, `npds`, `mix`). Tests: crustal 20 passed.
+  - Full suite: 328 passed, 1 failed, outside S3: `gmm/tests/test_gmm_residuals.py` imports `run` and gets `fits/run.py`, a module-name clash.
+- **Format notes** (OpenQuake 3.27, found while building):
+  - multi-fault rupture section ids are comma-separated;
+  - a section must be one surface (so one planar surface per trace segment);
+  - multi-fault and geometry files must be NRML 0.5, with the investigation time on the sourceModel and a sourceGroup.
+- **Decisions taken (REPORT_S3 section 11), proposed DECISIONS lines (Crustal and faults):**
+  - "Crustal fault system, two branches 0.5 / 0.5 (Pablo, 16 Nov):
+    - segmented: single-fault simple-fault sources, six MFD shapes, Leonard Mmax, ψ × depth × shape as in DECISIONS;
+    - multi-fault: the Liquiñe–Ofqui faults of database A by the SHERIFS partition (Chartier et al. 2017, 2019), UCERF3 filters with a 15 km jump, Leonard Mmax on the linked area capped at the class Mmax, ψ 0.6 / 0.8 / 1.0 × depth 10 / 20 km, equal weights. Linked ruptures in one multi-fault source per branch (rates the mean of 10 seeds); single-fault LOFS ruptures as simple-fault sources with their SHERIFS MFD; the other faults with the mean of the six shapes.
+    - The class maximum is no longer a variant."
+  - "Crustal background point sources: the four classes summed per cell; nodal planes per cell mixed from the B14 class distributions by the class rates there; 0–30 km, hypocentre 10 km; source Mmin 5.5 as interface and in-slab (16 Nov)."
+  - "Crustal tornado reference: multi-fault A, 15 km jump, ψ 0.8, depth 10 km, tapered fit, Gardner–Knopoff pattern. Rows:
+    - nearest-neighbour pattern; fit cut at Mmax; declustered background rates (lower bound); no faults;
+    - segmented system; ψ 0.6 and 1.0; depth 20 km;
+    - jumps 5 / 10 / 20 km (20 km not credible, chains to 860 km);
+    - databases B and B-mm (16 Nov)."
+  - Superseded: "Crustal fault variants with the class-maximum Mmax (sensitivity, 15 Nov) → the multi-fault branch (16 Nov). Crustal source Mmin 5.0 → 5.5 (16 Nov)."
+- **Open:** fault-system weights 0.5 / 0.5 are mine (Pablo: equal weights); confirm.
+- **Suggested commit** (the NRML files stay untracked, as before):
+  - `git add psha_chile8/model/crustal/{background,smooth,faults,join,large,arc,kernels,multifault,mfsource,build,nrml,oqcheck,lower,figs_s3,figs_checks}.py psha_chile8/model/crustal/tests/test_crustal.py psha_chile8/model/crustal/{REPORT_S3,S5_HANDOFF}.md psha_chile8/model/crustal/tables/*2026-11-16e* psha_chile8/model/crustal/figs/2026-11-16e psha_chile8/model/crustal/nrml/2026-11-16e/branches.json psha_chile8/model/crustal/nrml/2026-11-16e/lt_crustal_*.xml psha_chile8/model/crustal/oqcheck/2026-11-16e/job.ini psha_chile8/model/faults/compare.py psha_chile8/WORKLOG.md psha_chile8/FIGURES.md`
+  - leave out the large tables and caches (`tables/rates_2026-11-16e.csv`, `tables/oqcheck_2026-11-16e.csv`, `tables/mfsrc_*.pkl`): `git reset psha_chile8/model/crustal/tables/rates_2026-11-16e.csv psha_chile8/model/crustal/tables/oqcheck_2026-11-16e.csv psha_chile8/model/crustal/tables/mfsrc_*`
+  - message: "S3/S5b: crustal model on fits 2026-11-16e: kernel n per class, faults outside the grid dropped, Liquiñe–Ofqui multi-fault branch (SHERIFS, 15 km), OpenQuake files, tree and tornado rows"
+
+## 2026-11-16 — S5a: interface and in-slab hazard jobs (and the crustal family, S5b, after the S3 note)
+- **Read:** CLAUDE.md, PLAN, DECISIONS (Interface, In-slab, Crustal and faults, GMMs, Logic tree, Hazard runs), LEARNINGS, the brief, and the S3 hand-off note (`model/crustal/S5_HANDOFF.md`, passed on by Pablo). DECISIONS read again before finishing: unchanged since 04:27, so the choices below still hold.
+- **Done:**
+  - psha_chile7 hazard code ported into `hazard/`: `config.py`, `jobs.py` (instead of `logic_tree.py`), `build.py`, `nrml.py`, `run_all.sh`, `combine.py` (unchanged), `post.py` (load, wquant, iml), `check_tree.py` (level 1, two families), `tornado_final.py`, plus `trees.py`, `branches.py`, `tables.py`, `crustal_ready.py`; tests `hazard/tests/test_hazard.py` (8 pass).
+  - The families are read from their `branches.json`: interface `nrml_2026-11-16`; in-slab `nrml/2026-11-16b` (the S2 timing check passed); crustal `nrml/2026-11-16e`.
+  - Branch tables: `hazard/branches_interface.csv`, `hazard/branches_inslab.csv`.
+  - 66 OpenQuake jobs ran one at a time, calcs 522–591, 4.4 h in all. Interface reference 291 s, in-slab 133 s, interface tree (864 rlz) 57 min, crustal reference 147 s, crustal tree 585 + 236 s.
+  - check_tree level 1 passes (mean 3.9e-6, every paired curve within 1.6e-5, quantiles 2.8e-6).
+  - Tornado (interface + in-slab, and all three families), family-tree curves and PGA 475 tables. Report: `hazard/REPORT_S5a.md`.
+- **Choices made here:**
+  - The interface reference keeps the scaling level at 1/3 each (DECISIONS applies it to every interface source); b option own.
+  - `strict = false` in every job: OpenQuake refuses fault sources above 52 000 ruptures, and the margin source has 101 864 at the 10 km mesh of the brief.
+  - Every job reads a site model with soiltype 1 (Idini sI, rock) for the MASCSN26 interface set.
+  - The coupling bar is measured against geodetic χ 0.8. The pooled and margin b rows are measured against the segmented row, the only geometry that has them.
+  - The crustal tree runs in two parts (see open questions), mixed exactly.
+  - The GM1 "top four" crustal set equals the current tree, so it has no job of its own.
+- **Environment:** `oq` fails in `psha_renta` with `ModuleNotFoundError: openquake.calculators...`: the editable install does not map the new `openquake.pfd` subpackage. `run_all.sh` sets `PYTHONPATH=/data/PyCharmProjects/psha_renta/oq-engine`; the entry scripts need the same to read datastores. Reinstalling the engine (`pip install -e`) would fix it for good.
+- **Commands for Pablo** (all have run; to rerun):
+  - `bash psha_chile8/hazard/run_all.sh`
+  - then, with `PYTHONPATH` as above, from `psha_chile8/`: `python hazard/check_tree.py`, `python hazard/trees.py`, `python hazard/tornado_final.py`, `python hazard/tables.py`
+- **Results** (PGA 475 yr; reference branches combined):
+  - Interface + in-slab: 1.29 g La Serena, 1.27 Valparaíso, 1.24 Antofagasta, 0.73 Santiago centro, 0.13 Puerto Aysén.
+  - The crustal family doubles the south: Hornopirén 0.33 → 0.60 g, Puerto Aysén 0.13 → 0.50 g.
+  - Tornado on the interface + in-slab number, ≥ 5 %: the GMM sets and single GMMs (20–27 %), interface segmentation 20 %, geodetic rate 14 %, b option 13 %, in-slab nearest-neighbour pattern 12 %, declustered interface rate 12 %, interface (a, b) 10 %, scaling 10 %, in-slab (a, b) 8 %, coupling 6 %.
+  - Below 5 %: truncation 2.5 / 4.0 (≤ 4.5 %) and the interface MFD shape (cut against tapered, 0.6 %).
+  - Crustal, on the total: MASCSN26 GMM set 91 % (Pucón), no faults −71 % and database B +64 % (Puerto Aysén), jump 5 km 25 %, depth 20 km 24 %, segmented system 23 %, ψ 17 %. Below 5 %: background declustered rates, pattern declustering, cut MFD, truncation.
+- **Open questions:**
+  - **Crustal section ids (for S3):** the crustal tree failed as one job, because OpenQuake needs section ids unique across the sections files of a job, and `cr_sections_A_z10.xml` and `cr_sections_A_z20.xml` share them (`s_CL-006a_0` …). The tree ran as `f_cr_tree_a` (78 branches, weight 0.75) and `f_cr_tree_b` (6 multi-fault depth-20 branches, 0.25), mixed exactly in `trees.load`. Proposal for S3: depth in the section ids, so that the tree runs as one job.
+  - **MASCSN26 crustal set** (Arteta et al. 2023 alone): crustal PGA 475 × 5–6 at Concepción (0.14 → 0.72 g) and Puerto Montt (0.11 → 0.70 g). Worth a check of the model's applicability and distance metric before it is shown.
+  - C15 rows (in-slab one layer, lower depth) defined and skipped.
+- **Proposed DECISIONS lines (Hazard runs):**
+  - "Hazard jobs in `hazard/` (S5a, 16 Nov): one OpenQuake job per family, combined exactly in rate space (check_tree level 1 passes); the interface scaling level as setMSRAbsolute applied to Subduction Interface only; in-slab from `model/inslab/nrml/2026-11-16b/`."
+  - "`strict = false` in the hazard jobs: the margin complex fault has 101 864 ruptures at the 10 km mesh, above OpenQuake's 52 000 guard (S5a, 16 Nov)."
+  - "Site model with soiltype 1 (Idini et al. 2017 class sI, rock) at every site, for the MASCSN26 GMM set (S5a, 16 Nov)."
+- **Proposed DECISIONS lines (Logic tree, for Pablo to judge by the 5 % rule):**
+  - "Tornado of 16 Nov (S5a / S5b, PGA 475 yr, 14 cities): below 5 % everywhere: truncation 2.5 / 4.0, interface MFD shape cut against tapered (0.6 %), crustal background from declustered fits, crustal pattern declustering, crustal cut MFD."
+- **Suggested commit:**
+  - `git add psha_chile8/hazard/*.py psha_chile8/hazard/run_all.sh psha_chile8/hazard/tests psha_chile8/hazard/REPORT_S5a.md psha_chile8/hazard/branches_*.csv psha_chile8/hazard/out psha_chile8/hazard/jobs/*/build.json psha_chile8/hazard/jobs/*/job.ini psha_chile8/hazard/jobs/*/*_lt.xml psha_chile8/PLAN.md psha_chile8/FIGURES.md psha_chile8/WORKLOG.md`
+  - The job folders' `src/` hold hard links to the model NRML files (442 MB): leave them untracked.
+  - Message: "S5a/S5b: hazard jobs ported from psha_chile7; interface, in-slab and crustal references, family trees, tornado rows; check_tree level 1 passes; tornado and tree post-processing"
+- **Decided by Pablo (16 Nov): crustal fault-system weights 0.5 / 0.5** (segmented / multi-fault). The open point above is closed. Proposed DECISIONS line: "Crustal fault-system branches segmented 0.5, multi-fault 0.5 (Pablo, 16 Nov)."
+
+## 2026-11-16 — S5a: tornado figures for the 17 Nov slides (Claude Code, same session)
+- **Asked by Pablo:**
+  - one tornado figure per city for the collaborator slides: vertical bars ordered by the change of the total, small axes left out, single results labelled;
+  - GMM rows regrouped as one axis per set;
+  - stored as preliminary, since more branch levels will be added.
+- **Code:** `hazard/tornado_prelim.py` writes `hazard/out/tornado_prelim/<city>.png` and `.csv`, 14 cities.
+  - **Axes:** those that move the total PGA 475 yr by ≥ 1 %, up to 18, ordered by the change. Thick bar = change of the total, pale bar = family alone, dots = rows, labels with leader lines on the 10 largest.
+  - **GMM axes:** one per set and family (GMM-1R, GMM-FIT, GMM-MASCSN, GMM-GEM; crustal GMM-FIT = GMM-1R, no axis). Each single model's curve comes from the realizations of the set job, no new OpenQuake runs; checked against the single-GMM jobs of GMM-1R, identical. The set as a whole is drawn as a diamond.
+  - **Below the lowest level:** a row whose total falls below 0.005 g is drawn at that bound and labelled (Puerto Williams without faults).
+- **Names** (`hazard/jobs.py`; labels only, jobs unchanged):
+  - GMM sets: GMM-1R (the current tree, NGA-Sub + Montalva, round 1), GMM-FIT (GM1 top four), GMM-MASCSN, GMM-GEM.
+  - Axis "GMM-1R models": the four GMMs of GMM-1R, each alone.
+- **Other figures from the session:**
+  - `hazard/gmm_sets.py` (PGA 475 per set and family, six cities);
+  - `hazard/shares.py` (family shares of the hazard at the total PGA 475, and the family-alone against total scatter);
+  - `hazard/tornado_alt.py` and `hazard/tornado_trial.py` (layout trials).
+- **Suggested commit:** add `psha_chile8/hazard/{tornado_prelim,tornado_trial,tornado_alt,gmm_sets,shares}.py psha_chile8/hazard/jobs.py psha_chile8/hazard/out psha_chile8/FIGURES.md psha_chile8/WORKLOG.md`; message "S5: preliminary tornado figures per city with GMM sets as axes; GMM set names GMM-1R / FIT / MASCSN / GEM"
+
+## 2026-11-16 — S5: tornado figure style frozen; review against the psha_chile6 tornado (Claude Code, same session)
+- **Style:** written down in `hazard/FIGURE_STYLE_tornado.md`: layout, labels, fonts, and the trials that failed. `hazard/tornado_prelim.py` is the template.
+  - Legend: "all tectonic settings" / "within tectonic setting".
+  - The reference branch is drawn and labelled at 0; a hollow diamond marks the equal-weight average of each axis.
+  - GMM axes: one per set (GMM-1R / FIT / CSN / GEM).
+- **Compared with the psha_chile6 tornado** (`psha_chile6/outputs/hazard/rock800_tornado/_tornado/summary.txt`; 14 cities, PGA 475):
+  - **Reference PGA:** lower now in the north and centre (Iquique 1.11 → 1.03 g, Calama 0.82 → 0.68, Copiapó 1.03 → 0.88, Concepción 1.24 → 1.12); the same in the south (Pucón 0.51 / 0.48, Puerto Aysén 0.50 / 0.50).
+  - **Geodetic rate:** 1.2 % then, 13 % now (geodetic against seismic). The new seismic fits put the seismic branch further from the moment balance.
+  - **Truncation 2.5 / 4.0:** 8.7 % then, ≤ 4.5 % now.
+- **psha_chile6 rows ≥ 5 % that are not in the new tornado:**
+  - fit floors ±0.2: interface 11 %, in-slab 14 %. DECISIONS fixes them by criteria, but the branch rule asks for the range to be stated, so they should be run once and reported.
+  - crustal fault Mmax (single vs tree, 35 %) and "fault and cap Mmin 6.5" (15 %). Leonard alone now; the class-maximum variant was dropped with the multi-fault branch.
+  - crustal fault MFD shape (18 %).
+  - in-slab Mmax pad 0 / 0.4 (7.7 %) and interface segment Mmax +0.2 (5.2 %): fixed by the + 0.2 rule; range to be stated.
+  - interface corner 9.1 / 10.1 (6.4 %): replaced by the Kagan rule.
+- **psha_chile6 rows below 5 %, fixed and stated** (not needed again unless the geometry changes): Z_TOP 5 (4.5 %), Z_BOTTOM 60 (4.8 %), aspect ratio 2 (3.7 %), completeness ±0.1 (≤ 3.6 %), kernel neighbours, class domain cut, the crustal background details (≤ 0.6 %).
+- **Can be read or run now with no model change:**
+  - crustal fault MFD shape, each of the six alone: in the realizations of `t_cr_segmented` (6 branches), no new job;
+  - in-slab MFD shape (tapered against truncated): S2 files exist (`gk_trunc_ml_l3`), one job of about 2 min.
+- **Needs new files from other sessions:**
+  - S2: in-slab declustered rates (DECISIONS: rates from the full catalogue, so only if Pablo wants it tested); C15 one layer and lower depth.
+  - S3: section ids per depth (the crustal tree as one job); fault Mmax alternatives; fault Mmin 6.5.
+  - S1: Antarctic source on / off (matters for Puerto Aysén and Williams); fit floor ±0.2 fits (B11).
+- **Open from this session:**
+  - GMM-CSN crustal (Arteta 2023 alone) raises crustal PGA 5 × at Concepción and Puerto Montt: check its applicability before showing it as a set.
+  - Logic-tree weights instead of equal weights for the averages.
+  - Interface jobs are serial-bound (about 5 min each). If many more interface rows are added, a hazard Mmin of 6.0 or a 15 km mesh would cut that; both need a DECISIONS change.
+  - Reinstall the oq-engine checkout editable (`openquake.pfd` is missing from the editable map).
+- **Proposed LEARNINGS lines (Sensitivity and tornado):**
+  - "A tornado figure reads best as vertical bars with the change of the total, the family-alone range pale behind it, every branch labelled and the reference drawn at 0; brackets read as error bars (`hazard/FIGURE_STYLE_tornado.md`, 16 Nov)."
+  - "Single-GMM results need no jobs of their own: each model's curve is in the realizations of the set job (identical to the single-GMM jobs, S5a)."
+
+## 2026-11-16 — S5: Pablo's decisions on the review, and the reference PGA compared (Claude Code, same session)
+- **Reference PGA 475 yr, total of the three families, per city** (`hazard/out/ref_compare.csv`):
+
+  | | Iquique | Calama | Antofagasta | Copiapó | La Serena | Valparaíso | Santiago c. | Concepción | Puerto Montt | Hornopirén | Puerto Aysén |
+  |---|---|---|---|---|---|---|---|---|---|---|---|
+  | psha_chile6 (GMM-1R) | 1.11 | 0.82 | 1.33 | 1.02 | 1.34 | 1.37 | 0.80 | 1.24 | 0.63 | 0.64 | 0.50 |
+  | now, GMM-1R | 1.03 | 0.68 | 1.24 | 0.88 | 1.29 | 1.28 | 0.74 | 1.12 | 0.53 | 0.60 | 0.50 |
+  | now, GMM-FIT | 0.85 | 0.52 | 1.02 | 0.67 | 0.99 | 1.06 | 0.55 | 0.93 | 0.44 | 0.56 | 0.49 |
+
+  - **Source model** (now against psha_chile6, both on GMM-1R): −4 to −17 %.
+  - **GMMs** (GMM-FIT against GMM-1R): a further −16 to −25 % from Iquique to Concepción, −2 to −9 % in the far south.
+  - **Together:** −23 to −37 % in the north and centre, −1 to −16 % in the south.
+- **Geodetic branch:** the moment balance is unchanged (χ, 6.6 cm/yr, areas), so its moment rate is the same as before. The shape of its MFD changed with b and with the Mmax and corner rules of 15 Nov (Mmax = segment maximum + 0.2, corner from Kagan; before, no pad and corner 9.6). The jump of the geodetic axis, 1.2 % then and 13 % now, therefore comes mainly from the seismic branch and the MFD shape, not from the geodetic moment. To confirm with the S1 tables (N(≥ 8) seismic against geodetic, psha_chile6 against now).
+- **Decided by Pablo (16 Nov):**
+  - **Fit floors:** not tested; the fits are built to be stable against the floor (B9, B11).
+  - **Fault Mmax:** not tested separately; it follows from the Mmax fit.
+  - **Crustal fault MFD shapes:** already in the runs (the single-fault row mixes the six shapes); most will be dropped, since they barely move the hazard.
+  - **Antarctic interface source:** always on, not a tornado factor.
+  - **Averages in the tornado figures:** equal weights for now; logic-tree weights much later.
+  - **To be tested, for completeness:** C15 one layer and lower depth; in-slab declustered rates (S2 has to build the files).
+  - **GMM-CSN crustal (Arteta et al. 2023 alone):** needs a check; it gives a lot of PGA on its own.
+- **Open:** Mmax pad (in-slab 0 / 0.4, interface segment + 0.2). psha_chile6 gave 5–8 %. The + 0.2 is fixed by a rule, but the branch rule asks for its range to be stated: one row per family would give that range. Pablo to decide.
+- **Crustal questions for S3** (Pablo, 16 Nov; message passed on):
+  - multi-fault ruptures for Magallanes–Fagnano and for arc segments;
+  - whether the Liquiñe–Ofqui multi-fault branch touches only the intra-arc faults, or also intra-arc faults in the north;
+  - whether background and fault seismicity are compared correctly, and what the joint background + fault MFD is;
+  - possible jumps in databases A (GEM) and B (MASCSN), including jumps from main traces to favourably oriented secondary traces;
+  - fault depths: most source values are not reliable; check CSN / CHAF for a depth source; section ids should carry the depth;
+  - Mmax alternatives (none chosen yet).
+- **Proposed DECISIONS lines:**
+  - Interface: "The Antarctic interface source is always on; not a tornado factor (Pablo, 16 Nov)."
+  - Logic tree: "Fit floors are not a tornado factor: the fits are built stable against the floor (B9, B11; Pablo, 16 Nov)."
+  - Logic tree: "Tornado figures show the equal-weight average of each axis; logic-tree weights come later (Pablo, 16 Nov)."
+
+## 2026-11-16 — S5: decisions confirmed by Pablo; REPORT_S5a section 9 (Claude Code, same session)
+- **Confirmed by Pablo (to be written into DECISIONS by him):**
+  - Hazard runs: "`strict = false` in the hazard jobs (the margin complex fault has 101 864 ruptures at the 10 km mesh)."
+  - Interface: "The Antarctic interface source is always on; not a tornado factor."
+  - Logic tree: "Fit floors are not a tornado factor: the fits are built stable against the floor (B9, B11)."
+  - Figures: "Tornado figures show the equal-weight average of each level; logic-tree weights come later."
+  - GMMs: "GMM sets named GMM-1R (current tree, round 1), GMM-FIT (GM1 top four), GMM-CSN (MASCSN26), GMM-GEM (GEM South America)."
+- **New level:** Mmax pad 0 / 0.2 / 0.4 for interface (segments and margin) and in-slab. Pablo sends the rows to S1 and S2; the S1 prompt's point 2 is no longer conditional, and the S2 prompt gets the same line.
+- **Every branch keeps source Mmin 5.5**, so the levels stay comparable (Pablo).
+- **Left for the full model:** the ≥ 5 % verdicts, logic-tree weights, faster interface jobs.
+- **Report:** `hazard/REPORT_S5a.md`.
+  - Section 5: tables regenerated with the new names.
+  - Section 9: the preliminary figures, the PGA comparison per city (psha_chile6 / GMM-1R / GMM-FIT), the decisions, how to add a level.
+
+## 2026-11-16 — C15: in-slab depth tables ready (run 2026-11-16b)
+
+- **Scope** (Pablo, 16 Nov): this session builds the depth cell tables only; S2 builds the source files and the rupture-geometry options; S5 runs the hazard. The S5 addendum about `nrml/<date>/` therefore goes to S2. The brief has a scope note.
+- **Done:** `model/inslab/options.py`, `REPORT_C15.md`, 4 new tests (23 pass). DECISIONS re-read at the start and end; the In-slab line on the one layer is what changes (proposal below).
+- **One layer:** h_one = top + 0.252 × Slab2 thickness. 0.252 is the fraction that holds half of the 70 804 depth-model events. It replaces the per-cell median of C14, which jumped about 10 km along the 50 km slab-top line (the ± 15 km interface band of A7). New − C14: median +0.7 km, 5–95 % −7.7 to +14 km. The fraction varies with latitude (0.15–0.17 at 32–36° S, 0.29–0.31 at 20–22 and 26–32° S, 0.04–0.11 south of 38° S): one value is a smoothing choice. Table `depth_cells_2026-11-16b.csv`; the three slices and the lower depth are unchanged from `2026-11-16`.
+- **Lower-depth options**, reference hypocentres kept: 0.65 (psha_chile7; lsd +13.0 km median) and 0.615 (95 % with all depth sources; +10.4 km), in `depth_cells_lsd065_` and `depth_cells_lsd0615_2026-11-16b.csv`.
+- **w1 over the shallow slab** (top ≤ 50 km, 4 901 cells): the top slice (11.4 km) lies inside the ± 15 km interface band in every cell. From the shallow-slab events alone w1 = 0.02. The 0.39 in the table comes from the kernel carrying the events under the deeper slab updip. No change proposed.
+- **For S2** (new session or the S2 conversation): build `l1` from `depth_cells_2026-11-16b.csv`, and the lower-depth branches from the two `lsd` tables, as weight-0 branches in a new `nrml/<date>/` per the S5 addendum (reference `gk_taper_ml_l3` byte-identical to `2026-11-16b`). Also the rupture-geometry options (S2 already uses StrasserIntraslab; the OpenQuake alternative is AllenHayesIntraslab), the one-city check and the "negligible" threshold.
+- **Proposed lines** (Pablo adds): see `REPORT_C15.md` section 5. DECISIONS In-slab, one layer → "top + 0.252 × the Slab2 thickness, the fraction holding half of the events of the depth model (C15, 16 Nov)". Lower-depth options 0.65 and 0.615 with the reference hypocentres. Superseded: per-cell median → 0.252 rule. LEARNINGS: per-cell in-slab depth statistics jump at the 50 km slab-top line because of the interface band.
+- **Commands:** from `psha_chile8/model/inslab/`: `python options.py` (2 min).
+- **Suggested commit:** `git add psha_chile8/model/inslab/options.py psha_chile8/model/inslab/REPORT_C15.md psha_chile8/model/inslab/tests/test_depth.py psha_chile8/model/inslab/tables/{depth_cells,depth_cells_lsd065,depth_cells_lsd0615,onelayer,options,w1_check}_2026-11-16b.csv psha_chile8/model/inslab/figs/2026-11-16b/{maps_onelayer,sections_layers}.png psha_chile8/model/inslab/figs.py psha_chile8/tasks/C15_inslab_depth_options.md psha_chile8/DATA.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`; message `C15: in-slab depth options (one layer at top + 0.252 x thickness, lower depth 0.65 and 0.615)`.
+- **Added:** `figs/2026-11-16b/sections_layers.png` (REPORT_C15 section 6). At 33° and 38° S the three-layer weights also switch at the 50 km slab-top line (bottom slice heavier updip, top slice downdip): the interface-band effect shows in the three layers too, not only in the one layer. Open for Pablo.
+
+## 2026-11-16: S1: interface Mmax pad files ready (2026-11-16b) (Claude Code)
+For S5 (note of 16 Nov). Details in `model/interface/REPORT_S1.md` section 7. DECISIONS re-read (Interface, Statistics, Logic tree): unchanged since the A9 rerun; the choices hold.
+- **Files:** `model/interface/nrml_2026-11-16b/`. It holds every file of `nrml_2026-11-16` with the same sha256, `source_lt_interface.xml` copied unchanged, and four new files `if_{margin,seg}_full_own_taper_ml_seis_pad{00,04}.xml`.
+- **branches.json:** factor `mmax_pad` on every branch (0.2 for the old ones, weight 0 for the new ones), and a `tornado` block with rows `mmax_pad00` / `mmax_pad02` (reference) / `mmax_pad04`. Each row holds margin and segmented at 0.5 / 0.5.
+- **Code:** `if_pad.py`; `if_oqcheck.compare` takes a rates table; test `test_mmax_pad_files`. Interface tests: 11 pass.
+- **Mmax and fits:** Mmax = largest historical event + 0 / 0.2 / 0.4 (9.5 / 9.7 / 9.9 on the margin). Each unit is refitted with that Mmax (no bootstrap, ML pair), and the corner comes from Kagan on it. The pad-0.2 refit rebuilds the reference files byte for byte.
+- **Antarctic source:** its 8.5 comes from the area, not from an event; it is shifted by the same steps (8.3 / 8.5 / 8.7).
+- **What the pad moves:** N(≥ 8.5) at 32–26° S by −58 / +53 %, N(≥ 8) by ≤ 12 %, b by ≤ 0.011.
+- **OpenQuake check:** calc 592, preclassical. The four new files load, rates equal the table (|dN8| ≤ 1.1e-6), last magnitudes equal.
+- **Geodetic lever (check, no files):**
+  - At χ 0.8, geodetic / seismic N(≥ 8) went from 0.97 to 1.32 on the margin, and from 1.0–2.5 to 1.6–4.8 on the segments (table in REPORT section 7).
+  - The geodetic moment is the same. The seismic moment of the margin fell from 7.1e20 to 5.3e20.
+  - Margin, step by step: b 0.917 → 0.959 gives −25 %; N(≥ 5.5) 10.4 → 8.4 gives −20 %; the Kagan corner with the list to Mmax + 0.2 gives +23 %.
+  - So the change comes from the seismic fits (b and rates). The Mmax / corner rules of 15 Nov reduce the lever, they don't raise it.
+  - The psha_chile6 tornado also varied the geodetic level on the full margin only.
+- **Note for Pablo:** in `fits/run.py`, the weight-1 observed maximum is 9.0 at 37–32° S and 8.9 at 26–17.6° S. The interface Mmax there are fixed at 9.3 and 9.0, i.e. 9.1 and 8.8 + 0.2, from the historical list. So the pads here are on the historical maxima, not on `observed()`. Not changed.
+- **Proposed DECISIONS lines:**
+  - Interface: "Mmax pad level for the tornado: + 0 / + 0.2 / + 0.4 on the largest historical event of each unit (Antarctic 8.5 shifted alike), units refitted, Kagan corner on each Mmax; files `model/interface/nrml_2026-11-16b/` (S1, 16 Nov). The reference stays + 0.2 until the tornado."
+  - Logic tree: "The geodetic-rate lever grew from psha_chile6 (geodetic / seismic N(≥ 8) 0.97 → 1.32 on the margin) because the seismic fits give less moment (higher b, lower rates), not because of the Mmax / corner rules (S1, 16 Nov)."
+- **Suggested commit:** `git add psha_chile8/model/interface/if_pad.py psha_chile8/model/interface/if_oqcheck.py psha_chile8/model/interface/tests/test_interface.py psha_chile8/model/interface/REPORT_S1.md psha_chile8/model/interface/nrml_2026-11-16b psha_chile8/model/interface/oqcheck_2026-11-16b psha_chile8/model/interface/tables/rates_2026-11-16b_pad.csv psha_chile8/model/interface/tables/oqcheck_2026-11-16b_pad.csv psha_chile8/WORKLOG.md`; message "S1: interface Mmax pad files for the tornado (nrml_2026-11-16b); geodetic lever check against psha_chile6".
+
+## 2026-11-16: interface Mmax by the one rule, run 2026-11-16f (Claude Code, B11/B12)
+
+Asked by Pablo. DECISIONS read again before and after: Statistics already says one rule for every unit, interface included; Interface still lists 9.7 / 9.3 / 8.7 / 9.0 (line to replace, proposed below, not written).
+
+- **Rule** (Pablo, 16 Nov): the interface units take their Mmax like every other unit, the largest weight-1 event of the unit in the catalogue + 0.2. `fits/run.py`: the fixed list (9.7 / 9.7 / 9.3 / 8.7 / 9.0) is gone, the five interface units have `pad=0.2`; the controlling magnitude of the (a, b) branches now reads the Mmax of the fit (8.8, at most Mmax − 0.3). Nothing else changed; catalogue `2026-11-16c`, declustered catalogues `2026-11-16e`, completeness table and every Mc window identical.
+- **Largest events** (all with class weight 1, from Ruiz and Madariaga 2018): margin and 45.6–37° S 1960-05-22 Mw 9.5; 37–32° S 1730-07-08 Mw 9.0 (1751-05-25 also 9.0); 32–26° S 1819-04-11 and 1922-11-11 Mw 8.5; 26–17.6° S 1877-05-10 Mw 8.9. The fixed list had 9.1 for 37–32° S and 8.8 for 26–17.6° S. Arica 1868-08-13 Mw 9.0 has its epicentre at 17.15° S, north of the last segment: it counts in the margin unit and in no segment.
+
+| unit | Mmax, 16e → 16f | corner | b (sd) | N(≥ 7) | N(≥ 8) | Mw ≥ 7 fitted / observed | Mw ≥ 8 |
+|---|---|---|---|---|---|---|---|
+| interface, tapered | 9.7 | 9.48 | 0.959 (0.018) | 0.3046 | 0.0333 | 55.7 / 51.6 | 17.5 / 15.8 |
+| interface, cut | 9.7 | – | 0.959 (0.018) | 0.3046 | 0.0330 | 55.5 / 51.6 | 17.4 / 15.8 |
+| 45.6–37° S, tapered | 9.7 | 9.47 | 0.909 (0.049) | 0.0449 | 0.0055 | 8.5 / 9.9 | 2.9 / 2.8 |
+| 45.6–37° S, cut | 9.7 | – | 0.909 (0.049) | 0.0448 | 0.0054 | 8.4 / 9.9 | 2.8 / 2.8 |
+| 37–32° S, tapered | 9.3 → 9.2 | 9.09 → 8.99 | 0.9932 → 0.9926 (0.033) | 0.0875 → 0.0878 (+0.3 %) | 0.00873 → 0.00870 (−0.3 %) | 15.6 / 12.6 | 4.6 / 5.5 |
+| 37–32° S, cut | 9.3 → 9.2 | – | 0.9934 → 0.9928 (0.033) | 0.0872 → 0.0873 (+0.2 %) | 0.00852 → 0.00846 (−0.7 %) | 15.5 / 12.6 | 4.5 / 5.5 |
+| 32–26° S, tapered | 8.7 | 8.48 | 0.939 (0.030) | 0.0974 | 0.0096 | **17.4 / 9.9** | 5.0 / 2.6 |
+| 32–26° S, cut | 8.7 | – | 0.937 (0.031) | 0.0970 | 0.0094 | **17.3 / 9.9** | 5.0 / 2.6 |
+| 26–17.6° S, tapered | 9.0 → 9.1 | 8.79 → 8.89 | 0.9624 → 0.9633 (0.039) | 0.0679 → 0.0676 (−0.4 %) | 0.00701 → 0.00708 (+1.0 %) | 12.2 / 15.3 | 3.7 / 2.9 |
+| 26–17.6° S, cut | 9.0 → 9.1 | – | 0.9611 → 0.9621 (0.039) | 0.0678 → 0.0676 (−0.3 %) | 0.00683 → 0.00691 (+1.2 %) | 12.2 / 15.3 | 3.6 / 2.9 |
+
+- Rows without an arrow are identical to 16e in every column. N(≥ 5) and N(≥ 6) of the two changed segments within 0.2 %. Large-event checks unchanged (32–26° S still outside the band at Mw ≥ 7).
+- **Branches:** the controlling magnitude of 26–17.6° S goes from 8.7 to 8.8 (Mmax − 0.3 no longer below 8.8); its pairs (a, b) 5.836, 1.026 / 5.525, 0.963 / 5.215, 0.900 (5th / ML / 95th). 37–32° S: 6.105, 1.046 / 5.842, 0.993 / 5.578, 0.939. The other units unchanged.
+- **Check that nothing else moved.** `fits_2026-11-16f.csv` against `fits_2026-11-16e.csv`, column by column: only the four rows of `seg2` and `seg4` differ; `interface`, `seg1`, `seg3`, the three in-slab units, the four crustal classes and `crustal` are identical. `fits_declustered_2026-11-16f.csv` (374 rows): 132 rows differ, all interface segments: the 88 rows of `seg2` and `seg4`, and the 44 rows of `seg1` and `seg3` with the shared segment b (`b_option` shared), whose family b moves in the fourth decimal (Gardner–Knopoff per family 0.7527 → 0.7530) because it pools the four segments. No row of another unit differs. In the sensitivity table the rows of `seg2` and `seg4` differ, and the pooled-b rows of `seg1` and `seg3`.
+- **Declustered, the two options** (tapered, table full, own b): 37–32° S corner 8.98 → 8.88 (Gardner–Knopoff per family) and 9.06 → 8.96 (nearest neighbour per family), N(≥ 7) +0.8 % and +0.5 %, N(≥ 8) unchanged; 26–17.6° S corner 8.75 → 8.85 and 8.78 → 8.88, N(≥ 7) −0.7 % and −0.5 %, N(≥ 8) +0.8 % and +0.9 %.
+- **Downstream (S1):** `seg2` and `seg4` meet the threshold of 0.1 in Mmax, in the full and the declustered table; b and N(≥ 6) are far under the others. `model/interface/if_build.py` reads `fits_2026-11-16.csv` and `fits_declustered_2026-11-16.csv`; its other interface rows are the same in 16f. S2 and S3: no row moves (S3 can read 16e or 16f).
+- **Files.** New: the nine `*_2026-11-16f.csv` tables in `fits/tables/`. Nothing older overwritten; the 16e figures copied to `fits/figs/2026-11-16e/`, then `fits/figs/*.png` regenerated. 31 tests pass. `fits/FITS.md` section 13, `fits/DECLUSTER.md` section 11, DATA row.
+- **Proposed lines for DECISIONS** (Pablo adds; not written):
+  - Interface, replacing the Mmax line: "Mmax: largest weight-1 event of each unit in the catalogue + 0.2, by `observed()` of `fits/run.py` like every other unit, no fixed list: 9.7 for the whole margin and 45.6–37° S (1960, Mw 9.5), 9.2 for 37–32° S (1730 and 1751, Mw 9.0), 8.7 for 32–26° S (1819 and 1922, Mw 8.5), 9.1 for 26–17.6° S (1877, Mw 8.9) on the catalogue `2026-11-16c` (Pablo, 16 Nov). Arica 1868 Mw 9.0 (17.15° S) is north of the last segment and counts in the margin only. Moment closure only as a diagnostic."
+  - Statistics: "Fits, current: `fits/tables/fits_2026-11-16f.csv` and `fits_declustered_2026-11-16f.csv`; they differ from 16e only in the interface segments 37–32° S and 26–17.6° S."
+  - Superseded: "Interface Mmax from a fixed list, 9.7 / 9.3 / 8.7 / 9.0 (15 Nov; the Ruiz and Madariaga values 9.1 and 8.8 + 0.2) → from the catalogue like every unit, 9.7 / 9.2 / 8.7 / 9.1 (16 Nov). Fits `fits_2026-11-16e.csv` → `fits_2026-11-16f.csv`."
+- **Open:** Arica 1868 belongs to no segment by its epicentre; if the segmented branch should carry it, the northern limit of the last segment (17.6° S) is the thing to look at, in S1.
+- **Commands** (from `psha_chile8/fits/`): `python run.py` (95 s), `OMP_NUM_THREADS=1 python run_declustered.py` (3 min); `pytest fits/tests` from `psha_chile8/`.
+- **Commit** (from the repo root):
+  - `git add psha_chile8/fits/run.py psha_chile8/fits/run_declustered.py psha_chile8/fits/FITS.md psha_chile8/fits/DECLUSTER.md psha_chile8/fits/figs psha_chile8/fits/tables/*_2026-11-16f.csv psha_chile8/DATA.md psha_chile8/WORKLOG.md`
+  - `git commit -m "Fits 2026-11-16f: interface Mmax from the catalogue like every unit (37-32 S 9.2, 26-17.6 S 9.1)"`
+
+## 2026-11-16: Mmax pad 0.0 and 0.4, tornado sensitivity on run 2026-11-16f (Claude Code, B11/B12)
+
+Asked by Pablo. DECISIONS read again before and after (Statistics: pad 0.2, one rule for every unit; In-slab: "Mmax pad 0 / 0.2 / 0.4: 5–7 %; fixed at 0.2" in LEARNINGS); nothing here changes a rule.
+
+- **What.** `fits/run_pad.py` (new; settings at the top): the fits of `run.py` with another pad on the largest weight-1 event for every unit, the corner of the tapered line following from Mmax by the Kagan rule; same catalogue (`2026-11-16c`), tables and rules as `fits_2026-11-16f.csv`. Maximum-likelihood rows only: no bootstrap, no (a, b) percentiles, no declustered tables. With pad 0.2 the script reproduces `fits_2026-11-16f.csv` to the rounding of that file (same Mmax; b within 0.00001; N(≥ 7) within 0.2 %, the five decimals of the CSV on the smallest rates), so the differences below are the pad alone.
+- **Files:** `fits/tables/fits_2026-11-16f_pad00.csv`, `fits_2026-11-16f_pad04.csv` (26 rows each: 13 units, two shapes; columns unit, name, shape, pad, events, counted, mmax, corner, b, b_from, a, rate_mlo, m_lo, steps, N5–N8, the large-event check) and `fits_2026-11-16f_pad_compare.csv` (differences against 16f).
+- **Tapered fits against 16f** (pad 0.2); Δb, and N as a ratio to 16f:
+
+| unit | Mmax 0.0 / 0.2 / 0.4 | Δb, pad 0.0 | N(≥ 6) | N(≥ 7) | Δb, pad 0.4 | N(≥ 6) | N(≥ 7) |
+|---|---|---|---|---|---|---|---|
+| interface | 9.5 / 9.7 / 9.9 | −0.001 | × 1.001 | × 1.003 | 0.000 | × 1.000 | × 1.000 |
+| interface, 45.6–37° S | 9.5 / 9.7 / 9.9 | −0.001 | × 1.002 | × 1.004 | 0.000 | × 0.999 | × 0.999 |
+| interface, 37–32° S | 9.0 / 9.2 / 9.4 | −0.002 | × 1.004 | × 1.007 | +0.001 | × 0.997 | × 0.995 |
+| interface, 32–26° S | 8.5 / 8.7 / 8.9 | −0.006 | × 1.015 | × 1.024 | +0.004 | × 0.991 | × 0.986 |
+| interface, 26–17.6° S | 8.9 / 9.1 / 9.3 | −0.002 | × 1.005 | × 1.008 | +0.001 | × 0.997 | × 0.995 |
+| in-slab, shallow | 8.0 / 8.2 / 8.4 | −0.008 | × 1.020 | × 1.016 | +0.006 | × 0.987 | × 0.985 |
+| in-slab, intermediate depth | 8.0 / 8.2 / 8.4 | −0.008 | × 1.020 | × 1.016 | +0.006 | × 0.987 | × 0.985 |
+| Jujuy nest | 7.2 / 7.4 / 7.6 | −0.014 | × 1.025 | × 0.76 | +0.011 | × 0.977 | × 1.12 |
+| crustal family | 7.8 / 8.0 / 8.2 | −0.002 | × 1.003 | × 0.96 | +0.001 | × 0.998 | × 1.02 |
+| forearc | 7.0 / 7.2 / 7.4 | −0.002 | × 0.980 | × 0.43 | +0.001 | × 1.010 | × 1.52 |
+| arc | 7.7 / 7.9 / 8.1 | −0.002 | × 1.003 | × 0.94 | +0.001 | × 0.998 | × 1.03 |
+| backarc | 7.5 / 7.7 / 7.9 | −0.002 | × 1.001 | × 0.87 | +0.001 | × 0.999 | × 1.07 |
+| Patagonia | 7.8 / 8.0 / 8.2 | −0.002 | × 1.003 | × 0.96 | +0.001 | × 0.998 | × 1.02 |
+
+- **Read:** b moves by 0.014 at most (Jujuy nest) and under 0.01 everywhere else, well inside every bootstrap sd; N(≥ 5) within 0.2 % and N(≥ 6) within 2.5 % in every unit. The pad matters only where N(≥ 7) sits next to Mmax: the forearc (Mmax 7.0 to 7.4: N(≥ 7) × 0.43 to × 1.52), the Jujuy nest (× 0.76 to × 1.12) and the backarc (× 0.87 to × 1.07). For the interface and the in-slab classes N(≥ 7) moves by under 2.5 %.
+- **Above Mw 7:** N(≥ 8) of the in-slab classes × 0.50 with pad 0.0 and × 1.39 with pad 0.4 (tapered; × 0.44 and × 1.30 cut), since their Mmax is 8.0 to 8.4; interface 32–26° S × 0.89 and × 1.06; the other interface units within 2.5 %.
+- **Cut-line fits** move the same way and a little less at N(≥ 7) (forearc × 0.42 and × 1.36; nest × 0.79 and × 1.09).
+- **Large-event check:** the same result in all three pads for every unit (interface 32–26° S and intermediate in-slab outside the band at Mw ≥ 7, everything else inside).
+- **Not done, as asked:** no declustered tables, no bootstrap, no (a, b) percentiles. `run.py`, the 16f tables and the figures are untouched; 31 tests pass.
+- **For the tornado:** the source builders can read the two pad tables like `fits_2026-11-16f.csv` (same unit and shape keys; a in the convention of the shape; the row `crustal` is the family). They have no `b_sd`, covariance or branch columns.
+- **Proposed line for DECISIONS** (Pablo adds; not written): Statistics or Logic tree: "Mmax pad is a tornado factor: 0.0 and 0.4 against 0.2 for every unit, corner by the Kagan rule (`fits/tables/fits_2026-11-16f_pad00.csv`, `_pad04.csv`; maximum-likelihood rows). It moves b by under 0.015 and N(≥ 6) by under 2.5 %; N(≥ 7) of the forearc by × 0.43 and × 1.52."
+- **Commands** (from `psha_chile8/fits/`): `python run_pad.py` (about 15 s).
+- **Commit** (from the repo root):
+  - `git add psha_chile8/fits/run_pad.py psha_chile8/fits/FITS.md psha_chile8/fits/tables/fits_2026-11-16f_pad00.csv psha_chile8/fits/tables/fits_2026-11-16f_pad04.csv psha_chile8/fits/tables/fits_2026-11-16f_pad_compare.csv psha_chile8/DATA.md psha_chile8/WORKLOG.md`
+  - `git commit -m "Fits: Mmax pad 0.0 and 0.4 on run 2026-11-16f, tornado sensitivity (ML rows)"`
+
+- **S3 queue (16 Nov, from the orchestrator via Pablo):** a crustal Mmax-pad tornado row, the reference branch rebuilt on `fits_2026-11-16f_pad00.csv` and `_pad04.csv` (segmented and multi-fault references), weight 0. Pablo: worth a tornado level. To be done after the S5-note items.
+
+## 2026-11-16, S2: in-slab Mmax pad branches
+- **Done:** pad 0.0 and 0.4 rows for the reference branch (tapered, ML (a, b), three hypocentres; Gardner–Knopoff and nearest neighbour), from `fits/tables/fits_2026-11-16f_pad00.csv` and `_pad04.csv` (corner as in those tables), one source per cell, weight 0 (tornado only). `build.py`: `PADS`, `PAD_BRANCH`, `fits(path)`; `branches()` adds the four rows with column `pad`. Files in `model/inslab/nrml/2026-11-16b/` (now 56 files, 28 branches). REPORT_S2 section 10.
+- **For S5, branch ids** (in `nrml/2026-11-16b/branches.json`, column `pad`; files `is_slab_<id>.xml` and `is_nest_<id>.xml`): `gk_taper_ml_l3_pad00`, `nn_taper_ml_l3_pad00`, `gk_taper_ml_l3_pad04`, `nn_taper_ml_l3_pad04`. Their pad 0.2 counterparts are the reference branches `gk_taper_ml_l3` and `nn_taper_ml_l3`.
+- **Effect:** in-slab N(≥ 8) × 0.50 / × 1.39, nest N(≥ 7) × 0.76 / × 1.12, N(≥ 7) of shallow and intermediate within 2 %.
+- **Checks:** 25 tests pass; all 56 files read by the OpenQuake parser (393 036 sources; rates within 2e-7). `fits_2026-11-16f.csv` in-slab rows equal `fits_2026-11-16.csv`, so the other branches are unchanged.
+- **Suggested commit** (with or after the 2026-11-16b commit): `git add psha_chile8/model/inslab/{build,oqcheck}.py psha_chile8/model/inslab/tests/test_s2.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/model/inslab/tables/{drop_2026-11-16b,oqread_2026-11-16b}.csv psha_chile8/model/inslab/nrml/2026-11-16b/branches.json psha_chile8/WORKLOG.md`; message `S2: in-slab Mmax pad 0.0 and 0.4 branches for the reference branch (weight 0, tornado), read by OpenQuake`.
+
+## 2026-11-16: S1: interface rebuilt on fits 2026-11-16f with the Mmax pad rows (nrml_2026-11-16c) (Claude Code)
+Details in `model/interface/REPORT_S1.md` section 8. DECISIONS re-read: Statistics (16f, pad factor) and Interface (Mmax by `observed()`); the choices hold.
+- **Folder for S5:** `model/interface/nrml_2026-11-16c/`. It holds 240 branch files, `source_lt_interface.xml`, the four pad files, and `branches.json` with factor `mmax_pad` on every branch and the `tornado` block. `nrml_2026-11-16` and `nrml_2026-11-16b` are kept. `nrml_2026-11-16b` is superseded: it was built on the old Mmax list.
+- **Pad-row branch ids (weight 0):**
+  - `margin_full_own_taper_ml_seis_pad00` and `_pad04`;
+  - `seg_full_own_taper_ml_seis_pad00` and `_pad04`;
+  - the reference ids, unchanged: `margin_full_own_taper_ml_seis` and `seg_full_own_taper_ml_seis`.
+  - The tornado rows are `mmax_pad00`, `mmax_pad02` and `mmax_pad04`, each margin 0.5 / segmented 0.5. The scaling level of `source_lt_interface.xml` applies to all of them.
+- **Pad rows:** taken from `fits/tables/fits_2026-11-16f_pad00.csv` and `_pad04.csv`. They match my own refit (`if_pad.check`) in all 15 rows: Mmax, b, rate and corner to the table rounding (`tables/pad_check_2026-11-16c.csv`). The Antarctic source uses 8.3 / 8.5 / 8.7.
+- **What moved against nrml_2026-11-16:**
+  - Only 37–32° S (Mmax 9.3 → 9.2) and 26–17.6° S (9.0 → 9.1) change, plus the Antarctic source in the shared-b branches in the fourth decimal.
+  - Reference tree: N(≥ 8) +7.8 % and −9.1 %. The moves are in the geodetic branches; the seismic ML branch moves by ≤ 1 %.
+  - The margin, 45.6–37° S and 32–26° S are identical.
+- **OpenQuake check (preclassical):** calcs 594 (margin), 595 (segments) and 593 (pad files). All 244 files load; |dN8| ≤ 2.1e-6; last magnitudes equal.
+- **Code:** `if_build.py` (DATE 2026-11-16c, fits 16f); `if_pad.py` reads the pad rows of the fits session and checks them; `if_oqcheck.py` leaves the pad branches to the pad job; `if_figs.py` table 16f. Interface tests: 11 pass. `figs/` redrawn.
+- **Open:** Arica 1868 (Mw 9.0, 17.15° S) lies north of the margin source, which ends at 17.6° S. It counts only in the margin fit. Left as it is.
+- **Proposed DECISIONS lines:**
+  - Interface sources: "`model/interface/nrml_2026-11-16c/branches.json` on fits 2026-11-16f, with the Mmax pad branches (weight 0) and the tornado block."
+  - Superseded: "Interface sources `nrml_2026-11-16/` (A9 fits, fixed Mmax list) and the pad files `nrml_2026-11-16b/` → `nrml_2026-11-16c/` on fits 16f (16 Nov): only 37–32° S and 26–17.6° S move, N(≥ 8) of the tree +7.8 / −9.1 %."
+- **Suggested commit:** `git add -A psha_chile8/model/interface psha_chile8/WORKLOG.md`; message "S1: interface rebuilt on fits 2026-11-16f with the Mmax pad branches (nrml_2026-11-16c)".
+
+## 2026-11-16 — C14/C15 depth run 2026-11-16c
+
+- **Catalogue:** `depth.CAT` → `catalog/frozen/2026-11-16c/catalog_2026-11-16c.csv` (DECISIONS: everything reads 16c). The 16b run had still read 2026-11-16.
+- **Fixes:**
+  - `depth.nest` now scales the longitude by cos(lat) like `classify.py`: 15 Riedel-Hornig Jujuy-nest events had stayed in the depth set.
+  - `depth.zone` splits the 1 km bins at the slice limits (cumulative histogram, interpolated): weights no longer jump when the lower depth moves slightly.
+- **Effect against 2026-11-16:** fraction 0.4746 → 0.4744; weights 16–84 % ± 0.02, max 0.08; hypocentres ± 0.2 km, max 4.7; held-out −0.794 → −0.791. One-layer fraction 0.252.
+- **Tables:** `depth_cells_2026-11-16c.csv` is now the file for S2: three layers, plus the C15 one layer in `h_one`. Also `depth_cells_lsd065_` and `depth_cells_lsd0615_2026-11-16c.csv`. Runs 2026-11-16 and 16b are kept.
+- **Tests:** 25 pass.
+- **95 % or 99 % (Pablo's question):**
+  - 99 % gives 0.713, driven by the catalogue tails (0.883 against 0.553 in Riedel-Hornig).
+  - 0.475 contains 17 of the 18 in-slab events of Mw ≥ 6.9 since 1964 shallower than 300 km; the one outside is 1971-05-08 at 42.3° S, 157 km. 0.65 contains all 18.
+  - Chillán 1939 needs 0.62.
+  - Proposed: 95 % stays the reference, and 0.65 is the tornado option.
+- **Sections:** `figs/2026-11-16c/sections_layers_south.png` (31–40° S): the three-layer weights switch at the 50 km slab-top line. Open for Pablo.
+- **Commands:** from `psha_chile8/model/inslab/`: `python run.py` (12 min), then `python options.py` (2 min).
+- **Suggested commit** (replaces the C15 one above): `git add psha_chile8/model/inslab/{depth,run,options,figs}.py psha_chile8/model/inslab/REPORT_C15.md psha_chile8/model/inslab/tests/test_depth.py psha_chile8/model/inslab/tables/*_2026-11-16b.csv psha_chile8/model/inslab/tables/*_2026-11-16c.csv psha_chile8/model/inslab/figs/2026-11-16b psha_chile8/model/inslab/figs/2026-11-16c psha_chile8/tasks/C15_inslab_depth_options.md psha_chile8/DATA.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`; message `C14/C15: depth run 2026-11-16c on catalogue 16c (nest test as classify.py, slices split inside bins); one layer at top + 0.252 x thickness; lower-depth options 0.65 and 0.615`.
+- **S3 → S5 (16 Nov): section ids fixed.**
+  - The ids now carry database and depth (`s_<db>_z<depth>_<fid>_<segment>`). They are unique across the four sections files (550 ids).
+  - The 11 multi-fault files and their sections were rewritten in place under the same names. Rates unchanged (within 3.3e-6).
+  - Calc 596 ran the two depth branches (A, ψ 0.8, 10 and 20 km) in one job.
+  - S5 can run the crustal tree as one job again. Recopy the multi-fault and sections files into the job folders: the old copies still hold the clashing ids.
+  - Test added (21 passed).
+
+## 2026-11-16 — C14/C15 depth run 2026-11-16d (class weights)
+
+- **Done** (Pablo, 16 Nov): `run.CLASS_W = True`. Depth events now carry their in-slab class weight, as in the rates: catalogue `w_inslab`, Riedel-Hornig by the A7 depth rule. 87 955 events, weight 74 432. `options.py` per-group medians and the w1-check share are weighted too. `figs.CELL_STRIP = 7` km; events in the sections are shaded by weight. 25 tests pass.
+- **Results** (REPORT_C15 section 8):
+  - 95 % fraction 0.4715 (0.4744); one layer 0.243 (0.252).
+  - The jump of the per-cell median at the 50 km slab-top line is gone: 17–20 km below the top everywhere, before 11–23 km.
+  - What remains is a heavy top slice (w1 0.50) where the slab top is 50–70 km deep, where the interface band fades. Open for Pablo.
+- **Tornado** (Pablo): only three layers against one layer. The S2 three-layer reference stays on `depth_cells_2026-11-16.csv`; S2 builds one new one-layer branch from `h_one` of `depth_cells_2026-11-16d.csv`.
+- **Proposed DECISIONS lines:** REPORT_C15 section 8. They replace the C15 proposals of section 5, which assumed weight-1 events and the 0.252 fraction.
+- **Commands:** from `psha_chile8/model/inslab/`: `python run.py` (15 min), then `python options.py` (2 min).
+- **Suggested commit** (replaces the earlier C15 ones): `git add psha_chile8/model/inslab/{depth,run,options,figs}.py psha_chile8/model/inslab/REPORT_C15.md psha_chile8/model/inslab/tests/test_depth.py psha_chile8/model/inslab/tables/*_2026-11-16b.csv psha_chile8/model/inslab/tables/*_2026-11-16c.csv psha_chile8/model/inslab/tables/*_2026-11-16d.csv psha_chile8/model/inslab/figs/2026-11-16 psha_chile8/model/inslab/figs/2026-11-16b psha_chile8/model/inslab/figs/2026-11-16c psha_chile8/model/inslab/figs/2026-11-16d psha_chile8/tasks/C15_inslab_depth_options.md psha_chile8/DATA.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`; message `C14/C15: in-slab depth runs 2026-11-16c and 16d (nest test as classify.py, slices split inside bins, events with their class weights); one layer at top + 0.243 x thickness`.
+- **S3 (16 Nov, discussion): LOFS secondary traces as links** (`figs_checks.splay_map`, `model/crustal/figs/2026-11-16e/check_splays_j15.png`; A, 15 km jump, UCERF3 filters; no SHERIFS run).
+  - Links: 45 with main traces only, 99 with all traces. Chains: 300 against 2 767.
+  - Longest chain 416 km → 810 km; Leonard Mmax 7.6 → 7.9 at 10 km depth, 7.9 → 8.2 at 20 km (above the arc cap 7.9).
+  - The length comes from two NE secondary traces near Aysén that bridge separate groups of main traces:
+    - CL-006qq Fiordo Aysén–Puerto Cisnes (strike 41°, 24–42° to the main traces, the fault of the 2007 Aysén sequence)
+    - CL-006rr Quitralco (strike 37°)
+  - The transverse faults (9 in A, strikes 112–148°, sinistral-reverse) are NW, 90–120° to the main traces; not linked (Pablo).
+  - Fagnano SHERIFS: a tornado row (Pablo). Atacama and the other systems: not linked.
+- **Sections redrawn** (Pablo, 16 Nov), on run 2026-11-16d unchanged. The class weights stay in the model; only the plot changed.
+  - Layout: pituPLOTS theme `report`, a map of the trench-normal profiles (`profiles_from_line`) with the trench and the Slab2 50, 100 and 200 km contours, and 8 sections in a 4 × 2 grid.
+  - Events: shaded by their in-slab weight (alpha 0.6 × weight), events under 0.05 not drawn.
+  - Files: `figs/2026-11-16d/sections_layers.png` (19–32.5° S) and `sections_layers_south.png` (33.5–42° S). `options.SECTIONS` and `SOUTH` give the latitudes.
+- **Final commit for the C14/C15 depth work** (replaces the earlier C15 suggestions; S2's own changes in `build.py`, `oqcheck.py`, `REPORT_S2.md`, `test_s2.py` and `nrml/` are left out): `git add psha_chile8/model/inslab/{depth,run,options,figs}.py psha_chile8/model/inslab/REPORT_C15.md psha_chile8/model/inslab/tests/test_depth.py psha_chile8/model/inslab/tables/{depth_cells,depth_events,events_log,depth_summary,compare_v1,compare_2026-11-15e,heldout,sensitivity_all_depths,depth_cells_all_depths,fraction}_2026-11-16.csv psha_chile8/model/inslab/tables/{depth_cells,depth_cells_lsd065,depth_cells_lsd0615,onelayer,options,w1_check}_2026-11-16b.csv psha_chile8/model/inslab/tables/*_2026-11-16c.csv psha_chile8/model/inslab/tables/*_2026-11-16d.csv psha_chile8/model/inslab/figs/2026-11-16 psha_chile8/model/inslab/figs/2026-11-16b psha_chile8/model/inslab/figs/2026-11-16c psha_chile8/model/inslab/figs/2026-11-16d psha_chile8/tasks/C15_inslab_depth_options.md psha_chile8/DATA.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`; message `C14/C15: in-slab depth run 2026-11-16d (events with class weights, nest test as classify.py, slices split inside bins); one layer at top + 0.243 x thickness; lower-depth options 0.65 and 0.615; section figures`.

@@ -1,0 +1,16 @@
+source,step,events
+Riedel-Hornig,all,621917
+Riedel-Hornig,Ml ≥ 2.5,131200
+Riedel-Hornig,depth error ≤ 5 km,67001
+Riedel-Hornig,inside Chile,59633
+Riedel-Hornig,"slab at the epicentre, east of the trench",59212
+Riedel-Hornig,Jujuy nest left out,58511
+Riedel-Hornig,in-slab by the A7 depth rule,43838
+catalogue,"measured depth, in the domain",189662
+catalogue,in-slab weight > 0,130428
+catalogue,from 1990,122972
+catalogue,slab at the epicentre,122972
+catalogue,Jujuy nest left out,112171
+catalogue,Potin / CSN web depths east of the Chile border left out,103720
+catalogue,events also in Riedel-Hornig left out (counted there),88087
+catalogue,"without depths from isc, csn, csn_isc, comcat",44117
