@@ -218,3 +218,33 @@ def test_no_depth_with_a_mechanism():
     g = frame(z=z, em=[np.nan] * 40 + [np.nan, 0.5, 2.0])
     o = C.classify(g)[0]
     assert (o.rule[40:] == "nodepth_share").all() and o.w_interface[41] > o.w_interface[40] > o.w_interface[42] == 0
+
+
+def test_no_depth_before_1900_takes_no_crustal_share():
+    z = [30.0] * 20 + [80.0] * 12 + [5.0] * 8 + [np.nan] * 3
+    z = z + [np.nan]
+    g = frame(z=z, yr=[2000.0] * 40 + [2000.0, 1850.0, 1850.0, 1850.0], top=[30.0] * 42 + [70.0, 70.0],
+              zone=["forearc"] * 42 + ["arc", "forearc"])
+    o = C.classify(g, mech="add", hard=0.8)[0]
+    assert np.allclose(o.loc[40, C.COLS[:3]].to_numpy(float), [0.5, 0.3, 0.2], atol=1e-3)
+    assert np.allclose(o.loc[41, C.COLS[:3]].to_numpy(float), [0.625, 0.375, 0.0], atol=1e-3)
+    assert o.w_crustal[42] > 0 and o.w_crustal[43] == 0 and o.w_inslab[43] == 1
+
+
+def test_arc_class_ends_with_the_polygon():
+    e = C.arc_end()
+    assert -47.5 < e < C.SOUTH_LAT
+    c = pd.DataFrame({"event_id": ["a", "b"], "time": ["2000-01-01T00:00:00.000"] * 2, "lon": [-73.6, -73.6], "lat": [e + 0.5, e - 0.3],
+                      "mw": 5.0, "depth": 10.0, "depth_sigma": 5.0, "depth_kind": "measured", "depth_src": "isc", "offshore": False,
+                      "in_domain": True, "strike1": np.nan, "dip1": np.nan, "rake1": np.nan, "strike2": np.nan, "dip2": np.nan, "rake2": np.nan})
+    g = C.geometry(c, pd.DataFrame({"min": [], "count": []}))
+    assert g.zone[0] == "arc" and not g.pat[0] and g.pat[1]
+
+
+def test_ridge_events_east_of_the_trench_are_outer_rise():
+    c = pd.DataFrame({"event_id": ["a", "b", "c"], "time": ["2000-01-01T00:00:00.000"] * 3, "lon": [-75.7, -75.7, -73.0],
+                      "lat": [-45.8, -45.2, -45.8], "mw": 5.0, "depth": 15.0, "depth_sigma": 5.0, "depth_kind": "measured",
+                      "depth_src": "isc", "offshore": True, "in_domain": True, "strike1": np.nan, "dip1": np.nan, "rake1": np.nan,
+                      "strike2": np.nan, "dip2": np.nan, "rake2": np.nan})
+    g = C.geometry(c, pd.DataFrame({"min": [], "count": []}))
+    assert g.sea.tolist() == [True, False, False]

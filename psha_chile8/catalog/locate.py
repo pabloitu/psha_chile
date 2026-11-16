@@ -20,9 +20,9 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 
 # settings
-RUN = "2026-11-14b"
+RUN = "2026-11-16a"
 A3 = "2026-11-11"
-MW = "2026-11-14b"
+MW = "2026-11-16a"
 ARC = REPO / "data" / "intraarc.shp"
 LAND = Path.home() / ".local/share/cartopy/shapefiles/natural_earth/physical/ne_10m_land.shp"
 X3_SIGMA = HERE.parent / "explore" / "X3" / "tables" / "x3_depth_error_model.csv"

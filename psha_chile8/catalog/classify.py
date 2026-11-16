@@ -24,7 +24,7 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 
 # settings
-RUN, CAT = "2026-11-14c", "2026-11-14b"
+RUN, CAT = "2026-11-16", "2026-11-16a"
 SLAB, SLAB_V = REPO / "data" / "slab_2.0", "02.23.18"
 TRENCH = REPO / "data" / "shapefiles" / "sam_nazca_trench.shp"
 TRENCH_AN = REPO / "data" / "shapefiles" / "sam_antarctica_trench.shp"
@@ -50,14 +50,19 @@ MECH = "ellipse"
 # a class with this weight or more becomes 1 (None: weights kept as they are)
 HARD = 0.8
 SIG_MIN = 5.0
-# crustal
+# crustal; south of SOUTH_LAT the trench is the Antarctic one; the arc class ends where the arc polygon ends
 CAP = 50.0
 SOUTH_LAT, GAP_LAT = -46.15, -44.0
 AN_WIDTH, AN_Z = 150.0, 60.0
+# Chile Ridge fracture zones at the triple junction: between this latitude and SOUTH_LAT the events within this many
+# km east of the trench are outer rise (strike-slip and normal mechanisms, one cluster with the events west of it)
+RIDGE = (-45.5, 75.0)
 # no measured depth: in-slab where the slab top is below IF_TOP and every rejected depth is DEEP_REJ or more;
 # otherwise the shares of the classified events (Mw >= SHARE_MMIN, from SHARE_FROM, in the domain) of the same bin
 DEEP_REJ = 70.0
 TOP_BINS, LAT_BINS, MAG_BINS = [50.0, 100.0], [24.0, 30.0, 38.0], [5.5]
+# before OLD an event without a depth over the shallow slab or in the forearc takes no crustal share
+OLD = 1900
 TOP_LAB, LAT_LAB, MAG_LAB = ["≤ 50 km", "50–100 km", "> 100 km"], ["17–24° S", "24–30° S", "30–38° S", "38–46° S"], ["Mw 4.5–5.5", "Mw ≥ 5.5"]
 SHARE_FROM, SHARE_MMIN, SHARE_N = 1976, 4.5, 30
 # in-slab sub-classes
@@ -129,6 +134,12 @@ def trench_side(lon, lat, f):
     west = np.asarray(lon, float) < np.interp(np.asarray(lat, float), c[o, 1], c[o, 0])
     tl = shapely.ops.transform(lambda a, b: utm(np.asarray(a), np.asarray(b)), g)
     return shapely.distance(shapely.points(*utm(np.asarray(lon, float), np.asarray(lat, float))), tl) / 1e3, west
+
+
+def arc_end(f=ARC):
+    """Latitude of the southern end of the arc polygon; the arc class of events and faults ends there."""
+    import shapely
+    return shapely.bounds(geoms(f))[1]
 
 
 def arc_zone(lon, lat, f=ARC):
@@ -236,9 +247,10 @@ def geometry(c, rej=None):
     dnz, wnz = trench_side(c.lon, c.lat, TRENCH)
     dan, wan = trench_side(c.lon, c.lat, TRENCH_AN)
     south = (c.lat < SOUTH_LAT).to_numpy()
-    g["d_trench"], g["sea"], g["south"] = np.where(south, dan, dnz), np.where(south, wan, wnz), south
+    ridge = ~south & (c.lat < RIDGE[0]).to_numpy() & (dnz <= RIDGE[1])
+    g["d_trench"], g["sea"], g["south"] = np.where(south, dan, dnz), np.where(south, wan, wnz) | ridge, south
     g["zone"] = arc_zone(c.lon, c.lat)
-    g["pat"] = south | (g.top.isna() & (c.lat < GAP_LAT) & (g.zone != "arc")).to_numpy()
+    g["pat"] = (c.lat < arc_end()).to_numpy() | (g.top.isna() & (c.lat < GAP_LAT) & (g.zone != "arc")).to_numpy()
     mech = c[["strike1", "dip1", "rake1"]].notna().all(axis=1).to_numpy()
     thr = np.zeros(len(c), bool)
     k = mech & g.top.notna().to_numpy()
@@ -393,8 +405,9 @@ def classify(g, w=W, hard=HARD, if_top=IF_TOP, mech=MECH):
         (g.yr.to_numpy() >= SHARE_FROM) & (B[:, :3].sum(1) > 0)
     S, tab = shares(g, B[:, :3], base)
     m = ~known & (rule == "")
-    q = S[bins(g)][m] * np.c_[ifok * pk, np.ones(n), np.ones(n)][m]
-    q = np.where(np.nan_to_num(q).sum(1, keepdims=True) > 0, np.nan_to_num(q), np.c_[ifok, np.ones(n), np.ones(n)][m])
+    old = (g.yr.to_numpy() < OLD) & ((top <= if_top) | (g.zone.to_numpy() == "forearc"))
+    q = S[bins(g)][m] * np.c_[ifok * pk, np.ones(n), ~old][m]
+    q = np.where(np.nan_to_num(q).sum(1, keepdims=True) > 0, np.nan_to_num(q), np.c_[ifok, np.ones(n), ~old][m])
     P[m, :3], rule[m] = lift(q / q.sum(1, keepdims=True), ins[m]), "nodepth_share"
     auto = P.copy()
     P[hinted], rule[hinted] = H[hinted], "hint"

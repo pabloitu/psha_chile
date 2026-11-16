@@ -2086,3 +2086,32 @@ Pablo asked to see the classes around the Chile triple junction and decided (16 
   - Sources: [Salomon et al. EGU 2013 abstract](https://meetingorganizer.copernicus.org/EGU2013/EGU2013-1386.pdf); BSSA doi 10.1785/0120110335 (not opened).
 - **1919-03-02 03:26 epicentre moved to ISC-GEM** (Pablo, 16 Nov, simplest fix): `lon` and `lat` rows accepted, 43.814° S 78.294° W (ISC-GEM 912734, ± 31 km), ~250 km west of the trench. Reason: the Centennial epicentre (41.4° S 72.2° W) is flagged poor, and a Mw 7.2 there is absent from Lomnitz (2004) and NOAA. No class hint; A7's position rule classes it (expected outer rise / oceanic). The frozen run still has it as arc (in-slab 0.62, crustal 0.38). The 11:45 event of the same day is left as it is. Commit: `git add psha_chile8/catalog/overrides_A6.csv psha_chile8/WORKLOG.md`, message `A6 (A9): crustal hints 1894, 1861 proposed; 1919-03-02 03:26 epicentre to ISC-GEM`.
 - **Crustal hints for 1894-10-27 and 1861-03-20 accepted** (Pablo, 16 Nov; 1861 rests on the Salomon et al. 2013 abstract †, accepted by Pablo). Backarc crustal +1.11 from in-slab after the rerun.
+
+## 2026-11-16: A9 phase 2, chain run `2026-11-16` and frozen catalogue (Claude Code, A7)
+
+Read again before the run: DECISIONS (no change that touches the classes). Pablo: Aysén stays Mw 7.7; run it.
+
+- **Last rule changes (Pablo, 16 Nov):** the pre-1900 rule covers the whole forearc, whatever the slab depth (also where a bin has no shares); under the arc and backarc the shares stay and the large events got A6 hints. The 1926-04-28 in-slab hint set to `accepted` in `overrides_A6.csv` on Pablo's word ("accepted on the agency depths alone"): 100 accepted rows, none proposed.
+- **Chain:** `locate.py`, `magnitude.py`, `locate.py`, `classify.py` (locations and magnitudes `2026-11-16a`, classes and catalogue `2026-11-16`), then `locate_check.py`, `magnitude_check.py`, `classify_check.py`; `pytest catalog`: 127 pass. A first run was stopped and restarted after the 1926 row changed.
+- **Against `2026-11-14c`** (Mw ≥ 4.5 in the domain, 14 279 events in both):
+  - Mw: 1939-04-18 7.3 → 7.6 and 1942-07-08 6.9 → 7.1, converted as intermediate-depth events at their new A6 depths (100 and 140 km). Aysén 7.7.
+  - Position: 1919-03-02 Mw 7.2 moved by A6 to the ISC-GEM epicentre (43.8° S 78.3° W), now outer rise.
+  - Depths: 4 from A6, 14 more assigned to hinted events (31 assigned in all); 12 395 measured, 1 853 unknown.
+  - Classes: interface 4 502.8 (+5.1), in-slab 8 075.3 (−3.6), crustal 1 158.9 (−30.4: forearc 573.1, arc 221.1, backarc 310.7, Patagonia 54), outer rise 539 (+30), unclassified 3. 11 299 at weight 1; split 1 733 with a depth, 1 247 without.
+  - Mw ≥ 7: 164 events, 37 split (62 before). Crustal weight in split no-depth events at Mw ≥ 7: forearc 0.9 (12 events of 1904–1940), arc and backarc none.
+  - Checks: literature events by the rules alone 40 right, 34 no depth, 9 split, 2 wrong (as before); magnitude tests as before (test 3: 30 of 32).
+- **Frozen:** `catalog/frozen/2026-11-16/` (catalogue, classes, shares, locations, Mw, defaults, relations, offsets, `overrides_A6.csv`, five scripts in `code/`, `SHA256SUMS` verified, `INPUTS_SHA256` the same as on 14 Nov, `DECISIONS_NOTE.md`). `catalog/frozen/2026-11-14/` untouched.
+- **Documents:** DATA row; `catalog/CLASSIFICATION.md` new section 8 (sections 2–5 still give the numbers of `2026-11-14c`). Not brought to this run: `REPORT_A3-A5.md`, `MAGNITUDES.md`, `RULES_LOCATION_MAGNITUDE.md`, the paper draft.
+- **Removed:** `catalog/merged/classes_2026-11-16_test.csv` (it lacked the forearc rule, the 1926 hint and the new magnitudes). The fits read `catalog/frozen/2026-11-16/catalog_2026-11-16.csv`.
+- **For the other sessions:** B11/B12, refit on the new frozen catalogue (phase 2 step 3; Patagonia lost 23 of 77, the arc lost 1919 as a candidate, in-slab has 1939 at 7.6). S3: `model/faults/compare.py` `classes()` should use `K.arc_end()` instead of `K.SOUTH_LAT`. C14, B14, GM1 and the declustered catalogue were built on `2026-11-14c`.
+- **Proposed DECISIONS lines (Pablo writes them):**
+  - "No depth, before 1900, over the shallow slab or in the forearc: no crustal share; it goes to interface and in-slab in proportion. Under the arc and backarc the shares stay (16 Nov)."
+  - "The arc class ends where the arc polygon ends (47.24° S), for events and faults; 46.15° S only chooses the trench (16 Nov)."
+  - "Events within 75 km east of the trench between 45.5° S and 46.15° S are outer rise: Chile Ridge fracture-zone events, left out of the source model (16 Nov)."
+  - "Frozen catalogue `2026-11-16` replaces `2026-11-14c`."
+- **PLAN:** A9 not ticked; it closes with the refits.
+- **Commit** (from the repo root):
+  - `git add psha_chile8/catalog/classify.py psha_chile8/catalog/locate.py psha_chile8/catalog/magnitude.py psha_chile8/catalog/tests/test_classify.py psha_chile8/catalog/overrides_A6.csv psha_chile8/catalog/CLASSIFICATION.md psha_chile8/catalog/figs/classify/triple_junction.png psha_chile8/explore/A9`
+  - `git add psha_chile8/catalog/merged/MANIFEST.csv psha_chile8/catalog/merged/*_2026-11-16a.* psha_chile8/catalog/merged/*_2026-11-16.csv psha_chile8/catalog/merged/review/*_2026-11-16a.csv psha_chile8/catalog/merged/review/*_2026-11-16.csv psha_chile8/catalog/frozen/2026-11-16`
+  - `git add psha_chile8/DATA.md psha_chile8/WORKLOG.md`
+  - `git commit -m "A9: catalogue run 2026-11-16, frozen. No crustal share for no-depth events before 1900 in the forearc, arc class to the end of the polygon, Chile Ridge events at the triple junction to outer rise; A6 hints and depths applied"`

@@ -137,6 +137,16 @@ The width of the interface zone moves the interface total most (−23 % at 10 km
 
 `figs/classify/`: `maps.png` (classes on the map), `sections.png` (six sections with the Slab2 top and the ± 15 km zone), `band.png`, `sensitivity.png`, `nest.png`. Weights add to 1 for every event and every event has a row (asserted in `classify_check.py`). The Jujuy nest has 1 054 events; its upper depth limit was moved from 170 to 150 km on the depth histogram of the cluster (`figs/classify/nest.png`, Pablo, 14 Nov).
 
+## 8. Revision of 16 Nov (A9, run `2026-11-16`)
+
+Sections 2 to 5 give the numbers of run `2026-11-14c`. The run `2026-11-16` (frozen in `catalog/frozen/2026-11-16/`, numbers in its `DECISIONS_NOTE.md`) has three more rules (Pablo, 16 Nov):
+
+- **No depth, before 1900** (`OLD`): over the shallow slab or in the forearc the event takes no crustal share; the share goes to interface and in-slab in proportion. A forearc crustal event large enough for the historical record is rare and its damage local; in-slab events are widely damaging (Chillán 1939, Calama 1950, Punitaqui 1997, Tarapacá 2005) and stay possible. Under the arc and backarc the shares are kept, since large crustal events are real there; the known ones carry hints.
+- **Arc class** ends where the arc polygon ends (`arc_end()`, 47.24° S), for events and faults. `SOUTH_LAT` (46.15° S) only chooses the trench.
+- **Chile Ridge at the triple junction** (`RIDGE`): between 45.5° S and 46.15° S an event within 75 km east of the trench is outer rise. Of 13 mechanisms there 10 are strike-slip with a plane near N 78° E, 2 normal and 1 oblique; the events west of the trench at the same latitudes have the same mix. 29 events of Mw ≥ 4.5, the largest Mw 5.9; map in `figs/classify/triple_junction.png`.
+
+Effect against `2026-11-14c`, with the 20 new class hints of A6 (Mw ≥ 4.5): interface +5.1, in-slab −3.6, crustal −30.4 (Patagonia 77 → 54, forearc −8), outer rise +30. Events of Mw ≥ 7 still split: 37 of 164 (62 of 163 before). Literature events by the rules alone: 40 right, 34 without a depth, 9 split, 2 wrong (Copiapó 1918, La Ligua 1971, as before).
+
 ## References
 
 - Hayes, G.P., Moore, G.L., Portner, D.E., Hearne, M., Flamme, H., Furtney, M., Smoczyk, G.M. (2018). Slab2, a comprehensive subduction zone geometry model. Science 362, 58–61. The paper and the data release were not re-read.
