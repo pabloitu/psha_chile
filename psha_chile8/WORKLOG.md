@@ -2359,3 +2359,9 @@ Asked by Pablo in the project chat (outline agreed 15 Nov, then "go ahead creati
 - **Open questions** (on the slides): keep the shared no-depth events in the rates or give the weight-1 rates a branch (slide 8).
 - **Commands:** from `psha_chile8/explore/P1/`: `python p1.py` (20 s); from `presentations/261116_psha8_results/figs/`: `python figs.py` (1 min); `latexmk -pdf pres.tex`.
 - **Suggested commit:** `git add psha_chile8/explore/P1 presentations/261116_psha8_results psha_chile8/PLAN.md psha_chile8/FIGURES.md psha_chile8/WORKLOG.md`; message `Results deck part 1 and P1: Cabello and Candia through our classes, table and fits`.
+
+## 2026-11-16, S2 lines in DECISIONS
+- Written with Pablo's go-ahead (16 Nov). In-slab: the 15 Nov kernel-n line is replaced by the 16 Nov rule (log-likelihood scored at n 1–100, n the first local maximum from 5; result 5, shallow nearest neighbour 10), plus one new line on the completeness weights of the pattern events. Superseded: the in-slab sources line for the A9 rerun (with the kernel and weight changes).
+- The shared kernel line (In-slab, "No zonation …", in-slab and crustal alike, candidates 5–100) is left as it is: the crustal rule belongs to S3. If S3 should follow the in-slab rule (score 1–100, first maximum from 5, completeness weights), that line needs changing for both.
+- Calama engine check dropped for now (Pablo, 16 Nov).
+- **Suggested commit:** `git add psha_chile8/DECISIONS.md psha_chile8/WORKLOG.md`; message `S2: in-slab kernel rule (first local maximum from n 5, scored 1-100), completeness weights of the pattern events, superseded line for the A9 rerun`.
