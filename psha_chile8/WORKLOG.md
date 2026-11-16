@@ -3158,3 +3158,68 @@ Details in `model/interface/REPORT_S1.md` section 8. DECISIONS re-read: Statisti
   - Events: shaded by their in-slab weight (alpha 0.6 × weight), events under 0.05 not drawn.
   - Files: `figs/2026-11-16d/sections_layers.png` (19–32.5° S) and `sections_layers_south.png` (33.5–42° S). `options.SECTIONS` and `SOUTH` give the latitudes.
 - **Final commit for the C14/C15 depth work** (replaces the earlier C15 suggestions; S2's own changes in `build.py`, `oqcheck.py`, `REPORT_S2.md`, `test_s2.py` and `nrml/` are left out): `git add psha_chile8/model/inslab/{depth,run,options,figs}.py psha_chile8/model/inslab/REPORT_C15.md psha_chile8/model/inslab/tests/test_depth.py psha_chile8/model/inslab/tables/{depth_cells,depth_events,events_log,depth_summary,compare_v1,compare_2026-11-15e,heldout,sensitivity_all_depths,depth_cells_all_depths,fraction}_2026-11-16.csv psha_chile8/model/inslab/tables/{depth_cells,depth_cells_lsd065,depth_cells_lsd0615,onelayer,options,w1_check}_2026-11-16b.csv psha_chile8/model/inslab/tables/*_2026-11-16c.csv psha_chile8/model/inslab/tables/*_2026-11-16d.csv psha_chile8/model/inslab/figs/2026-11-16 psha_chile8/model/inslab/figs/2026-11-16b psha_chile8/model/inslab/figs/2026-11-16c psha_chile8/model/inslab/figs/2026-11-16d psha_chile8/tasks/C15_inslab_depth_options.md psha_chile8/DATA.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`; message `C14/C15: in-slab depth run 2026-11-16d (events with class weights, nest test as classify.py, slices split inside bins); one layer at top + 0.243 x thickness; lower-depth options 0.65 and 0.615; section figures`.
+
+## 2026-11-16 — S3: multi-fault rupture sets, discussion (crustal)
+- **S3 (16 Nov, discussion): largest potential multi-fault ruptures, A, 15 km** (`figs_checks.rupture_maps`, `model/crustal/figs/2026-11-16e/check_ruptures_j15.png`; maximal chains, no rates).
+  - LOFS main traces: 416 km at 39–42.5° S (Mw 7.6 / 7.9), 316 km at 45–48° S, the Aysén segment (7.5 / 7.8), 229 km at 42.7–44.7° S.
+  - LOFS with secondary traces: 810 km at 42.5–47.8° S (7.9 / 8.2), zig-zagging through the NE splays near Aysén and the eastern N–S traces; 535 km at 45–48° S (7.7 / 8.0); 454 km in the north (one splay).
+  - North of LOFS: only Antiñir–Copahue chains (about 37° S, 133–148 km, Mw 7.2 / 7.5), almost all secondary traces at 0.3 mm/yr. None with main traces only. No multi-fault ruptures there in the model (linking is restricted to the LOFS system).
+  - Correction: the 416 km chain of the main-trace rule is the northern LOFS, not Aysén. The longest main-trace chain at Aysén is 316 km.
+
+## 2026-11-16, C15: in-slab depth files ready (2026-11-16c) (built by S2)
+For S5. Details in `model/inslab/REPORT_S2.md` section 11.
+- **Files:** `model/inslab/nrml/2026-11-16c/`. It holds every file of `nrml/2026-11-16b/` byte for byte (sha256 checked), with `branches.json` extended, plus three weight-0 branches made from the reference `gk_taper_ml_l3`. Each has `is_slab_<id>.xml` and `is_nest_<id>.xml`.
+  - `gk_taper_ml_l3_l1c15`: one layer at top + 0.243 × thickness (`h_one` of `depth_cells_2026-11-16d.csv`).
+  - `gk_taper_ml_l3_lsd065`: lower depth 0.65 (`depth_cells_lsd065_2026-11-16d.csv`), reference hypocentres.
+  - `gk_taper_ml_l3_ah`: AllenHayesIntraslab (Pablo: worth trying; median area × 0.62–0.79 of Strasser).
+  - Rates, source ids, upper depths and nodal planes are the reference's; lsd0615 not built (Pablo: lsd065 only).
+- **Tornado block** in `branches.json` (S1 format, one branch at weight 1 per row):
+  - `is_ref`: `gk_taper_ml_l3`;
+  - `is_ab_p05` / `is_ab_p95`;
+  - `is_decl_nn`: `nn_taper_ml_l3`;
+  - `is_shape_cut`: `gk_trunc_ml_l3`;
+  - `is_mmax_pad00` / `is_mmax_pad04`;
+  - `is_l1c15`, `is_lsd065`, `is_ah`.
+  - The old C14 one-layer branches `*_l1` stay in the files and are not rows.
+- **Checks:** each variant differs from the reference in its one field only (ids, rates, depths and hypocentres compared as text). The OpenQuake parser reads all eight files, with rates equal to the tables (within 5e-8) and the scaling relation read as named. 26 tests pass.
+- **For C15 / Pablo:** the 16d three-slice hypocentres differ from the reference cells (up to 7.7 km). The reference stays on `depth_cells_2026-11-16.csv` as C15 asked, so the tornado rows compare against it. If the 16d slices are to become the reference, that is a rebuild of the whole in-slab set.
+- **Code:** `model/inslab/is_tornado.py` (entry script, settings at the top); test in `tests/test_s2.py`.
+- **Commands** (from `psha_chile8/model/inslab/`, `PYTHONPATH` to the oq-engine checkout): `python is_tornado.py` (40 s).
+- **Proposed DECISIONS lines** (Pablo adds):
+  - In-slab tornado rows: "one layer at top + 0.243 × thickness, lower depth 0.65 and AllenHayesIntraslab scaling, each against the three-layer Strasser reference, weight 0 (`model/inslab/nrml/2026-11-16c/`, Pablo 16 Nov)".
+- **Suggested commit:** `git add psha_chile8/model/inslab/is_tornado.py psha_chile8/model/inslab/tests/test_s2.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/model/inslab/tables/oqread_2026-11-16c.csv psha_chile8/model/inslab/nrml/2026-11-16c/{branches.json,source_lt_inslab.xml} psha_chile8/WORKLOG.md`; message `S2: in-slab tornado files (one layer C15, lower depth 0.65, AllenHayesIntraslab) in nrml/2026-11-16c with the tornado block`.
+
+## 2026-11-16 — S3: multi-fault rebuild, agreed design (crustal; not started)
+- **Agreed with Pablo (16 Nov):** a new LOFS rupture set by the UCERF3 path rules, in a generalised builder, waiting until the open S5-note points are consolidated.
+  - Units are subsections; a rupture is one path, each fault one contiguous run of subsections, jumps only between the closest subsection pair.
+  - Azimuth is measured along the path; at least 2 subsections per fault in a linked rupture.
+  - Every rupture gets one magnitude from its area; all LOFS ruptures come from the rupture set (no floating simple-fault sources for LOFS in the multi-fault branch); each subsection is one planar section in OpenQuake.
+- **Settings, each a possible tornado row:**
+  - systems to link (LOFS; Fagnano row) and to exclude (LOFS Transverse)
+  - main traces only, or main plus NE splays
+  - database (A; B later, for testing only)
+  - subsection length (10 km proposed by Pablo, see the open point below)
+  - jump 5 / 10 / 15 / 20 km
+  - the UCERF3 filters as published (junction and total azimuth 60°, cumulative azimuth 560°, cumulative rake 180°, sinistral / dextral reversal, 2 subsections per fault)
+  - rupture-length cap (none by default; the maximum rupture length of each choice reported)
+  - scaling Leonard 2014 / Hanks and Bakun 2008 / Thingbaijam et al. 2017
+  - class Mmax handling
+  - SHERIFS increment, anchor bins, seeds, target b
+  - coarse resolution for trials
+- **Checks before rates:**
+  - rupture counts and maps
+  - the geometries by eye
+  - junctions onto ENE-oblique faults or with a change of slip sense, listed as the Coulomb proxy (Pablo: NS–NE faults are Coulomb-compatible)
+- **Note for later (Pablo asked to keep it):** the tornado shows one choice changed at a time from one reference, not every combination (jump × splays × depth × ψ would multiply the rows).
+- **S3, multi-fault design, agreed with Pablo (16 Nov, supersedes the "one magnitude per rupture" line above):**
+  - The rupture set comes from the UCERF3 path rules on subsections of half the depth (5 km in the comparison).
+  - Strict rule: a rupture is kept only if it uses every member fault entirely, i.e. faults link tip to tip, including a main trace that ends and continues onto a splay.
+  - The kept ruptures are merged to whole-fault scenarios for SHERIFS. Single faults keep their floating ruptures from Mw 6.0 to the Leonard Mmax, so the subsection size does not set Mmin. Linked scenarios host the bins above their members' Mmax.
+  - Ruptures above the class Mmax are dropped, after a comparison with clipping.
+  - Reason for the strict rule: the area that sets a linked rupture's magnitude and spends its members' slip must be the area that ruptured. Merging a partly used fault would overstate both.
+  - First step, rupture sets only (no rates): per jump (5 / 10 / 15 km) and main only / main + splays, the count of UCERF3 ruptures that pass the strict rule and what is lost; maps of the largest ruptures; drop against clip (counts, moment). Starts after the open S5-note points are consolidated.
+- **S3, decided with Pablo (16 Nov):**
+  - Mmax tornado rows: background class Mmax pad 0 / 0.2 / 0.4 (0.2 the reference; the orchestrator's `fits_2026-11-16f_pad00` and `_pad04` tables); single faults Leonard + 0 / 0.2 / 0.4; multi-fault linked ruptures with the Leonard Mmax against the class-Mmax drop. EPRI (Johnston et al. 1994) is for stable continents, not a candidate here.
+  - Crustal source Mmin 5.5 for the tornado (comparable rows across families); for the final model it may go to 5.0.
+  - Full subsections into SHERIFS: a later test against the strict rule (both the linked rates and the single-fault MFDs).
+- **Open:** whether S5 runs the crustal family tree now or only the tornado rows.

@@ -13,6 +13,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 from scipy import stats
+from scipy.spatial import cKDTree
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
@@ -21,8 +22,9 @@ import gr as G  # noqa: E402
 import is_smooth as S  # noqa: E402
 
 DATE = "2026-11-16"
-# NRML files and figures of a run in a dated folder (the 15 Nov run sits in nrml/ and figs/)
-TAB, NR = HERE / "tables", HERE / "nrml" / DATE
+# NRML files of a run in their own folder (15 Nov: nrml/; 16 Nov one file per class: nrml/2026-11-16/), figures dated
+RUN = "2026-11-16b"
+TAB, NR = HERE / "tables", HERE / "nrml" / RUN
 
 # inputs (A9 catalogue)
 CAT = ROOT / "catalog/frozen/2026-11-16/catalog_2026-11-16.csv"
@@ -66,6 +68,18 @@ AB_M, TAPER_PAD, M_MIN = 8.8, 0.2, 5.5
 LAYERS = ("l3", "l1")
 # reference tree: tapered, maximum-likelihood (a, b), three hypocentres; the other options carry weight 0 (tornado)
 TREE = dict(shape="taper", ab="ml", layers="l3")
+
+# source files (Pablo, 16 Nov): shallow and intermediate as one point source per cell with the summed MFD, the nest
+# its own source; a cell of a summed group is dropped when its rate above M_MIN is below DROP of the group total of the
+# branch, unless it lies within GUARD_KM of an in-slab event of Mw >= GUARD_M (in-slab weight >= 0.5)
+GROUPS = {"slab": dict(classes=("intraslab_shallow", "intraslab_intermediate"), drop=1e-8),
+          "nest": dict(classes=("jujuy_nest",), drop=0.0)}
+GUARD_KM, GUARD_M = 50.0, 7.0
+
+# Mmax pad (DECISIONS, Statistics: a tornado factor, 0.0 and 0.4 against 0.2, Kagan corner; ML rows): the reference
+# branch only, weight 0
+PADS = {"pad00": ROOT / "fits/tables/fits_2026-11-16f_pad00.csv", "pad04": ROOT / "fits/tables/fits_2026-11-16f_pad04.csv"}
+PAD_BRANCH = dict(shape="taper", ab="ml", layers="l3")
 
 # ruptures (psha_chile7 intraslab/config.py; DECISIONS, In-slab)
 TRT, MSR, ASPECT = "Subduction IntraSlab", "StrasserIntraslab", 1.0
@@ -143,8 +157,8 @@ def patterns(ev, g, pick):
 
 
 # MFDs
-def fits():
-    x = pd.read_csv(FITS)
+def fits(path=FITS):
+    x = pd.read_csv(path)
     return {(r.unit, r.shape): r for r in x[x.unit.isin(list(CLASSES))].itertuples()}
 
 
@@ -198,9 +212,15 @@ def branches():
                 for ly in LAYERS:
                     bid = f"{k}_{sh}_{ab}_{ly}"
                     tree = sh == TREE["shape"] and ab == TREE["ab"] and ly == TREE["layers"]
-                    rows.append(dict(id=bid, files=[f"is_{s['short']}_{bid}.xml" for s in CLASSES.values()], decl=k, shape=sh,
+                    rows.append(dict(id=bid, files=[f"is_{q}_{bid}.xml" for q in GROUPS], decl=k, shape=sh,
                                      ab=ab, layers=ly, tree=tree, weight=wk if tree else 0.0,
-                                     w_factor=dict(decl=wk, ab=wa)))
+                                     w_factor=dict(decl=wk, ab=wa), pad="pad02"))
+    for q in PADS:
+        for k, wk in DECL_W.items():
+            bid = f"{k}_{PAD_BRANCH['shape']}_{PAD_BRANCH['ab']}_{PAD_BRANCH['layers']}_{q}"
+            rows.append(dict(id=bid, files=[f"is_{g}_{bid}.xml" for g in GROUPS], decl=k, shape=PAD_BRANCH["shape"],
+                             ab=PAD_BRANCH["ab"], layers=PAD_BRANCH["layers"], tree=False, weight=0.0,
+                             w_factor=dict(decl=wk, ab=AB[PAD_BRANCH["ab"]]), pad=q))
     return pd.DataFrame(rows)
 
 
@@ -219,7 +239,7 @@ def point(sid, lon, lat, usd, lsd, h, w, c0, rates):
 
 
 def logic_tree(path, br):
-    """Source-model logic-tree fragment: one sourceModel branch set, each branch the three class files."""
+    """Source-model logic-tree fragment: one sourceModel branch set, each branch its source files."""
     s = "".join(f'<logicTreeBranch branchID="is_{b.id}"><uncertaintyModel>{" ".join(b.files)}</uncertaintyModel>'
                 f"<uncertaintyWeight>{b.weight}</uncertaintyWeight></logicTreeBranch>\n" for b in br.itertuples())
     path.write_text(HEAD + '<logicTree logicTreeID="lt_inslab">\n<logicTreeBranchingLevel branchingLevelID="bl_is">\n'
@@ -227,41 +247,81 @@ def logic_tree(path, br):
                     + "</logicTreeBranchSet>\n</logicTreeBranchingLevel>\n</logicTree>\n</nrml>\n")
 
 
-def write(g, P, F, br):
-    """NRML files of every branch and class; the per-cell bin rates (gzip csv per declustering option, shape and
-    (a, b)); returns the summed lists per class and branch."""
+def guard(g, ev):
+    """Cells within GUARD_KM of an in-slab event of Mw >= GUARD_M with in-slab weight >= 0.5."""
+    e = ev[(ev.mw >= GUARD_M - 1e-6) & (ev.w_inslab >= 0.5)]
+    d = cKDTree(S.xyz(e.lon.to_numpy(), e.lat.to_numpy())).query(S.xyz(g.lon.to_numpy(), g.lat.to_numpy()))[0]
+    return d * 6371.0 <= GUARD_KM
+
+
+def write(g, P, F, br, ev):
+    """
+    NRML files of every branch: one point source per cell and group, the MFD the sum of the class lists of the group.
+
+    Returns the summed lists per class and branch (all cells, for the rate tables), the cells kept per group and
+    branch with the rate removed, and the class shares of the summed groups per cell (above M_MIN and in the Mw 7.0
+    bin). Also writes the per-cell bin rates per class (gzip csv per declustering option, shape and (a, b)).
+    """
     NR.mkdir(parents=True, exist_ok=True)
     (TAB / "bins").mkdir(exist_ok=True)
     H = {ly: hypo(g, ly) for ly in LAYERS}
-    tot = {}
-    for k in DECL:
-        for sh in SHAPES:
-            for ab in AB:
-                out = []
-                for c, s in CLASSES.items():
-                    f, cc, n = mfd(F[(c, sh)], ab)
-                    p = P[f"p_{s['short']}_{k}"].to_numpy()
-                    on = np.flatnonzero(p > 0)
-                    R = p[on, None] * n[None, :]
-                    txt = [" ".join(f"{x:.5e}" for x in row) for row in R]
-                    tot[(c, k, sh, ab)] = (cc, R.sum(0), f, len(on))
-                    out.append(pd.DataFrame(R, columns=[f"{x:.2f}" for x in cc]).assign(lon=g.lon.to_numpy()[on], lat=g.lat.to_numpy()[on], cls=s["short"]))
-                    for ly in LAYERS:
-                        h, w = H[ly]
-                        bid = f"{k}_{sh}_{ab}_{ly}"
-                        src = [point(f"is{s['short'][:2]}{j:05d}", g.lon[i], g.lat[i], g.usd[i], g.lsd[i], h[i], w[i], cc[0], txt[j])
-                               for j, i in enumerate(on)]
-                        (NR / f"is_{s['short']}_{bid}.xml").write_text(HEAD + f'<sourceModel name="in-slab {s["short"]} {bid}">\n'
-                                                                       + "".join(src) + "</sourceModel>\n</nrml>\n")
-                x = pd.concat(out)
-                x[["cls", "lon", "lat"] + [q for q in x.columns if q[0].isdigit()]].to_csv(
-                    TAB / "bins" / f"rates_{k}_{sh}_{ab}_{DATE}.csv.gz", index=False, float_format="%.5e")
+    keep_g = guard(g, ev)
+    tot, drop, share = {}, [], []
+    sets = [(k, sh, ab, "", F, LAYERS) for k in DECL for sh in SHAPES for ab in AB]
+    sets += [(k, PAD_BRANCH["shape"], PAD_BRANCH["ab"], f"_{q}", fits(f), (PAD_BRANCH["layers"],))
+             for q, f in PADS.items() for k in DECL]
+    for k, sh, ab, pad, Fs, lays in sets:
+        out, R = [], {}
+        for c, s in CLASSES.items():
+            f, cc, n = mfd(Fs[(c, sh)], ab)
+            p = P[f"p_{s['short']}_{k}"].to_numpy()
+            R[c] = (cc, p[:, None] * n[None, :])
+            on = p > 0
+            if not pad:
+                tot[(c, k, sh, ab)] = (cc, R[c][1].sum(0), f, int(on.sum()))
+                out.append(pd.DataFrame(R[c][1][on], columns=[f"{x:.2f}" for x in cc]).assign(
+                    lon=g.lon.to_numpy()[on], lat=g.lat.to_numpy()[on], cls=s["short"]))
+        if not pad:
+            x = pd.concat(out)
+            x[["cls", "lon", "lat"] + [q for q in x.columns if q[0].isdigit()]].to_csv(
+                TAB / "bins" / f"rates_{k}_{sh}_{ab}_{DATE}.csv.gz", index=False, float_format="%.5e")
+        for q, gr in GROUPS.items():
+            cc = max((R[c][0] for c in gr["classes"]), key=len)
+            part = {c: np.pad(R[c][1], ((0, 0), (0, len(cc) - len(R[c][0])))) for c in gr["classes"]}
+            Rq = sum(part.values())
+            n55 = Rq.sum(1)
+            on = (n55 > 0) & ((n55 >= gr["drop"] * n55.sum()) | keep_g)
+            drop.append(dict(group=q, decl=k, shape=sh, ab=ab, pad=pad.lstrip("_") or "pad02", cells=int((n55 > 0).sum()),
+                             kept=int(on.sum()), dropped=int(((n55 > 0) & ~on).sum()), removed=float(n55[~on].sum() / n55.sum()),
+                             m_top=float(cc[-1]),
+                             **{f"N5.5_{CLASSES[c]['short']}": float(part[c][on].sum()) for c in gr["classes"]},
+                             **{f"N7_{CLASSES[c]['short']}": float(part[c][on][:, cc > 6.95].sum()) for c in gr["classes"]},
+                             **{f"N8_{CLASSES[c]['short']}": float(part[c][on][:, cc > 7.95].sum()) for c in gr["classes"]}))
+            if len(gr["classes"]) > 1 and not pad:
+                b7 = int(np.argmin(np.abs(cc - 7.0)))
+                sh_ = pd.DataFrame({"lon": g.lon, "lat": g.lat, "kept": on, "decl": k, "shape": sh, "ab": ab})
+                for c in gr["classes"]:
+                    sh_[f"{CLASSES[c]['short']}_m5.5"] = part[c].sum(1) / np.where(n55 > 0, n55, 1)
+                    sh_[f"{CLASSES[c]['short']}_m7"] = part[c][:, b7] / np.where(Rq[:, b7] > 0, Rq[:, b7], 1)
+                share.append(sh_[n55 > 0])
+            txt = [" ".join(f"{v:.5e}" for v in row) for row in Rq[on]]
+            idx = np.flatnonzero(on)
+            for ly in lays:
+                h, w = H[ly]
+                bid = f"{k}_{sh}_{ab}_{ly}{pad}"
+                src = [point(f"is{q[:2]}{j:05d}", g.lon[i], g.lat[i], g.usd[i], g.lsd[i], h[i], w[i], cc[0], txt[j])
+                       for j, i in enumerate(idx)]
+                (NR / f"is_{q}_{bid}.xml").write_text(HEAD + f'<sourceModel name="in-slab {q} {bid}">\n'
+                                                      + "".join(src) + "</sourceModel>\n</nrml>\n")
     logic_tree(NR / "source_lt_inslab.xml", br[br.tree])
-    j = dict(date=DATE, trt=TRT, msr=MSR, aspect=ASPECT, nodal_planes=NPD, min_mag=M_MIN, max_distance_km=500,
-             pointsource_distance_km=100, tree=TREE, factors=dict(decl=DECL_W, shape=list(SHAPES), ab=AB, layers=list(LAYERS)),
+    j = dict(date=DATE, run=RUN, trt=TRT, msr=MSR, aspect=ASPECT, nodal_planes=NPD, min_mag=M_MIN, max_distance_km=500,
+             pointsource_distance_km=100, groups={q: list(v["classes"]) for q, v in GROUPS.items()},
+             drop=dict(fraction={q: v["drop"] for q, v in GROUPS.items()}, guard_km=GUARD_KM, guard_m=GUARD_M), tree=TREE,
+             factors=dict(decl=DECL_W, shape=list(SHAPES), ab=AB, layers=list(LAYERS), pad=["pad02"] + list(PADS)),
+             pads={q: str(f.relative_to(ROOT)) for q, f in PADS.items()},
              branches=json.loads(br.to_json(orient="records")))
     (NR / "branches.json").write_text(json.dumps(j, indent=1))
-    return tot
+    return tot, pd.DataFrame(drop), pd.concat(share, ignore_index=True)
 
 
 # tables
@@ -331,7 +391,10 @@ def run():
         TAB / f"kernel_n_{DATE}.csv", index=False)
     F = fits()
     br = branches()
-    tot = write(g, P, F, br)
+    tot, drop, share = write(g, P, F, br, ev)
+    drop.to_csv(TAB / f"drop_{RUN}.csv", index=False)
+    share.to_csv(TAB / f"class_share_{DATE}.csv", index=False, float_format="%.5f")
+    print(drop[["group", "decl", "shape", "ab", "cells", "kept", "dropped", "removed"]].to_string(index=False))
     rt, ec = rate_tables(tot, br)
     rt.to_csv(TAB / f"rates_{DATE}.csv", index=False)
     ec.to_csv(TAB / f"edge_check_{DATE}.csv", index=False)
@@ -339,7 +402,7 @@ def run():
     print("edge check, max relative difference:", ec.max_rel.max())
     south(g, P, F).round(5).to_csv(TAB / f"south36_layers_{DATE}.csv", index=False)
     nest_depths(ev, g).round(1).to_csv(TAB / f"nest_depths_{DATE}.csv", index=False)
-    print(f"{len(br)} branches, {len(br) * len(CLASSES)} files")
+    print(f"{len(br)} branches, {len(br) * len(GROUPS)} files in {NR}")
 
 
 if __name__ == "__main__":

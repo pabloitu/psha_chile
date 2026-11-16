@@ -134,7 +134,7 @@ def test_branch_sets_weights_sum_to_one():
     br = pd.DataFrame(j["branches"])
     assert br.weight.sum() == pytest.approx(1.0)
     assert sum(j["factors"]["decl"].values()) == pytest.approx(1.0) and sum(j["factors"]["ab"].values()) == pytest.approx(1.0)
-    assert len(br) == len(B.DECL) * len(B.SHAPES) * len(B.AB) * len(B.LAYERS)
+    assert len(br) == len(B.DECL) * (len(B.SHAPES) * len(B.AB) * len(B.LAYERS) + len(B.PADS))
     for b in br.itertuples():
         assert all((B.NR / f).exists() for f in b.files)
 
@@ -151,3 +151,60 @@ def test_pattern_events_carry_their_completeness_year():
     e = ev[ev.comp]
     yc = np.select([e.mw >= m - 1e-6 for m, _ in sorted(B.TABLE, reverse=True)], [y for _, y in sorted(B.TABLE, reverse=True)])
     assert (e.yc.to_numpy() == yc).all() and (e.t >= e.yc).all() and (ev[~ev.comp].t < ev[~ev.comp].yc).all()
+
+
+@built
+def test_summed_slab_source_is_the_sum_of_the_classes():
+    d = pd.read_csv(B.TAB / f"drop_{B.RUN}.csv")
+    q = d[(d.group == "slab") & (d.decl == "gk") & (d["shape"] == "taper") & (d.ab == "ml")].iloc[0]
+    rt = pd.read_csv(B.TAB / f"rates_{B.DATE}.csv")
+    r = rt[(rt.decl == "gk") & (rt["shape"] == "taper") & (rt.ab == "ml")].set_index("cls")["N5.5"]
+    rates = np.array([[float(x) for x in s.split()] for s in
+                      re.findall(r"<occurRates>([^<]+)</occurRates>", (B.NR / "is_slab_gk_taper_ml_l3.xml").read_text())])
+    assert len(rates) == q.kept
+    assert rates.sum() == pytest.approx(q["N5.5_shallow"] + q["N5.5_intermediate"], rel=1e-4)
+    if q.dropped == 0:
+        assert q["N5.5_shallow"] == pytest.approx(r["intraslab_shallow"], rel=1e-9)
+        assert q["N5.5_intermediate"] == pytest.approx(r["intraslab_intermediate"], rel=1e-9)
+
+
+@built
+def test_class_shares_sum_to_one_and_guard_cells_are_kept():
+    s = pd.read_csv(B.TAB / f"class_share_{B.DATE}.csv")
+    for m in ("m5.5", "m7"):
+        assert np.allclose(s[f"shallow_{m}"] + s[f"intermediate_{m}"], 1.0, atol=2e-5)
+    g, ev = B.cells(), B.events()
+    gd = pd.DataFrame({"lon": g.lon, "lat": g.lat, "guard": B.guard(g, ev)})
+    x = s.merge(gd, on=["lon", "lat"])
+    assert len(x) == len(s) and x[x.guard].kept.all()
+
+
+@built
+def test_pad_branches_follow_their_fits_and_carry_no_weight():
+    br = pd.DataFrame(json.loads((B.NR / "branches.json").read_text())["branches"])
+    pads = br[br["pad"] != "pad02"]
+    assert len(pads) == len(B.DECL) * len(B.PADS) and (pads.weight == 0).all() and not pads.tree.any()
+    d = pd.read_csv(B.TAB / f"drop_{B.RUN}.csv")
+    for q, f in B.PADS.items():
+        F = B.fits(f)
+        for c, s in B.CLASSES.items():
+            r = F[(c, "taper")]
+            x = d[(d["pad"] == q) & (d.decl == "gk") & (d.group == ("nest" if s["short"] == "nest" else "slab"))].iloc[0]
+            assert x.m_top == pytest.approx(round(r.mmax + B.TAPER_PAD, 1))
+            assert x[f"N5.5_{s['short']}"] == pytest.approx(B.N_ge(r, 5.5), rel=1e-6)
+
+
+@pytest.mark.skipif(not (B.HERE / "nrml" / "2026-11-16c" / "branches.json").exists(), reason="run is_tornado.py first")
+def test_tornado_variants_change_one_thing_only():
+    import is_tornado as T
+    t0 = (T.D / f"is_nest_{T.REF}.xml").read_text()
+    pick = {"ids": r'pointSource id="([^"]+)"', "rates": r"<occurRates>([^<]+)<", "usd": r"<upperSeismoDepth>([^<]+)<",
+            "lsd": r"<lowerSeismoDepth>([^<]+)<", "hypo": r"<hypoDepthDist>(.*?)</hypoDepthDist>", "msr": r"<magScaleRel>([^<]+)<"}
+    changed = {"l1c15": {"hypo"}, "lsd065": {"lsd"}, "ah": {"msr"}}
+    for tag, ch in changed.items():
+        t = (T.D / f"is_nest_{T.REF}_{tag}.xml").read_text()
+        diff = {k for k, p in pick.items() if re.findall(p, t) != re.findall(p, t0)}
+        assert diff == ch
+    j = json.loads((T.D / "branches.json").read_text())
+    assert {"is_ref", "is_l1c15", "is_lsd065", "is_ah"} <= set(j["tornado"])
+    assert all(b["weight"] == 0 for b in j["branches"] if b.get("variant"))

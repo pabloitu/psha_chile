@@ -1,0 +1,9 @@
+file,sources,N55_oq,N7_oq,weights_not_1,hypo_outside,same_ids,same_rates,same_usd,same_lsd,same_hypo,msr,N55_table,dN55
+is_slab_gk_taper_ml_l3.xml,13847,9.145649375731118,0.16655004969316017,0,0,True,True,True,True,True,['StrasserIntraslab'],9.14564937486589,9.460543459738346e-11
+is_nest_gk_taper_ml_l3.xml,190,0.9074001589609999,0.009266884900999998,0,0,True,True,True,True,True,['StrasserIntraslab'],0.9074001129328256,5.072533459937745e-08
+is_slab_gk_taper_ml_l3_l1c15.xml,13847,9.145649375731118,0.16655004969316017,0,0,True,True,True,True,False,['StrasserIntraslab'],9.14564937486589,9.460543459738346e-11
+is_nest_gk_taper_ml_l3_l1c15.xml,190,0.9074001589609999,0.009266884900999998,0,0,True,True,True,True,False,['StrasserIntraslab'],0.9074001129328256,5.072533459937745e-08
+is_slab_gk_taper_ml_l3_lsd065.xml,13847,9.145649375731118,0.16655004969316017,0,0,True,True,True,False,True,['StrasserIntraslab'],9.14564937486589,9.460543459738346e-11
+is_nest_gk_taper_ml_l3_lsd065.xml,190,0.9074001589609999,0.009266884900999998,0,0,True,True,True,False,True,['StrasserIntraslab'],0.9074001129328256,5.072533459937745e-08
+is_slab_gk_taper_ml_l3_ah.xml,13847,9.145649375731118,0.16655004969316017,0,0,True,True,True,True,True,['AllenHayesIntraslab'],9.14564937486589,9.460543459738346e-11
+is_nest_gk_taper_ml_l3_ah.xml,190,0.9074001589609999,0.009266884900999998,0,0,True,True,True,True,True,['AllenHayesIntraslab'],0.9074001129328256,5.072533459937745e-08

@@ -233,3 +233,88 @@ One grid for shallow and intermediate (Pablo, 16 Nov). Each class was smoothed o
 Checks: 20 tests pass; edge check 1.5e-14; all 72 files read by the OpenQuake parser (336 888 sources, all from Mw 5.5, weights 1, no hypocentre outside the zone, rates within 2e-7 of the build, `oqread_2026-11-16.csv`). The Calama engine run was not done (Pablo, 16 Nov: fits and SSM parameters first).
 
 Maps: the pattern maps are drawn as a cell mesh (pituplots `Grid.from_points` and `plot_grid`, 0.1° cells) instead of square markers, which left gaps between cells.
+
+## 8. One source per cell (16 Nov, run 2026-11-16b)
+
+Pablo (16 Nov): shallow and intermediate are written as one point source per cell. The MFD of a cell is the sum of the two class lists (EvenlyDiscretizedMFD from Mw 5.5, bin centre). The cell keeps its C14 hypocentres, its seismogenic depths, the TRT and the two nodal planes. The Jujuy nest stays a separate source, unchanged. Files: `nrml/2026-11-16b/`, two per branch (`is_slab_*`, `is_nest_*`), 48 files, with `branches.json` and `source_lt_inslab.xml`. `nrml/2026-11-16/` (one file per class) is kept.
+
+- **Near-empty cells:** a cell is dropped when its rate above Mw 5.5 is below 1e-8 of the branch total, unless it lies within 50 km of an in-slab event of Mw ≥ 7 with in-slab weight ≥ 0.5 (2 700 cells are guarded). No cell is dropped in any branch: the weakest cell holds 1.3e-6 (nn) to 2.0e-6 (gk) of the total, because the kernel tail (500 km) reaches every cell. Removed rate 0 (`tables/drop_2026-11-16b.csv`).
+- **Sources:** 14 037 per branch (13 847 slab + 190 nest), 336 888 in the 48 files, 350 MB (one file per class: 669 216 sources, 694 MB).
+- **Rates:** per class, the sum over the kept cells equals the rate table within 4e-15, at N(≥ 5.5) and N(≥ 7), in every branch. All 48 files read by the OpenQuake parser: first magnitude 5.5, hypocentre weights 1, none outside the zone, rates within 2e-7 of the build (`tables/oqread_2026-11-16b.csv`).
+- **Class shares for S5:** `tables/class_share_2026-11-16.csv` gives, per cell and rate branch (declustering, shape, (a, b); the hypocentre option does not change them), the share of the cell rate from shallow and from intermediate, above Mw 5.5 and in the Mw 7.0 bin. S5 mixes the B14 nodal-plane distributions with these shares.
+
+Timing, reference branch (Gardner–Knopoff, tapered, ML (a, b), three hypocentres) at the 14 cities: four in-slab GMMs at 0.25 (AG20 SAM, Parker SA / SA_S, Kuehn SAM, Montalva), PGA 30 levels 0.005–3 g, PoE 0.002105, truncation 3, Vs30 800 inferred, Z1.0 40 m, Z2.5 0.6 km, 500 km, `pointsource_distance` 100 km, `individual_rlzs = true`. The queue was empty; one job at a time (`oqcheck/2026-11-16b/`, `tables/timing_2026-11-16b.csv`, `timing_pga_2026-11-16b.csv`).
+
+| run | calc | sources | ruptures | preclassical | classical | total wall | peak memory |
+|---|---|---|---|---|---|---|---|
+| one file per class (`nrml/2026-11-16/`) | 516 | 27 884 | 5 010 000 | 139 s | 234 s | 4 min 03 s | 333 MB master, 796 MB largest process |
+| one source per cell (`nrml/2026-11-16b/`) | 517 | 14 037 | 2 517 540 | 80 s | 132 s | 2 min 21 s | 210 MB master, 669 MB largest process |
+
+PGA 475 yr (mean, g), the same in both runs within 0.0006 %: Iquique 0.727, Antofagasta 0.660, Calama 0.635, Copiapó 0.560, La Serena 0.964, Valparaíso 0.756, Santiago centro 0.592, Santiago Peñalolén 0.565, Concepción 0.433, Pucón 0.180, Puerto Montt 0.193, Hornopirén 0.145, Puerto Aysén 0.024, Puerto Williams 0 (no in-slab source within 500 km). OpenQuake sorts the sites by longitude; the cities are matched by coordinates.
+
+## 9. Against MASCSN26 (in-slab)
+
+Source: the MASCSN26 report (Bravo Sagua et al. 2026, v1.1, `../refs/faults/Mapa_Amenaza_CSN2026.pdf`): §3.3.3–3.3.4 (classes, declustering), §4 (zones 4–7, Mmax Tables 12–15), Table 16 and Figure 33 (Weichert a, b; p. 56–57), §8.2 (source model). The repository file was not read; Figure 33 confirms that a is log10 N(≥ 0) (zone 5: 6.50 − 1.07 × 5.1 = 1.04, as plotted).
+
+MASCSN26 in-slab: intermediate depth only, events within 40 km below the Slab2 top where the top is at 50–160 km and more than 10 km below the Moho; four zones from Martin (1990), 15–18, 18–25, 25–31, 31–38° S; catalogue declustered with Knopoff (1982) windows (C_dist 100 km, C_time 130 d); truncated GR from Mw 5 with Mmax 8.3 / 8.3 / 7.4 / 8.3 and b 0.88 / 1.07 / 0.97 / 1.02; point sources spread uniformly or by the hypocentre density over a 40 km slab; dips 45° and 135° to the slab top.
+
+Ours, reference rates (tapered, ML (a, b)), summed over the same zones (cells with latitude in the band and slab top 50–160 km; shallow, intermediate and nest added; Gardner–Knopoff pattern, nearest neighbour within 2–15 % per zone), N(≥ M) per year (`tables/mascsn_compare_2026-11-16.csv`):
+
+| zone | N(≥ 5.5) ours / MASCSN | N(≥ 7) ours / MASCSN | ratio at 5.5 / 6 / 7 / 7.5 / 8 |
+|---|---|---|---|
+| 4, 15–18° S | 0.37 / 1.20 | 0.007 / 0.053 | 0.31 / 0.22 / 0.12 / 0.09 / 0.07 |
+| 5, 18–25° S | 3.38 / 4.12 | 0.056 / 0.098 | 0.82 / 0.73 / 0.58 / 0.48 / 0.38 |
+| 6, 25–31° S | 1.45 / 1.31 | 0.026 / 0.028 | 1.10 / 0.92 / 0.95 / – / – (MASCSN Mmax 7.4) |
+| 7, 31–38° S | 1.23 / 1.38 | 0.022 / 0.039 | 0.89 / 0.76 / 0.57 / 0.49 / 0.39 |
+| zones 4–7 | 6.43 / 8.01 | 0.112 / 0.218 | 0.80 / 0.68 / 0.51 / 0.48 / 0.36 |
+| zones 5–7 | 6.06 / 6.81 | 0.104 / 0.165 | 0.89 / – / 0.63 / – / – |
+
+- **Zone 4 is mostly Peru.** Our cells start at 17.2° S, so the 0.31 there is a domain difference, not a rate difference. Over zones 5–7, where both models cover the slab, ours is 11 % lower at Mw 5.5 and 37 % lower at Mw 7.
+- **The shape is the main difference.** Our b is 1.14–1.16 (full catalogue); MASCSN's is 0.97–1.07 on a declustered catalogue. The ratio falls from about 0.9 at Mw 5.5 to about 0.4 at Mw 8 in zones 5 and 7. Our own Gardner–Knopoff-declustered fits give b 0.99–1.03 for intermediate and 0.93–1.00 for shallow (`fits_declustered_2026-11-16.csv`), close to MASCSN. Window declustering removes small aftershocks and lowers b; DECISIONS takes rates and b from the full catalogue.
+- **Mmax:** 8.2 with a taper ending at 8.4 (ours) against a truncated 8.3 (MASCSN). This matters little next to b.
+- **Our model has in-slab rate where MASCSN has none:** of our total N(≥ 5.5) of 10.05 per year, 2.5 (25 %) lies under the shallow slab (top < 50 km; MASCSN puts these events in the interface or crust), 1.0 below a slab top of 160 km and 0.1 south of 38° S. Over the whole model, ours is above MASCSN at Mw 5.5 (10.1 against 8.0, +26 %) and below at Mw 7 (0.176 against 0.218, −19 %).
+- **Zone 6 (25–31° S):** MASCSN caps it at Mmax 7.4; ours runs to 8.2, with N(≥ 7.5) about 0.003 per year there.
+
+## 10. Mmax pad branches (16 Nov)
+
+DECISIONS (Statistics): the Mmax pad is a tornado factor, 0.0 and 0.4 against 0.2, refitted with the Kagan corner (`fits/tables/fits_2026-11-16f_pad00.csv`, `_pad04.csv`, maximum-likelihood rows). The in-slab rows of `fits_2026-11-16f.csv` equal those of `fits_2026-11-16.csv`, so the pad 0.2 files stand. Built for the reference branch only (tapered, ML (a, b), three hypocentres), both declustering options, one source per cell as in section 8, weight 0. The nest takes the pad of its own fit. Files in `nrml/2026-11-16b/`, listed in `branches.json` with `pad` = pad00 / pad04 (pad02 for all other branches):
+
+| branch id | files | Mmax / corner, shallow and intermediate | Mmax / corner, nest |
+|---|---|---|---|
+| `gk_taper_ml_l3_pad00`, `nn_taper_ml_l3_pad00` | `is_slab_<id>.xml`, `is_nest_<id>.xml` | 8.0 / 7.83–7.84, list to 8.2 | 7.2 / 7.06, list to 7.4 |
+| `gk_taper_ml_l3_pad04`, `nn_taper_ml_l3_pad04` | same | 8.4 / 8.24, list to 8.6 | 7.6 / 7.46, list to 7.8 |
+
+Rates (Gardner–Knopoff pattern; the rates do not depend on it), N per year:
+
+| pad | shallow N(≥ 5.5) / N(≥ 7) / N(≥ 8) | intermediate | nest N(≥ 5.5) / N(≥ 7) |
+|---|---|---|---|
+| 0.0 | 2.497 / 0.0472 / 0.00081 | 6.749 / 0.1221 / 0.00208 | 0.923 / 0.0070 |
+| 0.2 (reference) | 2.470 / 0.0465 / 0.00163 | 6.676 / 0.1201 / 0.00412 | 0.907 / 0.0093 |
+| 0.4 | 2.452 / 0.0458 / 0.00227 | 6.626 / 0.1183 / 0.00571 | 0.894 / 0.0104 |
+
+N(≥ 8) × 0.50 / × 1.39 and nest N(≥ 7) × 0.76 / × 1.12, as in DECISIONS. N(≥ 7) moves by under 2 %, in the opposite direction from N(≥ 8): the smaller pad lowers b slightly (1.136 against 1.144 for shallow). Checks: 25 tests pass, including one that reads the pad files against their fits tables; all 56 files read by the OpenQuake parser (393 036 sources, rates within 2e-7 of the build).
+
+## 11. Tornado files for the depth and rupture options (16 Nov, run 2026-11-16c)
+
+C15 feedback and Pablo (16 Nov): the in-slab tornado rows compare one choice against the three-layer reference; the lower depth 0.65 and the AllenHayesIntraslab scaling are tried as well. `is_tornado.py` writes `nrml/2026-11-16c/`: every file of `nrml/2026-11-16b/` copied byte for byte (sha256 checked; `branches.json` extended), plus three weight-0 branches made from the reference `gk_taper_ml_l3` (slab and nest files). Each changes one thing in every point source; rates, source ids, upper depths and nodal planes are those of the reference:
+
+| branch id | change | input |
+|---|---|---|
+| `gk_taper_ml_l3_l1c15` | one hypocentre per cell at top + 0.243 × Slab2 thickness (C15); lower depth as the reference | `h_one` of `tables/depth_cells_2026-11-16d.csv` |
+| `gk_taper_ml_l3_lsd065` | lower depth at top + 0.65 × thickness (13 km below the reference 0.475 in the median); the three reference hypocentres kept | `lsd` of `tables/depth_cells_lsd065_2026-11-16d.csv` |
+| `gk_taper_ml_l3_ah` | rupture scaling AllenHayesIntraslab instead of StrasserIntraslab (aspect ratio 1 kept); median area × 0.62 / 0.67 / 0.72 / 0.79 at Mw 6.5 / 7 / 7.5 / 8 | OpenQuake 3.26 |
+
+Only `h_one` and `lsd` are taken from the C15 tables of 16d. Their three slices differ from the reference cells (`depth_cells_2026-11-16.csv`: hypocentres by up to 7.7 km, weights by up to 0.64, lower depth by up to 0.26 km), and the reference stays as it is (C15). Every new value lies inside the zone of its cell. The C14 one-layer branches (`*_l1`, per-cell median) stay in the files but are not tornado rows.
+
+`branches.json` has a `tornado` block, one row per choice, each a single branch at weight 1 (the format of the interface files):
+- `is_ref`: `gk_taper_ml_l3`;
+- `is_ab_p05` / `is_ab_p95`: `gk_taper_p05_l3` / `gk_taper_p95_l3`;
+- `is_decl_nn`: `nn_taper_ml_l3`;
+- `is_shape_cut`: `gk_trunc_ml_l3`;
+- `is_mmax_pad00` / `is_mmax_pad04`: `gk_taper_ml_l3_pad00` / `_pad04`;
+- `is_l1c15`, `is_lsd065`, `is_ah`.
+
+Checks (`tables/oqread_2026-11-16c.csv`, test `test_tornado_variants_change_one_thing_only`):
+- each variant file has the source ids, rate lists, upper and lower depths and hypocentres of the reference as text, except the one field it changes;
+- the OpenQuake parser reads all eight files: 13 847 + 190 sources, N(≥ 5.5) 9.146 + 0.907 per year as the rate table (within 5e-8), hypocentre weights 1, none outside the zone, and the scaling relation read as named;
+- 26 tests pass.

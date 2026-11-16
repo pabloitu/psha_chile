@@ -1,0 +1,783 @@
+{
+ "date": "2026-11-16",
+ "run": "2026-11-16c",
+ "trt": "Subduction IntraSlab",
+ "msr": "StrasserIntraslab",
+ "aspect": 1.0,
+ "nodal_planes": [
+  [
+   0.5,
+   180.0,
+   60.0,
+   -90.0
+  ],
+  [
+   0.5,
+   0.0,
+   30.0,
+   90.0
+  ]
+ ],
+ "min_mag": 5.5,
+ "max_distance_km": 500,
+ "pointsource_distance_km": 100,
+ "groups": {
+  "slab": [
+   "intraslab_shallow",
+   "intraslab_intermediate"
+  ],
+  "nest": [
+   "jujuy_nest"
+  ]
+ },
+ "drop": {
+  "fraction": {
+   "slab": 1e-08,
+   "nest": 0.0
+  },
+  "guard_km": 50.0,
+  "guard_m": 7.0
+ },
+ "tree": {
+  "shape": "taper",
+  "ab": "ml",
+  "layers": "l3"
+ },
+ "factors": {
+  "decl": {
+   "gk": 0.5,
+   "nn": 0.5
+  },
+  "shape": [
+   "taper",
+   "trunc"
+  ],
+  "ab": {
+   "p05": 0.185,
+   "ml": 0.63,
+   "p95": 0.185
+  },
+  "layers": [
+   "l3",
+   "l1"
+  ],
+  "pad": [
+   "pad02",
+   "pad00",
+   "pad04"
+  ]
+ },
+ "pads": {
+  "pad00": "fits/tables/fits_2026-11-16f_pad00.csv",
+  "pad04": "fits/tables/fits_2026-11-16f_pad04.csv"
+ },
+ "branches": [
+  {
+   "id": "gk_taper_p05_l3",
+   "files": [
+    "is_slab_gk_taper_p05_l3.xml",
+    "is_nest_gk_taper_p05_l3.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "p05",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_taper_p05_l1",
+   "files": [
+    "is_slab_gk_taper_p05_l1.xml",
+    "is_nest_gk_taper_p05_l1.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "p05",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_taper_ml_l3",
+   "files": [
+    "is_slab_gk_taper_ml_l3.xml",
+    "is_nest_gk_taper_ml_l3.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": true,
+   "weight": 0.5,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_taper_ml_l1",
+   "files": [
+    "is_slab_gk_taper_ml_l1.xml",
+    "is_nest_gk_taper_ml_l1.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_taper_p95_l3",
+   "files": [
+    "is_slab_gk_taper_p95_l3.xml",
+    "is_nest_gk_taper_p95_l3.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "p95",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_taper_p95_l1",
+   "files": [
+    "is_slab_gk_taper_p95_l1.xml",
+    "is_nest_gk_taper_p95_l1.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "p95",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_trunc_p05_l3",
+   "files": [
+    "is_slab_gk_trunc_p05_l3.xml",
+    "is_nest_gk_trunc_p05_l3.xml"
+   ],
+   "decl": "gk",
+   "shape": "trunc",
+   "ab": "p05",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_trunc_p05_l1",
+   "files": [
+    "is_slab_gk_trunc_p05_l1.xml",
+    "is_nest_gk_trunc_p05_l1.xml"
+   ],
+   "decl": "gk",
+   "shape": "trunc",
+   "ab": "p05",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_trunc_ml_l3",
+   "files": [
+    "is_slab_gk_trunc_ml_l3.xml",
+    "is_nest_gk_trunc_ml_l3.xml"
+   ],
+   "decl": "gk",
+   "shape": "trunc",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_trunc_ml_l1",
+   "files": [
+    "is_slab_gk_trunc_ml_l1.xml",
+    "is_nest_gk_trunc_ml_l1.xml"
+   ],
+   "decl": "gk",
+   "shape": "trunc",
+   "ab": "ml",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_trunc_p95_l3",
+   "files": [
+    "is_slab_gk_trunc_p95_l3.xml",
+    "is_nest_gk_trunc_p95_l3.xml"
+   ],
+   "decl": "gk",
+   "shape": "trunc",
+   "ab": "p95",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_trunc_p95_l1",
+   "files": [
+    "is_slab_gk_trunc_p95_l1.xml",
+    "is_nest_gk_trunc_p95_l1.xml"
+   ],
+   "decl": "gk",
+   "shape": "trunc",
+   "ab": "p95",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_taper_p05_l3",
+   "files": [
+    "is_slab_nn_taper_p05_l3.xml",
+    "is_nest_nn_taper_p05_l3.xml"
+   ],
+   "decl": "nn",
+   "shape": "taper",
+   "ab": "p05",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_taper_p05_l1",
+   "files": [
+    "is_slab_nn_taper_p05_l1.xml",
+    "is_nest_nn_taper_p05_l1.xml"
+   ],
+   "decl": "nn",
+   "shape": "taper",
+   "ab": "p05",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_taper_ml_l3",
+   "files": [
+    "is_slab_nn_taper_ml_l3.xml",
+    "is_nest_nn_taper_ml_l3.xml"
+   ],
+   "decl": "nn",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": true,
+   "weight": 0.5,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_taper_ml_l1",
+   "files": [
+    "is_slab_nn_taper_ml_l1.xml",
+    "is_nest_nn_taper_ml_l1.xml"
+   ],
+   "decl": "nn",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_taper_p95_l3",
+   "files": [
+    "is_slab_nn_taper_p95_l3.xml",
+    "is_nest_nn_taper_p95_l3.xml"
+   ],
+   "decl": "nn",
+   "shape": "taper",
+   "ab": "p95",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_taper_p95_l1",
+   "files": [
+    "is_slab_nn_taper_p95_l1.xml",
+    "is_nest_nn_taper_p95_l1.xml"
+   ],
+   "decl": "nn",
+   "shape": "taper",
+   "ab": "p95",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_trunc_p05_l3",
+   "files": [
+    "is_slab_nn_trunc_p05_l3.xml",
+    "is_nest_nn_trunc_p05_l3.xml"
+   ],
+   "decl": "nn",
+   "shape": "trunc",
+   "ab": "p05",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_trunc_p05_l1",
+   "files": [
+    "is_slab_nn_trunc_p05_l1.xml",
+    "is_nest_nn_trunc_p05_l1.xml"
+   ],
+   "decl": "nn",
+   "shape": "trunc",
+   "ab": "p05",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_trunc_ml_l3",
+   "files": [
+    "is_slab_nn_trunc_ml_l3.xml",
+    "is_nest_nn_trunc_ml_l3.xml"
+   ],
+   "decl": "nn",
+   "shape": "trunc",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_trunc_ml_l1",
+   "files": [
+    "is_slab_nn_trunc_ml_l1.xml",
+    "is_nest_nn_trunc_ml_l1.xml"
+   ],
+   "decl": "nn",
+   "shape": "trunc",
+   "ab": "ml",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_trunc_p95_l3",
+   "files": [
+    "is_slab_nn_trunc_p95_l3.xml",
+    "is_nest_nn_trunc_p95_l3.xml"
+   ],
+   "decl": "nn",
+   "shape": "trunc",
+   "ab": "p95",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "nn_trunc_p95_l1",
+   "files": [
+    "is_slab_nn_trunc_p95_l1.xml",
+    "is_nest_nn_trunc_p95_l1.xml"
+   ],
+   "decl": "nn",
+   "shape": "trunc",
+   "ab": "p95",
+   "layers": "l1",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.185
+   },
+   "pad": "pad02"
+  },
+  {
+   "id": "gk_taper_ml_l3_pad00",
+   "files": [
+    "is_slab_gk_taper_ml_l3_pad00.xml",
+    "is_nest_gk_taper_ml_l3_pad00.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad00"
+  },
+  {
+   "id": "nn_taper_ml_l3_pad00",
+   "files": [
+    "is_slab_nn_taper_ml_l3_pad00.xml",
+    "is_nest_nn_taper_ml_l3_pad00.xml"
+   ],
+   "decl": "nn",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad00"
+  },
+  {
+   "id": "gk_taper_ml_l3_pad04",
+   "files": [
+    "is_slab_gk_taper_ml_l3_pad04.xml",
+    "is_nest_gk_taper_ml_l3_pad04.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad04"
+  },
+  {
+   "id": "nn_taper_ml_l3_pad04",
+   "files": [
+    "is_slab_nn_taper_ml_l3_pad04.xml",
+    "is_nest_nn_taper_ml_l3_pad04.xml"
+   ],
+   "decl": "nn",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad04"
+  },
+  {
+   "id": "gk_taper_ml_l3_l1c15",
+   "files": [
+    "is_slab_gk_taper_ml_l3_l1c15.xml",
+    "is_nest_gk_taper_ml_l3_l1c15.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02",
+   "variant": "l1c15",
+   "label": "one layer at top + 0.243 x thickness (C15)"
+  },
+  {
+   "id": "gk_taper_ml_l3_lsd065",
+   "files": [
+    "is_slab_gk_taper_ml_l3_lsd065.xml",
+    "is_nest_gk_taper_ml_l3_lsd065.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02",
+   "variant": "lsd065",
+   "label": "lower depth top + 0.65 x thickness (C15)"
+  },
+  {
+   "id": "gk_taper_ml_l3_ah",
+   "files": [
+    "is_slab_gk_taper_ml_l3_ah.xml",
+    "is_nest_gk_taper_ml_l3_ah.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "w_factor": {
+    "decl": 0.5,
+    "ab": 0.63
+   },
+   "pad": "pad02",
+   "variant": "ah",
+   "label": "rupture scaling AllenHayesIntraslab"
+  }
+ ],
+ "tornado": {
+  "is_ref": {
+   "label": "reference: tapered, ML (a, b), Gardner\u2013Knopoff pattern, three layers, lower depth 0.475, Strasser",
+   "branches": [
+    {
+     "id": "gk_taper_ml_l3",
+     "files": [
+      "is_slab_gk_taper_ml_l3.xml",
+      "is_nest_gk_taper_ml_l3.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "is_ab_p05": {
+   "label": "(a, b) 5th percentile",
+   "branches": [
+    {
+     "id": "gk_taper_p05_l3",
+     "files": [
+      "is_slab_gk_taper_p05_l3.xml",
+      "is_nest_gk_taper_p05_l3.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "is_ab_p95": {
+   "label": "(a, b) 95th percentile",
+   "branches": [
+    {
+     "id": "gk_taper_p95_l3",
+     "files": [
+      "is_slab_gk_taper_p95_l3.xml",
+      "is_nest_gk_taper_p95_l3.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "is_decl_nn": {
+   "label": "nearest-neighbour pattern",
+   "branches": [
+    {
+     "id": "nn_taper_ml_l3",
+     "files": [
+      "is_slab_nn_taper_ml_l3.xml",
+      "is_nest_nn_taper_ml_l3.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "is_shape_cut": {
+   "label": "cut at Mmax",
+   "branches": [
+    {
+     "id": "gk_trunc_ml_l3",
+     "files": [
+      "is_slab_gk_trunc_ml_l3.xml",
+      "is_nest_gk_trunc_ml_l3.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "is_mmax_pad00": {
+   "label": "Mmax = largest observed event (no pad)",
+   "branches": [
+    {
+     "id": "gk_taper_ml_l3_pad00",
+     "files": [
+      "is_slab_gk_taper_ml_l3_pad00.xml",
+      "is_nest_gk_taper_ml_l3_pad00.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "is_mmax_pad04": {
+   "label": "Mmax = largest observed event + 0.4",
+   "branches": [
+    {
+     "id": "gk_taper_ml_l3_pad04",
+     "files": [
+      "is_slab_gk_taper_ml_l3_pad04.xml",
+      "is_nest_gk_taper_ml_l3_pad04.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "is_l1c15": {
+   "label": "one layer at top + 0.243 x thickness (C15)",
+   "branches": [
+    {
+     "id": "gk_taper_ml_l3_l1c15",
+     "files": [
+      "is_slab_gk_taper_ml_l3_l1c15.xml",
+      "is_nest_gk_taper_ml_l3_l1c15.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "is_lsd065": {
+   "label": "lower depth top + 0.65 x thickness (C15)",
+   "branches": [
+    {
+     "id": "gk_taper_ml_l3_lsd065",
+     "files": [
+      "is_slab_gk_taper_ml_l3_lsd065.xml",
+      "is_nest_gk_taper_ml_l3_lsd065.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "is_ah": {
+   "label": "rupture scaling AllenHayesIntraslab",
+   "branches": [
+    {
+     "id": "gk_taper_ml_l3_ah",
+     "files": [
+      "is_slab_gk_taper_ml_l3_ah.xml",
+      "is_nest_gk_taper_ml_l3_ah.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  }
+ },
+ "source_run": "2026-11-16b",
+ "variants": {
+  "l1c15": "one layer at top + 0.243 x thickness (C15)",
+  "lsd065": "lower depth top + 0.65 x thickness (C15)",
+  "ah": "rupture scaling AllenHayesIntraslab"
+ },
+ "variant_inputs": {
+  "l1c15": "depth_cells_2026-11-16d.csv",
+  "lsd065": "depth_cells_lsd065_2026-11-16d.csv"
+ },
+ "note": "C14 one-layer branches (*_l1, per-cell median) are kept but superseded by l1c15 for the tornado"
+}
