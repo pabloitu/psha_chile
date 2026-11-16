@@ -555,3 +555,37 @@ def scenario_pages(jump=15.0, traces="main", pkl=None, outdir=None, first_only=F
         fig.savefig(out / f"{rank:03d}.png", dpi=140)
         plt.close(fig)
     return out
+
+
+def pad_figure():
+    """Mmax pad rows (tables/pad_rows_<DATE>.csv): per class the expected counts of the large-event checks for the
+    background pad 0.0 / 0.2 / 0.4 (multi-fault reference) and the fault pad 0.0 / 0.2 / 0.4 (segmented reference),
+    with the observed counts."""
+    from pituplots.style.axes import darkgrid
+    plt = plt_()
+    t = pd.read_csv(BG.TAB / f"pad_rows_{BG.DATE}.csv")
+    fig, axs = plt.subplots(1, 4, figsize=(18, 5), layout="constrained")
+    checks = [("exp6", "obs6", "Mw ≥ 6, 1976–"), ("exp7_hist", "obs7_hist", "Mw ≥ 7, 1905–"), ("exp7.5_hist", "obs7.5_hist", "Mw ≥ 7.5, 1830–")]
+    for ax, c in zip(axs, F.CLASSES):
+        x = t[t.cls == c]
+        bgp = x[(x.system == "multi-fault") & (x.fault_pad == 0)].sort_values("pad")
+        fp = x[(x.system == "segmented") & (x["pad"] == 0.2)].sort_values("fault_pad")
+        for i, (e, o, lab) in enumerate(checks):
+            ax.plot([i - 0.3, i + 0.3], [bgp[o].iloc[0]] * 2, color="k", lw=2.5, zorder=5, label="observed" if i == 0 else None)
+            for (_, r), mk in zip(bgp.iterrows(), ("v", "o", "^")):
+                ax.plot(i - 0.15, r[e], mk, color=palette.SERIES[4], ms=7, mec="k", mew=0.4,
+                        label=f"background Mmax pad {r['pad']:g} (multi-fault ref.)" if i == 0 else None)
+            for (_, r), mk in zip(fp.iterrows(), ("v", "o", "^")):
+                ax.plot(i + 0.15, r[e], mk, color=DB_COLOR["A"], ms=7, mec="k", mew=0.4,
+                        label=f"fault Mmax pad {r['fault_pad']:g} (segmented ref.)" if i == 0 else None)
+        ax.set_xticks(range(3), [c_[2] for c_ in checks])
+        ax.set_yscale("log")
+        ax.set_ylim(0.05, 100)
+        darkgrid(ax)
+        ax.set_title(palette.CLASS_NAME[c], fontsize=12)
+        if c == "forearc":
+            ax.legend(fontsize=7.5, loc="lower left", frameon=False)
+    axs[0].set_ylabel("expected events in the window")
+    fig.suptitle("Mmax pad rows: background class Mmax pad (through the join and the multi-fault cap) and single-fault "
+                 "Leonard pad, against the observed counts", x=0.01, ha="left")
+    save(fig, "check_mmax_pads")
