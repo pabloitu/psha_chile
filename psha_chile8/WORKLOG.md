@@ -3223,3 +3223,23 @@ For S5. Details in `model/inslab/REPORT_S2.md` section 11.
   - Crustal source Mmin 5.5 for the tornado (comparable rows across families); for the final model it may go to 5.0.
   - Full subsections into SHERIFS: a later test against the strict rule (both the linked rates and the single-fault MFDs).
 - **Open:** whether S5 runs the crustal family tree now or only the tornado rows.
+- **Pablo (16 Nov): all branch weights equal across the whole model.** The crustal tree keeps declustering 0.5 / 0.5, fault system 0.5 / 0.5, and equal weights inside each system (segmented: the DECISIONS ψ 0.25 / 0.5 / 0.25 and depth 0.5 / 0.5 are the current files; to be made equal when the tree is rebuilt). S5 runs the tornado rows now; the tree after the multi-fault rebuild.
+- **S3 (16 Nov): strict UCERF3 rupture set built and compared** (`model/crustal/rupset.py`, `rupset_compare.py`; REPORT_S3 section 12; `figs/2026-11-16e/check_strict_scenarios.png`; `tables/rupset_compare_2026-11-16e.csv`, `rupsets_A_2026-11-16e.pkl`). No rates, no files.
+  - Scenarios are linear chains; longest 359 km at a 15 km jump (Mw 7.5 at 10 km depth, 7.8 at 20 km); 75 scenarios with main traces, 121 with splays.
+  - Aysén 7.7 reached only at 20 km depth. No scenario above the arc cap 7.9 in A.
+  - Open for Pablo: the subsection size at 20 km depth (half-depth 10 km pieces bar nine short faults by the two-subsection rule; fixed 5 km pieces or MIN_SUBS 1 for short faults); and the three junctions at 48–53° onto dextral-normal splays (CL-007, CL-012, CL-006kkk) as the Coulomb proxy.
+  - Test added (22 passed).
+
+## 2026-11-16, S2: in-slab declustered-rate tornado rows ready (2026-11-16d)
+For S5. Details in `model/inslab/REPORT_S2.md` section 12.
+- **Files:** `model/inslab/nrml/2026-11-16d/`, its own folder: `branches.json` with a tornado block, plus `is_slab_<id>.xml` and `is_nest_<id>.xml` for two weight-0 branches. Each is the reference branch (tapered, ML (a, b), three layers, StrasserIntraslab, lower depth 0.475) with the rates and b of `fits_declustered_2026-11-16f.csv` (gk_family / nn_family, table full, b own, as the interface rows of S1) and the pattern of the same method.
+- **Tornado rows:** `is_rate_gk` = `gk_taper_ml_l3_rategk`, `is_rate_nn` = `nn_taper_ml_l3_ratenn`, each one branch at weight 1. The reference row is `is_ref` of `nrml/2026-11-16c/`.
+- **Effect** (slab = shallow + intermediate):
+  - Gardner–Knopoff: b about 1.0, N(≥ 5.5) −25 %, N(≥ 7) +28 %;
+  - nearest neighbour: within 5 %;
+  - nest under Gardner–Knopoff: b 0.77, N(≥ 7) +76 %.
+- **Checks:** rates equal the fits; the OpenQuake parser reads the four files; 27 tests pass.
+- **Code:** `model/inslab/is_decl_rates.py` (entry script, settings at the top), test in `tests/test_s2.py`. Command, from `psha_chile8/model/inslab/` with `PYTHONPATH` to oq-engine: `python is_decl_rates.py` (1 min).
+- **Proposed DECISIONS line** (Pablo adds), In-slab: "Rate convention as a tornado row: the reference branch with the rates and b of the declustered fits (gk_family / nn_family, table full, b own) and the matching pattern, weight 0 (`model/inslab/nrml/2026-11-16d/`, Pablo 16 Nov)."
+- **Suggested commit:** `git add psha_chile8/model/inslab/is_decl_rates.py psha_chile8/model/inslab/tests/test_s2.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/model/inslab/tables/{decl_rates,oqread}_2026-11-16d.csv psha_chile8/model/inslab/nrml/2026-11-16d/branches.json psha_chile8/WORKLOG.md`; message `S2: in-slab declustered-rate tornado rows (gk_family, nn_family) in nrml/2026-11-16d`.
+- **Decided by Pablo (16 Nov): subsections fixed at 5 km for every depth branch** (`rupset.SUB_KM`). The 20 km branch now has the same 75 / 121 scenarios as the 10 km branch (Mmax 7.8 at 20 km). Comparison table and REPORT_S3 section 12 updated. Open: the three junctions at 48–53° onto dextral-normal splays.

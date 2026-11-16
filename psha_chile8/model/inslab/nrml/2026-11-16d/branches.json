@@ -1,0 +1,99 @@
+{
+ "date": "2026-11-16",
+ "run": "2026-11-16d",
+ "trt": "Subduction IntraSlab",
+ "msr": "StrasserIntraslab",
+ "aspect": 1.0,
+ "nodal_planes": [
+  [
+   0.5,
+   180.0,
+   60.0,
+   -90.0
+  ],
+  [
+   0.5,
+   0.0,
+   30.0,
+   90.0
+  ]
+ ],
+ "min_mag": 5.5,
+ "max_distance_km": 500,
+ "pointsource_distance_km": 100,
+ "fits": "fits/tables/fits_declustered_2026-11-16f.csv",
+ "fit_rows": {
+  "methods": {
+   "gk": "gk_family",
+   "nn": "nn_family"
+  },
+  "table": "full",
+  "b_option": "own"
+ },
+ "branches": [
+  {
+   "id": "gk_taper_ml_l3_rategk",
+   "files": [
+    "is_slab_gk_taper_ml_l3_rategk.xml",
+    "is_nest_gk_taper_ml_l3_rategk.xml"
+   ],
+   "decl": "gk",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "pad": "pad02",
+   "rates": "declustered gk_family"
+  },
+  {
+   "id": "nn_taper_ml_l3_ratenn",
+   "files": [
+    "is_slab_nn_taper_ml_l3_ratenn.xml",
+    "is_nest_nn_taper_ml_l3_ratenn.xml"
+   ],
+   "decl": "nn",
+   "shape": "taper",
+   "ab": "ml",
+   "layers": "l3",
+   "tree": false,
+   "weight": 0.0,
+   "pad": "pad02",
+   "rates": "declustered nn_family"
+  }
+ ],
+ "reference": {
+  "run": "2026-11-16c",
+  "id": "gk_taper_ml_l3",
+  "row": "is_ref",
+  "note": "full-catalogue rates, Gardner\u2013Knopoff pattern"
+ },
+ "tornado": {
+  "is_rate_gk": {
+   "label": "rates and b of the Gardner\u2013Knopoff declustered catalogue, Gardner\u2013Knopoff pattern",
+   "branches": [
+    {
+     "id": "gk_taper_ml_l3_rategk",
+     "files": [
+      "is_slab_gk_taper_ml_l3_rategk.xml",
+      "is_nest_gk_taper_ml_l3_rategk.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  },
+  "is_rate_nn": {
+   "label": "rates and b of the nearest-neighbour declustered catalogue, nearest-neighbour pattern",
+   "branches": [
+    {
+     "id": "nn_taper_ml_l3_ratenn",
+     "files": [
+      "is_slab_nn_taper_ml_l3_ratenn.xml",
+      "is_nest_nn_taper_ml_l3_ratenn.xml"
+     ],
+     "weight": 1.0
+    }
+   ]
+  }
+ }
+}

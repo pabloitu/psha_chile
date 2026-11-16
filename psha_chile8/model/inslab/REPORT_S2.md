@@ -318,3 +318,19 @@ Checks (`tables/oqread_2026-11-16c.csv`, test `test_tornado_variants_change_one_
 - each variant file has the source ids, rate lists, upper and lower depths and hypocentres of the reference as text, except the one field it changes;
 - the OpenQuake parser reads all eight files: 13 847 + 190 sources, N(≥ 5.5) 9.146 + 0.907 per year as the rate table (within 5e-8), hypocentre weights 1, none outside the zone, and the scaling relation read as named;
 - 26 tests pass.
+
+## 12. Tornado rows for the declustered rates (16 Nov, run 2026-11-16d)
+
+Pablo (16 Nov): the declustered against full-catalogue rate convention goes into the in-slab tornado, as for the interface (DECISIONS, Statistics: the full catalogue for the final tree, the declustered fits as a tornado row). `is_decl_rates.py` writes two weight-0 branches into their own folder `nrml/2026-11-16d/`. Each is the reference branch (tapered, ML (a, b), three layers, one source per cell, nest separate), with the rates and b of `fits/tables/fits_declustered_2026-11-16f.csv` (methods `gk_family` / `nn_family`, table `full`, b option `own`, as the interface rows) and the pattern of the same declustering method. The reference row stays `is_ref` of `nrml/2026-11-16c/` (full-catalogue rates, Gardner–Knopoff pattern).
+
+| row / branch | shallow b, N(≥ 5.5), N(≥ 7) | intermediate b, N(≥ 5.5), N(≥ 7) | nest b, N(≥ 5.5), N(≥ 7) |
+|---|---|---|---|
+| reference (full catalogue) | 1.144, 2.470, 0.0465 | 1.157, 6.676, 0.1201 | 1.229, 0.907, 0.0093 |
+| `is_rate_gk` / `gk_taper_ml_l3_rategk` | 0.975, 1.822, 0.0610 | 1.004, 5.006, 0.1519 | 0.767, 0.398, 0.0163 |
+| `is_rate_nn` / `nn_taper_ml_l3_ratenn` | 1.111, 2.155, 0.0453 | 1.149, 6.493, 0.1198 | 1.223, 0.836, 0.0087 |
+
+- **Gardner–Knopoff rates:** slab N(≥ 5.5) −25 %, N(≥ 7) +28 %, N(≥ 8) +62 %; Mmax 8.2 and the corner within 0.05 of the reference.
+- **Nearest-neighbour rates:** within 5 % at every magnitude.
+- **Nest:** the Gardner–Knopoff row takes its declustered b of 0.77, which halves N(≥ 5.5) and nearly doubles N(≥ 7).
+
+Checks: rates per class equal their fits (N(≥ 5.5), N(≥ 7)); no cell dropped; the OpenQuake parser reads the four files (13 847 + 190 sources each, from Mw 5.5, rates within 2e-7); test `test_declustered_rate_rows_follow_their_fits`; 27 tests pass. Tables `decl_rates_2026-11-16d.csv`, `oqread_2026-11-16d.csv`.

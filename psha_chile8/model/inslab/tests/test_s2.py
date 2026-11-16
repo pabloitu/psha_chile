@@ -208,3 +208,17 @@ def test_tornado_variants_change_one_thing_only():
     j = json.loads((T.D / "branches.json").read_text())
     assert {"is_ref", "is_l1c15", "is_lsd065", "is_ah"} <= set(j["tornado"])
     assert all(b["weight"] == 0 for b in j["branches"] if b.get("variant"))
+
+
+@pytest.mark.skipif(not (B.HERE / "nrml" / "2026-11-16d" / "branches.json").exists(), reason="run is_decl_rates.py first")
+def test_declustered_rate_rows_follow_their_fits():
+    import is_decl_rates as R
+    t = pd.read_csv(B.TAB / f"decl_rates_{R.RUN}.csv")
+    assert np.allclose(t.N55, t.N55_fit, rtol=1e-9) and np.allclose(t.N7, t.N7_fit, rtol=1e-9)
+    for k, m in R.METHODS.items():
+        F = R.fits_dc(m)
+        assert t[t.method == m].set_index("cls").b.to_dict() == pytest.approx({c: F[(c, "taper")].b for c in B.CLASSES})
+    j = json.loads((R.D / "branches.json").read_text())
+    assert set(j["tornado"]) == {"is_rate_gk", "is_rate_nn"} and all(b["weight"] == 0 for b in j["branches"])
+    rates = [float(x) for s in re.findall(r"<occurRates>([^<]+)<", (R.D / "is_slab_gk_taper_ml_l3_rategk.xml").read_text()) for x in s.split()]
+    assert sum(rates) == pytest.approx(t[(t.method == "gk_family") & (t.group == "slab")].N55.sum(), rel=1e-4)
