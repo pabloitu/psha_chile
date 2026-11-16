@@ -2596,3 +2596,109 @@ Pablo: apply it. DECISIONS read again before the run; no change that touches the
 ## 2026-11-16, S2: one-grid lines in DECISIONS
 - Written with Pablo's go-ahead: the In-slab kernel line now gives 5 for every class and option (scored on one grid); new In-slab line on smoothing shallow and intermediate over all in-slab cells; the Superseded in-slab sources line adds the two-domain → one-grid change.
 - **Suggested commit** (replaces the one of the previous S2 entry): `git add psha_chile8/DECISIONS.md psha_chile8/model/inslab/build.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/model/inslab/tables/{calibration,edge_check,kernel_n,nest_depths,oqread,pattern,pattern_sums,rates,south36_layers}_2026-11-16.csv psha_chile8/model/inslab/figs/2026-11-16/{pattern_gk,pattern_nn,sections_sources,mfd_sources,kernel_loglik}.png psha_chile8/model/inslab/nrml/2026-11-16/branches.json psha_chile8/WORKLOG.md`; message `S2: shallow and intermediate in-slab patterns on one grid (no trough at the 50 km slab-top line); kernel n 5 everywhere; DECISIONS lines`.
+
+## 2026-11-16: crustal events outside the crustal grid, phase 1 (Claude Code, A7; task from S3)
+
+Read again: CLAUDE.md, DECISIONS (Catalog, Classification, Superseded), my Scotia entry. Nothing changed in `classify.py` or the frozen folders. Script `explore/A9/a9_grid.py`, list `explore/A9/grid_events.csv`; on the frozen catalogue `2026-11-16b`.
+
+- **Grid:** `data/crustal_grid_01_2026-11-15.csv`, 19 686 cells, 17.2–56.3° S, 76.3–65.3° W.
+- **Crustal weight per class, now → inside the grid:**
+
+| class | Mw ≥ 5 from 1976 | Mw ≥ 6, all years | Mw ≥ 7, all years | Mw ≥ 4.5, all years |
+|---|---|---|---|---|
+| forearc | 209.0 → 191.7 | 46.4 → 44.9 | 4.0 → 4.0 | 573.1 → 541.9 |
+| arc | 76.1 → 76.1 | 13.7 → 13.7 | 2.0 → 2.0 | 221.1 → 221.1 |
+| backarc | 133.5 → 22.8 | 25.6 → 8.5 | 4.0 → 3.0 | 310.7 → 87.1 |
+| Patagonia | 11.0 → 11.0 | 8.0 → 8.0 | 3.0 → 3.0 | 41.0 → 40.0 |
+
+  S3's numbers are confirmed. 429 events leave (crustal weight 255.7; 216 at weight 1, 213 split): 311 backarc (17.0–38.6° S, 68.9–65.0° W), 117 forearc, 1 Patagonia (2019-10-17 Mw 4.9 at 46.4° S 69.0° W). No Scotia event is left to catch. Of the 117 forearc events 116 are north of the grid's northern edge (17.0–17.7° S, southern Peru, weight 31.2; the 2001 Arequipa aftershocks and 1988-04-13 Mw 6.2 among them); the other is 1961-12-09 Mw 6.6 offshore at 43.7° S with a crustal weight of 0.007.
+- **Mw ≥ 6.5 that leave:** Caucete 1977-11-23 Mw 7.5 (weight 1), 1977-11-24 Mw 6.5 (1), 1977-11-23 09:35 Mw 6.6 (crustal 0.44, in-slab 0.56), 1941-07-03 Mw 6.5 (0.44 / 0.56), 1998-05-22 Mw 6.6 at 17.8° S 65.4° W (Aiquile, Bolivia; 1), 2001-06-23 Mw 6.6 (forearc 0.27, interface 0.72), 1961-12-09 Mw 6.6 (0.007).
+- **Mmax unchanged:** largest weight-1 event inside the grid: forearc 7.0, arc 7.7, backarc 7.5 (1894-10-27, hint; 1944 San Juan 7.1 and 1861 Mendoza 7.0 also inside), Patagonia 7.8.
+- **Where and how (proposed):** in `subs()` of `catalog/classify.py`, where the crustal sub-class is set by position: `sub_crustal = "outside"` for an event not in a cell; one setting `GRID` at the top; helper `in_grid(lon, lat)`. The crustal **weight** is not moved: the event stays crustal (Caucete is a crustal event), only its sub-class is one that no fit unit, pattern or source reads. This differs from the brief, which moves the share to a class like outer rise: that would label Caucete outer rise, change the sums of the family weights, and touch the bin shares of the no-depth rule. With the sub-class the interface and in-slab shares stay as they are, as the brief asks, and nothing else in the catalogue moves.
+- **To weigh:** the catalogue classes then depend on a file of the source model (the S3 grid); if the grid changes, the classes must be rerun. The bin shares of the no-depth rule still use the Argentine backarc events (Mw ≥ 4.5 from 1976), which is right: they tell the class of an event, not its rate.
+- **Stopped for Pablo's word.**
+
+## 2026-11-16: crustal events outside the crustal grid, run `2026-11-16c`, frozen (Claude Code, A7; task from S3)
+
+Pablo: sub-class only. DECISIONS read again before the run; no change that touches the classes.
+
+- **Rule in `catalog/classify.py`:** `GRID` at the top, `in_grid()`, applied in `subs()`: a crustal event that is not in a cell of `data/crustal_grid_01_2026-11-15.csv` keeps its weight and takes `sub_crustal = "outside"`. Test `test_crustal_event_outside_the_grid_keeps_its_weight`; `pytest catalog`: 129 pass.
+- **Run:** `classify.py` and `classify_check.py` only (`RUN, CAT = "2026-11-16c", "2026-11-16a"`).
+- **Result against `2026-11-16b`:** no weight, class, rule, position, depth or Mw changes; only `sub_crustal`, for the 429 events of the phase 1 list (311 backarc, 117 forearc, 1 Patagonia) and 3 116 below Mw 4.5 or outside the domain. Crustal weight at Mw ≥ 4.5: forearc 541.9, arc 221.1, backarc 87.1, Patagonia 40, outside 255.7. Crustal table (Mw 5.0 from 1976): forearc 191.7, arc 76.1, backarc 22.8, Patagonia 11.0, outside 127.9. Class maxima unchanged.
+- **Frozen:** `catalog/frozen/2026-11-16c/` (`SHA256SUMS` verified; `INPUTS_SHA256` now also has the grid file; `DECISIONS_NOTE.md`). The folders `2026-11-16` and `2026-11-16b` checked against their sums: unchanged.
+- **Documents:** DATA row; `catalog/CLASSIFICATION.md` section 8, one more rule.
+- **Who reads the sub-class:** `fits/gr.py` selects the four crustal names, so `outside` drops out by itself once `CAT` points to the new file. Any script that lists the values of `sub_crustal` (B14 planes, S3 pattern, GM1) should be checked for the new value.
+- **Proposed DECISIONS line (Classification):** "A crustal event outside the crustal grid (`data/crustal_grid_01_2026-11-15.csv`) keeps its crustal weight and takes the sub-class `outside`, read by no fit, pattern or source, so that rate, pattern and sources cover the same region (S3, A7; Pablo, 16 Nov). The classes are rerun if the grid changes. Frozen catalogue `2026-11-16c`."
+- **Proposed Superseded line:** "Crustal classes by position alone, whatever the distance to Chile (A7) → events outside the crustal grid in the sub-class `outside` (16 Nov): backarc 133.5 → 22.8 and forearc 209.0 → 191.7 by weight at Mw ≥ 5 since 1976. Frozen catalogue `2026-11-16b` → `2026-11-16c`."
+- **Commit** (from the repo root; it also takes the uncommitted Scotia work of run b):
+  - `git add psha_chile8/catalog/classify.py psha_chile8/catalog/tests/test_classify.py psha_chile8/catalog/CLASSIFICATION.md psha_chile8/catalog/merged/MANIFEST.csv psha_chile8/catalog/frozen/2026-11-16b psha_chile8/catalog/frozen/2026-11-16c psha_chile8/catalog/figs psha_chile8/explore/A9 psha_chile8/DATA.md psha_chile8/WORKLOG.md`
+  - `git commit -m "A7: Scotia–Antarctic boundary events to outer rise (run 2026-11-16b); crustal events outside the crustal grid in the sub-class outside (run 2026-11-16c); both frozen"`
+- **S3 (16 Nov):**
+  - `fits/gr.py` now reads catalogue `2026-11-16c` (A7), while the crustal fits are still `16d` (catalogue 2026-11-16). The crustal code now pins its catalogue: `background.CAT`, passed to every `gr.load` call in model/crustal.
+  - Reran the chain: the 16d tables are identical, so only one figure had read the new catalogue.
+  - On the next fits, set `CAT` with the fits date.
+  - New figure `figs_s3.joins()` → `figs/2026-11-16d/join_{A,B,Bmm}.png`.
+  - `multifault.lofs` saves its MFDs (`tables/mf_A_lofs_mfd_2026-11-16d.npz`).
+
+## 2026-11-16: fits on the catalogue 2026-11-16c, run 2026-11-16e (Claude Code, B11/B12; task from A7)
+
+Read again before and after: CLAUDE.md, DECISIONS (Statistics, Crustal and faults, Superseded; the lines for the Scotia rule and the crustal grid are not in DECISIONS yet, only proposed by A7), the A7 entries for runs `2026-11-16b` and `2026-11-16c`. Run name `2026-11-16e` was free.
+
+- **Catalogue.** `fits/gr.py`: `CAT` → `catalog/frozen/2026-11-16c/catalog_2026-11-16c.csv` (checksum verified). Against `2026-11-16`: 57 853 events of Mw ≥ 3.5 in the domain in both; no Mw, σ, position or depth changed; 13 events moved their weight from crustal to outer rise; `sub_crustal` is `outside` for 1 150 events of Mw ≥ 3.5 (786 backarc, 360 forearc, 4 Patagonia).
+- **The new sub-class.** Nothing in `fits/` reads `sub_crustal` by listing its values: `gr.load()` builds one weight column per class by name (`CLASSES`), so the `outside` events get no weight in any unit; `decluster.py` reads only the family weights (`w_interface`, `w_inslab`, `w_crustal`, `w_outer_rise`, `w_unclassified`). The run, the comparison, the declustered fits and the figures went through unchanged; 31 tests pass. Counted weight in the crustal table as A7 gave it: forearc 191.7, arc 76.1, backarc 22.8, Patagonia 11.0. Largest weight-1 events unchanged (7.0, 7.7, 7.5, 7.8).
+- **Rules:** those of `fits_2026-11-16d.csv`, no code change: crustal table 5.0 from 1976, one b for the crustal family, Mmax from weight-1 events. Completeness table and Mc of every window identical.
+- **The family b is fitted without the `outside` events:** 1.009 ± 0.053 tapered (1.006 ± 0.054 cut; 782 events, 278 counted), against 0.975 ± 0.042 in 16d. Reason: the family unit is the sum of the four classes, and the rule of A7 is that no fit reads `outside`, so that b, rates, pattern and sources describe one region. For comparison: with the outside events the family b is 0.974 ± 0.042 (395 counted), and the outside events alone give 0.896 ± 0.078 (117 counted; a third of them the Caucete sequence of 1977, the rest the Argentine backarc and southern Peru). The two differ by 0.03, inside the standard deviation; **this is a choice for Pablo** (b from the wider region with rates from the grid would give back 0.974).
+
+| unit (tapered) | Mmax | corner, 16d → 16e | b | N(≥ 5) | N(≥ 6) | N(≥ 7) | Mw ≥ 7 since 1976, fitted / observed |
+|---|---|---|---|---|---|---|---|
+| interface and the four segments | 9.7 / 9.7 / 9.3 / 8.7 / 9.0 | unchanged | unchanged | unchanged | unchanged | unchanged | unchanged |
+| in-slab shallow, intermediate, Jujuy nest | 8.2 / 8.2 / 7.4 | unchanged | unchanged | unchanged | unchanged | unchanged | unchanged |
+| crustal family | 8.0 | 7.79 → 7.80 | 0.975 → 1.009 (0.053) | 7.98 → 5.47 (−31 %) | 0.844 → 0.535 (−37 %) | 0.0847 → 0.0497 (−41 %) | 2.5 / 1.0 |
+| forearc | 7.2 | 6.99 → 7.00 | 0.975 → 1.009 | 3.82 → 3.48 (−9 %) | 0.393 → 0.332 (−15 %) | 0.0179 → 0.0144 (−20 %) | 0.7 / 1.0 |
+| arc | 7.9 | 7.69 → 7.70 | 0.975 → 1.009 | 1.390 → 1.383 (−0.5 %) | 0.147 → 0.135 (−8 %) | 0.0144 → 0.0123 (−15 %) | 0.6 / 0 |
+| backarc | 7.7 | 7.49 → 7.50 | 0.975 → 1.009 | 2.36 → 0.403 (−83 %) | 0.249 → 0.039 (−84 %) | 0.0227 → 0.0033 (−85 %) | 0.2 / 0 |
+| Patagonia | 8.0 | 7.79 → 7.80 | 0.975 → 1.009 | 0.416 → 0.202 (−51 %) | 0.044 → 0.020 (−55 %) | 0.0044 → 0.0018 (−58 %) | 0.1 / 0 |
+
+- The cut-line fits move the same way (b 0.972 → 1.006). The interface, in-slab and nest rows are identical to 16d in every column.
+- The arc lost no event; it moves only through the family b. The backarc keeps 27 events (20 counted) and Patagonia 11 (10 counted): their own b would be 1.26 and 1.66, so they depend entirely on the family b.
+- **Cross-check against the events of Mw ≥ 7 since 1905** (not in the fit; expected by the line / observed by weight): forearc 1.8 / 3.5, arc 1.5 / 1.7, backarc 0.4 / 0.9 (San Juan 1944; Caucete 1977 is now outside), all inside the Poisson band. Patagonia 0.2 / 1.7 fails: the two events are the Magallanes doublet of 1949-12-17 (Mw 7.8), which belong to the Magallanes–Fagnano fault source, not to the background.
+- **Declustering.** `fits/decluster.py` reads the classes only for the per-family methods (the family of the largest of the five family weights) and never `sub_crustal`. All five methods were run again as `catalog/declustered/*_2026-11-16e.csv` (the script builds them together). Compared with the `_2026-11-16` files: `gk`, `nn`, `nn_depth` and their `_m35` files are identical; `gk_family` has the same mainshock flags (6 006) and differs only in cluster labels; `nn_family` differs in 2 flags (10 923 → 10 921; 4 flags from Mw 3.5), through the 13 Scotia events that changed family. Completeness tables of the declustered catalogues unchanged.
+- **Declustered fits** (`fits_declustered_2026-11-16e.csv`; two options, table full, own family b): family b 0.923 → 0.922 (Gardner–Knopoff per family) and 0.999 → 1.001 (nearest neighbour per family), so the declustered b hardly moves, unlike the full one. N(≥ 6): forearc −8 % and −9 %, arc 0 % and −0.5 %, backarc −75 % and −78 %, Patagonia −45 % and −53 %. Interface, in-slab and nest rows identical. Checks as before.
+- **Rows over the thresholds** (0.02 in b, 5 % in N(≥ 6), 0.1 in Mmax; no Mmax moved):
+  - S1 (interface, segments; full and declustered): none.
+  - S2 (in-slab shallow, intermediate, Jujuy nest): none.
+  - S3, `fits_2026-11-16e.csv`, both shapes: `crustal`, `forearc`, `arc`, `backarc`, `patagonia`, all by b (+0.034) and by N(≥ 6) (−37, −15, −8, −84, −55 %).
+  - S3, `fits_declustered_2026-11-16e.csv` (gk_family and nn_family, table full, own b): `forearc`, `backarc`, `patagonia` and `crustal` by N(≥ 6); the `arc` rows are under the thresholds.
+- **Files.** New: the nine `*_2026-11-16e.csv` tables in `fits/tables/` and the ten `catalog/declustered/*_2026-11-16e.csv`. Nothing older overwritten; the 16d figures copied to `fits/figs/2026-11-16d/`, then `fits/figs/*.png` regenerated (classes, interface segments, large-event check, b against floor, methods, three declustered figures). `fits/FITS.md` section 12, `fits/DECLUSTER.md` section 10, two DATA rows.
+- **For S3:** `model/crustal/*.py` read `DATE = "2026-11-16d"`; they need `2026-11-16e` (fits and declustered fits). The background now covers the grid only: backarc N(≥ 6) 0.039 per year, Patagonia 0.020.
+- **Open for Pablo:** the family b with or without the outside events (1.009 against 0.974); it moves the arc N(≥ 6) by 8 % and N(≥ 7) by 15 %.
+- **Proposed lines for DECISIONS** (Pablo adds; not written):
+  - Statistics, in the line of the shared crustal b: "The family is the four classes inside the crustal grid, without the `outside` events: b 1.009 ± 0.053 on the catalogue `2026-11-16c` (0.974 with them)."
+  - Statistics: "Fits, current: `fits/tables/fits_2026-11-16e.csv` and `fits_declustered_2026-11-16e.csv` on the catalogue `2026-11-16c` and the declustered catalogues `catalog/declustered/*_2026-11-16e.csv`; interface, in-slab and nest rows identical to `fits_2026-11-16.csv`."
+  - Crustal and faults: "Background rates cover the crustal grid only: N(≥ 5) per year forearc 3.48, arc 1.38, backarc 0.40, Patagonia 0.20. The Magallanes doublet of 1949 is not reproduced by the Patagonia background (0.2 events of Mw ≥ 7 expected since 1905); it belongs to the Magallanes–Fagnano fault."
+  - Superseded: "Fits `fits_2026-11-16d.csv` on catalogue 2026-11-16 → `fits_2026-11-16e.csv` on catalogue 2026-11-16c (16 Nov): crustal family b 0.975 → 1.009, backarc N(≥ 5) 2.36 → 0.40, Patagonia 0.42 → 0.20."
+- **Commands** (from `psha_chile8/fits/`): `OMP_NUM_THREADS=1 python decluster.py` (3 min), `python run.py` (95 s), `OMP_NUM_THREADS=1 python run_declustered.py` (3 min); `pytest fits/tests` from `psha_chile8/`.
+- **Commit** (from the repo root):
+  - `git add psha_chile8/fits/gr.py psha_chile8/fits/run.py psha_chile8/fits/run_declustered.py psha_chile8/fits/decluster.py psha_chile8/fits/FITS.md psha_chile8/fits/DECLUSTER.md psha_chile8/fits/figs psha_chile8/fits/tables/*_2026-11-16e.csv psha_chile8/catalog/declustered/*_2026-11-16e.csv psha_chile8/DATA.md psha_chile8/WORKLOG.md`
+  - `git commit -m "Fits 2026-11-16e on catalogue 2026-11-16c: crustal events outside the grid and Scotia events out of the units; declustered catalogues rebuilt"`
+- **Decided by Pablo (16 Nov): the crustal family b stays without the `outside` events (1.009 ± 0.053).** The "Open for Pablo" line above is closed; `fits_2026-11-16e.csv` stands as written, and the proposed DECISIONS line for the family b can go in as it is. `fits/FITS.md` section 12 updated.
+
+## 2026-11-16, GM1 summary figures and GMM set tables
+
+- **What:**
+  - `gmm/summary.py` writes four summary figures in the pituplots style (report theme, darkgrid): `summary_ranking`, `summary_bias`, `summary_large`, `summary_sets`.
+  - The four GMM sets as one table, `gmm/tables/gmm_sets_2026-11-15.csv`.
+  - Handoff note for GM2 and the tornado: `gmm/SUMMARY_GM1.md`.
+  - REPORT_GM1 section 10; one new test (7 gmm tests pass).
+- **New:** GEM's Zhao et al. (2006), Abrahamson et al. (2015) high and Montalva et al. (2016) were scored on the same GM1 records. Zhao 2006 (interface) and Montalva 2016 (both classes) would rank at the top of the 14 candidates.
+- **No decisions taken.** For GM2 (Pablo):
+  - Montalva 2016 or 2017;
+  - whether Zhao 2006 joins the candidates;
+  - whether the weights follow all events or the Mw ≥ 6.5 events.
+- **Commands** (from `psha_chile8/gmm/`): `python summary.py` (25 s).
+- **Commit** (from the repo root):
+  - `git add psha_chile8/gmm/summary.py psha_chile8/gmm/SUMMARY_GM1.md psha_chile8/gmm/REPORT_GM1.md psha_chile8/gmm/tests/test_gmm_residuals.py psha_chile8/gmm/figures/summary_*.png psha_chile8/gmm/tables/gmm_sets_2026-11-15.csv psha_chile8/gmm/tables/scores_with_gem_2026-11-15.csv psha_chile8/gmm/tables/mean_rank_2026-11-15.csv`
+  - `git add -p psha_chile8/WORKLOG.md psha_chile8/FIGURES.md` (GM1 lines only)
+  - `git commit -m "GM1: summary figures (ranking, bias, large events, the four GMM sets on scenarios), table of the tornado GMM sets, GEM models scored on the records, handoff note"`
+- **DECISIONS.md edited by Claude Code at Pablo's word ("write into decisions", 16 Nov):** only the lines of the fits. Statistics: the current fits line (`fits_2026-11-16e.csv`, catalogue `2026-11-16c`; the 16d line kept below it), the declustered fits line, the family b (without the `outside` events, 1.009). Crustal and faults: background rates on the grid and the note on the 1949 doublet. Superseded: one line. **Not written, because they belong to A7:** the Scotia–Antarctic rule, the crustal-grid sub-class `outside` and the frozen catalogue `2026-11-16c` (Catalog still names `2026-11-16`); their proposed lines are in the A7 entries above. Git: `git add` was denied to Claude Code in this setup; Pablo commits with the lines above plus `psha_chile8/DECISIONS.md psha_chile8/LEARNINGS.md`.
+- **A7's lines written into DECISIONS.md by the B11/B12 session at Pablo's word ("add them please", 16 Nov),** taken from the two A7 entries above without changing their content: Catalog (frozen catalogue `2026-11-16c` replaces `2026-11-16`), Classification (the Scotia–Antarctic rule; the sub-class `outside` for crustal events outside the crustal grid), Superseded (one line). DECISIONS now agrees with the fits lines that name the catalogue `2026-11-16c`.

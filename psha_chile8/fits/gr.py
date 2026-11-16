@@ -14,7 +14,7 @@ from scipy import optimize, stats
 from scipy.special import ndtr
 
 ROOT = Path(__file__).resolve().parents[1]
-CAT = ROOT / "catalog/frozen/2026-11-14/catalog_2026-11-14c.csv"
+CAT = ROOT / "catalog/frozen/2026-11-16c/catalog_2026-11-16c.csv"
 
 DM, M0, MTOP = 0.1, 3.5, 9.7
 LN10 = np.log(10)
@@ -111,6 +111,15 @@ def weichert(n, T, bfix=None):
 
 def moment(m):
     return 10 ** (1.5 * np.asarray(m, float) + 9.05)
+
+
+def kagan_corner(mx, b):
+    """Corner magnitude of the tapered line with the moment rate of a line cut at the magnitude edge mx and the
+    same b and rate above the threshold (Kagan 2002b, eq. 12): M0c = M0x (beta / Gamma(2 - beta))^(1 / (1 - beta)),
+    beta = 2b / 3."""
+    from scipy.special import gamma
+    be = 2 * np.asarray(b, float) / 3
+    return mx + np.log10(be / gamma(2 - be)) / (1 - be) / 1.5
 
 
 def surv(f, x):

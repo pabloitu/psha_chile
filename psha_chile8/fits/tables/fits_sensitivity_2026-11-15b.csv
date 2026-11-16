@@ -1,0 +1,351 @@
+unit,events,name,method,npar,lnL,mmax,b,N5,N7,N8,exp7,obs7,ok7,exp8,obs8,ok8,corner,mc95,width,floor,family_b,tau,aic
+interface,all,interface,line cut at Mmax (reference),2.0,5520.93204,9.75,0.96244,25.201,0.299,0.03206,54.39174,49.67008,True,16.89255,14.66388,True,,,,,,,-11037.86407
+interface,all,interface,"tapered, corner of run.py",2.0,5521.01116,,0.96279,25.19795,0.29903,0.03242,54.51043,49.66481,True,17.05557,14.66144,True,9.485,,,,,,-11038.02232
+interface,all,interface,open line,2.0,5520.93204,,0.96244,25.20161,0.29961,0.03267,54.39174,49.67008,True,16.89255,14.66388,True,,,,,,,-11037.86407
+interface,all,interface,"open line, no largest magnitude in the likelihood",2.0,5520.93203,,0.96244,25.201,0.2996,0.03267,54.39043,49.67008,True,16.89215,14.66388,True,,,,,,,-11037.86407
+interface,all,interface,"tapered, corner 9.6",2.0,5521.02837,,0.96287,25.20005,0.29896,0.03246,54.48073,49.67008,True,17.04243,14.66388,True,9.6,,,,,,-11038.05674
+interface,all,interface,"tapered, corner free",3.0,5521.02837,,0.96287,25.20005,0.29896,0.03246,54.48073,49.67008,True,17.04243,14.66388,True,9.6,,,,,,-11036.05674
+interface,all,interface,"Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.91418,26.48193,0.39319,0.04791,,,,,,,,,,,,,
+interface,all,interface,"Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.50415,200.81157,0.19701,0.00617,,,,,,,,9.04399,1.25104,,,,
+interface,all,interface,"Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.04212,47.42952,0.39066,0.03545,,,,,,,,8.07647,1.5,,,,
+interface,all,interface,"least squares, cumulative",,,,0.92218,22.57987,0.32313,0.03865,60.06813,49.67008,True,19.91968,14.66388,True,,,,,,,
+interface,all,interface,"line cut at Mmax, floor 5.2",2.0,5520.63001,,0.95366,24.75488,0.30578,0.03344,55.91461,49.80119,True,17.61782,14.72465,True,,,,5.2,,,-11037.26001
+interface,all,interface,"line cut at Mmax, floor 5.4",2.0,5520.91549,,0.96114,25.30447,0.30202,0.03248,54.98275,49.68945,True,17.11259,14.67285,True,,,,5.4,,,-11037.83098
+interface,all,interface,"line cut at Mmax, floor 5.6",2.0,5519.74393,,0.94839,24.26741,0.30711,0.03398,56.33481,49.8799,True,17.90423,14.76118,True,,,,5.6,,,-11035.48787
+interface,all,interface,"line cut at Mmax, floor 5.8",2.0,5520.30239,,0.96735,25.93984,0.30091,0.03191,54.58051,49.59656,True,16.81431,14.62985,True,,,,5.8,,,-11036.60478
+interface,all,interface,"line cut at Mmax, floor 6.0",2.0,5519.4788,,0.97182,26.32089,0.29912,0.03141,54.11568,49.52956,True,16.54819,14.59888,True,,,,6.0,,,-11034.9576
+seg1,all,"interface, 45.6–37° S",line cut at Mmax (reference),2.0,259.81268,9.75,0.91561,2.94301,0.04329,0.00515,8.10184,9.36349,True,2.71517,2.53,True,,,,,,,-515.62537
+seg1,all,"interface, 45.6–37° S","tapered, corner of run.py",2.0,259.72551,,0.91521,2.94229,0.04347,0.00526,8.16359,9.36465,True,2.76546,2.5306,True,9.472,,,,,,-515.45102
+seg1,all,"interface, 45.6–37° S",open line,2.0,259.81268,,0.91561,2.94313,0.04341,0.00527,8.10184,9.36349,True,2.71517,2.53,True,,,,,,,-515.62537
+seg1,all,"interface, 45.6–37° S","open line, no largest magnitude in the likelihood",2.0,259.81268,,0.91561,2.94301,0.04341,0.00527,8.10151,9.36349,True,2.71506,2.53,True,,,,,,,-515.62537
+seg1,all,"interface, 45.6–37° S","tapered, corner 9.6",2.0,259.84079,,0.91542,2.94227,0.04343,0.00526,8.15152,9.36349,True,2.75957,2.53,True,9.6,,,,,,-515.68159
+seg1,all,"interface, 45.6–37° S","tapered, corner free",3.0,259.8829,,0.91554,2.94255,0.04341,0.00526,8.1353,9.36349,True,2.74686,2.53,True,9.8,,,,,,-513.76579
+seg1,all,"interface, 45.6–37° S","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.96535,2.81522,0.03302,0.00358,,,,,,,,,,,,,
+seg1,all,"interface, 45.6–37° S","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.70992,39.65671,0.01508,0.00029,,,,,,,,8.7018,1.03453,,,,
+seg1,all,"interface, 45.6–37° S","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.03691,6.59571,0.05565,0.00511,,,,,,,,9.4134,1.5,,,,
+seg1,all,"interface, 45.6–37° S","least squares, cumulative",,,,0.81285,2.24316,0.05311,0.00817,10.58281,9.36349,True,4.15722,2.53,True,,,,,,,
+seg1,all,"interface, 45.6–37° S","line cut at Mmax, floor 5.2",2.0,259.80488,,0.92019,2.96556,0.04272,0.00503,7.97141,9.35016,True,2.65191,2.52317,True,,,,5.2,,,-515.60976
+seg1,all,"interface, 45.6–37° S","line cut at Mmax, floor 5.4",2.0,257.98879,,0.86288,2.57109,0.04816,0.00644,9.32458,9.5156,True,3.39523,2.60907,True,,,,5.4,,,-511.97757
+seg1,all,"interface, 45.6–37° S","line cut at Mmax, floor 5.6",2.0,259.79396,,0.90651,2.95396,0.04531,0.0055,8.52735,9.38992,True,2.89961,2.54359,True,,,,5.6,,,-515.58792
+seg1,all,"interface, 45.6–37° S","line cut at Mmax, floor 5.8",2.0,258.72187,,0.93712,3.28221,0.04374,0.00496,8.07849,9.30077,True,2.61504,2.498,True,,,,5.8,,,-513.44374
+seg1,all,"interface, 45.6–37° S","line cut at Mmax, floor 6.0",2.0,258.92333,,0.88644,2.66681,0.04484,0.0057,8.54917,9.44795,True,3.00074,2.57365,True,,,,6.0,,,-513.84666
+seg2,all,"interface, 37–32° S",line cut at Mmax (reference),2.0,1317.5895,9.35,0.99712,8.47887,0.08558,0.0083,15.18694,12.11729,True,4.37414,5.06711,True,,,,,,,-2631.17899
+seg2,all,"interface, 37–32° S","tapered, corner of run.py",2.0,1317.63567,,0.99693,8.47752,0.08593,0.00849,15.29746,12.11817,True,4.45903,5.06767,True,9.095,,,,,,-2631.27135
+seg2,all,"interface, 37–32° S",open line,2.0,1317.47947,,0.99712,8.47922,0.08593,0.00865,15.18694,12.11729,True,4.37414,5.06711,True,,,,,,,-2630.95894
+seg2,all,"interface, 37–32° S","open line, no largest magnitude in the likelihood",2.0,1317.48014,,0.99839,8.47902,0.08542,0.00857,15.19628,12.11729,True,4.4451,5.06711,True,,,,,,,-2630.96028
+seg2,all,"interface, 37–32° S","tapered, corner 9.6",2.0,1317.54716,,0.99733,8.47866,0.08582,0.00861,15.21992,12.11729,True,4.41502,5.06711,True,9.6,,,,,,-2631.09432
+seg2,all,"interface, 37–32° S","tapered, corner free",3.0,1317.66111,,0.9973,8.47779,0.08581,0.00854,15.26858,12.11729,True,4.45537,5.06711,True,9.25,,,,,,-2629.32221
+seg2,all,"interface, 37–32° S","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.94103,9.37984,0.12306,0.0141,,,,,,,,,,,,,
+seg2,all,"interface, 37–32° S","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.40086,50.11951,0.07912,0.00314,,,,,,,,9.22823,1.35454,,,,
+seg2,all,"interface, 37–32° S","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.05921,18.98524,0.14454,0.01261,,,,,,,,9.4155,1.5,,,,
+seg2,all,"interface, 37–32° S","least squares, cumulative",,,,0.9133,6.91768,0.10312,0.01259,19.07499,12.11729,True,6.28444,5.06711,True,,,,,,,
+seg2,all,"interface, 37–32° S","line cut at Mmax, floor 5.2",2.0,1317.45299,,0.98541,8.31161,0.08852,0.00881,15.8091,12.17438,True,4.64166,5.10338,True,,,,5.2,,,-2630.90598
+seg2,all,"interface, 37–32° S","line cut at Mmax, floor 5.4",2.0,1317.37798,,1.00341,8.726,0.08557,0.00819,15.13364,12.08658,True,4.31379,5.04763,True,,,,5.4,,,-2630.75597
+seg2,all,"interface, 37–32° S","line cut at Mmax, floor 5.6",2.0,1314.04285,,0.9557,7.55727,0.09221,0.00979,16.7455,12.31873,True,5.15892,5.19538,True,,,,5.6,,,-2624.08571
+seg2,all,"interface, 37–32° S","line cut at Mmax, floor 5.8",2.0,1317.50047,,0.99372,8.62997,0.08847,0.00865,15.72897,12.13384,True,4.55562,5.07762,True,,,,5.8,,,-2631.00093
+seg2,all,"interface, 37–32° S","line cut at Mmax, floor 6.0",2.0,1314.32097,,1.02145,9.47905,0.08558,0.00787,14.98974,11.99844,True,4.14661,4.9918,True,,,,6.0,,,-2624.64194
+seg3,all,"interface, 32–26° S",line cut at Mmax (reference),2.0,1066.37498,8.75,0.93893,7.40012,0.09606,0.00928,17.11451,9.62072,False,4.89174,2.60578,True,,,,,,,-2128.74997
+seg3,all,"interface, 32–26° S","tapered, corner of run.py",2.0,1066.1392,,0.94118,7.39737,0.0965,0.00945,17.18922,9.61503,False,4.89885,2.60408,True,8.478,,,,,,-2128.2784
+seg3,all,"interface, 32–26° S",open line,2.0,1065.44172,,0.93893,7.40212,0.09806,0.01129,17.11451,9.62072,False,4.89174,2.60578,True,,,,,,,-2126.88345
+seg3,all,"interface, 32–26° S","open line, no largest magnitude in the likelihood",2.0,1065.47733,,0.94798,7.39997,0.09403,0.0106,17.21447,9.62072,False,5.47473,2.60578,True,,,,,,,-2126.95465
+seg3,all,"interface, 32–26° S","tapered, corner 9.6",2.0,1065.39259,,0.93928,7.40195,0.09789,0.01122,17.12342,9.62072,False,4.91508,2.60578,True,9.6,,,,,,-2126.78518
+seg3,all,"interface, 32–26° S","tapered, corner free",3.0,1065.43522,,0.93895,7.40211,0.09805,0.01128,17.11492,9.62072,False,4.89283,2.60578,True,10.5,,,,,,-2124.87043
+seg3,all,"interface, 32–26° S","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.87542,7.47395,0.13265,0.01767,,,,,,,,,,,,,
+seg3,all,"interface, 32–26° S","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.2622,18.90895,0.05653,0.00309,,,,,,,,7.93543,1.21836,,,,
+seg3,all,"interface, 32–26° S","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.05748,11.86781,0.09108,0.00798,,,,,,,,7.78109,1.5,,,,
+seg3,all,"interface, 32–26° S","least squares, cumulative",,,,1.00735,8.79185,0.08499,0.00836,14.42487,9.62072,True,3.71424,2.60578,True,,,,,,,
+seg3,all,"interface, 32–26° S","line cut at Mmax, floor 5.2",2.0,1066.37468,,0.939,7.39164,0.09592,0.00927,17.08919,9.62055,False,4.88402,2.60573,True,,,,5.2,,,-2128.74937
+seg3,all,"interface, 32–26° S","line cut at Mmax, floor 5.4",2.0,1064.55555,,0.97539,8.03394,0.08842,0.00794,15.47366,9.52748,True,4.18582,2.57785,True,,,,5.4,,,-2125.1111
+seg3,all,"interface, 32–26° S","line cut at Mmax, floor 5.6",2.0,1061.77641,,0.99352,8.44253,0.08558,0.00741,14.84822,9.48045,True,3.90627,2.56374,True,,,,5.6,,,-2119.55281
+seg3,all,"interface, 32–26° S","line cut at Mmax, floor 5.8",2.0,1063.33436,,0.98777,8.21818,0.08551,0.00749,14.87624,9.49542,True,3.94852,2.56823,True,,,,5.8,,,-2122.66871
+seg3,all,"interface, 32–26° S","line cut at Mmax, floor 6.0",2.0,1050.93104,,1.02534,9.44495,0.08286,0.00673,14.16405,9.39689,True,3.54567,2.53863,True,,,,6.0,,,-2097.86209
+seg4,all,"interface, 26–17.6° S",line cut at Mmax (reference),2.0,746.8832,9.05,0.96334,5.71421,0.06702,0.00672,12.01009,15.05926,True,3.54059,2.87504,True,,,,,,,-1489.7664
+seg4,all,"interface, 26–17.6° S","tapered, corner of run.py",2.0,746.59187,,0.9646,5.71247,0.06712,0.0069,12.07344,15.05524,True,3.60752,2.87472,True,8.786,,,,,,-1489.18373
+seg4,all,"interface, 26–17.6° S",open line,2.0,746.61669,,0.96334,5.71485,0.06766,0.00736,12.01009,15.05926,True,3.54059,2.87504,True,,,,,,,-1489.23337
+seg4,all,"interface, 26–17.6° S","open line, no largest magnitude in the likelihood",2.0,746.62133,,0.96721,5.71439,0.06646,0.00717,12.03223,15.05926,True,3.70756,2.87504,True,,,,,,,-1489.24265
+seg4,all,"interface, 26–17.6° S","tapered, corner 9.6",2.0,746.6159,,0.96373,5.71462,0.06753,0.00732,12.02286,15.05926,True,3.56522,2.87504,True,9.6,,,,,,-1489.2318
+seg4,all,"interface, 26–17.6° S","tapered, corner free",3.0,746.64824,,0.96405,5.71445,0.06742,0.00728,12.0328,15.05926,True,3.5846,2.87504,True,9.4,,,,,,-1487.29648
+seg4,all,"interface, 26–17.6° S","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.89974,6.06417,0.09623,0.01212,,,,,,,,,,,,,
+seg4,all,"interface, 26–17.6° S","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.28774,22.74862,0.06046,0.00312,,,,,,,,9.02153,1.41468,,,,
+seg4,all,"interface, 26–17.6° S","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.00122,10.40332,0.10345,0.01032,,,,,,,,8.38888,1.5,,,,
+seg4,all,"interface, 26–17.6° S","least squares, cumulative",,,,0.94234,5.45529,0.07114,0.00812,12.76001,15.05926,True,3.88688,2.87504,True,,,,,,,
+seg4,all,"interface, 26–17.6° S","line cut at Mmax, floor 5.2",2.0,746.49659,,0.94233,5.47554,0.07067,0.00741,12.81031,15.12628,True,3.90231,2.88023,True,,,,5.2,,,-1488.99317
+seg4,all,"interface, 26–17.6° S","line cut at Mmax, floor 5.4",2.0,746.37027,,0.93882,5.44139,0.07136,0.00753,12.96015,15.13741,True,3.96941,2.88109,True,,,,5.4,,,-1488.74054
+seg4,all,"interface, 26–17.6° S","line cut at Mmax, floor 5.6",2.0,743.46878,,0.91153,4.98968,0.07409,0.00828,13.66241,15.22361,True,4.36299,2.88767,True,,,,5.6,,,-1482.93757
+seg4,all,"interface, 26–17.6° S","line cut at Mmax, floor 5.8",2.0,746.69625,,0.94206,5.59463,0.0723,0.00758,13.10689,15.12713,True,3.99432,2.8803,True,,,,5.8,,,-1489.3925
+seg4,all,"interface, 26–17.6° S","line cut at Mmax, floor 6.0",2.0,745.93482,,0.92968,5.34733,0.07311,0.00787,13.34458,15.16637,True,4.1451,2.88331,True,,,,6.0,,,-1487.86964
+intraslab_shallow,all,"in-slab, shallow",line cut at Mmax (reference),2.0,1540.58834,8.25,1.15269,9.23923,0.04429,0.00177,6.78156,7.50575,True,0.93088,0.55118,True,,,,,,,-3077.17668
+intraslab_shallow,all,"in-slab, shallow","tapered, corner of run.py",2.0,1540.67398,,1.15096,9.2431,0.04506,0.00156,6.7142,7.51227,True,0.72381,0.55263,True,8.038,,,,,,-3077.34796
+intraslab_shallow,all,"in-slab, shallow",open line,2.0,1539.83785,,1.15269,9.24068,0.04574,0.00322,6.78156,7.50575,True,0.93088,0.55118,True,,,,,,,-3075.6757
+intraslab_shallow,all,"in-slab, shallow","open line, no largest magnitude in the likelihood",2.0,1539.8577,,1.15717,9.23964,0.0448,0.00312,7.36246,7.95221,True,1.63017,0.99764,True,,,,,,,-3075.71541
+intraslab_shallow,all,"in-slab, shallow","tapered, corner 9.6",2.0,1539.83296,,1.15272,9.24066,0.04573,0.00321,6.78293,7.50575,True,0.93218,0.55118,True,9.6,,,,,,-3075.66593
+intraslab_shallow,all,"in-slab, shallow","tapered, corner free",3.0,1540.86425,,1.14581,9.24146,0.04516,0.00082,6.49582,7.50575,True,0.41804,0.55118,True,7.85,,,,,,-3075.72849
+intraslab_shallow,all,"in-slab, shallow","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,1.13606,9.91563,0.05299,0.00387,,,,,,,,,,,,,
+intraslab_shallow,all,"in-slab, shallow","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.40069,19.63339,0.03102,0.00123,,,,,,,,7.25122,1.01217,,,,
+intraslab_shallow,all,"in-slab, shallow","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.17999,12.38046,0.05405,0.00357,,,,,,,,6.85428,1.23489,,,,
+intraslab_shallow,all,"in-slab, shallow","least squares, cumulative",,,,1.20279,10.98388,0.04317,0.00271,6.34304,7.50575,True,0.80464,0.55118,True,,,,,,,
+intraslab_shallow,all,"in-slab, shallow","line cut at Mmax, floor 5.2",2.0,1537.61466,,1.08503,8.45675,0.05496,0.00248,8.57854,7.76123,True,1.30633,0.60935,True,,,,5.2,,,-3071.22932
+intraslab_shallow,all,"in-slab, shallow","line cut at Mmax, floor 5.4",2.0,1539.31737,,1.10175,8.77061,0.05288,0.00231,8.21356,7.6982,True,1.21944,0.59477,True,,,,5.4,,,-3074.63474
+intraslab_shallow,all,"in-slab, shallow","line cut at Mmax, floor 5.6",2.0,1540.40238,,1.12954,9.34231,0.04971,0.00207,7.66018,7.59325,True,1.08988,0.57082,True,,,,5.6,,,-3076.80475
+intraslab_shallow,all,"in-slab, shallow","line cut at Mmax, floor 5.8",2.0,1539.03696,,1.09906,8.70129,0.0531,0.00234,8.25412,7.70835,True,1.23049,0.5971,True,,,,5.8,,,-3074.07393
+intraslab_shallow,all,"in-slab, shallow","line cut at Mmax, floor 6.0",2.0,1536.53923,,1.08733,8.258,0.05312,0.00239,8.28555,7.75259,True,1.25735,0.60734,True,,,,6.0,,,-3069.07845
+intraslab_intermediate,all,"in-slab, intermediate depth",line cut at Mmax (reference),2.0,5722.96379,8.25,1.1559,25.29435,0.11952,0.00474,18.28305,29.35563,False,2.49711,0.8679,True,,,,,,,-11441.92759
+intraslab_intermediate,all,"in-slab, intermediate depth","tapered, corner of run.py",2.0,5723.44061,,1.1536,25.30588,0.12188,0.0042,18.15145,29.38283,False,1.95015,0.86839,True,8.039,,,,,,-11442.88121
+intraslab_intermediate,all,"in-slab, intermediate depth",open line,2.0,5720.95826,,1.1559,25.29823,0.12339,0.00862,18.28305,29.35563,False,2.49711,0.8679,True,,,,,,,-11437.91652
+intraslab_intermediate,all,"in-slab, intermediate depth","open line, no largest magnitude in the likelihood",2.0,5721.03502,,1.16606,25.28937,0.11771,0.00803,19.26683,29.35563,False,4.19745,0.8679,True,,,,,,,-11438.07003
+intraslab_intermediate,all,"in-slab, intermediate depth","tapered, corner 9.6",2.0,5720.94638,,1.15593,25.29817,0.12336,0.00859,18.28689,29.35563,False,2.50062,0.8679,True,9.6,,,,,,-11437.89276
+intraslab_intermediate,all,"in-slab, intermediate depth","tapered, corner free",3.0,5724.18156,,1.14616,25.29902,0.12239,0.00172,17.38211,29.35563,False,0.88686,0.8679,True,7.8,,,,,,-11442.36312
+intraslab_intermediate,all,"in-slab, intermediate depth","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,1.15034,26.39462,0.13208,0.00934,,,,,,,,,,,,,
+intraslab_intermediate,all,"in-slab, intermediate depth","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.27518,30.56594,0.08608,0.00457,,,,,,,,5.65607,0.82353,,,,
+intraslab_intermediate,all,"in-slab, intermediate depth","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.33967,36.96455,0.07735,0.00354,,,,,,,,6.90496,1.5,,,,
+intraslab_intermediate,all,"in-slab, intermediate depth","least squares, cumulative",,,,1.1476,26.28131,0.13318,0.00948,19.76205,29.35563,False,2.73419,0.8679,True,,,,,,,
+intraslab_intermediate,all,"in-slab, intermediate depth","line cut at Mmax, floor 5.2",2.0,5722.17844,,1.13543,24.59901,0.12746,0.00525,19.60918,29.59685,False,2.76471,0.87223,True,,,,5.2,,,-11440.35688
+intraslab_intermediate,all,"in-slab, intermediate depth","line cut at Mmax, floor 5.4",2.0,5716.78015,,1.10581,23.27937,0.13781,0.00599,21.38139,29.94351,False,3.15485,0.87839,True,,,,5.4,,,-11429.56029
+intraslab_intermediate,all,"in-slab, intermediate depth","line cut at Mmax, floor 5.6",2.0,5698.04594,,1.06514,21.26693,0.1511,0.00707,23.72497,30.41422,True,3.72251,0.88665,True,,,,5.6,,,-11392.09188
+intraslab_intermediate,all,"in-slab, intermediate depth","line cut at Mmax, floor 5.8",2.0,5591.94695,,0.97964,16.52706,0.17195,0.00936,27.72629,31.37987,True,4.93105,0.90324,False,,,,5.8,,,-11179.89389
+intraslab_intermediate,all,"in-slab, intermediate depth","line cut at Mmax, floor 6.0",2.0,5549.84121,,0.95779,15.40828,0.17663,0.00999,28.68412,31.62069,True,5.26288,0.90731,False,,,,6.0,,,-11095.68242
+jujuy_nest,all,Jujuy nest,line cut at Mmax (reference),2.0,441.06441,7.45,1.23594,3.73483,0.00957,0.0,1.1664,2.36358,True,0.0,0.0,True,,,,,,,-878.12882
+jujuy_nest,all,Jujuy nest,"tapered, corner of run.py",2.0,440.94736,,1.22856,3.7391,0.00927,0.0,1.07301,2.36992,True,0.0,0.0,True,7.26,,,,,,-877.89472
+jujuy_nest,all,Jujuy nest,open line,2.0,440.22665,,1.23594,3.73787,0.01261,0.00073,1.1664,2.36358,True,0.0,0.0,True,,,,,,,-876.4533
+jujuy_nest,all,Jujuy nest,"open line, no largest magnitude in the likelihood",2.0,440.30032,,1.26496,3.73217,0.01102,0.0006,1.73086,2.36358,True,0.31366,0.0,True,,,,,,,-876.60063
+jujuy_nest,all,Jujuy nest,"tapered, corner 9.6",2.0,440.22602,,1.23594,3.73787,0.01261,0.00073,1.16646,2.36358,True,0.0,0.0,True,9.6,,,,,,-876.45204
+jujuy_nest,all,Jujuy nest,"tapered, corner free",3.0,440.85298,,1.23405,3.73563,0.01095,1e-05,1.17282,2.36358,True,0.0,0.0,True,7.5,,,,,,-875.70595
+jujuy_nest,all,Jujuy nest,"Aki–Utsu, Mw ≥ 5.0 from 1976",,,,1.21303,4.05049,0.01519,0.00093,,,,,,,,,,,,,
+jujuy_nest,all,Jujuy nest,"Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.62043,5.84223,0.00336,8e-05,,,,,,,,6.12891,0.67692,,,,
+jujuy_nest,all,Jujuy nest,"Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.35273,5.87031,0.01157,0.00051,,,,,,,,8.20758,1.5,,,,
+jujuy_nest,all,Jujuy nest,"least squares, cumulative",,,,1.05606,3.11263,0.02404,0.00211,2.06139,2.36358,True,0.0,0.0,True,,,,,,,
+jujuy_nest,all,Jujuy nest,"line cut at Mmax, floor 5.2",2.0,439.19071,,1.12342,3.38218,0.01392,0.0,1.6968,2.45881,True,0.0,0.0,True,,,,5.2,,,-874.38141
+jujuy_nest,all,Jujuy nest,"line cut at Mmax, floor 5.4",2.0,438.46718,,1.1077,3.31173,0.01456,0.0,1.77412,2.47183,True,0.0,0.0,True,,,,5.4,,,-872.93437
+jujuy_nest,all,Jujuy nest,"line cut at Mmax, floor 5.6",2.0,403.67962,,0.87932,2.13046,0.0238,0.0,2.89968,2.65005,True,0.0,0.0,True,,,,5.6,,,-803.35924
+jujuy_nest,all,Jujuy nest,"line cut at Mmax, floor 5.8",2.0,347.81713,,0.72658,1.43666,0.02913,0.0,3.54929,2.75439,True,0.0,0.0,True,,,,5.8,,,-691.63425
+jujuy_nest,all,Jujuy nest,"line cut at Mmax, floor 6.0",2.0,357.93008,,0.75363,1.52416,0.02786,0.0,3.39483,2.73696,True,0.0,0.0,True,,,,6.0,,,-711.86016
+forearc,all,"crustal, forearc",line cut at Mmax (reference),2.0,374.47806,7.45,0.98383,3.53901,0.02593,0.0,3.16015,3.62875,True,0.0,0.0,True,,,,,,,-744.95612
+forearc,all,"crustal, forearc","tapered, corner of run.py",2.0,374.68195,,0.98176,3.54225,0.02499,0.0,2.91219,3.63065,True,0.0,0.0,True,7.192,,,,,,-745.36391
+forearc,all,"crustal, forearc",open line,2.0,370.77667,,0.98383,3.55134,0.03826,0.00397,3.16015,3.62875,True,0.0,0.0,True,,,,,,,-737.55334
+forearc,all,"crustal, forearc","open line, no largest magnitude in the likelihood",2.0,371.52395,,1.03969,3.53242,0.02942,0.00269,5.11922,4.35484,True,1.39574,0.31001,True,,,,,,,-739.0479
+forearc,all,"crustal, forearc","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.95689,3.83335,0.04675,0.00516,,,,,,,,,,,,,
+forearc,all,"crustal, forearc","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.40052,22.50094,0.03558,0.00141,,,,,,,,9.15122,1.30773,,,,
+forearc,all,"crustal, forearc","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,0.93449,5.8817,0.07953,0.00925,,,,,,,,8.47493,1.5,,,,
+forearc,all,"crustal, forearc","least squares, cumulative",,,,1.22056,5.31884,0.01926,0.00116,1.77144,3.62875,True,0.0,0.0,True,,,,,,,
+forearc,all,"crustal, forearc","line cut at Mmax, floor 5.2",2.0,374.3675,,0.96098,3.45268,0.02777,0.0,3.38352,3.64947,True,0.0,0.0,True,,,,5.2,,,-744.735
+forearc,all,"crustal, forearc","line cut at Mmax, floor 5.4",2.0,372.83695,,0.90291,3.19668,0.03249,0.0,3.95934,3.70057,True,0.0,0.0,True,,,,5.4,,,-741.6739
+forearc,all,"crustal, forearc","line cut at Mmax, floor 5.6",2.0,367.61424,,0.84049,2.81808,0.03671,0.0,4.47396,3.75291,True,0.0,0.0,True,,,,5.6,,,-731.22849
+forearc,all,"crustal, forearc","line cut at Mmax, floor 5.8",2.0,372.72689,,0.89046,3.21845,0.03438,0.0,4.18999,3.71123,True,0.0,0.0,True,,,,5.8,,,-741.45378
+forearc,all,"crustal, forearc","line cut at Mmax, floor 6.0",2.0,370.06362,,0.86326,2.9629,0.03528,0.0,4.29862,3.73414,True,0.0,0.0,True,,,,6.0,,,-736.12724
+arc,all,"crustal, arc",line cut at Mmax (reference),2.0,62.00999,7.95,1.00381,1.30781,0.01159,0.0,1.62026,2.18469,True,0.0,0.0,True,,,,,,,-120.01998
+arc,all,"crustal, arc","tapered, corner of run.py",2.0,61.88692,,1.00182,1.30812,0.01203,0.00012,1.64284,2.18595,True,0.0,0.0,True,7.697,,,,,,-119.77384
+arc,all,"crustal, arc",open line,2.0,61.34866,,1.00381,1.30909,0.01286,0.00128,1.62026,2.18469,True,0.0,0.0,True,,,,,,,-118.69732
+arc,all,"crustal, arc","open line, no largest magnitude in the likelihood",2.0,61.43542,,1.04259,1.30559,0.01073,0.00097,1.8642,2.18469,True,0.50574,0.0,True,,,,,,,-118.87084
+arc,all,"crustal, arc","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,1.04364,1.37582,0.01125,0.00102,,,,,,,,,,,,,
+arc,all,"crustal, arc","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.36019,6.07322,0.01156,0.0005,,,,,,,,9.41098,1.46564,,,,
+arc,all,"crustal, arc","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.10001,2.26143,0.01427,0.00113,,,,,,,,8.34285,1.5,,,,
+arc,all,"crustal, arc","least squares, cumulative",,,,1.06222,1.38042,0.01037,0.0009,1.31511,2.18469,True,0.0,0.0,True,,,,,,,
+arc,all,"crustal, arc","line cut at Mmax, floor 5.2",2.0,61.74571,,1.0574,1.39516,0.00978,0.0,1.35917,2.14998,True,0.0,0.0,True,,,,5.2,,,-119.49143
+arc,all,"crustal, arc","line cut at Mmax, floor 5.4",2.0,61.55224,,0.96448,1.17624,0.01237,0.0,1.73663,2.20937,True,0.0,0.0,True,,,,5.4,,,-119.10449
+arc,all,"crustal, arc","line cut at Mmax, floor 5.6",2.0,58.29038,,0.87812,0.96451,0.0147,0.0,2.08584,2.26103,True,0.0,0.0,True,,,,5.6,,,-112.58077
+arc,all,"crustal, arc","line cut at Mmax, floor 5.8",2.0,60.38887,,0.91516,1.07582,0.01399,0.0,1.97644,2.2393,True,0.0,0.0,True,,,,5.8,,,-116.77774
+arc,all,"crustal, arc","line cut at Mmax, floor 6.0",2.0,61.9815,,0.99016,1.33562,0.01256,0.0,1.75873,2.19333,True,0.0,0.0,True,,,,6.0,,,-119.96301
+backarc,all,"crustal, backarc",line cut at Mmax (reference),2.0,183.17385,7.75,0.98666,2.29911,0.02051,0.0,2.79108,2.06416,True,0.0,0.0,True,,,,,,,-362.3477
+backarc,all,"crustal, backarc","tapered, corner of run.py",2.0,183.06997,,0.98792,2.29996,0.02085,2e-05,2.71956,2.06339,True,0.0,0.0,True,7.492,,,,,,-362.13994
+backarc,all,"crustal, backarc",open line,2.0,181.57964,,0.98666,2.30309,0.02449,0.00253,2.79108,2.06416,True,0.0,0.0,True,,,,,,,-359.15929
+backarc,all,"crustal, backarc","open line, no largest magnitude in the likelihood",2.0,181.83653,,1.0361,2.29417,0.01943,0.00179,3.38668,2.06416,True,0.9291,0.0,True,,,,,,,-359.67306
+backarc,all,"crustal, backarc","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.93993,2.37899,0.03137,0.0036,,,,,,,,,,,,,
+backarc,all,"crustal, backarc","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.39823,11.16408,0.01784,0.00071,,,,,,,,9.20165,1.36114,,,,
+backarc,all,"crustal, backarc","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.61884,18.84974,0.0109,0.00026,,,,,,,,9.13125,1.29559,,,,
+backarc,all,"crustal, backarc","least squares, cumulative",,,,1.08079,2.54325,0.01753,0.00146,2.04386,2.06416,True,0.0,0.0,True,,,,,,,
+backarc,all,"crustal, backarc","line cut at Mmax, floor 5.2",2.0,183.08521,,1.00602,2.37247,0.01949,0.0,2.64759,2.0523,True,0.0,0.0,True,,,,5.2,,,-362.17041
+backarc,all,"crustal, backarc","line cut at Mmax, floor 5.4",2.0,181.85009,,1.06399,2.58927,0.01659,0.0,2.24244,2.01656,True,0.0,0.0,True,,,,5.4,,,-359.70019
+backarc,all,"crustal, backarc","line cut at Mmax, floor 5.6",2.0,182.19339,,1.05819,2.53857,0.01667,0.0,2.25516,2.02014,True,0.0,0.0,True,,,,5.6,,,-360.38678
+backarc,all,"crustal, backarc","line cut at Mmax, floor 5.8",2.0,178.35021,,1.11571,2.90551,0.01488,0.0,2.00369,1.98447,True,0.0,0.0,True,,,,5.8,,,-352.70043
+backarc,all,"crustal, backarc","line cut at Mmax, floor 6.0",2.0,85.11476,,1.38639,6.18078,0.00962,0.0,1.26995,1.81758,True,0.0,0.0,True,,,,6.0,,,-166.22952
+patagonia,all,"crustal, Patagonia",line cut at Mmax (reference),1.0,-2.23393,8.05,0.98383,0.63988,0.00633,0.00015,0.94299,1.70366,True,0.07648,0.0,True,,,,,,,6.46786
+patagonia,all,"crustal, Patagonia","tapered, corner of run.py",1.0,-2.39231,,0.98176,0.64021,0.00659,0.00013,0.94328,1.70481,True,0.04127,0.0,True,7.791,,,,,,6.78462
+patagonia,all,"crustal, Patagonia",open line,1.0,-2.52835,,0.98383,0.64045,0.0069,0.00072,0.94299,1.70366,True,0.07648,0.0,True,,,,,,,7.0567
+patagonia,all,"crustal, Patagonia","open line, no largest magnitude in the likelihood",1.0,-2.52722,,0.98383,0.63551,0.00685,0.00071,1.22787,1.70366,True,0.36804,0.0,True,,,,,,,7.05443
+patagonia,all,"crustal, Patagonia","line cut at Mmax, own b",2.0,-1.95689,,0.88146,0.63839,0.00986,0.00027,1.50031,1.75842,True,0.14038,0.0,True,,,,,,,7.91378
+seg1,all,"interface, 45.6–37° S",pooled b (shrinkage),,,,0.9587,2.94681,0.03557,0.00385,6.48454,9.23756,True,2.02635,2.46611,True,,,,,0.9587,0.0,
+seg2,all,"interface, 37–32° S",pooled b (shrinkage),,,,0.9587,8.47895,0.10205,0.01077,18.50035,12.30421,True,5.6722,5.18611,True,,,,,0.9587,0.0,
+seg3,all,"interface, 32–26° S",pooled b (shrinkage),,,,0.9587,7.40271,0.08787,0.00816,15.50336,9.5704,True,4.30163,2.59071,True,,,,,0.9587,0.0,
+seg4,all,"interface, 26–17.6° S",pooled b (shrinkage),,,,0.9587,5.7135,0.06844,0.00693,12.29604,15.0741,True,3.65136,2.87619,True,,,,,0.9587,0.0,
+intraslab_shallow,all,"in-slab, shallow",pooled b (shrinkage),,,,1.15922,9.23398,0.04298,0.00169,6.56929,7.48106,True,0.8926,0.54569,True,,,,,1.15922,0.0,
+intraslab_intermediate,all,"in-slab, intermediate depth",pooled b (shrinkage),,,,1.15922,25.2874,0.11771,0.00464,17.99009,29.31639,False,2.4444,0.86719,True,,,,,1.15922,0.0,
+jujuy_nest,all,Jujuy nest,pooled b (shrinkage),,,,1.15922,3.76225,0.01333,0.0,1.62455,2.42888,True,0.0,0.0,True,,,,,1.15922,0.0,
+forearc,all,"crustal, forearc",pooled b (shrinkage),,,,0.97963,3.54007,0.02639,0.0,3.2157,3.63258,True,0.0,0.0,True,,,,,0.97963,0.0,
+arc,all,"crustal, arc",pooled b (shrinkage),,,,0.97963,1.30975,0.01289,0.0,1.80758,2.19994,True,0.0,0.0,True,,,,,0.97963,0.0,
+backarc,all,"crustal, backarc",pooled b (shrinkage),,,,0.97963,2.301,0.02115,0.0,2.87991,2.06846,True,0.0,0.0,True,,,,,0.97963,0.0,
+patagonia,all,"crustal, Patagonia",pooled b (shrinkage),,,,0.97963,0.63987,0.00645,0.00015,0.96132,1.70599,True,0.07844,0.0,True,,,,,0.97963,0.0,
+interface,weight 1,interface,line cut at Mmax (reference),2.0,3880.62381,9.75,0.9249,19.2752,0.2717,0.03168,50.55518,35.97588,False,16.69152,12.08478,True,,,,,,,-7757.24763
+interface,weight 1,interface,"tapered, corner of run.py",2.0,3880.68032,,0.92549,19.27233,0.27157,0.03208,50.66425,35.97252,False,16.87343,12.08276,True,9.474,,,,,,-7757.36065
+interface,weight 1,interface,open line,2.0,3880.62381,,0.9249,19.2759,0.2724,0.03238,50.55518,35.97588,False,16.69152,12.08478,True,,,,,,,-7757.24763
+interface,weight 1,interface,"open line, no largest magnitude in the likelihood",2.0,3880.62381,,0.9249,19.2752,0.27239,0.03238,50.55334,35.97588,False,16.69092,12.08478,True,,,,,,,-7757.24763
+interface,weight 1,interface,"tapered, corner 9.6",2.0,3880.70409,,0.92557,19.27445,0.27152,0.03212,50.6312,35.97588,False,16.8559,12.08478,True,9.6,,,,,,-7757.40818
+interface,weight 1,interface,"tapered, corner free",3.0,3880.70409,,0.92557,19.27445,0.27152,0.03212,50.6312,35.97588,False,16.8559,12.08478,True,9.6,,,,,,-7755.40818
+interface,weight 1,interface,"Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.84015,20.61783,0.43047,0.0622,,,,,,,,,,,,,
+interface,weight 1,interface,"Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.28576,109.21503,0.29293,0.01517,,,,,,,,9.40981,1.46493,,,,
+interface,weight 1,interface,"Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,0.97758,38.67773,0.42884,0.04516,,,,,,,,8.16169,1.5,,,,
+interface,weight 1,interface,"least squares, cumulative",,,,0.90867,17.97661,0.27376,0.03378,51.31005,35.97588,False,17.38735,12.08478,True,,,,,,,
+interface,weight 1,interface,"line cut at Mmax, floor 5.2",2.0,3880.32086,,0.93555,19.65122,0.26379,0.03004,48.76478,35.91483,False,15.82574,12.0482,True,,,,5.2,,,-7756.64171
+interface,weight 1,interface,"line cut at Mmax, floor 5.4",2.0,3874.68923,,0.9633,21.13478,0.24976,0.02673,45.41144,35.75399,True,14.0834,11.95221,True,,,,5.4,,,-7745.37845
+interface,weight 1,interface,"line cut at Mmax, floor 5.6",2.0,3876.95606,,0.95762,20.68921,0.25096,0.0272,45.7828,35.78712,True,14.33208,11.97194,True,,,,5.6,,,-7749.91211
+interface,weight 1,interface,"line cut at Mmax, floor 5.8",2.0,3862.9486,,0.98341,22.66215,0.24418,0.02498,43.88119,35.63595,True,13.16215,11.88212,True,,,,5.8,,,-7721.89721
+interface,weight 1,interface,"line cut at Mmax, floor 6.0",2.0,3856.09791,,0.99151,23.3316,0.24222,0.02434,43.32797,35.58811,True,12.82141,11.8538,True,,,,6.0,,,-7708.19582
+seg1,weight 1,"interface, 45.6–37° S",line cut at Mmax (reference),2.0,129.49605,9.75,0.87144,2.05629,0.03704,0.00486,7.13035,6.03205,True,2.56207,2.30075,True,,,,,,,-254.99211
+seg1,weight 1,"interface, 45.6–37° S","tapered, corner of run.py",2.0,129.40971,,0.87105,2.05539,0.03722,0.00498,7.19753,6.03274,True,2.62006,2.30121,True,9.458,,,,,,-254.81942
+seg1,weight 1,"interface, 45.6–37° S",open line,2.0,129.49605,,0.87144,2.05642,0.03717,0.005,7.13035,6.03205,True,2.56207,2.30075,True,,,,,,,-254.99211
+seg1,weight 1,"interface, 45.6–37° S","open line, no largest magnitude in the likelihood",2.0,129.49605,,0.87144,2.05629,0.03717,0.005,7.12988,6.03205,True,2.5619,2.30075,True,,,,,,,-254.99211
+seg1,weight 1,"interface, 45.6–37° S","tapered, corner 9.6",2.0,129.54211,,0.87131,2.05551,0.03718,0.00498,7.18345,6.03205,True,2.61234,2.30075,True,9.6,,,,,,-255.08422
+seg1,weight 1,"interface, 45.6–37° S","tapered, corner free",3.0,129.57908,,0.87142,2.0558,0.03716,0.00499,7.16634,6.03205,True,2.5978,2.30075,True,9.8,,,,,,-253.15815
+seg1,weight 1,"interface, 45.6–37° S","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.88021,2.05334,0.03565,0.0047,,,,,,,,,,,,,
+seg1,weight 1,"interface, 45.6–37° S","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.48367,22.30962,0.02405,0.00079,,,,,,,,8.88028,1.14303,,,,
+seg1,weight 1,"interface, 45.6–37° S","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,0.92196,4.91775,0.07045,0.00843,,,,,,,,9.31833,1.5,,,,
+seg1,weight 1,"interface, 45.6–37° S","least squares, cumulative",,,,0.76526,1.61844,0.04771,0.00819,9.81786,6.03205,True,4.13429,2.30075,True,,,,,,,
+seg1,weight 1,"interface, 45.6–37° S","line cut at Mmax, floor 5.2",2.0,129.49371,,0.8744,2.06609,0.03671,0.00479,7.05405,6.0269,True,2.523,2.2973,True,,,,5.2,,,-254.98743
+seg1,weight 1,"interface, 45.6–37° S","line cut at Mmax, floor 5.4",2.0,129.25779,,0.84976,1.94122,0.03862,0.00532,7.54222,6.06969,True,2.80222,2.32601,True,,,,5.4,,,-254.51558
+seg1,weight 1,"interface, 45.6–37° S","line cut at Mmax, floor 5.6",2.0,128.55733,,0.9036,2.31334,0.03596,0.0044,6.78022,5.97602,True,2.31622,2.26347,True,,,,5.6,,,-253.11466
+seg1,weight 1,"interface, 45.6–37° S","line cut at Mmax, floor 5.8",2.0,123.17996,,0.95439,2.76764,0.03407,0.00372,6.22774,5.88717,True,1.95992,2.20523,True,,,,5.8,,,-242.35991
+seg1,weight 1,"interface, 45.6–37° S","line cut at Mmax, floor 6.0",2.0,129.05837,,0.89874,2.22337,0.03534,0.00437,6.68368,5.98449,True,2.30087,2.26908,True,,,,6.0,,,-254.11674
+seg2,weight 1,"interface, 37–32° S",line cut at Mmax (reference),2.0,865.07165,9.35,0.95715,6.35978,0.07709,0.00816,13.98777,8.26791,True,4.29935,3.49933,True,,,,,,,-1726.14331
+seg2,weight 1,"interface, 37–32° S","tapered, corner of run.py",2.0,865.10532,,0.95721,6.35813,0.07738,0.00838,14.09971,8.26783,True,4.3965,3.49927,True,9.084,,,,,,-1726.21063
+seg2,weight 1,"interface, 37–32° S",open line,2.0,864.95101,,0.95715,6.36017,0.07748,0.00855,13.98777,8.26791,True,4.29935,3.49933,True,,,,,,,-1725.90202
+seg2,weight 1,"interface, 37–32° S","open line, no largest magnitude in the likelihood",2.0,864.95193,,0.95876,6.35996,0.0769,0.00846,13.99045,8.26791,True,4.37143,3.49933,True,,,,,,,-1725.90386
+seg2,weight 1,"interface, 37–32° S","tapered, corner 9.6",2.0,865.01874,,0.95749,6.35959,0.07734,0.0085,14.0206,8.26791,True,4.34447,3.49933,True,9.6,,,,,,-1726.03749
+seg2,weight 1,"interface, 37–32° S","tapered, corner free",3.0,865.13961,,0.95759,6.35873,0.07727,0.00843,14.06918,8.26791,True,4.39046,3.49933,True,9.25,,,,,,-1724.27921
+seg2,weight 1,"interface, 37–32° S","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.86355,7.15085,0.13405,0.01835,,,,,,,,,,,,,
+seg2,weight 1,"interface, 37–32° S","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.25271,34.31945,0.10718,0.00599,,,,,,,,9.4675,1.5,,,,
+seg2,weight 1,"interface, 37–32° S","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,0.99995,14.85079,0.14854,0.01486,,,,,,,,9.43024,1.5,,,,
+seg2,weight 1,"interface, 37–32° S","least squares, cumulative",,,,0.88307,5.45349,0.09344,0.01223,17.58428,8.26791,False,6.07004,3.49933,True,,,,,,,
+seg2,weight 1,"interface, 37–32° S","line cut at Mmax, floor 5.2",2.0,864.80417,,0.97508,6.56687,0.07332,0.00746,13.171,8.24238,True,3.93274,3.48219,True,,,,5.2,,,-1725.60834
+seg2,weight 1,"interface, 37–32° S","line cut at Mmax, floor 5.4",2.0,862.49321,,1.00257,7.07221,0.06962,0.00667,12.31799,8.20261,True,3.51604,3.45554,True,,,,5.4,,,-1720.98642
+seg2,weight 1,"interface, 37–32° S","line cut at Mmax, floor 5.6",2.0,864.88711,,0.95765,6.16469,0.07455,0.00788,13.52377,8.2672,True,4.15339,3.49885,True,,,,5.6,,,-1725.77422
+seg2,weight 1,"interface, 37–32° S","line cut at Mmax, floor 5.8",2.0,857.05416,,1.02126,7.71004,0.06967,0.00641,12.20419,8.17517,True,3.37712,3.43718,True,,,,5.8,,,-1710.10832
+seg2,weight 1,"interface, 37–32° S","line cut at Mmax, floor 6.0",2.0,842.49108,,1.05859,8.74851,0.0666,0.00564,11.4454,8.11934,True,2.97371,3.39992,True,,,,6.0,,,-1680.98215
+seg3,weight 1,"interface, 32–26° S",line cut at Mmax (reference),2.0,729.24688,8.75,0.89293,5.76452,0.09209,0.00975,16.79795,7.37002,False,5.13683,2.6401,True,,,,,,,-1454.49377
+seg3,weight 1,"interface, 32–26° S","tapered, corner of run.py",2.0,728.95873,,0.89641,5.76204,0.09235,0.00995,16.86452,7.36543,False,5.1627,2.63754,True,8.465,,,,,,-1453.91746
+seg3,weight 1,"interface, 32–26° S",open line,2.0,728.17527,,0.89293,5.76685,0.09442,0.01208,16.79795,7.37002,False,5.13683,2.6401,True,,,,,,,-1452.35054
+seg3,weight 1,"interface, 32–26° S","open line, no largest magnitude in the likelihood",2.0,728.22552,,0.90412,5.76461,0.08965,0.01118,16.84898,7.37002,False,5.75108,2.6401,True,,,,,,,-1452.45104
+seg3,weight 1,"interface, 32–26° S","tapered, corner 9.6",2.0,728.10394,,0.89339,5.76666,0.09421,0.012,16.80548,7.37002,False,5.1633,2.6401,True,9.6,,,,,,-1452.20788
+seg3,weight 1,"interface, 32–26° S","tapered, corner free",3.0,728.16648,,0.89295,5.76684,0.09441,0.01208,16.7983,7.37002,False,5.13806,2.6401,True,10.5,,,,,,-1450.33297
+seg3,weight 1,"interface, 32–26° S","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.80336,5.89193,0.14572,0.02292,,,,,,,,,,,,,
+seg3,weight 1,"interface, 32–26° S","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.17049,16.16462,0.07372,0.00498,,,,,,,,8.31787,1.35885,,,,
+seg3,weight 1,"interface, 32–26° S","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.00071,10.37282,0.10339,0.01032,,,,,,,,8.0225,1.5,,,,
+seg3,weight 1,"interface, 32–26° S","least squares, cumulative",,,,0.97308,7.10226,0.0804,0.00855,13.83623,7.37002,False,3.75613,2.6401,True,,,,,,,
+seg3,weight 1,"interface, 32–26° S","line cut at Mmax, floor 5.2",2.0,729.08015,,0.90656,5.92127,0.08896,0.00917,16.11225,7.35197,False,4.83057,2.63004,True,,,,5.2,,,-1454.16029
+seg3,weight 1,"interface, 32–26° S","line cut at Mmax, floor 5.4",2.0,722.78851,,0.96764,6.84819,0.07806,0.00712,13.71259,7.26876,False,3.7535,2.58384,True,,,,5.4,,,-1441.57703
+seg3,weight 1,"interface, 32–26° S","line cut at Mmax, floor 5.6",2.0,716.58878,,0.99375,7.33774,0.0743,0.00643,12.89023,7.23207,True,3.38995,2.56356,True,,,,5.6,,,-1429.17756
+seg3,weight 1,"interface, 32–26° S","line cut at Mmax, floor 5.8",2.0,719.98993,,0.98551,7.06451,0.07426,0.00654,12.93328,7.24372,True,3.44475,2.56999,True,,,,5.8,,,-1435.97986
+seg3,weight 1,"interface, 32–26° S","line cut at Mmax, floor 6.0",2.0,702.00473,,1.02595,8.22827,0.07198,0.00584,12.3017,7.18591,True,3.0765,2.53814,True,,,,6.0,,,-1400.00946
+seg4,weight 1,"interface, 26–17.6° S",line cut at Mmax (reference),2.0,550.11421,9.05,0.936,4.68665,0.06226,0.00661,11.3247,11.60107,True,3.48367,2.88178,True,,,,,,,-1096.22843
+seg4,weight 1,"interface, 26–17.6° S","tapered, corner of run.py",2.0,549.79787,,0.93767,4.68507,0.06231,0.0068,11.38637,11.59969,True,3.55787,2.88137,True,8.778,,,,,,-1095.59575
+seg4,weight 1,"interface, 26–17.6° S",open line,2.0,549.83467,,0.936,4.68733,0.06294,0.00729,11.3247,11.60107,True,3.48367,2.88178,True,,,,,,,-1095.66934
+seg4,weight 1,"interface, 26–17.6° S","open line, no largest magnitude in the likelihood",2.0,549.84027,,0.94046,4.68687,0.06165,0.00707,11.33691,11.60107,True,3.64994,2.88178,True,,,,,,,-1095.68054
+seg4,weight 1,"interface, 26–17.6° S","tapered, corner 9.6",2.0,549.83069,,0.93647,4.6871,0.06279,0.00725,11.33694,11.60107,True,3.50951,2.88178,True,9.6,,,,,,-1095.66137
+seg4,weight 1,"interface, 26–17.6° S","tapered, corner free",3.0,549.85305,,0.93674,4.68697,0.06271,0.00721,11.34357,11.60107,True,3.5239,2.88178,True,9.45,,,,,,-1093.7061
+seg4,weight 1,"interface, 26–17.6° S","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.83788,5.04749,0.10649,0.01547,,,,,,,,,,,,,
+seg4,weight 1,"interface, 26–17.6° S","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.20405,20.86008,0.08151,0.0051,,,,,,,,9.44608,1.5,,,,
+seg4,weight 1,"interface, 26–17.6° S","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,0.92316,9.29223,0.13237,0.0158,,,,,,,,8.78933,1.5,,,,
+seg4,weight 1,"interface, 26–17.6° S","least squares, cumulative",,,,0.9247,4.49868,0.06363,0.00757,11.51461,11.60107,True,3.60412,2.88178,True,,,,,,,
+seg4,weight 1,"interface, 26–17.6° S","line cut at Mmax, floor 5.2",2.0,550.10262,,0.94168,4.71379,0.06102,0.0064,11.06451,11.59637,True,3.37387,2.88039,True,,,,5.2,,,-1096.20523
+seg4,weight 1,"interface, 26–17.6° S","line cut at Mmax, floor 5.4",2.0,549.85969,,0.95421,4.86738,0.05951,0.00608,10.71765,11.58593,True,3.20507,2.87731,True,,,,5.4,,,-1095.71937
+seg4,weight 1,"interface, 26–17.6° S","line cut at Mmax, floor 5.6",2.0,550.09047,,0.93893,4.63182,0.06071,0.00641,11.02582,11.59865,True,3.37641,2.88106,True,,,,5.6,,,-1096.18094
+seg4,weight 1,"interface, 26–17.6° S","line cut at Mmax, floor 5.8",2.0,548.87241,,0.9658,5.1239,0.05942,0.00593,10.63503,11.57616,True,3.1231,2.87442,True,,,,5.8,,,-1093.74482
+seg4,weight 1,"interface, 26–17.6° S","line cut at Mmax, floor 6.0",2.0,550.05835,,0.94666,4.76048,0.06024,0.00626,10.8939,11.59224,True,3.29631,2.87917,True,,,,6.0,,,-1096.1167
+intraslab_shallow,weight 1,"in-slab, shallow",line cut at Mmax (reference),2.0,645.57267,8.25,1.1559,4.95591,0.02342,0.00093,3.58213,2.98504,True,0.48925,0.41251,True,,,,,,,-1287.14533
+intraslab_shallow,weight 1,"in-slab, shallow","tapered, corner of run.py",2.0,645.60158,,1.15378,4.95769,0.02386,0.00082,3.5529,2.98776,True,0.38158,0.41386,True,8.039,,,,,,-1287.20315
+intraslab_shallow,weight 1,"in-slab, shallow",open line,2.0,645.17973,,1.1559,4.95667,0.02418,0.00169,3.58213,2.98504,True,0.48925,0.41251,True,,,,,,,-1286.35947
+intraslab_shallow,weight 1,"in-slab, shallow","open line, no largest magnitude in the likelihood",2.0,645.19477,,1.16606,4.95493,0.02306,0.00157,3.77488,2.98504,True,0.82239,0.41251,True,,,,,,,-1286.38954
+intraslab_shallow,weight 1,"in-slab, shallow","tapered, corner 9.6",2.0,645.1775,,1.15593,4.95666,0.02417,0.00168,3.58291,2.98504,True,0.48994,0.41251,True,9.6,,,,,,-1286.35501
+intraslab_shallow,weight 1,"in-slab, shallow","tapered, corner free",3.0,645.63755,,1.15165,4.95647,0.02389,0.00064,3.5082,2.98504,True,0.31231,0.41251,True,7.95,,,,,,-1285.2751
+intraslab_shallow,weight 1,"in-slab, shallow","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,1.09936,5.53469,0.03503,0.00279,,,,,,,,,,,,,
+intraslab_shallow,weight 1,"in-slab, shallow","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.1113,6.71686,0.04023,0.00311,,,,,,,,6.95609,1.23846,,,,
+intraslab_shallow,weight 1,"in-slab, shallow","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.16579,6.2803,0.02927,0.002,,,,,,,,6.24394,1.00418,,,,
+intraslab_shallow,weight 1,"in-slab, shallow","least squares, cumulative",,,,1.12179,5.20428,0.0297,0.00224,4.42756,2.98504,True,0.63751,0.41251,True,,,,,,,
+intraslab_shallow,weight 1,"in-slab, shallow","line cut at Mmax, floor 5.2",2.0,642.67267,,1.06601,4.39257,0.03109,0.00145,4.87987,3.1008,True,0.76467,0.47089,True,,,,5.2,,,-1281.34534
+intraslab_shallow,weight 1,"in-slab, shallow","line cut at Mmax, floor 5.4",2.0,643.64161,,1.07741,4.50998,0.03033,0.00139,4.74476,3.0861,True,0.73088,0.46333,True,,,,5.4,,,-1283.28322
+intraslab_shallow,weight 1,"in-slab, shallow","line cut at Mmax, floor 5.6",2.0,645.12251,,1.10516,4.80994,0.02856,0.00124,4.43154,3.05033,True,0.65453,0.4451,True,,,,5.6,,,-1286.24501
+intraslab_shallow,weight 1,"in-slab, shallow","line cut at Mmax, floor 5.8",2.0,640.97955,,1.05603,4.2172,0.03121,0.00148,4.91381,3.11366,True,0.78155,0.47755,True,,,,5.8,,,-1277.95909
+intraslab_shallow,weight 1,"in-slab, shallow","line cut at Mmax, floor 6.0",2.0,641.27269,,1.0599,4.23798,0.03083,0.00146,4.84771,3.10868,True,0.7666,0.47497,True,,,,6.0,,,-1278.54538
+intraslab_intermediate,weight 1,"in-slab, intermediate depth",line cut at Mmax (reference),2.0,5431.6232,8.25,1.1598,24.26289,0.11264,0.00444,17.21292,24.78247,False,2.33666,0.86707,True,,,,,,,-10859.2464
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","tapered, corner of run.py",2.0,5432.02415,,1.15772,24.27304,0.11472,0.00392,17.06769,24.8014,False,1.82221,0.86751,True,8.04,,,,,,-10860.04829
+intraslab_intermediate,weight 1,"in-slab, intermediate depth",open line,2.0,5429.75523,,1.1598,24.2665,0.11625,0.00805,17.21292,24.78247,False,2.33666,0.86707,True,,,,,,,-10855.51045
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","open line, no largest magnitude in the likelihood",2.0,5429.82539,,1.16977,24.25826,0.111,0.00751,18.13808,24.78247,True,3.92482,0.86707,True,,,,,,,-10855.65077
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","tapered, corner 9.6",2.0,5429.74419,,1.15983,24.26645,0.11622,0.00802,17.21641,24.78247,False,2.33989,0.86707,True,9.6,,,,,,-10855.48837
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","tapered, corner free",3.0,5432.7453,,1.15052,24.26803,0.11507,0.0016,16.32809,24.78247,False,0.82553,0.86707,True,7.8,,,,,,-10859.4906
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,1.14114,25.51635,0.13321,0.00962,,,,,,,,,,,,,
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.23853,28.73222,0.09579,0.00553,,,,,,,,5.57402,0.80308,,,,
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.16562,27.54627,0.12848,0.00877,,,,,,,,6.20332,1.00217,,,,
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","least squares, cumulative",,,,1.17225,26.03854,0.11779,0.00792,17.40266,24.78247,True,2.31682,0.86707,True,,,,,,,
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","line cut at Mmax, floor 5.2",2.0,5430.99929,,1.14137,23.65094,0.11931,0.00486,18.32519,24.9494,True,2.56003,0.87098,True,,,,5.2,,,-10857.99858
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","line cut at Mmax, floor 5.4",2.0,5429.45562,,1.12948,23.07803,0.12282,0.00511,18.92789,25.05658,True,2.69328,0.87347,True,,,,5.4,,,-10854.91124
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","line cut at Mmax, floor 5.6",2.0,5420.57532,,1.09843,21.57493,0.13203,0.00581,20.5284,25.33433,True,3.06325,0.87991,True,,,,5.6,,,-10837.15063
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","line cut at Mmax, floor 5.8",2.0,5336.6764,,1.0122,16.76251,0.15088,0.00775,24.07784,26.08704,True,4.08522,0.89705,True,,,,5.8,,,-10669.35281
+intraslab_intermediate,weight 1,"in-slab, intermediate depth","line cut at Mmax, floor 6.0",2.0,5317.74432,,0.99952,16.14072,0.15372,0.00808,24.6301,26.19517,True,4.25665,0.89948,True,,,,6.0,,,-10631.48865
+jujuy_nest,weight 1,Jujuy nest,line cut at Mmax (reference),2.0,441.06441,7.45,1.23594,3.73483,0.00957,0.0,1.1664,2.36358,True,0.0,0.0,True,,,,,,,-878.12882
+jujuy_nest,weight 1,Jujuy nest,"tapered, corner of run.py",2.0,440.94736,,1.22856,3.7391,0.00927,0.0,1.07301,2.36992,True,0.0,0.0,True,7.26,,,,,,-877.89472
+jujuy_nest,weight 1,Jujuy nest,open line,2.0,440.22665,,1.23594,3.73787,0.01261,0.00073,1.1664,2.36358,True,0.0,0.0,True,,,,,,,-876.4533
+jujuy_nest,weight 1,Jujuy nest,"open line, no largest magnitude in the likelihood",2.0,440.30032,,1.26496,3.73217,0.01102,0.0006,1.73086,2.36358,True,0.31366,0.0,True,,,,,,,-876.60063
+jujuy_nest,weight 1,Jujuy nest,"tapered, corner 9.6",2.0,440.22602,,1.23594,3.73787,0.01261,0.00073,1.16646,2.36358,True,0.0,0.0,True,9.6,,,,,,-876.45204
+jujuy_nest,weight 1,Jujuy nest,"tapered, corner free",3.0,440.85298,,1.23405,3.73563,0.01095,1e-05,1.17282,2.36358,True,0.0,0.0,True,7.5,,,,,,-875.70595
+jujuy_nest,weight 1,Jujuy nest,"Aki–Utsu, Mw ≥ 5.0 from 1976",,,,1.21303,4.05049,0.01519,0.00093,,,,,,,,,,,,,
+jujuy_nest,weight 1,Jujuy nest,"Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.62043,5.84223,0.00336,8e-05,,,,,,,,6.12891,0.67692,,,,
+jujuy_nest,weight 1,Jujuy nest,"Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.35273,5.87031,0.01157,0.00051,,,,,,,,8.20758,1.5,,,,
+jujuy_nest,weight 1,Jujuy nest,"least squares, cumulative",,,,1.05606,3.11263,0.02404,0.00211,2.06139,2.36358,True,0.0,0.0,True,,,,,,,
+jujuy_nest,weight 1,Jujuy nest,"line cut at Mmax, floor 5.2",2.0,439.19071,,1.12342,3.38218,0.01392,0.0,1.6968,2.45881,True,0.0,0.0,True,,,,5.2,,,-874.38141
+jujuy_nest,weight 1,Jujuy nest,"line cut at Mmax, floor 5.4",2.0,438.46718,,1.1077,3.31173,0.01456,0.0,1.77412,2.47183,True,0.0,0.0,True,,,,5.4,,,-872.93437
+jujuy_nest,weight 1,Jujuy nest,"line cut at Mmax, floor 5.6",2.0,403.67962,,0.87932,2.13046,0.0238,0.0,2.89968,2.65005,True,0.0,0.0,True,,,,5.6,,,-803.35924
+jujuy_nest,weight 1,Jujuy nest,"line cut at Mmax, floor 5.8",2.0,347.81713,,0.72658,1.43666,0.02913,0.0,3.54929,2.75439,True,0.0,0.0,True,,,,5.8,,,-691.63425
+jujuy_nest,weight 1,Jujuy nest,"line cut at Mmax, floor 6.0",2.0,357.93008,,0.75363,1.52416,0.02786,0.0,3.39483,2.73696,True,0.0,0.0,True,,,,6.0,,,-711.86016
+forearc,weight 1,"crustal, forearc",line cut at Mmax (reference),2.0,73.53569,7.45,0.96839,1.42548,0.01112,0.0,1.3555,0.98422,True,0.0,0.0,True,,,,,,,-143.07139
+forearc,weight 1,"crustal, forearc","tapered, corner of run.py",2.0,73.72049,,0.96814,1.42663,0.01063,0.0,1.24045,0.98422,True,0.0,0.0,True,7.187,,,,,,-143.44098
+forearc,weight 1,"crustal, forearc",open line,2.0,71.89663,,0.96839,1.43091,0.01655,0.00178,1.3555,0.98422,True,0.0,0.0,True,,,,,,,-139.79326
+forearc,weight 1,"crustal, forearc","open line, no largest magnitude in the likelihood",2.0,72.25779,,1.04236,1.42038,0.01169,0.00106,2.0305,0.98422,True,0.55108,0.0,True,,,,,,,-140.51559
+forearc,weight 1,"crustal, forearc","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.88451,1.51782,0.02583,0.00337,,,,,,,,,,,,,
+forearc,weight 1,"crustal, forearc","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.34549,10.56363,0.02152,0.00097,,,,,,,,9.40665,1.46301,,,,
+forearc,weight 1,"crustal, forearc","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,0.93214,2.96284,0.0405,0.00473,,,,,,,,8.16256,1.5,,,,
+forearc,weight 1,"crustal, forearc","least squares, cumulative",,,,0.95481,1.43478,0.01767,0.00196,1.43571,0.98422,True,0.0,0.0,True,,,,,,,
+forearc,weight 1,"crustal, forearc","line cut at Mmax, floor 5.2",2.0,73.51541,,0.97745,1.45518,0.01094,0.0,1.33363,0.98392,True,0.0,0.0,True,,,,5.2,,,-143.03082
+forearc,weight 1,"crustal, forearc","line cut at Mmax, floor 5.4",2.0,73.52628,,0.96054,1.44242,0.01162,0.0,1.41604,0.98447,True,0.0,0.0,True,,,,5.4,,,-143.05256
+forearc,weight 1,"crustal, forearc","line cut at Mmax, floor 5.6",2.0,71.48067,,0.85389,1.16569,0.0144,0.0,1.75521,0.98771,True,0.0,0.0,True,,,,5.6,,,-138.96135
+forearc,weight 1,"crustal, forearc","line cut at Mmax, floor 5.8",2.0,71.26775,,0.84725,1.15432,0.01464,0.0,1.78433,0.9879,True,0.0,0.0,True,,,,5.8,,,-138.5355
+forearc,weight 1,"crustal, forearc","line cut at Mmax, floor 6.0",2.0,62.67326,,0.75105,0.85787,0.01584,0.0,1.92981,0.99048,True,0.0,0.0,True,,,,6.0,,,-121.34652
+arc,weight 1,"crustal, arc",line cut at Mmax (reference),2.0,50.57157,7.95,0.9952,1.2061,0.0111,0.0,1.55286,1.74896,True,0.0,0.0,True,,,,,,,-97.14314
+arc,weight 1,"crustal, arc","tapered, corner of run.py",2.0,50.44848,,0.99423,1.20628,0.01148,0.00011,1.56924,1.74942,True,0.0,0.0,True,7.695,,,,,,-96.89695
+arc,weight 1,"crustal, arc",open line,2.0,49.92464,,0.9952,1.20735,0.01234,0.00125,1.55286,1.74896,True,0.0,0.0,True,,,,,,,-95.84928
+arc,weight 1,"crustal, arc","open line, no largest magnitude in the likelihood",2.0,50.01215,,1.03523,1.20395,0.01024,0.00094,1.78519,1.74896,True,0.49048,0.0,True,,,,,,,-96.02431
+arc,weight 1,"crustal, arc","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,1.02453,1.32596,0.01184,0.00112,,,,,,,,,,,,,
+arc,weight 1,"crustal, arc","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.3284,5.98898,0.0132,0.00062,,,,,,,,9.4675,1.5,,,,
+arc,weight 1,"crustal, arc","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.06952,2.26168,0.01642,0.0014,,,,,,,,8.33007,1.5,,,,
+arc,weight 1,"crustal, arc","least squares, cumulative",,,,0.93655,1.07916,0.01445,0.00167,1.80088,1.74896,True,0.0,0.0,True,,,,,,,
+arc,weight 1,"crustal, arc","line cut at Mmax, floor 5.2",2.0,50.40906,,1.03865,1.27136,0.00967,0.0,1.34747,1.72823,True,0.0,0.0,True,,,,5.2,,,-96.81812
+arc,weight 1,"crustal, arc","line cut at Mmax, floor 5.4",2.0,50.34116,,0.96971,1.11432,0.01145,0.0,1.60736,1.76083,True,0.0,0.0,True,,,,5.4,,,-96.68232
+arc,weight 1,"crustal, arc","line cut at Mmax, floor 5.6",2.0,49.29561,,0.92356,1.00261,0.01258,0.0,1.77483,1.78173,True,0.0,0.0,True,,,,5.6,,,-94.59122
+arc,weight 1,"crustal, arc","line cut at Mmax, floor 5.8",2.0,50.51769,,0.97585,1.16482,0.01166,0.0,1.6349,1.75799,True,0.0,0.0,True,,,,5.8,,,-97.03539
+arc,weight 1,"crustal, arc","line cut at Mmax, floor 6.0",2.0,48.18647,,1.0727,1.53846,0.01008,0.0,1.39901,1.71155,True,0.0,0.0,True,,,,6.0,,,-92.37294
+backarc,weight 1,"crustal, backarc",line cut at Mmax (reference),2.0,160.67081,7.75,0.98092,2.13906,0.01956,0.0,2.66232,1.83644,True,0.0,0.0,True,,,,,,,-317.34163
+backarc,weight 1,"crustal, backarc","tapered, corner of run.py",2.0,160.58775,,0.98294,2.13972,0.01984,2e-05,2.58805,1.83582,True,0.0,0.0,True,7.491,,,,,,-317.1755
+backarc,weight 1,"crustal, backarc",open line,2.0,159.13,,0.98092,2.1429,0.0234,0.00244,2.66232,1.83644,True,0.0,0.0,True,,,,,,,-314.25999
+backarc,weight 1,"crustal, backarc","open line, no largest magnitude in the likelihood",2.0,159.38309,,1.03135,2.13431,0.01847,0.00172,3.22836,1.83644,True,0.89291,0.0,True,,,,,,,-314.76619
+backarc,weight 1,"crustal, backarc","Aki–Utsu, Mw ≥ 5.0 from 1976",,,,0.93027,2.2084,0.03045,0.00357,,,,,,,,,,,,,
+backarc,weight 1,"crustal, backarc","Ogata–Katsura, Mw ≥ 3.5 from 1976",,,,1.68292,19.87112,0.00856,0.00018,,,,,,,,8.82651,1.11034,,,,
+backarc,weight 1,"crustal, backarc","Ogata–Katsura, Mw ≥ 4.5 from 1976",,,,1.63581,18.38122,0.00983,0.00023,,,,,,,,9.11654,1.28665,,,,
+backarc,weight 1,"crustal, backarc","least squares, cumulative",,,,1.1017,2.45245,0.01535,0.00121,1.79768,1.83644,True,0.0,0.0,True,,,,,,,
+backarc,weight 1,"crustal, backarc","line cut at Mmax, floor 5.2",2.0,160.53935,,1.00545,2.22519,0.01832,0.0,2.4894,1.82878,True,0.0,0.0,True,,,,5.2,,,-317.07869
+backarc,weight 1,"crustal, backarc","line cut at Mmax, floor 5.4",2.0,158.6694,,1.07769,2.48974,0.01503,0.0,2.03024,1.80544,True,0.0,0.0,True,,,,5.4,,,-313.33881
+backarc,weight 1,"crustal, backarc","line cut at Mmax, floor 5.6",2.0,159.18428,,1.06944,2.43073,0.01521,0.0,2.05532,1.80816,True,0.0,0.0,True,,,,5.6,,,-314.36856
+backarc,weight 1,"crustal, backarc","line cut at Mmax, floor 5.8",2.0,153.79865,,1.13758,2.85465,0.01329,0.0,1.78704,1.7853,True,0.0,0.0,True,,,,5.8,,,-303.59729
+backarc,weight 1,"crustal, backarc","line cut at Mmax, floor 6.0",2.0,45.60242,,1.42005,6.37029,0.00853,0.0,1.12405,1.68234,True,0.0,0.0,True,,,,6.0,,,-87.20484
+patagonia,weight 1,"crustal, Patagonia",line cut at Mmax (reference),1.0,-2.11832,8.05,0.96839,0.63984,0.00677,0.00016,1.01207,1.71219,True,0.0839,0.0,True,,,,,,,6.23665
+patagonia,weight 1,"crustal, Patagonia","tapered, corner of run.py",1.0,-2.28666,,0.96814,0.64018,0.00701,0.00014,1.00545,1.71232,True,0.04445,0.0,True,7.787,,,,,,6.57333
+patagonia,weight 1,"crustal, Patagonia",open line,1.0,-2.44663,,0.96839,0.64048,0.00741,0.0008,1.01207,1.71219,True,0.0839,0.0,True,,,,,,,6.89326
+patagonia,weight 1,"crustal, Patagonia","open line, no largest magnitude in the likelihood",1.0,-2.44522,,0.96839,0.63498,0.00734,0.00079,1.32888,1.71219,True,0.40868,0.0,True,,,,,,,6.89045
+patagonia,weight 1,"crustal, Patagonia","line cut at Mmax, own b",2.0,-1.91544,,0.88146,0.63839,0.00986,0.00027,1.50031,1.75842,True,0.14038,0.0,True,,,,,,,7.83088
+seg1,weight 1,"interface, 45.6–37° S",pooled b (shrinkage),,,,0.9182,2.06686,0.03004,0.00356,5.6137,5.95051,True,1.87354,2.24664,True,,,,,0.9182,0.0,
+seg2,weight 1,"interface, 37–32° S",pooled b (shrinkage),,,,0.9182,6.34088,0.09185,0.01058,17.04916,8.32222,False,5.5742,3.53586,True,,,,,0.9182,0.0,
+seg3,weight 1,"interface, 32–26° S",pooled b (shrinkage),,,,0.9182,5.7767,0.08235,0.00829,14.82634,7.33642,False,4.36992,2.62138,True,,,,,0.9182,0.0,
+seg4,weight 1,"interface, 26–17.6° S",pooled b (shrinkage),,,,0.9182,4.6797,0.06741,0.00743,12.38449,11.61562,True,3.91505,2.88608,True,,,,,0.9182,0.0,
+intraslab_shallow,weight 1,"in-slab, shallow",pooled b (shrinkage),,,,1.16443,4.954,0.02252,0.00088,3.43752,2.97409,True,0.46328,0.40714,True,,,,,1.16443,0.0,
+intraslab_intermediate,weight 1,"in-slab, intermediate depth",pooled b (shrinkage),,,,1.16443,24.25437,0.11027,0.00431,16.82984,24.74037,False,2.26817,0.86608,True,,,,,1.16443,0.0,
+jujuy_nest,weight 1,Jujuy nest,pooled b (shrinkage),,,,1.16443,3.7605,0.01304,0.0,1.58859,2.42448,True,0.0,0.0,True,,,,,1.16443,0.0,
+forearc,weight 1,"crustal, forearc",pooled b (shrinkage),,,,0.9669,1.42562,0.01119,0.0,1.36384,0.98426,True,0.0,0.0,True,,,,,0.9669,0.0,
+arc,weight 1,"crustal, arc",pooled b (shrinkage),,,,0.9669,1.20775,0.01256,0.0,1.76405,1.76212,True,0.0,0.0,True,,,,,0.9669,0.0,
+backarc,weight 1,"crustal, backarc",pooled b (shrinkage),,,,0.9669,2.14212,0.02079,0.0,2.83311,1.84077,True,0.0,0.0,True,,,,,0.9669,0.0,
+patagonia,weight 1,"crustal, Patagonia",pooled b (shrinkage),,,,0.9669,0.63983,0.00682,0.00016,1.01896,1.71301,True,0.08465,0.0,True,,,,,0.9669,0.0,

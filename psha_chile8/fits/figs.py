@@ -30,7 +30,7 @@ SYN = {"Weichert, open line (reference)": "Weichert, open line", "Weichert, line
 
 
 def color(u):
-    return P.CLASS_COLOR[R.UNITS[u]["cls"]]
+    return P.CLASS_COLOR.get(R.UNITS[u]["cls"], "0.35")
 
 
 def save(fig, name):
@@ -55,13 +55,13 @@ def fmd(ax, u, f, r, alt=()):
         y = G.n_ge(g, xx)
         ax.plot(xx[y > 0], y[y > 0], color="0.15", lw=1.0, ls=ls, label=lab)
     ax.plot(c[s], cum[s], "o", ms=3.8, color=color(u), label="observed", zorder=3)
-    for mf, y in R.TABLE:
+    for mf, y in R.table_of(u):
         if mf <= xx[-1]:
             ax.axvline(mf - 0.05, color="0.75", lw=0.6, zorder=0)
             ax.text(mf - 0.02, 0.985, str(y), transform=ax.get_xaxis_transform(), fontsize=7.5, color="0.45", va="top", rotation=90)
     ax.set_yscale("log")
-    fx = " (forearc)" if R.UNITS[u].get("b_from") else f" ± {r.b_sd:.2f}"
-    ax.set_title(f"{R.name(u)}\nb {r.b:.2f}{fx}, N(≥ 5) {r.N5:.3g} per year, corner {r.corner:g}", fontsize=10.5)
+    fx = f" ± {r.b_sd:.2f}" + (" (family)" if R.UNITS[u].get("b_from") else "")
+    ax.set_title(f"{R.name(u)}\nb {r.b:.2f}{fx}, N(≥ 5) {r.N5:.3g} per year, corner {r.corner:.2f}", fontsize=10.5)
     ax.set_ylim(max(1e-4, 0.3 * min(cum[s].min(), lo[-1])), 3 * cum[s].max())
 
 
@@ -126,7 +126,7 @@ def fig_floor(x, s):
     x = x[x["shape"] == "trunc"]
     fig, ax = plt.subplots(2, 6, figsize=(19, 6.6), sharex=True, sharey=True)
     a_ = s[s.events == "all"]
-    for a, u in zip(ax.ravel(), R.ORDER):
+    for a, u in zip(ax.ravel(), [q for q in R.ORDER if q != "patagonia"]):
         r = x[x.unit == u].iloc[0]
         q = a_[(a_.unit == u) & a_.method.str.contains("floor")]
         a.axhspan(r.b - r.b_sd, r.b + r.b_sd, color="0.2", alpha=0.12, lw=0)
@@ -134,7 +134,7 @@ def fig_floor(x, s):
             a.plot(np.r_[5.0, q.floor], np.r_[r.b, q.b], "-o", ms=4, color=color(u))
         else:
             a.plot(5.0, r.b, "o", ms=4, color=color(u))
-            a.text(0.5, 0.1, "b of the forearc", transform=a.transAxes, ha="center", fontsize=9, color="0.4")
+            a.text(0.5, 0.1, "b of the crustal family", transform=a.transAxes, ha="center", fontsize=9, color="0.4")
         a.set_title(R.name(u), fontsize=10)
     ax[0, 0].set_ylim(0.6, 1.6)
     for a in ax[:, 0]:

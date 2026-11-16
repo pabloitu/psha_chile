@@ -30,6 +30,9 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - Automatic table that works (hybrid): instrumental steps from the regional Mc per window (a magnitude is complete from the window after the last one whose Mc is above it); before 1964 the earliest year from which the counts of a 0.5 band stay consistent with the instrumental line held fixed. Result on all events: 5.0 from 1976, 5.2 from 1964, 7.0 from 1905, 7.5 from 1830, 8.0 from 1500. It lands next to the table read by hand (interface b 0.95 against 0.93).
 - The rate rule is one-sided: it objects to too few events, never to too many. It accepts the in-slab record of Mw ≥ 7 back to 1830 because that record has an excess. With few events it cannot see mild incompleteness: steps of Mw ≥ 7 come out up to 40 years early on synthetic catalogues (N(≥ 7) 2–3 % low).
 - The automatic table checked on synthetic margins with a known table (B11, 40 catalogues per case): the instrumental steps come out later than the truth in most catalogues ("5.0 from 1976" found in 0–5 %; one window that reads high by chance moves the step, because the rule takes the largest of two methods over regions and windows), and the historical steps of Mw ≥ 7 30–75 years early (a band of few events that is 40–60 % complete is accepted). The fit on that table has N(≥ 5) within 1 %, b +0.015 to +0.033, N(≥ 7) 6–14 % and N(≥ 8) 9–20 % low. The smaller of the two Mc methods finds "5.2 from 1964" in 83–88 % instead of 23–30 %. On the real catalogue the rule gives the table the regional rows show by eye. Give a sensitivity fit with later historical steps; do not call the rule validated.
+- The completeness table read on all events did not move when the catalogue was revised (A9, 16 Nov: classes of about 100 events and two magnitudes changed, no location): every Mc per window and region identical, also for the five declustered catalogues. Reclassification cannot change a table that is read on all events.
+- Crustal classes against the catalogue-wide table (B11, 16 Nov): the class Mc cannot be measured before 2000 (under 100 events per window; 4.6–4.8 pooled over 1976–2026). In 1964–1975 the forearc and the arc are short at Mw 5.5–5.9 (0.12 and 0.04 per year against 0.64–0.78 and 0.16–0.67 afterwards), so "5.2 from 1964" does not hold for them. The historical steps counted the arc's Mw 7.5–7.9 bins over 197 years on one event (Aysén 1960), and the forearc's Mw 7.0–7.2 bins on 16 fractions of events without depth. The crustal classes are fitted from 1976 only.
+- A completeness table read on crustal events alone gives Mc 5.3 for 1976–1989 (above the catalogue-wide 5.0) and early historical steps (6.5 from 1950, 7.0 from 1860, 7.5 from 1500); b rises (family 1.06, arc 1.11). From a floor of 4.5 the family b is steady (0.97 ± 0.02 on 600 events) but through the small events of the sequence years. Not adopted (16 Nov).
 - Network-history table (4.5 from 2000, 5.0 from 1976, 5.5 from 1964, …) and the change-point table: both raise the interface b to 1.04–1.06 and fail the large-event check (29 fitted against 44 observed at Mw ≥ 7). Not used.
 
 ### b-value and rates
@@ -41,6 +44,8 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - Tapered and cut at Mmax give the same b (within 0.003; nest 0.010) and N(≥ 5); N(≥ 7) within 4 % (nest 9 %); they part above (N(≥ 8): tapered 2–15 % higher on the interface, 37 % for segment 32–26° S, 20 % lower in-slab). A tapered line with its corner at the observed maximum has the moment rate of a line cut at observed + 0.2 (Kagan 2002b, eq. 12). Corner 9.6 changes nothing below Mw 8.5; a free corner gives 9.6 for the interface (lower bound only) and 7.8 for in-slab.
 - Joint fit of b and detection (Ogata and Katsura 1993, one detection curve per network window) fails on the catalogue from 1976: b 1.26–1.71 from Mw 3.5, 0.93–1.62 from Mw 4.5, detection widths of 0.7–1.5 units. Below Mw 5 the catalogue is a mixture of regions and agencies, not one line times one detection curve. It works on synthetic catalogues.
 - The magnitude-error weight leaves N(≥ 5) about 2 % high (3–4 % on 1976–2026 alone), because small events carry the larger σ and the weight is exact only when σ does not depend on size; the bootstrap intervals do not contain that bias (N(≥ 5) interval holds the truth in 81–87 %). It removes 20–30 % of the events of Mw ≥ 7 and 8, nearly all before 1904 (σ 0.5, count 0.55).
+- A crustal class of 70–200 counted events cannot hold its own b: arc 1.04 ± 0.10, backarc 0.93 ± 0.09, forearc 0.93 ± 0.06, Patagonia 1.17 ± 0.32, against a family b of 0.975 ± 0.042 that hardly moves with the table (0.97–1.01). With the family b every class reproduces its events of Mw ≥ 7 since 1905, which are not in the fit (arc 1.7 expected, 1.7 observed); with its own b Patagonia fails. One b for the family, own rates (16 Nov, `fits/FITS.md` section 11).
+- What still sets the crustal rates (16 Nov): the sequences of 2000–2010 are a quarter of the 1976–2026 window with 2–5 times the rate of Mw 5.0–5.4 of the other periods; the forearc is mostly fractions (weight-1 events alone give 40 % of its rate); the arc has no event above Mw 6.5 since 1976, so its tail to Mmax 7.9 is extrapolated.
 - Split events (class weight between 0 and 1) change rates, hardly b: weight-1 events only against all, N(≥ 5) × 0.51 shallow in-slab, × 0.37 forearc, × 0.75 interface (B9).
 - b-positive reads about 0.04 low on a synthetic catalogue thinned by a completeness table, and scatters by 0.1–0.2 on classes with fewer than 100 pairs. Cross-check only.
 - Jujuy nest, backarc and Patagonia show no plateau of b against the floor: one floor, no pooling, rough numbers (Patagonia with the forearc b).
@@ -55,6 +60,12 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - Declustered interface b 0.68–0.73 against 0.89–0.92 full; Bird and Kagan 0.96 ± 0.06 fits the full one. Full catalog overdispersed (Fano 7–17).
 - Declustered fit reproduced the observed M ≥ 8 rate better in the campaign; the full catalog gives lower N(≥ 8.8). Both kept as a 0.5 / 0.5 branch.
 - B9 on the frozen catalogue: Gardner–Knopoff (van Stiphout windows) removes 79 % of the interface and 88 % of the Jujuy nest at Mw ≥ 4.5 and gives an interface b of 0.6–0.77 with no plateau; the nearest-neighbour method (Zaliapin and Ben-Zion) leaves b unchanged. The two give very different catalogues for the in-slab pattern (50 % against 7 % removed).
+
+- Nearest neighbour keeping the first event of a cluster (B9's setting) removes great mainshocks in favour of foreshocks (Valdivia 1960, 1877, 1922, Iquique 2014) and halves the interface N(≥ 8). Keep the largest event of each cluster if the catalogue is used for rates (B12).
+- With the threshold set after 1964, nearest neighbour links great historical earthquakes decades apart (1657 to 1751, 1975 to 1960) (B12).
+- On the full-catalogue table the Gardner–Knopoff interface b has a plateau (0.72–0.76, floors 5.0–6.0); B9's "no plateau" was on the network table from Mw 4.5 (B12).
+- Run on all classes together, both methods remove crustal and in-slab events after interface mainshocks (57–68 % of their crustal removals); run them per family (B12).
+- The two-Gaussian threshold of log10 η takes 5–15 % of the background events of synthetic catalogues as clustered (B12).
 
 ### Spatial pattern (in-slab, crustal)
 - Hiemer-style completeness weighting (window_T): single early events dominated (79 % of Concepción's intra_slab rate from one event) → equal weights.
@@ -75,6 +86,8 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - Separate vs pooled b, class domain cut: ≤ 4 %.
 - Intermediate in-slab events of Mw ≥ 7 are 2.8 times more frequent in 1900–1975 than since 1976 (29 against 7 events; at Mw ≥ 6.5 the two periods agree). Completeness cannot make an excess; most are converted from Centennial mB / Ms. Any table that reaches before 1964 at Mw ≥ 7 fails the large-event check for this class (B9). Left as it is, named in the paper (15 Nov). B11, per band and period inside the table: Mw ≥ 7 in 1905–1963 19.1 observed (by weight) against 7.2 fitted, of them 8.8 against 1.7 at Mw ≥ 7.5; from 1976 6.9 against 6.1. 19 of the 32 old events are Abe mB values of the Centennial catalogue converted with Abe (1982). In 1964–1975 the class is short at Mw 5.0–6.4 (110 against 173 fitted; ISC-GEM proxy values), the opposite sign: the two old magnitude sources do not agree with each other or with the modern record.
 
+- A 95 % depth per place follows the worst depths and the sparse areas (30–124 km below the top); one fraction of the Slab2 thickness (0.475) holds along the margin, across magnitudes and in both depth sets (C14). Old fraction 0.65 → 0.475; old hypocentre fraction 0.30 ≈ the new mean hypocentre.
+
 ### Crustal and faults
 - Fault MFD shapes AL-I/II/III, YC, tapered, hybrid (Gaussian characteristic plus GR tail, r = 0.5): all kept as branches.
 - Multi-fault ruptures (moment-partition cascade, pairs at fault ends within 5 km, f = 0.5): implementation aborted.
@@ -86,6 +99,9 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - Idini et al. (2017) on the interface: removed (needs a soil class).
 - Vs30 380 soil series: the nonlinear site term compressed the in-slab GMM axis three-fold; analysis moved to rock (Vs30 800).
 - GMM choice is the largest epistemic term everywhere (in-slab 27–42 %, interface 18–23 %).
+- On the Bastías et al. (2026) records the global NGA-Sub models predict 0.6–1.3 ln too low at PGA and SA(0.2); their South America versions halve that. Use the regional versions (GM1).
+- Interface event terms of every tree GMM rise with hypocentral depth (about 2 ln per 100 km at PGA); events at 40–60 km are underpredicted, which may be partly the interface / in-slab boundary of the classification (GM1).
+- LLH weights over many GMMs come out nearly flat (0.08–0.11 for the reasonable models); the bootstrap rank shares separate the models more clearly (GM1).
 
 ### Sensitivity and tornado
 - One-at-a-time tornado at PGA 475 yr over 10, then 14 cities; ≥ 5 % rule for branches.
@@ -95,6 +111,7 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 ## Pitfalls
 
 ### Catalog
+- Mc by b-stability or KS reads too low in small samples: subsamples of dense cells give 3.5 at 150–500 events where the full cell gives 4.3–4.8; about 2 000 events are needed. The B9 Mc maps (`mc_all_map_*`, at least 150 events per cell) are biased low in sparse cells. A b-positive rule has no size bias but scatters ±0.3 at 150–300 events and reads low where b rises with the cut (deck 261116, 16 Nov).
 - **Cabello's Mw conversion.** The file holds about 1.03·mb + 0.28 for NEIC mb; the paper prints 1.04·mb − 0.02 (pooled) and 1.03·mb + 0 (GCMT) (C25 p. 8). Mc, Md and m at any size, and every native magnitude outside an equation's range, go in as Mw unchanged (C25 p. 3, p. 10). Avoid: convert from native magnitude and scale only; validate every relation against GCMT on pairs matched by time and distance alone.
 - **ISC mb saturation grows with size:** mb − Mw ≈ −0.19 at Mw 5.5, −0.43 at Mw 6.5 (Lolli et al. 2023). Literature value; recheck on our pairs in A5.
 - **Forward conversion fits against GCMT are biased.** GCMT has few events below Mw 5.2–5.6, so at low native values only the events with a high Mw have pairs; Mw-on-native fits (OLS or chi-square, worst with exponential or quadratic forms) push small events up, heap the catalogue at Mw 4.7–5.0, give b ≈ 1.5 at floor 5.0 and predict 12 % of the observed M ≥ 7 (X1). Regress native on Mw and invert (X2). For Chile mb ≈ Mw and CSN ML ≈ Mw at 4.5–5. Cabello and Candia–Macedo (2026) show the same bias.
@@ -134,10 +151,22 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - **The Kagan angle mixes plane and slip:** 30° can be a plane 30° off or the right plane with the slip 30° off; for the interface the plane must be strict and the slip direction can be loose (X5).
 - **Claims withdrawn** (so they don't come back): "Cabello Mw 0.4 too high at M4–4.5" was a binning artifact.
 
+- The listed depth σ of the frozen catalogue depends on source and depth range; a cut on σ is a cut on depth. Select depth sources, not σ values, when the depth is the quantity (C14).
+- Riedel-Hornig and Potin agree under the flat slab because both use Chilean stations only; both are 20–30 km deeper than ISC-EHB L1 east of the border. Agreement of two local catalogues is no test there (C14).
+
+- Split no-depth events leak great historical events into small classes: shares of 0.06–0.13 of Mw 8+ interface events made most of the forearc's observed crustal Mw ≥ 7 (A9). Before trusting a crustal Mmax or N(≥ 7), list the split events behind it.
+- A literature class reaches `classify.py` only through a hint row in `overrides_A6.csv`; an A3 match to Ruiz and Madariaga alone does not set it (A9).
+- Every reported Mw 7.7 of Aysén 1960 (ISC-GEM, ComCat, Cabello, Ruiz and Madariaga) traces back to one paper, Kanamori and Rivera (2017). Count independent determinations, not catalogues (A9).
+- NOAA NCEI tsunami validity grades whether a tsunami happened, not the earthquake. Validity 3–4 is the usable interface signal for historical events (Candia and Macedo's rule); validity 1–2 entries mostly have no runup record (A9).
+- A converted magnitude depends on the depth: an accepted in-slab depth moved 1939-04-18 from Mw 7.3 to 7.6 (A9). Rerun the magnitude step after depth hints.
+
 ### Fits
 - **Empty bins above the largest event.** A likelihood that keeps them raises the b of a small class by 0.03–0.06 (forearc, arc, backarc, nest) and lowers N(≥ 7) by up to 23 %. Leave the bins above Mmax out (B11).
 - **An open line above Mmax.** Against a tapered or cut line it gives 24–34 % more events at Mw ≥ 7 for the nest and the forearc. Fit and report the shape the source uses (B11).
 - **A cumulative plot carries an excess downward.** The intermediate in-slab points sit above the line from Mw 6.3 to 7.5, but the bins 6.0–6.9 fit (since 1976: 85 observed, 84 fitted); the lift is the excess of Mw ≥ 7 of 1905–1963 added into every point below it. Compare per bin and period before reading a bump (B11).
+- **An Mmax set by a split event** is set by its weakest property. The forearc 7.4 came from 1960-12-02 Mw 7.2 (24.7° S), crustal by one Centennial depth of 14 km with σ 20 km, while ISC-GEM puts it at 35 km on the interface and no source gives a mechanism. Take the largest event among those of certain class (weight 1): forearc 7.0, Pichilemu 2010 (16 Nov).
+- **For a small class the table moves the result more than the estimator.** Over five reasonable tables the forearc N(≥ 5) runs from 3.5 to 5.0 and the arc N(≥ 7) by a factor of two, against a bootstrap interval of about ± 9 % at N(≥ 5). The bootstrap does not contain the table; show its spread next to it (16 Nov).
+- **A fit that keeps the old large events cannot be checked against them.** With the crustal classes fitted from 1976, the events of Mw ≥ 7 of 1905–1975 became an independent test of the line (16 Nov).
 - **Crowded completeness table.** Narrow steps make Weichert swing; slab_deep b 1.72 from such a table. Avoid: space steps by ≥ 0.3–0.5; check against the large events.
 - **Per-epoch stamps read as a lookup** (`completeness_steps` with `drop_duplicates` + `searchsorted`): nonsensical b (forearc 0.86, unclassified 0.40).
 - **Rate anchoring.** a anchored at MC_MIN_FIT when the first complete magnitude is higher inflates the rate. Anchor at the first complete magnitude.

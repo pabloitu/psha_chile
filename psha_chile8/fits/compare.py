@@ -54,25 +54,26 @@ def real(d, te, F):
     for split in (True, False):
         ev = "all" if split else "weight 1"
         ref, tap, free = {}, {}, {}
-        for u in ["forearc"] + [q for q in R.ORDER if q != "forearc"]:
+        for u in sorted(R.ORDER, key=lambda q: "b_from" in R.UNITS[q]):
             ref[u] = F["trunc"][0][u] if split else R.fit(d, u, te, "trunc", done=ref, split=False, nboot=0)
             tap[u] = F["taper"][0][u] if split else R.fit(d, u, te, "taper", done=tap, split=False, nboot=0)
         for u in R.ORDER:
             w, tp, f0 = R.weights(d, u, split), R.top(d, u), ref[u]
             bf = dict(bfix=f0["b"]) if R.UNITS[u].get("b_from") else {}
             kw = dict(sig=sig, bw=f0["b"])
-            yr, Tf = G.table_years(R.TABLE, te)
+            tbl = R.table_of(u)
+            yr, Tf = G.table_years(tbl, te)
             nf = np.bincount(G.kbin(m), f0["w"], minlength=yr.size)[:yr.size]
             add = lambda f, method, **k: rows.append(out(f, unit=u, events=ev, method=method, npar=f.get("npar"),
                                                          lnL=G.loglik(f, nf, Tf) if "npar" in f else np.nan, **k))
             add(f0, "line cut at Mmax (reference)", mmax=f0["mmax"])
             add(tap[u], "tapered, corner of run.py", corner=tap[u]["corner"])
-            add(G.fit(m, t, w, R.TABLE, te, top=tp, **kw, **bf), "open line")
-            add(G.fit(m, t, w, R.TABLE, te, **kw, **bf), "open line, no largest magnitude in the likelihood")
+            add(G.fit(m, t, w, tbl, te, top=tp, **kw, **bf), "open line")
+            add(G.fit(m, t, w, tbl, te, **kw, **bf), "open line, no largest magnitude in the likelihood")
             if u in TAPER:
                 if tap[u]["corner"] != CORNER:
-                    add(G.fit(m, t, w, R.TABLE, te, shape="taper", corner=CORNER, top=tp, **kw), f"tapered, corner {CORNER}", corner=CORNER)
-                g = G.fit(m, t, w, R.TABLE, te, shape="taper_free", top=tp, **kw)
+                    add(G.fit(m, t, w, tbl, te, shape="taper", corner=CORNER, top=tp, **kw), f"tapered, corner {CORNER}", corner=CORNER)
+                g = G.fit(m, t, w, tbl, te, shape="taper_free", top=tp, **kw)
                 add(g, "tapered, corner free", corner=g["corner"])
             if not bf:
                 free[u] = f0 if split else R.fit(d, u, te, "trunc", done=ref, split=False, nboot=300)
@@ -82,7 +83,7 @@ def real(d, te, F):
                     add(g, f"Ogata–Katsura, Mw ≥ {ml} from 1976", mc95=g["mc95"].max(), width=g["s"].max())
                 add(G.least_squares(f0), "least squares, cumulative")
                 for fl in FLOORS[1:]:
-                    add(G.fit(m, t, w, R.TABLE, te, sig=sig, shape="trunc", top=tp, floor=fl), f"line cut at Mmax, floor {fl}", floor=fl)
+                    add(G.fit(m, t, w, tbl, te, sig=sig, shape="trunc", top=tp, floor=fl), f"line cut at Mmax, floor {fl}", floor=fl)
             else:
                 free[u] = R.fit(d, u, te, "trunc", done=ref, split=split, nboot=300, own_b=True)
                 add(free[u], "line cut at Mmax, own b")
@@ -91,7 +92,7 @@ def real(d, te, F):
             us = [u for u in R.ORDER if R.UNITS[u]["family"] == fam]
             mu, tau2, bs = G.shrink([free[u]["b"] for u in us], [np.nanstd(free[u]["bb"]) for u in us])
             for u, b in zip(us, bs):
-                g = G.fit(m, t, R.weights(d, u, split), R.TABLE, te, sig=sig, shape="trunc", top=R.top(d, u), bfix=b)
+                g = G.fit(m, t, R.weights(d, u, split), R.table_of(u), te, sig=sig, shape="trunc", top=R.top(d, u), bfix=b)
                 rows.append(out(g, unit=u, events=ev, method="pooled b (shrinkage)", family_b=mu, tau=np.sqrt(tau2)))
     x = pd.DataFrame(rows)
     x["aic"] = 2 * x.npar - 2 * x.lnL
