@@ -3432,3 +3432,27 @@ Asked by Pablo (the arc b and the Liquiñe–Ofqui faults). Exploration only: no
 - **Suggested commit:** `git add psha_chile8/model/crustal/{rupset,rupset_compare,fagnano_row,pad,multifault,mfsource,build,background,faults,arc,join,nrml,oqcheck,figs_s3,figs_checks}.py psha_chile8/model/crustal/tests/test_crustal.py psha_chile8/model/crustal/{REPORT_S3,S5_HANDOFF}.md psha_chile8/model/crustal/tables/{rupset_compare,mf_A_lofs,mf_A_lofs_splays,mf_B_lofs,mf_Bmm_lofs,mf_fagnano,pad_rows}_2026-11-16e.csv psha_chile8/model/crustal/figs/2026-11-16e psha_chile8/model/crustal/nrml/2026-11-16g/{branches.json,lt_crustal_tree.xml,lt_crustal_reference.xml} psha_chile8/model/crustal/oqcheck/2026-11-16g/job.ini psha_chile8/handoffs/2026-11-16_CR_to_HAZ.md psha_chile8/{CURRENT,DECISIONS,WORKLOG,FIGURES,PLAN}.md` — message: "S3: strict UCERF3 rupture set and SHERIFS for Liquiñe–Ofqui, Fagnano and Mmax-pad rows, crustal OpenQuake files 2026-11-16g (t10/t20, equal weights, 20 tornado rows)". The NRML source files, the `.pkl` caches and the two large tables stay untracked.
 - **Decided by Pablo (16 Nov): the Fagnano split-trace row stays report-only** (REPORT_S3 section 14, `mf_fagnano.png`); no OpenQuake files for it. The open point above is closed.
 - **S3 (16 Nov): summary figure set** `model/crustal/figs/summary/` (14 files, README), copies of the 16e figures in reading order; new `figs_checks.pad_figure` (`check_mmax_pads.png`).
+
+## 2026-11-16 (night) — HAZ: crustal 2026-11-16g in the tornado; final-format figures
+- **Done:** hazard/config.py reads the three family folders from CURRENT.md. Crustal on `model/crustal/nrml/2026-11-16g/` (handoff `handoffs/2026-11-16_CR_to_HAZ.md`): t_cr_ref (calc 614, 71 s), 19 rows, the tree as one job (f_cr_tree, 84 branches, calc 634, 344 s), GMM rows and truncation; calcs 614–642, none failed. Single-fault rows (class Mmax pad single-fault, fault Mmax pad) measured against t_cr_segmented. Reduced tornado, full tornado (all 14 cities, PNG + PDF) and matrix redrawn; trees with the crustal tree. REPORT_S5a section 11; CURRENT.md HAZ line updated.
+- **Decision written to DECISIONS (Hazard runs):** the three tornado figures (reduced, full, matrix total only) (Pablo, 16 Nov, HAZ).
+- **For CR (to read, not a request):** linking the LOFS secondary traces lowers PGA 475 at Puerto Aysén by 48 %; the single-fault fault Mmax pad +0.4 lowers it by 16–22 % in the south (moment balance moves rate to larger events). Background rows move crustal hazard up to 15 % within the family but the total ≤ 1 %.
+- **Open:** in-slab nodal planes from B14 per cell (S2 step) before the final run.
+- **Suggested commit:** `git add psha_chile8/hazard psha_chile8/CURRENT.md psha_chile8/DECISIONS.md psha_chile8/WORKLOG.md` (without `hazard/jobs/*/src`); message `HAZ: crustal 2026-11-16g in the tornado (calcs 614-642); inputs from CURRENT.md; reduced, full and matrix tornado figures`.
+- **HAZ (16 Nov, night, later):** new figures `hazard/curves_city.py` (hazard curves per city and tectonic setting with the tornado envelope; `out/curves/<city>.png`, `all.png`) and `hazard/shares_bar.py` (share of each tectonic setting at the total PGA 475 yr; `out/shares/contribution.png/.pdf/.csv`); styles in `hazard/FIGURE_STYLE_tornado.md`. Add both scripts to the commit.
+
+## 2026-11-16: A3 closed (Claude Code, A3)
+- Handoff `handoffs/2026-11-16_A3_close.md`. CURRENT.md: new Catalogue line for the A3 events and links (`merged/events_` / `links_2026-11-11`). DECISIONS (Catalog): one line, ComCat links through GUC / SJA / LIM and windows from ≥ 100 pairs from 1964 on (Pablo, 16 Nov, A3). No code or output changed; `pytest catalog/tests/test_match.py` 34 pass.
+- Suggested commit: `git add psha_chile8/handoffs/2026-11-16_A3_close.md psha_chile8/CURRENT.md psha_chile8/DECISIONS.md psha_chile8/WORKLOG.md` — message "A3 close: handoff note, CURRENT line for the matched events, A3 link and window decision". (The HAZ lines above in WORKLOG are uncommitted too; they belong to the HAZ commit.)
+
+## 2026-11-16: FITS session closed (Claude Code, B11/B12)
+- Handoff `handoffs/2026-11-16_FITS_close.md` (owned scripts and commands, current outputs, open points, traps, suggested commit).
+- CURRENT.md FITS lines checked: correct, unchanged.
+- DECISIONS.md, Statistics: stale pointers corrected, no rule changed. The 16e fits line now reads "kept (before 16f)"; the declustering factor names the current catalogues `*_2026-11-16e.csv`; declustered fits current = `fits_declustered_2026-11-16f.csv`. All of Pablo's FITS decisions were already in DECISIONS.
+- Commit: see the handoff.
+
+## 2026-11-16: A2b close (Claude Code)
+- Done: handoff note `handoffs/2026-11-16_A2b_close.md`. No new work; everything of A2b is in commit 3bb70b3.
+- Decisions made: none. DECISIONS (A4 location rule, 11 / 13 Nov) supersedes the A2b draft `catalog/PREFERENCES_draft_A4_location.md`; proposed to CAT: delete the draft and update PREFERENCES.md line 24.
+- Open: a newer GCCEL on ScienceBase (check by hand); questions to E. Bergman on the offshore and Valparaíso depths.
+- Suggested commit: `git add psha_chile8/handoffs/2026-11-16_A2b_close.md psha_chile8/WORKLOG.md` with `git commit -m "A2b close: handoff note"`
