@@ -3409,3 +3409,8 @@ Asked by Pablo (the arc b and the Liquiñe–Ofqui faults). Exploration only: no
   - Carry the difference into the tornado as a comparison case, not a logic-tree branch.
   - No catalogue change.
 - **Proposed DECISIONS line** (Crustal, after "Background Mmax"): "Arc Mmax: 7.9 from Aysén 1960 at Mw 7.7; a comparison case with Aysén at its seismic-wave size, Mw 7.2 (Mmax 7.4), shown with the LOFS multi-fault model; not a branch (Pablo, 16 Nov)."
+- **Aysén 1960 epicentre, the ambiguity that remains** (addendum to the A9 LOFS entry; the override to ISC-GEM stands, Pablo 16 Nov):
+  - Only one solution puts the event on the western LOFS branch: Centennial / EHB (45.700° S 73.502° W). Kanamori and Rivera (2017, p. 93) copied it without relocating, so they are not a second source. BCIS and CGS (45.5° S 73.5° W) are also west, but rounded to half a degree.
+  - ISC-GEM (45.748° S 72.919° W) is a relocation with more data and a newer locator (Bondár et al. 2015, p. 2). No source explains why it lands 41 km east for this event.
+  - The ISC solution (5 km from ISC-GEM) comes from the same rebuild of old data, so it is not independent. The independent positions lie between the two: ISS 73.08° W (contemporary) and Pacheco and Sykes 73.00° W.
+  - Both main solutions are top quality and claim errors near 10 km, yet they are 41 km apart, so at least one error is understated. The choice of ISC-GEM is a judgement (more data, partial support from ISS and P&S), not a demonstrated correction. Which LOFS branch slipped in 1960 remains unknown, and it should be stated that way where the event is tied to a fault (S3b, paper).

@@ -145,6 +145,10 @@ Sections 2 to 5 give the numbers of run `2026-11-14c`. The run `2026-11-16` (fro
 - **Arc class** ends where the arc polygon ends (`arc_end()`, 47.24° S), for events and faults. `SOUTH_LAT` (46.15° S) only chooses the trench.
 - **Chile Ridge at the triple junction** (`RIDGE`): between 45.5° S and 46.15° S an event within 75 km east of the trench is outer rise. Of 13 mechanisms there 10 are strike-slip with a plane near N 78° E, 2 normal and 1 oblique; the events west of the trench at the same latitudes have the same mix. 29 events of Mw ≥ 4.5, the largest Mw 5.9; map in `figs/classify/triple_junction.png`.
 
+- **Scotia–Antarctic boundary** (run `2026-11-16b`, `on_scotia()`): an event without a slab whose nearest boundary is SC/AN of PB2002 (Bird 2003), nearer than the AN\SA trench and the Magallanes–Fagnano traces of the fault database, is outer rise; the boundary has no source in the model. The Antarctic rule by position skips events whose mechanism is not a thrust, and 13 strike-slip events of Mw 4.8–6.2 at 56.6–57.9° S had fallen to crustal Patagonia (half of its events of Mw ≥ 5 since 1976). The Magallanes–Fagnano events stay (1949 doublet 21 and 27 km from the traces, over 260 km from SC/AN). Patagonia 54 → 41; nothing else changes.
+
+- **Crustal grid** (run `2026-11-16c`, `GRID`, `in_grid()`): a crustal event outside the crustal grid of the source model keeps its weight and takes the sub-class `outside`, which no fit, pattern or source reads (Pablo, 16 Nov). The backarc fit had counted mostly Argentine events (133.5 → 22.8 by weight at Mw ≥ 5 since 1976), and the pattern folded that rate onto the eastern edge of the grid. 429 events of Mw ≥ 4.5; no weight changes.
+
 Effect against `2026-11-14c`, with the 20 new class hints of A6 (Mw ≥ 4.5): interface +5.1, in-slab −3.6, crustal −30.4 (Patagonia 77 → 54, forearc −8), outer rise +30. Events of Mw ≥ 7 still split: 37 of 164 (62 of 163 before). Literature events by the rules alone: 40 right, 34 without a depth, 9 split, 2 wrong (Copiapó 1918, La Ligua 1971, as before).
 
 ## References

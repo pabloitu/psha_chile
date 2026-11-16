@@ -24,7 +24,7 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 
 # settings
-RUN, CAT = "2026-11-16", "2026-11-16a"
+RUN, CAT = "2026-11-16e", "2026-11-16d"
 SLAB, SLAB_V = REPO / "data" / "slab_2.0", "02.23.18"
 TRENCH = REPO / "data" / "shapefiles" / "sam_nazca_trench.shp"
 TRENCH_AN = REPO / "data" / "shapefiles" / "sam_antarctica_trench.shp"
@@ -57,6 +57,15 @@ AN_WIDTH, AN_Z = 150.0, 60.0
 # Chile Ridge fracture zones at the triple junction: between this latitude and SOUTH_LAT the events within this many
 # km east of the trench are outer rise (strike-slip and normal mechanisms, one cluster with the events west of it)
 RIDGE = (-45.5, 75.0)
+# Scotia–Antarctic boundary: an event without a slab that is nearer to the SC/AN boundary of PB2002 (Bird 2003) than to
+# the AN\SA trench and to the Magallanes–Fagnano traces MF of the fault database is outer rise (the boundary has no
+# source in the model)
+PB = HERE.parent / "data" / "pb2002_antarctic_trench_2026-11-15.geojson"
+FAULTS = HERE.parent / "data" / "faults" / "faults_gem_extra_2026-11-15.shp"
+MF = ("CL-056b", "CL-056c", "CL-056d", "AR-0056a", "AR-0056b", "AR-0056d", "AR-0056g")
+# crustal grid of the source model (cell centres, 0.1°): a crustal event outside it keeps its weight and takes the
+# sub-class "outside", which no fit, pattern or source reads
+GRID = HERE.parent / "data" / "crustal_grid_01_2026-11-15.csv"
 # no measured depth: in-slab where the slab top is below IF_TOP and every rejected depth is DEEP_REJ or more;
 # otherwise the shares of the classified events (Mw >= SHARE_MMIN, from SHARE_FROM, in the domain) of the same bin
 DEEP_REJ = 70.0
@@ -134,6 +143,34 @@ def trench_side(lon, lat, f):
     west = np.asarray(lon, float) < np.interp(np.asarray(lat, float), c[o, 1], c[o, 0])
     tl = shapely.ops.transform(lambda a, b: utm(np.asarray(a), np.asarray(b)), g)
     return shapely.distance(shapely.points(*utm(np.asarray(lon, float), np.asarray(lat, float))), tl) / 1e3, west
+
+
+@lru_cache(None)
+def scotia_lines():
+    """SC/AN and AN\\SA of PB2002 and the Magallanes–Fagnano traces, in UTM."""
+    import json
+    import cartopy.io.shapereader as shp
+    import shapely
+    import shapely.ops
+    pb = {f["properties"]["Name"]: shapely.geometry.shape(f["geometry"]) for f in json.load(open(PB))["features"]}
+    mf = shapely.union_all([r.geometry for r in shp.Reader(str(FAULTS)).records() if r.attributes["fid"] in MF])
+    return [shapely.ops.transform(lambda a, b: utm(np.asarray(a), np.asarray(b)), q) for q in (pb["SC/AN"], pb["AN\\SA"], mf)]
+
+
+def on_scotia(lon, lat):
+    """True where the SC/AN boundary is the nearest of the three lines of scotia_lines()."""
+    import shapely
+    p = shapely.points(*utm(np.asarray(lon, float), np.asarray(lat, float)))
+    d = [shapely.distance(p, q) for q in scotia_lines()]
+    return (d[0] < d[1]) & (d[0] < d[2])
+
+
+def in_grid(lon, lat, f=GRID):
+    """True where the point falls in a cell of the crustal grid (cell centres, half-width 0.05°)."""
+    g = pd.read_csv(f)
+    cells = set(zip(np.round(g.lon * 10).astype(int), np.round(g.lat * 10).astype(int)))
+    q = zip(np.round(np.asarray(lon, float) * 10).astype(int), np.round(np.asarray(lat, float) * 10).astype(int))
+    return np.array([k in cells for k in q], bool)
 
 
 def arc_end(f=ARC):
@@ -260,6 +297,8 @@ def geometry(c, rej=None):
     rev = mech & (c[["rake1", "rake2"]].ge(RAKE[0]) & c[["rake1", "rake2"]].le(RAKE[1])).any(axis=1).to_numpy()
     g["mech_kind"] = np.where(thr, "thrust", np.where(mech, "other", "none"))
     g["an"] = south & ~g.sea & (dan <= AN_WIDTH) & ~(g.z > AN_Z).to_numpy() & ~(mech & ~rev)
+    k = (g.top.isna() & ~g.an & ~g.sea).to_numpy()
+    g.loc[k, "sea"] = on_scotia(c.lon[k], c.lat[k])
     g["hint"] = c.a6_class_hint if "a6_class_hint" in c else None
     rej = rejected(c.event_id[~known]) if rej is None else rej
     g["zrej"], g["nrej"] = c.event_id.map(rej["min"]).to_numpy(), c.event_id.map(rej["count"]).fillna(0).to_numpy()
@@ -426,7 +465,7 @@ def subs(g, out):
     nest = g.known & (r <= NEST["radius_deg"]) & (g.z >= NEST["depth"][0]) & (g.z <= NEST["depth"][1])
     si = np.where(g.south, "antarctic_interface", "interface")
     ss = np.where(nest, "jujuy_nest", np.where(g.top <= IF_TOP, "intraslab_shallow", "intraslab_intermediate"))
-    sc = np.where(g.pat, "patagonia", g.zone)
+    sc = np.where(in_grid(g.lon, g.lat), np.where(g.pat, "patagonia", g.zone), "outside")
     return pd.DataFrame({"sub_interface": np.where(out.w_interface > 0, si, ""), "sub_inslab": np.where(out.w_inslab > 0, ss, ""),
                          "sub_crustal": np.where(out.w_crustal > 0, sc, "")}, index=g.index)
 

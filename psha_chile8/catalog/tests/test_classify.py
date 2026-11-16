@@ -248,3 +248,23 @@ def test_ridge_events_east_of_the_trench_are_outer_rise():
                       "strike2": np.nan, "dip2": np.nan, "rake2": np.nan})
     g = C.geometry(c, pd.DataFrame({"min": [], "count": []}))
     assert g.sea.tolist() == [True, False, False]
+
+
+def test_scotia_antarctic_boundary_events_are_outer_rise():
+    # strike-slip on the boundary south of Cape Horn; on the Magallanes–Fagnano fault; a thrust on the boundary
+    c = pd.DataFrame({"event_id": ["a", "b", "c"], "time": ["2000-01-01T00:00:00.000"] * 3, "lon": [-66.0, -69.3, -66.2],
+                      "lat": [-57.6, -54.3, -57.6], "mw": 5.5, "depth": 12.0, "depth_sigma": 5.0, "depth_kind": "measured",
+                      "depth_src": "isc", "offshore": True, "in_domain": True, "strike1": [90.0, np.nan, 20.0],
+                      "dip1": [85.0, np.nan, 30.0], "rake1": [5.0, np.nan, 90.0], "strike2": [0.0, np.nan, 200.0],
+                      "dip2": [85.0, np.nan, 60.0], "rake2": [175.0, np.nan, 90.0]})
+    g = C.geometry(c, pd.DataFrame({"min": [], "count": []}))
+    assert g.sea.tolist() == [True, False, False] and g.an.tolist() == [False, False, True]
+    o = C.classify(g)[0]
+    assert o.cls.tolist() == ["outer rise", "crustal", "interface"]
+
+
+def test_crustal_event_outside_the_grid_keeps_its_weight():
+    g = frame(z=[10.0, 10.0], top=[np.nan, np.nan], lon=[-68.4, -67.8], lat=[-30.5, -31.08], zone=["backarc", "backarc"])
+    o = C.classify(g)[0]
+    assert o.w_crustal.tolist() == [1.0, 1.0]
+    assert C.subs(g, o).sub_crustal.tolist() == ["backarc", "outside"]

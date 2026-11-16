@@ -22,9 +22,9 @@ import pandas as pd
 from match import SRC, OUT, FROZEN, DATES, tsec, year
 
 # settings
-RUN = "2026-11-16a"
+RUN = "2026-11-16d"
 A3 = "2026-11-11"
-LOC = "2026-11-16a"
+LOC = "2026-11-16d"
 SEED = 1
 SRCS = ["gcmt", "isc", "csn", "comcat", "iscgem", "centennial", "cabello"]
 CODA, CODA_AG, CODA_BEFORE = ["md", "mc", "c"], ["GUC", "CSN", "guc", "GUC;NEIC"], 1990
