@@ -1,0 +1,7 @@
+column,domain_sum,outside,cells
+p_shallow_gk,1.0,0.0,4901
+p_intermediate_gk,0.9999999999999998,0.0,8946
+p_nest_gk,1.0,0.0,190
+p_shallow_nn,1.0000000000000002,0.0,4901
+p_intermediate_nn,1.0,0.0,8946
+p_nest_nn,1.0,0.0,190

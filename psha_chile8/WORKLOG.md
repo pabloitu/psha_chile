@@ -2115,3 +2115,247 @@ Read again before the run: DECISIONS (no change that touches the classes). Pablo
   - `git add psha_chile8/catalog/merged/MANIFEST.csv psha_chile8/catalog/merged/*_2026-11-16a.* psha_chile8/catalog/merged/*_2026-11-16.csv psha_chile8/catalog/merged/review/*_2026-11-16a.csv psha_chile8/catalog/merged/review/*_2026-11-16.csv psha_chile8/catalog/frozen/2026-11-16`
   - `git add psha_chile8/DATA.md psha_chile8/WORKLOG.md`
   - `git commit -m "A9: catalogue run 2026-11-16, frozen. No crustal share for no-depth events before 1900 in the forearc, arc class to the end of the polygon, Chile Ridge events at the triple junction to outer rise; A6 hints and depths applied"`
+
+## 2026-11-16: A9 phase 2, fits rerun on the catalogue of 16 Nov (Claude Code, B11/B12)
+
+Read again before starting and before finishing: `CLAUDE.md`, DECISIONS (A9 lines in Catalog, Classification, Superseded; unchanged while this ran), `tasks/A9_catalog_revision.md`. Asked by Pablo: the completeness table and the fits of `fits/run.py` only.
+
+- **Run.** `fits/gr.py`: `CAT` → `catalog/frozen/2026-11-16/catalog_2026-11-16.csv` (checksum of the frozen file verified). `fits/run.py`: `DATE = "2026-11-16"`, nothing else. New files `fits/tables/table_2026-11-16.csv`, `mc_windows_2026-11-16.csv`, `fits_2026-11-16.csv`, `fits_sensitivity_2026-11-16.csv`; no older table touched. The figures have fixed names, so the 15b ones were first copied to `fits/figs/2026-11-15b/` and `fits/figs/*.png` (classes, interface segments, large-event check, b against floor, methods) are now of this run. 31 tests pass on the new catalogue. `fits/FITS.md` section 8.
+
+Tapered fits (the cut-line fits move by the same amounts; both in the table). Mmax and corner are the same in both runs except where an arrow is given. Bold: outside the Poisson band in both runs.
+
+| unit | Mmax | corner | b, 15b → 16 (sd) | N(≥ 5) | N(≥ 6) | N(≥ 7) | Mw ≥ 7 fitted / observed, 15b → 16 |
+|---|---|---|---|---|---|---|---|
+| interface | 9.7 | 9.48 | 0.963 → 0.959 (0.018) | 25.20 → 25.22 | 2.745 → 2.772 (+1.0 %) | 0.299 → 0.305 (+1.9 %) | 54.5 / 49.7 → 55.7 / 51.6 |
+| interface, 45.6–37° S | 9.7 | 9.47 | 0.915 → 0.909 (0.049) | 2.94 → 2.95 | 0.358 → 0.364 (+1.8 %) | 0.0435 → 0.0449 (+3.4 %) | 8.2 / 9.4 → 8.5 / 9.9 |
+| interface, 37–32° S | 9.3 | 9.10 → 9.09 | 0.997 → 0.993 (0.033) | 8.48 → 8.49 | 0.854 → 0.862 (+1.0 %) | 0.0859 → 0.0875 (+1.8 %) | 15.3 / 12.1 → 15.6 / 12.6 |
+| interface, 32–26° S | 8.7 | 8.48 | 0.941 → 0.939 (0.030) | 7.40 → 7.40 | 0.847 → 0.851 (+0.5 %) | 0.0965 → 0.0974 (+0.9 %) | **17.2 / 9.6 → 17.4 / 9.9** |
+| interface, 26–17.6° S | 9.0 | 8.79 → 8.78 | 0.965 → 0.962 (0.039) | 5.71 → 5.72 | 0.620 → 0.623 (+0.6 %) | 0.0671 → 0.0679 (+1.1 %) | 12.1 / 15.1 → 12.2 / 15.3 |
+| in-slab, shallow | 8.2 | 8.04 | 1.151 → 1.144 (0.039) | 9.24 → 9.22 | 0.652 → 0.662 (+1.4 %) | 0.0451 → 0.0465 (+3.1 %) | 6.7 / 7.5 → 6.9 / 8.3 |
+| in-slab, intermediate depth | 8.2 | 8.04 | 1.154 → 1.157 (0.026) | 25.31 → 25.28 | 1.776 → 1.762 (−0.8 %) | 0.1219 → 0.1201 (−1.5 %) | **18.2 / 29.4 → 17.9 / 28.5** |
+| Jujuy nest | 7.4 | 7.26 | 1.229 → 1.229 (0.090) | 3.74 → 3.74 | 0.219 → 0.219 | 0.0093 → 0.0093 | 1.1 / 2.4 → 1.1 / 2.4 |
+| crustal, forearc | 7.4 | 7.19 | 0.982 → 0.984 (0.055) | 3.54 → 3.53 | 0.365 → 0.361 (−1.0 %) | 0.0250 → 0.0246 (−1.6 %) | 2.9 / 3.6 → 2.9 / 3.4 |
+| crustal, arc | 7.9 | 7.70 | 1.002 → 1.023 (0.103) | 1.308 → 1.299 | 0.130 → 0.123 (−5.5 %) | 0.0120 → 0.0108 (−9.9 %) | 1.6 / 2.2 → 1.5 / 1.7 |
+| crustal, backarc | 7.7 | 7.49 | 0.988 → 0.979 (0.069) | 2.30 → 2.31 | 0.235 → 0.241 (+2.5 %) | 0.0209 → 0.0218 (+4.6 %) | 2.7 / 2.1 → 2.8 / 2.4 |
+| crustal, Patagonia | 8.0 | 7.79 | 0.982 → 0.984, forearc | 0.640 → 0.430 (−33 %) | 0.0667 → 0.0445 (−33 %) | 0.0066 → 0.0044 (−33 %) | 0.9 / 1.7 → 0.6 / 1.7 |
+
+- **Completeness table:** unchanged (5.0 from 1976, 5.2 from 1964, 7.0 from 1905, 7.5 from 1830, 8.0 from 1500). The Mc of every window and region is identical to the 15b run: completeness is read on all events, and the revision changed two magnitudes and no location.
+- **What changed in the catalogue, as the fits see it:** 57 853 events of Mw ≥ 3.5 in the domain in both; two magnitudes (1939-04-18 7.3 → 7.6, 1942-07-08 6.9 → 7.1); class weights of 38–40 events each in the interface, shallow in-slab and forearc, 6 in intermediate in-slab, 3 in the arc, 1 in the backarc, 13 in Patagonia.
+- **Patagonia:** 13 events (weight 13.0, all below Mw 6) became outer rise (Chile Ridge events at the triple junction): 41 → 28 events, rates −33 %. Mmax and corner unchanged (1949).
+- **Arc:** three split no-depth events left (1919-03-02 Mw 7.2 to outer rise; 1926-04-28 Mw 7.3 and 1929-10-19 Mw 7.8 to in-slab; 0.53 of weight, all at Mw ≥ 7): b +0.021 (a fifth of its sd), N(≥ 6) −5.5 %, N(≥ 7) −10 %, observed Mw ≥ 7 2.2 → 1.7. Mmax still 7.9 (Aysén 1960 at 7.7). Moving the arc boundary to 47.24° S brought no event of Mw ≥ 5 into the table.
+- **Forearc:** −1.5 of weight at Mw ≥ 7 (no crustal share before 1900): rates −1 to −2 %, observed Mw ≥ 7 3.6 → 3.4.
+- **Interface:** +3.0 of weight at Mw ≥ 7: b −0.004, N(≥ 7) +1.9 %, branches a −0.02 and b −0.004 to −0.005.
+- **In-slab:** shallow b −0.007, N(≥ 7) +3 %; intermediate N(≥ 7) −1.5 %, observed Mw ≥ 7 29.4 → 28.5.
+- **Large-event check:** the same two failures (intermediate in-slab, segment 32–26° S), nothing new.
+- **Over the thresholds of the A9 brief** (0.02 in b, 5 % in N(≥ 6), 0.1 in Mmax): the arc (b by 0.021, N(≥ 6) by 5.5 %) and Patagonia (33 %). Nothing in the interface or in-slab units, and no Mmax or corner moved.
+- **Not done here:** `fits/run_declustered.py` and the declustered catalogues (`fits_declustered_2026-11-16.csv`, step 3 of the brief) were not asked for in this request and are still of 15 Nov on the old catalogue. `gr.CAT` now points at the new catalogue, so anything in `fits/` run from now on reads it; `sigma.py` and `compare.py` (synthetic part) were not rerun. A9 is not ticked in PLAN for that reason.
+- **Downstream:** S3 (arc and Patagonia background) is over the thresholds and needs the new rates. S1 and S2 are under them (largest: segment 45.6–37° S N(≥ 6) +1.8 %, b −0.006; shallow in-slab b −0.007); they read `fits_2026-11-15b.csv` and change only if rebuilt for consistency. B14: only through the arc and Patagonia rates.
+- **Proposed lines for DECISIONS** (Pablo adds):
+  - Statistics: "Fits on the catalogue of 16 Nov: `fits/tables/fits_2026-11-16.csv` replaces `fits_2026-11-15b.csv` (kept); same table, methods, Mmax and corner. The completeness table did not change (A9, 16 Nov)."
+  - Superseded: "Fits `fits_2026-11-15b.csv` on catalogue 2026-11-14c → `fits_2026-11-16.csv` on catalogue 2026-11-16 (arc b 1.00 → 1.02, Patagonia N(≥ 5) 0.64 → 0.43; other units within 2 % at N(≥ 6))."
+- **Proposed line for LEARNINGS** (Completeness): "The completeness table read on all events did not move when classes and two magnitudes were revised (A9): reclassification cannot change it."
+- **Commands** (from `psha_chile8/fits/`): `python run.py` (95 s). Still to run for A9 step 3: `python run_declustered.py` with a new date, after the declustered catalogues are rebuilt on the new catalogue.
+- **Suggested commit:** `git add psha_chile8/fits/gr.py psha_chile8/fits/run.py psha_chile8/fits/FITS.md psha_chile8/fits/figs psha_chile8/fits/tables/table_2026-11-16.csv psha_chile8/fits/tables/mc_windows_2026-11-16.csv psha_chile8/fits/tables/fits_2026-11-16.csv psha_chile8/fits/tables/fits_sensitivity_2026-11-16.csv psha_chile8/DATA.md psha_chile8/WORKLOG.md`; message `A9: fits rerun on the catalogue of 2026-11-16 (completeness table unchanged; arc and Patagonia rates move)`.
+
+
+## 2026-11-16 — C14 rerun on the A9 catalogue (run 2026-11-16)
+
+- **Done:** in-slab depth model rerun with the settings of `2026-11-15e` (zone to 0.475 of the Slab2 thickness, three slices, kernel weights, Jujuy nest removed first) on `catalog/frozen/2026-11-16/catalog_2026-11-16.csv`. `depth.CAT` now points at it; `run.py`: `RUN = "2026-11-16"`, a per-cell comparison against `PREV` (`depth_cells_2026-11-15e.csv`), figures written to `figs/2026-11-16/` so the 2026-11-15e figures stay. Old tables untouched. Tests: 19 passed (cell-table test now reads the newest table).
+- **What moved against 2026-11-15e:** nothing. `depth_events_` and `depth_cells_2026-11-16.csv` are byte-identical to `_2026-11-15e`: in 13 847 cells weights, hypocentres (h1–h3, one layer), lower depth and double-zone index change by 0.000 (`compare_2026-11-15e_2026-11-16.csv`). Fraction 0.4746 in both; held-out log-likelihoods identical (kernel −0.794, 50 nearest −0.784, equal −1.099); figures identical.
+- **Why:** the A9 changes touch no-depth events, pre-1990 events and the triple junction. Two in-slab events with measured depths after 1990 left the class (cl20030620042327 Mw 5.3 and cl20141113163527 Mw 4.1, 45.6–45.7° S, 76.0° W, now outer rise under the Chile Ridge rule); their depths came from CSN-ISC and ComCat, which the model already drops. Only the all-depths sensitivity case sees them: 107 480 → 107 478 events, fraction 0.6152 → 0.6151. Riedel-Hornig selection unchanged (40 654 events; the A7 depth rule did not change).
+- **DECISIONS.md** re-read at the start and end: the A9 lines (Catalog, Classification, Superseded) do not touch the depth rules; choices of C14 hold.
+- **Proposed lines** (Pablo adds):
+  - Depths: "In-slab depth model run `2026-11-16` on the catalogue of 16 Nov replaces `2026-11-15e` (kept); identical cells (C14, 16 Nov)."
+  - Superseded: "In-slab depth cells `2026-11-15e` on catalogue 2026-11-14c → `2026-11-16` on catalogue 2026-11-16 (no change)."
+- **Commands:** from `psha_chile8/model/inslab/`: `python run.py` (9 min).
+- **Suggested commit:** `git add psha_chile8/model/inslab/depth.py psha_chile8/model/inslab/run.py psha_chile8/model/inslab/tests/test_depth.py psha_chile8/model/inslab/figs/2026-11-16 psha_chile8/model/inslab/tables/*_2026-11-16.csv psha_chile8/DATA.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`; message `C14: in-slab depth model rerun on the catalogue of 2026-11-16 (run 2026-11-16, cells unchanged)`.
+
+## 2026-11-16: A9 phase 2, declustered catalogues and fits rerun on the catalogue of 16 Nov (Claude Code, B11/B12)
+
+Asked by Pablo after the full-catalogue rerun (entry above). DECISIONS read again before and after: no change that touches this.
+
+- **Run.** `fits/decluster.py` and `fits/run_declustered.py`: `DATE = "2026-11-16"`, nothing else (`gr.CAT` already on the new catalogue). No file of 15 Nov touched; the three `figs/declustered_*.png` of 15 Nov copied to `fits/figs/2026-11-15/` before regenerating. 31 tests pass. `fits/DECLUSTER.md` section 6.
+- **Declustered catalogues** `catalog/declustered/{gk,gk_family,nn,nn_depth,nn_family}_2026-11-16.csv` and the `_m35_` files: same settings. Mainshocks kept at Mw ≥ 4.5 (of 14 279): Gardner–Knopoff 5 171 (unchanged), per family 6 006 (6 013 before), nearest neighbour 10 068 (unchanged), with depth 9 934 (9 939), per family 10 923 (10 926). Thresholds of log10 η: −5.52, −5.31, −5.75 (−5.52, −5.32, −5.75 before). Only the per-family methods and the depth variant can change: the revision moved classes and no location; the depth variant differs by 5 events through the threshold.
+- **Completeness tables of the declustered catalogues:** unchanged for all five methods (Gardner–Knopoff: 5.0 from 1976, 5.1 from 1964, 6.0 from 1950, 6.5 from 1890, 7.0 from 1825, 8.0 from 1500; nearest neighbour: the same with 6.5 from 1900 and 7.0 from 1830).
+- **Fits** `fits/tables/fits_declustered_2026-11-16.csv` (352 rows, same layout), with `declustered_tables_`, `declustered_removed_`, `declustered_compare_` and `declustered_floor_2026-11-16.csv`. Mmax of every unit unchanged; corners within 0.01.
+- **What moved against `fits_declustered_2026-11-15.csv`** (tapered, the two options of the declustering factor, table of the full catalogue, own b):
+
+| unit | Gardner–Knopoff per family: b | N(≥ 6) | N(≥ 7) | nearest neighbour per family: b | N(≥ 6) | N(≥ 7) |
+|---|---|---|---|---|---|---|
+| interface | 0.766 → 0.758 | +1.8 % | +3.6 % | 0.899 → 0.893 | +1.5 % | +3.0 % |
+| interface, 45.6–37° S | 0.836 → 0.823 | +3.7 % | +6.9 % | 0.888 → 0.875 | +3.6 % | +6.8 % |
+| interface, 37–32° S | 0.660 → 0.653 | +1.9 % | +3.5 % | 0.895 → 0.890 | +1.5 % | +2.9 % |
+| interface, 32–26° S | 0.762 → 0.758 | +1.1 % | +2.0 % | 0.887 → 0.884 | +0.8 % | +1.5 % |
+| interface, 26–17.6° S | 0.845 → 0.841 | +1.0 % | +1.8 % | 0.941 → 0.938 | +0.8 % | +1.5 % |
+| in-slab, shallow | 0.984 → 0.975 | +1.4 % | +3.3 % | 1.120 → 1.111 | +1.8 % | +3.9 % |
+| in-slab, intermediate depth | 1.000 → 1.004 | −1.0 % | −1.8 % | 1.146 → 1.149 | −0.8 % | −1.5 % |
+| Jujuy nest | 0.767 → 0.767 | 0 | 0 | 1.223 → 1.223 | 0 | 0 |
+| crustal, forearc | 0.853 → 0.856 | −1.3 % | −1.9 % | 0.958 → 0.962 | −1.4 % | −2.1 % |
+| crustal, arc | 0.909 → 0.936 | −6.8 % | −12.1 % | 0.951 → 0.974 | −6.1 % | −10.9 % |
+| crustal, backarc | 1.020 → 1.004 | +4.4 % | +8.1 % | 1.064 → 1.050 | +3.9 % | +7.2 % |
+| crustal, Patagonia | forearc b | −37 % | −38 % | forearc b | −33 % | −34 % |
+
+- The moves follow the full catalogue: Patagonia loses a third (the triple-junction events), the arc loses its three split events of Mw ≥ 7, the interface gains at the top. With the declustered tables the backarc is also over 5 % at N(≥ 6) (+5.4 to +5.8 %, b −0.02).
+- **Large-event check:** no unit changes its result in any method, table or shape (intermediate in-slab still fails with the nearest-neighbour catalogues and passes with Gardner–Knopoff).
+- **Over the thresholds of the A9 brief** (0.02 in b, 5 % in N(≥ 6), 0.1 in Mmax), for the two options: the arc and Patagonia in every case, the backarc on the declustered tables. No interface or in-slab unit, no Mmax.
+- **Downstream:** S3 (arc, Patagonia; backarc if it uses the declustered table) needs the new rates and the new mainshock flags for its pattern. S1 (declustered interface branch) and S2 are under the thresholds; their patterns change only through 7 (Gardner–Knopoff per family) or 3 (nearest neighbour per family) events of 14 279. Anything that reads `catalog/declustered/*_2026-11-15.csv` or `fits_declustered_2026-11-15.csv` by name still gets the old catalogue.
+- **PLAN:** the A9 line now says the B11 and B12 reruns are done; A9 itself is not ticked (C14, B14, S1–S3 belong to other sessions).
+- **Proposed lines for DECISIONS** (Pablo adds):
+  - Statistics: "Declustered catalogues and fits on the catalogue of 16 Nov: `catalog/declustered/*_2026-11-16.csv`, `fits/tables/fits_declustered_2026-11-16.csv` replace those of 2026-11-15 (kept); settings and completeness tables unchanged (A9, 16 Nov)."
+  - Superseded: "Declustered fits `fits_declustered_2026-11-15.csv` on catalogue 2026-11-14c → `fits_declustered_2026-11-16.csv` (arc N(≥ 6) −6 to −7 %, Patagonia −33 to −37 %, others within 5 % for the two options)."
+- **Commands** (from `psha_chile8/fits/`): `OMP_NUM_THREADS=1 python decluster.py` (3 min), then `OMP_NUM_THREADS=1 python run_declustered.py` (3 min).
+- **Suggested commit:** add to the commit of the entry above `psha_chile8/fits/decluster.py psha_chile8/fits/run_declustered.py psha_chile8/fits/DECLUSTER.md psha_chile8/fits/tables/*declustered*_2026-11-16.csv psha_chile8/catalog/declustered/*_2026-11-16.csv psha_chile8/PLAN.md`; message `A9: fits and declustered catalogues rerun on the catalogue of 2026-11-16`.
+
+
+## 2026-11-16 — C15 brief written
+
+- `tasks/C15_inslab_depth_options.md`: one-layer hypocentre, w1 check, lower-depth options (0.475 reference; 0.65, 0.615), rupture geometry options, job files for the tornado, south of 36° S.
+- **Found:** the one-layer hypocentre of C14 (`h_one`, the median of the zone per cell, used by S2) jumps by about 10 km at the 50 km contour of the slab top: 20–23 km below the top over the shallow slab, 11 km at 50–70 km. Cause: the ± 15 km interface band of A7 removes the shallow in-slab events near the top. The median of d / thickness over all the events is 0.248 (0.252 with the events outside the zone), close to the zone middle (0.2375). Proposed in the brief: h_one = top + 0.25 × thickness, one rule. The top-slice weight w1 shows the same cut (0.2–0.3 against 0.5).
+- Suggested commit: `git add psha_chile8/tasks/C15_inslab_depth_options.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`; message `C15 brief: in-slab depth options (one-layer rule, lower depth, rupture geometry)`.
+
+## 2026-11-16: B14 rerun on the A9 catalogue (Claude Code)
+- **Done.** `model/mechanisms/npd.py` reads `catalog/frozen/2026-11-16/catalog_2026-11-16.csv` and `fits/tables/table_2026-11-16.csv` (settings `DATE`, `CAT`, `TABLE`, `PREV` at the top; `CAT` is now explicit instead of the default of `fits/gr.py`). New: `npd_2026-11-16.csv`, `tables/{counts,shares,moved}_2026-11-16.csv`, `figs/ternary.png` (copies `ternary_2026-11-16.png`, and `ternary_2026-11-15.png` for the earlier run). `REPORT_B14.md` rewritten for 2026-11-16 with a section "What moved against 2026-11-15" (type weights and Kagan angle per class and type; `kagan()` added, with a test). Tests: 3 pass. The 2026-11-15 files are kept.
+- **What moved.** Only the A9 change of the Chile Ridge events to outer rise acts: 10 mechanisms inside completeness left (8 Patagonia strike-slip, 1 shallow in-slab normal, 1 forearc / shallow split strike-slip). Patagonia 26 → 18 weighted: N / R / SS 0 / 0.16 / 0.84 → 0.06 / 0.22 / 0.72; strike-slip mechanism 55/75/−175 → 115/75/0 (37°, now the Magallanes–Fagnano strike); the normal type is one event (2003-09-12, Mw 5.5, 1 of 18 = 5.6 %, a vertical plane with rake −90). Forearc strike-slip (weight 0.08, 71 % oblique) moved 72° on the loss of one split event: unstable, small weight. Shallow in-slab: two planes cross a 5° rounding step. Intermediate in-slab, Jujuy nest, arc, backarc: identical.
+- **Open for Pablo:** whether a type resting on one event (Patagonia normal) should pass; a minimum count per type (e.g. at least a few weighted events, besides 5 %) would drop it, but that is a new rule, not made here.
+- **Proposed DECISIONS lines (not edited):** In-slab and Crustal and faults, the B14 line to read `npd_2026-11-16.csv` instead of `npd_2026-11-15.csv`; Superseded: "Nodal planes `npd_2026-11-15.csv` (catalogue 2026-11-14c) → `npd_2026-11-16.csv` (A9, 16 Nov); moved: Patagonia (Chile Ridge events out), forearc strike-slip plane; other classes identical." DECISIONS re-read: the A9 lines (Classification, Superseded) are what this run follows; nothing else changed that touches B14.
+- **Suggested commit:** `git add psha_chile8/model/mechanisms psha_chile8/DATA.md psha_chile8/FIGURES.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`; message `B14 rerun on the A9 catalogue: npd_2026-11-16.csv, moves against 2026-11-15 (Patagonia without the Chile Ridge events, forearc strike-slip plane), Kagan angle table`
+
+## 2026-11-16: B14, Patagonia from the forearc (Claude Code)
+- **Decided (Pablo):** Patagonia takes the nodal-plane distribution of the forearc, as it takes the forearc b. `npd.py`: `BORROW = {"patagonia": "forearc"}` next to the class settings. `npd_2026-11-16.csv` and `tables/moved_2026-11-16.csv` rewritten (Patagonia rows = the six forearc rows; every other class unchanged); counts and shares unchanged (Patagonia's own shares still reported). `REPORT_B14.md` updated. Tests: 3 pass.
+- **Effect:** Patagonia N / R / SS 0.29 / 0.63 / 0.08 (forearc) instead of its own 0.06 / 0.22 / 0.72; against 15 Nov (0 / 0.16 / 0.84) strike-slip falls from 0.84 to 0.08, so the GMM style-of-faulting term of Patagonia moves from strike-slip to mainly reverse. The one-event normal type of Patagonia is gone with it.
+- **Proposed DECISIONS line (Crustal and faults, replaces the B14 line):** "Nodal planes per class from the catalogue mechanisms (B14, `npd_2026-11-16.csv`); Patagonia takes the forearc distribution (Pablo, 16 Nov); used from S5; not a tornado factor." In-slab line as proposed in the previous entry.
+- **Suggested commit:** as the previous entry; message `B14 rerun on the A9 catalogue: npd_2026-11-16.csv, Patagonia takes the forearc distribution, moves against 2026-11-15`
+
+## 2026-11-16: S1 rerun on the A9 fits (Claude Code)
+- **Read again:** CLAUDE.md, DECISIONS (A9 lines in Catalog, Classification, Superseded), `tasks/A9_catalog_revision.md`. No S1 choice changes: Mmax rule, list end, weights and scaling as on 15 Nov.
+- **Done.** `model/interface/if_build.py` reads `fits/tables/fits_2026-11-16.csv` and `fits_declustered_2026-11-16.csv`; margin-b refit (`fits/run.py`, catalogue 2026-11-16). New, dated 2026-11-16, nothing of 15 Nov overwritten: `tables/{rates,closure,area_check,fits_marginb,moved}_2026-11-16.csv`, `geometry/*_2026-11-16.*` (identical), `nrml_2026-11-16/` (240 files, `branches.json`, `source_lt_interface.xml`, 216 paths), `oqcheck_2026-11-16/` (jobs written, not run: left for the end at Pablo's word). `figs/` redrawn. REPORT_S1 section 6.
+- **pytest clash fixed:** the interface modules are renamed `if_build.py`, `if_geom.py`, `if_mfd.py`, `if_nrml.py`, `if_figs.py`, `if_oqcheck.py` (they clashed with `build`, `nrml`, `figs`, `oqcheck` of inslab and crustal). `pytest` from `psha_chile8/`: interface collects and passes (10); 299 pass, 3 fail in `model/inslab/tests/test_s2.py`, a separate clash between `model/crustal/smooth.py` and `model/inslab/smooth.py` (inslab alone: 14 pass; interface + inslab: 29 pass). Not mine, for S2/S3. FIGURES rows 43–45 point to `if_build.py`.
+- **What moved** (reference tree, weight-averaged; `tables/moved_2026-11-16.csv`): b −0.003 to −0.010; N(≥ 5.5) margin −1.7 %, segments −4.5 / −1.4 / −0.8 / −1.2 %, Antarctic −4.2 %; N(≥ 8) +0.3 to +1.6 %. Seismic full, own b, tapered, central: N(≥ 8) +1.4 to +4.9 % (45.6–37° S largest). Per branch N(≥ 8) −2 to +12 % (declustered own b, 45.6–37° S). Mmax, corners and list ends unchanged; closure margin 0.59 → 0.61. All under the A9 thresholds.
+- **Proposed DECISIONS lines** (Pablo adds):
+  - Interface, sources line: "... one NRML file per branch (`model/interface/nrml_2026-11-16/branches.json`, on the A9 fits 2026-11-16) ..." instead of `nrml/branches.json`.
+  - Superseded: "Interface sources `model/interface/nrml/` on fits 2026-11-15b → `nrml_2026-11-16/` on the A9 fits (16 Nov): b −0.003 to −0.010, N(≥ 8) +0.3 to +1.6 % in the tree; Mmax unchanged."
+- **Commands** (from `psha_chile8/model/interface/`, `PYTHONPATH=/data/PyCharmProjects/psha_renta/oq-engine`): `python if_build.py` (50 s); at the end `cd oqcheck_2026-11-16 && oq engine --run job_margin.ini` and `job_seg.ini`, then set `CALCS` in `if_oqcheck.py` and run it.
+- **Suggested commit:** `git add -A psha_chile8/model/interface psha_chile8/FIGURES.md psha_chile8/PLAN.md psha_chile8/WORKLOG.md`; message `S1 rerun on the A9 fits (2026-11-16); interface modules renamed if_* for pytest`.
+
+## 2026-11-16, S2 rerun on the A9 catalogue (in-slab sources)
+- **Done:** `model/inslab/build.py` on catalogue `2026-11-16`, `fits_2026-11-16.csv`, declustered `gk_family_2026-11-16.csv` / `nn_family_2026-11-16.csv` (pattern and kernel calibration) and `depth_cells_2026-11-16.csv` (identical to 2026-11-15e). New dated outputs: `model/inslab/tables/*_2026-11-16.csv`, `tables/bins/rates_*_2026-11-16.csv.gz`, `nrml/2026-11-16/` (72 files, `branches.json`, `source_lt_inslab.xml`), `figs/2026-11-16/`, `oqcheck/2026-11-16/` (job files only). The 15 Nov files stay in `nrml/`, `figs/`, `oqcheck/`. Nodal planes unchanged (B14 at S5). Report: `model/inslab/REPORT_S2.md` section 7.
+- **What moved per class** (ML (a, b)):
+  - shallow: b 1.151 → 1.144; N(≥ 6) +1.4 %, N(≥ 7) +3.1 %; Mmax 8.2 and corner 8.04 unchanged; the in-slab shares of the great historical interface events go to 0 (A9 hints);
+  - intermediate: b 1.154 → 1.157; N(≥ 6) −0.8 %, N(≥ 7) −1.5 %; Mmax 8.2 unchanged;
+  - Jujuy nest: unchanged.
+  - None passes 0.02 in b, 5 % in N(≥ 6) or 0.1 in Mmax.
+- **Kernel n** (Pablo, 16 Nov): the curve is scored at n 1, 3, 5, 10, 15, 25, 50, 100 (kept for analysis); n is the first local maximum from n = 5 up (`smooth.first_max`, `N_MIN = 5`; n = 1 for the intermediate class is unreasonable). Chosen: shallow 5 (gk) / 10 (nn), intermediate 5 / 5, Jujuy nest 5 / 5 (without the floor: intermediate 1 / 1, nest 3 / 1). Pattern shift against 15 Nov: 1.1–2.0 % in every class. The intermediate test events repeat the training locations (median 12 km to the nearest training event, as between training events); a smooth n = 10 pattern would make n = 1 lose by 46, it wins by 28 (REPORT_S2 section 7). Figure `figs/2026-11-16/kernel_loglik.png`.
+- **Completeness weights** (Pablo, 16 Nov): pattern events weighted w / (t_end − T_c(m)), training events of the calibration w / (2010 − T_c(m)); test events unweighted (one period). n picks unchanged; 1.2–2.3 % of the rate moves. No magnitude scaling, no lower-year cut.
+- **Checks:** 20 tests pass; edge check 1.5e-14; all 72 files read by the OpenQuake parser (`tables/oqread_2026-11-16.csv`). Calama engine run stopped before the end (Pablo: fits and SSM parameters first).
+- **Code:** `build.py` settings to the 16 Nov inputs (`CAT` explicit, NRML in `nrml/<DATE>/`); `oqcheck.py` job folder `oqcheck/<DATE>/`; `figs_s2.py` figures in `figs/<DATE>/`, pattern maps as a cell mesh (pituplots `Grid.from_points` + `plot_grid`) instead of square markers; a stale `N5` column name in the build print fixed.
+- **DECISIONS re-read** (A9 lines, In-slab): choices hold.
+- **Proposed DECISIONS lines** (Pablo adds):
+  - In-slab, replace the kernel n line: "In-slab kernel n, calibrated (S2, 16 Nov, A9 catalogue): scored at n 1, 3, 5, 10, 15, 25, 50, 100; n is the first local maximum of the test log-likelihood from n = 5 up, a second maximum at large n is ignored (Pablo, 16 Nov). Shallow 5 (Gardner–Knopoff) / 10 (nearest neighbour), intermediate 5, Jujuy nest 5; without the floor the intermediate class would take 1 (`model/inslab/tables/calibration_2026-11-16.csv`)." In Statistics / kernel line: "candidates 5–100" → "scored at 1–100, n the first local maximum from 5".
+  - In-slab, after the kernel line: "Pattern events enter as rates: class weight over the completeness period of their magnitude, w / (t_end − T_c(m)); in the calibration the training events over T_c(m) to 2010. No magnitude weighting and no fixed start year (Pablo, 16 Nov, S2)."
+  - Superseded: "In-slab sources `model/inslab/nrml/` on catalogue 2026-11-14c and fits 2026-11-15b → `nrml/2026-11-16/` on the A9 catalogue and fits (16 Nov): shallow b −0.007, N(≥ 7) +3 %; intermediate b +0.003, N(≥ 7) −1.5 %; Mmax and corners unchanged; n chosen as the first local maximum from 5 (curve scored 1–100), completeness weights on the pattern events; n unchanged except shallow nn 10 (as 15 Nov)."
+- **Commands** (from `psha_chile8/model/inslab/`): `python build.py` (2.5 min), `python figs_s2.py`; later the Calama check: `cd oqcheck/2026-11-16 && oq engine --run job_ps100.ini`, calc id into `CALCS` of `oqcheck.py`, then `python oqcheck.py`.
+- **Suggested commit:** `git add psha_chile8/model/inslab/{build,oqcheck,figs_s2,smooth}.py psha_chile8/model/inslab/tests/test_s2.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/model/inslab/tables/{calibration,edge_check,kernel_n,nest_depths,oqread,pattern,pattern_sums,rates,south36_layers}_2026-11-16.csv psha_chile8/model/inslab/figs/2026-11-16/{pattern_gk,pattern_nn,sections_sources,mfd_sources,kernel_loglik}.png psha_chile8/model/inslab/nrml/2026-11-16/{branches.json,source_lt_inslab.xml} psha_chile8/model/inslab/oqcheck/2026-11-16/*.{ini,xml} psha_chile8/PLAN.md psha_chile8/FIGURES.md psha_chile8/WORKLOG.md`; message `S2 rerun on the A9 catalogue (2026-11-16): in-slab sources on fits 2026-11-16, declustered 2026-11-16 and depth cells 2026-11-16; kernel n first local maximum from 5 (curve scored 1-100), completeness weights on pattern events; pattern maps as cell mesh; log-likelihood figure`.
+- **S1 addendum (16 Nov):** `figs/mfds.png` redrawn in three rows (`if_figs.mfds`): seismic fit of the full catalogue (own b, tapered, (a, b) 5–95 % band, cut line, completeness steps from `fits/tables/table_2026-11-16.csv`, as `fits/figs/fmd_interface_segments.png`); rate branch sets of the tree as weighted means (seismic full / Gardner–Knopoff / nearest neighbour, geodetic χ 0.7–0.9, tree mean); tornado options (cut shape, shared b, margin b) as ratios to the reference. Then, at Pablo's word: tornado row and Antarctic panel removed, pituPLOTS style (`darkgrid`, fmd colours and markers), shorter legend labels; 2 rows × 5 panels. FIGURES row updated.
+
+## 2026-11-16 — S3 rerun on the A9 catalogue (crustal)
+- **Done:**
+  - Crustal code on catalogue 2026-11-16, `fits_2026-11-16.csv` and the 2026-11-16 declustered families. Fault databases and grid stay 2026-11-15.
+  - Reran `background.py`, `faults.py`, `join.py`, `large.py` and `arc.py`. New tables and figures are dated 2026-11-16; the 2026-11-15 ones are kept.
+  - No NRML files (Pablo: fits checked first). `build.py` now writes to `nrml/2026-11-16/` when it is run.
+  - Report: `model/crustal/REPORT_S3.md` section 8. Tests: 12 passed, 2 skipped (the NRML files are not built).
+- **Shared module changed at Pablo's request (A7 message):** in `model/faults/compare.py`, `classes()` now uses `classify.arc_end()` (47.24° S) instead of `SOUTH_LAT`.
+  - Moved to the arc: CL-006vv and CL-006yy (A); MASCSN-146, 440, 498, 590, 731, 733 and 734 (B and B-mm), as A7 listed.
+  - `d16b_*` tables of compare.py were not rerun.
+- **Kernel:** on the new catalogue, the nearest-neighbour calibration of the crustal family prefers n = 50. The arc and Patagonia would have borrowed it.
+  - DECISIONS fixes n = 5, so `background.py` now uses `N_FIX = 5`. The calibrated value stays in `kernel_n_2026-11-16.csv` (`n_cal`) as a diagnostic.
+- **What moved:**
+  - Faults / fit at Mw 6, arc: A 3.3 → 3.7, B 8.8 → 10.1, B-mm 4.6 → 5.2. Arc fit N6 is −5.5 % and the faults gained the moved traces.
+  - Patagonia: A 1.3 → 1.65, B 3.6 → 3.5, B-mm 1.4 → 1.3 (fit −33 %, faults moved out).
+  - Forearc and backarc: within 0.01.
+  - Arc count test, share of the tree that passes: A 8 → 6 %, B 0 %, B-mm 6 %. Class maximum: A_cm 94 %, B_cm 46 → 35 %, Bmm_cm 96 → 92 %.
+  - Puerto Aysén Mw ≥ 6 within 50 km: +1 % for every database. The no-faults background is −7 %.
+  - Mmax unchanged.
+- **DECISIONS was re-read** (A9 lines in Catalog, Classification and Superseded). My choices still hold.
+- **Proposed DECISIONS lines:**
+  - Classification: "Crustal faults take the arc class to `classify.arc_end()` (47.24° S), the boundary of the events (`model/faults/compare.py`, A9, 16 Nov)."
+  - Superseded: "Crustal tables on fits 2026-11-15b → 2026-11-16 (S3, 16 Nov). Arc faults / fit at Mw 6: A 3.3 → 3.7, B 8.8 → 10.1, B-mm 4.6 → 5.2. Patagonia fit −33 %."
+- **Open: branch structure (for Pablo).** Proposed:
+  - One fault-system level with two branches:
+    - (1) Segmented: single faults, the six MFD shapes, Leonard Mmax.
+    - (2) Multi-fault: Liquiñe–Ofqui linked by the UCERF3 filters, SHERIFS partition, Leonard on the linked area, capped at the class Mmax.
+  - No separate Mmax level. The class maximum on single faults stays a sensitivity, because it needs about 38 m of slip.
+  - Tornado: A, B and B-mm.
+  - Before the full set: the LOFS quick estimate on the new fits (main traces, 10 km depth, ψ 0.6 / 0.8 / 1.0, jumps 5 / 10 / 15 km, 10 seeds).
+- **Commands (Pablo, when the fits are settled):** from `psha_chile8/model/crustal/`: `python build.py`, then `python oqcheck.py` (parse check).
+- **Note:** the old OpenQuake jobs for A, B and B-mm (15 Nov) ended with exit code 144 and no result.
+- **Suggested commit:** `git add psha_chile8/model/crustal/{background,faults,join,large,arc,kernels,multifault,build}.py psha_chile8/model/crustal/tests/test_crustal.py psha_chile8/model/crustal/REPORT_S3.md psha_chile8/model/crustal/tables/*2026-11-16* psha_chile8/model/crustal/figs/*2026-11-16* psha_chile8/model/faults/compare.py psha_chile8/WORKLOG.md` — message: "S3: crustal rerun on the A9 catalogue and fits 2026-11-16; faults use the arc_end boundary; kernel n fixed at 5"
+- **Decided by Pablo (16 Nov): crustal fault-system level with two branches.** Proposed DECISIONS lines:
+  - Crustal and faults: "Crustal fault system, two branches (Pablo, 16 Nov): (1) segmented: single-fault simple-fault sources, the six MFD shapes, Leonard (2014) Mmax; (2) multi-fault: Liquiñe–Ofqui faults linked by the UCERF3 plausibility filters (Milner et al. 2013), rates by the SHERIFS moment partition (Chartier et al. 2017, 2019), Leonard Mmax on the linked area, capped at the class Mmax. Other faults are the same in both branches. No separate Mmax level; the class maximum on single faults stays a sensitivity. Weights open."
+  - Superseded: "Multi-fault ruptures: not in the model (Oct) → the multi-fault branch of the crustal fault system (16 Nov)."
+  - Open before the full set: jump distance, ψ and depth of the multi-fault branch from the Liquiñe–Ofqui quick estimate on the 2026-11-16 fits; branch weights.
+- **S3 addendum (16 Nov): Liquiñe–Ofqui multi-fault quick estimate** (`multifault.lofs()`, REPORT_S3 section 8b; `tables/mf_A_lofs_2026-11-16.csv`, `figs/mf_A_lofs_2026-11-16.png`).
+  - Setup: database A, the 48 faults of system Liquiñe–Ofqui (34 main traces link), depth 10 km, ψ 0.6 / 0.8 / 1.0, jumps 5 / 10 / 15 km, 10 seeds. The other arc faults keep their single-fault rates.
+  - Chain Mmax: Leonard, capped at the class Mmax (the cap does not bind).
+  - Arc Mw ≥ 6, expected against 8.98 observed (segmented A at 10 km: 19.1 / 25.4 / 31.8):
+    - 5 km: 15.0 / 20.0 / 25.2
+    - 10 km: 12.6 / 16.8 / 21.0
+    - 15 km: 9.5 / 12.7 / 15.7
+  - Passes (p ≥ 0.05): 10 km with ψ 0.6, and 15 km with every ψ.
+  - Chain Mmax is 7.4, and 7.6 at 15 km. Aysén 7.7 is not reached at 10 km depth.
+  - NMS: 2–5 % on average; one fault reaches 33–78 %.
+  - Tests: +2, moment balance of the partition and the chain Mmax cap.
+  - Open for Pablo: the jump distance of the multi-fault branch (10 or 15 km); whether ψ is a branch inside it; B and B-mm runs before the full set.
+- **Decided by Pablo (16 Nov): jump distance 15 km for the multi-fault branch.** Proposed DECISIONS line (Crustal and faults): "Multi-fault branch: Liquiñe–Ofqui main traces (slip rate ≥ 1 mm/yr) link when their traces come within 15 km. The other UCERF3 filters are kept: junction and total azimuth ≤ 60°, cumulative azimuth ≤ 560°, cumulative rake ≤ 180°. UCERF3 uses 5 km; 15 km is taken because the LOFS traces are poorly mapped, with gaps of 5–13 km (Pablo, 16 Nov; quick estimate REPORT_S3 8b: arc count test passes for ψ 0.6–1.0)."
+- **S3 addendum (16 Nov): LOFS multi-fault on B and B-mm, jump 15 km** (REPORT_S3 8c).
+  - Arc Mw ≥ 6, expected against 8.98 observed, for ψ 0.6 / 0.8 / 1.0:
+    - B: 30.5 / 40.7 / 50.8 (single faults 52.6 / 70.1 / 87.7)
+    - B-mm: 22.0 / 29.5 / 36.9 (single faults 36.8 / 49.1 / 61.4)
+  - Both fail (p ≤ 0.002), even after linking cuts the excess by 40 %.
+  - Chains span 983 km, and the class cap 7.9 binds. NMS: B 5 %, B-mm 17 %.
+  - `multifault.lofs(db, jumps)` now takes the database; main-trace slip rate per database: `MAIN_SR` (A 1, B 3 mm/yr).
+  - Open for Pablo: B fails in both fault-system branches. Keep it as a tornado row only, or with a low weight?
+- **Decided by Pablo (16 Nov): B and B-mm only in the tornado.** Proposed DECISIONS line (Crustal and faults): "Crustal fault databases: A (GEM, D16) is the fault model of the logic tree. B and B-mm enter the tornado only, as sensitivity rows. They fail the arc count test in both fault-system branches: B 30–51 and B-mm 22–37 expected arc Mw ≥ 6 against 9 observed, with multi-fault ruptures at 15 km (Pablo, 16 Nov; REPORT_S3 8c)."
+
+## 2026-11-16: Mmax from weight-1 events, forearc refit, run 2026-11-16b (Claude Code, B11/B12)
+
+Asked by Pablo after looking at the forearc fit. DECISIONS read again before and after (Statistics line "One rule for Mmax and corner" unchanged meanwhile).
+
+- **Rule** (Pablo, 16 Nov): the largest observed event of a unit, for Mmax and the corner, is taken among the events with class weight 1, not weight ≥ 0.5. `fits/run.py`: setting `MMAX_W = 1.0`, used in `observed()`; `run_declustered.py` takes its Mmax from the same function. Nothing else changed.
+- **Why:** the forearc Mmax was set by 1960-12-02 09:10 Mw 7.2 (24.67° S, 70.08° W, near Paposo; forearc weight 0.78). Its class rests on the Centennial depth of 14 km alone (σ 20 km); ISC-GEM gives 35 ± 6 km (quality A), which is inside the interface band over a slab top at 49 km. No mechanism: Pacheco and Sykes (1992, Table 4) list type "u", no depth, Ms 7.1. Not named in Ruiz and Madariaga (2018), Comte et al. (1999) or Lomnitz (2004); no A6 hint. The 1987-03-05 Antofagasta thrust event (42 km) is 30 km away.
+- **Only the forearc changes its largest event:** 7.2 → 7.0, 2010-03-11 14:55 Pichilemu (GCMT mechanism, crustal hint, weight 1). Every other unit already had a weight-1 event at its maximum (arc Aysén 1960 7.7; backarc 1894 and Caucete 1977 7.5; Patagonia 1949 7.8; interface, in-slab, nest unchanged).
+
+| forearc | Mmax | corner | b (sd) | N(≥ 5) | N(≥ 6) | N(≥ 7) | Mw ≥ 7 fitted / observed |
+|---|---|---|---|---|---|---|---|
+| tapered, 16 → 16b | 7.4 → 7.2 | 7.19 → 6.99 | 0.984 (0.055) → 0.961 (0.057) | 3.53 → 3.55 | 0.361 → 0.378 (+4.6 %) | 0.0246 → 0.0176 (−28 %) | 2.9 / 3.4 → 1.9 / 3.4 |
+| cut at Mmax | 7.4 → 7.2 | – | 0.986 (0.057) → 0.968 (0.060) | 3.53 → 3.54 | 0.353 → 0.362 (+2.5 %) | 0.0256 → 0.0201 (−21 %) | 3.1 / 3.4 → 2.4 / 3.4 |
+
+- The large-event check still passes for both shapes (3.4 observed is inside the Poisson band of 1.9 and of 2.4). The 3.4 are fractions of 17 events of Mw 7.0–7.2, one of them with weight 1; they stay in the fit, all at or below the new Mmax.
+- **Patagonia** takes the forearc b, so it moves too: b 0.984 → 0.961, N(≥ 5) unchanged (0.430), N(≥ 6) +5.6 %, N(≥ 7) +11 %; Mmax 8.0 and corner 7.79 → 7.78.
+- **All other units:** identical to the 2026-11-16 tables in every column (same seed). Completeness table unchanged.
+- **Declustered fits** (`fits_declustered_2026-11-16b.csv`; the declustered catalogues of 2026-11-16 are used as they are): forearc Mmax 7.4 → 7.2, corner 7.15–7.19 → 6.94–6.98; b 0.856 → 0.825 (Gardner–Knopoff per family) and 0.962 → 0.937 (nearest neighbour per family); N(≥ 6) +6.3 % and +4.7 %; N(≥ 7) −31 % and −29 %; checks pass. Patagonia through the forearc b; other units identical.
+- **Forearc b against the floor** falls more steeply with Mmax 7.2: 0.94 at 5.2, 0.87 at 5.4, 0.78–0.80 at 5.6–5.8, 0.73 at 6.0.
+- **Files.** New: the nine `*_2026-11-16b.csv` tables in `fits/tables/`. Nothing of 2026-11-16 overwritten; its figures copied to `fits/figs/2026-11-16/` first. 31 tests pass. `fits/FITS.md` section 9, `fits/DECLUSTER.md` section 7, DATA row.
+- **Downstream.** For the interface, in-slab, arc and backarc units `fits_2026-11-16.csv` and `fits_2026-11-16b.csv` are identical, so S1 (`model/interface/if_build.py`) and S2 (`model/inslab/build.py`), which read the 2026-11-16 files, need no rerun. S3 (`model/crustal/background.py` and `faults.py`, `DATE = "2026-11-16"`) needs `fits_2026-11-16b.csv`: forearc Mmax 7.2 and corner 6.99, and the Patagonia b. `model/faults/fagnano.py` names `fits_2026-11-15.csv`, the first B11 table: to check in its own session what it reads from it.
+- **Proposed lines for DECISIONS** (Pablo adds):
+  - Statistics, in the Mmax line: "The largest observed event of a unit is taken among the events with class weight 1 (Pablo, 16 Nov); it changes only the forearc: 7.0 (Pichilemu 2010-03-11) instead of 7.2 (1960-12-02, weight 0.78, class from one depth), Mmax 7.2, corner 6.99."
+  - Statistics: "Fits: `fits/tables/fits_2026-11-16b.csv` and `fits_declustered_2026-11-16b.csv` replace the 2026-11-16 files for the forearc and Patagonia; the other units are identical in both."
+  - Crustal: "Background Mmax: forearc 7.2, arc 7.9, backarc 7.7, Patagonia 8.0."
+  - Superseded: "Largest observed event among events of weight ≥ 0.5 (B11) → among weight-1 events (16 Nov)."
+- **Proposed line for LEARNINGS** (Pitfalls, Fits): "An Mmax set by a split event is set by its weakest property: the forearc 7.4 came from one event whose class rested on a single depth with σ 20 km, against another catalogue's depth on the interface. Take Mmax from events of certain class."
+- **Open:** a class hint for 1960-12-02 (A6) would need a reference; none found. The two Valdivia aftershocks of 1960-06-20 (Mw 7.0 and 7.1, 25 km ± 20, split 0.31 and 0.50 crustal) are in the same position.
+- **Commands** (from `psha_chile8/fits/`): `python run.py` (95 s), `OMP_NUM_THREADS=1 python run_declustered.py` (3 min).
+- **Suggested commit:** add `psha_chile8/fits/run.py psha_chile8/fits/run_declustered.py psha_chile8/fits/FITS.md psha_chile8/fits/DECLUSTER.md psha_chile8/fits/figs psha_chile8/fits/tables/*_2026-11-16b.csv psha_chile8/DATA.md psha_chile8/WORKLOG.md`; message `Fits 2026-11-16b: Mmax from weight-1 events (forearc 7.4 to 7.2)`.
+
+## 2026-11-16: results deck part 1 and P1, Cabello and Candia through our steps (Claude, chat session)
+
+Asked by Pablo in the project chat (outline agreed 15 Nov, then "go ahead creating the presentation"); built in the chat session through the file bridge, not by a Claude Code brief. DECISIONS read at the start; re-read after the fits of 2026-11-16b appeared (Mmax from weight-1 events): the figures were redrawn on them; P1 follows the same rule and did not change.
+
+- **P1** (`explore/P1/`, new folder; `p1.py`, `REPORT.md`, `tests/test_p1.py` (3 pass), `tables/`). Cabello et al. (2025) and Candia and Macedo (2026) as given (Candia: all records that are not their own duplicates) matched to the frozen catalogue of 16 Nov (30 s / 100 km from 1964, 60 s / 300 km 1900–1963, 1.5 d / 300 km before), our class weights for matched events and second listings, `classify.py` on their hypocentres for the rest; fits with `run.fit`, tapered, our completeness table, our Mmax and the Kagan corner; magnitude-error weight on ours only. Nothing in `catalog/` or `fits/` written.
+  - Cabello lists 2 568 of its 10 553 events of Mw ≥ 5.0 twice (the same earthquake from two agencies, median 2 s apart); Candia 357 of 8 839.
+  - Same events: their Mw 0.1–0.3 above ours below 5.5, the same above.
+  - Families, ours / Cabello / Candia: b 0.96 / 1.10 / 1.13 (interface), 1.16 / 1.40 / 1.38 (in-slab), 1.00 / 1.22 / 1.23 (crustal); N(≥ 5) 1.7–2.6 times ours. Large events: Candia fails the interface (39.7 / 60.5); intermediate in-slab fails in all three; 32–26° S fails only for us.
+- **Deck** `presentations/261116_psha8_results/`: `pres.tex` and `pres.pdf` (title, 10 slides, 3 backup; style of the 4 Nov deck), `OUTLINE.md`, `NOTES.md` (choices made), `figs/figs.py` (pituPLOTS slides theme and `palette.py`, writes `figures/`). Figures new or redrawn from the frozen catalogue of 16 Nov, `fits_2026-11-16b.csv`, `fits_declustered_2026-11-16b.csv` and the P1 tables. Three rows added to FIGURES.md; PLAN I25 added.
+- **Decisions made:** none in DECISIONS. Choices in `presentations/261116_psha8_results/NOTES.md`.
+- **Open questions** (on the slides): keep the shared no-depth events in the rates or give the weight-1 rates a branch (slide 8).
+- **Commands:** from `psha_chile8/explore/P1/`: `python p1.py` (20 s); from `presentations/261116_psha8_results/figs/`: `python figs.py` (1 min); `latexmk -pdf pres.tex`.
+- **Suggested commit:** `git add psha_chile8/explore/P1 presentations/261116_psha8_results psha_chile8/PLAN.md psha_chile8/FIGURES.md psha_chile8/WORKLOG.md`; message `Results deck part 1 and P1: Cabello and Candia through our classes, table and fits`.
