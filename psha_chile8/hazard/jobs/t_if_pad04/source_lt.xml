@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">
+<logicTree logicTreeID="lt_source">
+<logicTreeBranchingLevel branchingLevelID="bl1">
+<logicTreeBranchSet uncertaintyType="sourceModel" branchSetID="bs1">
+<logicTreeBranch branchID="if_mmax_pad04_margin"><uncertaintyModel>src/interface/if_margin_full_own_taper_ml_seis_pad04.xml</uncertaintyModel><uncertaintyWeight>0.500000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_mmax_pad04_seg"><uncertaintyModel>src/interface/if_seg_full_own_taper_ml_seis_pad04.xml</uncertaintyModel><uncertaintyWeight>0.500000000000</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+<logicTreeBranchingLevel branchingLevelID="bl2">
+<logicTreeBranchSet uncertaintyType="setMSRAbsolute" branchSetID="bs_msr" applyToTectonicRegionType="Subduction Interface">
+<logicTreeBranch branchID="msr_strasser"><uncertaintyModel>StrasserInterface</uncertaintyModel><uncertaintyWeight>0.333333333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="msr_thingbaijam"><uncertaintyModel>ThingbaijamInterface</uncertaintyModel><uncertaintyWeight>0.333333333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="msr_allenhayes"><uncertaintyModel>AllenHayesInterfaceBilinear</uncertaintyModel><uncertaintyWeight>0.333333333334</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+</logicTree>
+</nrml>

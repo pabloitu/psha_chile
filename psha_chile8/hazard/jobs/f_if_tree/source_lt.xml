@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">
+<logicTree logicTreeID="lt_source">
+<logicTreeBranchingLevel branchingLevelID="bl1">
+<logicTreeBranchSet uncertaintyType="sourceModel" branchSetID="bs1">
+<logicTreeBranch branchID="if_margin_full_own_taper_p05_seis"><uncertaintyModel>src/interface/if_margin_full_own_taper_p05_seis.xml</uncertaintyModel><uncertaintyWeight>0.023125000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_p05_geo07"><uncertaintyModel>src/interface/if_margin_full_own_taper_p05_geo07.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_p05_geo08"><uncertaintyModel>src/interface/if_margin_full_own_taper_p05_geo08.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_p05_geo09"><uncertaintyModel>src/interface/if_margin_full_own_taper_p05_geo09.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_ml_seis"><uncertaintyModel>src/interface/if_margin_full_own_taper_ml_seis.xml</uncertaintyModel><uncertaintyWeight>0.078750000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_ml_geo07"><uncertaintyModel>src/interface/if_margin_full_own_taper_ml_geo07.xml</uncertaintyModel><uncertaintyWeight>0.019687500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_ml_geo08"><uncertaintyModel>src/interface/if_margin_full_own_taper_ml_geo08.xml</uncertaintyModel><uncertaintyWeight>0.039375000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_ml_geo09"><uncertaintyModel>src/interface/if_margin_full_own_taper_ml_geo09.xml</uncertaintyModel><uncertaintyWeight>0.019687500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_p95_seis"><uncertaintyModel>src/interface/if_margin_full_own_taper_p95_seis.xml</uncertaintyModel><uncertaintyWeight>0.023125000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_p95_geo07"><uncertaintyModel>src/interface/if_margin_full_own_taper_p95_geo07.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_p95_geo08"><uncertaintyModel>src/interface/if_margin_full_own_taper_p95_geo08.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_full_own_taper_p95_geo09"><uncertaintyModel>src/interface/if_margin_full_own_taper_p95_geo09.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_p05_seis"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_p05_seis.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_p05_geo07"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_p05_geo07.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_p05_geo08"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_p05_geo08.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_p05_geo09"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_p05_geo09.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_ml_seis"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_ml_seis.xml</uncertaintyModel><uncertaintyWeight>0.039375000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_ml_geo07"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_ml_geo07.xml</uncertaintyModel><uncertaintyWeight>0.009843750000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_ml_geo08"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_ml_geo08.xml</uncertaintyModel><uncertaintyWeight>0.019687500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_ml_geo09"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_ml_geo09.xml</uncertaintyModel><uncertaintyWeight>0.009843750000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_p95_seis"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_p95_seis.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_p95_geo07"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_p95_geo07.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_p95_geo08"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_p95_geo08.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_gk_family_own_taper_p95_geo09"><uncertaintyModel>src/interface/if_margin_gk_family_own_taper_p95_geo09.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_p05_seis"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_p05_seis.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_p05_geo07"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_p05_geo07.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_p05_geo08"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_p05_geo08.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_p05_geo09"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_p05_geo09.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_ml_seis"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_ml_seis.xml</uncertaintyModel><uncertaintyWeight>0.039375000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_ml_geo07"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_ml_geo07.xml</uncertaintyModel><uncertaintyWeight>0.009843750000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_ml_geo08"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_ml_geo08.xml</uncertaintyModel><uncertaintyWeight>0.019687500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_ml_geo09"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_ml_geo09.xml</uncertaintyModel><uncertaintyWeight>0.009843750000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_p95_seis"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_p95_seis.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_p95_geo07"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_p95_geo07.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_p95_geo08"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_p95_geo08.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_margin_nn_family_own_taper_p95_geo09"><uncertaintyModel>src/interface/if_margin_nn_family_own_taper_p95_geo09.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_p05_seis"><uncertaintyModel>src/interface/if_seg_full_own_taper_p05_seis.xml</uncertaintyModel><uncertaintyWeight>0.023125000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_p05_geo07"><uncertaintyModel>src/interface/if_seg_full_own_taper_p05_geo07.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_p05_geo08"><uncertaintyModel>src/interface/if_seg_full_own_taper_p05_geo08.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_p05_geo09"><uncertaintyModel>src/interface/if_seg_full_own_taper_p05_geo09.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_ml_seis"><uncertaintyModel>src/interface/if_seg_full_own_taper_ml_seis.xml</uncertaintyModel><uncertaintyWeight>0.078750000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_ml_geo07"><uncertaintyModel>src/interface/if_seg_full_own_taper_ml_geo07.xml</uncertaintyModel><uncertaintyWeight>0.019687500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_ml_geo08"><uncertaintyModel>src/interface/if_seg_full_own_taper_ml_geo08.xml</uncertaintyModel><uncertaintyWeight>0.039375000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_ml_geo09"><uncertaintyModel>src/interface/if_seg_full_own_taper_ml_geo09.xml</uncertaintyModel><uncertaintyWeight>0.019687500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_p95_seis"><uncertaintyModel>src/interface/if_seg_full_own_taper_p95_seis.xml</uncertaintyModel><uncertaintyWeight>0.023125000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_p95_geo07"><uncertaintyModel>src/interface/if_seg_full_own_taper_p95_geo07.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_p95_geo08"><uncertaintyModel>src/interface/if_seg_full_own_taper_p95_geo08.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_full_own_taper_p95_geo09"><uncertaintyModel>src/interface/if_seg_full_own_taper_p95_geo09.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_p05_seis"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_p05_seis.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_p05_geo07"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_p05_geo07.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_p05_geo08"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_p05_geo08.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_p05_geo09"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_p05_geo09.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_ml_seis"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_ml_seis.xml</uncertaintyModel><uncertaintyWeight>0.039375000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_ml_geo07"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_ml_geo07.xml</uncertaintyModel><uncertaintyWeight>0.009843750000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_ml_geo08"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_ml_geo08.xml</uncertaintyModel><uncertaintyWeight>0.019687500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_ml_geo09"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_ml_geo09.xml</uncertaintyModel><uncertaintyWeight>0.009843750000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_p95_seis"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_p95_seis.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_p95_geo07"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_p95_geo07.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_p95_geo08"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_p95_geo08.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_gk_family_own_taper_p95_geo09"><uncertaintyModel>src/interface/if_seg_gk_family_own_taper_p95_geo09.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_p05_seis"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_p05_seis.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_p05_geo07"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_p05_geo07.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_p05_geo08"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_p05_geo08.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_p05_geo09"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_p05_geo09.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_ml_seis"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_ml_seis.xml</uncertaintyModel><uncertaintyWeight>0.039375000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_ml_geo07"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_ml_geo07.xml</uncertaintyModel><uncertaintyWeight>0.009843750000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_ml_geo08"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_ml_geo08.xml</uncertaintyModel><uncertaintyWeight>0.019687500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_ml_geo09"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_ml_geo09.xml</uncertaintyModel><uncertaintyWeight>0.009843750000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_p95_seis"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_p95_seis.xml</uncertaintyModel><uncertaintyWeight>0.011562500000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_p95_geo07"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_p95_geo07.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_p95_geo08"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_p95_geo08.xml</uncertaintyModel><uncertaintyWeight>0.005781250000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="if_seg_nn_family_own_taper_p95_geo09"><uncertaintyModel>src/interface/if_seg_nn_family_own_taper_p95_geo09.xml</uncertaintyModel><uncertaintyWeight>0.002890625000</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+<logicTreeBranchingLevel branchingLevelID="bl2">
+<logicTreeBranchSet uncertaintyType="setMSRAbsolute" branchSetID="bs_msr" applyToTectonicRegionType="Subduction Interface">
+<logicTreeBranch branchID="msr_strasser"><uncertaintyModel>StrasserInterface</uncertaintyModel><uncertaintyWeight>0.333333333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="msr_thingbaijam"><uncertaintyModel>ThingbaijamInterface</uncertaintyModel><uncertaintyWeight>0.333333333333</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="msr_allenhayes"><uncertaintyModel>AllenHayesInterfaceBilinear</uncertaintyModel><uncertaintyWeight>0.333333333334</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+</logicTree>
+</nrml>

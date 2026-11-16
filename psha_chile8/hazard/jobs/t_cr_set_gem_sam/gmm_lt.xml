@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">
+<logicTree logicTreeID="lt_gmm">
+<logicTreeBranchingLevel branchingLevelID="gl0">
+<logicTreeBranchSet uncertaintyType="gmpeModel" branchSetID="gs0" applyToTectonicRegionType="Active Shallow Crust">
+<logicTreeBranch branchID="asc_g0_AkkarEtAlRjb2014"><uncertaintyModel>[AkkarEtAlRjb2014]</uncertaintyModel><uncertaintyWeight>0.333300000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="asc_g1_BindiEtAl2014Rjb"><uncertaintyModel>[BindiEtAl2014Rjb]</uncertaintyModel><uncertaintyWeight>0.333300000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="asc_g2_BooreEtAl2014"><uncertaintyModel>[BooreEtAl2014]</uncertaintyModel><uncertaintyWeight>0.333400000000</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+</logicTree>
+</nrml>

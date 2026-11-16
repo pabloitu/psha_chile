@@ -1,0 +1,48 @@
+{
+ "name": "t_is_gmm_montalva",
+ "description": "psha_chile8 S5a t_is_gmm_montalva 3b31af26",
+ "calc_id": 559,
+ "run_time_s": 116,
+ "families": [
+  "inslab"
+ ],
+ "trts": [
+  "Subduction IntraSlab"
+ ],
+ "sources": {
+  "inslab": {
+   "gk_taper_ml_l3": 1.0
+  }
+ },
+ "msr": null,
+ "gmm": {
+  "Subduction IntraSlab": [
+   [
+    "[MontalvaEtAl2017SSlab]",
+    1.0
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 1,
+ "n_realizations": 1
+}

@@ -1,0 +1,6 @@
+t_if_ref: 3 source paths, 12 realizations
+t_is_ref: 1 source paths, 4 realizations
+== t_if_ref  2026-11-16 05:37:20
+   calc 522, 291 s
+== t_is_ref  2026-11-16 05:42:19
+   calc 523, 133 s

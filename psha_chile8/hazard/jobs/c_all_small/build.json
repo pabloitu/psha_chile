@@ -1,0 +1,98 @@
+{
+ "name": "c_all_small",
+ "description": "psha_chile8 S5a c_all_small 3a3de2fb",
+ "calc_id": 610,
+ "run_time_s": 210,
+ "families": [
+  "interface",
+  "inslab"
+ ],
+ "trts": [
+  "Subduction Interface",
+  "Subduction IntraSlab"
+ ],
+ "sources": {
+  "interface": {
+   "margin_full_own_taper_ml_seis": 0.5,
+   "seg_full_own_taper_ml_geo08": 0.5
+  },
+  "inslab": {
+   "gk_taper_ml_l3": 0.5,
+   "nn_taper_ml_l3": 0.5
+  }
+ },
+ "msr": {
+  "msr_strasser": [
+   "StrasserInterface",
+   0.3333333333333333
+  ],
+  "msr_thingbaijam": [
+   "ThingbaijamInterface",
+   0.3333333333333333
+  ],
+  "msr_allenhayes": [
+   "AllenHayesInterfaceBilinear",
+   0.3333333333333333
+  ]
+ },
+ "gmm": {
+  "Subduction Interface": [
+   [
+    "[AbrahamsonGulerce2020SInter]\nregion = \"SAM\"",
+    0.25
+   ],
+   [
+    "[ParkerEtAl2020SInter]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
+    0.25
+   ],
+   [
+    "[KuehnEtAl2020SInter]\nregion = \"SAM\"",
+    0.25
+   ],
+   [
+    "[MontalvaEtAl2017SInter]",
+    0.25
+   ]
+  ],
+  "Subduction IntraSlab": [
+   [
+    "[AbrahamsonGulerce2020SSlab]\nregion = \"SAM\"",
+    0.25
+   ],
+   [
+    "[ParkerEtAl2020SSlab]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
+    0.25
+   ],
+   [
+    "[KuehnEtAl2020SSlab]\nregion = \"SAM\"",
+    0.25
+   ],
+   [
+    "[MontalvaEtAl2017SSlab]",
+    0.25
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 12,
+ "n_realizations": 192
+}

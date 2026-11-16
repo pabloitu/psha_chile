@@ -1,0 +1,66 @@
+{
+ "name": "f_cr_tree_b",
+ "description": "psha_chile8 S5a f_cr_tree_b 69eb2bd2",
+ "calc_id": 591,
+ "run_time_s": 236,
+ "families": [
+  "crustal"
+ ],
+ "trts": [
+  "Active Shallow Crust"
+ ],
+ "sources": {
+  "crustal": {
+   "mf_gk_psi060_z20": 0.16666666666666669,
+   "mf_gk_psi080_z20": 0.16666666666666669,
+   "mf_gk_psi100_z20": 0.16666666666666669,
+   "mf_nn_psi060_z20": 0.16666666666666669,
+   "mf_nn_psi080_z20": 0.16666666666666669,
+   "mf_nn_psi100_z20": 0.16666666666666669
+  }
+ },
+ "msr": null,
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "[AbrahamsonEtAl2014]",
+    0.25
+   ],
+   [
+    "[BooreEtAl2014]",
+    0.25
+   ],
+   [
+    "[CampbellBozorgnia2014]",
+    0.25
+   ],
+   [
+    "[ChiouYoungs2014]",
+    0.25
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 6,
+ "n_realizations": 24,
+ "note": "calc on the crustal files before S3's 15:44 rewrite of 2026-11-16e"
+}

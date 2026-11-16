@@ -1,0 +1,65 @@
+{
+ "name": "t_if_msr_allenhayes",
+ "description": "psha_chile8 S5a t_if_msr_allenhayes 5f2e5e9c",
+ "calc_id": 543,
+ "run_time_s": 135,
+ "families": [
+  "interface"
+ ],
+ "trts": [
+  "Subduction Interface"
+ ],
+ "sources": {
+  "interface": {
+   "margin_full_own_taper_ml_seis": 1.0
+  }
+ },
+ "msr": {
+  "msr_allenhayes": [
+   "AllenHayesInterfaceBilinear",
+   1.0
+  ]
+ },
+ "gmm": {
+  "Subduction Interface": [
+   [
+    "[AbrahamsonGulerce2020SInter]\nregion = \"SAM\"",
+    0.25
+   ],
+   [
+    "[ParkerEtAl2020SInter]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
+    0.25
+   ],
+   [
+    "[KuehnEtAl2020SInter]\nregion = \"SAM\"",
+    0.25
+   ],
+   [
+    "[MontalvaEtAl2017SInter]",
+    0.25
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 1,
+ "n_realizations": 4
+}

@@ -1,0 +1,60 @@
+{
+ "name": "t_cr_mmax_pad04_mf",
+ "description": "psha_chile8 S5a t_cr_mmax_pad04_mf f65fc08a",
+ "calc_id": 629,
+ "run_time_s": 85,
+ "families": [
+  "crustal"
+ ],
+ "trts": [
+  "Active Shallow Crust"
+ ],
+ "sources": {
+  "crustal": {
+   "mmax_pad04_mf": 1.0
+  }
+ },
+ "msr": null,
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "[AbrahamsonEtAl2014]",
+    0.25
+   ],
+   [
+    "[BooreEtAl2014]",
+    0.25
+   ],
+   [
+    "[CampbellBozorgnia2014]",
+    0.25
+   ],
+   [
+    "[ChiouYoungs2014]",
+    0.25
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 1,
+ "n_realizations": 4
+}

@@ -1,0 +1,48 @@
+{
+ "name": "t_cr_set_mascsn26",
+ "description": "psha_chile8 S5a t_cr_set_mascsn26 f25f0e18",
+ "calc_id": 639,
+ "run_time_s": 73,
+ "families": [
+  "crustal"
+ ],
+ "trts": [
+  "Active Shallow Crust"
+ ],
+ "sources": {
+  "crustal": {
+   "reference": 1.0
+  }
+ },
+ "msr": null,
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "[ArtetaEtAl2023_Vs30]",
+    1.0
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 1,
+ "n_realizations": 1
+}

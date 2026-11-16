@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">
+<logicTree logicTreeID="lt_gmm">
+<logicTreeBranchingLevel branchingLevelID="gl0">
+<logicTreeBranchSet uncertaintyType="gmpeModel" branchSetID="gs0" applyToTectonicRegionType="Subduction IntraSlab">
+<logicTreeBranch branchID="sslab_g0_AbrahamsonGulerce2020SSlab"><uncertaintyModel>[AbrahamsonGulerce2020SSlab]
+region = "SAM"</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="sslab_g1_ParkerEtAl2020SSlab"><uncertaintyModel>[ParkerEtAl2020SSlab]
+region = "SA"
+saturation_region = "SA_S"</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="sslab_g2_KuehnEtAl2020SSlab"><uncertaintyModel>[KuehnEtAl2020SSlab]
+region = "SAM"</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="sslab_g3_MontalvaEtAl2017SSlab"><uncertaintyModel>[MontalvaEtAl2017SSlab]</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+</logicTree>
+</nrml>

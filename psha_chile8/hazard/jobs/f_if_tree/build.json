@@ -1,0 +1,144 @@
+{
+ "name": "f_if_tree",
+ "description": "psha_chile8 S5a f_if_tree 7336a754",
+ "calc_id": 611,
+ "run_time_s": 2122,
+ "families": [
+  "interface"
+ ],
+ "trts": [
+  "Subduction Interface"
+ ],
+ "sources": {
+  "interface": {
+   "margin_full_own_taper_p05_seis": 0.023125,
+   "margin_full_own_taper_p05_geo07": 0.00578125,
+   "margin_full_own_taper_p05_geo08": 0.0115625,
+   "margin_full_own_taper_p05_geo09": 0.00578125,
+   "margin_full_own_taper_ml_seis": 0.07875,
+   "margin_full_own_taper_ml_geo07": 0.0196875,
+   "margin_full_own_taper_ml_geo08": 0.039375,
+   "margin_full_own_taper_ml_geo09": 0.0196875,
+   "margin_full_own_taper_p95_seis": 0.023125,
+   "margin_full_own_taper_p95_geo07": 0.00578125,
+   "margin_full_own_taper_p95_geo08": 0.0115625,
+   "margin_full_own_taper_p95_geo09": 0.00578125,
+   "margin_gk_family_own_taper_p05_seis": 0.0115625,
+   "margin_gk_family_own_taper_p05_geo07": 0.002890625,
+   "margin_gk_family_own_taper_p05_geo08": 0.00578125,
+   "margin_gk_family_own_taper_p05_geo09": 0.002890625,
+   "margin_gk_family_own_taper_ml_seis": 0.039375,
+   "margin_gk_family_own_taper_ml_geo07": 0.00984375,
+   "margin_gk_family_own_taper_ml_geo08": 0.0196875,
+   "margin_gk_family_own_taper_ml_geo09": 0.00984375,
+   "margin_gk_family_own_taper_p95_seis": 0.0115625,
+   "margin_gk_family_own_taper_p95_geo07": 0.002890625,
+   "margin_gk_family_own_taper_p95_geo08": 0.00578125,
+   "margin_gk_family_own_taper_p95_geo09": 0.002890625,
+   "margin_nn_family_own_taper_p05_seis": 0.0115625,
+   "margin_nn_family_own_taper_p05_geo07": 0.002890625,
+   "margin_nn_family_own_taper_p05_geo08": 0.00578125,
+   "margin_nn_family_own_taper_p05_geo09": 0.002890625,
+   "margin_nn_family_own_taper_ml_seis": 0.039375,
+   "margin_nn_family_own_taper_ml_geo07": 0.00984375,
+   "margin_nn_family_own_taper_ml_geo08": 0.0196875,
+   "margin_nn_family_own_taper_ml_geo09": 0.00984375,
+   "margin_nn_family_own_taper_p95_seis": 0.0115625,
+   "margin_nn_family_own_taper_p95_geo07": 0.002890625,
+   "margin_nn_family_own_taper_p95_geo08": 0.00578125,
+   "margin_nn_family_own_taper_p95_geo09": 0.002890625,
+   "seg_full_own_taper_p05_seis": 0.023125,
+   "seg_full_own_taper_p05_geo07": 0.00578125,
+   "seg_full_own_taper_p05_geo08": 0.0115625,
+   "seg_full_own_taper_p05_geo09": 0.00578125,
+   "seg_full_own_taper_ml_seis": 0.07875,
+   "seg_full_own_taper_ml_geo07": 0.0196875,
+   "seg_full_own_taper_ml_geo08": 0.039375,
+   "seg_full_own_taper_ml_geo09": 0.0196875,
+   "seg_full_own_taper_p95_seis": 0.023125,
+   "seg_full_own_taper_p95_geo07": 0.00578125,
+   "seg_full_own_taper_p95_geo08": 0.0115625,
+   "seg_full_own_taper_p95_geo09": 0.00578125,
+   "seg_gk_family_own_taper_p05_seis": 0.0115625,
+   "seg_gk_family_own_taper_p05_geo07": 0.002890625,
+   "seg_gk_family_own_taper_p05_geo08": 0.00578125,
+   "seg_gk_family_own_taper_p05_geo09": 0.002890625,
+   "seg_gk_family_own_taper_ml_seis": 0.039375,
+   "seg_gk_family_own_taper_ml_geo07": 0.00984375,
+   "seg_gk_family_own_taper_ml_geo08": 0.0196875,
+   "seg_gk_family_own_taper_ml_geo09": 0.00984375,
+   "seg_gk_family_own_taper_p95_seis": 0.0115625,
+   "seg_gk_family_own_taper_p95_geo07": 0.002890625,
+   "seg_gk_family_own_taper_p95_geo08": 0.00578125,
+   "seg_gk_family_own_taper_p95_geo09": 0.002890625,
+   "seg_nn_family_own_taper_p05_seis": 0.0115625,
+   "seg_nn_family_own_taper_p05_geo07": 0.002890625,
+   "seg_nn_family_own_taper_p05_geo08": 0.00578125,
+   "seg_nn_family_own_taper_p05_geo09": 0.002890625,
+   "seg_nn_family_own_taper_ml_seis": 0.039375,
+   "seg_nn_family_own_taper_ml_geo07": 0.00984375,
+   "seg_nn_family_own_taper_ml_geo08": 0.0196875,
+   "seg_nn_family_own_taper_ml_geo09": 0.00984375,
+   "seg_nn_family_own_taper_p95_seis": 0.0115625,
+   "seg_nn_family_own_taper_p95_geo07": 0.002890625,
+   "seg_nn_family_own_taper_p95_geo08": 0.00578125,
+   "seg_nn_family_own_taper_p95_geo09": 0.002890625
+  }
+ },
+ "msr": {
+  "msr_strasser": [
+   "StrasserInterface",
+   0.3333333333333333
+  ],
+  "msr_thingbaijam": [
+   "ThingbaijamInterface",
+   0.3333333333333333
+  ],
+  "msr_allenhayes": [
+   "AllenHayesInterfaceBilinear",
+   0.3333333333333333
+  ]
+ },
+ "gmm": {
+  "Subduction Interface": [
+   [
+    "[AbrahamsonGulerce2020SInter]\nregion = \"SAM\"",
+    0.25
+   ],
+   [
+    "[ParkerEtAl2020SInter]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
+    0.25
+   ],
+   [
+    "[KuehnEtAl2020SInter]\nregion = \"SAM\"",
+    0.25
+   ],
+   [
+    "[MontalvaEtAl2017SInter]",
+    0.25
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 216,
+ "n_realizations": 864
+}

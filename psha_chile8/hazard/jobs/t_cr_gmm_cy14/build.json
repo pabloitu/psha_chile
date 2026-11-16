@@ -1,0 +1,48 @@
+{
+ "name": "t_cr_gmm_cy14",
+ "description": "psha_chile8 S5a t_cr_gmm_cy14 7ed02f27",
+ "calc_id": 638,
+ "run_time_s": 77,
+ "families": [
+  "crustal"
+ ],
+ "trts": [
+  "Active Shallow Crust"
+ ],
+ "sources": {
+  "crustal": {
+   "reference": 1.0
+  }
+ },
+ "msr": null,
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "[ChiouYoungs2014]",
+    1.0
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 1,
+ "n_realizations": 1
+}

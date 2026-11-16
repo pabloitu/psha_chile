@@ -1,0 +1,60 @@
+{
+ "name": "t_cr_fit_cut",
+ "description": "psha_chile8 S5a t_cr_fit_cut d2976baf",
+ "calc_id": 616,
+ "run_time_s": 72,
+ "families": [
+  "crustal"
+ ],
+ "trts": [
+  "Active Shallow Crust"
+ ],
+ "sources": {
+  "crustal": {
+   "fit_cut": 1.0
+  }
+ },
+ "msr": null,
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "[AbrahamsonEtAl2014]",
+    0.25
+   ],
+   [
+    "[BooreEtAl2014]",
+    0.25
+   ],
+   [
+    "[CampbellBozorgnia2014]",
+    0.25
+   ],
+   [
+    "[ChiouYoungs2014]",
+    0.25
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 1,
+ "n_realizations": 4
+}

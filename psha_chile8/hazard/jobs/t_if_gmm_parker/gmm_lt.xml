@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">
+<logicTree logicTreeID="lt_gmm">
+<logicTreeBranchingLevel branchingLevelID="gl0">
+<logicTreeBranchSet uncertaintyType="gmpeModel" branchSetID="gs0" applyToTectonicRegionType="Subduction Interface">
+<logicTreeBranch branchID="sinter_g0_ParkerEtAl2020SInter"><uncertaintyModel>[ParkerEtAl2020SInter]
+region = "SA"
+saturation_region = "SA_S"</uncertaintyModel><uncertaintyWeight>1.000000000000</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+</logicTree>
+</nrml>

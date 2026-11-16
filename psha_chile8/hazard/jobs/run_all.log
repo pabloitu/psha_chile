@@ -1,0 +1,421 @@
+t_if_ref: 3 source paths, 12 realizations, unchanged (calc 522)
+t_is_ref: 1 source paths, 4 realizations, unchanged (calc 523)
+f_if_tree: 216 source paths, 864 realizations
+f_is_tree: 2 source paths, 8 realizations
+t_if_seg: 3 source paths, 12 realizations
+t_if_geo08: 3 source paths, 12 realizations
+t_if_geo07: 3 source paths, 12 realizations
+t_if_geo09: 3 source paths, 12 realizations
+t_if_ab_p05: 3 source paths, 12 realizations
+t_if_ab_p95: 3 source paths, 12 realizations
+t_if_b_shared: 3 source paths, 12 realizations
+t_if_b_margin: 3 source paths, 12 realizations
+t_if_cut: 3 source paths, 12 realizations
+t_if_decl_gk: 3 source paths, 12 realizations
+t_if_decl_nn: 3 source paths, 12 realizations
+t_if_msr_strasser: 1 source paths, 4 realizations
+t_if_msr_thingbaijam: 1 source paths, 4 realizations
+t_if_msr_allenhayes: 1 source paths, 4 realizations
+t_is_ab_p05: 1 source paths, 4 realizations
+t_is_ab_p95: 1 source paths, 4 realizations
+t_is_pattern_nn: 1 source paths, 4 realizations
+t_if_gmm_ag20: 3 source paths, 3 realizations
+t_if_gmm_parker: 3 source paths, 3 realizations
+t_if_gmm_kuehn: 3 source paths, 3 realizations
+t_if_gmm_montalva: 3 source paths, 3 realizations
+t_if_set_gm1top4: 3 source paths, 12 realizations
+t_if_set_mascsn26: 3 source paths, 12 realizations
+t_if_set_gem_sam: 3 source paths, 9 realizations
+t_if_trunc25: 3 source paths, 12 realizations
+t_if_trunc40: 3 source paths, 12 realizations
+t_is_gmm_ag20: 1 source paths, 1 realizations
+t_is_gmm_parker: 1 source paths, 1 realizations
+t_is_gmm_kuehn: 1 source paths, 1 realizations
+t_is_gmm_montalva: 1 source paths, 1 realizations
+t_is_set_gm1top4: 1 source paths, 4 realizations
+t_is_set_mascsn26: 1 source paths, 2 realizations
+t_is_set_gem_sam: 1 source paths, 2 realizations
+t_is_trunc25: 1 source paths, 4 realizations
+t_is_trunc40: 1 source paths, 4 realizations
+c_if_small: 6 source paths, 24 realizations
+c_is_small: 2 source paths, 8 realizations
+c_all_small: 12 source paths, 192 realizations
+== t_if_ref: calc 522, unchanged
+== t_is_ref: calc 523, unchanged
+== f_if_tree  2026-11-16 05:45:43
+   calc 524, 3432 s
+== f_is_tree  2026-11-16 06:43:03
+   calc 525, 224 s
+== t_if_seg  2026-11-16 06:46:55
+   calc 526, 177 s
+== t_if_geo08  2026-11-16 06:50:01
+   calc 527, 278 s
+== t_if_geo07  2026-11-16 06:54:47
+   calc 529, 303 s
+   waiting: another job is executing
+== t_if_geo09  2026-11-16 07:01:06
+   calc 531, 276 s
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+== t_if_ab_p05  2026-11-16 07:09:13
+   calc 533, 280 s
+== t_if_ab_p95  2026-11-16 07:14:01
+   calc 534, 277 s
+== t_if_b_shared  2026-11-16 07:18:46
+   calc 535, 182 s
+== t_if_b_margin  2026-11-16 07:21:56
+   calc 536, 185 s
+== t_if_cut  2026-11-16 07:25:09
+== t_if_cut
+   calc 537, 281 s
+t_cr_ref: 1 source paths, 4 realizations
+t_if_ref: 3 source paths, 12 realizations, unchanged (calc 522)
+t_is_ref: 1 source paths, 4 realizations, unchanged (calc 523)
+f_if_tree: 216 source paths, 864 realizations, unchanged (calc 524)
+f_is_tree: 2 source paths, 8 realizations, unchanged (calc 525)
+t_if_seg: 3 source paths, 12 realizations, unchanged (calc 526)
+t_if_geo08: 3 source paths, 12 realizations, unchanged (calc 527)
+t_if_geo07: 3 source paths, 12 realizations, unchanged (calc 529)
+t_if_geo09: 3 source paths, 12 realizations, unchanged (calc 531)
+t_if_ab_p05: 3 source paths, 12 realizations, unchanged (calc 533)
+t_if_ab_p95: 3 source paths, 12 realizations, unchanged (calc 534)
+t_if_b_shared: 3 source paths, 12 realizations, unchanged (calc 535)
+t_if_b_margin: 3 source paths, 12 realizations, unchanged (calc 536)
+t_if_cut: 3 source paths, 12 realizations, unchanged (calc 537)
+t_if_decl_gk: 3 source paths, 12 realizations
+t_if_decl_nn: 3 source paths, 12 realizations
+t_if_msr_strasser: 1 source paths, 4 realizations
+t_if_msr_thingbaijam: 1 source paths, 4 realizations
+t_if_msr_allenhayes: 1 source paths, 4 realizations
+t_is_ab_p05: 1 source paths, 4 realizations
+t_is_ab_p95: 1 source paths, 4 realizations
+t_is_pattern_nn: 1 source paths, 4 realizations
+t_if_gmm_ag20: 3 source paths, 3 realizations
+t_if_gmm_parker: 3 source paths, 3 realizations
+t_if_gmm_kuehn: 3 source paths, 3 realizations
+t_if_gmm_montalva: 3 source paths, 3 realizations
+t_if_set_gm1top4: 3 source paths, 12 realizations
+t_if_set_mascsn26: 3 source paths, 12 realizations
+t_if_set_gem_sam: 3 source paths, 9 realizations
+t_if_trunc25: 3 source paths, 12 realizations
+t_if_trunc40: 3 source paths, 12 realizations
+t_is_gmm_ag20: 1 source paths, 1 realizations
+t_is_gmm_parker: 1 source paths, 1 realizations
+t_is_gmm_kuehn: 1 source paths, 1 realizations
+t_is_gmm_montalva: 1 source paths, 1 realizations
+t_is_set_gm1top4: 1 source paths, 4 realizations
+t_is_set_mascsn26: 1 source paths, 2 realizations
+t_is_set_gem_sam: 1 source paths, 2 realizations
+t_is_trunc25: 1 source paths, 4 realizations
+t_is_trunc40: 1 source paths, 4 realizations
+c_if_small: 6 source paths, 24 realizations
+c_is_small: 2 source paths, 8 realizations
+c_all_small: 12 source paths, 192 realizations
+t_cr_decl_nn: 1 source paths, 4 realizations
+t_cr_fit_cut: 1 source paths, 4 realizations
+t_cr_rates_declustered: 1 source paths, 4 realizations
+t_cr_no_faults: 1 source paths, 4 realizations
+t_cr_segmented: 6 source paths, 24 realizations
+t_cr_psi060: 1 source paths, 4 realizations
+t_cr_psi100: 1 source paths, 4 realizations
+t_cr_depth20: 1 source paths, 4 realizations
+t_cr_jump5: 1 source paths, 4 realizations
+t_cr_jump10: 1 source paths, 4 realizations
+t_cr_jump20: 1 source paths, 4 realizations
+t_cr_db_B: 1 source paths, 4 realizations
+t_cr_db_Bmm: 1 source paths, 4 realizations
+f_cr_tree: 84 source paths, 336 realizations
+t_cr_gmm_ask14: 1 source paths, 1 realizations
+t_cr_gmm_bssa14: 1 source paths, 1 realizations
+t_cr_gmm_cb14: 1 source paths, 1 realizations
+t_cr_gmm_cy14: 1 source paths, 1 realizations
+t_cr_set_mascsn26: 1 source paths, 1 realizations
+t_cr_set_gem_sam: 1 source paths, 3 realizations
+t_cr_trunc25: 1 source paths, 4 realizations
+t_cr_trunc40: 1 source paths, 4 realizations
+== t_cr_ref  2026-11-16 07:30:02
+   calc 538, 147 s
+== t_if_ref: calc 522, unchanged
+== t_is_ref: calc 523, unchanged
+== f_if_tree: calc 524, unchanged
+== f_is_tree: calc 525, unchanged
+== t_if_seg: calc 526, unchanged
+== t_if_geo08: calc 527, unchanged
+== t_if_geo07: calc 529, unchanged
+== t_if_geo09: calc 531, unchanged
+== t_if_ab_p05: calc 533, unchanged
+== t_if_ab_p95: calc 534, unchanged
+== t_if_b_shared: calc 535, unchanged
+== t_if_b_margin: calc 536, unchanged
+== t_if_cut: calc 537, unchanged
+== t_if_decl_gk  2026-11-16 07:32:38
+   calc 539, 276 s
+== t_if_decl_nn  2026-11-16 07:37:22
+   calc 540, 275 s
+== t_if_msr_strasser  2026-11-16 07:42:05
+   calc 541, 129 s
+== t_if_msr_thingbaijam  2026-11-16 07:44:22
+   calc 542, 122 s
+== t_if_msr_allenhayes  2026-11-16 07:46:33
+   calc 543, 135 s
+== t_is_ab_p05  2026-11-16 07:48:56
+   calc 544, 122 s
+== t_is_ab_p95  2026-11-16 07:51:06
+   calc 545, 121 s
+== t_is_pattern_nn  2026-11-16 07:53:15
+   calc 546, 121 s
+== t_if_gmm_ag20  2026-11-16 07:55:24
+   calc 547, 248 s
+== t_if_gmm_parker  2026-11-16 07:59:40
+   calc 548, 246 s
+== t_if_gmm_kuehn  2026-11-16 08:03:54
+   calc 549, 261 s
+== t_if_gmm_montalva  2026-11-16 08:08:23
+   calc 550, 259 s
+== t_if_set_gm1top4  2026-11-16 08:12:50
+   calc 551, 288 s
+== t_if_set_mascsn26  2026-11-16 08:17:46
+   calc 552, 315 s
+== t_if_set_gem_sam  2026-11-16 08:23:09
+   calc 553, 269 s
+== t_if_trunc25  2026-11-16 08:27:46
+   calc 554, 275 s
+== t_if_trunc40  2026-11-16 08:32:29
+   calc 555, 276 s
+== t_is_gmm_ag20  2026-11-16 08:37:14
+   calc 556, 112 s
+== t_is_gmm_parker  2026-11-16 08:39:14
+   calc 557, 112 s
+== t_is_gmm_kuehn  2026-11-16 08:41:14
+   calc 558, 111 s
+== t_is_gmm_montalva  2026-11-16 08:43:14
+   calc 559, 116 s
+== t_is_set_gm1top4  2026-11-16 08:45:18
+   calc 560, 121 s
+== t_is_set_mascsn26  2026-11-16 08:47:27
+   calc 561, 118 s
+== t_is_set_gem_sam  2026-11-16 08:49:33
+   calc 562, 117 s
+== t_is_trunc25  2026-11-16 08:51:38
+   calc 563, 122 s
+== t_is_trunc40  2026-11-16 08:53:48
+   calc 564, 120 s
+== c_if_small  2026-11-16 08:55:56
+   calc 565, 290 s
+== c_is_small  2026-11-16 09:00:54
+   calc 566, 203 s
+== c_all_small  2026-11-16 09:04:25
+   calc 567, 403 s
+== t_cr_decl_nn  2026-11-16 09:11:16
+   calc 568, 142 s
+== t_cr_fit_cut  2026-11-16 09:13:46
+   calc 569, 135 s
+== t_cr_rates_declustered  2026-11-16 09:16:09
+   calc 570, 143 s
+== t_cr_no_faults  2026-11-16 09:18:40
+   calc 571, 174 s
+== t_cr_segmented  2026-11-16 09:21:42
+   calc 572, 152 s
+== t_cr_psi060  2026-11-16 09:24:22
+   calc 573, 143 s
+== t_cr_psi100  2026-11-16 09:26:53
+   calc 574, 144 s
+== t_cr_depth20  2026-11-16 09:29:25
+   calc 575, 145 s
+== t_cr_jump5  2026-11-16 09:31:58
+   calc 576, 143 s
+== t_cr_jump10  2026-11-16 09:34:29
+   calc 577, 143 s
+== t_cr_jump20  2026-11-16 09:37:00
+   calc 578, 144 s
+== t_cr_db_B  2026-11-16 09:39:32
+   calc 579, 148 s
+== t_cr_db_Bmm  2026-11-16 09:42:08
+   calc 580, 145 s
+== f_cr_tree  2026-11-16 09:44:41
+   FAILED after 104 s, see hazard/jobs/f_cr_tree/oq.log
+== t_cr_gmm_ask14  2026-11-16 09:46:33
+   calc 582, 140 s
+== t_cr_gmm_bssa14  2026-11-16 09:49:01
+   calc 583, 124 s
+== t_cr_gmm_cb14  2026-11-16 09:51:13
+   calc 584, 134 s
+== t_cr_gmm_cy14  2026-11-16 09:53:35
+   calc 585, 132 s
+== t_cr_set_mascsn26  2026-11-16 09:55:55
+   calc 586, 126 s
+== t_cr_set_gem_sam  2026-11-16 09:58:09
+   calc 587, 126 s
+== t_cr_trunc25  2026-11-16 10:00:23
+   calc 588, 144 s
+== t_cr_trunc40  2026-11-16 10:02:55
+   calc 589, 144 s
+failed jobs: f_cr_tree
+f_cr_tree_a: 78 source paths, 312 realizations
+f_cr_tree_b: 6 source paths, 24 realizations
+== f_cr_tree_a  2026-11-16 10:06:05
+   calc 590, 585 s
+== f_cr_tree_b  2026-11-16 10:15:58
+   calc 591, 236 s
+t_if_pad02: 6 source paths, 24 realizations
+t_if_pad00: 6 source paths, 24 realizations
+t_if_pad04: 6 source paths, 24 realizations
+t_if_seg: 3 source paths, 12 realizations
+t_if_b_shared: 3 source paths, 12 realizations
+t_if_b_margin: 3 source paths, 12 realizations
+t_is_cut: 1 source paths, 4 realizations
+t_is_pad00: 1 source paths, 4 realizations
+t_is_pad04: 1 source paths, 4 realizations
+t_is_one_layer: 1 source paths, 4 realizations
+t_is_lower_depth: 1 source paths, 4 realizations
+t_is_msr_ah: 1 source paths, 4 realizations
+c_if_small: 6 source paths, 24 realizations
+c_all_small: 12 source paths, 192 realizations
+f_if_tree: 216 source paths, 864 realizations
+== t_if_pad02  2026-11-16 18:30:50
+   calc 597, 130 s
+== t_if_pad00  2026-11-16 18:33:03
+   calc 598, 135 s
+== t_if_pad04  2026-11-16 18:35:21
+   calc 599, 132 s
+== t_if_seg  2026-11-16 18:37:37
+   calc 600, 86 s
+== t_if_b_shared  2026-11-16 18:39:06
+   calc 601, 81 s
+== t_if_b_margin  2026-11-16 18:40:30
+   calc 602, 81 s
+== t_is_cut  2026-11-16 18:41:54
+   calc 603, 67 s
+== t_is_pad00  2026-11-16 18:43:04
+   calc 604, 73 s
+== t_is_pad04  2026-11-16 18:44:21
+   calc 605, 81 s
+== t_is_one_layer  2026-11-16 18:45:46
+   calc 606, 72 s
+== t_is_lower_depth  2026-11-16 18:47:02
+   calc 607, 74 s
+== t_is_msr_ah  2026-11-16 18:48:19
+   calc 608, 70 s
+== c_if_small  2026-11-16 18:49:33
+   calc 609, 130 s
+== c_all_small  2026-11-16 18:51:46
+   calc 610, 210 s
+== f_if_tree  2026-11-16 18:55:19
+t_is_decl_gk: 1 source paths, 4 realizations
+t_is_decl_nn: 1 source paths, 4 realizations
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   waiting: another job is executing
+   calc 611, 2122 s
+== t_is_decl_gk  2026-11-16 19:31:39
+   calc 612, 73 s
+== t_is_decl_nn  2026-11-16 19:32:55
+   calc 613, 73 s
+t_cr_decl_nn: 1 source paths, 4 realizations
+t_cr_fit_cut: 1 source paths, 4 realizations
+t_cr_rates_declustered: 1 source paths, 4 realizations
+t_cr_no_faults: 1 source paths, 4 realizations
+t_cr_segmented: 6 source paths, 24 realizations
+t_cr_psi060: 1 source paths, 4 realizations
+t_cr_psi100: 1 source paths, 4 realizations
+t_cr_thickness20: 1 source paths, 4 realizations
+t_cr_jump5: 1 source paths, 4 realizations
+t_cr_jump10: 1 source paths, 4 realizations
+t_cr_splays: 1 source paths, 4 realizations
+t_cr_db_B: 1 source paths, 4 realizations
+t_cr_db_Bmm: 1 source paths, 4 realizations
+t_cr_mmax_pad00_mf: 1 source paths, 4 realizations
+t_cr_mmax_pad04_mf: 1 source paths, 4 realizations
+t_cr_mmax_pad00_seg: 6 source paths, 24 realizations
+t_cr_mmax_pad04_seg: 6 source paths, 24 realizations
+t_cr_fault_pad02_seg: 6 source paths, 24 realizations
+t_cr_fault_pad04_seg: 6 source paths, 24 realizations
+f_cr_tree: 84 source paths, 336 realizations
+t_cr_gmm_ask14: 1 source paths, 1 realizations
+t_cr_gmm_bssa14: 1 source paths, 1 realizations
+t_cr_gmm_cb14: 1 source paths, 1 realizations
+t_cr_gmm_cy14: 1 source paths, 1 realizations
+t_cr_set_mascsn26: 1 source paths, 1 realizations
+t_cr_set_gem_sam: 1 source paths, 3 realizations
+t_cr_trunc25: 1 source paths, 4 realizations
+t_cr_trunc40: 1 source paths, 4 realizations
+== t_cr_decl_nn  2026-11-16 21:41:26
+   calc 615, 73 s
+== t_cr_fit_cut  2026-11-16 21:42:42
+   calc 616, 72 s
+== t_cr_rates_declustered  2026-11-16 21:43:57
+   calc 617, 75 s
+== t_cr_no_faults  2026-11-16 21:45:15
+   calc 618, 94 s
+== t_cr_segmented  2026-11-16 21:46:53
+   calc 619, 82 s
+== t_cr_psi060  2026-11-16 21:48:18
+   calc 620, 76 s
+== t_cr_psi100  2026-11-16 21:49:38
+   calc 621, 78 s
+== t_cr_thickness20  2026-11-16 21:50:59
+   calc 622, 81 s
+== t_cr_jump5  2026-11-16 21:52:23
+   calc 623, 81 s
+== t_cr_jump10  2026-11-16 21:53:47
+   calc 624, 81 s
+== t_cr_splays  2026-11-16 21:55:11
+   calc 625, 76 s
+== t_cr_db_B  2026-11-16 21:56:30
+   calc 626, 77 s
+== t_cr_db_Bmm  2026-11-16 21:57:51
+   calc 627, 79 s
+== t_cr_mmax_pad00_mf  2026-11-16 21:59:13
+   calc 628, 70 s
+== t_cr_mmax_pad04_mf  2026-11-16 22:00:27
+   calc 629, 85 s
+== t_cr_mmax_pad00_seg  2026-11-16 22:01:56
+   calc 630, 82 s
+== t_cr_mmax_pad04_seg  2026-11-16 22:03:22
+   calc 631, 94 s
+== t_cr_fault_pad02_seg  2026-11-16 22:04:59
+   calc 632, 88 s
+== t_cr_fault_pad04_seg  2026-11-16 22:06:31
+   calc 633, 89 s
+== f_cr_tree  2026-11-16 22:08:03
+   calc 634, 344 s
+== t_cr_gmm_ask14  2026-11-16 22:13:50
+   calc 635, 81 s
+== t_cr_gmm_bssa14  2026-11-16 22:15:15
+   calc 636, 71 s
+== t_cr_gmm_cb14  2026-11-16 22:16:29
+   calc 637, 81 s
+== t_cr_gmm_cy14  2026-11-16 22:17:53
+   calc 638, 77 s
+== t_cr_set_mascsn26  2026-11-16 22:19:14
+   calc 639, 73 s
+== t_cr_set_gem_sam  2026-11-16 22:20:31
+   calc 640, 75 s
+== t_cr_trunc25  2026-11-16 22:21:49
+   calc 641, 85 s
+== t_cr_trunc40  2026-11-16 22:23:17
+   calc 642, 81 s

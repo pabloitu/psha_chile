@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">
+<logicTree logicTreeID="lt_gmm">
+<logicTreeBranchingLevel branchingLevelID="gl0">
+<logicTreeBranchSet uncertaintyType="gmpeModel" branchSetID="gs0" applyToTectonicRegionType="Subduction IntraSlab">
+<logicTreeBranch branchID="sslab_g0_AbrahamsonEtAl2015SSlab"><uncertaintyModel>[AbrahamsonEtAl2015SSlab]</uncertaintyModel><uncertaintyWeight>0.500000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="sslab_g1_MontalvaEtAl2016SSlab"><uncertaintyModel>[MontalvaEtAl2016SSlab]</uncertaintyModel><uncertaintyWeight>0.500000000000</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+</logicTree>
+</nrml>

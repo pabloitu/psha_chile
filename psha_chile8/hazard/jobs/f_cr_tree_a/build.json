@@ -1,0 +1,138 @@
+{
+ "name": "f_cr_tree_a",
+ "description": "psha_chile8 S5a f_cr_tree_a 95f4d7f0",
+ "calc_id": 590,
+ "run_time_s": 585,
+ "families": [
+  "crustal"
+ ],
+ "trts": [
+  "Active Shallow Crust"
+ ],
+ "sources": {
+  "crustal": {
+   "seg_gk_A_psi060_z10_al1": 0.006944444444444443,
+   "seg_gk_A_psi060_z10_al2": 0.006944444444444443,
+   "seg_gk_A_psi060_z10_al3": 0.006944444444444443,
+   "seg_gk_A_psi060_z10_yc": 0.006944444444444443,
+   "seg_gk_A_psi060_z10_tap": 0.006944444444444443,
+   "seg_gk_A_psi060_z10_hyb": 0.006944444444444443,
+   "seg_gk_A_psi060_z20_al1": 0.006944444444444443,
+   "seg_gk_A_psi060_z20_al2": 0.006944444444444443,
+   "seg_gk_A_psi060_z20_al3": 0.006944444444444443,
+   "seg_gk_A_psi060_z20_yc": 0.006944444444444443,
+   "seg_gk_A_psi060_z20_tap": 0.006944444444444443,
+   "seg_gk_A_psi060_z20_hyb": 0.006944444444444443,
+   "seg_gk_A_psi080_z10_al1": 0.013888888888888886,
+   "seg_gk_A_psi080_z10_al2": 0.013888888888888886,
+   "seg_gk_A_psi080_z10_al3": 0.013888888888888886,
+   "seg_gk_A_psi080_z10_yc": 0.013888888888888886,
+   "seg_gk_A_psi080_z10_tap": 0.013888888888888886,
+   "seg_gk_A_psi080_z10_hyb": 0.013888888888888886,
+   "seg_gk_A_psi080_z20_al1": 0.013888888888888886,
+   "seg_gk_A_psi080_z20_al2": 0.013888888888888886,
+   "seg_gk_A_psi080_z20_al3": 0.013888888888888886,
+   "seg_gk_A_psi080_z20_yc": 0.013888888888888886,
+   "seg_gk_A_psi080_z20_tap": 0.013888888888888886,
+   "seg_gk_A_psi080_z20_hyb": 0.013888888888888886,
+   "seg_gk_A_psi100_z10_al1": 0.006944444444444443,
+   "seg_gk_A_psi100_z10_al2": 0.006944444444444443,
+   "seg_gk_A_psi100_z10_al3": 0.006944444444444443,
+   "seg_gk_A_psi100_z10_yc": 0.006944444444444443,
+   "seg_gk_A_psi100_z10_tap": 0.006944444444444443,
+   "seg_gk_A_psi100_z10_hyb": 0.006944444444444443,
+   "seg_gk_A_psi100_z20_al1": 0.006944444444444443,
+   "seg_gk_A_psi100_z20_al2": 0.006944444444444443,
+   "seg_gk_A_psi100_z20_al3": 0.006944444444444443,
+   "seg_gk_A_psi100_z20_yc": 0.006944444444444443,
+   "seg_gk_A_psi100_z20_tap": 0.006944444444444443,
+   "seg_gk_A_psi100_z20_hyb": 0.006944444444444443,
+   "mf_gk_psi060_z10": 0.055555555555555546,
+   "mf_gk_psi080_z10": 0.055555555555555546,
+   "mf_gk_psi100_z10": 0.055555555555555546,
+   "seg_nn_A_psi060_z10_al1": 0.006944444444444443,
+   "seg_nn_A_psi060_z10_al2": 0.006944444444444443,
+   "seg_nn_A_psi060_z10_al3": 0.006944444444444443,
+   "seg_nn_A_psi060_z10_yc": 0.006944444444444443,
+   "seg_nn_A_psi060_z10_tap": 0.006944444444444443,
+   "seg_nn_A_psi060_z10_hyb": 0.006944444444444443,
+   "seg_nn_A_psi060_z20_al1": 0.006944444444444443,
+   "seg_nn_A_psi060_z20_al2": 0.006944444444444443,
+   "seg_nn_A_psi060_z20_al3": 0.006944444444444443,
+   "seg_nn_A_psi060_z20_yc": 0.006944444444444443,
+   "seg_nn_A_psi060_z20_tap": 0.006944444444444443,
+   "seg_nn_A_psi060_z20_hyb": 0.006944444444444443,
+   "seg_nn_A_psi080_z10_al1": 0.013888888888888886,
+   "seg_nn_A_psi080_z10_al2": 0.013888888888888886,
+   "seg_nn_A_psi080_z10_al3": 0.013888888888888886,
+   "seg_nn_A_psi080_z10_yc": 0.013888888888888886,
+   "seg_nn_A_psi080_z10_tap": 0.013888888888888886,
+   "seg_nn_A_psi080_z10_hyb": 0.013888888888888886,
+   "seg_nn_A_psi080_z20_al1": 0.013888888888888886,
+   "seg_nn_A_psi080_z20_al2": 0.013888888888888886,
+   "seg_nn_A_psi080_z20_al3": 0.013888888888888886,
+   "seg_nn_A_psi080_z20_yc": 0.013888888888888886,
+   "seg_nn_A_psi080_z20_tap": 0.013888888888888886,
+   "seg_nn_A_psi080_z20_hyb": 0.013888888888888886,
+   "seg_nn_A_psi100_z10_al1": 0.006944444444444443,
+   "seg_nn_A_psi100_z10_al2": 0.006944444444444443,
+   "seg_nn_A_psi100_z10_al3": 0.006944444444444443,
+   "seg_nn_A_psi100_z10_yc": 0.006944444444444443,
+   "seg_nn_A_psi100_z10_tap": 0.006944444444444443,
+   "seg_nn_A_psi100_z10_hyb": 0.006944444444444443,
+   "seg_nn_A_psi100_z20_al1": 0.006944444444444443,
+   "seg_nn_A_psi100_z20_al2": 0.006944444444444443,
+   "seg_nn_A_psi100_z20_al3": 0.006944444444444443,
+   "seg_nn_A_psi100_z20_yc": 0.006944444444444443,
+   "seg_nn_A_psi100_z20_tap": 0.006944444444444443,
+   "seg_nn_A_psi100_z20_hyb": 0.006944444444444443,
+   "mf_nn_psi060_z10": 0.055555555555555546,
+   "mf_nn_psi080_z10": 0.055555555555555546,
+   "mf_nn_psi100_z10": 0.055555555555555546
+  }
+ },
+ "msr": null,
+ "gmm": {
+  "Active Shallow Crust": [
+   [
+    "[AbrahamsonEtAl2014]",
+    0.25
+   ],
+   [
+    "[BooreEtAl2014]",
+    0.25
+   ],
+   [
+    "[CampbellBozorgnia2014]",
+    0.25
+   ],
+   [
+    "[ChiouYoungs2014]",
+    0.25
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 78,
+ "n_realizations": 312,
+ "note": "calc on the crustal files before S3's 15:44 rewrite of 2026-11-16e"
+}

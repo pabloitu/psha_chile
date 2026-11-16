@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">
+<logicTree logicTreeID="lt_source">
+<logicTreeBranchingLevel branchingLevelID="bl1">
+<logicTreeBranchSet uncertaintyType="sourceModel" branchSetID="bs1">
+<logicTreeBranch branchID="cr_mmax_pad00_seg_r0"><uncertaintyModel>src/crustal/cr_bg_seg_A_pad00_gk.xml src/crustal/cr_seg_A_psi080_t10_al1.xml</uncertaintyModel><uncertaintyWeight>0.166666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="cr_mmax_pad00_seg_r1"><uncertaintyModel>src/crustal/cr_bg_seg_A_pad00_gk.xml src/crustal/cr_seg_A_psi080_t10_al2.xml</uncertaintyModel><uncertaintyWeight>0.166666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="cr_mmax_pad00_seg_r2"><uncertaintyModel>src/crustal/cr_bg_seg_A_pad00_gk.xml src/crustal/cr_seg_A_psi080_t10_al3.xml</uncertaintyModel><uncertaintyWeight>0.166666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="cr_mmax_pad00_seg_r3"><uncertaintyModel>src/crustal/cr_bg_seg_A_pad00_gk.xml src/crustal/cr_seg_A_psi080_t10_yc.xml</uncertaintyModel><uncertaintyWeight>0.166666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="cr_mmax_pad00_seg_r4"><uncertaintyModel>src/crustal/cr_bg_seg_A_pad00_gk.xml src/crustal/cr_seg_A_psi080_t10_tap.xml</uncertaintyModel><uncertaintyWeight>0.166666666667</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="cr_mmax_pad00_seg_r5"><uncertaintyModel>src/crustal/cr_bg_seg_A_pad00_gk.xml src/crustal/cr_seg_A_psi080_t10_hyb.xml</uncertaintyModel><uncertaintyWeight>0.166666666665</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+</logicTree>
+</nrml>

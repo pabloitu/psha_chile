@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.4">
+<logicTree logicTreeID="lt_source">
+<logicTreeBranchingLevel branchingLevelID="bl1">
+<logicTreeBranchSet uncertaintyType="sourceModel" branchSetID="bs1">
+<logicTreeBranch branchID="cr_fit_cut"><uncertaintyModel>src/crustal/cr_bg_mf_A_j15_trunc_gk.xml src/crustal/cr_mf_A_j15_psi080_t10.xml src/crustal/cr_sections_A_t10.xml</uncertaintyModel><uncertaintyWeight>1.000000000000</uncertaintyWeight></logicTreeBranch>
+</logicTreeBranchSet>
+</logicTreeBranchingLevel>
+</logicTree>
+</nrml>

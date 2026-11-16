@@ -1,0 +1,52 @@
+{
+ "name": "t_is_set_mascsn26",
+ "description": "psha_chile8 S5a t_is_set_mascsn26 babf1565",
+ "calc_id": 561,
+ "run_time_s": 118,
+ "families": [
+  "inslab"
+ ],
+ "trts": [
+  "Subduction IntraSlab"
+ ],
+ "sources": {
+  "inslab": {
+   "gk_taper_ml_l3": 1.0
+  }
+ },
+ "msr": null,
+ "gmm": {
+  "Subduction IntraSlab": [
+   [
+    "[MontalvaEtAl2017SSlab]",
+    0.5
+   ],
+   [
+    "[YoungsEtAl1997SSlab]",
+    0.5
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 1,
+ "n_realizations": 2
+}

@@ -1,0 +1,60 @@
+{
+ "name": "t_is_lower_depth",
+ "description": "psha_chile8 S5a t_is_lower_depth ce5376ed",
+ "calc_id": 607,
+ "run_time_s": 74,
+ "families": [
+  "inslab"
+ ],
+ "trts": [
+  "Subduction IntraSlab"
+ ],
+ "sources": {
+  "inslab": {
+   "is_lsd065": 1.0
+  }
+ },
+ "msr": null,
+ "gmm": {
+  "Subduction IntraSlab": [
+   [
+    "[AbrahamsonGulerce2020SSlab]\nregion = \"SAM\"",
+    0.25
+   ],
+   [
+    "[ParkerEtAl2020SSlab]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
+    0.25
+   ],
+   [
+    "[KuehnEtAl2020SSlab]\nregion = \"SAM\"",
+    0.25
+   ],
+   [
+    "[MontalvaEtAl2017SSlab]",
+    0.25
+   ]
+  ]
+ },
+ "trunc": 3.0,
+ "site_names": [
+  "Iquique",
+  "Calama",
+  "Antofagasta",
+  "Copiapó",
+  "La Serena",
+  "Valparaíso",
+  "Santiago centro",
+  "Santiago Peñalolén",
+  "Concepción",
+  "Pucón",
+  "Puerto Montt",
+  "Hornopirén",
+  "Puerto Aysén",
+  "Puerto Williams"
+ ],
+ "poes": [
+  0.002105
+ ],
+ "n_source_paths": 1,
+ "n_realizations": 4
+}
