@@ -3243,3 +3243,112 @@ For S5. Details in `model/inslab/REPORT_S2.md` section 12.
 - **Proposed DECISIONS line** (Pablo adds), In-slab: "Rate convention as a tornado row: the reference branch with the rates and b of the declustered fits (gk_family / nn_family, table full, b own) and the matching pattern, weight 0 (`model/inslab/nrml/2026-11-16d/`, Pablo 16 Nov)."
 - **Suggested commit:** `git add psha_chile8/model/inslab/is_decl_rates.py psha_chile8/model/inslab/tests/test_s2.py psha_chile8/model/inslab/REPORT_S2.md psha_chile8/model/inslab/tables/{decl_rates,oqread}_2026-11-16d.csv psha_chile8/model/inslab/nrml/2026-11-16d/branches.json psha_chile8/WORKLOG.md`; message `S2: in-slab declustered-rate tornado rows (gk_family, nn_family) in nrml/2026-11-16d`.
 - **Decided by Pablo (16 Nov): subsections fixed at 5 km for every depth branch** (`rupset.SUB_KM`). The 20 km branch now has the same 75 / 121 scenarios as the 10 km branch (Mmax 7.8 at 20 km). Comparison table and REPORT_S3 section 12 updated. Open: the three junctions at 48–53° onto dextral-normal splays.
+
+## 2026-11-16 — S5: interface 2026-11-16c and in-slab 2026-11-16c/d in the tornado (Claude Code)
+- **Done:** hazard/config.py points to `model/interface/nrml_2026-11-16c` and `model/inslab/nrml/2026-11-16c` (+ extra folder `2026-11-16d` for the declustered-rate rows); build.py reads the tornado blocks of every family. New rows: IF · Mmax pad (+0 / +0.4 against t_if_pad02, margin + segments 0.5 / 0.5); IS · MFD shape, Mmax pad, layers (C15 one layer), lower depth 0.65, rupture scaling Allen–Hayes, declustering GK74 / NN. 17 jobs run (calcs 597–613), check_tree PASS, tornado_final, trees and tornado_prelim regenerated. REPORT_S5a section 10.
+- **Crustal on hold:** S3 rewrote the multi-fault and sections files of `model/crustal/nrml/2026-11-16e` at 15:44 (rebuild in progress, Pablo). Crustal results stay on calcs 538–591 (earlier files); rerun when S3 publishes the new folder.
+- **Suggested commit:** `git add psha_chile8/hazard/{config,build,jobs,tornado_prelim}.py psha_chile8/hazard/REPORT_S5a.md psha_chile8/hazard/out psha_chile8/WORKLOG.md`; message `S5: interface nrml_2026-11-16c (Mmax pad level, new segments) and in-slab 2026-11-16c/d rows in the tornado`.
+- **S5 (16 Nov, later):** in-slab declustering split into IS · spatial pattern and IS · declustering (rates alone; the NN-rates job measured against the NN-pattern job). Branch labels on every axis of the slide figure. New review figures: `hazard/tornado_full.py` (full tornado, trial cities Iquique, Calama, Pucón) and `hazard/tornado_matrix.py` (cities × levels grouped by tectonic setting); style in FIGURE_STYLE_tornado.md. Final versions after the crustal rebuild. Add to the commit: `psha_chile8/hazard/{tornado_full,tornado_matrix}.py psha_chile8/hazard/FIGURE_STYLE_tornado.md`.
+- **S3 (16 Nov): scenario pages** (`figs_checks.scenario_pages`): `model/crustal/figs/2026-11-16e/scenarios_j15_main/001–075.png` and `scenarios_j15_all/001–121.png`, largest first, with Pablo's layout (new `basemap_gray.tif`, no coastline, fault ids, Mw and length box, legend). The basemap of these pages is the setting `SCEN_BASEMAP` in `figs_checks.py`.
+- **Wording (Pablo, 16 Nov): the fault 10 / 20 km branches are the seismogenic thickness**, not depth; depth stays for events and the point-source hypocentre. Figure labels, REPORT_S3 (section 12 on) and the memory note use "thickness" from here on; the file tags `z10` / `z20` and the branch ids become `t10` / `t20` at the next rebuild, since S5 reads the current ones.
+
+## 2026-11-16: LOFS event maps and the Aysén 1960 location (Claude Code, A7)
+
+Pablo asked for maps of the events along the Liquiñe–Ofqui fault system, to check which agency located them. Nothing changed in the catalogue.
+
+- **Maps:** `catalog/figs/classify/lofs_south.png` (43.6–48.2° S, Mw ≥ 3) and `lofs_full.png` (37.8–48.2° S, Mw ≥ 4); script `explore/A9/a9_lofs.py` (from `catalog/`, `PYTHONPATH=.:..`), on the frozen catalogue `2026-11-16c`. Basemap `data/basemaps/basemap_chile_gray/basemap_gray.tif`, faults `data/faults/faults_gem_extra_2026-11-15.shp` (LOFS in red). Circle size by Mw, colour by reported depth (grey: none), white edge for split class weights. Callouts for events with crustal weight within 50 km of a LOFS trace (Mw ≥ 5.5, or 5.0 with a mechanism; full map 5.7 / 5.2): date, Mw, locating agency, depth and its source, class, GCMT mechanism. Every epicentre the ISC Bulletin lists is drawn for those of Mw ≥ 6.8 before 1964. Tables `explore/A9/lofs_*_events.csv`, `lofs_*_origins.csv`.
+- **Aysén 1960-06-06 05:55 (Mw 7.7):** the catalogue uses the Centennial epicentre (EHB, 45.70° S 73.50° W, depth fixed at 15 km), which falls on the western LOFS trace. Other epicentres: ISC-GEM 45.75° S 72.92° W, ISC 45.79° S 72.89° W (both about 45 km east, among the 1965 and 1991 events), ISS 45.71° S 73.08° W, BCIS and CGS 45.5° S 73.5° W, MOS 47.0° S 74.0° W. Kanamori and Rivera (2017, p. 93) take the Centennial epicentre as given and do not relocate; their mechanism is a choice (NS right-lateral) on limited first motions. The A5 rule puts the Centennial first before 1964.
+- **1927-11-21 (Mw 7.1):** also a Centennial epicentre (45.11° S 73.62° W); ISC-GEM, ISC, ISS and Gutenberg put it 40–90 km north-east, near the 2007 Aysén swarm.
+- **1991-08 events (Mw 5.5–6.0, 45.8–45.9° S, 72.6–73.2° W):** a cluster near Hudson volcano, in August 1991; probably related to its eruption of that month (not checked in a source).
+- **For Pablo:** whether the Centennial epicentre should stay first for these two events is an A6 question (a location override with a source).
+
+## 2026-11-16, GM1: module-name clash fixed
+
+- **Renames:**
+  - `gmm/run.py` → `gmm/gm1_run.py` and `gmm/figs.py` → `gmm/gm1_figs.py`. The old names clashed with `fits/run.py`, `model/inslab/run.py` and three `figs.py` when pytest ran from `psha_chile8/`.
+  - Imports in `gm1_run.py`, `gm1_figs.py` and `summary.py` follow the new names.
+  - Mentions updated in REPORT_GM1, FIGURES_GUIDE, APPENDS_GM1 and the two GM1 rows of FIGURES.md.
+- **Tests:** `pytest` from `psha_chile8/` gives 338 passed.
+- **Commands:** from `psha_chile8/gmm/`, `python gm1_run.py` (full run) and `python gm1_figs.py` (figures only).
+- **Commit:**
+  - `git add -A psha_chile8/gmm`
+  - `git add -p psha_chile8/FIGURES.md psha_chile8/WORKLOG.md`
+  - `git commit -m "GM1: entry and figure modules renamed gm1_run.py and gm1_figs.py (pytest name clash with fits/ and model/)"`
+
+## 2026-11-16: B14, backarc and Patagonia not pooled, options (Claude Code)
+- **Asked (Pablo):** classes below 15 weighted mechanisms are not pooled; for the backarc (8) and Patagonia (7), choose between their own mechanisms and one fixed mechanism from the dominant faulting of the class. `REPORT_B14.md`, last section, gives both options per class with the planes, every event, and the Kagan angle of each event to the fixed mechanism. No code or table changed yet; `npd_2026-11-16d.csv` is written once Pablo picks.
+- **Fixed mechanisms** (from the traces in `data/faults/faults_2026-11-15.gpkg`):
+  - Backarc: the 8 Precordillera thrusts inside the crustal grid, 312 km, length-weighted axial strike 9°, median dip 37.5°, six of eight dipping east → 10/40/90 and 190/50/90. No Sierras Pampeanas fault lies inside the grid.
+  - Patagonia: the Magallanes–Fagnano main trace, 490 km, axial strike 111°, vertical, left-lateral → 110/90/0 and 20/90/180.
+- **Check:**
+  - Backarc: the five Precordillera reverse events are 20–40° from the fixed thrust. San Juan 2021 (Mw 6.5, oblique strike-slip) is 62° away. The two Altiplano/Puna events (19° and 22° S) are 89–107° away.
+  - Patagonia: none of its 7 mechanisms is on the Magallanes–Fagnano system; all are 53–95° from its mechanism. The own planes rest on 1–3 events per type.
+- **Open (Pablo):** pick own or fixed for each class. Then `npd.py` drops the pooling (`min_n`) and takes the picked rows, writes `npd_2026-11-16d.csv`, and S3 and S5 read only that file.
+
+## 2026-11-16: A9, LOFS epicentres of Aysén 1960 and 1927-11-21, phase 1 (Claude Code, A6)
+Report only; nothing changed. Brief from A7 (Pablo, 16 Nov); the A7 entry "LOFS event maps and the Aysén 1960 location" and the DECISIONS Catalog lines were read.
+
+- **Read myself:**
+  - Centennial raw record and README (`catalog/sources/raw/centennial/`)
+  - ISC-GEM v13.0 raw rows (`raw/iscgem/isc-gem-cat.csv`)
+  - Engdahl and Villaseñor (2002), Table 1 and pp. 666–667
+  - Bondár et al. (2015, PEPI 239), pp. 2 and 11
+  - Kanamori and Rivera (2017), pp. 93, 100, 103
+- **Not available** (not in `refs/`):
+  - Kanamori and Stewart (1979), Cifuentes (1989), Naranjo et al. (2009), Agurto et al. (2012)
+  - Gutenberg and Richter (1954), cited only through Kanamori and Rivera
+- **How the epicentres were made:**
+  - Centennial / EHB: relocated by the EHB method from ISS-era arrival times (Engdahl and Villaseñor 2002, pp. 666–667, who note that many pre-1964 locations are poorly constrained).
+  - ISC-GEM: relocated in two steps (EHB, then the ISC locator, which accounts for correlated travel-time errors), with about one million P and S arrival times added for 1904–1970 from station bulletins and digitised ISS pages (Bondár et al. 2015, p. 2). Quality flags A–D; epicentres from a poor network geometry are never given the best flag (p. 11).
+- **Aysén 1960-06-06 (`cl19600606055549`):**
+  - Centennial 45.700° S 73.502° W: EHB, open azimuth < 180° (A), 137 teleseismic observations, depth fixed (FEQ).
+  - ISC-GEM 45.748° S 72.919° W: epicentre quality A, error ellipse 9.3 × 6.7 km.
+  - The others: ISC 45.785° S 72.889° W (5 km from ISC-GEM); Pacheco and Sykes 45.71° S 73.00° W; ISS 45.71° S 73.08° W; BCIS and CGS 45.5° S 73.5° W (coarse); MOS 47.0° S 74.0° W (outlier). Centennial and ISC-GEM are about 41 km apart.
+  - Kanamori and Rivera (2017, p. 93) use the Centennial epicentre and depth as given, without relocating. On p. 103 they say no reports of macroseismic effects are available to them, so no damage, landslide or fjord tsunami places the source. Chinn and Isacks put the 1965-11-28 Ms 6.1 strike-slip event at 45.77° S 72.90° W (cited there, p. 93), 2 km from the ISC-GEM 1960 epicentre.
+  - **Best supported:** not decided by the evidence, but it leans to ISC-GEM. Both solutions are top quality, and their 41 km difference is larger than either stated error. ISC-GEM uses more arrival times and the newer locator; ISC agrees with it, and P&S and ISS also lie east of Centennial.
+- **1927-11-21 23:12 (`cl19271121231233`):**
+  - Centennial 45.112° S 73.622° W: EHB, flagged XEQ ("poor solution"), only 17 teleseismic observations.
+  - ISC-GEM 44.861° S 72.686° W: quality B, ellipse 12.1 × 8.6 km.
+  - The others: ISC 44.816° S 72.926° W, ISS 44.7° S 73.0° W, Gutenberg and Richter 44.5° S 73.0° W (also cited by Kanamori and Rivera, p. 93, as M 7.1, "very little is known about this earthquake").
+  - **Best supported: ISC-GEM.** The Centennial solution is flagged poor and rests on 17 readings. Every other agency is 20–30 km from ISC-GEM, and Centennial is about 79 km away.
+- **Effect of a change** (traces `data/faults/faults_gem_extra_2026-11-15.shp`, LOFS by `system`; arc polygon `../data/intraarc.shp`):
+
+  | Event | Candidate | Nearest LOFS trace | Distance |
+  |---|---|---|---|
+  | 1960 | Centennial | Canal Costa (006ww, western) | 3 km |
+  | 1960 | ISC-GEM | Riesco–Mañihuales (006tt) | 5 km |
+  | 1960 | ISC | Riesco–Mañihuales (006tt) | 10 km |
+  | 1927 | Centennial | Canal Costa (006ww) | 15 km |
+  | 1927 | ISC-GEM | Fiordo Aysén–Puerto Cisnes (006qq) | 6 km |
+  | 1927 | ISC | Fiordo Puyuhuapi (006pp) | 3 km |
+
+  - Every candidate is inside the arc polygon, so the class stays crustal arc (by hint for 1960, by position for 1927).
+  - The arc Mmax stays 7.9: Aysén keeps Mw 7.7 wherever it sits, and 1927 stays Mw 7.1.
+  - Only the epicentres move, 41 km and 79 km east and north-east. That affects the spatial pattern of the smoothed crustal background and any event-to-fault association; the arc rates do not change.
+- **For Pablo (phase 2, if decided):**
+  - 1927 location rows to ISC-GEM 44.861° S 72.686° W (ISC-GEM v13.0, entry 909648; Centennial flagged XEQ).
+  - 1960: keep Centennial, or move to ISC-GEM 45.748° S 72.919° W (entry 879416), a judgement on two A-quality solutions.
+  - No DECISIONS change needed: an A6 override with source.
+- **S3 (16 Nov): SHERIFS on the strict rupture set, one case** (A, LOFS, 15 km, main traces; REPORT_S3 section 13). `multifault.RUPSET = "strict"` feeds the `rupset` scenarios; class Mmax now drops scenarios instead of clipping (test updated, 22 passed).
+  - 75 scenarios (300 with the old chains); arc Mw ≥ 6 since 1976 at ψ 0.6 / 0.8 / 1.0: 9.2 / 12.2 / 15.3 at 10 km thickness (chains: 7.3 / 9.8 / 12.2), 11.7 / 15.7 / 19.6 at 20 km. Passes only at ψ 0.6, 10 km (p 0.19).
+  - The old chains passed partly on branching and overlapping ruptures that spent extra slip; the strict set gives the bulge back in part.
+  - Chain-run numbers of 10c kept here: 10 km 7.3 / 9.8 / 12.2 (p 0.41 / 0.15 / 0.04); 20 km 9.3 / 12.3 / 15.3.
+
+## 2026-11-16: B14, npd_2026-11-16d.csv (Claude Code)
+- **Decided (Pablo):** below 15 weighted mechanisms a class is not pooled; it takes the fixed mechanism of its dominant fault system. Backarc: Precordillera thrust 10/40/90. Patagonia: Magallanes–Fagnano 110/90/0. Each with its auxiliary plane, 0.5 per plane.
+- **Done:**
+  - `npd.py`: `MIN_N = 15` and `FAULT` replace the family pooling; `DATE = "2026-11-16d"`, `PREV = "2026-11-16c"`; moves typed from the counts table source.
+  - Written `npd_2026-11-16d.csv`, `tables/*_2026-11-16d.csv` and `figs/ternary_2026-11-16d.png` (stars for the fault mechanisms); `REPORT_B14.md` updated.
+  - Every other class is identical to `npd_2026-11-16c.csv`.
+  - New test `test_fault_classes`; 4 tests pass. DATA row 2026-11-16d (B14).
+- **Note:** none of Patagonia's 7 mechanisms (44.9–51.6° S) lies on the Magallanes–Fagnano system; they are 53–95° (Kagan) from its mechanism. Written in the report.
+- **Proposed DECISIONS line (In-slab and Crustal, replaces the B14 line):** "Nodal planes per class from the catalogue mechanisms (B14, `npd_2026-11-16d.csv`, on the catalogue 2026-11-16c; Frohlich types, one plane per type and its auxiliary at half weight, types below 10 % dropped and the rest renormalised). A class below 15 weighted mechanisms takes the mechanism of its dominant fault system from the fault traces: backarc Precordillera thrust 10/40/90, Patagonia Magallanes–Fagnano 110/90/0 (Pablo, 16 Nov). S3 and S5 read only this file; not a tornado factor." Superseded line: "`npd_2026-11-16.csv` → `npd_2026-11-16d.csv` (catalogue 2026-11-16c; backarc and Patagonia from their faults, 16 Nov)."
+- **For S3 and S5:** read `model/mechanisms/npd_2026-11-16d.csv` (columns class, strike, dip, rake, weight).
+- **Suggested commit:** `git add psha_chile8/model/mechanisms psha_chile8/DATA.md psha_chile8/WORKLOG.md`; message `B14: npd_2026-11-16d.csv, backarc and Patagonia take the mechanism of their dominant fault system`
+- **Phase 2 (Pablo, 16 Nov): both epicentres to ISC-GEM.** Accepted `lon` and `lat` rows in `catalog/overrides_A6.csv`:
+  - 1927-11-21: 44.861° S 72.686° W (entry 909648)
+  - Aysén 1960-06-06: 45.748° S 72.919° W (entry 879416)
+  - Reference ISC-GEM v13.0 (Bondár et al. 2015, p. 2); the reasons as in the phase 1 entry.
+  - The class (crustal arc), Mw and arc Mmax (7.9) do not change. They act at the next run of the chain (A7 reruns and freezes).
+- **Proposed DECISIONS line** (A6 line, after the 1919 epicentre): "1927-11-21 and Aysén 1960-06-06 epicentres to ISC-GEM (1927: Centennial flagged poor; 1960: two A-quality solutions 41 km apart, ISC-GEM with more arrival times and ISC agreeing) (Pablo, 16 Nov, A9)."
+- **Commit:** `git add psha_chile8/catalog/overrides_A6.csv psha_chile8/WORKLOG.md`; message: `A6 (A9): 1927-11-21 and Aysén 1960 epicentres to ISC-GEM`
