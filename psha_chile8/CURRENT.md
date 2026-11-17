@@ -11,7 +11,7 @@ Last full check: 16 Nov 2026, 21:30 (main conversation).
 | source catalogs (A2, A2b) | `catalog/sources/<name>_2026-11-10_{events,mags,mechs}.csv` (11 sources), `gccel_2026-11-11_*`; `sources/MANIFEST.csv` (sha256) | read by `match.py`; downloaded 10 Nov, unchanged since (commits c3ecf3b, 3bb70b3); raw in `sources/raw/` (not in git) |
 | frozen catalogue | `catalog/frozen/2026-11-16e/catalog_2026-11-16e.csv` | as 16c, with Aysén 1960 and 1927-11-21 at the ISC-GEM epicentre |
 | catalogue the fits and models are built on | `catalog/frozen/2026-11-16c/catalog_2026-11-16c.csv` | refit on 16e on hold (Pablo, 16 Nov) |
-| overrides | `catalog/overrides_A6.csv` | |
+| overrides | `catalog/overrides_A6.csv` | A6: 104 accepted, 8 superseded, none proposed; identical to the copy in `frozen/2026-11-16e/` (all applied); applied by `locate.py` (location, depth, class hint) and `magnitude.py` (Mw) as their last step |
 | matched events and links (A3) | `catalog/merged/events_2026-11-11.csv`, `links_2026-11-11.csv` (`windows_`, `review/`) | 204 956 events; read by `locate.py` and `magnitude.py`; unchanged since the rerun of 11 Nov (commit 2267cc9) |
 | declustered catalogues | `catalog/declustered/*_2026-11-16e.csv` | built on catalogue 16c (owner: FITS) |
 
@@ -35,7 +35,7 @@ Last full check: 16 Nov 2026, 21:30 (main conversation).
 | input | current | note |
 |---|---|---|
 | depth cells, three layers (reference) | `model/inslab/tables/depth_cells_2026-11-16.csv` | |
-| depth cells, one layer and lower depth | `model/inslab/tables/depth_cells_2026-11-16d.csv`, `depth_cells_lsd065_2026-11-16d.csv` | C15 |
+| depth cells, one layer and lower depth | `model/inslab/tables/depth_cells_2026-11-16d.csv` (`h_one`), `depth_cells_lsd065_2026-11-16d.csv`, `depth_cells_lsd0615_2026-11-16d.csv` | C15 run 2026-11-16d (class weights), catalogue 16c; three-layer columns of 16d not used by the sources |
 | sources and tornado rows | `model/inslab/nrml/2026-11-16c/` (`branches.json`) | one source per cell; pad, one layer, lower depth, Allen–Hayes |
 | declustered-rate rows | `model/inslab/nrml/2026-11-16d/` | tornado only |
 | class shares per cell | `model/inslab/tables/class_share_2026-11-16.csv` | for the nodal planes at S5 |
@@ -55,7 +55,7 @@ Last full check: 16 Nov 2026, 21:30 (main conversation).
 
 | input | current | note |
 |---|---|---|
-| GMM sets | `gmm/tables/gmm_sets_2026-11-15.csv` | GMM-1R, GMM-FIT, GMM-CSN, GMM-GEM |
+| GMM sets | `gmm/tables/gmm_sets_2026-11-15.csv` (made by `gmm/summary.py`) | column `set`: A = GMM-FIT, B = GMM-1R, C = GMM-CSN, D = GMM-GEM; equal weights; Vs30 800; Idini 2017 needs soiltype 1 |
 
 ## Hazard (owner: HAZ, session S5)
 
