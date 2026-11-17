@@ -3456,3 +3456,25 @@ Asked by Pablo (the arc b and the Liquiñe–Ofqui faults). Exploration only: no
 - Decisions made: none. DECISIONS (A4 location rule, 11 / 13 Nov) supersedes the A2b draft `catalog/PREFERENCES_draft_A4_location.md`; proposed to CAT: delete the draft and update PREFERENCES.md line 24.
 - Open: a newer GCCEL on ScienceBase (check by hand); questions to E. Bergman on the offshore and Valparaíso depths.
 - Suggested commit: `git add psha_chile8/handoffs/2026-11-16_A2b_close.md psha_chile8/WORKLOG.md` with `git commit -m "A2b close: handoff note"`
+
+## 2026-11-16: FITS close, arc decision (Claude Code, B11/B12)
+- Pablo: the arc stays one unit, no split by latitude; written into DECISIONS, Statistics. Check for him, no file changed: the arc uses Mw 5.0 from 1976 only since run 16c (full table until 16b: own b 1.00–1.02, N(≥ 6) 0.123–0.130); whole arc with the 1905 step b 0.98 ± 0.10; N(≥ 6) at fixed N(≥ 5): b 0.8 → 0.22, 0.5 → 0.43 (faults 0.447).
+- `handoffs/2026-11-16_FITS_close.md` updated (arc point closed, FITS.md has 14 sections). Commit as in the handoff.
+
+## 2026-11-16: A2 close (Claude Code, A2 conversation)
+- Handoff note `handoffs/2026-11-16_A2_close.md` (scripts, outputs, traps). CURRENT.md: line added for the frozen source catalogs (`catalog/sources/*_2026-11-10_*`, GCCEL `2026-11-11`). DECISIONS: all A2 decisions already present, nothing added. No new work.
+- Suggested commit: `git add psha_chile8/handoffs/2026-11-16_A2_close.md psha_chile8/CURRENT.md psha_chile8/WORKLOG.md`; `git commit -m "A2 close: handoff note, CURRENT line for the frozen source catalogs"`
+
+## 2026-11-16: DECK1104 close (Claude Code, catalog-review deck session of 4 Nov)
+- Handoff note `handoffs/2026-11-16_DECK1104_close.md`: the deck `presentations/261104_catalog_review/` (v2, psha_chile6 model and the 2026-11-04 catalog freeze), its figure scripts, the catalog checks `psha_chile7/outputs/a2/checks_1104/`, open points, traps. No CURRENT.md line (nothing published for other sessions); no DECISIONS lines (deck choices only, in `NOTES_v2.md`).
+- Suggested commit: as in the handoff (deck without `pres_v1.pdf` and `check/`, `checks_1104/`, the handoff, this entry); message `Catalog-review deck of 4 Nov (v2) with its figure scripts; catalog checks of 4 Nov; handoff`.
+
+## 2026-11-17 — C14/C15 session closed
+
+- Handoff: `handoffs/2026-11-16_C15_close.md`.
+- DECISIONS (Pablo, 16 Nov, C15):
+  - depth events with their in-slab class weight (In-slab, depth sources line);
+  - one layer at top + 0.243 × thickness (pointer in the C14 line, two Superseded lines);
+  - tornado one layer against three, the three-layer reference not rebuilt.
+- CURRENT: depth line lists `depth_cells_lsd0615_2026-11-16d.csv` and the run.
+- No new work. Suggested commit in the handoff.
