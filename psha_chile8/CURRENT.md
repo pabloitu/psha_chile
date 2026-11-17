@@ -2,7 +2,7 @@
 
 One line per published input. The owner session updates its line when it publishes a new dated file or folder, in the same step as the DATA.md row. Everyone else reads inputs from here, not from dates remembered or hard-coded. A folder still being written is listed under "in progress" and is not read by others.
 
-Last full check: 16 Nov 2026, 21:30 (main conversation).
+Last full check: 17 Nov 2026, 14:10 (main conversation, wrap-up; every owner checked its lines in the close-out notes).
 
 ## Catalogue (owner: CAT, sessions A6 / A7)
 
@@ -62,4 +62,4 @@ Last full check: 16 Nov 2026, 21:30 (main conversation).
 | input | current | note |
 |---|---|---|
 | jobs and code | `hazard/` (`jobs.py`, `config.py`) | reads the three `branches.json` above |
-| tornado results | `hazard/out/` (`tornado/`, `tornado_prelim/`, `tornado_full/`, `tornado_matrix/`, `trees/`) | all three families on the folders above: interface 16c, in-slab 16c + 16d, crustal 16g (calcs 597–642); family folders read from this file by `hazard/config.py` |
+| tornado results | `hazard/out/` (`tornado/`, `tornado_prelim/`, `tornado_full/`, `tornado_matrix/`, `trees/`, `curves/`, `shares/`) | all three families on the folders above: interface 16c, in-slab 16c + 16d, crustal 16g (calcs 522–642; crustal 614–642); family folders read from this file by `hazard/config.py`; job calc ids in `hazard/jobs/<job>/build.json` |
