@@ -1,0 +1,8 @@
+cls,n_all,w_all,n_inside,w_inside,oblique,source
+intraslab_shallow,452,323.6,387,283.1,93.0,intraslab_shallow
+intraslab_intermediate,931,925.4,809,803.4,430.8,intraslab_intermediate
+jujuy_nest,130,130.0,106,106.0,50.0,jujuy_nest
+forearc,279,133.6,224,104.3,27.0,forearc
+arc,47,45.5,41,39.5,11.5,arc
+backarc,11,11.0,8,8.0,1.0,crustal (pooled)
+patagonia,11,11.0,7,7.0,4.0,crustal (pooled)
