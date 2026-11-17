@@ -3478,3 +3478,71 @@ Asked by Pablo (the arc b and the Liquiñe–Ofqui faults). Exploration only: no
   - tornado one layer against three, the three-layer reference not rebuilt.
 - CURRENT: depth line lists `depth_cells_lsd0615_2026-11-16d.csv` and the run.
 - No new work. Suggested commit in the handoff.
+
+## 2026-11-17 — HAZ: verdict table of the 16 Nov tornado (Claude Code)
+- **Read:** CLAUDE.md, CURRENT, PLAN, DECISIONS (Logic tree, Hazard runs, GMMs, family sections, Statistics), REPORT_S5a sections 9–11, FIGURE_STYLE_tornado, the CR → HAZ handoff and the S5 / HAZ entries of 16 Nov. DECISIONS re-read before finishing: unchanged.
+- **Done:** `hazard/verdicts.py` → `hazard/out/verdicts_2026-11-17.csv` (44 levels: 10 interface, 9 in-slab, 14 crustal, 11 GMM sets; largest change of the total PGA 475 yr with city and branch, family-alone change, range, cities ≥ 5 %, set average, rule, ⚠ within 1 % of the line, proposed verdict, criterion) and `hazard/out/verdicts_2026-11-17.md`. Test `hazard/tests/test_verdicts.py` (10 hazard tests pass). No OpenQuake runs.
+- **Proposed branches:** IF segmentation, rate model, b per segment, (a, b), rupture scaling, χ (5.9 %, ⚠); IS (a, b); declustering method GK74 / NN on the patterns (IS 12 %); CR LOFS secondary traces (−48 % Puerto Aysén), thickness, ψ; the models of the chosen GMM set.
+- **Proposed fixed by a DECISIONS criterion, with range:** declustered rates IF (−11 / +10 %) and IS (+10 %) (full catalogue); fault database A (+44 %, arc count test); with faults (−75 %); fault Mmax Leonard (−22 %); jump 15 km (5.2 %, ⚠, UCERF3). Below 5 %, fixed: Mmax pads, MFD shapes, truncation 3σ (IS 4.5 % ⚠), IS layers / depth / scaling, CR background rows.
+- **Open for Pablo (context conversation):** (1) interface rate convention: Statistics fixes full-catalogue rates, the Interface line still says open; (2) fault linkage is 3.7 %, but jump and secondary-trace levels exist only in multi-fault: single or multi-fault?; (3) shared interface b as criterion (fit failure 32–26° S) or three branches; (4) GMM sets to GM2, crustal GMM-CSN (+107 %, Arteta23) still unchecked.
+- **Commands:** from `psha_chile8/`, `PYTHONPATH=/data/PyCharmProjects/psha_renta/oq-engine python hazard/verdicts.py` (seconds; rerun after `tornado_prelim.py`).
+- **Suggested commit:** `git add psha_chile8/hazard/verdicts.py psha_chile8/hazard/tests/test_verdicts.py psha_chile8/hazard/out/verdicts_2026-11-17.csv psha_chile8/hazard/out/verdicts_2026-11-17.md psha_chile8/WORKLOG.md`; message `HAZ: verdict table of the 16 Nov tornado (proposal by the 5 % rule)`.
+- **HAZ (17 Nov, later), Pablo's reading of the table:**
+  - Rule: a level goes in when the spread of its branches, the reference included, is ≥ 10 % at one city. Written to DECISIONS (Logic tree) with the verdicts below (Pablo, 17 Nov, HAZ).
+  - Changes: no faults becomes a comparison (the model has faults); GMM sets other than the fitted one are comparisons; truncation is a modelling decision (probably high); LOFS secondary traces probably go into multi-fault.
+  - Team topics: rate declustering (interface spread 21 %, in-slab 10 %), fault database, fault Mmax scaling relations, GMM calibration (all magnitudes or large ones), fault linkage, shared interface b, truncation level, Arteta et al. (2023). The Arteta note is pinned in the md.
+  - `hazard/verdicts.py` now has spread columns (`spread_pct`, `spread_city`, `cities_ge10`) and the verdicts branch / fixed / comparison / team; csv and md rewritten; 11 hazard tests pass.
+  - Layers (three against one): the effect follows the top-slice weight under each city (Pucón 0.68, family −5.5 %; Santiago 0.47, −6.5 %; Iquique 0.42, −3.8 %; Calama 0.22, −1.5 %; La Serena 0.11, +1.4 %). Calama is among the weakest, and Iquique, with both planes, is already a city. No extra run is needed; for the paper, a catalogue with better depth resolution could separate the two planes.
+  - Add `psha_chile8/DECISIONS.md` to the suggested commit.
+- **HAZ (17 Nov, later still):**
+  - Three in-slab layers stay the model: physically more accurate, though small (DECISIONS, Logic tree, Pablo, 17 Nov).
+  - Crustal pattern GK74 or NN: a suggestion to choose on the maps (`model/crustal/figs/2026-11-16e/pattern_{gk,nn}.png`). NN shows the Aysén hotspot (2007 fjord sequence) and a small one at about 40.7° S; south of 47° S the two are identical. Suggested: NN. Fixing it alone splits the joint declustering factor.
+  - Cities (probably, not yet in DECISIONS): Puerto Williams replaced by a site near the Magallanes–Fagnano fault around Lago Fagnano (to be chosen), and Punta Arenas added, to show near-zero hazard. `hazard/config.py` is unchanged until the sites are fixed; both need new jobs and lower intensity levels.
+  - Verdict csv and md updated.
+- **HAZ (17 Nov):** one declustering algorithm for every family, with no GK74 / NN branch; which one is still to choose (DECISIONS, Logic tree, Pablo, 17 Nov). Verdicts updated. The NN in `fits/decluster.py` is Zaliapin and Ben-Zion (2013): mixture threshold on η, cluster trees, the largest event kept. It is not the 2020 thinning version. A change of algorithm belongs to FITS (B12 line in Statistics).
+- **HAZ (17 Nov):** the 10 % spread rule is now written in full in DECISIONS (Logic tree): the 6 Oct line points to it, and there is a Superseded line; the 16 Nov verdict line says "branch rule".
+- **HAZ (17 Nov):** the verdicts are written into DECISIONS (Logic tree) as branches, fixed, comparisons and open (team) levels, replacing the summary line; the rule, its Superseded line and the three-layer line were already in (Pablo, 17 Nov, HAZ).
+
+## 2026-11-17 — context conversation: decisions after the verdicts (Claude, chat)
+- **Written into DECISIONS** (Pablo, 17 Nov, context), each in its own section:
+  - (a, b) weights 0.185 / 0.63 / 0.185 for 5th / ML / 95th, interface and in-slab: the exception to equal weights (Interface, In-slab, Logic tree).
+  - Geodetic χ 0.7 / 0.8 / 0.9 at equal weights (Interface; Superseded line).
+  - No Scotia–Antarctic source: its events stay outer rise, in no unit or fit. The Antarctic interface (geodetic) is the far-south source for completeness, as long as its convergence rate has a source. This replaces the morning line "source added" (Interface, Crustal; Superseded line).
+  - Declustering: the 17 Nov Statistics line read NN as chosen. Corrected: the algorithm is chosen with the co-authors, most likely `nn_family`; the 15 Nov two-option line and the 0.5 / 0.5 declustered-rate rows stand until then.
+  - With the co-authors: rate convention and b per segment (their branches stay in the tree), GMM truncation level (3σ until then, answer needed before the final run), the models and weights of the fitted GMM set.
+  - Crustal source Mmin for the final model 4.9 or 5.0, to settle (5.5 was for the tornado). Arc bulge: no change, for the discussion.
+  - Seismic / geodetic 0.5 / 0.5 to confirm after IF's explanation (below).
+- **For the sessions** (read this entry; no separate prompt):
+  - IF: explain, without a rebuild, why the geodetic branch moves PGA 475 by 13 % (1.2 % in psha_chile6) and the geodetic / seismic N(≥ 8) of 1.3 (margin) and 1.6–4.8 (segments) at χ 0.8. Write it in the WORKLOG.
+  - FITS: check the `nn_family` implementation before the refit. No outer-rise or Scotia unit.
+  - HAZ: `hazard/out/verdicts_2026-11-17.md` still names a Lago Fagnano site; DECISIONS has Ushuaia (−54.80, −68.30) and Punta Arenas. Fix it at the next rewrite, and set both cities in `config.py` for the final run.
+  - CAT: no Scotia label is needed in the catalogue batch.
+- **Rule change** (Pablo, 17 Nov): the context conversation writes Pablo's decisions into DECISIONS and logs them here itself (CLAUDE.md, end-of-session item 5).
+
+
+## 2026-11-17: San Ramón trace in database A (Claude Code, D16 session)
+
+- **Pablo, 17 Nov:** San Ramón CL-001a takes the trace of MASCSN26 fault 687; A's attributes are kept (dip 47.5° E, 0.4 mm/yr, our 10 / 20 km depth rule).
+  - New trace 44.4 km (was 28.2), on all proved CHAF San Ramón strands. Leonard Mmax rises from about 6.9 to about 7.1.
+  - Implemented as `SWAP` in `model/faults/curate.py`. `data/faults/faults_gem_extra_2026-11-15.shp` / `.csv` rewritten (138 faults). Tests pass.
+- **Multi-fault branch:** unchanged, still Liquiñe–Ofqui only. In A, San Ramón has no neighbour within the 15 km jump.
+- **South of San Ramón and Las Melosas:**
+  - MASCSN26 has no other fault at 33.4–35.5° S in the Andes.
+  - CHAF has the following, none added:
+    - Las Melosas: 3.2 km, probable, tied to the 1958 event.
+    - Río Colorado: 23 km, possible, about 20 km east of Peñalolén.
+    - Machalí: 26 km, possible.
+    - El Fierro / Garcés / Tinguiririca / Guanaco: 63 km, proved only through 6.6 km of El Fierro, tied to the 2004 Mw 6.5.
+- **Proposed DECISIONS line** (Crustal and faults): "Database A: San Ramón (CL-001a) on the MASCSN26 trace (fault 687, 44 km), attributes of A (Pablo, 17 Nov)."
+- **Commit:**
+  - `git add model/faults/curate.py model/faults/REPORT_D16.md data/faults/faults_gem_extra_2026-11-15.* DATA.md WORKLOG.md` (from `psha_chile8/`)
+  - Message: `D16: San Ramon trace from MASCSN26 (44 km) in database A, attributes kept`
+- DECISIONS line written (Crustal and faults, after "Fault databases into the tornado"): San Ramón on the MASCSN26 trace in A (Pablo, 17 Nov, D16).
+- Map `drafts/san_ramon/san_ramon.png` (script `san_ramon.py`): old and new San Ramón traces, CHAF strands by class, crustal events of Mw ≥ 5.5 (catalogue 16e).
+  - The first version, `model/faults/figs_sr.py` and `model/faults/figs/san_ramon.png`, is superseded and can be deleted; the session could not delete it.
+- **A against B rerun with the new San Ramón:** `model/faults/compare.py`, 9 s.
+  - Rewritten: `tables/d16b_*_2026-11-15.csv` and `figs/faults_A_B_map.png`. The previous versions are kept in `figs/` and `tables/2026-11-15_before_san_ramon/`.
+  - Only Santiago changes: N(≥ 6) of A 0.0014 → 0.0015 per yr; B / A 1.65 → 1.44.
+- **Database A is final for this round (Pablo, 17 Nov).**
+  - Suggested commit, from `psha_chile8/`: `git add model/faults/curate.py model/faults/REPORT_D16.md model/faults/tables/d16b_*_2026-11-15.csv model/faults/tables/2026-11-15_before_san_ramon model/faults/figs/2026-11-15_before_san_ramon data/faults/faults_gem_extra_2026-11-15.* DECISIONS.md DATA.md WORKLOG.md`
+  - Message: `D16: San Ramon on the MASCSN26 trace (44 km) in database A, attributes kept; A against B rerun`

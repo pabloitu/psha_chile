@@ -17,6 +17,7 @@ Contents:
   - 6 Magallanes–Fagnano strands beside the main trace removed (Pablo): CL-056e, f, g, h, i, j (`REMOVE` in `curate.py`).
   - 7 far Argentine faults removed in the second edit: Aconquija AR-0002a, El Molino AR-0050a, El Duraznillo AR-0268a, Chumbicha AR-0005a, Las Lagunas AR-0054a, Medeiros AR-0350a, Las Malvinas AR-0045b.
   - Río Cuervo CL-006ddd: trace edited (80.7 → 65.1 km).
+  - San Ramón CL-001a: trace swapped to MASCSN26 fault 687 (28.2 → 44.4 km, all proved CHAF strands); A's attributes kept (47.5° E, 0.4 mm/yr, our depth rule) (Pablo, 17 Nov; `SWAP` in `curate.py`).
 - **4 faults added by hand earlier**, traced to CHAF: Bajo Molle; Marga Marga and Laguna Verde, both extended to all their CHAF strands (34.6 and 23.4 km); Carranza.
 - **4 faults added from CHAF in D16**:
   - Mejillones, northern section (19.7 km after Pablo's edit; the southern Mejillones fault is GEM CL-049)

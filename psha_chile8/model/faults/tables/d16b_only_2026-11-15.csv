@@ -23,14 +23,14 @@ B,MASCSN-496,Santa Maria,Santa María,forearc,9.4074,0.0,2.9,6.0,6.3,0.00735,0.0
 B,MASCSN-438,Cachet,Cachet,patagonia,40.0167,0.0,2.0,6.6,6.9,0.00725,2e-05,-73.25251,-47.43309
 B,MASCSN-64,Santa Maria,Santa María,forearc,11.24246,0.0,2.8,6.1,6.4,0.00718,0.0,-73.44713,-36.8514
 B,MASCSN-312,Sollipulli cluster,Liquiñe–Ofqui,arc,28.61198,0.02439,2.0,6.4,6.7,0.00688,1e-05,-71.81163,-38.95576
-B,MASCSN-146,Cachet,Cachet,patagonia,26.82702,0.0,2.0,6.4,6.7,0.00665,1e-05,-73.17483,-46.98095
-B,MASCSN-440,Cachet*,Cachet,patagonia,24.326,0.0,2.0,6.4,6.7,0.00603,0.0,-73.24746,-47.10481
+B,MASCSN-146,Cachet,Cachet,arc,26.82702,0.0,2.0,6.4,6.7,0.00668,1e-05,-73.17483,-46.98095
+B,MASCSN-440,Cachet*,Cachet,arc,24.326,0.0,2.0,6.4,6.7,0.00606,0.0,-73.24746,-47.10481
 B,MASCSN-236,unnamed,Liquiñe–Ofqui,arc,24.8998,0.49334,2.0,6.4,6.7,0.00599,0.0,-72.20407,-41.44278
 B,MASCSN-614,Morguilla,Lanalhue,forearc,99.23489,0.0,1.2,7.0,7.3,0.00552,0.00033,-73.41169,-37.9704
 B,MASCSN-727,Bahia Indio,Magallanes–Fagnano,patagonia,67.71083,0.0,1.0,6.8,7.1,0.00427,0.00013,-71.42575,-53.60421
-B,MASCSN-733,Exploradores,Exploradores,patagonia,40.13624,0.0,1.2,6.7,7.0,0.00412,8e-05,-73.09482,-46.4345
-B,MASCSN-734,Exploradores,Exploradores,patagonia,11.94986,0.0,1.2,6.1,6.4,0.00327,0.0,-73.15836,-46.6135
-B,MASCSN-731,Exploradores,Exploradores,patagonia,19.57832,0.0,1.2,6.4,6.7,0.00325,0.0,-73.22647,-46.43228
+B,MASCSN-733,Exploradores,Exploradores,arc,40.13624,0.0,1.2,6.7,7.0,0.00416,8e-05,-73.09482,-46.4345
+B,MASCSN-734,Exploradores,Exploradores,arc,11.94986,0.0,1.2,6.1,6.4,0.00328,0.0,-73.15836,-46.6135
+B,MASCSN-731,Exploradores,Exploradores,arc,19.57832,0.0,1.2,6.4,6.7,0.00326,0.0,-73.22647,-46.43228
 B,MASCSN-728,Rio San Juan,Magallanes–Fagnano,patagonia,28.78087,0.0,1.0,6.4,6.8,0.00315,0.0,-71.09485,-53.57483
 B,MASCSN-561,Lago Laja,Lago Laja,arc,22.5263,0.0,0.77,6.4,6.7,0.00222,0.0,-71.3157,-37.09978
 B,MASCSN-683,Carino Botado,Western Andean Thrust Front,forearc,14.06744,0.0,0.6,6.3,6.6,0.00187,0.0,-70.55019,-32.80388
