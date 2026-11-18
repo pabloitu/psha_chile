@@ -10,10 +10,11 @@ import pytest
 T = Path(__file__).resolve().parent
 sys.path[:0] = [str(T.parent), str(T)]
 import build as B  # noqa: E402
+import is_tornado as T  # noqa: E402
 import ref_kernels as RK  # noqa: E402
 import is_smooth as S  # noqa: E402
 
-BUILT = (B.NR / "branches.json").exists()
+BUILT = (B.NR / "tree.json").exists()
 built = pytest.mark.skipif(not BUILT, reason="run build.py first")
 
 
@@ -89,10 +90,29 @@ def test_ab_variants_sit_at_the_percentiles_of_the_controlling_rate():
         sd = np.sqrt(v @ C @ v)
         N = lambda f: f["rate"] * B.G.surv(f, mc - B.G.DM / 2)
         # exact for the tapered line; for the cut line the pair is the open-line pair of fits/run.py, and the cut
-        # term 0.3 below Mmax narrows the spread by 7-9 %
-        tol = 2e-3 if sh == "taper" else 0.1
+        # term 0.3 below Mmax narrows the spread by 7-11 % (most for the nest, the widest interval, fits 2026-11-18)
+        tol = 2e-3 if sh == "taper" else 0.12
         assert np.log10(N(lo) / N(f0)) == pytest.approx(-1.645 * sd, rel=tol)
         assert np.log10(N(hi) / N(f0)) == pytest.approx(1.645 * sd, rel=tol)
+
+
+# nodal planes: one per sub-class, by domain
+def test_one_plane_by_domain():
+    npd = pd.read_csv(B.NPD_TAB)
+    g = pd.DataFrame({"top": [20.0, 50.0, 50.1, 120.0, 90.0]})
+    on = np.array([True, True, True, True, False])
+    txt = B.npd_cells(npd, g, "slab", on)
+    assert txt[4] is None and txt[0] == txt[1] and txt[2] == txt[3] and txt[0] != txt[2]
+    for c, t in (("intraslab_shallow", txt[0]), ("intraslab_intermediate", txt[2])):
+        x = npd[npd["class"] == c]
+        r = x[x.weight == x.weight.max()].iloc[0]
+        assert t == f'<nodalPlane probability="1.000" strike="{r.strike:g}" dip="{r.dip:g}" rake="{r.rake:g}"/>'
+    nest = B.npd_cells(npd, g, "nest", on)
+    assert nest[0].count("<nodalPlane ") == 1 and nest[4] is None
+    bad = pd.DataFrame({"class": ["intraslab_shallow"] * 3, "strike": [0, 1, 2], "dip": [30, 40, 50], "rake": [0, 0, 0],
+                        "weight": [0.4, 0.3, 0.3]})
+    with pytest.raises(AssertionError):
+        B.one_plane(bad, "intraslab_shallow")
 
 
 # checks on the built model
@@ -119,7 +139,7 @@ def test_summed_rates_reproduce_the_fits_at_every_bin_edge():
 @built
 def test_depth_weights_sum_to_one_and_hypocentres_inside_the_zone():
     g = B.cells()
-    for ly in B.LAYERS:
+    for ly in ("l3", "l1"):
         h, w = B.hypo(g, ly)
         assert np.allclose(w.sum(1), 1.0, atol=1e-9) and (w > 0).all()
         assert ((h >= g.usd.to_numpy()[:, None]) & (h <= g.lsd.to_numpy()[:, None])).all()
@@ -129,19 +149,26 @@ def test_depth_weights_sum_to_one_and_hypocentres_inside_the_zone():
 
 
 @built
-def test_branch_sets_weights_sum_to_one():
-    j = json.loads((B.NR / "branches.json").read_text())
-    br = pd.DataFrame(j["branches"])
-    assert br.weight.sum() == pytest.approx(1.0)
-    assert sum(j["factors"]["decl"].values()) == pytest.approx(1.0) and sum(j["factors"]["ab"].values()) == pytest.approx(1.0)
-    assert len(br) == len(B.DECL) * (len(B.SHAPES) * len(B.AB) * len(B.LAYERS) + len(B.PADS))
-    for b in br.itertuples():
+def test_tree_manifest_sets_add_to_one_without_zero_weights():
+    t = json.loads((B.NR / "tree.json").read_text())
+    for x in t["sets"]:
+        assert sum(x["values"].values()) == pytest.approx(1.0, abs=1e-12) and min(x["values"].values()) > 0
+    br = pd.DataFrame(t["branches"])
+    assert br.weight.sum() == pytest.approx(1.0, abs=1e-12) and (br.weight > 0).all()
+    assert len(br) == np.prod([len(x["values"]) for x in t["sets"]])
+    # every branch weight is the product of its set values
+    v = {x["level"]: x["values"] for x in t["sets"]}
+    assert np.allclose(br.weight, [v["rate"][b.rate] * v["ab"][b.ab] for b in br.itertuples()])
+    inv = pd.DataFrame(json.loads((B.NR / "branches.json").read_text())["branches"])
+    assert "weight" not in inv and set(br.id) <= set(inv.id)
+    assert len(inv) == len(B.DECL) * (len(B.SHAPES) * len(B.AB) * len(B.LAYERS) + len(B.PADS) + len(B.AB))
+    for b in inv.itertuples():
         assert all((B.NR / f).exists() for f in b.files)
 
 
 @built
 def test_nest_sources_only_inside_its_region():
-    for f in B.NR.glob("is_nest_*_l1.xml"):
+    for f in B.NR.glob("is_nest_*_l3.xml"):
         p = np.array([[float(v) for v in s.split()] for s in re.findall(r"<gml:pos>([^<]+)</gml:pos>", f.read_text())])
         assert len(p) and (B.nest_r(p[:, 0], p[:, 1]) <= B.NEST["radius_deg"] + 1e-9).all()
 
@@ -168,9 +195,9 @@ def test_summed_slab_source_is_the_sum_of_the_classes():
         assert q["N5.5_intermediate"] == pytest.approx(r["intraslab_intermediate"], rel=1e-9)
 
 
-@built
+@pytest.mark.skipif(not (B.TAB / f"class_share_check_{B.RUN}.csv").exists(), reason="run build.py first")
 def test_class_shares_sum_to_one_and_guard_cells_are_kept():
-    s = pd.read_csv(B.TAB / f"class_share_{B.DATE}.csv")
+    s = pd.read_csv(B.TAB / f"class_share_check_{B.RUN}.csv")
     for m in ("m5.5", "m7"):
         assert np.allclose(s[f"shallow_{m}"] + s[f"intermediate_{m}"], 1.0, atol=2e-5)
     g, ev = B.cells(), B.events()
@@ -183,7 +210,8 @@ def test_class_shares_sum_to_one_and_guard_cells_are_kept():
 def test_pad_branches_follow_their_fits_and_carry_no_weight():
     br = pd.DataFrame(json.loads((B.NR / "branches.json").read_text())["branches"])
     pads = br[br["pad"] != "pad02"]
-    assert len(pads) == len(B.DECL) * len(B.PADS) and (pads.weight == 0).all() and not pads.tree.any()
+    tree = {b["id"] for b in json.loads((B.NR / "tree.json").read_text())["branches"]}
+    assert len(pads) == len(B.DECL) * len(B.PADS) and not set(pads.id) & tree
     d = pd.read_csv(B.TAB / f"drop_{B.RUN}.csv")
     for q, f in B.PADS.items():
         F = B.fits(f)
@@ -194,9 +222,8 @@ def test_pad_branches_follow_their_fits_and_carry_no_weight():
             assert x[f"N5.5_{s['short']}"] == pytest.approx(B.N_ge(r, 5.5), rel=1e-6)
 
 
-@pytest.mark.skipif(not (B.HERE / "nrml" / "2026-11-16c" / "branches.json").exists(), reason="run is_tornado.py first")
+@pytest.mark.skipif(not (T.D / "tornado.json").exists(), reason="run is_tornado.py first")
 def test_tornado_variants_change_one_thing_only():
-    import is_tornado as T
     t0 = (T.D / f"is_nest_{T.REF}.xml").read_text()
     pick = {"ids": r'pointSource id="([^"]+)"', "rates": r"<occurRates>([^<]+)<", "usd": r"<upperSeismoDepth>([^<]+)<",
             "lsd": r"<lowerSeismoDepth>([^<]+)<", "hypo": r"<hypoDepthDist>(.*?)</hypoDepthDist>", "msr": r"<magScaleRel>([^<]+)<"}
@@ -205,20 +232,32 @@ def test_tornado_variants_change_one_thing_only():
         t = (T.D / f"is_nest_{T.REF}_{tag}.xml").read_text()
         diff = {k for k, p in pick.items() if re.findall(p, t) != re.findall(p, t0)}
         assert diff == ch
-    j = json.loads((T.D / "branches.json").read_text())
-    assert {"is_ref", "is_l1c15", "is_lsd065", "is_ah"} <= set(j["tornado"])
-    assert all(b["weight"] == 0 for b in j["branches"] if b.get("variant"))
+    t = json.loads((T.D / "tornado.json").read_text())
+    rows = {r["id"]: r for r in t["rows"]}
+    assert {"is_ref", "is_l1c15", "is_lsd065", "is_ah", "is_rate_gk", "is_rate_nn"} <= set(rows)
+    ids = {b["id"] for b in json.loads((T.D / "branches.json").read_text())["branches"]}
+    assert rows["is_ref"]["against"] is None and list(rows["is_ref"]["branches"]) == [t["reference"]["id"]]
+    for r in rows.values():
+        assert set(r["branches"]) <= ids and sum(r["branches"].values()) == pytest.approx(1.0)
+        assert all((T.D / f).exists() for fs in r["files"].values() for f in fs)
+        if r["id"] != "is_ref":
+            assert r["against"] in rows and r["level"] in t["reference"]["values"]
+            assert r["value"] != t["reference"]["values"][r["level"]]
+    assert json.loads((T.D / "tree.json").read_text()) == json.loads((T.D_SRC / "tree.json").read_text())
 
 
-@pytest.mark.skipif(not (B.HERE / "nrml" / "2026-11-16d" / "branches.json").exists(), reason="run is_decl_rates.py first")
-def test_declustered_rate_rows_follow_their_fits():
-    import is_decl_rates as R
-    t = pd.read_csv(B.TAB / f"decl_rates_{R.RUN}.csv")
-    assert np.allclose(t.N55, t.N55_fit, rtol=1e-9) and np.allclose(t.N7, t.N7_fit, rtol=1e-9)
-    for k, m in R.METHODS.items():
-        F = R.fits_dc(m)
-        assert t[t.method == m].set_index("cls").b.to_dict() == pytest.approx({c: F[(c, "taper")].b for c in B.CLASSES})
-    j = json.loads((R.D / "branches.json").read_text())
-    assert set(j["tornado"]) == {"is_rate_gk", "is_rate_nn"} and all(b["weight"] == 0 for b in j["branches"])
-    rates = [float(x) for s in re.findall(r"<occurRates>([^<]+)<", (R.D / "is_slab_gk_taper_ml_l3_rategk.xml").read_text()) for x in s.split()]
-    assert sum(rates) == pytest.approx(t[(t.method == "gk_family") & (t.group == "slab")].N55.sum(), rel=1e-4)
+@pytest.mark.skipif(not (B.TAB / f"drop_{B.RUN}.csv").exists() or "rate" not in pd.read_csv(B.TAB / f"drop_{B.RUN}.csv").columns,
+                    reason="run build.py first")
+def test_declustered_rate_branches_follow_their_fits_and_share_half_the_tree():
+    d = pd.read_csv(B.TAB / f"drop_{B.RUN}.csv")
+    for k, m in B.DECL_M.items():
+        F = B.fits_dc(k)
+        for c, s in B.CLASSES.items():
+            for ab in B.AB:
+                x = d[(d.rate == m) & (d.ab == ab) & (d.group == ("nest" if s["short"] == "nest" else "slab"))].iloc[0]
+                if x.dropped == 0:
+                    f, cc, n = B.mfd(F[(c, "taper")], ab)
+                    assert x[f"N5.5_{s['short']}"] == pytest.approx(n.sum(), rel=1e-6)
+    t = pd.DataFrame(json.loads((B.NR / "tree.json").read_text())["branches"])
+    assert t.groupby(t.rate == "full").weight.sum().tolist() == pytest.approx([0.5, 0.5])
+    assert set(t[t.rate != "full"].rate) == {B.DECL_M[B.DC]}

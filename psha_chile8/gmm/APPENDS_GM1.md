@@ -20,8 +20,8 @@ Writing outside `gmm/` other than WORKLOG and PLAN was not allowed in the GM1 se
 ## FIGURES.md (two rows at the end of the table)
 
 ```
-| S | strong-motion data for the GMM test: Mw against Rrup per class (measured and inferred Vs30), depths, station Vs30 | the Bastías et al. (2026) records cover Mw 5–8.8 on the interface but only two in-slab events above Mw 7, and no backarc station | draft (supplement candidate) | `gmm/run.py` (`figs.py`) | `gmm/figures/data.png` |
-| | LLH and EDR of 14 subduction GMMs per class and period, event bootstrap, current tree marked | the South America versions of the NGA-Sub models score better than the global ones; Montalva et al. (2017) scores best in-slab at short periods; no model is best everywhere | draft (paper or supplement candidate) | `gmm/run.py` (`figs.py`) | `gmm/figures/scores.png` |
+| S | strong-motion data for the GMM test: Mw against Rrup per class (measured and inferred Vs30), depths, station Vs30 | the Bastías et al. (2026) records cover Mw 5–8.8 on the interface but only two in-slab events above Mw 7, and no backarc station | draft (supplement candidate) | `gmm/gm1_run.py` (`gm1_figs.py`) | `gmm/figures/data.png` |
+| | LLH and EDR of 14 subduction GMMs per class and period, event bootstrap, current tree marked | the South America versions of the NGA-Sub models score better than the global ones; Montalva et al. (2017) scores best in-slab at short periods; no model is best everywhere | draft (paper or supplement candidate) | `gmm/gm1_run.py` (`gm1_figs.py`) | `gmm/figures/scores.png` |
 ```
 
 ## REFERENCES.md (new section H)

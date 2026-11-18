@@ -3798,3 +3798,562 @@ Asked by Pablo (the arc b and the Liquiñe–Ofqui faults). Exploration only: no
 
 ## 2026-11-18 — FITS: alternative GR fits, whole interface margin (trial, not used) (Claude Code, FITS)
 - `drafts/fits/alt_methods/margin_alt.py`, `margin_alt.png` (17g, tables of the fits): tapered b 0.942; b = 1 fixed (USGS NSHM practice) passes the checks but lowers N(≥ 8); penalized ML with a normal prior on b (EPRI/CEUS-SSC idea; prior 1.0 ± 0.1 are trial values, not taken from the report) gives b 0.945; a two-branch open line with the break fitted gives break 7.2, b 0.954 / 0.724, ΔAIC +0.8 against one line (no support for a second branch). Kijko–Sellevoll not tried (heavy; for the in-slab pre-1964 problem). Trap: profiling lnL over a fixed b needs the magnitude-error weight held at one b (`bw`), else lnL is not comparable across b.
+- **Addendum (18 Nov), note from FITS2:** the deep Abe (1982) conversion of Centennial mB reads +0.36 (median +0.32, n 14, sd 0.26) against measured Mw on the same events; shallow −0.06 (n 21). In 17g 19 events of Mw ≥ 7 in the domain carry it (1915–1971, intermediate in-slab and nest) and make the 1905–1963 excess. Recorded in `catalog/MAGNITUDES.md` section 11 as open; no change, no rerun. Decision for Pablo: calibrate those values on the pairs at the next run, or keep them and state the excess.
+- **Decided (Pablo, 18 Nov):** the deep Abe values stay as converted; DECISIONS › Magnitudes; `MAGNITUDES.md` section 11 closed. Literature: no published correction of Abe's mB (ISC-GEM recomputes mb/MS instead; Huang et al. 1998 moments only below 300 km). Commit: `git add DECISIONS.md WORKLOG.md catalog/MAGNITUDES.md`; message: `CAT: deep Abe mB kept as converted (Pablo, 18 Nov)`.
+
+## 2026-11-18 — FITS: in-slab review, fits from 1964 (Claude Code, FITS)
+- **Review of the in-slab fits on 17g** (trial date, `drafts/fits/inslab/`, not committed scripts: `review.py`, `floors.py`, `mb_relation.py`, `mb_refit.py`, `modern.py`, `penalized.py`, `mc_inslab.py`, `abe_check.py`, `rate_change.py`, `early_values.py`): intermediate from 1905 fails the Mw ≥ 7 check (16.2 fitted / 28.8 observed) on floor 5.0; from 1964 it passes on floors 5.0, 5.8, 6.0. Merging shallow and intermediate, removing events deeper than 300 km, modern mB relations by the A5 rule (BJI and GFZ mB disagree with each other and with Gutenberg mB), magnitude errors inside the likelihood, b-positive, b-more-positive, dithering, penalized ML (prior b 1.0 ± 0.1, trial value) and an in-slab table of its own change b by ≤ 0.03 (penalized: nest −0.07) and do not make 1905 pass. Abe (1982) deep Mw +0.36 against measured Mw (14 pairs); corrected, the 1905–1963 and 1964–2026 rates of Mw ≥ 7 agree (p 0.32), no rate change since 1964 at Mw 5.5–6.5; the remaining misfit is the bend of b below Mw 5.8. Lines in LEARNINGS (In-slab; Fits: three pitfalls), written at Pablo's request.
+- **Decided (Pablo, 18 Nov, FITS):** in-slab classes fitted from 1964 only (`run.UNITS[...]["since"] = 1964`); DECISIONS (Statistics, Superseded). Trial on 17g (`drafts/fits/trial/log_insl1964.txt`): shallow b 1.128 ± 0.045, N(≥ 6) 0.666, N(≥ 7) 0.049; intermediate 1.181 ± 0.030, 1.606, 0.104; nest 1.171 ± 0.092, 0.220, 0.010; every Mw ≥ 7 check passes. Tests 38 pass.
+- **For IS (after the final run):** in-slab N(≥ 7) lower than 16f (intermediate 0.120 → about 0.104), b higher (1.157 → about 1.18). Mmax unchanged (any year).
+- **Open for Pablo:** the references for the 1964 break (ISC Bulletin start, WWSSN) for the paper; the floor of the in-slab fits stays 5.0 (b 1.18 at 5.0, 1.05 at 5.8, 0.99 at 6.0 from 1964).
+- **Commit addition (from `psha_chile8/`):** `git add fits/run.py DECISIONS.md LEARNINGS.md WORKLOG.md`; message: `FITS: in-slab classes fitted from 1964 (deep Abe mB 0.36 high; 1905 fails the large-event check with every estimator); review findings in LEARNINGS`
+
+## 2026-11-18 — FITS: crustal b per class against the family b (Claude Code, FITS)
+- `fits/figs.py`: `fmd_classes` without the interface (in-slab in the top row with the legend in the fourth slot, crustal below); tests 38 pass.
+- Tried on 17g (`drafts/fits/crustal/own_b.py`, `prior_b.py`, figures `fmd_crustal_own_b.png`, `fmd_crustal_prior_b.png`): own b forearc 0.905 ± 0.065, arc 1.10 ± 0.13, backarc 1.21 ± 0.34, Patagonia 1.70 ± 0.50 against the family 1.011 ± 0.053; likelihood-ratio tests with the magnitude-error weight held at the family b p 0.16 / 0.48 / 0.44 / 0.09, AIC over the four a tie. Penalized likelihood, family b as prior: σ_b 0.6 (CEUS-SSC moderate, adopted there; FR2020 uses the EPRI method) gives 0.905 / 1.095 / 1.18 / 1.475; σ_b 0.3 0.91 / 1.085 / 1.125 / 1.245; the family bootstrap sd 0.053 (no source) 0.975 / 1.025 / 1.02 / 1.025. Empirical-Bayes shrinkage by hand (DerSimonian–Laird spread 0.14, mean 0.96): 0.92 / 1.04 / 1.00 / 1.03; no hazard model found that uses it (CEUS-SSC estimates its cell-to-cell smoothing of b from the data, the nearest precedent). ESHM20 (as described by Joshi et al. 2024, NHESS 24, section 3.1): own a and b for zones of more than 30 earthquakes (Danciu et al. 2017), the super-zone b below; here forearc and arc would keep their own b, backarc and Patagonia the family b. Considered and not taken (Pablo).
+- **Decided (Pablo, 18 Nov, FITS):** the crustal classes keep the family b; DECISIONS (Statistics). No change in `fits/run.py`.
+- Reference added: Drouet et al. (2020) in REFERENCES (G), PDF `psha_chile/refs/drouet_etal_2020.pdf`.
+- **Commit addition:** `git add fits/figs.py DECISIONS.md REFERENCES.md WORKLOG.md`; message: `FITS: fmd_classes without the interface; crustal classes keep the family b (own b, CEUS-SSC prior and empirical Bayes tried)`
+
+## 2026-11-18 — context conversation: completeness step, Mmax case, tree and tornado manifests (Claude, chat)
+- Written into DECISIONS (Pablo, 18 Nov, context): measured completeness steps used as measured, no persistence rule (Statistics); the in-slab Mmax comparison case is not built (In-slab); final tree and tornado kept apart in `tree.json` and `tornado.json` (Logic tree).
+- **For IF, IS and CR, before the real build:** write `tree.json` and `tornado.json` next to the NRML variants instead of mixing tornado rows into `branches.json` at weight 0 (IS: rows now come from `build.py`, `is_tornado.py` and `is_decl_rates.py`; all of them go into one `tornado.json`). Write the final tree as one table in the WORKLOG (branch sets, values, weights) and wait for Pablo's confirmation before the note to HAZ.
+- **For HAZ:** `jobs.py` and `build.py` read the final tree from `tree.json` and the tornado rows from `tornado.json`; `check_tree` checks that every branch set of `tree.json` adds up to 1.
+
+
+## 2026-11-18 — IF: tree and tornado manifests, trial rerun, final tree for confirmation (Claude Code, IF)
+- **Rule read:** DECISIONS, Logic tree (manifests, Pablo, 18 Nov, context) and the context entry of 18 Nov "completeness step, Mmax case, tree and tornado manifests".
+- **Manifests in `nrml_<DATE>/`:**
+  - `tree.json`: the branch sets of the table below (`sets`), the 57 source-model branches with their weights and choices (`branches`, the sourceModel level of `source_lt_interface.xml`), and the three scaling relations (`msr`, its setMSRAbsolute level). There are no weight-0 entries, and `if_build.tree_check` stops the build if a set does not add up to 1.
+  - `tornado.json`: one-at-a-time rows (`id`, `level`, `value`, `branches` with weights, `msr` weights, `files`, `against` = the id of the row it is measured against, null for a base row). `if_build` writes the reference row, segmentation, rate model, χ 0.7 / 0.9 against χ 0.8, (a, b) 5th / 95th, shared and whole-margin b against four segments, cut at Mmax, Gardner–Knopoff and nearest-neighbour declustering, and the three scaling rows. `if_pad` adds Mmax pad +0 / +0.4 against +0.2 (full margin and four segments at 0.5 each) into the same file. The row ids and branches are those of `hazard/jobs.py` IF_ROWS / IF_PAD.
+  - `branches.json` is now the list of every variant written (136, with choices and `mmax_pad`), without weights, tree flags or a tornado block.
+- **Trial rerun (trial, not used):** fits 16f, catalogue 16c, in `/tmp/claude-1000/-home-pciturri--claude-spares-spare-sMSDXO/af0967fe-861a-4b47-8901-035b49df7e53/scratchpad/if_trial/nrml_trial/`; no CURRENT line, no engine job. Every set of `tree.json` adds up to 1 (checked by the build and again by reading the file). The 57 branches add up to 1 and so do the 3 scaling weights; there are 18 tornado rows. Their `against` ids all exist and so do their files. Pad check ok. `pytest model/interface/tests`: 10 pass, 1 skipped (`nrml_2026-11-16c` predates the manifests); the manifest tests pass on the trial folder.
+- **For HAZ, after Pablo's confirmation (not sent):** `jobs.py`, `build.py` and `branches.py` still read `branches.json` (`weight`, `tornado`); on the new folder they have to read `tree.json` and `tornado.json`.
+- **Final interface tree, for Pablo to confirm** (values on the 16f trial; weights do not depend on the fits):
+
+| branch set | applies to | values | weights |
+|---|---|---|---|
+| geometry | all | full margin / four segments | 0.5 / 0.5 |
+| rate model | all | seismic / geodetic | 0.5 / 0.5 |
+| geodetic coupling χ | geodetic | 0.7 / 0.8 / 0.9 | 1/3 / 1/3 / 1/3 |
+| rate convention | seismic | full catalogue / declustered (one algorithm, `DC`; `nn_family` until the team chooses) | 0.5 / 0.5 |
+| b per segment | four segments, full catalogue (seismic and geodetic) | own / shared / whole-margin | 1/3 / 1/3 / 1/3 |
+| b per segment | four segments, declustered | own / shared | 0.5 / 0.5 |
+| (a, b) | all | 5th / ML / 95th of N(≥ controlling M) | 0.185 / 0.63 / 0.185 |
+| rupture scaling | all interface sources, Antarctic included | Strasser 2010 / Thingbaijam 2017 / Allen and Hayes 2017 | 1/3 / 1/3 / 1/3 |
+
+  - Fixed (not branches): MFD shape tapered; Mmax = largest weight-1 event + 0.2, Kagan corner; Antarctic interface on in every branch (geodetic, χ 0.5); sources from Mw 5.5; Z 10–50 km.
+  - The tree has 57 source-model branches × 3 scaling relations = 171 end branches. Smallest branch weight 0.0051 (four segments, geodetic, one χ, one b option, 5th or 95th). The geodetic branch exists only under the full catalogue; the full margin takes the b of the margin fit (no b set).
+- **Stopped here:** no note to HAZ until Pablo confirms the table; no build on new fits until CURRENT.md names them and FITS leaves its note.
+- **Commit (from `psha_chile8/`):** `git add model/interface/if_build.py model/interface/if_pad.py model/interface/tests/test_interface.py WORKLOG.md` (with the files of the entry above). Message: "IF: tree.json and tornado.json manifests; branches.json lists variants only; trial on 16f"
+
+## 2026-11-18 — IS: tree and tornado manifests, final in-slab tree for confirmation (Claude Code, IS)
+- **Manifests** (DECISIONS, Logic tree, 18 Nov): `build.py` writes `tree.json` next to the NRML variants (`build.tree`: branch sets with values and weights, the fixed choices, one source-model branch per combination at the product weight; it stops if a set does not add up to 1 or holds a 0). `is_tornado.py` copies it and writes `tornado.json` (`is_tornado.tornado`): every in-slab row, from both scripts, with its level, value, files and the branch it is measured against. `branches.json` is now only the file inventory, without weights or a tornado block; `source_lt_inslab.xml` holds the tree branches. Tests on the manifests: sets add to 1, no zero weights, branch weight = product of the set values, every tornado row differs from the reference in its own level only and its files exist.
+- **Dry run again** (trial, not used, `drafts/inslab/trial/`; 16 Nov tables): both sets of `tree.json` add up to 1 (rate 0.5 + 0.5, (a, b) 0.185 + 0.63 + 0.185), the six branches add up to 1. Tests 29 pass on the trial outputs; 19 pass and 10 skip on `model/inslab/` until the real build.
+- **Final in-slab tree, for Pablo to confirm** (before the note to HAZ):
+
+  | branch set | values | weights |
+  |---|---|---|
+  | rate convention | full catalogue / declustered (`nn_family`, placeholder until the team chooses) | 0.5 / 0.5 |
+  | (a, b) | 5th percentile / ML / 95th percentile | 0.185 / 0.63 / 0.185 |
+  | fixed | tapered shape; Mmax pad 0.2; three layers; lower depth top + 0.475 × thickness; StrasserIntraslab; pattern `nn_family`; nodal planes of B14 mixed per cell by class share | 1 |
+
+  Six source-model branches: `nn_taper_{p05,ml,p95}_l3` and `nn_taper_{p05,ml,p95}_l3_ratenn`, 0.0925 / 0.315 / 0.0925 each. Tornado rows against `nn_taper_ml_l3`: (a, b) p05, p95; pattern `gk_family`; shape cut; pad 0.0, 0.4; rate `gk_family` (its own GK pattern too), rate `nn_family`; one layer; lower depth 0.65; AllenHayesIntraslab.
+- **Confirmed (Pablo, 18 Nov, IS)**, with the declustering algorithm still to be decided (`nn_family` placeholder); DECISIONS In-slab line written. The note to HAZ goes with the real build, when the folder exists; HAZ's `jobs.py` must read `tree.json` and `tornado.json` (it still reads `weight` from `branches.json`).
+- **Commit (from `psha_chile8/`):** `git rm model/inslab/is_decl_rates.py`; `git add model/inslab/build.py model/inslab/is_tornado.py model/inslab/figs_s2.py model/inslab/tests/test_s2.py DECISIONS.md WORKLOG.md`. Message: "IS: final in-slab build prepared (inputs from CURRENT.md, nodal planes mixed per cell by class share, tree.json and tornado.json, full / declustered rates and (a, b) in the tree); dry run on the 16 Nov tables"
+
+## 2026-11-18 — FITS: class figure, domain maps, grid coverage notes (Claude Code, FITS)
+- `fits/figs.py` class figure (`fmd_classes`): in-slab top row (Jujuy nest as "In-slab / Jujuy nest"), crustal below, tags on two lines at the top right, one x and y range (`CLASS_LIM`), no Mmax-cut line, named events not in the fit as open circles (`REF_EVENTS`), completeness lines dashed over the grid with spaced years, legend in one row at the bottom, two domain maps (in-slab, crustal) in the top-right cell. `fig_segments` split from `fig_fmd`. Guide `fits/FIGURE_STYLE_fmd.md` updated.
+- Domain outlines: `fits/domains.py` → `data/class_domains_2026-11-18.geojson` (family, cls; from the crustal grid with `data/intraarc.shp`, the arc file of the 17g classes, not the modified `data/shapefiles/intra_arc.shp` (Pablo); and from the in-slab cells `depth_cells_2026-11-16.csv`); `figs.domainmap` reads it, edit it by hand there.
+- Quick redraw of the class figure without refitting: `drafts/fits/trial/classes_only.py` (fits cached in `classes_fits.pkl`; `fit` argument refits).
+- Coverage (counted on 17g): intermediate in-slab Mw ≥ 5.0 since 1964, 210 of 1 670 by weight outside the in-slab cells (154 at 28–32° S, 68–66° W, flat slab, median 160 km); crustal Mw ≥ 5.0 since 1976 outside the crustal grid 198.9 against backarc 22.9. Notes `handoffs/2026-11-18_FITS_to_IS.md`, `handoffs/2026-11-18_FITS_to_CR.md`.
+- **Commit addition:** `git add fits/figs.py fits/domains.py fits/FIGURE_STYLE_fmd.md data/class_domains_2026-11-18.geojson handoffs/2026-11-18_FITS_to_IS.md handoffs/2026-11-18_FITS_to_CR.md WORKLOG.md`; message: `FITS: class figure restyled (shared axes, named events, domain maps from data/class_domains_2026-11-18.geojson); notes to IS and CR on events outside the source grids`
+
+## 2026-11-18 — IF: final interface tree confirmed, note to HAZ (Claude Code, IF)
+- **Confirmed (Pablo, 18 Nov, IF):** the final interface tree of the table in the IF entry "tree and tornado manifests". Written into DECISIONS (Interface). The line of the same day on one declustering algorithm now says the other algorithm stays a tornado row in `tornado.json`. Note to HAZ: `handoffs/2026-11-18_IF_to_HAZ.md` (manifest format, what `jobs.py` / `build.py` / `branches.py` must read on the new folder, checks). Still waiting: the FITS refit in CURRENT.md and FITS's note, then the real build (command list in the IF entry "final interface build prepared"), then the geodetic explanation. Add `handoffs/2026-11-18_IF_to_HAZ.md DECISIONS.md` to the commit of the IF entry "tree and tornado manifests".
+
+## 2026-11-18 — CR: fault model consolidated, final crustal build prepared, final tree for confirmation (Claude Code, CR)
+- **`model/faults/FAULTS.md`**: one document for the fault model (databases A, B, B-mm; slip, Mmax, pads; segmented and multi-fault; Magallanes–Fagnano with 1949 and 1879; join and arc bulge; final tree; open team items; files per step; superseded). Points to REPORT_D16, D16b, S3 for detail.
+- **Decisions (Pablo, 18 Nov, CR), to write into DECISIONS on confirmation:** the final crustal tree uses fault database A alone; B and B-mm get no multi-fault ruptures and are single-fault tornado rows only, measured against the A single-fault row. 1879-02-02 Magallanes is not a Magallanes–Fagnano event (115 km from the nearest trace); after the join the Patagonia background has nothing above Mw 6 at its site (open). Database A is the file with the 17 Nov San Ramón trace (test `test_database_A_has_the_san_ramon_trace_of_17_nov`); 16g was built before it.
+- **Code** (`model/crustal/`, `model/faults/`):
+  - Inputs from CURRENT.md (`background.current(row, sec)`): catalogue the fits are built on, fits full and declustered, pad tables, declustered catalogues, nodal planes, crustal grid, fault databases A and B; the crustal completeness steps from the `steps` column of the fits (one text for every class, else stop); class Mmax from the fits. `background.DATE` tags tables, caches and the NRML folder (`faults`, `join`, `multifault`, `mfsource`, `build` follow it); `build.py` stops if `nrml/<DATE>/` is named in CURRENT.md.
+  - pkl caches `mfsrc_<case>_<DATE>.pkl` carry an md5 stamp of their inputs (fits, pad fits, fault database files, SHERIFS and rupture-set settings) and are rebuilt when it differs.
+  - `model/faults/compare.py`: fits and databases from CURRENT.md, outputs tagged `DATE` (map `faults_A_B_map_<DATE>.png`); it already used `classify.arc_end()`.
+  - `model/faults/rates.py`: ψ weights 1/3 each (were still 0.25 / 0.5 / 0.25, superseded 16 Nov; they set the branch means behind the segmented-background join of 16g and the A / B tables).
+  - `build.MMIN_SRC` crustal source Mmin, 5.0 now, ready for 4.9 (background lists start at 4.9, `background.MMIN`). `background.DC` one pattern algorithm (placeholder `nn`, as IF and IS).
+  - Manifests (DECISIONS, Logic tree, 18 Nov): `nrml/<DATE>/tree.json` (branch sets, each adding to 1 with no weight-0 entry; 120 paths with files, branches and weight = product), `tornado.json` (rows with level, value, `against`), `branches.json` the file inventory with inputs; `build.check` verifies both (sets add to 1, path weight = product, paths add to 1, files exist, `against` exists).
+  - Tests: `pytest model/crustal/tests` 23 pass, 1 skipped (manifest check skips on 16g, which has none); `model/faults/tests` 50 pass with `GDAL_DATA=/data/miniforge3/envs/psha_renta/share/gdal` (pyogrio fails without it, environment only).
+- **Dry run** (trial, not used; no CURRENT line): `/tmp/claude-1000/-home-pciturri--claude-spares-spare-pqIcVr/1bac7cca-a987-4286-afc5-c30826d6a38f/scratchpad/cr_trial/` (`TRIAL.md`, driver `cr_trial_run.py`, logs). Background and fault tables reproduced 16e (kernel n, calibration, patterns identical; fault tables differ only through San Ramón). The build with manifests was stopped by Pablo before the files were written (fits about to come); `build.check` has not run on built files yet. It runs at the end of the real build.
+- **Final crustal tree, for Pablo to confirm** (database A; jump 15 km, class Mmax pad +0.2, tapered background, full-catalogue rates, one pattern algorithm fixed):
+
+| branch set | applies to | values | weights |
+|---|---|---|---|
+| fault linkage (team) | all | segmented / multi-fault | 0.5 / 0.5 |
+| single-fault Mmax pad (team) | segmented | Leonard + 0 / 0.2 / 0.4 | 1/3 each |
+| aseismic coefficient ψ | all | 0.6 / 0.8 / 1.0 | 1/3 each |
+| seismogenic thickness | all | 10 / 20 km | 0.5 / 0.5 |
+| fault MFD shape | segmented | AL-I, AL-II, AL-III, YC, tapered, hybrid | 1/6 each |
+| LOFS secondary traces | multi-fault | main / main + NE secondary | 0.5 / 0.5 |
+
+  120 paths: segmented 3 × 3 × 2 × 6 = 108 (1/216 each), multi-fault 3 × 2 × 2 = 12 (1/24 each). Tornado rows (`tornado.json`, against the reference unless marked): `reference` (multi-fault A, 15 km, ψ 0.8, 10 km, main traces), `decl_gk` (while DC = nn), `fit_cut`, `rates_declustered`, `no_faults`, `segmented`, `psi060`, `psi100`, `thickness20`, `jump5`, `jump10`, `splays`, `mmax_pad00_mf`, `mmax_pad04_mf`; against `segmented`: `db_B`, `db_Bmm` (single-fault), `mmax_pad00_seg`, `mmax_pad04_seg`, `fault_pad02_seg`, `fault_pad04_seg`.
+- **Commands for the real build**, after CURRENT.md names the new fits and FITS's note is in `handoffs/`:
+  1. Check that the CURRENT rows still exist under the names above (from `model/crustal/`): `python -c "import background as BG, faults as F; print(BG.CAT, BG.FITS0, BG.DECL_FITS, BG.PAD_FITS, BG.DECL, BG.NPD, BG.GRID, BG.TABLE, BG.CLASSES, F.DBS)"`.
+  2. Settings: `background.DATE` a new tag (e.g. `"2026-11-19"`), `background.DC` as the team chooses, `build.MMIN_SRC` 4.9 or 5.0.
+  3. From `model/crustal/` with `GDAL_DATA=/data/miniforge3/envs/psha_renta/share/gdal OMP_NUM_THREADS=1`: `python background.py` (check kernel n per class), `python faults.py`, `python build.py` (24 SHERIFS cases on A, then the files; ends with the manifest check), `PYTHONPATH=/data/PyCharmProjects/psha_renta/oq-engine python oqcheck.py` (parse check, no engine job), `python ../faults/compare.py`.
+  4. From `psha_chile8/`: `pytest model/crustal/tests model/faults/tests`.
+  5. After Pablo confirms the tree: `"ready": true`, CURRENT Crustal line, DATA row, note to HAZ (new manifests, 120 paths, `db_B` / `db_Bmm` single-fault against `segmented`, pattern row id, San Ramón, Mmin).
+- **Commit (from `psha_chile8/`):** `git add model/faults/FAULTS.md model/faults/compare.py model/faults/rates.py model/crustal/background.py model/crustal/faults.py model/crustal/join.py model/crustal/multifault.py model/crustal/mfsource.py model/crustal/build.py model/crustal/tests/test_crustal.py WORKLOG.md`. Message: "CR: FAULTS.md; final crustal build prepared (inputs from CURRENT.md, one build tag, stamped caches, source Mmin setting, tree.json and tornado.json, tree on database A); psi weights equal in rates.py"
+- **Proposed LEARNINGS:** a weight table kept in a library (`rates.PSI`) outlives the DECISIONS line that changed it; read branch weights from one place.
+
+## 2026-11-18 — FITS: B15 part 2, final fits 2026-11-18 on catalogue 17g (Claude Code, FITS; runs by Pablo)
+- Runs (Pablo, 18 Nov): `decluster.py`, `run.py`, `run_declustered.py`, `run_pad.py` with `DATE = "2026-11-18"`; outputs identical to the trial on 17g. Every unit and both shapes pass the large-event checks; declustered: every factor row passes (`nn`, `nn_depth` fail the margin at Mw ≥ 7, comparison only).
+- Published: CURRENT.md (catalogue of the fits and models → 17g; declustered catalogues, fits, table, pad → 2026-11-18), DATA rows (Fit runs, Declustered catalogues), PLAN B15 ticked (scoring of the declustering algorithms for the co-authors still open), ← on B16. Note `handoffs/2026-11-18_FITS_to_IF_IS_CR.md` with the table against 16f.
+- **Commit (from `psha_chile8/`):** `git add fits/ catalog/declustered/*_2026-11-18.csv CURRENT.md DATA.md PLAN.md WORKLOG.md handoffs/2026-11-18_FITS_to_IF_IS_CR.md handoffs/2026-11-18_FITS_state.md`; message: `FITS B15: final fits 2026-11-18 on catalogue 17g (full, declustered, pad); CURRENT and DATA updated; note to IF, IS, CR`
+
+## 2026-11-18 — IF: interface build on fits 2026-11-18, for confirmation (Claude Code, IF)
+- **Inputs (read with `gr.current`):**
+  - fits: `fits/tables/fits_2026-11-18.csv` and `fits_declustered_2026-11-18.csv`;
+  - pad rows: `fits_2026-11-18_pad00.csv` and `_pad04.csv`;
+  - catalogue `catalog/frozen/2026-11-17g/catalog_2026-11-17g.csv`;
+  - FITS note `handoffs/2026-11-18_FITS_to_IF_IS_CR.md` read.
+- **Settings:** `DATE = "2026-11-18"`, `DC = "nn_family"` (placeholder until the team chooses), `CLUSTER_BOOT = True`. The declustered table now also has `gk_gruenthal_family` and `gk_uhrhammer_family`. With `gk_family` they are written at weight 0 (`DC_METHODS`) and appear only as `tornado.json` rows: `decl_gk`, `decl_gruenthal`, `decl_uhrhammer`, `decl_nn`. `if_figs` closure bars take the five conventions.
+- **Run:**
+  - `if_build.py` took 18 s. `fits/run.py` reproduces the new fits; the margin-b refit drew 2 000 `nn_family` clusters (margin b 0.94177 ± 0.02453, equal to the FITS margin row), and every large-event check is ok.
+  - Output: `nrml_2026-11-18/`, 168 branch files plus 4 pad files, `source_lt_interface.xml`, `branches.json` (variants), `tree.json` (57 branches, 3 scaling relations, every set adds up to 1, no weight 0) and `tornado.json` (20 rows).
+  - `if_pad.py`: all 15 pad rows ok.
+  - `pytest model/interface/tests`: 11 pass, manifest tests included.
+  - Tables: `tables/*_2026-11-18.csv`, `fits_marginb_2026-11-18.csv`, `compare_16c_2026-11-18.csv` (every common branch and source).
+  - Figures: `figs/`.
+  - Not done yet: OpenQuake parse check, CURRENT, DATA, note to HAZ (after confirmation).
+- **Final interface tree** (`nrml_2026-11-18/tree.json`):
+
+| branch set | applies to | values | weights |
+|---|---|---|---|
+| geometry | all | full margin / four segments | 0.5 / 0.5 |
+| rate model | all | seismic / geodetic | 0.5 / 0.5 |
+| geodetic coupling χ | geodetic | 0.7 / 0.8 / 0.9 | 1/3 / 1/3 / 1/3 |
+| rate convention | seismic | full catalogue / declustered `nn_family` (placeholder for the team's one algorithm) | 0.5 / 0.5 |
+| b per segment | four segments, full catalogue (seismic and geodetic) | own / shared / whole-margin | 1/3 / 1/3 / 1/3 |
+| b per segment | four segments, declustered | own / shared | 0.5 / 0.5 |
+| (a, b) | all | 5th / ML / 95th of N(≥ controlling M) | 0.185 / 0.63 / 0.185 |
+| rupture scaling | all sources, Antarctic included | Strasser 2010 / Thingbaijam 2017 / Allen and Hayes 2017 | 1/3 / 1/3 / 1/3 |
+
+  - Fixed: tapered shape, Mmax = largest weight-1 event + 0.2 with the Kagan corner, Antarctic source on (geodetic, χ 0.5).
+  - 57 source-model branches × 3 = 171 end branches; smallest weight 0.0051.
+- **Rates against `nrml_2026-11-16c`** (fits 16f on 16c), N(≥ M) per year from the NRML files. Ratio = new / 16c.
+
+| branch | source | N(≥ 6) | × | N(≥ 7) | × | N(≥ 8) | × |
+|---|---|---|---|---|---|---|---|
+| margin, seismic, own b, ML (reference) | margin | 2.844 | 1.03 | 0.325 | 1.07 | 0.0369 | 1.11 |
+| margin, seismic, 5th | margin | 2.356 | 0.91 | 0.253 | 0.95 | 0.0271 | 0.99 |
+| margin, seismic, 95th | margin | 3.433 | 1.16 | 0.417 | 1.20 | 0.0503 | 1.24 |
+| margin, geodetic χ 0.8, ML | margin | 3.309 | 0.91 | 0.378 | 0.94 | 0.0430 | 0.98 |
+| margin, declustered NN, ML | margin | 1.553 | 1.00 | 0.207 | 1.04 | 0.0273 | 1.09 |
+| segments, seismic, own b, ML | 45.6–37° S | 0.365 | 1.00 | 0.041 | 0.92 | 0.0046 | 0.84 |
+| | 37–32° S | 0.890 | 1.03 | 0.098 | 1.12 | 0.0105 | 1.21 |
+| | 32–26° S | 0.896 | 1.05 | 0.107 | 1.10 | 0.0110 | 1.15 |
+| | 26–17.6° S | 0.656 | 1.05 | 0.079 | 1.17 | 0.0092 | 1.31 |
+| segments, geodetic χ 0.8, own b, ML | 45.6–37° S | 0.953 | 1.25 | 0.108 | 1.15 | 0.0121 | 1.05 |
+| | 37–32° S | 1.276 | 0.85 | 0.141 | 0.92 | 0.0151 | 0.99 |
+| | 32–26° S | 2.208 | 0.93 | 0.264 | 0.97 | 0.0271 | 1.01 |
+| | 26–17.6° S | 2.123 | 0.81 | 0.257 | 0.90 | 0.0299 | 1.00 |
+| segments, seismic, shared b, ML | 45.6–37° S / 37–32 / 32–26 / 26–17.6 | 0.378 / 0.950 / 0.874 / 0.634 | 1.15 / 1.01 / 1.07 / 1.00 | 0.044 / 0.111 / 0.102 / 0.074 | 1.22 / 1.07 / 1.13 / 1.06 | 0.0052 / 0.0127 / 0.0102 / 0.0084 | 1.30 / 1.13 / 1.19 / 1.12 |
+| segments, seismic, whole-margin b, ML | same order | 0.369 / 0.924 / 0.852 / 0.618 | 1.13 / 0.99 / 1.05 / 0.98 | 0.042 / 0.106 / 0.097 / 0.071 | 1.18 / 1.03 / 1.09 / 1.02 | 0.0048 / 0.0117 / 0.0095 / 0.0078 | 1.23 / 1.07 / 1.13 / 1.06 |
+| segments, declustered NN, own b, ML | same order | 0.153 / 0.429 / 0.583 / 0.357 | 0.83 / 1.01 / 1.06 / 1.06 | 0.018 / 0.059 / 0.080 / 0.046 | 0.71 / 1.07 / 1.11 / 1.18 | 0.0020 / 0.0078 / 0.0093 / 0.0056 | 0.62 / 1.13 / 1.17 / 1.31 |
+| Antarctic (geodetic), reference branch | Antarctic | 0.360 | 1.13 | 0.040 | 1.04 | 0.0033 | 0.96 |
+
+  - Over all 136 files in both folders, the median ratio of N(≥ 8) is 0.98–1.02 per source. The extremes are the 5th / 95th branches of 45.6–37° S: N(≥ 8) × 0.31 to × 2.33.
+  - 108 files of 16c are gone: the declustered geodetic files, no longer built. 36 are new: the Grünthal and Uhrhammer variants.
+  - The geodetic branch keeps its moment, so its N(≥ 8) changes only with b (0.98–1.05); its N(≥ 6) moves with b in the opposite direction.
+- **(a, b) branches with the cluster bootstrap** (tapered; `ab_sd_logN` = standard deviation of log10 N(≥ controlling M), controlling M 8.8, 8.4 for 32–26° S):
+
+| unit | sd log10 N, 16f → new | × | N(≥ M) 95th / 5th, 16f → new | b 5th / 95th, 16f | b 5th / 95th, new | b sd, 16f → new |
+|---|---|---|---|---|---|---|
+| full margin | 0.067 → 0.094 | 1.42 | 1.66 → 2.04 | 0.987 / 0.930 | 0.968 / 0.916 | 0.018 → 0.024 |
+| 45.6–37° S | 0.186 → 0.509 | 2.74 | 4.1 → 47 | 0.989 / 0.829 | 1.140 / 0.754 | 0.049 → 0.126 |
+| 37–32° S | 0.125 → 0.193 | 1.55 | 2.59 → 4.33 | 1.046 / 0.939 | 1.003 / 0.912 | 0.033 → 0.042 |
+| 32–26° S | 0.103 → 0.123 | 1.20 | 2.18 → 2.55 | 0.988 / 0.890 | 0.958 / 0.882 | 0.030 → 0.032 |
+| 26–17.6° S | 0.145 → 0.209 | 1.44 | 2.97 → 4.83 | 1.026 / 0.900 | 0.980 / 0.853 | 0.039 → 0.047 |
+
+  - The cluster bootstrap widens the spread 1.2–1.6 times, and 2.7 times on 45.6–37° S. That segment has Mw 5.0 complete only from 1999, and its large events sit in a few big clusters (1960). Most likely the resamples that drop or double those clusters move b between 0.75 and 1.14 (not checked per resample).
+  - On that segment the 5th and 95th branches are a factor of 47 apart in N(≥ 8.8), at weight 0.185 each. It is the largest spread of the tree, and visible in `figs/mfds.png`.
+  - The margin-b option (segments with b 0.942 ± 0.025) does not carry it: its 95th / 5th is about 2.
+- **Open, for Pablo:** the 45.6–37° S (a, b) spread, kept as the percentiles of the bootstrap give it (DECISIONS: pair from the bootstrap covariance), or reviewed with FITS (cluster bootstrap on a segment of few clusters).
+- **Latest fits run checked (Pablo asked, 06:05):** the run of B15 part 2 (`fits_2026-11-18`, `fits_declustered_2026-11-18`, pad 2026-11-18, files written 05:52–05:54) is the newest. `fits/run.py` and `decluster.py` have `DATE = "2026-11-18"`, and no later fits file or note exists; the 06:01 change to the FITS note is the B16 nodal-plane addendum, not for IF. A rebuild into scratch on the same inputs gives all 176 files of `nrml_2026-11-18/` byte-identical (sha256 of the fits `0b4cf5ad…`, declustered `27844c2c…`).
+- **Stopped here** until Pablo confirms the tree. After that: OpenQuake parse check (`if_oqcheck.py`, jobs one at a time after `oq engine --lj`), CURRENT and DATA lines, note to HAZ, then the geodetic question.
+
+## 2026-11-18 — FITS: B16 nodal planes on catalogue 17g (Claude Code, FITS)
+- `model/mechanisms/npd.py`: `CAT` 17g, `DATE` 2026-11-18, `PREV` 16d; events counted inside each class's table of the fits (`run.table_of`: in-slab from 1964, crustal from 1976) instead of the margin table. Run (about a minute) → `npd_2026-11-18.csv`, tables, `figs/ternary_2026-11-18.png` (representative mechanisms as stars with their weights), `figs/beachballs_2026-11-18.png` (`npd.balls`). Tests 4 pass.
+- Against 16d: crustal identical; intermediate in-slab reverse 0.0994 → 0.101 kept (B14 noted it at the line); shallow normal rake −80 → −75. Published (Pablo, 18 Nov): CURRENT, DATA, DECISIONS pointers (In-slab, Crustal), PLAN (B16 nodal planes done, class shares with C16), addendum in `handoffs/2026-11-18_FITS_to_IF_IS_CR.md`.
+- **Commit addition:** `git add model/mechanisms/npd.py model/mechanisms/npd_2026-11-18.csv model/mechanisms/tables/*_2026-11-18.csv model/mechanisms/figs/ternary_2026-11-18.png model/mechanisms/figs/beachballs_2026-11-18.png model/mechanisms/figs/ternary.png CURRENT.md DATA.md DECISIONS.md PLAN.md WORKLOG.md handoffs/2026-11-18_FITS_to_IF_IS_CR.md`; message: `FITS B16: nodal planes npd_2026-11-18 on catalogue 17g (per-class fit tables); crustal unchanged`
+
+## 2026-11-18 — IF: interface sources published on fits 2026-11-18; the geodetic branch explained (Claude Code, IF)
+- **Confirmed (Pablo, 18 Nov, IF):** the tree of the IF entry "interface build on fits 2026-11-18" and the build `nrml_2026-11-18/`. Written into DECISIONS (Interface; supersedes 16c). Pablo, 18 Nov: go on without questions and record the decisions.
+- **OpenQuake parse check:** `oq engine --lhc` showed no stale job rows, so no clean-up was needed. Jobs ran one at a time with a scratch cfg (`serialize_jobs = 0`): calcs 643 (margin, 96 sources, 21 s), 644 (segments, 600 sources, 41 s), 645 (pad, 14 sources, 12 s). Every file is read; |dN55| ≤ 2.4e-8, |dN8| ≤ 9.6e-6; top magnitudes equal (`tables/oqcheck_2026-11-18.csv`, `_pad.csv`). `if_oqcheck.CALCS` and `if_pad.CALC` are set to these ids. The folder is byte-identical to the scratch rebuild after the second `if_pad.py` run.
+- **Published:** CURRENT.md (Interface → `nrml_2026-11-18/`), DATA.md (new section "Interface source builds"), note `handoffs/2026-11-18_IF_to_HAZ.md` updated: published folder, calc ids, what breaks in `jobs.py` / `build.py` / `branches.py` until they read `tree.json` and `tornado.json`, and the wider 45.6–37° S (a, b) row.
+- **The geodetic branch, with the new numbers:**
+  1. **How it is built:** the geodetic file is the seismic file of the same branch (same b, corner, Mmax, shape), every bin multiplied by one factor, χ μ A v divided by the seismic moment rate. So geodetic / seismic is that factor at every magnitude, N(≥ 6) as N(≥ 8). The factor at χ 0.8 is 0.8 / χ_seis, where χ_seis = seismic moment / μ A v (μ 30 GPa, v 6.6 cm/yr, A the 10–50 km source).
+
+     | unit | μ A v (N m/yr) | χ_seis psha6 | χ_seis 16c | χ_seis new | geodetic / seismic at χ 0.8, 16c → new |
+     |---|---|---|---|---|---|
+     | full margin | 8.68e20 | 0.82 (7.1e20, REPORT_S1 §7) | 0.607 | 0.688 | 1.32 → 1.16 |
+     | 45.6–37° S | 2.44e20 | | 0.383 | 0.307 | 2.09 → 2.61 |
+     | 37–32° S | 1.63e20 | | 0.458 | 0.558 | 1.75 → 1.43 |
+     | 32–26° S | 1.73e20 | | 0.286 | 0.324 | 2.79 → 2.47 |
+     | 26–17.6° S | 2.89e20 | | 0.189 | 0.247 | 4.23 → 3.24 |
+
+  2. **The 13 % against 1.2 %:**
+     - The tornado row `t_if_geo08` is the full margin only. It raised the interface PGA 475 by 13.5–17.3 % at every city (combined total +0.5 to +13.2 %, largest at Puerto Montt and Concepción; `hazard/out/tornado/tornado.csv`), because the 16c margin rates were multiplied by 1.32.
+     - In psha_chile6 the margin seismic moment was 7.1e20 against 6.9e20 geodetic (factor 0.97), so the same row moved PGA by about 1 %.
+     - Nothing in the geodetic method changed: the seismic margin fit lost 25 % of its moment (b 0.917 → 0.959, N(≥ 5.5) 10.4 → 8.4; REPORT_S1 §7).
+     - On the new fits the margin factor is 1.16 (b 0.942, margin N(≥ 7) × 1.07). From the 16c response (×1.32 → +16 %, about PGA ∝ rate^0.54), I expect the row at about +8 %; HAZ's next tornado will give the number.
+  3. **The segments carry most of the lever in the tree.** The four segment fits together release 0.49 of the margin fit's moment (2.93e20 against 5.97e20). Three segments have lower Mmax and corners (9.2, 8.7, 9.1), and 45.6–37° S has a low rate (Mw 5.0 complete only from 1999). The geodetic branch therefore lifts the segment rates 1.4–3.2 times. The tornado never measured this (geodetic row on the margin only, as in psha_chile6). In the tree the segmented geodetic branches weigh 0.25, so the tree mean sits above the seismic segments as in `figs/mfds.png` (bottom row).
+  4. **45.6–37° S, Mw ≥ 9:**
+     - **Fit:** the seismic tapered ML fit gives one Mw ≥ 9.0 per 2 220 years (cut line 2 316; 5th / 95th 16 700 / 295). The geodetic branch gives 973 / 851 / 757 years at χ 0.7 / 0.8 / 0.9.
+     - **Against FITS's figure:** FITS's "about 1 150 years" is not what the final fits give. I could not reproduce it; it was probably from an earlier trial.
+     - **Catalogue:** one event of Mw ≥ 9 since 1550, Valdivia 1960 (9.5). 1575 is Mw 8.3 and 1837 is 8.6. P(at least one in 476 years) is 0.19 on the fit, 0.43 at χ 0.8.
+     - **Cisternas et al. (2005), Nature 437, doi 10.1038/nature03943, abstract checked on the USGS page:**
+       - The record is buried soils and sand sheets at an estuary midway along the 1960 rupture, over about the last two millennia.
+       - The 1960 earthquake ended an interval begun by the 1575 earthquake, almost four centuries earlier. 1737 and 1837 left little or no subsidence or tsunami there.
+       - The 1960 slip equals 250–350 years of plate motion, so giant events should be several centuries apart.
+       - The abstract states no average number. "Eight events in 2 000 years, about 300 years on average" is in the News & Views (Barrientos 2005, Nature 437, 329), not in the abstract.
+       - So the paleoseismic interval is roughly 300–400 years for "1960-type" events, whose magnitude the record does not give.
+     - **What the model can hold:**
+       - With the b and corner of the fit, Mw ≥ 9 every 300 years needs χ 2.3.
+       - One Mw 9.5 (M0 2.0e23 N m) every 300 years is 6.7e20 N m/yr, 2.7 times the full μ A v of our 45.6–37° S source (2.44e20).
+       - The 1960 moment does not fit our source area and rigidity with a plate-motion-equivalent slip. A 10–50 km width and μ 30 GPa give a far smaller budget than the 1960 rupture used. Either the source width and μ, or the 1960 moment, or the interval give way. Not resolved here.
+       - The geodetic branch (851 years at χ 0.8) is 2.6 times closer to the paleoseismic interval than the seismic fit (2 220 years). That supports keeping a geodetic branch for this segment.
+     - **Flag:** the 95th seismic branch of 45.6–37° S (295 years) releases 5.3e20 N m/yr, 2.2 times its full plate budget (the (a, b) spread of the cluster bootstrap, previous entry).
+- **Proposals for Pablo (not decided):**
+  1. Keep seismic / geodetic 0.5 / 0.5. The moment budget is the one constraint on Mw ≥ 9 that the catalogue cannot give, and it moves the southern segment toward the paleoseismic record.
+  2. State in the paper that the geodetic lever comes from the seismic fits (χ_seis 0.69 margin, 0.25–0.56 segments), not from the coupling values.
+  3. Decide whether a seismic branch above full coupling (45.6–37° S, 95th) is acceptable, or is capped at μ A v.
+  4. The source width (10–50 km) and μ against the 1960 rupture, for the discussion.
+- **Proposed LEARNINGS line:** a geodetic branch built as a rescaled seismic MFD is a lever on the seismic moment, not on coupling; report χ_seis per unit next to χ, or the branch reads as a coupling effect.
+- **Commit (from `psha_chile8/`):** `git add model/interface/ CURRENT.md DATA.md DECISIONS.md PLAN.md WORKLOG.md handoffs/2026-11-18_IF_to_HAZ.md` (`model/interface/` is untracked: the `oqcheck_*` folders are small). Message: "IF: interface sources and tree on fits 2026-11-18 (nrml_2026-11-18, tree.json, tornado.json), OpenQuake check calcs 643-645; CURRENT, DATA; note to HAZ; geodetic branch explained"
+
+## 2026-11-18 — context conversation: in-slab cell grid (Claude, chat)
+- Pablo, 18 Nov: the in-slab cells are not extended now; C16 builds them on the current grid. Before the final run, the grid is extended east over the Pampean flat slab (13 % of the intermediate weight outside the cells, FITS note to IS). DECISIONS, In-slab. To do then: FITS (cells, C16 rerun), then IS.
+
+## 2026-11-18 — context conversation: interface tree confirmed, details for the final run (Claude, chat)
+- **IF:** final interface tree confirmed as in the IF entry "interface build on fits 2026-11-18, for confirmation", 45.6–37° S (a, b) included, kept as the cluster bootstrap gives it (DECISIONS, Interface). IF goes on: OpenQuake parse check, CURRENT and DATA lines, note to HAZ, then the geodetic question.
+- **For the final run, not now** (Pablo, 18 Nov; DECISIONS, In-slab and Crustal and faults), to collect into one list when the final run is set up:
+  - in-slab cell grid extended east over the Pampean flat slab (FITS C16, then IS);
+  - crustal grid east of the arc (Sierras Pampeanas; FITS note to CR);
+  - deep-focus in-slab events below 300 km out of the in-slab pattern and fits (CAT `deep_focus`, at the next catalogue run);
+  - 1879 Magallanes in the Patagonia background (CR).
+- **IS:** build on the current rules; the deep-event exclusion is part of the final-run list, not of this build.
+
+
+## 2026-11-18 — FITS: C16 in-slab depth cells on catalogue 17g (Claude Code, FITS; run.py by Pablo, options.py by FITS)
+- Settings: `model/inslab/depth.py` `CAT` 17g (was hard-coded 16c); `run.py` `RUN = "2026-11-18"`, `PREV` 16d; `options.py` `RUN = BASE = "2026-11-18"`; `depth.border` reads the Chile shapefile with `engine="fiona"` (pyogrio fails on the incomplete GDAL data); `test_cell_table` globs 15–18 Nov. Tests 11 pass. (Two copies of `run.py` overlapped; the second was stopped after the cell table, identical inputs.)
+- **Comparison by eye with `depth_cells_2026-11-16.csv`** (reference of 16 Nov, weight-1 events): same 13 847 cells; weights mean |Δ| 0.04–0.06, p95 0.14–0.28, max 0.64; slice hypocentres mean 0.4–0.8 km, max 7.7 km; lower depth 0.2 km. Iquique (−70.17, −20.23): w 0.42/0.23/0.35 → 0.44/0.24/0.32, h 49/67/75 → 51/68/75 km. Calama (−68.97, −22.43): 0.32/0.40/0.29 → 0.33/0.36/0.31, 88/98/111 → 88/97/110. Santiago (−70.67, −33.43): 0.73/0.26/0.01 → 0.74/0.24/0.01, 80/88/103 unchanged. Against 16d (same rules, catalogue 16c): weights within 0.002, hypocentres within 0.13 km, `h_one` identical: the moves are the class-weight method, not the catalogue.
+- Published: CURRENT (In-slab: three-layer reference and options → 2026-11-18; class shares row waits for IS's build), DATA row (In-slab depth runs), DECISIONS (In-slab, final depth cells done), PLAN C16 ticked. Note `handoffs/2026-11-18_FITS_to_IS_depth.md`.
+- Class shares per cell (B16): made by IS's `build.py` (`class_share_check_<RUN>.csv`); FITS publishes them after IS builds on fits 2026-11-18.
+- **Commit addition:** `git add model/inslab/depth.py model/inslab/run.py model/inslab/options.py model/inslab/tests/test_depth.py model/inslab/tables/*2026-11-18* model/inslab/figs/2026-11-18 CURRENT.md DATA.md DECISIONS.md PLAN.md WORKLOG.md handoffs/2026-11-18_FITS_to_IS_depth.md`; message: `FITS C16: in-slab depth cells 2026-11-18 on catalogue 17g (class weights), the new three-layer reference; note to IS`
+
+## 2026-11-18 — IS: deep-focus events stay in this build (Claude Code, IS)
+- Pablo, 18 Nov (as the context entry "interface tree confirmed, details for the final run"): in-slab events below 300 km are not left out in this build; their exclusion is on the final-run list. Checked: `build.py`, `is_tornado.py`, `is_smooth.py` and `fits/gr.load` have no depth cut; on catalogue 16c (and 17g) these events are `intraslab_intermediate` and enter the intermediate pattern, the kernel calibration and the class shares. The line suggested for IS in `handoffs/2026-11-18_CAT_to_FITS_IS_deep.md` (`sub_inslab != "deep_focus"`) is not added. No code changed.
+- For the final run: once `classify.py` writes `deep_focus`, these events have no `W_<class>` column in the build and leave the shallow, intermediate and nest patterns by themselves, but `calibration` still counts them in the in-slab "family" unit (it uses `w_inslab`). That unit only sets n for a class with fewer than 20 test events, so it does not change today's n = 5; to settle when the final-run list is worked through.
+
+## 2026-11-18 — CR: final crustal build on the FITS inputs of 18 Nov, CURRENT line, paper figures (Claude Code, CR)
+- **Inputs** (CURRENT.md, `background.current`): catalogue 2026-11-17g, `fits_2026-11-18.csv` (crustal family b 1.011, steps 5.0 from 1981 / 5.1 from 1976, class Mmax 7.2 / 7.9 / 7.7 / 8.0 unchanged), `fits_declustered_2026-11-18.csv`, pad tables `_pad00` / `_pad04`, declustered catalogues `*_2026-11-18`, `npd_2026-11-18.csv` (crustal rows identical to 16d), grid, databases A (San Ramón of 17 Nov) and B. FITS notes read: `handoffs/2026-11-18_FITS_to_IF_IS_CR.md`, `2026-11-18_FITS_to_CR.md`.
+- **Settings:** `background.DATE = "2026-11-18"`, `DC = "nn"` (placeholder until the team chooses), `build.MMIN_SRC = 5.0` (4.9 or 5.0 still open; 4.9 is the setting and a rebuild).
+- **Decisions of Pablo this session, written into DECISIONS** (Crustal and faults, Magallanes–Fagnano, Superseded; "Pablo, 18 Nov, CR"): final tree on database A only; B and B-mm no multi-fault, single-fault tornado rows against the A single-fault row; 1879 Magallanes not a Fagnano event; no parallel SHERIFS. The tree line is marked "to confirm by Pablo".
+- **Build** (`model/crustal/`, logs `logs/*_2026-11-18.log`): `background.py` (9 s; kernel n = 5 for every class and option, as 16e), `faults.py`, `build.py` (36 SHERIFS cases on A, 10.5 min of compute; manifest check: 6 branch sets each adding to 1, 120 paths; tornado 20 rows), `oqcheck.py` (213 files, 361 791 sources, none missing, rates within 4.2e-6; one-site job folder `oqcheck/2026-11-18/`, not run). `oqcheck.job` now reads the reference from `tornado.json`.
+- **Against 16g:** background N(≥ 6) 0.272 → 0.267 per year (the `N55` field of `branches.json` is now N from the source Mmin 5.0); fault files carry San Ramón 44 km and equal ψ means in the joins.
+- **Final class rates, N(≥ 6) per year** (`tables/class_mfd_2026-11-18.csv`, new from `join.final`): forearc fit 0.328, total / fit 1.00; arc fit 0.138, single-fault faults 0.340, multi-fault 0.248, total / fit 2.12 (tree mean); backarc fit 0.037, total / fit 1.07; Patagonia fit 0.020, faults 0.060, total / fit 2.99. Arc count test, single faults pad 0: 22.8 expected against 6.5 observed since 1976.
+- **Report tables** (`join`, `arc`, `large`, `lower`, `pad`, `fagnano_row`, all `*_2026-11-18`); `model/faults/compare.py` on the new fits (`model/faults/tables/d16b_*_2026-11-18.csv`, `figs/faults_A_B_map_2026-11-18.png`): arc A 3.2 / B 8.9 / B-mm 4.6 × the fit; backarc 1.36 and Patagonia 3.8 (A) since the fits cover the grid only. `arc.py`, `large.py`, `kernels.py` now follow `background.DATE`.
+- **Paper figures** (shared style: `plots/maps` Mercator halves on the gray basemap, `palette.CLASS` colours, Ubuntu, no titles, darkgrid, PNG and PDF; `model/crustal/figs_paper.py` → `model/crustal/FIGURES/`): `maps/faults_A` (database A on the class domains of `data/class_domains_2026-11-18.geojson`, LOFS main / secondary traces, Magallanes–Fagnano, cities of the final run), `maps/background_N5`, `mfd/mfd_classes` (observed, fit, faults of both systems, tree total). FIGURES.md rows added. The old pituPLOTS check figures (`figs_s3.py`, `figs_checks.py`) were not rerun: they need the B multi-fault study tables, which are gone with Pablo's choice.
+- **CURRENT.md:** Crustal "sources and tree" → `model/crustal/nrml/2026-11-18/`; 16g and 16e superseded. DATA row "Crustal source builds" added. `branches.json` has `"ready": false` until Pablo confirms the tree; the note to HAZ waits for that confirmation. HAZ's `config.py` now resolves the crustal folder to 2026-11-18, whose `branches.json` no longer holds `tree` / `tornado`: HAZ reads `tree.json` and `tornado.json` (DECISIONS, Logic tree, 18 Nov).
+- **For Pablo:** confirm the final crustal tree (table in the CR entry "fault model consolidated, final crustal build prepared"; now built); the grid's eastern edge at 28–36° S (FITS note: 198.9 by weight of crustal Mw ≥ 5.0 since 1976 lie outside the grid, against 22.9 in the backarc); source Mmin 4.9 or 5.0; how the Patagonia background accounts for 1879.
+- **Tests:** `pytest model/crustal/tests model/faults/tests` (with `GDAL_DATA=/data/miniforge3/envs/psha_renta/share/gdal`): pass, the manifest test now runs on 2026-11-18.
+- **Commit (from `psha_chile8/`):** `git add model/crustal/background.py model/crustal/faults.py model/crustal/join.py model/crustal/multifault.py model/crustal/mfsource.py model/crustal/build.py model/crustal/oqcheck.py model/crustal/arc.py model/crustal/large.py model/crustal/kernels.py model/crustal/figs_paper.py model/crustal/FIGURES model/crustal/tests/test_crustal.py model/crustal/nrml/2026-11-18/tree.json model/crustal/nrml/2026-11-18/tornado.json model/crustal/nrml/2026-11-18/branches.json model/crustal/nrml/2026-11-18/lt_crustal_tree.xml model/crustal/nrml/2026-11-18/lt_crustal_reference.xml model/faults/FAULTS.md model/faults/compare.py model/faults/rates.py model/faults/tables/d16b_*_2026-11-18.csv CURRENT.md DATA.md DECISIONS.md FIGURES.md WORKLOG.md`. Message: "CR: final crustal build 2026-11-18 on catalogue 17g and fits 2026-11-18 (database A tree, 120 paths, tree.json / tornado.json), FAULTS.md, paper figures in model/crustal/FIGURES"
+- **Addendum, pad and Fagnano rows** (`model/crustal/tables/pad_rows_2026-11-18.csv`, `mf_fagnano_2026-11-18.csv`): arc Mw ≥ 6 since 1976, 6.5 observed: segmented reference 20.4 expected at fault pad 0, 14.7 at 0.2, 10.9 at 0.4; multi-fault reference 12.2 at every class pad (the cap never binds); forearc 16.4–16.9 against 22.2 observed. Fagnano split by SHERIFS against the joined source: Patagonia Mw ≥ 6 since 1976 3.6–4.2 against 2.5 (ψ 0.6, 10 km), none observed; Mw ≥ 7.5 since 1830 0 against 0.15 (1.7 observed): the joined source stays the model (16 Nov line). The `mmax` column of the joined rows reads 8.2 at 10 km, against 7.7 in REPORT_S3 section 14; not checked yet.
+- **Tree confirmed (Pablo, 18 Nov, CR):** `branches.json` `"ready": true`; DECISIONS line updated; CURRENT note; note to HAZ `handoffs/2026-11-18_CR_to_HAZ.md` (manifests, `db_B` / `db_Bmm` single-fault against `segmented`, `decl_gk` replaces `decl_nn`, Mmin 5.0, what `jobs.py` must read). Add `handoffs/2026-11-18_CR_to_HAZ.md` to the commit of this entry.
+- **Crustal source Mmin 5.0 (Pablo, 18 Nov, CR):** the 2026-11-18 build already uses it, no rebuild. DECISIONS (line and Superseded), `build.py` comment, FAULTS.md, CURRENT note and the HAZ note updated.
+- **MFD figure redrawn (Pablo, 18 Nov: single faults and multi-fault looked the same):** the single-fault curve was the mean of the pad levels (Leonard + 0 / 0.2 / 0.4), which moves it toward the multi-fault curve, and the y axis stopped at 2e-4, above the Mw 7.3–7.7 range where they differ. Now single faults at Leonard as the line, the pad levels as a band, y down to 1e-5. Arc N(≥ 7.5): single Leonard 0.00005, pad mean 0.0005, multi-fault 0.0009 per year. `join.final` writes the per-level columns (`faults_seg_pad00/02/04`, `faults_mf_main`, `faults_mf_splays`) into `class_mfd_2026-11-18.csv`.
+
+## 2026-11-18 — IS: in-slab sources, tree and tornado on fits 2026-11-18 (Claude Code, IS)
+- **Built** (Pablo asked, after FITS's notes `2026-11-18_FITS_to_IF_IS_CR.md`, `_FITS_to_IS_depth.md`): `build.py` (`DATE` 2026-11-18, `RUN` 2026-11-18b) and `is_tornado.py` (`RUN` 2026-11-18c), then `figs_s2.py`; inputs from CURRENT.md (catalogue 17g, fits / declustered / pad 2026-11-18, table 2026-11-18, declustered catalogues 2026-11-18, depth cells 2026-11-18, `npd_2026-11-18.csv`). 2 min each pass. Published `model/inslab/nrml/2026-11-18c/` (CURRENT, DATA "In-slab source builds").
+- **Own class shares (Pablo, 18 Nov, IS; DECISIONS In-slab):** the first pass mixed the planes with `class_share_2026-11-16.csv` (CURRENT), which differs from this build's shares by 0.009 on average, 0.11 at most (nn, tapered, ML). Now every branch mixes its planes with its own shares (`build.npd_cells(npd, part, n55, on)`); the CURRENT table is no longer read by the sources. FITS publishes `class_share_check_2026-11-18b.csv` (`handoffs/2026-11-18_IS_to_FITS.md`). Most cells carry 12 planes (intermediate reverse kept in B16).
+- **Manifests aligned with IF's** (`handoffs/2026-11-18_IF_to_HAZ.md`): `tree.json` `sets` (`level`, `under`, `values`) and `branches`; `tornado.json` `rows` as a list with `branches`, `files`, `against` = `is_ref` (null for `is_ref`). Both sets add up to 1, the six branches add up to 1.
+- **Results** (tapered, ML; 16 Nov → 18 Nov): shallow b 1.144 → 1.128, N(≥ 6) 0.662 → 0.667, N(≥ 7) 0.047 → 0.049; intermediate b 1.157 → 1.181, N(≥ 6) 1.762 → 1.606, N(≥ 7) 0.120 → 0.104; nest b 1.229 → 1.171, N(≥ 7) 0.0093 → 0.0104. Mmax 8.2 / 8.2 / 7.4. Kernel n 5 for every class and both algorithms (intermediate and nest peak at n 1, below the floor of 5, as on 16 Nov). 13 847 slab cells and 190 nest cells, none dropped. Edge check 2e-14; parser read of the reference and its variants, rates within 1e-7; tornado copy byte-identical. `mfd_sources.png`: the 1905–1964 intermediate points lie above the line, as expected with the fits from 1964 (Abe magnitudes).
+- **Test change:** the cut-shape (a, b) spread narrows by up to 10.5 % for the nest under the cut term (wider intervals of the cluster bootstrap); tolerance 0.10 → 0.12. Tapered (the tree) exact. Tests 29 pass.
+- **Notes:** `handoffs/2026-11-18_IS_to_HAZ.md` (tree, rows, what breaks: `branches.json` has no weights; the CURRENT line "declustered-rate rows" now points to the same folder only for `hazard/config.py` `extra`; about 6× the in-slab ruptures per cell), `handoffs/2026-11-18_IS_to_FITS.md` (class shares).
+- **Open:** declustering algorithm (`build.DC`, nn placeholder); final-run list (Pampean cells, deep-focus events). Pattern completeness: decided and rebuilt, addendum below.
+- **Commit (from `psha_chile8/`):** `git rm model/inslab/is_decl_rates.py`; `git add model/inslab/build.py model/inslab/is_tornado.py model/inslab/figs_s2.py model/inslab/tests/test_s2.py model/inslab/nrml/2026-11-18b/branches.json model/inslab/nrml/2026-11-18c/branches.json model/inslab/nrml/2026-11-18c/tree.json model/inslab/nrml/2026-11-18c/tornado.json model/inslab/tables/*2026-11-18* model/inslab/figs/2026-11-18 CURRENT.md DATA.md DECISIONS.md WORKLOG.md handoffs/2026-11-18_IS_to_HAZ.md handoffs/2026-11-18_IS_to_FITS.md` (the XML files stay untracked; `tables/bins/` is large, check before adding). Message: "IS: in-slab sources, tree.json and tornado.json on fits 2026-11-18 (nrml/2026-11-18c; planes mixed by each branch's own class shares); CURRENT, DATA; notes to HAZ and FITS"
+
+## 2026-11-18 — IS addendum: pattern completeness from the in-slab fit steps, rebuild 2026-11-18d / 18e (Claude Code, IS)
+- **Pablo, 18 Nov, IS (DECISIONS In-slab):** the pattern uses the completeness tables of the fits, as agreed: `build.TABLE` is now read from the `steps` of the in-slab rows of the fits file of CURRENT.md (5.0 from 1981, 5.1 from 1964; the build stops if the three classes differ). It read the CURRENT "completeness table" with the historical steps (7.0 / 1905, 7.5 / 1830, 8.5 / 1550), so pre-1964 events weighted the pattern while the rates are fitted from 1964.
+- Rebuilt as new runs so the first published folder is not overwritten: `build.py` `RUN` 2026-11-18d, `is_tornado.py` `RUN` 2026-11-18e, `figs_s2.py` (the 18b figures moved to `figs/2026-11-18/old_18b/`). Published `model/inslab/nrml/2026-11-18e/` (CURRENT, DATA; 18b / 18c superseded, can be deleted: 1.6 GB). Notes to HAZ and FITS updated to 18e / 18d.
+- Effect: same rates per class (the fits); slab N(≥ 5.5) per cell 18d / 18b median 1.003, 5–95 % 0.96–1.02, range 0.78–1.13. Kernel n 5 everywhere. Tree sets and branches add up to 1; 12 tornado rows; parser read passes; tornado copy byte-identical. Tests 29 pass.
+- **Commit:** as the entry above, with `nrml/2026-11-18d/branches.json` and `nrml/2026-11-18e/{branches,tree,tornado}.json` in place of 18b / 18c, plus `tables/log_build_2026-11-18d.txt`.
+- **Thickness 20 km fixed (Pablo, 18 Nov, CR), rebuild `model/crustal/nrml/2026-11-18b/`:** `faults.THICK = {20.0: 1.0}` (rates.DEPTH keeps 10 / 20 km for the A / B comparison), `build.MF_T` from it, tornado reference at 20 km, no thickness row, `pad.py` reference at 20 km; jump 15 km and ψ branch unchanged. SHERIFS caches of 20 km copied to the new tag (input stamps checked, no rerun). Tree 60 paths (single-fault 3 pads × 3 ψ × 6 shapes, multi-fault 3 ψ × 2 trace sets), manifest check passed; 19 tornado rows; parse check 117 files, 348 393 sources, none missing, rates within 3.8e-6; `"ready": true`. DECISIONS (line and Superseded), FAULTS.md, CURRENT, DATA and the HAZ note updated; tests pass. Report tables and the paper figures are still those of `2026-11-18` (both thicknesses); to redo on 18b.
+
+## 2026-11-18 — HAZ: jobs on the family manifests, final trees, grid (Claude Code, HAZ)
+- **Read:** CLAUDE.md, CURRENT, PLAN, DECISIONS (Logic tree, Hazard runs, family sections since 17 Nov), LEARNINGS (Hazard, Sensitivity), handoffs IF/IS/CR → HAZ of 18 Nov, CAT → CR/HAZ of 17 Nov.
+- **Pablo, 18 Nov (chat):** Ushuaia replaces Puerto Williams, Punta Arenas added; truncation 3σ in the final tree; database A in the tree (single and multi-fault), B and B-mm single-fault tornado rows; declustered rates (`nn_family`) in the final tree for now, to be decided, and a tornado level; the tornado reruns on the newest inputs; final run PGA only, on the 0.05° grid (`data/grids/chile_005.csv`) at Vs30 800.
+- **Inputs:** interface `nrml_2026-11-18`, in-slab `nrml/2026-11-18e`, crustal `nrml/2026-11-18b` (CURRENT). Manifest checks: every set and branch list adds up to 1, every file exists, every `against` is a row.
+- **Code:**
+  - `jobs.py` rewritten: `manifests`, `tree`; final trees `f_{if,is,cr}_tree` (cities, 475 and 2475 yr) and `g_{if,is,cr}_tree` (grid); tornado rows from `tornado.json` with their `against` base; GMM-FIT (set A) is the default GMM and the tornado reference; rows for the other sets (crustal GMM-1R = GMM-FIT, no row) and truncation 2.5 / 4σ; no single-model jobs (the models are in the reference job's realizations, LEARNINGS). In-slab `is_rate_gk` measured against `is_decl_gk` (GK pattern), as the 16 Nov rule; the manifest says `is_ref`.
+  - `build.py`: branches from `tree.json` and `tornado.json`; `"sites": "grid"`, per-job `poes`. `branches.py` on `tree.json`. `config.py`: 15 cities, PGA 0.001–3 g in 38 levels, `POES_FINAL` 475 / 2475 yr, `GRID`; in-slab `extra` folder dropped (CURRENT line removed, as IS asked).
+  - `hazard/sites/grid_005_2026-11-18.csv`: lon, lat of `chile_005.csv` (34 841 sites; its vs30 380 not used).
+- **Built:** 74 job folders (`build.main(J.RUN + J.GRID_RUN)`). OpenQuake's logic-tree reader gives the realizations build.json expects in every job (interface tree 684, in-slab 24, crustal 240); source-branch weights equal `tree.json` within 2e-11. No job run. LEARNINGS limits checked: at most 171 branches per set (limit 183), 684 paths (limit 15 000), one crustal sections file (117 ids, none shared), so no tree needs parts (`TREE_PARTS`, `trees.load` if one fails).
+- **Tests:** 12 hazard tests pass (one new: final trees and rows read the manifests).
+- **Open:** post-processing (`tornado_prelim.py`, `tornado_final.py`, `curves_city.py`, `trees.py`) still names GMM-1R as the GMM reference and the 16 Nov axes; to be adapted when the runs are in. Grid trees store every realization (individual_rlzs; interface 684 × 34 841 sites × 38 levels, about 3.6 GB). 35 old job folders of the 16 Nov tornado stay in `hazard/jobs/` (their calc ids in `hazard/out/jobs.csv`); the rebuilt same-name jobs lost their old calc ids. CAT note: family colours from `palette.FAMILY_COLOR` in the figure scripts, not done.
+- **Commands (Pablo):** from `psha_chile8/`, tornado and city trees: `bash hazard/run_all.sh`; grid trees: `ONLY="g_is_tree g_cr_tree g_if_tree" bash hazard/run_all.sh`.
+- **Suggested commit:** `git add psha_chile8/hazard/{jobs,build,branches,config}.py psha_chile8/hazard/tests/test_hazard.py psha_chile8/hazard/branches_*.csv psha_chile8/hazard/sites/grid_005_2026-11-18.csv psha_chile8/CURRENT.md psha_chile8/WORKLOG.md`; message `HAZ: jobs on tree.json / tornado.json, final trees for cities and grid, 15 cities`.
+
+## 2026-11-18 — IF: review of the interface steps, Pablo's answers, segmented geodetic row (Claude Code, IF)
+- **Review (Pablo: "we created the model a little fast"):** the steps ran in order (prepare, one algorithm, manifests, build on 2026-11-18, parse check and publication, geodetic explanation). Three model questions came up after the confirmation, and some paperwork was skipped: REPORT_S1 has no section on the 18 Nov build, FIGURES.md has no rows for `model/interface/figs/`, and there are no tests for the margin-b cache check or the stop when `fits/run.py` does not reproduce the fits.
+- **Pablo's answers (18 Nov, IF):**
+  1. **Seismic percentile branches above the plate budget** (45.6–37° S 95th 2.2 μ A v, 37–32° S 95th 1.1–1.2): a question for FITS. Note `handoffs/2026-11-18_IF_to_FITS.md`, with the 1 150 against 2 220 years question and the new segment outline file.
+  2. **Rupture area at Mmax:** important.
+     - It was decided on 15 Nov (REPORT_S1 §4): the lists do not end at m_area, and the larger magnitudes fill the source surface. The 18 Nov numbers barely moved (45.6–37° S moment above m_area 60 → 58 % with Strasser). The decision is now written into DECISIONS (Interface), tagged (Pablo, 15 Nov, S1).
+     - Pablo agrees with Strasser for the magnitude–area scaling, "as long as slip by Valdivia is consistent (~6 m)". The check (μ 30 GPa, M0 = 10^(1.5 Mw + 9.05)) does not meet it:
+
+       | Mw | relation | median area (km²) | slip on the median area | slip confined to the 45.6–37° S source (1.23e5 km²) |
+       |---|---|---|---|---|
+       | 9.5 | Strasser | 3.70e5 | 18.0 m | 54 m |
+       | 9.5 | Thingbaijam | 5.29e5 | 12.6 m | 54 m |
+       | 9.5 | Allen–Hayes | 1.50e5 | 44.5 m | 54 m |
+       | 9.3 | Strasser | 2.39e5 | 14.0 m | 27 m |
+       | 9.0 | Strasser | 1.24e5 | 9.6 m | 9.6 m |
+
+       - A 6 m average slip at Mw 9.5 needs 1.1e6 km² (about 2 750 × 400 km). On our 45.6–37° S area, 6 m is Mw 8.86.
+       - The slip models of 1960 that I remember are 15–30 m average (e.g. Barrientos and Ward 1990, about 17 m; not checked here), not 6 m.
+       - So either the "~6 m" refers to something else (a coseismic uplift or subsidence, or one slip patch), or the 1960 moment, μ and the 10–50 km width do not fit together. Strasser on its median area (18 m) is the closest of the three relations to the published slips; confined to our segment source (54 m) it is not.
+       - Open for Pablo, with the sources to check: the 1960 slip value and its reference; the source width (Slab2 10–50 km, about 130 km down-dip) against the 1960 rupture width (about 200 km); μ.
+  3. **Antarctic b:** inherits the b of 45.6–37° S in each branch, percentiles included (b 0.75–1.14 in the tree, N(≥ 5.5) 0.45–2.44). Written into DECISIONS.
+  - **Segmented geodetic tornado row:** added as `seg_geo08` (four segments, geodetic χ 0.8, own b, ML), measured against `seg`. It is in `if_build.ROWS`, so later builds carry it, and in the published `nrml_2026-11-18/tornado.json` (21 rows; written by `if_build.tornado`, which checks files and `against`). Tests pass (11). DECISIONS line written. HAZ note updated.
+  - **FITS:** the 1 150 years is to check with FITS (in the note).
+  - **Cisternas et al. (2005):** pending, Pablo gets the paper.
+  - **1575:** not pursued; no question to CAT.
+  - **Arica 1868:** stays out of the sources and in the catalogue. Its epicentre (17.15° S) is 0.45°, about 50 km, north of the source end at 17.6° S, so it was tight: a Mw 9.0 rupture of several hundred km almost surely reached 26–17.6° S, and only the epicentre rule kept it out. DECISIONS line extended.
+- **Commit addition:** `git add handoffs/2026-11-18_IF_to_FITS.md` with the files of the previous IF entry (`model/interface/if_build.py`, `nrml_2026-11-18/tornado.json`, DECISIONS.md, WORKLOG.md, `handoffs/2026-11-18_IF_to_HAZ.md`).
+
+## 2026-11-18 — IF: should the geodetic branch keep the interface GR fits? Cisternas et al. (2005) read (Claude Code, IF)
+- **Pablo (18 Nov, IF):**
+  - Strasser is consistent with the 1960 slip (18 m on its median area), so the area rule stands. The three relations stay in the tree; written into DECISIONS.
+  - Arica 1868 stays a note in the paper, since putting it in a source would need the segment limits changed; DECISIONS line extended.
+  - Cisternas et al. (2005) is in `refs/catalogs/cisternas_etal_2005.pdf`.
+- **Cisternas et al. (2005), Nature 437, 404–407, read from the paper:**
+  - **Record:** Río Maullín estuary, midway along the 1960 rupture. Eight events (A–H) in about 2 000 years, from 60 trenches; seven pre-1960 events. Event D dates to AD 1020–1180, C to AD 1280–1390, and B correlates with 1575.
+  - **Intervals:** "the best-defined of the earthquake intervals recorded geologically, which together span most of the past millennium, average nearly 300 yr", more than twice the historical average of 128 years (1575, 1737, 1837, 1960). 1960 ended a 385-year interval that includes 1737 and 1837.
+  - **1737 and 1837:** they probably released too little moment to leave subsidence and tsunami at Maullín. From its Hawaii tsunami, 1837 released almost half the seismic moment of 1960, about Mw 9.3 (our catalogue has 8.6; noted, not a question to CAT).
+  - **Plate motion:** the 1960 slip equals 250–350 years of plate motion. Their Fig. 1 uses 8.4 cm/yr of convergence; we use 6.6 cm/yr (DECISIONS, Interface, 6 Oct).
+  - **Earlier figure corrected:** the "about 300 years" of the IF entry of this morning is in the paper itself, not only in the News & Views.
+- **Question: should the geodetic branch be built with the interface GR fits?**
+  - **Today (psha_chile6 practice):** it is the seismic fit with all rates multiplied by 0.8 μ A v / seismic moment. The small and moderate magnitudes move by the same factor as the great ones: N(≥ 6) × 1.16 on the margin and × 1.43–3.24 on the segments.
+  - **Why that is wrong:** the catalogue fixes those rates well. Since 1964 the fits pass every check, and the observed N(≥ 6) is what the seismic fit gives. The geodetic branch of 45.6–37° S predicts 0.95 Mw ≥ 6 per year against 0.37 fitted, so 2.6 times the earthquakes of Mw 6–7 the catalogue has had since 1964.
+  - **Where the deficit belongs:** the moment deficit belongs where the catalogue is short, the great events. That is also what Cisternas shows: giant events about 300 years apart, against 2 220 years for Mw ≥ 9 on the GR fit.
+  - **Alternatives tested** (fits 2026-11-18, full catalogue, own b, tapered, ML, χ 0.8; script `model/interface/geo_alt_2026-11-18.py`):
+
+    | unit | factor today (A) | B: corner that closes the moment (a, b kept; Mmax rule 9.7 / 9.2 / 8.7 / 9.1) | χ reachable with the list to Mmax + 0.2 | Mw ≥ 9 every … yr: seismic / A / B / C | C: deficit as events at Mmax, one every … yr |
+    |---|---|---|---|---|---|
+    | full margin | 1.16 | 9.59 (corner today 9.48) | 1.33 | 277 / 238 / 263 / 259 | Mw 9.7, 4 085 |
+    | 45.6–37° S | 2.61 | 10.23 | 0.59 | 2 220 / 851 / 1 915 / 1 329 | Mw 9.7, 3 311 |
+    | 37–32° S | 1.43 | 9.27 | 1.06 | 2 039 / 1 423 / 1 169 / 955 | Mw 9.2, 1 796 |
+    | 32–26° S | 2.47 | 9.14 | 0.65 | – / – / 1 075 / – | Mw 8.7, 153 |
+    | 26–17.6° S | 3.24 | 9.74 | 0.50 | 3 184 / 983 / 913 / 286 | Mw 9.1, 314 |
+
+    - **B** keeps N(≥ 6) at the fit in every unit (the moment-balanced corner, Bird and Kagan 2004). It works on the margin (corner 9.59 < Mmax 9.7). On three segments the corner would have to exceed Mmax (10.23, 9.14, 9.74), and with the list ending at Mmax + 0.2 they cannot reach χ 0.8 at all (0.50–0.65). B breaks the one Mmax rule there.
+    - **C** keeps the GR fit (and the Mmax rule) and puts the deficit into events at Mmax, a characteristic part on top (Youngs and Coppersmith 1985). It needs no new parameter: Mmax, b and corner are as in the fits. On 45.6–37° S it gives Mw ≥ 9 every 1 329 years.
+  - **Paleoseismic check:** no GR-based branch reaches 300 years on 45.6–37° S. Mw 9.5 every 300 years would be 2.7 times that source's full plate budget. Mw 9.2 (M0 7.1e22 N m) every 300 years is 0.97 of it, so the Maullín interval fits our plate budget only if the typical giant event there is about Mw 9.2. 1960 would then be the large one after a long interval, which is what Cisternas argue ("storage through multiple recurrence intervals"). A paleoseismic check of C at about Mw 9.2 events is possible but needs a characteristic magnitude, a free parameter.
+- **Proposal for Pablo (not decided, nothing rebuilt):** the geodetic branch keeps the GR fit where the catalogue fixes it and closes the moment in the great events.
+  - Margin: the corner from the moment (B; 9.59).
+  - Segments: B is not possible within the Mmax rule, so the deficit goes as events at Mmax (C), or B with the corner capped at Mmax and the remainder at Mmax.
+  - The (a, b) percentiles would carry into the geodetic branch through the GR part.
+  - Effect: N(≥ 6) of the geodetic branch equals the seismic one, and the geodetic lever moves entirely into Mw ≥ 8.5. PGA 475 near the segments with a large deficit (26–17.6° S, 32–26° S) would likely fall against today's geodetic branch, and the 2 475-year hazard would rise relative to 475.
+  - This replaces the 6 Oct practice "the geodetic branch keeps b and rescales the rate" (REPORT_S1 §4). "No moment-deficit approach" (6 Oct) stands: C is time-independent.
+
+## 2026-11-18 — IF: geodetic branch with its own b, tested (Claude Code, IF)
+- **Pablo's question:** should the geodetic branch fit its own b? Script `model/interface/geo_b_2026-11-18.py`; nothing rebuilt.
+- **Test:** rate at the fit floor (Mw 5.0) as fitted, Mmax rule, Kagan corner on each b, and b solved so that the tapered list releases χ μ A v. Moment balance is one equation, so it fixes one parameter; here that parameter is b. The b found is then compared with the bootstrap of the fit.
+
+  | unit | b fit ± sd | b geodetic χ 0.7 / 0.8 / 0.9 | sd below the fit at χ 0.8 | N(≥ 6) fit → geodetic χ 0.8 | N(≥ 8) | Mw ≥ 9 every … yr |
+  |---|---|---|---|---|---|---|
+  | full margin | 0.942 ± 0.024 | 0.940 / 0.924 / 0.910 | 0.7 | 2.84 → 2.97 | 0.037 → 0.042 | 277 → 235 |
+  | 45.6–37° S | 0.947 ± 0.126 | 0.847 / 0.831 / 0.817 | 0.9 | 0.37 → 0.48 | 0.0046 → 0.0103 | 2 220 → 783 |
+  | 37–32° S | 0.958 ± 0.042 | 0.926 / 0.907 / 0.891 | 1.2 | 0.89 → 1.00 | 0.0105 → 0.0149 | 2 039 → 1 343 |
+  | 32–26° S | 0.920 ± 0.032 | 0.793 / 0.772 / 0.752 | 4.6 | 0.90 → 1.26 | 0.011 → 0.030 | – |
+  | 26–17.6° S | 0.916 ± 0.047 | 0.768 / 0.749 / 0.732 | 3.6 | 0.66 → 0.97 | 0.0092 → 0.029 | 3 169 → 883 |
+
+- **Reading:**
+  - On the full margin, 45.6–37° S and 37–32° S the b that closes the moment is within about one standard deviation of the fitted b. The catalogue accepts it, Mw 6 rises only 4–30 % (against × 1.16–2.6 today), and the extra moment goes mostly into the great events. 45.6–37° S gets Mw ≥ 9 every 783 years.
+  - On 32–26° S and 26–17.6° S the b would have to be 3.6–4.6 standard deviations below the fit: the catalogue rejects it. There the gap between the seismic moment (χ_seis 0.32 and 0.25) and χ 0.8 cannot come from the slope. It is either in events at Mmax (option C of the previous entry), or χ 0.8 on our 10–50 km source at 6.6 cm/yr is more than those segments release.
+- **Proposal for Pablo (not decided):** geodetic branch with its own b, where the b stays within the fit's uncertainty (a test against the catalogue, no free parameter); for the two northern segments C, or a stated finding that the catalogue does not support χ 0.8 there.
+
+## 2026-11-18 (afternoon) — HAZ: final model at the cities, grid speed test, interface grid run (Claude Code, HAZ; runs asked by Pablo)
+- **City trees (final model, 15 cities, 475 / 2475 yr):** f_is_tree calc 646 (6 min), f_cr_tree 647 (8.5 min), f_if_tree 648 (26 min); `hazard/trees.py` → `hazard/out/trees/` (overwrites the 16 Nov tree outputs, whose numbers stay in `REPORT_S5a.md`). Total mean PGA 475: La Serena 1.16, Valparaíso 1.16, Antofagasta 1.10, Concepción 0.95, Iquique 0.91, Copiapó 0.74, Hornopirén 0.68, Calama 0.57, Puerto Aysén 0.54, Santiago 0.53 / 0.51, Pucón 0.47, Puerto Montt 0.43, Ushuaia 0.13, Punta Arenas 0.055 g; the north 15–20 % below the 16 Nov tree (GMM-FIT instead of GMM-1R).
+- **Grid at full settings stopped (decision, HAZ):** g_is_tree calc 649 aborted after 2 h 40 min without one classical task finished.
+- **Rupture counts against the old 0.05° runs** (`~/oqdata/old_runs/calc_64`, `psha_chile2/model_faults`): old 1.8 M ruptures in all (interface 83 k, Mmin 6.0, one source, 24 rlz); now in-slab 88 M (12 planes per cell, several depths, 500 km), crustal 24 M (background), interface 102 k per full-margin source (same 10 km complex-fault mesh) but 240 source copies, 684 rlz.
+- **Interface speed test** (`hazard/speed.py`, `hazard/out/speed/`; 15 cities and 200 random grid sites `hazard/sites/sample_200_2026-11-18.csv`): bins 0.2 1.9× faster, ≤ 1.2 % everywhere; Mmin 6.0 + bins 0.2 2.5×, mean 0.7 %, 95th 1.4 % (475 yr), up to 5.3 % lower in Patagonia; Mmin 6.5 up to 12.5 %; 20 km mesh up to 5 % at the coast; magnitude-dependent distance no gain (rupture generation dominates at 200 sites). City wall times are noise (the same job 118 s and 292 s).
+- **Decided (Pablo, 18 Nov, HAZ; DECISIONS, Hazard runs):** grid stays 0.05°, no adaptive resolution; interface on the grid with Mmin 6.0 and bins 0.2. `jobs.py` `g_if_tree` carries `ini` and `rebin`; `build.py` `rebin` writes the merged bins into the job's own copies (hard links broken first; model files untouched).
+- **Running:** g_if_tree calc 698 (`hazard/jobs/run_grid_if.log`). In-slab and crustal grid settings next, one family at a time. Tornado paused after t_is_rate_gk (calc 680, recorded by hand); left: the rest of the in-slab, crustal and GMM rows, the check jobs, and the new IF row `seg_geo08` (added to `tornado.json` by IF at 12:00).
+- **OpenQuake trap (proposed LEARNINGS line):** a magnitude-dependent `maximum_distance` gives 0 km outside the magnitudes listed; end the list at the largest magnitude (e.g. [10.0, 600]) or ruptures above the last point are dropped silently.
+- **Commit (later, with the grid results):** `hazard/{jobs,build,post,grid,speed,branches,config}.py`, `hazard/tests/test_hazard.py`, `hazard/sites/`, `hazard/out/trees/`, `hazard/out/speed/`, `DECISIONS.md`, `WORKLOG.md`.
+- **What does not fit the catalogue at χ 0.8 (Pablo's question):** observed interface events per segment (class weights) in the complete periods, against the expected number (p = Poisson probability of a count this far off):
+
+  | segment | count | observed | fit | geodetic today | geodetic own b |
+  |---|---|---|---|---|---|
+  | 32–26° S | Mw ≥ 6 since 1964 | 61 | 56 | 139 (p < 0.001) | 79 (p 0.02) |
+  | | Mw ≥ 7 since 1905 | 8 | 13 | 32 (p < 0.001) | 26 (p < 0.001) |
+  | | Mw ≥ 7.5 since 1830 | 8 | 7 | 18 (p 0.009) | 17 (p 0.015) |
+  | | Mw ≥ 8 since 1830 | 2 | 2.2 | 5.3 (p 0.10) | 5.9 (p 0.07) |
+  | 26–17.6° S | Mw ≥ 6 since 1964 | 45 | 41 | 133 (p < 0.001) | 61 (p 0.015) |
+  | | Mw ≥ 7 since 1905 | 14 | 10 | 31 (p < 0.001) | 21 (p 0.04) |
+  | | Mw ≥ 7.5 since 1830 | 10 | 5.4 | 18 (p 0.02) | 14 (p 0.10) |
+  | | Mw ≥ 8 since 1830 | 3 | 1.8 | 5.9 (p 0.16) | 5.8 (p 0.18) |
+
+  - The Mw 6–7.5 record of the last 60–200 years does not fit χ 0.8 on the two northern segments. Whether the missing moment goes in by scaling (today) or by a lower b, it adds Mw 7–7.5 events that did not happen.
+  - Only above Mw 8.5 is the record short enough to hold the missing moment. With option C (the gap as events at Mmax: Mw 8.7 every 153 years on 32–26° S, Mw 9.1 every 314 years on 26–17.6° S), Mw ≥ 8.5 since 1550 is 4.0 expected against 2 observed (p 0.24), and 2.8 against 1 (p 0.23). The catalogue accepts that.
+  - On 45.6–37° S and 37–32° S the own-b branch fits every count (p ≥ 0.07); today's branch fails at Mw ≥ 6 (45.6–37° S, p < 0.001; 37–32° S, p 0.015).
+  - (The Mw ≥ 5 rows of the script output are not valid: the source lists start at Mw 5.5.)
+- **Correction, observed points of the interface figures (Pablo: "the fits look poorly fitted"):**
+  - `if_figs.observed` counted every event at its class weight only. The fits count it at class weight × exp(−β²σ²/2) (DECISIONS, Statistics), as FITS's own figures show (`fits/figs.py fmd`, `f["cnt"]`). So the old interface figures put the observed points 7–9 % high at Mw 5–6, 13–18 % at Mw 7–8, and 1.3–3.7 times at Mw 8.5 (old events of large σ), and the fits looked poor at large magnitudes.
+  - `observed` now takes the counts of the fit (`fits/run.py fit` on the unit's table, no bootstrap). `figs/mfds.png` is redrawn; the previous figures are in `figs/2026-11-18_before_sigma_counts/`. The NRML files are not touched. Tests pass (11).
+  - The draft `drafts/geodetic/geodetic_constructions_chi08.png` (script `drafts/geodetic/fig_geodetic.py`): the three geodetic constructions at χ 0.8 against the corrected points.
+  - The count table of the entry above ("what does not fit at χ 0.8") also used class weights without the σ factor. With the fit's counts the observed numbers fall (about 10 % at Mw ≥ 6, more at Mw ≥ 8), so the rejection of the scaled and own-b branches on the northern segments only gets stronger.
+- **HAZ (18 Nov, later):** in-slab speed tests on 200 sites started and stopped by Pablo (calc 699 aborted) so the interface grid run (calc 698) has the machine. Pablo, 18 Nov: two nodal planes per in-slab class (shallow, intermediate, Jujuy nest; mixed by class share where a cell holds two), 0.1° cells and three depths kept; in the grid job pointsource_distance 50 km, ps_grid_spacing 25 km, bins 0.2, Mmin 6.0, in-slab distance 300 km, to be checked on the 200 sites first. Note to IS: `handoffs/2026-11-18_HAZ_to_IS.md`; note to IF: `handoffs/2026-11-18_HAZ_to_IF.md`.
+
+## 2026-11-18 — IF: geodetic b by constrained maximum likelihood (Claude Code, IF)
+- **Pablo's question:** is b fitted poorly in the geodetic branch, since a is held fixed; is there an argument and a method?
+- **Method tested:**
+  - Constrained maximum likelihood (script `model/interface/geo_cml_2026-11-18.py`): the fit's own Poisson likelihood (`gr.loglik` on the counts of `fits/run.py fit`; equal to `lnL` of the fit), maximised over b with the moment rate held at χ μ A v. The Mmax rule and the Kagan corner apply on each b, and the rate follows from the moment. a is not held fixed: the data choose b and a together.
+  - Likelihood-ratio test against the unconstrained fit (1 constraint).
+
+  | unit | b fit | b at χ 0.7 / 0.8 / 0.9 | N(≥ 5) fit → χ 0.8 | N(≥ 6) | N(≥ 8) | p (LR) at χ 0.7 / 0.8 / 0.9 |
+  |---|---|---|---|---|---|---|
+  | full margin | 0.942 | 0.940 / 0.924 / 0.910 | 24.9 → 24.9 | 2.84 → 2.97 | 0.037 → 0.042 | 0.92 / 0.35 / 0.09 |
+  | 26–17.6° S | 0.916 | 0.771 / 0.752 / 0.736 | 5.41 → 5.54 | 0.66 → 0.98 | 0.009 → 0.029 | 5e-5 / 4e-6 / 3e-7 |
+  | 32–26° S | 0.920 | 0.796 / 0.774 / 0.756 | 7.45 → 7.58 | 0.90 → 1.27 | 0.011 → 0.030 | 2e-4 / 7e-6 / 3e-7 |
+  | 37–32° S | 0.958 | 0.926 / 0.908 / 0.892 | 8.07 → 8.12 | 0.89 → 1.00 | 0.011 → 0.015 | 0.35 / 0.14 / 0.05 |
+  | 45.6–37° S | 0.947 | 0.846 / 0.830 / 0.815 | 3.23 → 3.19 | 0.37 → 0.47 | 0.005 → 0.010 | 0.06 / 0.03 / 0.01 |
+
+- **Reading:**
+  - With a free, the answer is almost the own-b answer: the thousands of Mw 5–6 events pin a (N(≥ 5) moves by under 2.5 %). a is fixed by the catalogue, not by our assumption.
+  - With a GR line and the Mmax rule, b is the only lever left. The catalogue accepts it on the full margin and 37–32° S, is borderline on 45.6–37° S, and rejects it on the two northern segments (p 1e-5 to 1e-7 at χ 0.8).
+  - The p-values are Poisson and ignore clustering; with the cluster dispersion of the fits they would be larger, most on 45.6–37° S.
+- **The argument against a segment b for the deficit:**
+  - In the global analyses the slope of subduction-zone seismicity is close to universal: Kagan (1999), β ≈ 0.6–0.65, b ≈ 0.9–1.0; Bird and Kagan (2004), subduction class. Our fitted b's (0.92–0.96) are in that range.
+  - In that approach a and b come from the catalogue, and the tectonic moment sets the corner magnitude (Bird and Kagan 2004; Rong et al. 2014 per subduction zone). That is option B of the earlier entry. On our segments it needs corners above our Mmax rule (10.2 on 45.6–37° S), because the rule ties Mmax and the corner to the largest observed event.
+  - So the real choice is between the corner from the largest event (our rule; the deficit then has to go in as events at Mmax, option C) and the corner from the moment (B; Mmax then follows the moment, not the catalogue).
+  - References from memory, not in `refs/`, to check before use: Kagan 1999 (Pure Appl. Geophys. 155), Bird and Kagan 2004 (BSSA 94, 2380–2399), Rong, Jackson, Magistrale and Goldfinger 2014 (BSSA 104).
+- **HAZ: remote runs** (`hazard/remote.sh`, Pablo asked; nodes rs26 / rs1, password login, no key): `check`, `push` (builds locally, rsyncs the self-contained job folders and a queue script), `run` (nohup + setsid on the node), `status`, `pull` (oq.log and `calc_<id>.hdf5` into `hazard/remote/<host>/`, build.json gets `calc_id`, `datastore`, `host`), `stop`. `post.load` reads `datastore` when set, so trees / grid post-processing run here unchanged (test added; 15 hazard tests pass). Not tried against a node yet (no key; the node needs OpenQuake 3.26 for the datastore to read here).
+- **Both geodetic constructions with bands** (draft `drafts/geodetic/geodetic_B_C_chi08_ci.png`, script `fig_geodetic_ci.py`; χ 0.8). Bands are 5–95 % over the 2 000 cluster-bootstrap replicates of the seismic fit, each replicate turned into B (corner from the moment, list to 11.0) and C (Mmax rule, missing moment at Mmax).
+
+  | unit | corner by the rule | corner from the moment (5–95 %) | replicates where the moment cannot be reached | Mw ≥ 9 every … yr: seismic / B / C |
+  |---|---|---|---|---|
+  | full margin | 9.48 | 9.59 (9.34–9.90) | 0 | 277 / 263 / 259 |
+  | 26–17.6° S | 8.87 | 9.74 (9.29–10.50) | 21 | 3 169 / 914 / 286 |
+  | 32–26° S | 8.47 | 9.14 (8.86–9.56) | 0 | – / 1 078 / – |
+  | 37–32° S | 8.98 | 9.27 (8.84–9.93) | 5 | 2 039 / 1 172 / 960 |
+  | 45.6–37° S | 9.48 | 10.23 (9.14–10.80) | 668 of 2 000 | 2 220 / 1 916 / 1 330 |
+
+  - On 45.6–37° S a third of the replicates cannot release χ 0.8 with any corner up to 12: their b is high, so the line holds too little moment.
+- **Pablo asked what the cluster bootstrap is:**
+  - It is FITS's bootstrap of the seismic fits (DECISIONS, Statistics, 17 Nov, FITS): resamples draw whole `nn_family` clusters (a mainshock with its fore- and aftershocks) instead of single events. It is used in `fits_2026-11-18` (`fits/run.py`: `d["cl"] = clusters(d)`, passed as `cl=` to `gr.fit`) and in IF's margin-b refit (`CLUSTER_BOOT = True`).
+  - The negative binomial is a separate part of the same decision: the band of the large-event check, with the dispersion of the observed clusters.
+  - b and the rates of the fits are unchanged by either. Only the intervals, and so the (a, b) percentile branches, widen (45.6–37° S most).
+- **Pablo: are the new constructions more appropriate, and do they fit better than the seismic fit?**
+  - Each construction is tested by the fit's own Poisson likelihood on the counts of the fit (χ 0.8; script `drafts/geodetic/geo_lnl.py`). Δ ln L is against the seismic fit; p is from the likelihood ratio. Expected and observed counts of Mw ≥ 8 and Mw ≥ 8.5 are over the complete periods of the table.
+
+  | unit | today (scaled) | own b | corner from the moment | at Mmax | observed N8 / N8.5 | seismic N8 / N8.5 | at Mmax N8 / N8.5 |
+  |---|---|---|---|---|---|---|---|
+  | full margin | −17.7, p 3e-9 | −0.4, p 0.35 | 0.0, p 1 | −0.1, p 0.63 | 13.1 / 7.8 | 10.7 / 5.8 | 10.8 / 5.9 |
+  | 26–17.6° S | −366, p 4e-161 | −10.8, p 3e-6 | +0.1, p 1 | −1.5, p 0.08 | 2.9 / 0.9 | 2.5 / 1.2 | 4.1 / 2.8 |
+  | 32–26° S | −248, p 1e-109 | −10.1, p 7e-6 | 0.0, p 0.87 | −3.1, p 0.013 | 2.6 / 1.6 | 2.6 / 0.8 | 5.7 / 3.9 |
+  | 37–32° S | −37, p 8e-18 | −1.1, p 0.14 | +0.2, p 1 | −0.3, p 0.47 | 4.0 / 2.6 | 2.9 / 1.4 | 3.2 / 1.7 |
+  | 45.6–37° S | −108, p 6e-49 | −2.5, p 0.03 | +0.1, p 1 | −0.1, p 0.59 | 2.2 / 1.3 | 1.3 / 0.7 | 1.5 / 0.9 |
+
+  - **More appropriate than before:** yes. The branch built today (rates scaled) is rejected on every unit, from p 3e-9 on the full margin to 4e-161 on 26–17.6° S. Both new constructions agree with the catalogue below about Mw 8.
+  - **Better than the seismic fit:** not on the catalogue, and none can be, since the seismic fit is the best fit to it.
+    - On the full margin, 37–32° S and 45.6–37° S, "at Mmax" is as good as the seismic fit (p ≥ 0.47).
+    - There the observed great events lie above all of them: Mw ≥ 8, 13.1 against 10.7 on the margin; 4.0 against 2.9 on 37–32° S; 2.2 against 1.3 on 45.6–37° S. So the extra moment at the top moves the line toward the data, slightly.
+    - The paleoseismic record of 45.6–37° S (about 300 years) also asks for more great events: Mw ≥ 9 every 1 330 years "at Mmax", against 2 220 seismic.
+  - **North:**
+    - "At Mmax" fits worse: 32–26° S p 0.013, 26–17.6° S p 0.08. It expects 3.9 and 2.8 Mw ≥ 8.5 events in the record, against 1.6 and 0.9 observed. This corrects the earlier check of Mw ≥ 8.5 since 1550 alone (p 0.24 / 0.23); the full likelihood also counts the Mw 7.5–8.5 bins.
+    - "Corner from the moment" looks perfect everywhere (p ≈ 1), but only because it puts its extra moment above Mmax. The likelihood leaves those bins out, so the catalogue does not test it; p 1 there is not support.
+  - **Reading:**
+    - Where the catalogue can judge (margin, 37–32° S, 45.6–37° S), χ 0.8 with the missing moment at Mmax is as consistent as the seismic fit, and closer to the great events and the paleoseismic record.
+    - In the north the catalogue does not hold χ 0.8 within the Mmax rule. Either the events there are larger than any observed (corner from the moment, untestable), or those segments release less than 0.8 of μ A v on our source.
+- **HAZ: remote check on rs28** (192 cores, 755 GB; env `psha_chile`, OpenQuake 3.24, Pablo: use it as it is): `r_is_ref` (in-slab reference, 15 cities) pushed, run (calc 350, 80 s), pulled and read here. Against the local t_is_ref (calc 651, 3.27): same realizations and GMMs; PGA 475 within 0.15 % north of Pucón, +0.4 to +0.8 % from Pucón to Puerto Aysén; 2475 yr up to +1.7 % (Puerto Aysén). `remote.sh` defaults: rs28, `psha_chile`.
+
+## 2026-11-18 — IS: two nodal planes per cell, rebuild 2026-11-18f / 18g for the grid run (Claude Code, IS)
+- **Why:** `handoffs/2026-11-18_HAZ_to_IS.md`: the in-slab grid tree (calc 649) did not finish one task in 2 h 40 min; 18e had 11.8 planes per cell, 14.7 M point ruptures per branch, 88 M in the tree.
+- **Decided (Pablo, 18 Nov, HAZ and IS; DECISIONS In-slab, Superseded):** two planes per sub-class, the representative plane of the dominant B14 type and its auxiliary (FITS's representative planes), 0.5 each: shallow reverse 0/35/80, 190/55/95; intermediate normal 345/70/−95, 180/20/−80; nest 350/70/−100, 200/25/−60. Rates and depths stay summed per cell; the planes go by the cell's domain, shallow where the Slab2 top ≤ 50 km (`classify.IF_TOP`; 4 901 cells), intermediate elsewhere (8 946), no mixing. HAZ's version (mix by share, up to 4) replaced by this per Pablo. The C14 `*_l1` files are no longer built.
+- **Code:** `build.two_planes`, `build.npd_cells(npd, g, q, on)`, `SHALLOW_TOP = 50.0`; `LAYERS = ("l3",)` (`hypo` keeps `l1` for the south36 check); test `test_two_planes_by_domain` (replaces the two mixing tests). Class shares still written (`class_share_check_2026-11-18f.csv`, identical to 18d) for FITS.
+- **Built:** `build.py` `RUN` 2026-11-18f, `is_tornado.py` `RUN` 2026-11-18g (first pass listed `l1` branches whose files were not written, an edit slip; fixed and rebuilt). 22 branches, 44 files + 6 variants; 379 MB. Published `nrml/2026-11-18g/` (CURRENT, DATA; 18e superseded, kept because HAZ's city jobs hard-link it). HAZ had already removed the CURRENT line "declustered-rate rows".
+- **Checks:** rate lists of all 44 files identical to 18e (as text); planes per cell mean 2.00, max 2; point ruptures 2.52 M per branch (slab 2.49 M, nest 0.03 M), tree 15.1 M; tree sets and branches add up to 1; 12 tornado rows, ids unchanged; tornado copy byte-identical; tests 28 pass. Figures `figs/2026-11-18/` from the 18f build (patterns and MFDs as 18d; 18d figures in `old_18d/`).
+- **Notes:** `handoffs/2026-11-18_IS_to_HAZ.md` rewritten for 18g (planes, numbers HAZ asked for, ids); `handoffs/2026-11-18_IS_to_FITS.md` (shares file of 18f).
+- **Still to do today (plan of 18 Nov):** figure review in the shared style (pattern maps, plane domains, sections, MFDs, kernel), 16 → 18 Nov and MASCSN26 comparisons, REPORT_S2 section 13 (Abe point mentioned only), close note; delete superseded folders on Pablo's OK (`nrml/2026-11-18b`, `18c`, `18d`, `2026-11-16d`; keep `18e` while HAZ's city jobs use it).
+- **Commit (from `psha_chile8/`):** `git rm model/inslab/is_decl_rates.py`; `git add model/inslab/build.py model/inslab/is_tornado.py model/inslab/figs_s2.py model/inslab/tests/test_s2.py model/inslab/nrml/2026-11-18f/branches.json model/inslab/nrml/2026-11-18g/branches.json model/inslab/nrml/2026-11-18g/tree.json model/inslab/nrml/2026-11-18g/tornado.json model/inslab/tables/{calibration,kernel_n,pattern,pattern_sums,rates,edge_check,nest_depths,south36_layers}_2026-11-18.csv model/inslab/tables/{drop,class_share_check}_2026-11-18f.csv model/inslab/tables/oqread_2026-11-18g.csv model/inslab/tables/log_build_2026-11-18f.txt model/inslab/figs/2026-11-18 CURRENT.md DATA.md DECISIONS.md WORKLOG.md handoffs/2026-11-18_IS_to_HAZ.md handoffs/2026-11-18_IS_to_FITS.md`. Message: "IS: in-slab sources on fits 2026-11-18 with two nodal planes per cell by sub-class domain (nrml/2026-11-18g, tree.json, tornado.json; pattern completeness from 1964); CURRENT, DATA, DECISIONS; notes to HAZ and FITS"
+
+## 2026-11-18 — IF: geodetic branch checked against the references (Claude Code, IF)
+- **Pablo:** refs placed (`refs/catalogs/rong_etal_2014.pdf`, `metois_etal_2016.pdf`, `youngs_coppersmith_1985.pdf`); no characteristic model. Not in `refs/`: Bird and Kagan 2004, Kagan and Jackson 2013, Scholz and Campos 2012 (cited below only as Rong et al. quote them).
+- **Rong et al. (2014), BSSA 104, 2359–2377, read:**
+  - Tapered GR per circum-Pacific Flinn–Engdahl zone: the rate of small events and β from the catalogue (zone β, or generic β 0.65 ≈ b 1.0), the corner from the tectonic moment rate Ṁ_T = χ μ W L u by Kagan (2002b), their eq. 7. The β-values and moment rates are those of Kagan and Jackson (2013): W 104 km, μ 49 GPa, χ 0.5, "equivalent" to W 100 km, μ 30 GPa, χ 0.85 (Scholz and Campos 2012). χ is the seismic coupling coefficient, "usually between 0.5 and 1.0" for subduction zones.
+  - Table 2, Andean South America (zone 8): b 0.86 (β 0.57 ± 0.04), corner 8.89 ± 0.28 with the zone β, 9.42 with the generic β.
+  - It is applied to whole zones; nothing per segment.
+- **Métois et al. (2016), PAGEOPH 173, read:**
+  - Interseismic coupling 38–18° S averaged over 0–60 km: seven segments above 80 %, six narrow low-coupling zones down to about 40 %.
+  - North of 24° S the Andean sliver lowers the effective convergence by about 1 cm/yr; the authors read the lower average coupling there as a modelling artefact.
+  - The shallow tens of km are barely resolved. Interseismic coupling is a slip deficit, not the seismic coupling χ of the moment budget.
+- **Our budget against the reference:**
+  - χ μ W at χ 0.8, μ 30 GPa, W = A / L of our 10–50 km source (margin 137 km; segments 129–143 km) is 1.21–1.35 times that of Kagan and Jackson (2013).
+  - At their budget the full-margin seismic fit already releases 1.11 of it, so there is no deficit. The segments release 0.42 (26–17.6° S), 0.49 (32–26° S), 0.92 (37–32° S) and 0.49 (45.6–37° S).
+- **The referenced method on our margin** (Kagan 2002b eq. as Rong et al. eq. 7; checked against the numerical solution on our tapered list, within 0.01):
+
+  | moment budget | Ṁ_T (N m/yr) | corner from the moment |
+  |---|---|---|
+  | ours χ 0.7 | 6.08e20 | 9.49 |
+  | ours χ 0.8 | 6.94e20 | 9.59 |
+  | ours χ 0.9 | 7.81e20 | 9.69 |
+  | Kagan and Jackson 2013 | 5.37e20 | 9.40 (Rong et al.: 9.42, generic β) |
+
+  - Our corner by the Mmax rule is 9.48; our b (0.94) is close to the generic b (≈ 1.0).
+- **Verified take:**
+  1. The referenced approach is Rong et al. (2014) / Kagan (2002b): a and b from the catalogue, corner from the moment, at the scale of the whole subduction zone. On our margin it reproduces Rong et al. (9.40 against 9.42), and it agrees with our Mmax rule within 0.1 magnitude for χ 0.7–0.8.
+  2. The geodetic branch as built (all rates scaled) has no support in these references for an interface with a catalogue. Those papers keep the rate of small events from the catalogue. The catalogue rejects the scaled branch on every unit.
+  3. The large geodetic lever on the segments is not a plate-motion result. The segment fits together release 49 % of the margin fit's moment, because each segment's corner is capped by its own largest event. The references balance moment per zone, not per segment.
+  4. Our χ 0.7–0.9 on W 137 km and μ 30 GPa gives a budget about 1.3 times that used by Kagan and Jackson and Rong et al. The coupling in Métois et al. is interseismic, not seismic, coupling; it does not by itself support χ 0.8 as the seismic fraction.
+- **Proposal (not decided):**
+  - The geodetic branch becomes the Rong et al. construction on the full margin: the catalogue a and b, the corner from χ μ A v.
+  - For the four-segment geometry, the referenced method does not apply segment by segment. Either the segments take the corner of the margin (one corner for the zone), or the geodetic branch exists only in the full-margin geometry.
+  - The budget: χ as seismic coupling, with the Kagan and Jackson (2013) value as a reference point, which needs the paper in `refs/`.
+
+## 2026-11-18 — IS: one nodal plane per cell, rebuild 2026-11-18h / 18i (Claude Code, IS)
+- **Correction (Pablo, 18 Nov, IS):** one plane per in-slab domain, the better (representative) first plane of the dominant type, not two; this supersedes the HAZ note's two planes per class and my two-plane build `18f` / `18g` of the entry above (which misread the rule). DECISIONS In-slab line rewritten, Superseded line extended.
+- Planes (first plane of the dominant type in `npd_2026-11-18.csv`; `npd.py` writes the representative plane before its auxiliary): shallow reverse 0/35/80, intermediate normal 345/70/−95, nest 350/70/−100, weight 1; cell domain as before (Slab2 top ≤ 50 km shallow, 4 901 cells; 8 946 intermediate). Code: `build.one_plane`; test `test_one_plane_by_domain`.
+- **Built:** `build.py` `RUN` 2026-11-18h, `is_tornado.py` `RUN` 2026-11-18i (5.5 min). Published `nrml/2026-11-18i/` (CURRENT, DATA; 18f / 18g superseded). Note to HAZ rewritten (18i replaces 18g; rebuild any grid copy of 18g); FITS note names `class_share_check_2026-11-18h.csv` (identical to 18d, 18f).
+- **Checks:** rate lists of all 44 files identical to 18e; planes per cell 1.00 (max 1); point ruptures 1.26 M per branch (slab 1.25 M, nest 0.01 M), tree 7.6 M (18e 88 M); tree sets and branches add up to 1; 12 tornado rows, ids unchanged; tornado copy byte-identical; tests 28 pass.
+- **For Pablo to look at:** the shallow domain keeps only the reverse plane; the normal type (43 % of the shallow mechanisms after the 10 % rule) is no longer represented. A tornado row with the shallow normal plane would show its effect.
+- **Commit:** as the entry above, with `nrml/2026-11-18h/branches.json`, `nrml/2026-11-18i/{branches,tree,tornado}.json`, `tables/{drop,class_share_check}_2026-11-18h.csv`, `tables/oqread_2026-11-18i.csv`, `tables/log_build_2026-11-18h.txt` in place of the 18f / 18g files. Message: "IS: in-slab sources on fits 2026-11-18 with one nodal plane per cell by sub-class domain (nrml/2026-11-18i, tree.json, tornado.json; pattern completeness from 1964); CURRENT, DATA, DECISIONS; notes to HAZ and FITS"
+- **Pablo: the corner comes from the moment, so each segment can use its own geodetic rate (its own A), not the observed Mmax.** Yes: in Rong et al. / Kagan (2002b) the corner is the output of the moment balance. Computed per segment (tapered, own b or margin b; budget χ μ A v with each segment's area; and the Kagan and Jackson 2013 budget per km of trench):
+
+  | unit | b | corner by our rule | corner from the moment χ 0.7 / 0.8 / 0.9 | Kagan and Jackson budget | m_area Strasser (rupture fills the source) |
+  |---|---|---|---|---|---|
+  | full margin | 0.942 | 9.48 | 9.49 / 9.59 / 9.69 | 9.39 | 9.58 |
+  | 26–17.6° S | own 0.916 / margin 0.942 | 8.87 | 9.64 / 9.74 / 9.83 (margin b 9.82 / 9.92 / 10.01) | 9.52 (9.69) | 9.08 |
+  | 32–26° S | own 0.920 / margin 0.942 | 8.47 | 9.04 / 9.14 / 9.23 (9.17 / 9.27 / 9.37) | 9.00 (9.12) | 8.84 |
+  | 37–32° S | own 0.958 / margin 0.942 | 8.98 | 9.16 / 9.27 / 9.36 (9.06 / 9.17 / 9.26) | 9.05 (8.95) | 8.81 |
+  | 45.6–37° S | own 0.947 / margin 0.942 | 9.48 | 10.12 / 10.23 / 10.32 (10.09 / 10.19 / 10.28) | 10.04 (10.00) | 9.00 |
+
+  - The formula works per segment, but every segment corner is 0.2–1.2 magnitudes above the magnitude whose median Strasser rupture already fills the segment source. On 45.6–37° S it is Mw 10.0–10.3 (M0 about 1e24 N m), which would need hundreds of metres of slip on that source. Not credible, and above 1960.
+  - The cause is the segment's low rate of small events: Mw 5.0 complete only from 1999, 0.37 Mw ≥ 6 per year against a plate budget of 2.4e20 N m/yr. With that rate the moment can only come out in giant events.
+  - On the full margin the corner from the moment is 9.4–9.7, below or at its m_area (9.58), and close to Rong et al. for Andean South America (9.42).
+  - So per segment the referenced method needs one more bound, the size a segment can host, which is not in Rong et al. With that bound the segments cannot release χ 0.8. That points either to a lower seismic χ for the segments, or to the geodetic branch only in the full-margin geometry.
+
+## 2026-11-18 — IS: evaluation figures, close note, proposed learnings (Claude Code, IS)
+- Pablo: the build goes to tonight's hazard run; the presentation moved to next week, and Pablo reruns IS from scratch with the details. Evaluation only: `drafts/inslab/eval_18nov.py` (not committed) writes `drafts/inslab/figs_2026-11-18/plane_domains.png` (cells by domain and their plane), `rates_16_18.png` (cell ratio 18 / 16 Nov with GK; rates per 1° of latitude, 16 Nov GK, 18 Nov GK and NN), `rates_16_18.csv`. Slab N(≥ 5.5) 9.15 → 8.70, N(≥ 7) 0.167 → 0.152; cell ratio 0.84–1.09 (5–95 %); NN against GK moves rate from 25–27° S to 21–23° S. The `figs_s2.py` figures of 18 Nov were looked at: content right, style old (titles, cramped sections).
+- Close note with the pipeline, the details to look at in the rerun and the traps: `handoffs/2026-11-18_IS_close.md`.
+- **Proposed LEARNINGS lines:**
+  - A source rule decided in two conversations (HAZ and IS) reaches the builder twice in different words. Write the rule once in DECISIONS before building; on 18 Nov the nodal planes went 12 → 2 → 1 planes per cell in three published folders.
+  - A published model folder is an input of running jobs (hard links). Every rebuild goes to a new dated folder, so a fast correction costs disk space, not a broken run.
+  - Inputs that the build itself computes (class shares) should not be read back from CURRENT.md: the table there is one build old.
+  - The pattern and the rates must count the same events: take the pattern completeness from the steps of the fit rows, not from a general table.
+- **Commit:** add `handoffs/2026-11-18_IS_close.md` and `WORKLOG.md` to the commit of the entry above (drafts are not committed).
+- **Moved to FITS (Pablo, 18 Nov, IF):** the geodetic discussion is a statistics question. Note `handoffs/2026-11-18_IF_to_FITS_geodetic.md`: today's construction, the catalogue tests, the references read (Rong et al. 2014, Métois et al. 2016, Cisternas et al. 2005), the checks against them, five questions, and the files. IF state for the next session: `handoffs/2026-11-18_IF_state.md`. DECISIONS line written (Interface). The meeting moved to next week; IF resumes when FITS answers.
+- **Commit addition:** `git add handoffs/2026-11-18_IF_to_FITS_geodetic.md handoffs/2026-11-18_IF_state.md model/interface/geo_*_2026-11-18.py model/interface/if_figs.py model/interface/figs/ drafts/geodetic/` (drafts are not committed by FIGURE_STYLE; leave `drafts/` out if so).

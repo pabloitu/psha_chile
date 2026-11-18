@@ -22,7 +22,7 @@ import gr  # noqa: E402
 TAB, FIG = F.HERE / "tables", F.HERE / "figs"
 
 # settings
-DATE = "2026-11-16e"
+DATE = BG.DATE
 CLS = "arc"
 BANDS = ((6.0, 9.9), (6.0, 6.9), (7.0, 9.9))
 P_PASS = 0.05

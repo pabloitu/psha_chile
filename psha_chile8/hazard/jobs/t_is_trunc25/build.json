@@ -1,8 +1,8 @@
 {
  "name": "t_is_trunc25",
- "description": "psha_chile8 S5a t_is_trunc25 4cfde65f",
- "calc_id": 563,
- "run_time_s": 122,
+ "description": "psha_chile8 HAZ t_is_trunc25 ff80253f",
+ "calc_id": null,
+ "run_time_s": null,
  "families": [
   "inslab"
  ],
@@ -11,26 +11,26 @@
  ],
  "sources": {
   "inslab": {
-   "gk_taper_ml_l3": 1.0
+   "nn_taper_ml_l3": 1.0
   }
  },
  "msr": null,
  "gmm": {
   "Subduction IntraSlab": [
    [
+    "[MontalvaEtAl2017SSlab]",
+    0.25
+   ],
+   [
+    "[AbrahamsonEtAl2015SSlab]",
+    0.25
+   ],
+   [
     "[AbrahamsonGulerce2020SSlab]\nregion = \"SAM\"",
     0.25
    ],
    [
-    "[ParkerEtAl2020SSlab]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
-    0.25
-   ],
-   [
-    "[KuehnEtAl2020SSlab]\nregion = \"SAM\"",
-    0.25
-   ],
-   [
-    "[MontalvaEtAl2017SSlab]",
+    "[YoungsEtAl1997SSlab]",
     0.25
    ]
   ]
@@ -50,8 +50,10 @@
   "Puerto Montt",
   "Hornopirén",
   "Puerto Aysén",
-  "Puerto Williams"
+  "Punta Arenas",
+  "Ushuaia"
  ],
+ "n_sites": 15,
  "poes": [
   0.002105
  ],

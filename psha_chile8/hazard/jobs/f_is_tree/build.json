@@ -1,8 +1,8 @@
 {
  "name": "f_is_tree",
- "description": "psha_chile8 S5a f_is_tree 54ae69fb",
- "calc_id": 525,
- "run_time_s": 224,
+ "description": "psha_chile8 HAZ f_is_tree bf9df24b",
+ "calc_id": 646,
+ "run_time_s": 363,
  "families": [
   "inslab"
  ],
@@ -11,27 +11,31 @@
  ],
  "sources": {
   "inslab": {
-   "gk_taper_ml_l3": 0.5,
-   "nn_taper_ml_l3": 0.5
+   "nn_taper_p05_l3": 0.0925,
+   "nn_taper_ml_l3": 0.315,
+   "nn_taper_p95_l3": 0.0925,
+   "nn_taper_p05_l3_ratenn": 0.0925,
+   "nn_taper_ml_l3_ratenn": 0.315,
+   "nn_taper_p95_l3_ratenn": 0.0925
   }
  },
  "msr": null,
  "gmm": {
   "Subduction IntraSlab": [
    [
+    "[MontalvaEtAl2017SSlab]",
+    0.25
+   ],
+   [
+    "[AbrahamsonEtAl2015SSlab]",
+    0.25
+   ],
+   [
     "[AbrahamsonGulerce2020SSlab]\nregion = \"SAM\"",
     0.25
    ],
    [
-    "[ParkerEtAl2020SSlab]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
-    0.25
-   ],
-   [
-    "[KuehnEtAl2020SSlab]\nregion = \"SAM\"",
-    0.25
-   ],
-   [
-    "[MontalvaEtAl2017SSlab]",
+    "[YoungsEtAl1997SSlab]",
     0.25
    ]
   ]
@@ -51,11 +55,14 @@
   "Puerto Montt",
   "Hornopirén",
   "Puerto Aysén",
-  "Puerto Williams"
+  "Punta Arenas",
+  "Ushuaia"
  ],
+ "n_sites": 15,
  "poes": [
-  0.002105
+  0.002105,
+  0.000404
  ],
- "n_source_paths": 2,
- "n_realizations": 8
+ "n_source_paths": 6,
+ "n_realizations": 24
 }

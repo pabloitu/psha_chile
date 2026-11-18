@@ -18,18 +18,25 @@ import run as R
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import palette as P
 
-CLASSES = ["interface", "intraslab_shallow", "intraslab_intermediate", "jujuy_nest", "forearc", "arc", "backarc", "patagonia"]
+CLASSES = ["intraslab_shallow", "intraslab_intermediate", "jujuy_nest", "forearc", "arc", "backarc", "patagonia"]
 # interface figure: the margin, then the segments north to south; shared y range; the source outlines of the segments
 # (model/interface/geometry, the geometry of the interface sources in CURRENT.md)
 SEGS = ["interface", "seg4", "seg3", "seg2", "seg1"]
 SEG_YLIM = (8e-5, 300)
+DOMAINS = Path(__file__).resolve().parents[1] / "data" / "class_domains_2026-11-18.geojson"
+CLASS_LIM = dict(y=(2e-4, 300), x=(4.9, 8.35))
 EDGES = Path(__file__).resolve().parents[1] / "model/interface/geometry/edges_2026-11-16c.json"
 SHORT = {"line cut at Mmax (reference)": "line cut at Mmax", "open line": "open line",
          "Aki–Utsu, Mw ≥ 5.0 from 1976": "Aki–Utsu, from 1976", "Ogata–Katsura, Mw ≥ 3.5 from 1976": "joint Mc–b (Ogata–Katsura)",
          "pooled b (shrinkage)": "pooled b", "least squares, cumulative": "least squares"}
 # events drawn for reference only, not in the catalogue: unit, Mw, label (1907 Magallanes: Cabello et al. 2025;
 # CERESIS-GEM Mw 5.47 +- 0.6; Lomnitz 1970; Pablo, 17 Nov)
-REF_EVENTS = {"patagonia": [(5.5, "1907 Magallanes, M 5.5 (reference)")]}
+# named events not in the fit (before the unit's first year, or not in the catalogue), drawn as open circles at their Mw
+REF_EVENTS = {"intraslab_shallow": [(8.0, "Santiago 1647"), (7.5, "Chillán 1953")],
+              "intraslab_intermediate": [(8.0, "Calama 1950"), (7.8, "Chillán 1939"), (7.2, "Mendoza 1927")],
+              "arc": [(7.7, "Aysén 1960"), (7.1, "Aysén 1927"), (6.8, "Las Melosas 1958")],
+              "backarc": [(7.5, "San Juan 1894"), (7.1, "San Juan 1944"), (7.0, "Mendoza 1861")],
+              "patagonia": [(7.8, "Magallanes–Fagnano 1949"), (7.0, "Magallanes 1879"), (5.5, "Magallanes 1907")]}
 # names of compare.py's synthetic runs
 SYN = {"Weichert, open line (reference)": "Weichert, open line", "Weichert, line cut at Mmax": "line cut at Mmax",
        "tapered, corner 9.6": "tapered, corner 9.6", "Aki–Utsu, Mw ≥ 5.0 from 1976": "Aki–Utsu, from 1976",
@@ -83,7 +90,10 @@ def band(f, x, cum=True, q=(2.5, 97.5)):
 
 
 def inc(f, x):
-    """Fitted rate in a 0.1 bin centred at x."""
+    """Fitted rate in a 0.1 bin centred at x; the tapered line goes on decaying above Mmax (drawn as it is, not with the
+    tail lumped into the last bin as in the source lists)."""
+    if f["shape"] == "taper":
+        return G.n_ge(f, x - G.DM / 2) - G.n_ge(f, x + G.DM / 2)
     return G.n_ge(f, x - G.DM / 2) - np.where(x + G.DM / 2 < f["mmax"] + G.DM / 2, G.n_ge(f, x + G.DM / 2), 0.0)
 
 
@@ -99,14 +109,15 @@ def fmd(ax, u, f, alt=(), fs=6.5, years=True, name=None, loc="lower left", table
     r = np.where(use, f["cnt"] / T, 0.0)
     cum = np.cumsum(r[::-1])[::-1]
     s = use & (f["cnt"] > 0)
-    xx = np.arange(5.0, f["mmax"] + 0.05 + 1e-6, 0.01)
+    xe = f["mmax"] + (0.8 if f["shape"] == "taper" else 0.05)
+    xx = np.arange(5.0, xe + 1e-6, 0.01)
     lo, hi = band(f, xx)
     ax.fill_between(xx, lo, hi, color=cu, alpha=0.18, lw=0)
     ax.plot(xx, G.n_ge(f, xx), color=cu, lw=1.0)
     for g, ls in alt:
         y = G.n_ge(g, xx)
         ax.plot(xx[y > 0], y[y > 0], color=cu, lw=0.7, ls=ls)
-    xi = np.arange(4.95, f["mmax"] + 1e-6, 0.01)
+    xi = np.arange(4.95, xe - 0.05 + 1e-6, 0.01)
     lo, hi = band(f, xi, cum=False)
     ax.fill_between(xi, lo, hi, color=ic, alpha=0.2, lw=0)
     ax.plot(xi, inc(f, xi), color=ic, lw=0.8, ls=(0, (4, 2)))
@@ -116,19 +127,24 @@ def fmd(ax, u, f, alt=(), fs=6.5, years=True, name=None, loc="lower left", table
     ehi = stats.chi2.ppf(0.84, 2 * (n + 1)) / 2 / T[s]
     ax.vlines(c[s], elo, ehi, color=ic, lw=0.5, alpha=0.6, zorder=3)
     ax.plot(c[s], r[s], "o", ms=2.4, mfc="white", mec=ic, mew=0.6, zorder=4)
-    for mf, y in R.table_of(u, table):
+    xt = -np.inf
+    for mf, y in sorted(R.table_of(u, table)):
         if mf <= xx[-1]:
-            ax.axvline(mf - 0.05, color="0.6", lw=0.4, zorder=0)
+            ax.axvline(mf - 0.05, color="0.45", lw=0.5, ls=(0, (3, 2)), zorder=2.5)
             if years:
-                ax.text(mf - 0.02, 0.985, str(y), transform=ax.get_xaxis_transform(), fontsize=5, color="0.4", va="top", ha="left", rotation=90)
-    for mw, lab in REF_EVENTS.get(u, []):
-        ax.plot(mw, 0.06, "v", ms=5, mfc="none", mec=P.INK, mew=0.8, transform=ax.get_xaxis_transform(), zorder=4)
-        ax.text(mw + 0.12, 0.06, lab, transform=ax.get_xaxis_transform(), fontsize=5, color="0.25", va="center")
+                xt = max(mf - 0.02, xt + 0.045 * (f["mmax"] + 0.15 - 4.9))
+                ax.text(xt, 0.985, str(y), transform=ax.get_xaxis_transform(), fontsize=5, color="0.4", va="top", ha="left", rotation=90)
+    for i, (mw, lab) in enumerate(sorted(REF_EVENTS.get(u, []))):
+        y = 0.06 + 0.075 * i
+        ax.plot(mw, y, "o", ms=3.5, mfc="white", mec=P.INK, mew=0.7, transform=ax.get_xaxis_transform(), zorder=5)
+        left = mw > 7.3
+        ax.text(mw + (-0.1 if left else 0.1), y, lab, transform=ax.get_xaxis_transform(), fontsize=5, color="0.25", va="center",
+                ha="right" if left else "left", zorder=5)
     q = G.boot(f)
     fam = " (family)" if R.UNITS[u].get("b_from") else ""
     name = name or R.name(u)[0].upper() + R.name(u)[1:]
     x, ha = (0.96, "right") if "right" in loc else (0.04, "left")
-    y, va = (0.80, "top") if "upper" in loc else (0.04, "bottom")
+    y, va = (0.97, "top") if "upper" in loc else (0.04, "bottom")
     ax.text(x, y, f"{name}\n$b = {f['b']:.2f} \\pm {np.nanstd(q['b']):.2f}${fam}\n"
             f"$M_\\mathrm{{max}} = {f['mmax'] - 0.05:.1f}$", transform=ax.transAxes, ha=ha, va=va, fontsize=fs, color=P.INK, linespacing=1.4)
     ax.set_yscale("log")
@@ -145,7 +161,7 @@ def handles(u, alt=()):
     h = [(plt.Line2D([], [], color=cu, lw=1.0), plt.Line2D([], [], ls="", marker="o", ms=2.8, color=cu, mec="white", mew=0.35)),
          (plt.Line2D([], [], color=ic, lw=0.8, ls=(0, (4, 2))), plt.Line2D([], [], ls="", marker="o", ms=2.4, mfc="white", mec=ic, mew=0.6)),
          plt.Rectangle((0, 0), 1, 1, color="0.5", alpha=0.3, lw=0), plt.Line2D([], [], color="0.4", lw=0.6),
-         plt.Line2D([], [], color="0.6", lw=0.4, marker="|", ms=8, mew=0.5, ls="")]
+         plt.Line2D([], [], color="0.45", lw=0.5, ls=(0, (3, 2)))]
     l = ["Cumulative", "Incremental", "95 % confidence", r"Poisson $1\sigma$", "Completeness year"]
     for lab, ls in alt:
         h.append(plt.Line2D([], [], color="0.3", lw=0.7, ls=ls))
@@ -168,27 +184,66 @@ def segmap(ax):
                 rotation=90, ha="left", va="center", color=P.INK, zorder=5)
 
 
-def fig_fmd(F, x):
+def domainmap(ax, family):
+    """Rough outlines of the classes of a family, read from DOMAINS (written by domains.py, edited by hand there)."""
+    import geopandas as gpd
+    from plots import maps as M
+    g = gpd.read_file(DOMAINS, engine="fiona")
+    for c, q in zip(g.cls, g.geometry):
+        if g.family[g.cls == c].iloc[0] != family:
+            continue
+        for r in getattr(q, "geoms", [q]):
+            ax.add_patch(plt.Polygon(np.asarray(r.exterior.coords), closed=True, transform=M.PC, fc=tones(c)[1], ec=tones(c)[0],
+                                     lw=0.4, alpha=0.9, zorder=3))
+
+
+def fig_fmd(F, x, segments=True):
     """Frequency-magnitude distributions per class (fmd_classes) and of the interface margin and segments with a map of
     the segments (fmd_interface_segments), page width."""
     from matplotlib.gridspec import GridSpec
     from cartopy.mpl.gridliner import Gridliner
     from plots import maps as M
     rcpaper()
-    alt = [("Cut at $M_\\mathrm{max}$", ":")]
     fig, ax = plt.subplots(2, 4, figsize=(6.9, 3.9))
-    for a, u in zip(ax.ravel(), CLASSES):
-        top, low = fmd(a, u, F["taper"][0][u], [(F["trunc"][0][u], ":")], loc="upper right")
-        a.set_ylim(max(1e-5, 0.3 * low), 30 * top)
+    for k, (a, u) in enumerate(zip([*ax[0, :3], *ax[1]], CLASSES)):
+        nm = R.name(u) if R.name(u).lower().startswith("in-slab") or R.UNITS[u]["family"] != "in-slab" else "in-slab, " + R.name(u)
+        nm = nm.replace(", ", "\n")
+        fmd(a, u, F["taper"][0][u], loc="upper right", name=nm[0].upper() + nm[1:])
+        a.set_ylim(*CLASS_LIM["y"])
+        a.set_xlim(*CLASS_LIM["x"])
         a.xaxis.set_major_locator(matplotlib.ticker.MultipleLocator(1))
+        a.tick_params(labelleft=a in ax[:, 0], labelbottom=k >= 3)
     for a in ax[:, 0]:
         a.set_ylabel("Annual rate", fontsize=7)
     for a in ax[-1]:
         a.set_xlabel(r"$M_\mathrm{w}$", fontsize=7)
-    fig.tight_layout(rect=(0, 0.07, 1, 1), pad=0.4, h_pad=0.6, w_pad=0.6)
-    h, l, kw = handles("intraslab_intermediate", alt)
+    fig.subplots_adjust(left=0.065, right=0.995, top=0.99, bottom=0.17, wspace=0.07, hspace=0.07)
+    p = ax[0, 3].get_position()
+    ax[0, 3].remove()
+    M.DLON = 6.0
+    for i, fam in enumerate(("in-slab", "crustal")):
+        w = p.width / 2
+        gm = GridSpec(1, 1, figure=fig, left=p.x0 + i * w + 0.03 * w, right=p.x0 + (i + 1) * w - 0.03 * w, bottom=p.y0, top=p.y1)
+        m = M.domain_map(fig, (gm[0],), [-77.0, -62.0, -56.0, -17.0], labels="right" if i else None, dlat=10.0, fs=5)
+        domainmap(m, fam)
+        for gl in [q for q in m.artists if isinstance(q, Gridliner)]:
+            gl.bottom_labels = False
+            gl.ylabel_style = dict(size=5, color="0.3")
+    h, l, kw = handles("intraslab_intermediate")
+    h.append(plt.Line2D([], [], ls="", marker="o", ms=3.5, mfc="white", mec=P.INK, mew=0.7))
+    l.append("Event not in the fit")
     fig.legend(h, l, loc="lower center", ncol=len(h), fontsize=6, frameon=False, handlelength=2.8, bbox_to_anchor=(0.5, 0), **kw)
     save(fig, "fmd_classes", "fits")
+    if segments:
+        fig_segments(F)
+
+
+def fig_segments(F):
+    """Interface margin and segments with the map of the segment sources (fmd_interface_segments)."""
+    from matplotlib.gridspec import GridSpec
+    from cartopy.mpl.gridliner import Gridliner
+    from plots import maps as M
+    rcpaper()
     fig = plt.figure(figsize=(6.9, 4.9))
     gs = GridSpec(2, 3, figure=fig, wspace=0.08, hspace=0.12)
     axs = []

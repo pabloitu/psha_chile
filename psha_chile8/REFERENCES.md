@@ -115,6 +115,7 @@ Read on 15 Nov for the magnitude-error correction; notes in `explore/B9/MAG_ERRO
 | ref | for | file | pdf |
 |---|---|---|---|
 | EPRI, U.S. DOE, U.S. NRC (2012). Central and Eastern United States Seismic Source Characterization for Nuclear Facilities. NUREG-2115 / EPRI 1021097. Volume 1, §3.3.1; Volume 2, §5.3.2 | E[M], N*, why counts are weighted and magnitudes not moved; weights per magnitude bin | ceus_vol_I.pdf, ceus_vol_II.pdf (ceus_2013.pdf is Volume 3, not used) | [x] |
+| Drouet, S., Ameri, G., Le Dortz, K., Secanell, R., Senfaute, G. (2020). A probabilistic seismic hazard map for the metropolitan France. Bull. Earthquake Eng. 18, 1865–1898. doi:10.1007/s10518-020-00790-7 | b by the EPRI (2012) penalized likelihood with the domain b as prior, p. 1879–1880; crustal family-b question (18 Nov) | ../refs/drouet_etal_2020.pdf | [x] |
 | Mueller, C.S. (2019). Earthquake catalogs for the USGS National Seismic Hazard Maps. Seismol. Res. Lett. 90(1), 251–261. doi:10.1785/0220170108 | how the USGS applies the correction, per kind of magnitude | muller_2019.pdf | [x] |
 | Musson, R.M.W. (2012). The effect of magnitude uncertainty on earthquake activity rates. Bull. Seismol. Soc. Am. 102(6), 2771–2775 *(DOI to check)* | direction of the bias by kind of conversion | accepted version read on the web (nora.nerc.ac.uk/id/eprint/500525) | [ ] |
 | Felzer, K.R. (2008). Calculating California seismicity rates. Appendix I of UCERF2, USGS Open-File Report 2007-1437I | correction for magnitude error and rounding | felzer_ucerf2_appedix_I_2008.pdf | [x] |

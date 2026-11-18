@@ -3,21 +3,25 @@
 # with the parameters of params.py; then the hand decisions of
 # class_overrides.csv (cls_rule override, class_auto keeps the rule's class).
 # Rules, in order (cls_rule names the one applied). A crustal class needs a
-# real depth of at most CRUSTAL_MAX_Z; deeper or unknown depths go to the
-# slab tests wherever a slab exists.
+# real depth of at most CRUSTAL_MAX_Z (PAMPEAN_MAX_Z east of the arc over the
+# Pampean flat slab; column z_cap); deeper or unknown depths go to the slab
+# tests wherever a slab exists.
 #   remark        Cabello flags the event crustal: forearc, or intraarc inside the polygon
 #   nest          inside a deep nest (depth known)
-#   pat_*         south of SOUTH_LAT (Antarctic plate, no Slab2): seaward of TRENCH_AN
-#                 outer_rise; within PAT_WIDTH_KM of it patagonia_interface; shallow
+#   pat_*         south of SOUTH_LAT, or landward of the trench, outside the arc and without a Slab2 node
+#                 south of SLAB_GAP_LAT
+#                 (Antarctic plate, no Slab2): seaward of TRENCH_AN
+#                 outer_rise; within PAT_WIDTH_KM of it antarctic_interface; shallow
 #                 (real depth) patagonia_crustal; deeper or unknown unresolved
 #   outer_rise    seaward of the trench (side of the local trench segment)
-#   arc_*         inside the intra-arc polygon: below the plate deep_unknown, at or below
-#                 the slab top slab_deep, shallow intraarc, deep without a slab unresolved;
+#   arc_*         inside the intra-arc polygon: below the plate sub_slab, at or below
+#                 the slab top slab_deep, shallow intraarc, deep without a slab unresolved,
+#                 unknown depth without a slab intraarc (no slab beneath: crustal);
 #                 everything else falls through to the slab tests
 #   backarc       east of the polygon and shallow; deeper or unknown: the slab tests
 #   no_slab*      no Slab2 node within SLAB_MAX_KM: unclassified when shallow (real
 #                 depth), unresolved otherwise
-#   below         deeper than slab top + thickness: deep_unknown
+#   below         deeper than slab top + thickness: sub_slab
 #   cone          slab top < IF_MECH_MAX_TOP, interface-like mechanism within the band
 #                 plus MECH_EXTRA: interface
 #   band_*        slab top < IF_MAX_TOP, depth known: above the band forearc (unresolved
@@ -40,6 +44,7 @@ import shapely
 from scipy.spatial import cKDTree
 
 from cat_handler_2 import config as C
+from cat_handler_2 import palette
 
 R = 6371.0
 
@@ -76,7 +81,7 @@ def seaward(tr, lon, lat):
 
 def footprint():
     """
-    Antarctic trench (merged line) and the patagonia_interface footprint: the band
+    Antarctic trench (merged line) and the antarctic_interface footprint: the band
     PAT_WIDTH_KM landward of it, as a polygon in lon/lat.
     """
     import geopandas as gpd
@@ -162,7 +167,9 @@ def classify(ev):
     an = shapely.line_merge(shapely.union_all(gpd.read_file(C.TRENCH_AN).to_crs(4326).geometry.values))
     q = shapely.line_interpolate_point(an, shapely.line_locate_point(an, pts))
     ev["dist_an"] = np.round(2 * R * np.arcsin(np.clip(np.linalg.norm(unit(lon, lat) - unit(shapely.get_x(q), shapely.get_y(q)), axis=1) / 2, 0, 1)), 1)
-    south = lat < C.SOUTH_LAT
+    # south of SOUTH_LAT, and in the gap between the southern end of Slab2 and SOUTH_LAT, landward of the
+    # Nazca trench and outside the arc
+    south = (lat < C.SOUTH_LAT) | (~near & ~inarc & ~west & (lat < C.SLAB_GAP_LAT))
     pat_if = south & (ev["dist_an"].to_numpy() <= C.PAT_WIDTH_KM) & (~known | (z <= C.PAT_MAX_Z))
 
     nest = np.zeros(len(ev), bool)
@@ -184,23 +191,26 @@ def classify(ev):
     ushal = near & (top < np.where(hist, C.IF_MAX_TOP_HIST, C.IF_MAX_TOP))
     crust = ev["general_remarks"].eq("Crustal").to_numpy()
 
-    shal = known & (z <= C.CRUSTAL_MAX_Z)
+    zcap = np.where(east & (lat >= C.PAMPEAN_LAT[0]) & (lat <= C.PAMPEAN_LAT[1]), C.PAMPEAN_MAX_Z, C.CRUSTAL_MAX_Z)
+    ev["z_cap"] = zcap
+    shal = known & (z <= zcap)
     rules = [
         ("remark", crust, np.where(inarc, "intraarc", "forearc")),
         ("nest", nest, "deep_nest"),
         ("pat_outer", south & seaward(an, lon, lat), "outer_rise"),
-        ("pat_interface", pat_if, "patagonia_interface"),
+        ("pat_interface", pat_if, "antarctic_interface"),
         ("pat_crustal", south & shal, "patagonia_crustal"),
         ("pat_deep", south, "unresolved"),
         ("outer_rise", west, "outer_rise"),
-        ("arc_below", inarc & near & below, "deep_unknown"),
+        ("arc_below", inarc & near & below, "sub_slab"),
         ("arc_slab", inarc & near & known & (z >= top - C.DEEP_TOL), "slab_deep"),
         ("arc_crustal", inarc & shal, "intraarc"),
         ("arc_noslab", inarc & ~near & known, "unresolved"),
+        ("arc_unk_noslab", inarc & ~near, "intraarc"),
         ("backarc", east & shal, "backarc"),
         ("no_slab", ~near & shal, "unclassified"),
         ("no_slab_deep", ~near, "unresolved"),
-        ("below", below, "deep_unknown"),
+        ("below", below, "sub_slab"),
         ("cone", known & mdom & ifl & (np.abs(z - top) <= tol + C.MECH_EXTRA), "slab_interface"),
         ("band_forearc", known & shallow & (z <= top - tol), np.where(shal, "forearc", "unresolved")),
         ("band_intraslab", known & shallow & (z >= top + tol), "intra_slab"),
@@ -264,7 +274,8 @@ def build(base):
     Returns
     -------
     ev : pandas.DataFrame
-        The catalog with class, cls_rule, class_auto and family.
+        The catalog with class, cls_rule, class_auto, family and class_label (the display name of
+        the class, palette.NAME, for plots and tables).
     log : dict
         Counts per class and rule, override check.
     """
@@ -273,13 +284,14 @@ def build(base):
     ev, log["overrides"] = overrides(ev)
     fam = {c: f for f, cs in C.FAMILIES.items() for c in cs}
     ev["family"] = ev["class"].map(fam).fillna("excluded")
+    ev["class_label"] = ev["class"].map(palette.NAME).fillna(ev["class"])
     return ev, log
 
 
 def main():
     ev, log = build(C.OUT / "catalog_base.csv")
     z = pd.to_numeric(ev["depth"], errors="coerce")
-    ex = ev[(ev["family"] == "crustal") & ~ev["depth_status"].isin(C.UNKNOWN_DEPTH) & (z > C.CRUSTAL_MAX_Z)]
+    ex = ev[(ev["family"] == "crustal") & ~ev["depth_status"].isin(C.UNKNOWN_DEPTH) & (z > ev["z_cap"])]
     ex[["id", "time_iso", "latitude", "longitude", "depth", "depth_status", "mag", "class", "cls_rule", "general_remarks"]].to_csv(
         C.OUT / "crustal_exceptions.csv", index=False)
     log["crustal_deeper_than_max_z"] = {"events": len(ex), "by_rule": ex["cls_rule"].value_counts().to_dict(),

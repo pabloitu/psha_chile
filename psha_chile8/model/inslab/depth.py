@@ -20,7 +20,7 @@ DATA = ROOT / "data"
 sys.path[:0] = [str(ROOT / "catalog"), str(ROOT)]
 import classify as C  # noqa: E402
 
-CAT = ROOT / "catalog" / "frozen" / "2026-11-16c" / "catalog_2026-11-16c.csv"
+CAT = ROOT / "catalog" / "frozen" / "2026-11-17g" / "catalog_2026-11-17g.csv"
 LINKS = ROOT / "catalog" / "merged" / "links_2026-11-11.csv"
 SRC = ROOT / "catalog" / "sources"
 RH = DATA / "riedel_hornig_primary_2026-11-14.csv"
@@ -108,7 +108,7 @@ def border():
     """Eastern edge of Chile (longitude) every 0.05° of latitude."""
     import geopandas as gpd
     import shapely
-    g = gpd.read_file(CHILE).geometry.union_all()
+    g = gpd.read_file(CHILE, engine="fiona").geometry.union_all()
     la = np.arange(-56.0, -17.0, 0.05)
     x = np.full(la.size, np.nan)
     for i, y in enumerate(la):

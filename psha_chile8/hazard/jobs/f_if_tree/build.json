@@ -1,8 +1,8 @@
 {
  "name": "f_if_tree",
- "description": "psha_chile8 S5a f_if_tree 7336a754",
- "calc_id": 611,
- "run_time_s": 2122,
+ "description": "psha_chile8 HAZ f_if_tree 1bc83129",
+ "calc_id": 648,
+ "run_time_s": 1567,
  "families": [
   "interface"
  ],
@@ -12,77 +12,62 @@
  "sources": {
   "interface": {
    "margin_full_own_taper_p05_seis": 0.023125,
-   "margin_full_own_taper_p05_geo07": 0.00578125,
-   "margin_full_own_taper_p05_geo08": 0.0115625,
-   "margin_full_own_taper_p05_geo09": 0.00578125,
    "margin_full_own_taper_ml_seis": 0.07875,
-   "margin_full_own_taper_ml_geo07": 0.0196875,
-   "margin_full_own_taper_ml_geo08": 0.039375,
-   "margin_full_own_taper_ml_geo09": 0.0196875,
    "margin_full_own_taper_p95_seis": 0.023125,
-   "margin_full_own_taper_p95_geo07": 0.00578125,
-   "margin_full_own_taper_p95_geo08": 0.0115625,
-   "margin_full_own_taper_p95_geo09": 0.00578125,
-   "margin_gk_family_own_taper_p05_seis": 0.0115625,
-   "margin_gk_family_own_taper_p05_geo07": 0.002890625,
-   "margin_gk_family_own_taper_p05_geo08": 0.00578125,
-   "margin_gk_family_own_taper_p05_geo09": 0.002890625,
-   "margin_gk_family_own_taper_ml_seis": 0.039375,
-   "margin_gk_family_own_taper_ml_geo07": 0.00984375,
-   "margin_gk_family_own_taper_ml_geo08": 0.0196875,
-   "margin_gk_family_own_taper_ml_geo09": 0.00984375,
-   "margin_gk_family_own_taper_p95_seis": 0.0115625,
-   "margin_gk_family_own_taper_p95_geo07": 0.002890625,
-   "margin_gk_family_own_taper_p95_geo08": 0.00578125,
-   "margin_gk_family_own_taper_p95_geo09": 0.002890625,
-   "margin_nn_family_own_taper_p05_seis": 0.0115625,
-   "margin_nn_family_own_taper_p05_geo07": 0.002890625,
-   "margin_nn_family_own_taper_p05_geo08": 0.00578125,
-   "margin_nn_family_own_taper_p05_geo09": 0.002890625,
-   "margin_nn_family_own_taper_ml_seis": 0.039375,
-   "margin_nn_family_own_taper_ml_geo07": 0.00984375,
-   "margin_nn_family_own_taper_ml_geo08": 0.0196875,
-   "margin_nn_family_own_taper_ml_geo09": 0.00984375,
-   "margin_nn_family_own_taper_p95_seis": 0.0115625,
-   "margin_nn_family_own_taper_p95_geo07": 0.002890625,
-   "margin_nn_family_own_taper_p95_geo08": 0.00578125,
-   "margin_nn_family_own_taper_p95_geo09": 0.002890625,
-   "seg_full_own_taper_p05_seis": 0.023125,
-   "seg_full_own_taper_p05_geo07": 0.00578125,
-   "seg_full_own_taper_p05_geo08": 0.0115625,
-   "seg_full_own_taper_p05_geo09": 0.00578125,
-   "seg_full_own_taper_ml_seis": 0.07875,
-   "seg_full_own_taper_ml_geo07": 0.0196875,
-   "seg_full_own_taper_ml_geo08": 0.039375,
-   "seg_full_own_taper_ml_geo09": 0.0196875,
-   "seg_full_own_taper_p95_seis": 0.023125,
-   "seg_full_own_taper_p95_geo07": 0.00578125,
-   "seg_full_own_taper_p95_geo08": 0.0115625,
-   "seg_full_own_taper_p95_geo09": 0.00578125,
-   "seg_gk_family_own_taper_p05_seis": 0.0115625,
-   "seg_gk_family_own_taper_p05_geo07": 0.002890625,
-   "seg_gk_family_own_taper_p05_geo08": 0.00578125,
-   "seg_gk_family_own_taper_p05_geo09": 0.002890625,
-   "seg_gk_family_own_taper_ml_seis": 0.039375,
-   "seg_gk_family_own_taper_ml_geo07": 0.00984375,
-   "seg_gk_family_own_taper_ml_geo08": 0.0196875,
-   "seg_gk_family_own_taper_ml_geo09": 0.00984375,
-   "seg_gk_family_own_taper_p95_seis": 0.0115625,
-   "seg_gk_family_own_taper_p95_geo07": 0.002890625,
-   "seg_gk_family_own_taper_p95_geo08": 0.00578125,
-   "seg_gk_family_own_taper_p95_geo09": 0.002890625,
+   "margin_nn_family_own_taper_p05_seis": 0.023125,
+   "margin_nn_family_own_taper_ml_seis": 0.07875,
+   "margin_nn_family_own_taper_p95_seis": 0.023125,
+   "margin_full_own_taper_p05_geo07": 0.015416666666666665,
+   "margin_full_own_taper_ml_geo07": 0.0525,
+   "margin_full_own_taper_p95_geo07": 0.015416666666666665,
+   "margin_full_own_taper_p05_geo08": 0.015416666666666665,
+   "margin_full_own_taper_ml_geo08": 0.0525,
+   "margin_full_own_taper_p95_geo08": 0.015416666666666665,
+   "margin_full_own_taper_p05_geo09": 0.015416666666666665,
+   "margin_full_own_taper_ml_geo09": 0.0525,
+   "margin_full_own_taper_p95_geo09": 0.015416666666666665,
+   "seg_full_own_taper_p05_seis": 0.007708333333333333,
+   "seg_full_own_taper_ml_seis": 0.02625,
+   "seg_full_own_taper_p95_seis": 0.007708333333333333,
+   "seg_full_shared_taper_p05_seis": 0.007708333333333333,
+   "seg_full_shared_taper_ml_seis": 0.02625,
+   "seg_full_shared_taper_p95_seis": 0.007708333333333333,
+   "seg_full_margin_taper_p05_seis": 0.007708333333333333,
+   "seg_full_margin_taper_ml_seis": 0.02625,
+   "seg_full_margin_taper_p95_seis": 0.007708333333333333,
    "seg_nn_family_own_taper_p05_seis": 0.0115625,
-   "seg_nn_family_own_taper_p05_geo07": 0.002890625,
-   "seg_nn_family_own_taper_p05_geo08": 0.00578125,
-   "seg_nn_family_own_taper_p05_geo09": 0.002890625,
    "seg_nn_family_own_taper_ml_seis": 0.039375,
-   "seg_nn_family_own_taper_ml_geo07": 0.00984375,
-   "seg_nn_family_own_taper_ml_geo08": 0.0196875,
-   "seg_nn_family_own_taper_ml_geo09": 0.00984375,
    "seg_nn_family_own_taper_p95_seis": 0.0115625,
-   "seg_nn_family_own_taper_p95_geo07": 0.002890625,
-   "seg_nn_family_own_taper_p95_geo08": 0.00578125,
-   "seg_nn_family_own_taper_p95_geo09": 0.002890625
+   "seg_nn_family_shared_taper_p05_seis": 0.0115625,
+   "seg_nn_family_shared_taper_ml_seis": 0.039375,
+   "seg_nn_family_shared_taper_p95_seis": 0.0115625,
+   "seg_full_own_taper_p05_geo07": 0.005138888888888888,
+   "seg_full_own_taper_ml_geo07": 0.017499999999999998,
+   "seg_full_own_taper_p95_geo07": 0.005138888888888888,
+   "seg_full_shared_taper_p05_geo07": 0.005138888888888888,
+   "seg_full_shared_taper_ml_geo07": 0.017499999999999998,
+   "seg_full_shared_taper_p95_geo07": 0.005138888888888888,
+   "seg_full_margin_taper_p05_geo07": 0.005138888888888888,
+   "seg_full_margin_taper_ml_geo07": 0.017499999999999998,
+   "seg_full_margin_taper_p95_geo07": 0.005138888888888888,
+   "seg_full_own_taper_p05_geo08": 0.005138888888888888,
+   "seg_full_own_taper_ml_geo08": 0.017499999999999998,
+   "seg_full_own_taper_p95_geo08": 0.005138888888888888,
+   "seg_full_shared_taper_p05_geo08": 0.005138888888888888,
+   "seg_full_shared_taper_ml_geo08": 0.017499999999999998,
+   "seg_full_shared_taper_p95_geo08": 0.005138888888888888,
+   "seg_full_margin_taper_p05_geo08": 0.005138888888888888,
+   "seg_full_margin_taper_ml_geo08": 0.017499999999999998,
+   "seg_full_margin_taper_p95_geo08": 0.005138888888888888,
+   "seg_full_own_taper_p05_geo09": 0.005138888888888888,
+   "seg_full_own_taper_ml_geo09": 0.017499999999999998,
+   "seg_full_own_taper_p95_geo09": 0.005138888888888888,
+   "seg_full_shared_taper_p05_geo09": 0.005138888888888888,
+   "seg_full_shared_taper_ml_geo09": 0.017499999999999998,
+   "seg_full_shared_taper_p95_geo09": 0.005138888888888888,
+   "seg_full_margin_taper_p05_geo09": 0.005138888888888888,
+   "seg_full_margin_taper_ml_geo09": 0.017499999999999998,
+   "seg_full_margin_taper_p95_geo09": 0.005138888888888888
   }
  },
  "msr": {
@@ -102,19 +87,19 @@
  "gmm": {
   "Subduction Interface": [
    [
+    "[MontalvaEtAl2017SInter]",
+    0.25
+   ],
+   [
+    "[ZhaoEtAl2016SInter]",
+    0.25
+   ],
+   [
     "[AbrahamsonGulerce2020SInter]\nregion = \"SAM\"",
     0.25
    ],
    [
-    "[ParkerEtAl2020SInter]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
-    0.25
-   ],
-   [
-    "[KuehnEtAl2020SInter]\nregion = \"SAM\"",
-    0.25
-   ],
-   [
-    "[MontalvaEtAl2017SInter]",
+    "[YoungsEtAl1997SInter]",
     0.25
    ]
   ]
@@ -134,11 +119,14 @@
   "Puerto Montt",
   "Hornopirén",
   "Puerto Aysén",
-  "Puerto Williams"
+  "Punta Arenas",
+  "Ushuaia"
  ],
+ "n_sites": 15,
  "poes": [
-  0.002105
+  0.002105,
+  0.000404
  ],
- "n_source_paths": 216,
- "n_realizations": 864
+ "n_source_paths": 171,
+ "n_realizations": 684
 }

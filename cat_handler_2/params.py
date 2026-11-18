@@ -47,6 +47,10 @@ NESTS = [{"name": "jujuy", "lon": -66.9, "lat": -24.0, "radius_deg": 0.8, "depth
 # crustal where a slab exists. Cabello's 'Crustal' remarks and
 # class_overrides.csv are the only exceptions
 CRUSTAL_MAX_Z = 30.0
+# east of the arc over the Pampean flat slab the crust is thick and seismogenic to 40-50 km
+# (Smalley et al. 1993; Alvarado et al. 2009): the cap there is PAMPEAN_MAX_Z between these latitudes
+PAMPEAN_LAT = (-33.5, -27.0)
+PAMPEAN_MAX_Z = 50.0
 # landward side of the trench: towards a point this many degrees east of it
 LAND_EAST = 2.0
 # no Slab2 node within this distance: unclassified
@@ -55,12 +59,19 @@ SLAB_MAX_KM = 15.0
 # south of the Chile triple junction (Bourgois et al. 2000) there is no Slab2;
 # the Antarctic plate subducts at the trench TRENCH_AN. Seaward of it
 # outer_rise; within PAT_WIDTH_KM landward and not deeper than PAT_MAX_Z
-# patagonia_interface; the rest patagonia_crustal
+# antarctic_interface; the rest patagonia_crustal
 SOUTH_LAT = -46.15
+# Slab2 ends at 44.25-45.6 S (by longitude); outside the arc, an event with no Slab2 node within
+# SLAB_MAX_KM south of this latitude takes the Antarctic-plate rules as well (the gap up to SOUTH_LAT)
+SLAB_GAP_LAT = -44.0
 PAT_WIDTH_KM = 150.0
 PAT_MAX_Z = 60.0
 
+# classes renamed on 4 Nov 2026 (DECISIONS 35); catalogs written before carry the old names and
+# lib.cat.load (psha_chile7) translates them
+RENAME = {"patagonia_interface": "antarctic_interface", "deep_unknown": "sub_slab"}
+
 # source families the hazard model reads (the rest is excluded)
-FAMILIES = {"interface": ["slab_interface", "patagonia_interface"],
+FAMILIES = {"interface": ["slab_interface", "antarctic_interface"],
             "in-slab": ["intra_slab", "slab_deep", "deep_nest"],
             "crustal": ["forearc", "intraarc", "backarc", "patagonia_crustal", "unclassified"]}

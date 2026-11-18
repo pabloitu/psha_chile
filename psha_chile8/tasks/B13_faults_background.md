@@ -1,3 +1,5 @@
+> **Superseded on 15 Nov by `tasks/S3_crustal.md`** (the join is now the one in DECISIONS, without the 12 km taper; database B has two variants). Do not run this brief.
+
 # B13: crustal faults and background join cleanly at Mw 6
 
 Read `CLAUDE.md`, `PLAN.md`, `DECISIONS.md` (sections Statistics, Crustal and faults, Magallanes–Fagnano) and `LEARNINGS.md` first. Work in `model/crustal/`. Tests in `model/crustal/tests/`. You may run everything in this task yourself (no OpenQuake jobs).

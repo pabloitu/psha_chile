@@ -1,8 +1,8 @@
 {
  "name": "c_if_small",
- "description": "psha_chile8 S5a c_if_small 2bfcc988",
- "calc_id": 609,
- "run_time_s": 130,
+ "description": "psha_chile8 HAZ c_if_small f8c0b3f0",
+ "calc_id": null,
+ "run_time_s": null,
  "families": [
   "interface"
  ],
@@ -32,19 +32,19 @@
  "gmm": {
   "Subduction Interface": [
    [
+    "[MontalvaEtAl2017SInter]",
+    0.25
+   ],
+   [
+    "[ZhaoEtAl2016SInter]",
+    0.25
+   ],
+   [
     "[AbrahamsonGulerce2020SInter]\nregion = \"SAM\"",
     0.25
    ],
    [
-    "[ParkerEtAl2020SInter]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
-    0.25
-   ],
-   [
-    "[KuehnEtAl2020SInter]\nregion = \"SAM\"",
-    0.25
-   ],
-   [
-    "[MontalvaEtAl2017SInter]",
+    "[YoungsEtAl1997SInter]",
     0.25
    ]
   ]
@@ -64,8 +64,10 @@
   "Puerto Montt",
   "Hornopirén",
   "Puerto Aysén",
-  "Puerto Williams"
+  "Punta Arenas",
+  "Ushuaia"
  ],
+ "n_sites": 15,
  "poes": [
   0.002105
  ],

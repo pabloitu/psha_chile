@@ -20,8 +20,9 @@ def load(job, calc_id=None):
     Returns
     -------
     dict
-        curves (sites, rlzs, imts, levels) in the order of hc.CITIES, w (rlzs), imtls, names, src (source path per
+        curves (sites, rlzs, imts, levels) in the order of hc.CITIES (grid jobs: OpenQuake's order, lonlat), w (rlzs), imtls, names, src (source path per
         rlz, tuple of branch ids), gmm ({trt: GMM as OpenQuake writes it} per rlz), info (build.json), calc_id, time.
+        A calc run elsewhere (hazard/remote.sh) is read from the file in build.json "datastore".
     """
     from openquake.commonlib.datastore import read
     hd = hc.JOBS_DIR / job
@@ -29,7 +30,7 @@ def load(job, calc_id=None):
     cid = calc_id or info.get("calc_id")
     if cid is None:
         raise SystemExit(f"{job}: no calc_id in {hd / 'build.json'}")
-    ds = read(int(cid))
+    ds = read(info["datastore"]) if info.get("datastore") and not calc_id else read(int(cid))
     if ds["oqparam"].description != info["description"]:
         raise SystemExit(f"{job}: calc {cid} is '{ds['oqparam'].description}', build is '{info['description']}'")
     lt = ds["full_lt"]
@@ -51,6 +52,9 @@ def load(job, calc_id=None):
         if err > 1e-3:
             raise RuntimeError(f"{job}: realization mean and OpenQuake mean differ by {err:.1e}")
         r["mean_check"] = err
+    if info.get("site_names") is None:
+        r["curves"], r["names"], r["lonlat"] = c, None, np.c_[lon, lat]
+        return r
     xy = np.array(list(hc.CITIES.values()))
     i = [int(np.argmin(np.hypot(lon - x, lat - y))) for x, y in xy]
     if max(np.hypot(lon[i] - xy[:, 0], lat[i] - xy[:, 1])) > 0.01:

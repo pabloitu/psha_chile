@@ -3,14 +3,11 @@
 <logicTree logicTreeID="lt_gmm">
 <logicTreeBranchingLevel branchingLevelID="gl0">
 <logicTreeBranchSet uncertaintyType="gmpeModel" branchSetID="gs0" applyToTectonicRegionType="Subduction Interface">
-<logicTreeBranch branchID="sinter_g0_AbrahamsonGulerce2020SInter"><uncertaintyModel>[AbrahamsonGulerce2020SInter]
+<logicTreeBranch branchID="sinter_g0_MontalvaEtAl2017SInter"><uncertaintyModel>[MontalvaEtAl2017SInter]</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="sinter_g1_ZhaoEtAl2016SInter"><uncertaintyModel>[ZhaoEtAl2016SInter]</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="sinter_g2_AbrahamsonGulerce2020SInter"><uncertaintyModel>[AbrahamsonGulerce2020SInter]
 region = "SAM"</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
-<logicTreeBranch branchID="sinter_g1_ParkerEtAl2020SInter"><uncertaintyModel>[ParkerEtAl2020SInter]
-region = "SA"
-saturation_region = "SA_S"</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
-<logicTreeBranch branchID="sinter_g2_KuehnEtAl2020SInter"><uncertaintyModel>[KuehnEtAl2020SInter]
-region = "SAM"</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
-<logicTreeBranch branchID="sinter_g3_MontalvaEtAl2017SInter"><uncertaintyModel>[MontalvaEtAl2017SInter]</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="sinter_g3_YoungsEtAl1997SInter"><uncertaintyModel>[YoungsEtAl1997SInter]</uncertaintyModel><uncertaintyWeight>0.250000000000</uncertaintyWeight></logicTreeBranch>
 </logicTreeBranchSet>
 </logicTreeBranchingLevel>
 </logicTree>

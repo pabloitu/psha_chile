@@ -132,3 +132,53 @@ def test_tree_parts_mix_to_the_weighted_mean(monkeypatch):
     ref = sum(J.JOBS[k]["part"] * np.einsum("r,srml->sml", d["w"], d["curves"]) for k, d in db.items())
     assert np.allclose(m, ref, rtol=1e-12)
     assert r["w"].sum() == pytest.approx(1)
+
+
+def test_final_trees_read_tree_json_and_rows_read_tornado_json():
+    for f, (s, _) in J.FAM.items():
+        t, r = J.manifests(f)
+        assert J.JOBS[f"f_{s}_tree"][f] == J.tree(f) and sum(J.tree(f).values()) == pytest.approx(1)
+        assert J.JOBS[f"g_{s}_tree"]["sites"] == "grid" and J.JOBS[f"f_{s}_tree"]["poes"] == hc.POES_FINAL
+        rows = {x["id"] for x in r["rows"] if x["against"] is not None}
+        assert len([n for n, v in J.ROWS.items() if v[0] == f and "GMM" not in v[1]]) == len(rows)
+    assert J.JOBS["f_if_tree"]["msr"] == J.TREE_MSR
+
+
+def test_grid_blocks_give_the_fractiles_of_the_whole(monkeypatch, tmp_path):
+    from hazard import grid, post
+    rng = np.random.default_rng(5)
+    xy = np.c_[np.linspace(-72, -70, 7), np.linspace(-40, -30, 7)]
+    db = {j: {"curves": fam(rng, nr, sc, ns=7)[0], "w": fam(rng, nr, sc, ns=7)[1], "lonlat": xy,
+              "imtls": {"PGA": LV}} for j, nr, sc in (("g_if_tree", 6, 1e-3), ("g_is_tree", 3, 5e-4), ("g_cr_tree", 4, 2e-4))}
+    monkeypatch.setattr(post, "load", lambda job, *a, **k: db[job])
+    monkeypatch.setattr(hc, "OUT", tmp_path)
+    monkeypatch.setattr(grid, "BLOCK", 3)
+    out = grid.main()
+    q = combine.fractiles([(d["curves"], d["w"]) for d in db.values()], grid.Q, n=grid.N)[:, :, 0]
+    assert np.allclose(out["q50_475"], grid.pga(q[1], LV, grid.RP[475]), equal_nan=True)
+    m = combine.mean([(d["curves"], d["w"]) for d in db.values()])[:, 0]
+    assert np.allclose(out["mean_475"], grid.pga(m, LV, grid.RP[475]), equal_nan=True)
+
+
+def test_rebin_keeps_the_total_rate_and_centres_the_bins():
+    from hazard import speed
+    s = '<incrementalMFD minMag="5.50" binWidth="0.10">\n <occurRates>1.0 0.5 0.25 0.125 0.0625</occurRates>'
+    o = speed.rebin(s, 2)
+    assert 'minMag="5.550" binWidth="0.20"' in o
+    r = np.array(o.split("<occurRates>")[1].split("<")[0].split(), float)
+    assert np.allclose(r, [1.5, 0.375, 0.0625]) and r.sum() == pytest.approx(1.9375)
+
+
+def test_a_pulled_datastore_reads_like_the_local_calc(monkeypatch, tmp_path):
+    import json, shutil
+    from hazard import post
+    info = json.loads((hc.JOBS_DIR / "t_is_ref" / "build.json").read_text())
+    f = Path.home() / "oqdata" / f"calc_{info.get('calc_id')}.hdf5"
+    if not f.exists():
+        pytest.skip("no local calc for t_is_ref")
+    a = post.load("t_is_ref")
+    (tmp_path / "t_is_ref").mkdir()
+    (tmp_path / "t_is_ref" / "build.json").write_text(json.dumps({**info, "calc_id": 99999, "datastore": str(f)}))
+    monkeypatch.setattr(hc, "JOBS_DIR", tmp_path)
+    b = post.load("t_is_ref")
+    assert np.allclose(a["curves"], b["curves"]) and np.allclose(a["w"], b["w"])

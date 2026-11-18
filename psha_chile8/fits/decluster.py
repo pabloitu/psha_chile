@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "catalog/declustered"
 
 # settings
-DATE = "2026-11-17"
+DATE = "2026-11-18"
 MMIN, M35 = 4.5, 3.5
 FS = 1.0
 # nearest neighbour: b of the catalogue (Weichert on the table of the margin, all events), d_f of Zaliapin and Ben-Zion

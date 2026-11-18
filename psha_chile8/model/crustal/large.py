@@ -18,7 +18,7 @@ import gr  # noqa: E402
 TAB = F.HERE / "tables"
 
 # settings
-DATE = "2026-11-16e"
+DATE = BG.DATE
 M_LARGE, NEAR_KM, PAD, W_MIN = 6.5, 10.0, 0.2, 0.5
 
 

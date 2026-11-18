@@ -14,17 +14,19 @@ from cat_handler_2 import config as C
 
 FROZEN = Path(os.environ.get("CAT_FROZEN", C.OUT / "frozen" / "2026-11-03"))
 
-CLASS = {"slab_interface": 17600, "slab_deep": 15664, "intra_slab": 3869, "unresolved": 3498, "deep_nest": 3249,
-         "forearc": 2293, "outer_rise": 1416, "backarc": 901, "intraarc": 857, "deep_unknown": 789,
-         "patagonia_interface": 41, "patagonia_crustal": 36, "unclassified": 1}
+CLASS = {"slab_interface": 17600, "slab_deep": 15664, "intra_slab": 3869, "unresolved": 3329, "deep_nest": 3249,
+         "forearc": 2293, "outer_rise": 1416, "backarc": 1036, "intraarc": 885, "sub_slab": 789,
+         "antarctic_interface": 48, "patagonia_crustal": 36}
 RULE = {"band_nomech": 14233, "arc_slab": 8548, "deep_slab": 6889, "band_intraslab": 3743, "nest": 3249,
-        "unk_deep": 2602, "unk_nomech": 2434, "band_forearc": 2029, "outer_rise": 1413, "backarc": 901, "cone": 879,
-        "arc_crustal": 853, "deep_mid": 762, "arc_below": 415, "below": 374, "deep_forearc": 252, "deep_above": 224,
-        "band_mech": 142, "pat_deep": 58, "unk_cone": 44, "pat_interface": 41, "no_slab_deep": 38, "pat_crustal": 32,
+        "unk_deep": 2602, "unk_nomech": 2434, "band_forearc": 2029, "outer_rise": 1413, "backarc": 1036, "cone": 879,
+        "arc_crustal": 853, "deep_mid": 627, "arc_below": 415, "below": 374, "deep_forearc": 252, "deep_above": 224,
+        "band_mech": 142, "pat_deep": 61, "pat_interface": 48, "unk_cone": 44, "pat_crustal": 32, "arc_unk_noslab": 28,
         "override": 18, "unk_mech": 14, "remark": 12, "arc_noslab": 5, "unk_normal": 4, "pat_outer": 3,
-        "pre_year": 2, "no_slab": 1}
-FAM = {"in-slab": 22782, "interface": 17641, "excluded": 5703, "crustal": 4088}
-FAM55 = {"in-slab": 1075, "interface": 1044, "excluded": 433, "crustal": 128}
+        "pre_year": 2, "no_slab_deep": 1}
+FAM = {"in-slab": 22782, "interface": 17648, "excluded": 5534, "crustal": 4250}
+FAM55 = {"in-slab": 1075, "interface": 1048, "excluded": 413, "crustal": 144}
+# DECISIONS 35 (4 Nov 2026): events whose class or rule changed from the 2026-11-03 freeze, by new rule
+MOVED = {"backarc": 135, "arc_unk_noslab": 28, "pat_interface": 7, "pat_deep": 3}
 
 # id: (class, rule); rule None for hand decisions
 EVENTS = {"890": ("slab_interface", "unk_cone"),      # Valdivia 1960 M9.5
@@ -47,7 +49,9 @@ EVENTS = {"890": ("slab_interface", "unk_cone"),      # Valdivia 1960 M9.5
           "678": ("patagonia_crustal", None),         # Tierra del Fuego 1949 M8.0
           "159": ("patagonia_crustal", None),         # Magallanes 1879
           "196": ("patagonia_crustal", None),         # Magallanes 1907
-          "3030": ("patagonia_crustal", None)}        # Tierra del Fuego 1970
+          "3030": ("patagonia_crustal", None),        # Tierra del Fuego 1970
+          "90872": ("antarctic_interface", "pat_interface"),  # 2010 M5.1, gap between Slab2 and 46.15 S
+          "331": ("intraarc", "arc_unk_noslab")}      # 1927 M7.0 Aysen, unknown depth, no slab beneath
 
 
 @pytest.fixture(scope="module")
@@ -82,8 +86,13 @@ def test_counts_per_family(ev):
 
 def test_families_cover_params(ev):
     fam = {c: f for f, cs in C.FAMILIES.items() for c in cs}
-    assert set(ev["class"]) - set(fam) == {"outer_rise", "deep_unknown", "unresolved"}
+    assert set(ev["class"]) - set(fam) == {"outer_rise", "sub_slab", "unresolved"}
     assert (ev["family"] == ev["class"].map(fam).fillna("excluded")).all()
+
+
+def test_every_class_has_a_label(ev):
+    from cat_handler_2 import palette
+    assert ev["class_label"].notna().all() and set(ev["class"]) <= set(palette.NAME)
 
 
 def test_class_overrides_land_in_their_class(built, ev):
@@ -95,16 +104,23 @@ def test_class_overrides_land_in_their_class(built, ev):
 
 
 def test_crustal_needs_a_real_depth_within_the_cap(ev):
-    cr = ev[ev["family"] == "crustal"]
+    cr = ev[(ev["family"] == "crustal") & (ev["cls_rule"] != "arc_unk_noslab")]
     z = pd.to_numeric(cr["depth"], errors="coerce")
-    bad = cr[cr["depth_status"].isin(C.UNKNOWN_DEPTH) | ~(z <= C.CRUSTAL_MAX_Z)]
+    bad = cr[cr["depth_status"].isin(C.UNKNOWN_DEPTH) | ~(z <= cr["z_cap"])]
     assert set(bad["cls_rule"]) <= {"remark", "override"}
     assert len(bad) == 11
 
 
-def test_unknown_depth_never_crustal_by_rule(ev):
+def test_pampean_cap(ev):
+    b = ev[(ev["cls_rule"] == "backarc") & (pd.to_numeric(ev["depth"], errors="coerce") > C.CRUSTAL_MAX_Z)]
+    assert len(b) == 135 and (b["depth"] <= C.PAMPEAN_MAX_Z).all()
+    assert b["latitude"].between(*C.PAMPEAN_LAT).all()
+
+
+def test_unknown_depth_crustal_only_without_a_slab(ev):
     u = ev[ev["depth_status"].isin(C.UNKNOWN_DEPTH) & ~ev["cls_rule"].isin(["remark", "override"])]
-    assert not (u["family"] == "crustal").any()
+    cr = u[u["family"] == "crustal"]
+    assert set(cr["cls_rule"]) == {"arc_unk_noslab"} and cr["slab_top"].isna().all()
 
 
 def test_nothing_north_of_the_limit(ev):
@@ -127,9 +143,14 @@ def test_magnitudes_of_the_paper(ev):
 
 
 def test_frozen_catalog_is_this_build(ev):
+    """The build equals the freeze, apart from the renames and the moves of DECISIONS 35 when the freeze predates them."""
     f = FROZEN / "catalog.csv"
     if not f.exists():
         pytest.skip(f"no {f}")
     cat = pd.read_csv(f, dtype={"id": str}, usecols=["id", "class", "cls_rule", "family"]).set_index("id")
+    cat["class"] = cat["class"].replace(C.RENAME)
     assert cat.index.equals(ev.index)
-    assert (cat[["class", "cls_rule", "family"]].to_numpy() == ev[["class", "cls_rule", "family"]].to_numpy()).all()
+    diff = (cat[["class", "cls_rule", "family"]].to_numpy() != ev[["class", "cls_rule", "family"]].to_numpy()).any(1)
+    assert diff.sum() in (0, sum(MOVED.values()))
+    if diff.sum():
+        assert counts(ev.loc[diff, "cls_rule"]) == MOVED

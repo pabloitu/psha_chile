@@ -12,7 +12,8 @@ import math
 import numpy as np
 
 MU, C, DM, MMIN = 3.0e10, 9.05, 0.1, 6.0
-PSI = {0.6: 0.25, 0.8: 0.5, 1.0: 0.25}
+# psi and thickness weights equal (DECISIONS, Crustal and faults; psi 0.25 / 0.5 / 0.25 superseded, Pablo, 16 Nov)
+PSI = {0.6: 1 / 3, 0.8: 1 / 3, 1.0: 1 / 3}
 DEPTH = {10.0: 0.5, 20.0: 0.5}
 SHAPES = ("al1", "al2", "al3", "yc", "tap", "hyb")
 TAPER_PAD, HYB_R, HYB_SIG = 0.5, 0.5, 0.12

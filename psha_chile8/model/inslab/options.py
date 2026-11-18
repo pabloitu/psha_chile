@@ -8,8 +8,8 @@ import pandas as pd
 import depth as D
 
 # settings
-RUN = "2026-11-16d"
-BASE = "2026-11-16d"
+RUN = "2026-11-18"
+BASE = "2026-11-18"
 TAB, FIG = D.HERE / "tables", D.HERE / "figs" / RUN
 # lower-depth options, fraction of the Slab2 thickness: psha_chile7, and the 95 % fraction with all depth sources
 # kept (C14 sensitivity, tables/fraction_2026-11-16.csv)

@@ -1,8 +1,8 @@
 {
  "name": "c_all_small",
- "description": "psha_chile8 S5a c_all_small 3a3de2fb",
- "calc_id": 610,
- "run_time_s": 210,
+ "description": "psha_chile8 HAZ c_all_small 2b6722f7",
+ "calc_id": null,
+ "run_time_s": null,
  "families": [
   "interface",
   "inslab"
@@ -17,8 +17,8 @@
    "seg_full_own_taper_ml_geo08": 0.5
   },
   "inslab": {
-   "gk_taper_ml_l3": 0.5,
-   "nn_taper_ml_l3": 0.5
+   "nn_taper_ml_l3": 0.5,
+   "nn_taper_ml_l3_ratenn": 0.5
   }
  },
  "msr": {
@@ -38,37 +38,37 @@
  "gmm": {
   "Subduction Interface": [
    [
+    "[MontalvaEtAl2017SInter]",
+    0.25
+   ],
+   [
+    "[ZhaoEtAl2016SInter]",
+    0.25
+   ],
+   [
     "[AbrahamsonGulerce2020SInter]\nregion = \"SAM\"",
     0.25
    ],
    [
-    "[ParkerEtAl2020SInter]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
-    0.25
-   ],
-   [
-    "[KuehnEtAl2020SInter]\nregion = \"SAM\"",
-    0.25
-   ],
-   [
-    "[MontalvaEtAl2017SInter]",
+    "[YoungsEtAl1997SInter]",
     0.25
    ]
   ],
   "Subduction IntraSlab": [
    [
+    "[MontalvaEtAl2017SSlab]",
+    0.25
+   ],
+   [
+    "[AbrahamsonEtAl2015SSlab]",
+    0.25
+   ],
+   [
     "[AbrahamsonGulerce2020SSlab]\nregion = \"SAM\"",
     0.25
    ],
    [
-    "[ParkerEtAl2020SSlab]\nregion = \"SA\"\nsaturation_region = \"SA_S\"",
-    0.25
-   ],
-   [
-    "[KuehnEtAl2020SSlab]\nregion = \"SAM\"",
-    0.25
-   ],
-   [
-    "[MontalvaEtAl2017SSlab]",
+    "[YoungsEtAl1997SSlab]",
     0.25
    ]
   ]
@@ -88,8 +88,10 @@
   "Puerto Montt",
   "Hornopirén",
   "Puerto Aysén",
-  "Puerto Williams"
+  "Punta Arenas",
+  "Ushuaia"
  ],
+ "n_sites": 15,
  "poes": [
   0.002105
  ],

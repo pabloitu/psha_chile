@@ -3,7 +3,7 @@
 <logicTree logicTreeID="lt_source">
 <logicTreeBranchingLevel branchingLevelID="bl1">
 <logicTreeBranchSet uncertaintyType="sourceModel" branchSetID="bs1">
-<logicTreeBranch branchID="is_gk_taper_ml_l3"><uncertaintyModel>src/inslab/is_slab_gk_taper_ml_l3.xml src/inslab/is_nest_gk_taper_ml_l3.xml</uncertaintyModel><uncertaintyWeight>1.000000000000</uncertaintyWeight></logicTreeBranch>
+<logicTreeBranch branchID="is_nn_taper_ml_l3"><uncertaintyModel>src/inslab/is_slab_nn_taper_ml_l3.xml src/inslab/is_nest_nn_taper_ml_l3.xml</uncertaintyModel><uncertaintyWeight>1.000000000000</uncertaintyWeight></logicTreeBranch>
 </logicTreeBranchSet>
 </logicTreeBranchingLevel>
 </logicTree>

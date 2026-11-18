@@ -1,8 +1,8 @@
 {
  "name": "t_cr_psi100",
- "description": "psha_chile8 S5a t_cr_psi100 42acb4c5",
- "calc_id": 621,
- "run_time_s": 78,
+ "description": "psha_chile8 HAZ t_cr_psi100 a58c13d4",
+ "calc_id": null,
+ "run_time_s": null,
  "families": [
   "crustal"
  ],
@@ -50,8 +50,10 @@
   "Puerto Montt",
   "Hornopirén",
   "Puerto Aysén",
-  "Puerto Williams"
+  "Punta Arenas",
+  "Ushuaia"
  ],
+ "n_sites": 15,
  "poes": [
   0.002105
  ],

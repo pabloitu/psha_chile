@@ -18,11 +18,11 @@ import pandas as pd
 from cat_handler_2 import config as C
 
 OUT = C.OUT / "compare"
-FAMILY = {"slab_interface": "interface", "patagonia_interface": "interface",
+FAMILY = {"slab_interface": "interface", "patagonia_interface": "interface", "antarctic_interface": "interface",
           "intra_slab": "in-slab", "slab_deep": "in-slab", "deep_nest": "in-slab",
           "forearc": "crustal", "intraarc": "crustal", "backarc": "crustal", "patagonia_crustal": "crustal",
           "unclassified": "crustal", "south_crustal": "crustal",
-          "outer_rise": "excluded", "deep_unknown": "excluded", "unresolved": "excluded"}
+          "outer_rise": "excluded", "deep_unknown": "excluded", "sub_slab": "excluded", "unresolved": "excluded"}
 FAMS = ["interface", "in-slab", "crustal", "excluded"]
 MB = [3.9, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 10.0]
 

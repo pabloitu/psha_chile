@@ -352,8 +352,8 @@ def mech_fig(ev, g, an):
 
 def classify_fig(ev):
     fig, ax = plt.subplots(2, 2, figsize=(14, 10))
-    order = ["slab_interface", "intra_slab", "slab_deep", "forearc", "intraarc", "backarc", "patagonia_crustal", "patagonia_interface", "outer_rise",
-             "deep_nest", "deep_unknown", "unclassified", "unresolved"]
+    order = ["slab_interface", "intra_slab", "slab_deep", "forearc", "intraarc", "backarc", "patagonia_crustal", "antarctic_interface", "outer_rise",
+             "deep_nest", "sub_slab", "unclassified", "unresolved"]
     mb = np.arange(4.0, 8.01, 0.5)
     t = pd.crosstab(pd.cut(ev["mag"], mb), ev["class"])
     t = t[[c for c in order if c in t]]
@@ -482,7 +482,7 @@ def outline(a, t, color, lw):
 
 
 def family(c):
-    return "interface" if c in ("slab_interface", "patagonia_interface") else (
+    return "interface" if c in ("slab_interface", "antarctic_interface") else (
         "in-slab" if c in ("intra_slab", "slab_deep", "deep_nest") else "other")
 
 
@@ -567,7 +567,7 @@ def section_page(t, ev, sl, ts):
                            label=f"interface band +/-{C.IF_TOL['free']:.0f} km")
         if t["fam"] == "antarctic":
             a.add_patch(plt.Rectangle((0, 0), C.PAT_WIDTH_KM, C.PAT_MAX_Z, color="mediumseagreen", alpha=0.1,
-                                      label="patagonia_interface footprint"))
+                                      label="antarctic_interface footprint"))
         sub = e if lab.startswith("all") else e[e["mag"] >= 5.5]
         xs = sub["x"].to_numpy()
         unk = sub["depth_status"].isin(C.UNKNOWN_DEPTH).to_numpy()
@@ -615,9 +615,9 @@ def sections(ev):
     plt.close(fig)
 
 
-GROUPS = {"interface": ["slab_interface", "patagonia_interface"], "in-slab": ["intra_slab", "slab_deep", "deep_nest"],
+GROUPS = {"interface": ["slab_interface", "antarctic_interface"], "in-slab": ["intra_slab", "slab_deep", "deep_nest"],
           "crustal": ["forearc", "intraarc", "backarc", "patagonia_crustal"],
-          "other": ["outer_rise", "deep_unknown", "unclassified", "unresolved"]}
+          "other": ["outer_rise", "sub_slab", "unclassified", "unresolved"]}
 
 
 def map_fig(ev):
@@ -641,7 +641,7 @@ def map_fig(ev):
               title=f"{g}, M >= 5.5")
         labels(a, e[e["class"].isin(cl)], "longitude", "latitude", C.MAP_LABEL_N, C.MAP_LABEL_DEG)
         a.legend(fontsize=7, loc="lower left")
-    fig.suptitle("solid: Nazca trench; dashed: Antarctic trench (Bird 2003); green: patagonia_interface footprint; "
+    fig.suptitle("solid: Nazca trench; dashed: Antarctic trench (Bird 2003); green: antarctic_interface footprint; "
                  f"labels: up to {C.MAP_LABEL_N} per panel, largest first, {C.MAP_LABEL_DEG:g} deg apart (interface M >= {C.LABEL_M['interface']}, "
                  f"in-slab M >= {C.LABEL_M['in-slab']}, others M >= {C.LABEL_M['other']})", fontsize=10)
     fig.tight_layout(rect=(0, 0, 1, 0.97))

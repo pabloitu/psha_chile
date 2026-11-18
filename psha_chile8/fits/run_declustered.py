@@ -23,7 +23,7 @@ import table as TB
 
 HERE = Path(__file__).resolve().parent
 # settings
-DATE = "2026-11-17"
+DATE = "2026-11-18"
 TAB, FIG = HERE / "tables", HERE / "figs" / DATE
 DC_DATE = D.DATE
 METHODS = {"full": "full catalogue", "gk": "Gardner–Knopoff", "gk_family": "Gardner–Knopoff per family",

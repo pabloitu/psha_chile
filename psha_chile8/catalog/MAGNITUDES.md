@@ -167,3 +167,15 @@ Not yet verified, check before citing: Felzer (2008); Mueller (2019) and Riquelm
 - At catalogue level (test 7): b moves 0.24–0.55 (Cabello) and 0.11–0.42 (Candia–Macedo) with the fit floor against 0.05–0.16 here; the M ≥ 5.5 rate drifts 34 % and 17 %; a fit from Mw 5.0 predicts 0.4–0.75 and 0.5–0.66 of the observed M ≥ 7 against 0.9 here. Both do worse on b than the magnitudes as reported.
 
 **How to compare a converted catalogue** (learned here): on events that have a measured Mw the other catalogues carry that same Mw (Candia–Macedo take ComCat, ISC-GEM and ISC Mw unchanged), so the comparison says nothing; compare on events without a measured Mw. A relation drawn through its own converted values is a straight line by construction. Below about magnitude 4.3 the paired medians rise for every scale (only the larger events are paired), so no relation can be judged there from pairs.
+
+## 11. Abe (1982) mB for deep events reads high (FITS note, 18 Nov; kept, Pablo)
+
+Centennial mB converted by Abe (1982, eq. 5, log M0 = 2.4 mB + 10.0 for events deeper than 60 km) against a measured Mw of the same event (Ruiz and Madariaga, ISC-GEM direct, or the A5 reference from 1976), 1909–1980 (`drafts/fits/inslab/abe_check.py`, FITS):
+- deeper than 60 km: n 14, Abe − measured mean +0.36, median +0.32, sd 0.26;
+- 60 km or shallower (eq. 7): n 21, mean −0.06, median −0.03, sd 0.46.
+
+In 17g, 20 events in the domain carry a deep Abe value; 19 of them are Mw ≥ 7 (Mw 7.1–7.8, 1915–1971, almost all intermediate in-slab, two in the Jujuy nest). With the measured offset most fall to Mw 6.7–7.4. They are the intermediate in-slab excess at Mw 7.0–7.9 in 1905–1963 that FITS reports (19.1 observed against 7.2 fitted).
+
+Not changed (no rerun, Pablo). Options for the next run: calibrate the deep Abe values on these pairs like every other conversion (the measured Mw as reference; 14 pairs, below the N_LINE of the fitted relations), or leave them and state the excess in the paper.
+
+Decided (Pablo, 18 Nov): kept as converted. No study corrects Abe's mB itself: ISC-GEM (Di Giacomo et al. 2015) recomputes mb and MS from amplitudes and does not use it; Huang et al. (1998) give moment tensors for deep (≥ 300 km) events only. ISC-GEM has a proxy Mw for 5 of the 19 events (0.04–1.2 lower). The excess is stated in the paper.

@@ -1,8 +1,8 @@
 {
  "name": "t_if_set_gem_sam",
- "description": "psha_chile8 S5a t_if_set_gem_sam b08b43b2",
- "calc_id": 553,
- "run_time_s": 269,
+ "description": "psha_chile8 HAZ t_if_set_gem_sam 6f89b795",
+ "calc_id": null,
+ "run_time_s": null,
  "families": [
   "interface"
  ],
@@ -59,8 +59,10 @@
   "Puerto Montt",
   "Hornopirén",
   "Puerto Aysén",
-  "Puerto Williams"
+  "Punta Arenas",
+  "Ushuaia"
  ],
+ "n_sites": 15,
  "poes": [
   0.002105
  ],

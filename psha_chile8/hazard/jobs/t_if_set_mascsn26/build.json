@@ -1,8 +1,8 @@
 {
  "name": "t_if_set_mascsn26",
- "description": "psha_chile8 S5a t_if_set_mascsn26 111282cb",
- "calc_id": 552,
- "run_time_s": 315,
+ "description": "psha_chile8 HAZ t_if_set_mascsn26 9c1658a5",
+ "calc_id": null,
+ "run_time_s": null,
  "families": [
   "interface"
  ],
@@ -63,8 +63,10 @@
   "Puerto Montt",
   "Hornopirén",
   "Puerto Aysén",
-  "Puerto Williams"
+  "Punta Arenas",
+  "Ushuaia"
  ],
+ "n_sites": 15,
  "poes": [
   0.002105
  ],

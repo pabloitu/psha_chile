@@ -1,8 +1,8 @@
 {
  "name": "t_cr_db_Bmm",
- "description": "psha_chile8 S5a t_cr_db_Bmm 9e95fc7c",
- "calc_id": 627,
- "run_time_s": 79,
+ "description": "psha_chile8 HAZ t_cr_db_Bmm 320e7c5b",
+ "calc_id": null,
+ "run_time_s": null,
  "families": [
   "crustal"
  ],
@@ -11,7 +11,12 @@
  ],
  "sources": {
   "crustal": {
-   "db_Bmm": 1.0
+   "db_Bmm_r0": 0.16666666666666666,
+   "db_Bmm_r1": 0.16666666666666666,
+   "db_Bmm_r2": 0.16666666666666666,
+   "db_Bmm_r3": 0.16666666666666666,
+   "db_Bmm_r4": 0.16666666666666666,
+   "db_Bmm_r5": 0.16666666666666666
   }
  },
  "msr": null,
@@ -50,11 +55,13 @@
   "Puerto Montt",
   "Hornopirén",
   "Puerto Aysén",
-  "Puerto Williams"
+  "Punta Arenas",
+  "Ushuaia"
  ],
+ "n_sites": 15,
  "poes": [
   0.002105
  ],
- "n_source_paths": 1,
- "n_realizations": 4
+ "n_source_paths": 6,
+ "n_realizations": 24
 }

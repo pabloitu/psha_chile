@@ -1,6 +1,6 @@
 # FIGURE_STYLE: how figures look in psha_chile8
 
-One place for the figure rules, gathered on 17 Nov from CLAUDE.md, DECISIONS (Figures), `hazard/FIGURE_STYLE_tornado.md` and Pablo's stated preferences. Kind-specific details stay in their own files (tornado: `hazard/FIGURE_STYLE_tornado.md`).
+One place for the figure rules, gathered on 17 Nov from CLAUDE.md, DECISIONS (Figures), `hazard/FIGURE_STYLE_tornado.md` and Pablo's stated preferences. Kind-specific details stay in their own files (tornado: `hazard/FIGURE_STYLE_tornado.md`; frequency–magnitude: `fits/FIGURE_STYLE_fmd.md`).
 
 ## Tools
 - Draw with pituPLOTS (installed editable in `psha_renta`; record its commit in the WORKLOG entry of the run).
@@ -31,3 +31,4 @@ One place for the figure rules, gathered on 17 Nov from CLAUDE.md, DECISIONS (Fi
 
 ## Kind-specific styles
 - Tornado per city, full tornado, matrix: `hazard/FIGURE_STYLE_tornado.md`.
+- Frequency–magnitude fits (cumulative and incremental, confidence bands, completeness years, interface figure with the segment map): `fits/FIGURE_STYLE_fmd.md`.

@@ -83,3 +83,14 @@ def test_duplicate_merge():
     both = a & b
     assert len(both) == 20
     assert (g[g.station.isin(both)].ff_event_id == "20140403024315").all()
+
+
+def test_rank_place_of_extra_model():
+    import pandas as pd
+    import summary as M
+    sc = pd.DataFrame({"cls": "interface", "imt": "PGA", "gmm": ["a", "b", "c", "x"], "llh": [2.0, 2.2, 2.4, 2.1],
+                       "edr": [1.0, 1.1, 1.2, 1.3], "gem": [False, False, False, True]})
+    r, m = M.ranks(sc)
+    q = r.set_index(["score", "gmm"])["rank"]
+    assert q["llh", "x"] == 2 and q["edr", "x"] == 4 and q["llh", "c"] == 3
+    assert m.set_index("gmm").mean_rank["x"] == 3

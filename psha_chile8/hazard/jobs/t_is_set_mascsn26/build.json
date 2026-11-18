@@ -1,8 +1,8 @@
 {
  "name": "t_is_set_mascsn26",
- "description": "psha_chile8 S5a t_is_set_mascsn26 babf1565",
- "calc_id": 561,
- "run_time_s": 118,
+ "description": "psha_chile8 HAZ t_is_set_mascsn26 1a6a8a7c",
+ "calc_id": null,
+ "run_time_s": null,
  "families": [
   "inslab"
  ],
@@ -11,7 +11,7 @@
  ],
  "sources": {
   "inslab": {
-   "gk_taper_ml_l3": 1.0
+   "nn_taper_ml_l3": 1.0
   }
  },
  "msr": null,
@@ -42,8 +42,10 @@
   "Puerto Montt",
   "Hornopirén",
   "Puerto Aysén",
-  "Puerto Williams"
+  "Punta Arenas",
+  "Ushuaia"
  ],
+ "n_sites": 15,
  "poes": [
   0.002105
  ],

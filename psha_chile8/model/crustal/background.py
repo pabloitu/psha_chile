@@ -5,10 +5,12 @@ over the completeness period of the magnitude), Helmstetter et al. (2007) kernel
 log-likelihood on one split (before 2010 against 2010 to the end of the catalogue) scored at CANDS, n the first local
 maximum from N_MIN; each class its own n, Patagonia fixed (CLASSES). The crustal family is scored for reference only.
 The final pattern uses every complete declustered event, normalised to 1 over the grid. Rates: the full-catalogue fits
-(fits_2026-11-16e.csv), both shapes, as evenly discretised lists from gr.rates, min_mag the first bin centre.
+(CURRENT.md), both shapes, as evenly discretised lists from gr.rates, min_mag the first bin centre. Inputs from
+CURRENT.md; DATE tags the outputs of this build.
 
 Writes tables/calibration_<DATE>.csv, tables/kernel_n_<DATE>.csv, tables/pattern_<option>_<DATE>.csv (figures: figs_s3.py).
 """
+import re
 import sys
 from pathlib import Path
 
@@ -23,52 +25,77 @@ import smooth as S  # noqa: E402
 
 TAB, FIG = HERE / "tables", HERE / "figs"
 
+def current(row, sec=None):
+    """Paths named in backticks in the "current" column of a row of CURRENT.md, under section `sec` if given (a bare
+    file name sits in the folder of the first; a `*` is kept for the caller to fill)."""
+    ls = (ROOT / "CURRENT.md").read_text().splitlines()
+    if sec:
+        ls = ls[next(i for i, x in enumerate(ls) if x.startswith(f"## {sec}")):]
+    ln = next(x for x in ls if x.startswith(f"| {row} |"))
+    f = [x for x in re.findall(r"`([^`]+)`", ln.split("|")[2]) if "/" in x or "." in x]
+    p = [ROOT / f[0]]
+    return p + [ROOT / x if "/" in x else p[0].parent / x for x in f[1:]]
+
+
 # settings
-DATE = "2026-11-16e"
-# fits table: 16f is the current table (DECISIONS), identical to 16e for the crustal classes
-FITS_DATE = "2026-11-16f"
-GRID = ROOT / "data" / "crustal_grid_01_2026-11-15.csv"
-FITS = ROOT / "fits" / "tables" / f"fits_{FITS_DATE}.csv"
+# tag of this build: tables, pkl caches (mfsource.py) and the NRML folder (build.py)
+DATE = "2026-11-18b"
+# inputs, read from CURRENT.md at import (CLAUDE.md)
+CAT = current("catalogue the fits and models are built on")[0]
+FITS0 = FITS = current("fits, full catalogue")[0]
+DECL_FITS = current("fits, declustered")[0]
+GRID = current("crustal grid")[0]
+NPD = current("nodal planes, all classes")[0]
+DECL_M = {"gk": "gk_family", "nn": "nn_family"}
+DECL = {k: Path(str(current("declustered catalogues")[0]).replace("*", m)) for k, m in DECL_M.items()}
+# one declustering algorithm for the pattern, no GK / NN branch (DECISIONS, Logic tree, 17 Nov); DC is a placeholder
+# until the team chooses, the other pattern is a tornado row
+DC = "nn"
+W_DECL = {k: float(k == DC) for k in DECL}
 # Mmax pad tornado rows (DECISIONS, 16 Nov): pad 0.0 and 0.4 against the 0.2 of the main table; set_pad() switches
 # the fits table and the class Mmax
 PAD = 0.2
-PAD_FITS = {0.0: ROOT / "fits" / "tables" / f"fits_{FITS_DATE}_pad00.csv", 0.4: ROOT / "fits" / "tables" / f"fits_{FITS_DATE}_pad04.csv"}
-# the frozen catalogue of those fits (fits/gr.py follows the newest run)
-CAT = ROOT / "catalog" / "frozen" / "2026-11-16c" / "catalog_2026-11-16c.csv"
-DECL = {"gk": ROOT / "catalog" / "declustered" / "gk_family_2026-11-16e.csv",
-        "nn": ROOT / "catalog" / "declustered" / "nn_family_2026-11-16e.csv"}
-W_DECL = {"gk": 0.5, "nn": 0.5}
+_p = current("Mmax pad 0.0 / 0.4")[0]
+PAD_FITS = {0.0: _p, 0.4: Path(str(_p).replace("_pad00", "_pad04"))}
 # tornado row (Pablo, 16 Nov): background from the declustered fits, a lower bound on the rates, not the model
-DECL_FITS = ROOT / "fits" / "tables" / f"fits_declustered_{FITS_DATE}.csv"
-DECL_ROWS = {"gk": dict(method="gk_family", table="full", b_option="own"),
-             "nn": dict(method="nn_family", table="full", b_option="own")}
-# crustal classes: table from 1976 only (DECISIONS, Statistics, 16 Nov; column steps of the fits)
-TABLE = [(5.0, 1976)]
+DECL_ROWS = {k: dict(method=m, table="full", b_option="own") for k, m in DECL_M.items()}
 SPLIT = 2010.0
 # n scored at all candidates, chosen as the first local maximum from N_MIN up (DECISIONS, S2 rule, 16 Nov)
 CANDS = (1, 3, 5, 10, 15, 25, 50, 100)
 N_MIN = 5
 # exponent fixed at Helmstetter et al. (2007), 1.5 (Pablo, 15 Nov, after the joint search of n and exponent)
 EXPS = (1.5,)
-MMIN = 5.0
+# first bin of the background lists: the lowest crustal source Mmin considered (4.9 or 5.0, DECISIONS, 17 Nov;
+# build.MMIN_SRC); the fits start at 5.0, the 4.9 bin is the fitted line one bin down
+MMIN = 4.9
 SHAPES = ("taper", "trunc")
-# crustal classes: Mmax of DECISIONS (largest weight-1 event + 0.2), checked against the fit table
-# n: each class its own calibrated n (Pablo, 16 Nov: only b pools); Patagonia fixed at the floor (9-12 test events)
-CLASSES = {"forearc": dict(mmax=7.2), "arc": dict(mmax=7.9), "backarc": dict(mmax=7.7), "patagonia": dict(mmax=8.0, n=5)}
+# crustal classes; Mmax from the fits (largest weight-1 event + pad, set_pad); n: each class its own calibrated n
+# (Pablo, 16 Nov: only b pools); Patagonia fixed at the floor (9-12 test events)
+CLASSES = {"forearc": {}, "arc": {}, "backarc": {}, "patagonia": dict(n=5)}
 
 
 def set_pad(pad):
     """Switch the fits table and the class Mmax to the Mmax pad `pad` (0.0, 0.2 or 0.4); returns the fits path."""
     global PAD, FITS
     PAD = pad
-    FITS = PAD_FITS.get(pad, ROOT / "fits" / "tables" / f"fits_{FITS_DATE}.csv")
+    FITS = PAD_FITS.get(pad, FITS0)
     t = pd.read_csv(FITS)
     for c in CLASSES:
         CLASSES[c]["mmax"] = float(t[(t.unit == c) & (t["shape"] == "taper")].mmax.iloc[0])
     return FITS
-# nodal planes per class (B14, DECISIONS), mixed per cell by the class rates for the point sources
-# B14 final (DECISIONS, Crustal; Pablo, 16 Nov)
-NPD = ROOT / "model" / "mechanisms" / "npd_2026-11-16d.csv"
+
+
+def steps():
+    """Completeness steps (m, year) of the crustal fits rows, one table for every class (stops if they differ)."""
+    t = pd.read_csv(FITS0)
+    s = set(t[t.unit.isin(list(CLASSES))].steps)
+    assert len(s) == 1, s
+    return [(float(m), float(y)) for m, y in (x.split(" from ") for x in s.pop().split(", "))]
+
+
+set_pad(PAD)
+# completeness steps of the crustal classes, as fitted (DECISIONS, Statistics; from 1976 on)
+TABLE = steps()
 # the tapered list ends this far above Mmax, its last bin carrying the rate of the line above (DECISIONS, Statistics)
 TAPER_END = 0.2
 

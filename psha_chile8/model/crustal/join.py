@@ -27,7 +27,7 @@ from chaf import CITIES  # noqa: E402
 TAB, FIG = F.HERE / "tables", F.HERE / "figs"
 
 # settings
-DATE = "2026-11-16e"
+DATE = F.DATE
 MJOIN = 6.0
 REF = (6.0, 6.5, 7.0)
 NEAR_EVENT_KM, NEAR_CITY_KM = 10.0, 50.0
@@ -287,10 +287,46 @@ def figures(ft, fc, obs, per, pats, pts):
     plt.close(f)
 
 
+def final(obs):
+    """
+    Class MFDs of the final tree on CENTRES (yearly rate per bin): observed (inside the completeness table), the
+    tapered fit, and per fault system of database A the faults, the joined background and the total, each the
+    weighted mean over its branch set (build.W_FPAD for segmented, build.W_SPLAYS x (thickness, psi) for multi-fault;
+    the background joined per set, as in the build), the tree mean (build.W_SYSTEM), and the faults of each level
+    (single-fault pad 0 / 0.2 / 0.4, multi-fault main / secondary traces). Reads the mfsource caches of the build.
+    """
+    import build as B
+    import mfsource as M
+    ft = fits()
+    cases = [(z, p) for z in B.MF_T for p in B.MF_PSI]
+    sets, lev = {"seg": [], "mf": []}, {}
+    for fp, w in B.W_FPAD.items():
+        F.FAULT_PAD = fp
+        sets["seg"].append((w, B.segcls(*F.load(B.DB)[:2])))
+        lev[f"faults_seg_pad{int(round(fp * 10)):02d}"] = sets["seg"][-1][1]
+    F.FAULT_PAD = 0.0
+    for sp, w in B.W_SPLAYS.items():
+        sets["mf"].append((w, M.mean_cls(B.DB, B.JUMP, cases, splays=sp)))
+        lev["faults_mf_splays" if sp else "faults_mf_main"] = sets["mf"][-1][1]
+    rows = []
+    for c in BG.CLASSES:
+        fit = ft[(c, "taper")]
+        x = dict(cls=c, m=CENTRES, observed=obs[c], fit=fit)
+        for k, v in sets.items():
+            x[f"faults_{k}"] = sum(w * f[c] for w, f in v)
+            x[f"background_{k}"] = sum(w * background(fit, f[c]) for w, f in v)
+            x[f"total_{k}"] = x[f"faults_{k}"] + x[f"background_{k}"]
+        x["total"] = sum(B.W_SYSTEM[k] * x[f"total_{k}"] for k in sets)
+        x.update({k: v[c] for k, v in lev.items()})
+        rows.append(pd.DataFrame(x))
+    return pd.concat(rows)
+
+
 def main():
     ft, fc = fits(), fault_classes()
     obs, per = observed()
     jt, jump, mfd = tables(ft, fc, obs)
+    final(obs).to_csv(TAB / f"class_mfd_{DATE}.csv", index=False, float_format="%.6e")
     mfd.to_csv(TAB / f"background_mfd_{DATE}.csv", index=False, float_format="%.6e")
     jt.round(6).to_csv(TAB / f"join_{DATE}.csv", index=False)
     jump.round(6).to_csv(TAB / f"jump_{DATE}.csv", index=False)

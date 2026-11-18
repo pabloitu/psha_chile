@@ -8,7 +8,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import depth as D  # noqa: E402
 
-TABLE = sorted((D.HERE / "tables").glob("depth_cells_2026-11-1[56]*.csv"))
+TABLE = sorted((D.HERE / "tables").glob("depth_cells_2026-11-1[5-8]*.csv"))
 CELLS = pd.DataFrame({"lon": [-69.0, -69.0], "lat": [-21.0, -29.0]})
 LSD = np.array([40.0, 25.4])
 

@@ -13,12 +13,12 @@ import build as B
 
 # settings
 RUN = "2026-11-16d"
-FITS_DC = B.ROOT / "fits/tables/fits_declustered_2026-11-16f.csv"
-METHODS = {"gk": "gk_family", "nn": "nn_family"}
+FITS_DC = B.FITS_DC
+METHODS = B.DECL_M
 TABLE, B_OPTION = "full", "own"
 SH, AB, LY = "taper", "ml", "l3"
-REF_RUN, REF = "2026-11-16c", "gk_taper_ml_l3"
-D = B.HERE / "nrml" / RUN
+REF_RUN, REF = "2026-11-16c", f"{B.DC}_taper_ml_l3"
+D = B.OUT / "nrml" / RUN
 
 
 def fits_dc(method):
@@ -33,9 +33,11 @@ def run():
     P = pd.read_csv(B.TAB / f"pattern_{B.DATE}.csv")
     h, w = B.hypo(g, LY)
     keep_g = B.guard(g, ev)
+    npd, shr = pd.read_csv(B.NPD_TAB), pd.read_csv(B.SHARE)
     rows, br = [], []
     for k, m in METHODS.items():
         F = fits_dc(m)
+        npl = dict(zip(B.GROUPS, B.npd_cells(g, npd, shr, k, SH, AB)))
         bid = f"{k}_{SH}_{AB}_{LY}_rate{k}"
         R = {}
         for c, s in B.CLASSES.items():
@@ -54,7 +56,8 @@ def run():
                                  N7=float(part[c][on][:, cc > 6.95].sum()), N8=float(part[c][on][:, cc > 7.95].sum()),
                                  N55_fit=B.N_ge(r, 5.5), N7_fit=B.N_ge(r, 7.0)))
             txt = [" ".join(f"{v:.5e}" for v in row) for row in Rq[on]]
-            src = [B.point(f"is{q[:2]}{j:05d}", g.lon[i], g.lat[i], g.usd[i], g.lsd[i], h[i], w[i], cc[0], txt[j])
+            pq = npl[q] if q == "slab" else np.full(len(g), npl[q], dtype=object)
+            src = [B.point(f"is{q[:2]}{j:05d}", g.lon[i], g.lat[i], g.usd[i], g.lsd[i], h[i], w[i], cc[0], txt[j], pq[i])
                    for j, i in enumerate(np.flatnonzero(on))]
             (D / f"is_{q}_{bid}.xml").write_text(B.HEAD + f'<sourceModel name="in-slab {q} {bid}">\n' + "".join(src)
                                                  + "</sourceModel>\n</nrml>\n")
@@ -64,10 +67,10 @@ def run():
     t.to_csv(B.TAB / f"decl_rates_{RUN}.csv", index=False)
     lab = {"gk": "rates and b of the Gardner–Knopoff declustered catalogue, Gardner–Knopoff pattern",
            "nn": "rates and b of the nearest-neighbour declustered catalogue, nearest-neighbour pattern"}
-    j = dict(date=B.DATE, run=RUN, trt=B.TRT, msr=B.MSR, aspect=B.ASPECT, nodal_planes=B.NPD, min_mag=B.M_MIN,
+    j = dict(date=B.DATE, run=RUN, trt=B.TRT, msr=B.MSR, aspect=B.ASPECT, trial=B.TRIAL, nodal_planes=dict(table=str(B.NPD_TAB.relative_to(B.ROOT)), shares=str(B.SHARE.relative_to(B.ROOT))), min_mag=B.M_MIN,
              max_distance_km=500, pointsource_distance_km=100, fits=str(FITS_DC.relative_to(B.ROOT)),
              fit_rows=dict(methods=METHODS, table=TABLE, b_option=B_OPTION), branches=br,
-             reference=dict(run=REF_RUN, id=REF, row="is_ref", note="full-catalogue rates, Gardner–Knopoff pattern"),
+             reference=dict(run=REF_RUN, id=REF, row="is_ref", note=f"full-catalogue rates, {B.DC} pattern"),
              tornado={f"is_rate_{b['decl']}": dict(label=lab[b["decl"]], branches=[dict(id=b["id"], files=b["files"], weight=1.0)])
                       for b in br})
     (D / "branches.json").write_text(json.dumps(j, indent=1))

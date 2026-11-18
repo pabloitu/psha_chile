@@ -1,12 +1,13 @@
 """Fault database A against B (D16b, step 3): rates per crustal class against the catalogue fits, faults in one and
 not the other, faults near the cities.
 
-A: data/faults/faults_gem_extra_<DATE>.shp. B: data/faults/faults_B_<DATE>.gpkg. Both with the rules of DECISIONS
+A, B and the fits from CURRENT.md (rows "fault database A", "fault database B", "fits, full catalogue"). Both with the
+rules of DECISIONS
 (rates.py); B also with our MFD rules on the MASCSN moment budget (their thickness and length cap, `budget`), and as
 published (MASCSN rates times the mean SCC 0.75); GEM rows of B always with our rules. Magallanes–
 Fagnano: one system source per database (DECISIONS), the traces of the main trace joined; the other traces alone.
 Class of a source: forearc / arc / backarc from its midpoint and the arc polygon, Patagonia by the rule of A7
-(catalog/classify.py). Writes tables/d16b_*_<DATE>.csv and figs/faults_A_B_map.png.
+(catalog/classify.py, arc_end). Writes tables/d16b_*_<DATE>.csv and figs/faults_A_B_map_<DATE>.png; DATE tags the outputs.
 """
 import sys
 from pathlib import Path
@@ -26,11 +27,12 @@ sys.path.insert(0, str(ROOT / "catalog"))
 sys.path.insert(0, str(ROOT / "fits"))
 TAB, FIG = HERE / "tables", HERE / "figs"
 
+import gr  # noqa: E402
+
 # settings
-DATE = "2026-11-15"
-A = ROOT / "data" / "faults" / f"faults_gem_extra_{DATE}.shp"
-B = ROOT / "data" / "faults" / f"faults_B_{DATE}.gpkg"
-FITS = ROOT / "fits" / "tables" / f"fits_{DATE}b.csv"
+DATE = "2026-11-18"
+A, B = gr.current("fault database A"), gr.current("fault database B")
+FITS = gr.current("fits, full catalogue")
 CLASSES = ("forearc", "arc", "backarc", "patagonia")
 # b of each crustal class: B11 tapered fits (Patagonia takes the forearc b)
 SHAPE_B = "taper"
@@ -103,7 +105,6 @@ def sources(f, b, pub=None, mm=False):
 
 def table(srcs, fits):
     """N(>= 6, 6.5, 7) and moment rate (M >= 6) per class and domain-wide for every fault model and the fits."""
-    import gr
     out = []
     for cl in CLASSES + ("all",):
         for k, s in srcs.items():
@@ -222,7 +223,7 @@ def main():
 
     import figs_b
     figs_b.map_ab(a[a.in_other <= SAME_FRAC], b[b.in_other <= SAME_FRAC], b[b.in_other > SAME_FRAC], CITIES, PANELS,
-                  FIG / "faults_A_B_map.png")
+                  FIG / f"faults_A_B_map_{DATE}.png")
 
 
 if __name__ == "__main__":

@@ -7,7 +7,7 @@ import pandas as pd
 import depth as D
 
 # settings
-RUN = "2026-11-16d"
+RUN = "2026-11-18"
 TAB, FIG = D.HERE / "tables", D.HERE / "figs"
 # instrumental period of the depths (start of the in-slab rate pattern of psha_chile7, SMOOTH_FROM)
 T_FROM = 1990.0
@@ -23,7 +23,7 @@ V1 = TAB / "depth_cells_2026-11-15_v1.csv"
 # up to 2026-11-16c)
 CLASS_W = True
 # previous run, compared per cell (2026-11-16d: class weights; 2026-11-16c: weight-1 events)
-PREV = TAB / "depth_cells_2026-11-16c.csv"
+PREV = TAB / "depth_cells_2026-11-16d.csv"
 
 
 def events(drop=DROP):

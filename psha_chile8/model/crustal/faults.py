@@ -26,37 +26,44 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / "model" / "faults"))
 sys.path.append(str(ROOT / "fits"))
 gpd.options.io_engine = "fiona"
+import background as BG  # noqa: E402
 import compare as CP  # noqa: E402
 import rates as R  # noqa: E402
 
 TAB = HERE / "tables"
 
 # settings
-DATE = "2026-11-16e"
-FDB = "2026-11-15"
-DBS = {"A": dict(file=ROOT / "data" / "faults" / f"faults_gem_extra_{FDB}.shp", mm=False, name="A (GEM, D16)"),
-       "B": dict(file=ROOT / "data" / "faults" / f"faults_B_{FDB}.gpkg", mm=False, name="B, our rules"),
-       "Bmm": dict(file=ROOT / "data" / "faults" / f"faults_B_{FDB}.gpkg", mm=True, name="B, MASCSN moment")}
-FITS = ROOT / "fits" / "tables" / "fits_2026-11-16f.csv"
+# tag and inputs of background.py (CURRENT.md)
+DATE = BG.DATE
+FA, FB = BG.current("fault database A")[0], BG.current("fault database B")[0]
+DBS = {"A": dict(file=FA, mm=False, name="A (GEM, D16)"),
+       "B": dict(file=FB, mm=False, name="B, our rules"),
+       "Bmm": dict(file=FB, mm=True, name="B, MASCSN moment")}
+# b of the faults: the fits table of the model (pad 0.2), whatever pad background.py is switched to
+FITS = BG.FITS0
 # Mmax pad rows (Pablo, 16 Nov): single faults Leonard + FAULT_PAD; the class Mmax of the multi-fault cap follows
 # background.CLASSES (set_pad)
 FAULT_PAD = 0.0
 # crustal domain (DECISIONS): a fault whose trace lies wholly outside the crustal grid is not a source (Pablo, 16 Nov)
-GRID = ROOT / "data" / "crustal_grid_01_2026-11-15.csv"
+GRID = BG.GRID
 # fault models: database and Mmax rule (Leonard, or the class maximum of the sensitivity)
 VARIANTS = {"A": ("A", False), "B": ("B", False), "Bmm": ("Bmm", False),
             "A_cm": ("A", True), "B_cm": ("B", True), "Bmm_cm": ("Bmm", True)}
 NAMES = {**{k: v["name"] for k, v in DBS.items()}, **{k + "_cm": v["name"] + ", class-maximum Mmax" for k, v in DBS.items()}}
 CLASSES = ("forearc", "arc", "backarc", "patagonia")
-CLASS_MMAX = {"forearc": 7.2, "arc": 7.9, "backarc": 7.7, "patagonia": 8.0}
+CLASS_MMAX = {c: BG.CLASSES[c]["mmax"] for c in CLASSES}
 
 
 def class_mmax(c):
-    import background as BG
     return BG.CLASSES[c]["mmax"]
+
+
 NB = 40
-BR = [(p, z, k) for p, z, k in product(R.PSI, R.DEPTH, R.SHAPES)]
-W = np.array([R.PSI[p] * R.DEPTH[z] / len(R.SHAPES) for p, z, k in BR])
+# seismogenic thickness of the model: 20 km in the tree and every tornado row (Pablo, 18 Nov, CR); rates.DEPTH keeps
+# 10 / 20 km for the A / B comparison of model/faults
+THICK = {20.0: 1.0}
+BR = [(p, z, k) for p, z, k in product(R.PSI, THICK, R.SHAPES)]
+W = np.array([R.PSI[p] * THICK[z] / len(R.SHAPES) for p, z, k in BR])
 SYSTEM = "Magallanes–Fagnano system"
 
 

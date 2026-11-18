@@ -2,7 +2,13 @@
 
 15 Nov 2026. Task brief `tasks/GM1_gmm_residuals.md`; data notes `gmm/NOTES_data.md`. Evidence only: nothing here changes the logic tree, and no weights are proposed.
 
-Code: `gmm/build.py` (record table), `gmm/screen.py` (screening), `gmm/residuals.py`, `gmm/scores.py`, entry script `gmm/run.py`, figures `gmm/figs.py`, tests `gmm/tests/`. OpenQuake **3.27.0** from the `psha_renta` environment (CLAUDE.md says 3.26; the installed engine reports 3.27.0). The whole run takes about 6 minutes.
+Code: `gmm/records.py` (record table), `gmm/screen.py` (screening), `gmm/residuals.py`, `gmm/scores.py`, entry script `gmm/gm1_run.py`, figures `gmm/gm1_figs.py`, tests `gmm/tests/`. OpenQuake **3.27.0** from the `psha_renta` environment (CLAUDE.md says 3.26; the installed engine reports 3.27.0). The whole run takes about 6 minutes.
+
+**In short** (figures in section 10, handoff note `gmm/SUMMARY_GM1.md`):
+- **Best fit:** the Chilean models (Montalva et al. 2016 and 2017) fit the 9 421 records best in both classes, with Zhao et al. (2006, 2016) close on the interface.
+- **NGA-Sub, South America versions (current tree):** they predict too low at short periods by a factor of about 1.35–2 and are near zero bias at 1 s. On the Mw ≥ 6.5 events they score best.
+- **Too high:** Idini et al. (2017) and Youngs et al. (1997) predict too high.
+- **Variability:** the event-to-event scatter of the data (τ) is larger than the models assume; the station-to-station scatter (φ) agrees.
 
 ## 1. Data and selection
 
@@ -66,8 +72,17 @@ No kept GMM asks for rx or ry0. Basin depths: only Si et al. (2020) asks for one
 
 Observed values are RotD50, with PGA = PSa(RotD50) at 0.01 s. There is no conversion between component definitions: the GMMs defined for the geometric mean or the random horizontal component are compared with RotD50 as it is. RotD50 is close to the geometric mean, a few per cent higher at most; the data notes give a mean ln ratio of +0.05 for PGA.
 
-- **Total residual:** r = ln(obs) − μ, and z = r / σ.
+How to read a residual (figure `figures/resid_example.png`, one model, PGA):
+- **Residual:** r = ln(observed) − ln(predicted) of one record. 0 is a perfect prediction; +0.5 means the record is e^0.5 ≈ 1.65 times the model, so the model predicts too low.
+- **Event term δB:** the part of r shared by all records of one earthquake: how much stronger or weaker that earthquake was than the model expects. Plotted against Mw and depth, it tests the source scaling.
+- **Within-event residual δW = r − δB:** what is left at each station. Plotted against distance and Vs30, it tests the attenuation and the site term.
+- **Binned means:** a line that stays flat at 0 means no bias in that direction. In the example, Montalva et al. (2017) is nearly flat against Mw (within ± 0.4), Vs30 and in-slab depth, but its interface event terms rise with depth, and it predicts too high inside about 30 km.
+
+![residual example](figures/resid_example.png)
+
+- **Total residual:** r = ln(obs) − μ, and z = r / σ. If the model is right, z follows a standard normal: centred at 0 with standard deviation 1 (figures `figures/z_<class>.png`).
 - **Event split:** with each model's own τ and φ (Abrahamson & Youngs 1992). Youngs et al. (1997) has total σ only and gets total residuals only.
+- **τ and φ:** the model's total σ splits into τ, the scatter of the event terms from one earthquake to the next, and φ, the scatter of the stations around their event: σ² = τ² + φ².
 - **τ and φ from the data:** a random intercept per event, maximum likelihood with my own closed-form likelihood. On Montalva et al. (2017), interface, PGA it equals `statsmodels` MixedLM (ML) to 6 decimals: bias −0.0666, τ 0.759, φ 0.643.
 - **Common set:** the main scores use the records every kept GMM can be evaluated on. Idini et al. (2017) loses 5 interface and 10 in-slab records (4 stations without f0). The own-set table changes no score by more than 0.01.
 
@@ -101,7 +116,12 @@ In plain words:
 
 ![tau phi](figures/tau_phi.png)
 
-Trends (`tables/trends_2026-11-15.csv` slopes with standard errors, `trends_bins_` binned means; figures `figures/trends_<class>_<imt>.png`):
+z histograms of the eight models in the tornado sets (the other six in `tables/residuals_summary_2026-11-15.csv`):
+
+![z interface](figures/z_interface.png)
+![z in-slab](figures/z_inslab.png)
+
+Trends (`tables/trends_2026-11-15.csv` slopes with standard errors, `trends_bins_` binned means; figures `figures/trends_<class>.png`, binned means of the eight set models, one row per period):
 
 - **Interface, event terms against depth:** the clearest trend in the data. For the tree models δB rises by about 1.8–2.1 ln units per 100 km at PGA, so the deeper interface events (40–60 km) are underpredicted and the shallow ones overpredicted. Kuehn South America (0.55) and Zhao et al. 2016 (1.0) show it least. Part of it may be the classification itself: interface events deeper than about 45 km sit in the band where interface and in-slab are hard to tell apart (LEARNINGS, A7).
 - **In-slab, event terms against depth:** small and mostly negative, −0.2 to −0.7 per 100 km. Montalva et al. (2017) has none (+0.1).
@@ -109,8 +129,17 @@ Trends (`tables/trends_2026-11-15.csv` slopes with standard errors, `trends_bins
 - **Within-event against Vs30:** flat for every model (slopes ≤ 0.04 per 100 m/s).
 - **Event terms against Mw:** mostly within ± 0.3 per unit. Parker in-slab is −0.22 and Zhao in-slab +0.32.
 
+![trends interface](figures/trends_interface.png)
+![trends in-slab](figures/trends_inslab.png)
+
 ## 4. Scores (step 4)
 
+In plain words:
+- **LLH:** how surprised the model is by the records, in bits; lower is better. It rewards both a right median and a right σ. A model that is exactly right with σ = 1 scores 2.05.
+- **EDR:** a distance between the records and the model's distribution, in ln units, corrected by κ for a systematic trend of the residuals with the predicted value; lower is better.
+- **Bootstrap:** whole earthquakes are resampled 200 times, so the bars show how much a score depends on which earthquakes happen to be in the data.
+
+Definitions:
 - **LLH** (Scherbaum et al. 2009): −mean log₂ of the normal density of the GMM at the observation. A standard normal sample scored by its own model gives 2.05 (test).
 - **LLH weights:** 2^(−LLH) normalised over the 14 candidates of a class (evidence only).
 - **EDR** (Kale & Akkar 2013), as in the brief: per-record MDE on bins of 0.01 up to max|μ_D ± 3σ|; κ from the straight line of observed on predicted; EDR = √(κ · mean MDE²).
@@ -282,7 +311,26 @@ For the job files:
 - **Backarc:** Montalva and BC Hydro need `backarc`; leave it False, the default.
 - **Basin depth:** no model in the four sets uses Z1.0 or Z2.5.
 
+## 10. Summary for GM2 and the tornado (16 Nov)
+
+`gmm/summary.py` writes four summary figures in the pituplots style and the tables of the four sets. The note for the next task is `gmm/SUMMARY_GM1.md`: tables, what each figure means, and open points.
+
+- **figures:** `summary_ranking.png` (rank per period and score, set membership), `summary_bias.png`, `summary_large.png` (all events against Mw ≥ 6.5), `summary_sets.png` (the four sets on one scenario per class at Vs30 800 m/s).
+- **tables:** `gmm_sets_2026-11-15.csv` (one row per set, class and model), `scores_with_gem_2026-11-15.csv`, `mean_rank_2026-11-15.csv`.
+- **GEM models scored on the same records:** Zhao et al. (2006), Abrahamson et al. (2015) high and Montalva et al. (2016). Zhao 2006 (interface, mean rank 1.7) and Montalva 2016 (in-slab 1.3, interface 2.2) would rank at the top of the 14 candidates.
+
+What each summary figure shows:
+- **Ranking:** cells are the scores, the colour is the rank in each column (dark = best), the dots mark the sets that contain the model.
+- **Bias:** the mean residual per model and period; right of the line the model is too low.
+- **Large events:** the LLH on all events (open) against Mw ≥ 6.5 only (filled).
+- **Sets:** the four sets on one scenario per class at Vs30 800 m/s. Thin lines are the models, thick lines the equal-weight means; the gap between the thick lines is roughly what the GMM factor of the tornado will show.
+
+![summary ranking](figures/summary_ranking.png)
+![summary bias](figures/summary_bias.png)
+![summary large](figures/summary_large.png)
+![summary sets](figures/summary_sets.png)
+
 ## Files
 
 - **tables:** `records_2026-11-15.csv`, `selection_counts_2026-11-15.csv`, `review_mw.csv`, `unmatched_events.csv`, `duplicate_pairs.csv`, `screening.csv`, `residuals_<class>_2026-11-15.csv.gz` (per record, GMM and measure), `residuals_summary_2026-11-15.csv`, `trends_2026-11-15.csv`, `trends_bins_2026-11-15.csv`, `scores_2026-11-15.csv` (common and own sets), `scores_subsets_2026-11-15.csv`.
-- **figures:** `data.png`; `z_<class>_<imt>.png` (z histograms); `trends_<class>_<imt>.png`; `scores.png` (LLH and EDR with bootstrap ranges, current tree marked); `tau_phi.png`.
+- **figures** (pituplots report theme; `gm1_figs.py` runs alone on the tables): `data.png`; `resid_example.png` (how to read the residuals, Montalva et al. 2017 at PGA); `z_<class>.png` and `trends_<class>.png` (eight set models, three periods); `scores.png` (14 models, ordered by mean rank, bootstrap ranges); `tau_phi.png`; the four `summary_*.png` of section 10. How to read each one, and a listing for slides: `gmm/FIGURES_GUIDE.md`.

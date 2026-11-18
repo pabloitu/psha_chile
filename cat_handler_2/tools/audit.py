@@ -87,7 +87,7 @@ def main(p=None):
         t.append(v.groupby("source")["le"].describe()[["count", "50%", "max"]].to_string())
 
     cols = ["id", "time_iso", "m", "longitude", "latitude", "depth", "sub_depth", "dz", "class", "reg", "mech", "dom", "dd"]
-    df.loc[df["class"].isin(SLAB + ["deep_unknown", "deep_nest"]), cols].to_csv(p.parent / "audit_events.csv", index=False)
+    df.loc[df["class"].isin(SLAB + ["sub_slab", "deep_nest"]), cols].to_csv(p.parent / "audit_events.csv", index=False)
     (p.parent / "audit.txt").write_text("\n".join(t) + "\n")
     print("\n".join(t))
 

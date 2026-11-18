@@ -7,7 +7,7 @@ import figs as F7  # C14 figures, before build puts fits/ on the path
 import palette
 import build as B  # noqa: E402
 
-F7.FIG = B.HERE / "figs" / B.DATE
+F7.FIG = B.OUT / "figs" / B.DATE
 DH = 0.1
 SECT = [-20.0, -23.0, -30.0, -33.0, -38.0]
 NEST_EXT = [-68.6, -65.2, -25.6, -22.4]

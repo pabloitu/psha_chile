@@ -17,7 +17,7 @@ import table as TB
 
 HERE = Path(__file__).resolve().parent
 # settings
-DATE = "2026-11-17"
+DATE = "2026-11-18"
 TAB, FIG = HERE / "tables", HERE / "figs" / DATE
 # paper and supplement figures (FIGURES.md), one folder per kind: completeness, fits, declustering
 PAPER = HERE / "FIGURES"
@@ -49,8 +49,8 @@ UNITS = {"interface": dict(cls="interface", pad=0.2, family="interface"),
          "seg2": dict(cls="interface", lat=(-37.0, -32.0), pad=0.2, name="interface, 37–32° S", family="segments"),
          "seg3": dict(cls="interface", lat=(-32.0, -26.0), pad=0.2, name="interface, 32–26° S", family="segments"),
          "seg4": dict(cls="interface", lat=(-26.0, -17.6), pad=0.2, name="interface, 26–17.6° S", family="segments")}
-# in-slab: Mmax observed maximum + 0.2
-UNITS.update({c: dict(cls=c, pad=0.2, family="in-slab") for c in ("intraslab_shallow", "intraslab_intermediate", "jujuy_nest")})
+# in-slab: Mmax observed maximum + 0.2; fitted from 1964 only (ISC Bulletin start; the deep Abe (1982) Mw of 1905-1963 run 0.36 high; DECISIONS, Statistics)
+UNITS.update({c: dict(cls=c, pad=0.2, since=1964, family="in-slab") for c in ("intraslab_shallow", "intraslab_intermediate", "jujuy_nest")})
 # crustal: the same Mmax rule (the largest event of any year). One b for the four classes, that of the crustal
 # family fitted as one unit (all crustal weight together); each class its own rate.
 # The crustal classes are fitted on the steps of the table from 1976 on only: 1964-1975 is short of events at

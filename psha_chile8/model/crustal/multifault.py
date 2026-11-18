@@ -22,7 +22,7 @@ import geo  # noqa: E402
 TAB, FIG = F.HERE / "tables", F.HERE / "figs"
 
 # settings
-DATE = "2026-11-16e"
+DATE = F.DATE
 DB, CLS = "A", "arc"
 PSI = 0.8
 DEPTHS = (10.0, 20.0)

@@ -15,6 +15,7 @@ B15 part 2 (the final run on 17g) is not run. Everything below was checked on ca
 
 ## Left, in order
 1. **In-slab and crustal fits** on the new tables and the new style. Start from `fits/FIGURES/fits/fmd_classes.png` (drawn by the trial, not reviewed with Pablo). Open there: intermediate in-slab fails the large-event check (old magnitudes before 1964); the in-slab b bends below Mw 5.8 (CAT, 18 Nov: not magnitudes; FITS: not weights); Jujuy nest b 1.16 on 17g (1.23 on 17f); crustal own b against family b (forearc 0.92 and arc 1.05 could hold their own; backarc, Patagonia cannot); the crustal table now starts at 1981 for Mw 5.0.
+   - **Method to try first (Pablo, 18 Nov):** b by penalized maximum likelihood with the b of a tectonic super-zone as prior, as in ESHM13 (Woessner et al. 2015) and ESHM20 (Danciu et al.), after Johnston et al. (1994) / EPRI CEUS-SSC (2012); to check in the papers. Super-zones: the crustal family for the four crustal classes (replaces the fixed family b), the in-slab family for shallow, intermediate and the nest, the margin for the four interface segments. Prior width from the scatter of b within the super-zone, as ESHM does (to confirm). Other methods tried on the margin (trial, `drafts/fits/alt_methods/`): b = 1 fixed, penalized ML with a trial prior 1.0 ± 0.1, two-branch line (ΔAIC +0.8); Kijko–Sellevoll (1989, 1992) not tried, the candidate for the in-slab excess of large events before 1964. Trap: profile lnL over b with the magnitude-error weight held at one b (`bw`).
 2. **Declustered fits** of all units with the four algorithms (`run_declustered.py`), and the scoring for the co-authors (b against b-positive, Poisson test, great mainshocks kept).
 3. **Pad tables** (`run_pad.py`).
 4. **The final run (B15 part 2) and the CURRENT and DATA lines:** fits, declustered fits, table, pad, declustered catalogues, "catalogue the fits and models are built on" → 17g; DATA rows; WORKLOG with b, N(≥ 6), N(≥ 7), Mmax, corner per unit against 16f; note for IF, IS and CR.
@@ -48,3 +49,9 @@ Order matters: `run.py` reads the `nn_family` clusters of `decluster.py` (`run.C
 
 ## Not placed
 - Nothing else.
+
+## Addendum, 18 Nov (later): in-slab and crustal reviewed, figures consolidated
+- Item 1 of "Left" done: in-slab classes fitted from 1964 (DECISIONS, Statistics; FITS.md section 5); crustal classes keep the family b (DECISIONS). Interface unchanged.
+- Class figure (`fmd_classes`) final style (`fits/FIGURE_STYLE_fmd.md`): domain maps read `data/class_domains_2026-11-18.geojson` (`fits/domains.py`). Quick redraw without refitting: `drafts/fits/trial/classes_only.py`.
+- Dates of the final run moved to **2026-11-18** (`run.DATE`, `run_declustered.DATE`, `decluster.DATE`); no file of that date exists yet. All fits so far are trial outputs (`drafts/fits/trial/`); the final tables are written by the commands above.
+- Still left: items 2–6 (declustered fits and scoring, pad tables, final run with CURRENT/DATA lines and notes to IF, IS, CR; B16; C16). Notes sent: `2026-11-18_FITS_to_IS.md`, `2026-11-18_FITS_to_CR.md` (events outside the source grids).

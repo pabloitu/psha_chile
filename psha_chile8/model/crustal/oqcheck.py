@@ -61,7 +61,7 @@ def job():
     """Job folder with the reference logic tree, its files and a one-branch GMM tree."""
     import shutil
     D.mkdir(parents=True, exist_ok=True)
-    for f in ["lt_crustal_reference.xml"] + json.loads((B.NR / "branches.json").read_text())["tornado"]["reference"]["branches"][0]["files"]:
+    for f in ["lt_crustal_reference.xml"] + next(r for r in json.loads((B.NR / "tornado.json").read_text())["rows"] if r["id"] == "reference")["branches"][0]["files"]:
         shutil.copy(B.NR / f, D / f)
     B.X.gmm_tree(D / "gmm_lt.xml", B.TRT, GSIM)
     (D / "job.ini").write_text(JOB.format(lon=SITE[1], lat=SITE[2], lt="lt_crustal_reference.xml"))

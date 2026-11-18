@@ -15,6 +15,8 @@ import background as BG  # noqa: E402
 import join as J  # noqa: E402
 
 SSM = Path("/data/PyCharmProjects/smoothed_seismicity")
+# the published crustal folder (CURRENT.md, Crustal)
+NRC = BG.current("sources and tree", "Crustal")[0]
 
 
 def grid(lo=(-72, -68), la=(-35, -31), step=0.1):
@@ -80,14 +82,15 @@ def test_every_shape_returns_its_target_moment_and_mmax_on_the_grid():
         assert abs((mx - F.R.MMIN) / F.R.DM - round((mx - F.R.MMIN) / F.R.DM)) < 1e-9
 
 
-def test_branch_mean_is_rates_source():
+def test_branch_mean_is_rates_source(monkeypatch):
+    monkeypatch.setattr(F.R, "DEPTH", {10.0: F.THICK.get(10.0, 0.0), 20.0: F.THICK.get(20.0, 0.0)})
     r = np.array([F.branch(120.0, 85.0, 180.0, 3.0, 1.0, z, p, k)[0] for p, z, k in F.BR])
     assert np.allclose(F.W @ r, F.R.source(120.0, 85.0, 180.0, 3.0, 1.0)[0], rtol=1e-12)
     assert abs(F.W.sum() - 1) < 1e-12
 
 
 def test_fagnano_is_one_system_source_in_the_files():
-    fs = sorted((HERE / "nrml" / "2026-11-16g").glob("cr_seg_*_psi080_t20_al2.xml"))
+    fs = sorted(NRC.glob("cr_seg_*_psi080_t20_al2.xml"))
     if not fs:
         pytest.skip("fault files not built")
     for f in fs:
@@ -109,7 +112,7 @@ def test_background_lists_give_the_fit(shape):
             assert abs(m[-1] - BG.CLASSES[c]["mmax"]) < 1e-9
         else:
             assert abs(m[-1] - BG.CLASSES[c]["mmax"] - 0.2) < 1e-9
-            assert abs(r.sum() / row["N5"] - 1) < 1e-6
+            assert abs(r[m >= 5.0 - 1e-6].sum() / row["N5"] - 1) < 1e-6
 
 
 def test_join_keeps_the_fit_below_6_and_never_goes_negative():
@@ -141,7 +144,7 @@ def test_class_maximum_variant_keeps_the_moment_of_every_branch():
 
 
 def test_fault_files_use_leonard_scaling():
-    fs = sorted((HERE / "nrml" / "2026-11-16g").glob("cr_seg_A_psi080_t20_al2.xml"))
+    fs = sorted(NRC.glob("cr_seg_A_psi080_t20_al2.xml"))
     if not fs:
         pytest.skip("fault files not built")
     t = fs[0].read_text()
@@ -187,23 +190,22 @@ def test_nodal_plane_mix_sums_to_one():
         assert sum(int(round(float(a) * 1e4)) for a, *_ in p) == 10000
 
 
-def test_tree_weights_and_files():
-    import json
-    NR = HERE / "nrml" / "2026-11-16g"
-    f = NR / "branches.json"
-    if not f.exists():
-        pytest.skip("files not built")
-    br = json.loads(f.read_text())
-    assert abs(sum(b["weight"] for b in br["tree"]) - 1) < 1e-9
-    for b in br["tree"] + [x for r in br["tornado"].values() for x in r["branches"]]:
-        for x in b["files"]:
-            assert (NR / x).exists(), x
-    for r in br["tornado"].values():
-        assert abs(sum(b["weight"] for b in r["branches"]) - 1) < 1e-9
+def test_tree_and_tornado_manifests():
+    import build as B
+    if not (NRC / "tree.json").exists():
+        pytest.skip("no tree.json in the published folder (built before the manifests)")
+    B.check(NRC)
+
+
+def test_branch_sets_add_up_to_one_with_no_zero_weight():
+    import build as B
+    for s in B.branch_sets():
+        w = [x["weight"] for x in s["branches"]]
+        assert min(w) > 0 and abs(sum(w) - 1) < 1e-12, s["id"]
 
 
 def test_multi_fault_rates_read_back():
-    t = HERE / "tables" / "oqcheck_2026-11-16g.csv"
+    t = HERE / "tables" / f"oqcheck_{NRC.name}.csv"
     if not t.exists():
         pytest.skip("check not run")
     x = pd.read_csv(t)
@@ -214,7 +216,7 @@ def test_multi_fault_rates_read_back():
 
 def test_section_ids_are_unique_across_files():
     import re
-    NR = HERE / "nrml" / "2026-11-16g"
+    NR = NRC
     fs = sorted(NR.glob("cr_sections_*.xml"))
     if not fs:
         pytest.skip("files not built")
@@ -242,3 +244,9 @@ def test_strict_ucerf3_ruptures_are_single_paths_of_whole_faults():
     assert any(set(r["faults"]) == {0, 1, 2} for r in sc)
     for r in sc:
         assert r["full"] and all(sub.fault.eq(q).sum() == sum(1 for x in r["subs"] if sub.fault[x] == q) for q in r["faults"])
+
+
+def test_database_A_has_the_san_ramon_trace_of_17_nov():
+    s, _, _ = F.load("A")
+    q = s[s.fid == "CL-001a"].iloc[0]
+    assert abs(q.L - 44.4) < 0.5 and abs(q.sr - 0.4) < 1e-9 and abs(q.dip - 47.5) < 1e-9

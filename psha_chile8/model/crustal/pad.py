@@ -19,7 +19,7 @@ import gr
 DATE = F.DATE
 PADS = (0.0, 0.2, 0.4)
 FPADS = (0.0, 0.2, 0.4)
-REF = dict(db="A", jump=15.0, z=10.0, psi=0.8)
+REF = dict(db="A", jump=15.0, z=20.0, psi=0.8)
 SEEDS = tuple(range(1, 11))
 
 

@@ -51,7 +51,7 @@ def basemap(a, lat=(-58.5, -16.5), lon=(-80, -62), cities=True, trench=True, leg
         for name, line in K.trenches().items():
             a.plot(*line.xy, "k-" if name == "nazca" else "k--", lw=1, label="Nazca trench" if name == "nazca" else "Antarctic trench (Bird 2003)")
         _, fp = K.K.footprint()
-        a.fill(*fp.exterior.xy, color=CLSC["patagonia_interface"], alpha=0.25, lw=0, label="Antarctic interface band (150 km)")
+        a.fill(*fp.exterior.xy, color=CLSC["antarctic_interface"], alpha=0.25, lw=0, label="Antarctic interface band (150 km)")
     if cities:
         for n, (x, y) in C.CITIES.items():
             a.plot(x, y, "k^", ms=5)
@@ -277,8 +277,8 @@ def large_events(ev, rm):
     agree = rm.dropna(subset=["id"]).set_index("id")["agree"]
     e["agree"] = e["id"].map(agree).fillna("")
     fig, a = plt.subplots(figsize=SIZE)
-    order = ["slab_interface", "patagonia_interface", "intra_slab", "slab_deep", "forearc", "intraarc", "backarc", "patagonia_crustal",
-             "outer_rise", "unresolved", "deep_unknown", "unclassified"]
+    order = ["slab_interface", "antarctic_interface", "intra_slab", "slab_deep", "forearc", "intraarc", "backarc", "patagonia_crustal",
+             "outer_rise", "unresolved", "sub_slab", "unclassified"]
     order = [c for c in order if c in set(e["class"])]
     for i, c in enumerate(order):
         k = e[e["class"] == c]
@@ -301,7 +301,7 @@ def patagonia(ev):
     fig, ax = plt.subplots(1, 2, figsize=SIZE, gridspec_kw={"width_ratios": [1.1, 1]})
     basemap(ax[0], lat=(-58.5, -43.5), lon=(-78.5, -63))
     e = ev[ev["latitude"] < C.SOUTH_LAT + 2.5]
-    for c in ("patagonia_interface", "patagonia_crustal", "outer_rise", "slab_interface", "intraarc", "unresolved", "unclassified"):
+    for c in ("antarctic_interface", "patagonia_crustal", "outer_rise", "slab_interface", "intraarc", "unresolved", "unclassified"):
         k = e[e["class"] == c]
         if len(k):
             ax[0].scatter(k["longitude"], k["latitude"], s=4 + 5 * (k["mag"] - 3.9) ** 2, c=CLSC.get(c, "0.5"), lw=0, alpha=0.7,
@@ -388,7 +388,7 @@ def slide_sections(ev, rm):
                 a.fill_between(g["x"], g["top_lo"], g["bot"], color="0.5", alpha=0.16, lw=0, zorder=0, label="subducting plate (Slab2)")
                 a.fill_between(g["x"], g["top_lo"], g["top_hi"], color="0.3", alpha=0.45, lw=0, zorder=1, label="Slab2 top")
             if t["fam"] == "antarctic":
-                a.add_patch(plt.Rectangle((0, 0), C.PAT_WIDTH_KM, C.PAT_MAX_Z, color=CLSC["patagonia_interface"], alpha=0.15, lw=0,
+                a.add_patch(plt.Rectangle((0, 0), C.PAT_WIDTH_KM, C.PAT_MAX_Z, color=CLSC["antarctic_interface"], alpha=0.15, lw=0,
                                           label="Antarctic interface footprint"))
             a.axvline(0, c="0.35", lw=0.8, ls=(0, (4, 3)), zorder=1)
             sub = sub.sort_values("mag")

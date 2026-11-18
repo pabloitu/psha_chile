@@ -1,8 +1,10 @@
 """Liquine-Ofqui multi-fault fault systems for the source model (S3/S5b): per database, jump distance, thickness and
 psi, the SHERIFS partition (multifault.py) on the strict UCERF3 scenarios (rupset.py), averaged over SEEDS, and the
 fault MFD per crustal class of the whole system (the other faults with their single-fault rates, the mean of the six
-shapes at that psi and thickness). Results cached in tables/mfsrc_<case>_<DATE>.pkl.
+shapes at that psi and thickness). Results cached in tables/mfsrc_<case>_<DATE>.pkl with a stamp of their inputs (fits
+tables, fault database, SHERIFS and path-rule settings); a cache whose stamp differs is rebuilt.
 """
+import hashlib
 import pickle
 
 import numpy as np
@@ -28,6 +30,20 @@ def case(db, jump, z, psi, splays=False, pad=0.2, fpad=0.0):
     return k
 
 
+def stamp(db, pad=0.2):
+    """md5 of the inputs of a fault system: fits of the faults and of the class Mmax pad, fault database files, and the
+    SHERIFS and rupture-set settings."""
+    import background as BG
+    import rupset as RS
+    f = F.DBS[db]["file"]
+    h = hashlib.md5()
+    for x in [F.FITS, BG.PAD_FITS.get(pad, BG.FITS0)] + sorted(f.parent.glob(f.stem + ".*")):
+        h.update(x.read_bytes())
+    h.update(repr((SEEDS, MF.MAIN_SR, MF.DSR, MF.NTOP, MF.AZ_JUNCTION, MF.AZ_TOTAL, MF.AZ_CUM, MF.RAKE_CUM,
+                   MF.RUPSET, RS.SUB_KM, RS.MIN_SUBS, F.R.MU, F.R.MMIN)).encode())
+    return h.hexdigest()
+
+
 def system(db, jump, z, psi, s=None, rr=None, splays=False, pad=0.2, fpad=0.0):
     """
     Fault system of one multi-fault branch: the LOFS faults by SHERIFS on the strict UCERF3 scenarios (rupset.py),
@@ -42,8 +58,12 @@ def system(db, jump, z, psi, s=None, rr=None, splays=False, pad=0.2, fpad=0.0):
         J.CENTRES (LOFS sources by the class of their longest member).
     """
     fn = TAB / f"mfsrc_{case(db, jump, z, psi, splays, pad, fpad)}_{DATE}.pkl"
+    st = stamp(db, pad)
     if fn.exists():
-        return pickle.loads(fn.read_bytes())
+        x = pickle.loads(fn.read_bytes())
+        if x.get("stamp") == st:
+            return x
+        print(fn.name, "inputs changed, rebuilt", flush=True)
     import geopandas as gpd
     import background as BG
     gpd.options.io_engine = "fiona"
@@ -74,7 +94,7 @@ def system(db, jump, z, psi, s=None, rr=None, splays=False, pad=0.2, fpad=0.0):
         c = sl.cls[max(q["members"], key=lambda f: sl.L[f])]
         cls[c][k0:k0 + n] += r[:n]
     out = dict(db=db, jump=jump, thickness=z, psi=psi, splays=splays, pad=pad, sl=sl, src=src, rate=rate, other=oth,
-               other_rates=ro, cls=cls, scenarios=len(ch))
+               other_rates=ro, cls=cls, scenarios=len(ch), stamp=st)
     fn.write_bytes(pickle.dumps(out))
     BG.set_pad(0.2)
     F.FAULT_PAD = 0.0

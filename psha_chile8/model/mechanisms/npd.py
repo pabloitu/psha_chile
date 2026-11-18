@@ -3,8 +3,8 @@
 Each mechanism is typed from the plunges of its P, T and B axes (Frohlich 1992); an oblique event goes to the type of
 its largest plunge. Per class and type: one representative plane (axial circular mean strike on the plane dipping in
 the mean direction, weighted median dip and rake) and its auxiliary plane, each at half the type's weight. Events
-inside the completeness table of B11, counted with their class weight. A class with fewer than MIN_N weighted
-mechanisms takes the mechanism of its dominant fault system (FAULT). Writes npd_<DATE>.csv, tables/ and figs/.
+inside the completeness table of the fits of each class (run.table_of), counted with their class weight. A class with fewer than MIN_N weighted
+mechanisms takes the mechanism of its dominant fault system (FAULT). Writes npd_<DATE>.csv, tables/ and figs/ (ternary with the representative mechanisms, beach balls).
 """
 import sys
 from pathlib import Path
@@ -16,13 +16,15 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / "fits")]
 import gr as G  # noqa: E402
+import run as R  # noqa: E402
 
 # settings
-DATE = "2026-11-16d"
-CAT = ROOT / "catalog/frozen/2026-11-16c/catalog_2026-11-16c.csv"
-TABLE = ROOT / "fits/tables/table_2026-11-16e.csv"
+DATE = "2026-11-18"
+CAT = ROOT / "catalog/frozen/2026-11-17g/catalog_2026-11-17g.csv"
+# the table of the fits per class (run.table_of: in-slab from 1964, crustal from 1976)
+TABLE = ROOT / "fits/tables/table_2026-11-18.csv"
 # earlier table that the moves are reported against
-PREV = "2026-11-16c"
+PREV = "2026-11-16d"
 TYPES = ("normal", "reverse", "strike-slip")
 # Frohlich (1992): reverse if the T plunge > 50°, strike-slip if B > 60°, normal if P > 60°
 LIMITS = {"reverse": 50.0, "strike-slip": 60.0, "normal": 60.0}
@@ -157,8 +159,7 @@ def load():
     te = G.tend(a)
     d = a[a.mech_src.notna()].copy()
     tb = pd.read_csv(TABLE)
-    yr, _ = G.table_years(list(zip(tb.mw_from, tb.complete_since)), te)
-    d["inside"] = d.t.to_numpy() >= yr[np.clip(G.kbin(d.mw), 0, yr.size - 1)]
+    tb = list(zip(tb.mw_from, tb.complete_since))
     d["kind"], d["oblique"], pl = kind(d.strike1.to_numpy(), d.dip1.to_numpy(), d.rake1.to_numpy())
     d["pP"], d["pT"], d["pB"] = pl.T
     d["x"], d["y"] = ternary(pl)
@@ -166,6 +167,8 @@ def load():
     for c in CLASSES:
         q = d[d["W_" + c] > 0].copy()
         q["cls"], q["w"] = c, q["W_" + c]
+        yr, _ = G.table_years(R.table_of(c, tb), te)
+        q["inside"] = q.t.to_numpy() >= yr[np.clip(G.kbin(q.mw), 0, yr.size - 1)]
         ev.append(q)
     return pd.concat(ev, ignore_index=True)
 
@@ -202,7 +205,8 @@ def run():
     pd.DataFrame(cnt).to_csv(HERE / f"tables/counts_{DATE}.csv", index=False)
     pd.DataFrame(sh).to_csv(HERE / f"tables/shares_{DATE}.csv", index=False)
     pd.DataFrame(drop, columns=["cls", "kind", "share"]).to_csv(HERE / f"tables/dropped_{DATE}.csv", index=False)
-    figure(ins)
+    figure(ins, npd)
+    balls(npd)
     moved()
     print(pd.DataFrame(cnt).to_string(), pd.DataFrame(sh).to_string(), npd.to_string(), pd.DataFrame(drop).to_string(),
           sep="\n\n")
@@ -251,7 +255,7 @@ def moved():
     print(m.to_string())
 
 
-def figure(ins):
+def figure(ins, npd):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
@@ -265,7 +269,7 @@ def figure(ins):
         if c is None:
             for m in (5, 6, 7, 8):
                 ax.scatter([], [], s=(m - 4.2) ** 3 * 6, color="0.5", alpha=0.6, label=str(m))
-            ax.scatter([], [], marker="*", s=260, color="0.7", edgecolor="0.2", lw=0.8, label="fault\nmechanism")
+            ax.scatter([], [], marker="*", s=260, color="0.7", edgecolor="0.1", lw=0.9, label="representative\nmechanism\n(weight)")
             ax.legend(loc="center", title="Mw", labelspacing=1.4, borderpad=1)
             continue
         q = ins[ins.cls == c].sort_values("mw")
@@ -282,9 +286,11 @@ def figure(ins):
         ax.plot(*tri.T, color="0.4", lw=0.9, zorder=1)
         ax.scatter(q.x, q.y, s=(q.mw - 4.2) ** 3 * 6, color=P.CLASS_COLOR[c], alpha=0.25 + 0.5 * q.w,
                    edgecolor="white", lw=0.3, zorder=2)
-        if q.w.sum() < MIN_N:
-            fx, fy = ternary(kind(*np.array([FAULT[c]]).T)[2])
-            ax.scatter(fx, fy, marker="*", s=260, color=P.CLASS_COLOR[c], edgecolor="0.2", lw=0.8, zorder=3)
+        r = npd[npd["class"] == c].iloc[::2]
+        fx, fy = ternary(kind(r.strike.to_numpy(), r.dip.to_numpy(), r.rake.to_numpy())[2])
+        ax.scatter(fx, fy, marker="*", s=120 + 500 * 2 * r.weight.to_numpy(), color=P.CLASS_COLOR[c], edgecolor="0.1", lw=0.9, zorder=3)
+        for x, y, w in zip(fx, fy, 2 * r.weight.to_numpy()):
+            ax.text(x + 0.09, y + 0.06, f"{w:.2f}", fontsize=8, color="0.15", zorder=4)
         for k, (x, y) in corner.items():
             ax.text(x, y + (0.1 if k == "strike-slip" else -0.12), k, ha="center", va="bottom" if k == "strike-slip" else "top",
                     fontsize=10, color="0.3")
@@ -295,6 +301,34 @@ def figure(ins):
     (HERE / "figs").mkdir(exist_ok=True)
     fig.savefig(HERE / "figs/ternary.png", dpi=150)
     fig.savefig(HERE / f"figs/ternary_{DATE}.png", dpi=150)
+
+
+def balls(npd):
+    """Representative mechanisms as beach balls, one per type (first plane of each pair), sized by the type weight."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from obspy.imaging.beachball import beach
+    import palette as P
+    P.apply()
+    fig, axs = plt.subplots(2, 4, figsize=(10, 4.6))
+    for r, cl in enumerate((FAMILY["inslab"], FAMILY["crustal"])):
+        for k, a in enumerate(axs[r]):
+            a.set_xlim(0, 3.3)
+            a.set_ylim(0, 1.5)
+            a.set_aspect("equal")
+            a.axis("off")
+            if k >= len(cl):
+                continue
+            q = npd[npd["class"] == cl[k]].iloc[::2]
+            a.set_title(P.CLASS_NAME[cl[k]], fontsize=9)
+            for i, m in enumerate(q.itertuples()):
+                x = 0.55 + 1.1 * i
+                a.add_collection(beach((m.strike, m.dip, m.rake), xy=(x, 0.95), width=0.35 + 0.55 * (2 * m.weight) ** 0.5,
+                                       facecolor=P.CLASS_COLOR[cl[k]], linewidth=0.6))
+                a.text(x, 0.2, f"{m.strike:.0f}/{m.dip:.0f}/{m.rake:.0f}\nw {2 * m.weight:.2f}", ha="center", va="center", fontsize=6.5)
+    fig.tight_layout()
+    fig.savefig(HERE / f"figs/beachballs_{DATE}.png", dpi=200)
 
 
 if __name__ == "__main__":
