@@ -108,6 +108,10 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - One-at-a-time tornado at PGA 475 yr over 10, then 14 cities; ≥ 5 % rule for branches.
 - Integration distance 400 vs 500 km: small; final 600 / 500 / 300 per family.
 - Family-split equivalence proven exactly (level 1) and by sampling (level 2, ~1 %).
+- A tornado figure reads best as vertical bars with the change of the total, the family-alone range pale behind it, every branch labelled and the reference at 0 (`hazard/FIGURE_STYLE_tornado.md`, 16 Nov).
+- Single-GMM results need no jobs of their own: each model's curve is in the realizations of the set job (S5a).
+- A geodetic branch copies the b of the seismic fit beside it. Under a declustered b the same moment moves into large events; build geodetic branches on the full-catalogue fit only (16 Nov).
+- Mc(t) on interface events only (17g, 18 Nov) gives the same whole-margin table within a few years (5.0 from 1975 against 1981) and the same margin fit (b 0.942, N(≥ 7) within 0.3 %). In a quiet segment a class-only series cannot resolve its history: in the south (37–46° S) it reads 5.0 from 1964, while all events show the real shortfall before 1999 (half the Mw 5.0–5.1, all smaller events converted). Read Mc on all events of a region; completeness belongs to the network, not to the class.
 
 ## Pitfalls
 
@@ -191,12 +195,21 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - **nofaults branch on the capped background** leaves a hole at M ≥ 6 near faults. The no-fault baseline uses the uncapped grid.
 - **Trimmed point-source MFDs.** Capped cells drop trailing zero bins; consistency checks must compare with ≤, not ==.
 - **Concepción in-slab excess** (2–3×) was a pattern-weight artifact, not a catalog issue.
+- Whole-fault chains by the UCERF3 thresholds alone make branching, overlapping ruptures that drain slip; path rules on subsections with the strict whole-fault rule give linear chains (S3, 16 Nov).
+- SHERIFS keeps one slip budget per fault, so a partly ruptured fault cannot be represented: merge to whole faults or make the subsections faults (S3, 16 Nov).
+- OpenQuake 3.27 multi-fault files: comma-separated section ids, one planar surface per section, NRML 0.5 with the investigation time on the source model, section ids unique across every sections file of a job (S3, 16 Nov).
+- Per-cell in-slab depth statistics jump at the 50 km slab-top line because of the ± 15 km interface band; use one rule for every cell and class-weighted events (C15, 16 Nov).
+- Two classes on the same cells double the point sources; write one source per cell with the summed MFD (same hazard, 58 % of the time) (S2, 16 Nov).
+- Module caches keyed by a date in another module (`mfsrc_*.pkl` on `faults.DATE`) silently reuse old sources; bump the date or delete the cache when a rule changes (S3).
 
 ### Hazard
 - **OpenQuake realization ordering.** `full_lt/source_model_lt` is in logic-tree file order, realizations are enumerated sorted by branch ID, so reconstructed labels were swapped (yc ↔ nofaults). Reconstructing with a Cartesian product also fails when branches have different source sets. Avoid: read labels from the datastore realization objects; sortable branch IDs (`b01_…`); a check that the weighted mean of the realizations equals the stored mean; a physical guard (no-fault branch is the minimum).
 - **Mixed result files.** Puerto Williams 0.105 g in `summary.txt` vs 0.020 g in `fr_summary.csv`: one run probably lacked the Fagnano faults. Record the calc ID and build.json with every result table.
 - **MMIN_HAZ across families** must match, or the M5–6.5 range is double counted or missing.
 - **hazard2csep**: complex-fault mesh spacing, coarse simple-fault mesh, CSV precision, inverted point-source depth factor; check projected rates against the NRML totals.
+- OpenQuake refuses fault sources above 52 000 ruptures unless `strict = false`; the full-margin interface has 101 864 at a 10 km mesh (S5a).
+- Job rows left as executing with no live process block `oq engine`; check `oq engine --lj` before a batch and abort them (S1, 16 Nov).
+- OpenQuake sorts sites by longitude: match results to cities by coordinates, never by order (S2).
 
 ### Working
 - A check that finds a problem tends to produce a patch rule for a few events. Before adding one, ask whether it has a citation and whether a quality-check sentence would do. Table of rules by support: `catalog/RULES_LOCATION_MAGNITUDE.md` (13 Nov).
@@ -206,3 +219,7 @@ What earlier rounds (psha_chile4–7, cat_handler_2, the A2 night run) taught us
 - Code tested in a sandbox without OpenQuake or Slab2 is untested for those parts; say so.
 - A process pool with numpy needs `OMP_NUM_THREADS=1`: 14 workers without it took the machine to a load of 130 and a 45 s job to 10 minutes (B11).
 - Four generations of fit code plus hand edits left no single reproducible path. One script per family from a dated catalog.
+- Hard-coded dates go stale (the crustal background read an old nodal-plane table for a day). Inputs are read from `CURRENT.md`; the owner updates its line on publishing (16 Nov).
+- Publishing a shared input five times in a day meant five rebuild rounds. Batch catalogue and fits changes and publish once (16 Nov).
+- Decisions made inside a session and only proposed in the WORKLOG lagged DECISIONS by half a day; the session writes Pablo's confirmed decisions itself (16 Nov).
+- The chat-to-device file bridge sometimes writes the previous version silently: after every write, re-read the file and compare, and write again until it matches (15–16 Nov).
