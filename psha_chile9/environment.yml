@@ -1,0 +1,20 @@
+# draft: the SETUP session creates the environment, tests it and pins the versions it got
+name: psha9
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - geopandas
+  - shapely
+  - pyproj
+  - cartopy
+  - rasterio
+  - pyyaml
+  - pytest
+  - pip
+  - pip:
+      - openquake.engine==3.27.*   # the same on pansito, rs1, rs28, rs37 (D-ENV-01)

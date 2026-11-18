@@ -1,0 +1,212 @@
+# DECISIONS: current rules of psha_chile9
+
+Current rules only. Each line: id, the rule, the reason in one clause, the date. Superseded lines go to `DECISIONS_history.md`. Written by the orchestrator only; sessions report decisions in their session file.
+
+Consolidated from psha_chile8 `DECISIONS.md` with Pablo on 18 Nov, every section. psha_chile8 `DECISIONS.md` is history; superseded lines are in `DECISIONS_history.md`. The Data section fills in part 2.
+
+## Orchestration
+- D-ORC-01 How the work is organised: `claude/DESIGN_psha_chile9_orchestration.md` (project doc), rev. 4 (18 Nov).
+- D-ORC-02 Pablo commits when a run is published or when he switches machines (18 Nov).
+- D-ORC-03 "Review in <session>" on a rule means: it holds until that session's work confirms or changes it (18 Nov).
+
+## Scope
+- D-SCO-01 One paper: hazard model, sensitivity, logic tree (18 Nov).
+- D-SCO-02 Faults are always in the model, with their own terms: the paper asks how much faults raise the hazard (30 Sep, 8 Nov).
+- D-SCO-03 Settings are grouped by work section, one config per stage, with per-class settings next to the class (24 Oct, 18 Nov).
+
+## Environment
+- D-ENV-01 OpenQuake 3.27 on every machine (pansito, rs1, rs28, rs37), in the `psha9` environment: the multi-fault files were built for it, and one version gives the same result wherever a job runs (18 Nov).
+
+## Data
+## Catalogue
+- D-CAT-01 The catalogue is built from the source catalogues, again in psha_chile9 (cheap), and compared by eye with psha_chile8's `2026-11-17g` (18 Nov).
+- D-CAT-02 Historical before 1904, instrumental from 1904 (the start of ISC-GEM, the first global instrumental catalogue). Cabello et al. (2025) covers 1500–today, but from 1904 it compiles the same instrumental sources with its own, wrong conversions, so it is the source only before 1904. From 1904 it serves as a check list: an event in Cabello that no instrumental catalogue has is checked in the literature and added only if it existed (review in CAT, Q-38) (S. Ruiz, 10 Nov; 18 Nov).
+- D-CAT-03 Sources:
+  - instrumental: Centennial (Wayback snapshot 2013-09-09), ISC-GEM, ISC Bulletin (with ISC-EHB quality L1–L3), GCCEL (location and depth benchmark), Potin et al. (until 2020-07-16), CSN web (from 2020-01-01, not relocated);
+  - GCMT and ComCat: mechanisms and the Mw reference;
+  - Ruiz and Madariaga (2018): the authority for the class and Mw of the events it names.
+
+  CSN in ISC (GUC origins) only if CAT finds it needed: it brings no event of its own, and its magnitudes are the CSN values Potin also holds (review in CAT, Q-36) (10–11 Nov, 18 Nov).
+- D-CAT-04 Candia and Macedo (2026) is cited and compared, not a source (11 Nov).
+- D-CAT-05 Each property (location, depth, magnitude, mechanism) has its own source order, set in the catalogue config. The orders start from S. Ruiz's starting order: Ruiz and Madariaga for large events, then Centennial, ISC-GEM, Potin, CSN; before 1904, Cabello (`PREFERENCES.md`) (10 Nov, 18 Nov).
+- D-CAT-06 Collection box: latitude −58 to −15.5, longitude −80 to −60. An event is kept if any of its origins is inside; the final cut is made on the chosen location; Ruiz and Madariaga is not cut. Review in DATA, Q-40: a collection area for the fits and a forecast area for the sources (10 Nov).
+- D-CAT-07 Sources as downloaded on 10–11 Nov 2026; nothing is downloaded again (18 Nov).
+- D-CAT-08 Matching: every earthquake gets one id.
+  - Identity links first: ISC event ids, and agency solutions inside the ISC event within 1.5 s and 10 km.
+  - Then time and distance windows per pair of sources, measured on known same-event pairs, never below 10 s / 50 km, wider for large events; before 1964, 60 s / 300 km, with every match reviewed.
+  - Magnitude never decides a match.
+  - Only the agencies listed in the catalogue config are used (the Chilean, Argentine, Peruvian and global ones); CAT lists them (review in CAT, Q-41) (11 Nov, 18 Nov).
+- D-CAT-09 An earthquake listed twice is merged into one event, its records joining the kept event: automatically where the copy is clear (tolerances in the catalogue config), by hand otherwise (`duplicates.csv`, with the reason) (17 Nov, 18 Nov).
+- D-CAT-10 Events a source flags as non-earthquakes (explosion, quarry blast, mining) are kept in their own class, `non-earthquake`, and enter no fit or source. Review in CAT, Q-39: whether Chilean mining events above native M 3.5 carry a flag (11 Nov, 18 Nov).
+- D-CAT-11 Ruiz and Madariaga events are matched by date (±1 day), latitude (within 2°) and name, checked by hand. They lend class and Mw, never coordinates. Where their table and text disagree, the reading backed by an independent source is used (`NOTE_SRuiz`) (10 Nov).
+- D-CAT-12 Location order (review in CAT, Q-42: where Potin is reliable):
+  - inside the local network (18–46° S, not east of the arc): local → GCCEL → ISC-EHB L1 / L2 → ISC → ComCat;
+  - outside it, and in 1964–1981: GCCEL → ISC-EHB L1 / L2 → ISC → ComCat → local;
+  - 1904–1963: Centennial where EHB-relocated, else ISC-GEM, then ISC (11 Nov).
+- D-CAT-13 A local record more than 50 km from every teleseismic and GCCEL record of the event is not used (13 Nov).
+- D-CAT-14 Depth (review in CAT, Q-42: which low-quality depths to keep, and the σ floors):
+  - An event takes the depth of the first source in the depth order whose depth was solved for. Agency default values and depths fixed by the locator carry no information and are not used. A fixed ISC-EHB L1 depth does count, because it is held at its depth-phase value.
+  - Offshore (more than 20 km from the coast), GCCEL and ISC-EHB L1 / L2 come before the local network.
+  - Never used: GCMT centroid depths (about 12 km deeper than hypocentres), and ISC or ComCat depths in place of Potin's.
+  - Each depth carries σ = the reported error where there is one, but at least 5 km, 10 km offshore (only coastal stations; depths there 5–12 km shallower than GCCEL), and 20 km before 1964.
+  - Without a usable depth, the depth stays unknown, with no filling from Slab2 (11–13 Nov).
+- D-CAT-15 Mw is converted only from native magnitudes, the values an agency measured, with our conversions at the final depth. A magnitude that is itself a conversion by another author (Centennial values from Abe 1982) is not native. Review in CAT, Q-43: what changes for the 19 in-slab and Jujuy-nest events of Mw ≥ 7 of 1915–1971. If adopted, the Abe-converted values become the in-slab Mmax comparison case. Replaces "deep Abe values stay as converted" (18 Nov).
+- D-CAT-16 Mechanisms: GCMT, then ComCat (not the legacy 2010 USGS WCMT tensors, whose moments are wrong), then, before 1976, the literature mechanisms ISC-GEM lists (13 Nov, 17 Nov).
+- D-CAT-17 A per-event value is corrected only from a source that was read: in `overrides_A6.csv` (property, value, reference, page, reason), applied after the merge, as the last step (13 Nov).
+- D-CAT-18 For the events Ruiz and Madariaga name, their Mw comes first unless a reason is found against it. Review in CAT, Q-44: why it differs by 0.1–0.3 from the measured GCMT Mw for 10 events after 1976 (18 Nov).
+- D-CAT-19 Calls by Pablo without a paper, each to review and record again with its reason in CAT (Q-45):
+  - 1513 Mw 8.7 interface;
+  - 2001-07-07 and 2015-09-16 23:18 interface;
+  - 1960-12-02 interface at 35 km;
+  - 1926-04-28 in-slab on the agency depths;
+  - Aysén 1960 at Mw 7.7, at the ISC-GEM epicentre;
+  - the dates 1849-12-17 and 1847-03-08;
+  - 1861 Mendoza crustal, on an abstract only;
+  - Papudo 2001 and 1967-03-13 under the general rule (13–17 Nov).
+- D-CAT-20 Pica 1768 (dated 1768-01-01 if no day is known), Taltal 1887 and 1907 Magallanes are checked in the literature and added if they happened. Completeness, not the catalogue, keeps them out of the fits (review in CAT, Q-38) (18 Nov).
+- D-CAT-21 `named_events.csv` lists every event named in the literature or the paper, with its reference (17 Nov).
+- D-CAT-22 Every event gets a class, deep-focus (below 300 km, outside the Jujuy nest) and outer rise included, even where no source uses it: the catalogue is complete in itself (18 Nov).
+## Magnitudes
+- D-MAG-01 The catalogue starts at Mw 4.5, for the spatial pattern, so conversions must be accurate at 4.5–6. Fits start at Mw 5.0; completeness is read with events from Mw 3.5 (10 Nov, 15 Nov).
+- D-MAG-02 One Mw scale (Hanks and Kanamori 1979) and one Mw per event, in this order:
+  - Ruiz and Madariaga for the events it names (D-CAT-18);
+  - a measured Mw: GCMT first above 5.4; below 5.4 the W-phase and regional Mw first (NEIC Mww, GUC Mwr and CSN web Mw, NEIC Mwr + 0.08, GFZ Mw + 0.04, CSN Mww last below 5.0), offsets measured on shared events (Lolli et al. 2023);
+  - a GCMT value below 5.4 with no other measured Mw is lowered by 0.162 × (5.4 − GCMT): a line fitted on 812 pairs, zero at 5.4 so there is no step (0.06 at 5.0, 0.10 at 4.75). Lolli et al. (2023) leave such values unchanged; we treat it as the magnitude-dependent offset of GCMT to the W-phase family, the same principle as the constant offsets of the other members;
+  - else one converted value, from the scale with the smallest measured scatter: NEIC / ISC Ms, CSN ML, ISC mb, NEIC mb, INPRES ML (as Allen et al. 2018; Christophersen et al. 2024) (11–13 Nov).
+- D-MAG-03 Before 1976 a moment-based value goes before a converted one, and Centennial before ISC-GEM at each level: Ruiz and Madariaga > Centennial Mw > ISC-GEM direct Mw > Centennial Ms / mB converted > ISC-GEM proxy > Cabello (before 1904) (S. Ruiz, 13 Nov).
+- D-MAG-04 Conversions only from the agencies that observe Chile or are the global references: ISC, NEIC, CSN / GUC, INPRES / SJA. Coda, duration and untyped magnitudes are not converted; an event with nothing else gets no Mw and is listed. Converting every ISC agency heaped the catalogue at Mw 5.0–5.1 (IDC, BJI surface-wave scales) (11–12 Nov).
+- D-MAG-05 Surface-wave magnitudes at any size, only for events no deeper than 60 km (Di Giacomo et al. 2015); a limit at Mw 5 biased the Mw ≥ 5 count by −15 to +10 % (11 Nov).
+- D-MAG-06 CSN moment magnitudes:
+  - a CSN regional Mw more than 0.3 from the median of two or more other moment magnitudes of the event is left out (26 values in psha_chile8). An outlier check, not argued further; review in CAT: show the 26 values against the others in a check figure;
+  - the GUC MW of the ISC Bulletin (sd 0.20, down to Mw 2) comes last among the measured values and never fits a relation or offset (13 Nov).
+- D-MAG-07 Conversions are our own, fitted on Chilean pairs (matched by time and distance only) with a reference Mw ≥ 4.0, by inverse regression: the native magnitude is regressed on Mw, the slope corrected for the Mw error, the relation inverted. Forward fits are biased high below native 5.5 because GCMT is incomplete there (Hausman and Wise 1977; Lolli et al. 2014, 2023).
+  - Forms: a line, or a line with a saturation hinge; candidate splits by depth (50 km, and 150 km for the nest) or period (1990); chosen by time-block cross-validation with the one-standard-error rule.
+  - Outside the data range the line continues and σ grows.
+  - Published relations are checks only (11–17 Nov).
+- D-MAG-08 Each event keeps its own σ; values are dithered within the native 0.1 bin, against heaping. Review in CAT: a small test of uniform dithering against the truncated exponential within the bin of Stallone and Spassiani (2026); cite them either way (11 Nov, 19 Nov).
+- D-MAG-09 Magnitude error: each event counts exp(−β²σ²/2) in the rates, with its own σ and the β of the fit; no magnitude is moved, no branch (CEUS-SSC 2012, eq. 3.3.1-1; the net effect of CEUS-SSC's shift-and-count, without moving magnitudes). Measured need: converted magnitudes give 6–9 % more events at Mw ≥ 5.6–6.0 than measured ones on the same events; uncorrected N(≥ 5) is 10 % high on synthetic catalogues. Effect: rates −8 to −11 %, b within 0.02; historical events (σ 0.5) count about 0.55 each (Pablo, 15 Nov).
+- D-MAG-10 σ of Cabello's historical values: 0.5 for all. ISC-GEM quality D values stay as they are (no effect on the fits) (Pablo, 15 Nov).
+- D-MAG-11 Potin magnitudes are not read: they are the CSN bulletin values (96–100 % identical); which copy of the CSN values to use is Q-36 (11 Nov, 18 Nov).
+- D-MAG-12 Acceptance tests, as CAT check figures: b varies ≤ 0.2 over fit floors 4.7–5.8; the M ≥ 5.5 rate is steady over 1976–89 / 1990–99 / 2000–10 / 2011–26; a GR fit on Mw 5.0–6.5 predicts the observed M ≥ 7 count within the Poisson band, overall and per family; converted values within 0.1 of regional Mw; no comb or heap at Mw 4.5–5.5 (11 Nov).
+
+## Classification
+- D-CLS-01 Each event has a weight per class (interface, in-slab, crustal, outer rise, non-earthquake), adding up to 1; the rates sum the weights. Weight 1 directly, before any score:
+  - a class from the literature (Ruiz and Madariaga, or a hint in the overrides);
+  - non-earthquake, when a source flags it (D-CAT-10);
+  - outer rise, for an event west of the trench, whatever its depth (13 Nov, 18 Nov).
+- D-CLS-02 Assigned depths, only for events whose class comes from the literature: interface on the slab top within the interface depth range; in-slab inside the slab as in the in-slab sources; crustal 10 km. Flagged, large σ, never used to classify or to test a rule (13 Nov; crustal 10 km, Pablo 18 Nov).
+- D-CLS-03 Over the shallow slab (top ≤ 50 km), class scores after Haynie et al. (2026): interface within ± 15 km of Slab2, fading between 50 and 65 km depth; crustal and in-slab share the rest, Moho at 40 km; scores averaged over the depth error. Over the deeper slab, depth with its error against the slab surface; an event below the slab is in-slab. Review in CAT and STATS, Q-46: whether the 50 km edge creates the gap in the in-slab depth distribution (14 Nov).
+- D-CLS-04 Interface mechanism test: misfit m to the Slab2 plane slipping in the convergence direction (257°), m = √((swing/20°)² + (twist/45°)²); m ≤ 1 multiplies the interface odds by 3.9, m > 1 means no interface. A mechanism never decides alone. Chosen over the Kagan angle by six tests (14 Nov).
+- D-CLS-05 A weight ≥ 0.8 becomes 1; below that the event stays split. No lower cut: small fractions summed over many events are real rate (weight-1 events give only 40 % of the forearc crustal rate) (14 Nov, 18 Nov).
+- D-CLS-06 Events with no depth:
+  - crustal where there is no slab;
+  - in-slab where the slab is deeper than 50 km and every rejected depth is ≥ 70 km, everywhere, under the arc and backarc too;
+  - otherwise split by the shares of classified events at the same place and magnitude bin;
+  - before 1904, in the forearc, without a hint: no crustal share, which goes to interface and in-slab in proportion (a forearc crustal event large enough for the historical record is rare; the crustal shares of great interface events made most of the forearc's Mw ≥ 7) (16 Nov; 1900 → 1904, Pablo 18 Nov).
+- D-CLS-13 Why events without a usable depth (none reported, agency defaults, locator-fixed depths) are split by shares and not given a depth: a default value carries no information about the event, so using it, or filling a depth from Slab2, would put the event in a class by the agency's habit. The shares of the depth-classified events at the same place and magnitude are the best estimate of what such an event is, the rates of each class rise in proportion, and the total rate is kept. psha_chile6 found the treatment moves the hazard by ≤ 5 % (9 % at Puerto Montt). How other models handle it: Q-60 (Pablo, 18 Nov).
+- D-CLS-07 Sub-classes, by position only:
+  - interface: Nazca, or Antarctic south of 46.15° S;
+  - in-slab: shallow (slab top above 50 km at the epicentre) and intermediate, the boundary in the classification config; Jujuy nest (within 0.8° of 66.9° W 24.0° S, measured 150–320 km) and deep-focus (measured below 300 km outside the nest, Frohlich 2006) are fixed;
+  - crustal: forearc, arc, backarc, Patagonia, each from a polygon drawn in DATA (review in DATA: Pablo redraws them over the psha_chile8 seismicity, the forearc included);
+  - outer rise (14–18 Nov).
+- D-CLS-08 The interface depth range (top 10 km, bottom 50 km now) and the shallow / intermediate boundary are classification settings, so a sensitivity case can change them; the classification and the assigned depths follow. Tornado rows: top 0 / 10 km, bottom 50 / 60 km (Q-47) (18 Nov).
+- D-CLS-09 Also outer rise, left out of the source model:
+  - Chile Ridge fracture-zone events near the triple junction: the forearc polygon (drawn in DATA) starts east of them, along the western edge of the subduction sources, and shallow events west of the forearc polygon and not interface or in-slab are outer rise. No ridge polygon, no hand-typed box (replaces 75 km east of the trench at 45.5–46.15° S);
+  - Scotia–Antarctic boundary events (no slab, nearest boundary SC/AN of PB2002, Bird 2003); whether that boundary needs a source is Q-54 (16 Nov, 18 Nov).
+- D-CLS-10 Crustal events outside the crustal source area take the sub-class `outside`, which nothing reads, so rate, pattern and sources cover one region (review in DATA, Q-25 / Q-40) (16 Nov).
+- D-CLS-11 The double seismic zone is not a catalogue class; the in-slab sources handle it (13 Nov).
+- D-CLS-12 The Antarctic interface is a class; its source uses the geodetic rates only, and it matters for the southern results. No Scotia–South America source: that boundary onshore is the Magallanes–Fagnano system, already modelled (13 Nov, 17 Nov, 18 Nov).
+
+## Statistics
+- D-STA-01 Completeness depends on place and time (the network), not on the tectonic class: at one place and period every class uses the same Mc. A larger magnitude is never complete later than a smaller one. Review in STATS, Q-48: which table each unit takes (15 Nov).
+- D-STA-02 Instrumental steps are measured, not set: Mc(t) in moving windows of 250 events with bootstrap (Woessner and Wiemer 2005), the larger of b-stability and KS; a magnitude is complete from the end of the last window whose Mc and its 16th percentile are above it. Measured on the whole margin and on each interface latitude segment; used as measured, no persistence rule (18 Nov).
+- D-STA-03 Historical steps: the earliest year from which the counts of a 0.5 band stay consistent with the instrumental GR line (5-year blocks, BIC), on all events; a step is kept only if it reaches ≥ 10 years before 1964. Now 7.0 from 1905, 7.5 from 1830, 8.5 from 1550 (the start of the historical record of the margin, not an event). Hakimhashemi and Grünthal (2012) and Albarello et al. (2001) run on every run as checks. Review in STATS, Q-49 (15–18 Nov).
+- D-STA-04 Fits start at Mw 5.0 in every unit (fits below 5.0 moved b by more than two standard deviations). Review in STATS, Q-50: b against the floor 4.5–6.0 per unit (18 Nov).
+- D-STA-05 Period per family: interface the whole table; in-slab (shallow, intermediate, nest) from 1964 only, because of the Abe (1982) values (review with Q-43: native magnitudes may bring 1905 back); crustal from 1976 only (the historical steps rest on one or two events). Aysén 1960 in the arc rates: Q-51 (16–18 Nov).
+- D-STA-06 Units: interface margin and four segments; in-slab shallow, intermediate, Jujuy nest; crustal forearc, arc (one unit over its whole length), backarc, Patagonia (16 Nov).
+- D-STA-07 Rates and b of the reference come from the full catalogue (completeness, fits, checks, bootstrap); declustered rates are a tornado row; the convention of the tree is Q-13 (15 Nov, 18 Nov).
+- D-STA-08 Estimator: maximum likelihood on the completeness table with the class weights and the magnitude-error weight; bootstrap of 2 000 resamples of whole `nn_family` clusters (enough for the 5th / 95th percentiles). Kijko and Smit (2012) and b-positive are checks only. Review in STATS, Q-52: the upper limit of the likelihood for the tapered shape, and the band of the large-event check (15–17 Nov).
+- D-STA-09 Two shapes per unit, each by its own likelihood, both in the tornado: tapered GR (Kagan 2002a, preferred) and GR truncated at Mmax (Weichert 1980). Whether a shape closes the seismic–geodetic moment gap: Q-53 (15 Nov).
+- D-STA-10 Mmax = the largest weight-1 event of the unit, of any year, + 0.2 (pad 0.0 / 0.4 a tornado row). The corner of the tapered shape comes from Mmax and b (Kagan 2002b, eq. 12), so both shapes release the same moment rate (15–16 Nov).
+- D-STA-11 The fits give parameters (rate above 5.0, b, Mmax, corner), not bin lists. The source stage turns them into OpenQuake evenly discretised lists: bin rates are differences of the fitted cumulative function at the bin edges, `min_mag` at the first bin centre, one rule for the last bin in every family (where the tapered tail holds a negligible moment, its rate lumped in that bin). No a or b is re-entered into another OpenQuake formula (15 Nov; discretisation moved to the sources, Pablo 18 Nov).
+- D-STA-12 b per unit: the four crustal classes share the crustal family b (events inside the crustal source area), each with its own rate, Mmax and corner; Jujuy nest its own fit; interface b per segment / shared / whole margin (Q-15). Review in STATS: a small trial repeats the crustal comparison (own b, ESHM20 rule, penalised prior) on the new catalogue (16–18 Nov).
+- D-STA-13 Declustering, per family, Mw ≥ 4.5, whole span: Gardner–Knopoff (van Stiphout et al. 2012 windows), Grünthal, Uhrhammer (1986), foreshock window = aftershock window; nearest neighbour (Zaliapin and Ben-Zion 2013; catalogue b, d_f 1.6, epicentral distance, one threshold from 1964, the largest event of a cluster kept). Reasenberg (1985) not used (could not be checked against the paper). Declustered fits use the full-catalogue table and Mmax. Algorithm and weights in the tree: Q-13, Q-14 (15–18 Nov).
+- D-STA-14 Tried in trials, not tornado rows: Stepp (1972), change points and joint likelihoods, Ogata and Katsura (1993; GR plus a detection curve below Mc, fitted jointly), tables read on declustered catalogues, a table read on crustal events alone, the arc split by latitude, later historical steps. Results reported in STATS (18 Nov).
+- D-STA-15 Check figure: fits with weight-1 events only against all weights (Pablo, 18 Nov).
+- D-STA-16 Named in the paper: the excess of intermediate in-slab Mw ≥ 7 before 1964; the shortfall at Mw 5.0–6.4 in 1964–1975; on synthetic catalogues the automatic rule puts historical steps 30–75 years early and N(≥ 7) 6–14 % low (15 Nov).
+## Interface
+- D-IF-01 Two rate models: seismic (the fits) and geodetic (moment balance χ μ A v), 0.5 / 0.5 to confirm (Q-12); construction of the geodetic branch Q-11, discussed when the geodetic part is reached, with Pablo's moment-deficit idea (rejected in psha_chile6 as a time-dependent branch; LEARNINGS) on the table again (Sep–18 Nov).
+- D-IF-02 Geodetic branch: convergence 6.6 cm/yr fixed; coupling χ 0.7 / 0.8 / 0.9 at equal weights. Built now with the b and shape of the full-catalogue fit (χ μ A v counts all slip, aftershocks included); review in STATS and IF, Q-56: whether it follows the declustered fits too (6 Oct, 16–17 Nov).
+- D-IF-03 Geometry: full margin or four segments, 0.5 / 0.5; complex faults on the Slab2 top, 10–50 km (tornado rows D-CLS-08). The sources end at 17.6° S; Arica 1868 (17.15° S) counts only in the margin fit. Review in DATA, Q-55: extend the northern end to cover Arica 1868 (Sep, 18 Nov).
+- D-IF-04 MFD: tapered in the tree, truncated a tornado row, Mmax by D-STA-10; sources from Mw 5.5 (bin centre); integration distance 600 km on the rupture distance (15 Nov).
+- D-IF-05 Rupture scaling on every interface source, the Antarctic one included: Strasser (2010), Thingbaijam (2017), Allen and Hayes (2017), 1/3 each; rake 90°. Above the magnitude whose median area fills the source, OpenQuake places the rupture on the whole surface; that magnitude is stated per source. Strasser fits Valdivia 1960 (18 m mean slip) (15–18 Nov).
+- D-IF-06 Aspect ratio 1 in the tree; 2 as a tornado row (Pablo, 18 Nov). psha_chile6 found aspect ratio 1–3 moves the hazard by ≤ 6 % (LEARNINGS), under the 10 % rule, so the row may drop out.
+- D-IF-07 (a, b) branches: 5th / ML / 95th of N(≥ 8.8, at most Mmax − 0.3), weights 0.185 / 0.63 / 0.185 (extended Pearson–Tukey, Keefer and Bodily 1983); each pair the expected (a, b) at that percentile from the bootstrap covariance; 45.6–37° S as the bootstrap gives it; the 95th above the plate budget is Q-16 (6 Oct, 15–18 Nov).
+- D-IF-08 Rate convention: in the tree full / declustered 0.5 / 0.5 under the seismic branch, the declustered one with the algorithm the team picks; the four algorithms as tornado rows. Follows Q-13 / Q-14 upstream. Whether the geodetic branch follows the declustered fits too: Q-56 (18 Nov).
+- D-IF-09 b: own / shared / whole margin, 1/3 each, under the full catalogue; own / shared, 0.5 / 0.5, under declustered (Q-15) (15–18 Nov).
+- D-IF-10 Antarctic interface: PB2002 trench, dip 30°, 10–50 km; geodetic only (it matters in the south): χ 0.5, 1.8 cm/yr (IF cites the source of the rate), b of the southern segment of the same branch, Mmax 8.5 from the area; always on, not a tornado factor. No outer-rise source; no Scotia–Antarctic source (Oct–18 Nov).
+- D-IF-11 Tornado row `seg_geo08`: four segments at χ 0.8 against the four-segment seismic row, the geodetic lever the margin row misses (18 Nov).
+## In-slab
+- D-IS-01 Pattern: 2-D, no zonation, adaptive kernel of Helmstetter et al. (2007) (exponent 1.5, bandwidth the distance to the n-th neighbour, at least 5 km). n calibrated per class on declustered events (training before 2010, test 2010–today, CSEP S-test log-likelihood at n 1–100), the first local maximum from n = 5 up; a class with fewer than 20 test events takes its family's n. The final pattern uses all events to today, split weights and unknown depths included. Review in STATS, Q-57 (other training / test splits, without the arbitrary floor) and Q-58 (older events in the pattern) (15–16 Nov).
+- D-IS-02 Shallow and intermediate patterns are each smoothed over all in-slab cells, scaled to their own fit and added; the 50 km slab-top line splits events for the fits only (two domains left a 20 % trough). The Jujuy nest keeps its own region and source (16 Nov).
+- D-IS-03 Pattern events enter as rates, w / (t_end − T_c(m)), with T_c from the full completeness table, historical steps included, not from the shorter period of the fits. Completeness in the fits serves the rates; the map must not miss a large event that did happen (the difference between zero and some hazard, e.g. at Punta Arenas). The same for the crustal pattern. STATS shows the pattern with and without the historical events (Pablo, 18 Nov; replaces the fit steps of 18 Nov).
+- D-IS-04 Depth model, made by STATS: zone from the Slab2 top to top + 0.475 × thickness (holds 95 % of the events); three equal slices, weights the share of events per slice smoothed with the pattern kernel, hypocentre the median of the slice; events from 1990 with their in-slab class weight; no ISC, CSN web or ComCat depths (long tails below the slab), no local depths east of the Chile border; nest left out; ruptures fill the zone. Which depth set (catalogue, Riedel-Hornig et al. 2026 inside Chile, or both): Q-59; the in-slab depth gap: Q-46 (15–18 Nov).
+- D-IS-05 Tornado rows: one layer (top + 0.243 × thickness), lower zone limit 0.65 × thickness, Allen–Hayes intraslab, declustered rates. The depth layout moved the hazard by ≤ 3.7 % (16–18 Nov).
+- D-IS-06 Sources: one point source per cell, the MFD the sum of shallow and intermediate (from Mw 5.5), with the cell's depth distribution; the nest a separate source. A cell is dropped below 1e-8 of the branch total unless within 50 km of an Mw ≥ 7 event of weight ≥ 0.5. Review in IS: how many cells drop, whether the grid reaches too far south; dropped cells are removed from the source file (16 Nov, 18 Nov).
+- D-IS-07 Nodal planes: one per sub-class, the representative plane of the dominant type in the STATS table, chosen by the cell's domain (shallow where the slab top is ≤ 50 km), no mixing; not a tornado factor. Review in STATS: two planes where a class has two dominant types (18 Nov).
+- D-IS-08 Mmax by D-STA-10, historical events included; b each class's own fit (shallow, intermediate, nest): their mechanisms and stress states differ (shallow mostly reverse, intermediate mostly normal), so separate b is the physical choice, and pooling was only statistically allowed (15 Nov; reason Pablo, 18 Nov).
+- D-IS-09 Rate convention as the interface (D-IF-08): full / declustered 0.5 / 0.5, each with the three (a, b) branches 0.185 / 0.63 / 0.185; the four algorithms as tornado rows (18 Nov).
+- D-IS-10 Rupture scaling: Strasser intraslab in the tree, Allen–Hayes intraslab a tornado row. If the row shows no spread, keep the relation that best fits the rupture of Tarapacá 2005 (Mw 7.8) from its published slip models, or of the largest well-studied in-slab event (18 Nov).
+- D-IS-11 Grid: the cells cover the slab; 13 % of the intermediate weight lies outside, under the Pampean flat slab. DATA extends the grid over Slab2 (Q-26) and sets how far the collection area reaches (Q-40) (18 Nov).
+- D-IS-12 STATS makes every table computed from the catalogue (declustered catalogues, fits, nodal planes, class shares, depth model); IS builds the sources from them (18 Nov).
+- D-IS-13 In-slab Mmax comparison: the Abe-converted values of D-CAT-15, compared in the fits only, if Q-43 adopts native magnitudes (18 Nov).
+## Crustal and faults
+- D-CR-01 Background classes forearc, arc, backarc, Patagonia, each from a DATA polygon; one fit each, no (a, b) branches; the crustal family b with each class's own rate, Mmax and corner (D-STA-12). Review in STATS, Q-61: own b per class, if the arc can take Aysén 1960 (Q-51), mining events are removed (Q-39), or the backarc is extended (Q-25). Crustal events after interface mainshocks are not removed (7 Oct–18 Nov).
+- D-CR-02 Rate convention as the interface and in-slab: full / declustered 0.5 / 0.5 in the tree, the four algorithms as tornado rows (Q-13, Q-14) (Pablo, 18 Nov; replaces "declustered a tornado row only").
+- D-CR-03 Kernel: Helmstetter, n per class from its own S-test curve, Patagonia fixed at 5; bandwidth ≥ 5 km, cut at 500 km. New calibration with variable test windows (Q-57) (15–18 Nov).
+- D-CR-04 Background point sources: the four classes' rates summed per cell; the nodal planes of a cell are those of the class whose polygon holds it, not mixed; hypocentre 10 km; source Mmin Mw 5.0 (first bin centre) (16–18 Nov).
+- D-CR-05 Nodal planes per class from the catalogue mechanisms, classed by the plunges of the P, T and B axes (Frohlich 1992: thrust, normal, strike-slip, oblique). Each type has one plane and its auxiliary at half weight; types below 10 % are dropped. Review in STATS: keep oblique as a type of its own (forearc and arc can have them) instead of moving it to the type of the largest plunge. A class with fewer than 15 weighted mechanisms takes its dominant fault system's mechanism (backarc Precordillera thrust; Patagonia Magallanes–Fagnano left-lateral); STATS checks whether Patagonia's few mechanisms are all one type (16–18 Nov).
+- D-CR-06 Mmax: the class rule of D-STA-10; arc 7.9 from Aysén 1960 at Mw 7.7 (ISC-GEM direct; a slow event on Liquiñe–Ofqui, Ruiz and Madariaga 2018, p. 50); Aysén at Mw 7.2 a comparison case. Review in STATS and CR, Q-62: Mmax and pad in the joint fault–background MFD, with quick hazard at the fault cities, before any tornado row (15–18 Nov).
+- D-CR-07 Fault database A is the model: GEM SARA cleaned by Pablo, plus Bajo Molle, Marga Marga, Laguna Verde (extended to their CHAF strands), Carranza, Mejillones north, Valparaíso, Quintay, Santa María, and San Ramón on the MASCSN26 trace. B (MASCSN26 in Chile, GEM outside) and B-mm are single-fault tornado rows; A or B is Q-17 (15–18 Nov).
+- D-CR-08 Fault properties: one reported average slip rate per fault; dip from the source text (range midpoint; ">60" 72°, "<45" 37°, "90" 90°); faults added from CHAF take the properties of similar GEM forearc faults (72°, 0.5 mm/yr); Liquiñe–Ofqui at GEM class rates. Review in CR, Q-23: the CHAF-added faults with their CSN (MASCSN26) rates, and the measured Liquiñe–Ofqui rates, since ψ lowers the moment before the MFD (30 Sep–18 Nov).
+- D-CR-09 Fault Mmin 6.0 (the Aysén fjord sequence is on a fault); not tuned to remove the arc bulge, Q-21. Faults wholly outside the crustal area are not sources (16 Nov).
+- D-CR-10 Fault Mmax: Leonard (2014) on the fault area, or the system area where faults join; one value. Whether Leonard holds for long multi-fault ruptures: Q-19 (15 Nov).
+- D-CR-11 Two fault systems, 0.5 / 0.5 (Q-18): segmented (single-fault sources with one reference MFD shape in the tree, truncated GR proposed, to confirm; the six shapes AL-I, AL-II, AL-III, Youngs–Coppersmith, tapered, hybrid as a tornado row, Pablo 18 Nov) and multi-fault (Liquiñe–Ofqui by the SHERIFS partition, Chartier et al. 2017, 2019, on a rupture set by the UCERF3 path rules, Milner et al. 2013). The rupture set and its trials: Q-63 (16 Nov).
+- D-CR-12 ψ 0.6 / 0.8 / 1.0 at equal weights; seismogenic thickness 20 km. Review in CR: ψ per class (lower in the arc, where magmatic and hydrothermal processes support aseismic slip), thickness retested (Q-20, Q-22). A rupture is dropped only for an unreasonable length (16–18 Nov).
+- D-CR-13 Join of faults and background as the US NSHM 2023 (Field et al. 2024): per class, the background above Mw 6.0 is the catalogue fit minus the summed fault MFDs, never below zero, the same over the whole class (no taper near the faults). The join meets in one bin: the first fault bin (Mw 6.0) is the first lowered background bin. The arc bulge is reported, no lever. Review in CR, Q-64: a simple taper of the background near faults, and the background Mmax (15–17 Nov).
+- D-CR-14 Tree TBD after the trials; for a quick run: linkage 0.5 / 0.5, single-fault pad 1/3 each, ψ 1/3, secondary traces 0.5 / 0.5; single-fault MFD shapes in the tornado only (18 Nov).
+- D-CR-15 The FaultQuake length cap (MASCSN26) is not ours; open, reported at Ushuaia only (Puerto Williams out of the city set) (16–18 Nov).
+
+## Magallanes–Fagnano
+- D-MF-01 One system source, joined end to end across the 60 km gap: main trace CL-056b–d and AR-0056a, b, d, g (490 km), each country's database inside its border, side strands removed (the GPS rate is the motion of the whole zone). Separate segments are a comparison only (2.6 × more Mw ≥ 6.5). Review in CR, Q-65: return to the published traces (15 Nov).
+- D-MF-02 Slip rate 5.9 mm/yr (4.4–6.8) from GPS (Mendoza et al. 2015, Table 3) on every segment; the database's 3 mm/yr is not used (15 Nov).
+- D-MF-03 Mmax: Leonard on the system area, about 8.0 (check against the 8.2 of the psha_chile8 table, Q-34); the largest observed is the 1949 doublet, Mw 7.8 (15 Nov).
+- D-MF-04 1879 Magallanes (Mw 7.0) is not a Magallanes–Fagnano event: its macroseismic epicentre lies 115 km north of the nearest trace. The Patagonia background takes it through the pattern (D-IS-03 rule for crustal) and Q-28 (18 Nov).
+## GMMs
+- D-GMM-01 Interface and in-slab: the fitted set GMM-FIT (the top four of the GM1 residuals on the Bastías et al. 2026 records); Montalva in both; models and weights with the co-authors (Q-30) (15–17 Nov).
+- D-GMM-02 Crustal: ASK14, BSSA14, CB14, CY14, 0.25 each; Patagonia as active crust (Oct).
+- D-GMM-03 Comparisons, not branches: GMM-1R (AG20, Parker, Kuehn, Montalva), GMM-CSN (MASCSN26 without Contreras and Boroschek 2015, not in OpenQuake), GMM-GEM (GEM South America 2016 without stable crust), Arteta et al. (2023) (Q-32). They separate the GMM effect from the source effect in the difference to those models (10–16 Nov).
+- D-GMM-04 Out: Idini et al. (2017) (its GM1 soil classes were set from memory; check against the paper before any use), BC Hydro. `sigma_mu_epsilon` left to the collaborators (Oct, 15 Nov).
+- D-GMM-05 Truncation 3σ until the co-authors set it, needed before the final run (Q-31) (17 Nov).
+
+## Logic tree
+- D-LT-01 Branch rule: a level becomes a branch when the spread of its options, the reference included (largest minus smallest change of PGA 475 yr), is ≥ 10 % at some city; below that, or when a statistical or physical criterion fixes the value, it is fixed and its range stated (6 Oct, 17 Nov).
+- D-LT-02 Fit parameters (floor, Mc, Mmax) are set by statistical or physical criteria, not by the tornado; trials may test them (30 Sep, 18 Nov).
+- D-LT-03 One OpenQuake job per family, combined exactly in rate space (`LOGIC_TREE_equivalence.md`) (1 Oct).
+- D-LT-04 Equal weights inside every branch set; the exception is the (a, b) percentiles, 0.185 / 0.63 / 0.185 (16–17 Nov).
+- D-LT-05 "Team" levels stay in the tree at equal weight until the co-authors answer; another answer sets a weight to 0 (17 Nov).
+- D-LT-06 Tree and tornado are two selections from `config/model.yaml`, written as `tree.json` and `tornado.json`. A row whose option sits on a non-reference branch is measured against that branch (e.g. χ against χ 0.8). Upstream changes through overrides, Q-47 (16–18 Nov).
+- D-LT-07 Comparisons, not in the tree: crustal without faults (each city's fault share), the other GMM sets (17 Nov).
+- D-LT-08 The verdicts of 17 Nov are the starting tree; the new tornado decides again (18 Nov).
+
+## Hazard runs
+- D-HAZ-01 Rock everywhere: Vs30 800 inferred, Z1.0 40 m, Z2.5 0.6 km; soil type 1 only for Idini in GMM-CSN. Comparisons with the CSN and GEM maps use the same Vs30 as those maps (Pablo, 18 Nov; Q-66) (Sep–18 Nov).
+- D-HAZ-02 Integration distance: interface 600, in-slab 500, crustal 300 km. `pointsource_distance` 100 km: beyond it OpenQuake collapses the nodal planes and depths of point sources (in-slab and crustal background) to speed up the run (6 Oct).
+- D-HAZ-03 Source Mmin: the tornado uses 5.5 for interface and in-slab so the rows compare; the final run uses the fit floor, Mw 5.0 (first bin centre), in every family (Pablo, 18 Nov).
+- D-HAZ-04 Working runs and the tornado at 475 yr only; 2475 yr only in the final run (Sep).
+- D-HAZ-05 16 cities: Arica, Iquique, Antofagasta, Calama, Copiapó, La Serena, Valparaíso, Santiago centro, Santiago Peñalolén, Concepción, Pucón, Puerto Montt, Hornopirén, Puerto Aysén, Punta Arenas (−53.16, −70.91), Ushuaia (−54.80, −68.30). The lowest intensity level is extended for the far south (30 Sep, 17 Nov; Arica Pablo 18 Nov).
+- D-HAZ-06 `strict = false`: OpenQuake refuses a fault source with more than 52 000 ruptures, and the full-margin interface complex fault has about 100 000 at the 10 km mesh (16 Nov).
+- D-HAZ-07 Final grid 0.05°, PGA only, 475 and 2475 yr; the cities with full settings; on the grid the interface runs with Mmin 6.0 and 0.2 bins (≤ 1.4 % at 95 % of the sites at 475 yr). Full settings on the grid: Q-33 (18 Nov).
+- D-HAZ-08 Several machines (rs1, rs28, rs37, pansito) as in the design, one OpenQuake job at a time per machine (18 Nov).
+## Figures
+- D-FIG-01 The figure code agreed in psha_chile8 is ported as code, not redrawn: the catalogue maps and sections (`catalog/fig_*.py`, `plots/maps.py`), the frequency–magnitude panels (`fits/figs.py`), the tornado, city curves and shares (`hazard/tornado_*.py`, `curves_city.py`, `shares_bar.py`), and `palette.py`. Rules in `docs/FIGURE_STYLE.md` (18 Nov).

@@ -1,0 +1,9 @@
+data/
+runs/
+trials/
+refs/
+figures/out/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
