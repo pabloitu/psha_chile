@@ -1,0 +1,7 @@
+method,table,max_dyear,max_dmag,also_fitted
+full,"5.0 from 1976, 5.2 from 1964, 7.0 from 1905, 7.5 from 1830, 8.0 from 1500",0.0,0.0,False
+gk,"5.0 from 1976, 5.1 from 1964, 6.0 from 1950, 6.5 from 1890, 7.0 from 1825, 8.0 from 1500",80.0,1.0,True
+gk_family,"5.0 from 1976, 5.1 from 1964, 6.0 from 1950, 6.5 from 1890, 7.0 from 1825, 8.0 from 1500",80.0,1.0,True
+nn,"5.0 from 1976, 5.1 from 1964, 6.0 from 1950, 6.5 from 1900, 7.0 from 1830, 8.0 from 1500",75.0,1.0,True
+nn_depth,"5.0 from 1976, 5.1 from 1964, 6.0 from 1950, 6.5 from 1900, 7.0 from 1830, 8.0 from 1500",75.0,1.0,True
+nn_family,"5.0 from 1976, 5.1 from 1964, 6.0 from 1950, 6.5 from 1900, 7.0 from 1830, 8.0 from 1500",75.0,1.0,True
