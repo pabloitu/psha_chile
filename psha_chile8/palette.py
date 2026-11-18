@@ -37,7 +37,7 @@ def apply(size=None):
 # forearc yellow, arc olive, backarc yellow-green, Patagonia brown, outer rise violet
 CLASS = {"interface": ("interface", "#4682b4"), "antarctic_interface": ("Antarctic interface", "#9dc3e0"),
          "intraslab_shallow": ("in-slab, shallow", "#b23a3a"), "intraslab_intermediate": ("in-slab, intermediate depth", "#7f1d1d"),
-         "jujuy_nest": ("Jujuy nest", "#4a0f0f"), "forearc": ("crustal, forearc", "#e8c21c"), "arc": ("crustal, arc", "#5e7a2a"),
+         "jujuy_nest": ("Jujuy nest", "#4a0f0f"), "deep_focus": ("in-slab, deep focus", "#8c7b75"), "forearc": ("crustal, forearc", "#e8c21c"), "arc": ("crustal, arc", "#5e7a2a"),
          "backarc": ("crustal, backarc", "#a3b81f"), "patagonia": ("crustal, Patagonia", "#6b4423"),
          "outside": ("crustal, outside the grid", "#c8cdbf"), "outer_rise": ("outer rise", "#85638e"),
          "split": ("shared between classes", "#9e9e9e"), "unclassified": ("unclassified", "#111111")}

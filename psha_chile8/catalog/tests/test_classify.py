@@ -129,6 +129,10 @@ def test_subclasses_and_the_jujuy_nest():
     s = C.subs(g, o)
     assert s.sub_inslab.tolist() == ["jujuy_nest", "intraslab_intermediate", "intraslab_intermediate", "intraslab_shallow", "", ""]
     assert s.sub_crustal.tolist()[4:] == ["arc", "patagonia"] and s.sub_interface.tolist() == [""] * 6
+    # below DEEP an in-slab event is deep focus, except inside the nest
+    g = frame(z=[350.0, 310.0, 290.0], top=[200.0, 200.0, 200.0], lon=[-65.5, -66.9, -65.5], lat=[-20.0, -24.0, -20.0],
+              zone=["backarc"] * 3)
+    assert C.subs(g, w(g)).sub_inslab.tolist() == ["deep_focus", "jujuy_nest", "intraslab_intermediate"]
     # a split event carries the sub-class of each family
     g = frame(z=[32.0], sig=[10.0])
     assert C.subs(g, w(g)).iloc[0].tolist() == ["interface", "intraslab_shallow", "forearc"]

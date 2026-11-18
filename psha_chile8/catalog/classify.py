@@ -76,6 +76,10 @@ TOP_LAB, LAT_LAB, MAG_LAB = ["≤ 50 km", "50–100 km", "> 100 km"], ["17–24�
 SHARE_FROM, SHARE_MMIN, SHARE_N = 1976, 4.5, 30
 # in-slab sub-classes
 NEST = {"lon": -66.9, "lat": -24.0, "radius_deg": 0.8, "depth": (150.0, 320.0)}
+# deep-focus events: an in-slab event with a measured depth below DEEP (outside the nest) keeps its weight and takes the
+# sub-class "deep_focus", which no fit, pattern or source reads (300 km: the usual limit of intermediate depth,
+# Frohlich 2006, Deep Earthquakes, ch. 1)
+DEEP = 300.0
 # assigned depths of events with a literature class and no measured depth: interface on the slab top within IF_Z;
 # in-slab at SLAB_FRAC of the Slab2 thickness below the top (the hypocentre of the in-slab sources)
 IF_Z, SLAB_FRAC, SIG_ASSIGNED = (10.0, 50.0), 0.30, 20.0
@@ -464,7 +468,8 @@ def subs(g, out):
     r = np.hypot((g.lon - NEST["lon"]) * np.cos(np.radians(g.lat)), g.lat - NEST["lat"])
     nest = g.known & (r <= NEST["radius_deg"]) & (g.z >= NEST["depth"][0]) & (g.z <= NEST["depth"][1])
     si = np.where(g.south, "antarctic_interface", "interface")
-    ss = np.where(nest, "jujuy_nest", np.where(g.top <= IF_TOP, "intraslab_shallow", "intraslab_intermediate"))
+    ss = np.where(nest, "jujuy_nest", np.where(g.known & (g.z > DEEP), "deep_focus",
+                                               np.where(g.top <= IF_TOP, "intraslab_shallow", "intraslab_intermediate")))
     sc = np.where(in_grid(g.lon, g.lat), np.where(g.pat, "patagonia", g.zone), "outside")
     return pd.DataFrame({"sub_interface": np.where(out.w_interface > 0, si, ""), "sub_inslab": np.where(out.w_inslab > 0, ss, ""),
                          "sub_crustal": np.where(out.w_crustal > 0, sc, "")}, index=g.index)
