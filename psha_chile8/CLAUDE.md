@@ -46,7 +46,7 @@ Several Claude Code sessions may run at the same time in psha_chile8, each on it
 
 ## Figure style
 - The full figure rules are in `FIGURE_STYLE.md` (repo root); read it before making any figure. The lines below are the short version.
-- Catalogue paper and supplement figures go straight into `catalog/FIGURES/<type>/` (`maps`, `magnitudes`, `rules`); checks stay in `catalog/figs/`. Every paper or supplement figure keeps its row in `FIGURES.md`.
+- Catalogue paper and supplement figures go straight into `catalog/FIGURES/<type>/` (`maps`, `magnitudes`, `classes`, `sources`, `rules`); checks stay in `catalog/figs/`. Every paper or supplement figure keeps its row in `FIGURES.md`.
 - Ubuntu font; one shared palette and one set of display class names for catalog, fit and hazard figures (start from `cat_handler_2/palette.py`); no code names in legends.
 - Large events drawn on top; in sections only M ≥ 7 labelled, landward extent capped at 400 km, near-proportional depth-to-distance axes.
 - Few labels, concise titles, comfortable margins. Comparisons as hazard curves against a baseline rather than tables alone.

@@ -25,7 +25,7 @@ One place for the figure rules, gathered on 17 Nov from CLAUDE.md, DECISIONS (Fi
 - Trials and one-off comparisons: `drafts/<idea>/` (not committed).
 - Figures of a section's report: that section's `figs/` (dated subfolder per run).
 - Paper and supplement figures: listed in `FIGURES.md` with their script; when a draft is chosen it becomes one script in the code style of CLAUDE.md.
-- Catalogue: the paper and supplement figures are written by their scripts straight into `catalog/FIGURES/<type>/` (`maps`, `magnitudes`, `rules`), one place to find them; checks and test figures stay in `catalog/figs/`. A new catalogue figure for the paper goes into the fitting type folder (or a new one) and gets its `FIGURES.md` row.
+- Catalogue: the paper and supplement figures are written by their scripts straight into `catalog/FIGURES/<type>/` (`maps`, `magnitudes`, `classes`, `sources`, `rules`), one place to find them; checks and test figures stay in `catalog/figs/`. A new catalogue figure for the paper goes into the fitting type folder (or a new one) and gets its `FIGURES.md` row.
 - A figure copied from elsewhere (a report, an older deck) stays as it is unless Pablo asks.
 - Before rerunning a script that overwrites figures, copy the previous ones to a dated subfolder.
 

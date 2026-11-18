@@ -1,90 +1,49 @@
-# The order of sources per property and period (catalogue rules of the final catalogue)
-import sys
+# The order of sources per property and period (catalogue rules of the final catalogue), one row: Mw, epicentre, depth
 from pathlib import Path
+
 import matplotlib
-matplotlib.use('Agg')
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.colors import to_hex, to_rgb
 from matplotlib.patches import FancyBboxPatch
 from pituplots import use_theme
 
-HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(HERE.parents[2]))
-from plots import colors as PC  # noqa: E402
+OUT = Path(__file__).resolve().parents[2] / "FIGURES" / "rules"
+RULES = [("Mw", [("before 1904", [("Ruiz and\nMadariaga 2018", "lit"), ("Cabello\net al. 2025", "hist")]),
+                 ("1904–1975", [("Ruiz and\nMadariaga 2018", "lit"), ("Centennial Mw", "best"), ("ISC-GEM\ndirect Mw", "best"),
+                                ("Centennial Ms,\nmB converted", "glob"), ("ISC-GEM\nproxy Mw", "glob")]),
+                 ("1976–", [("GCMT\n(Mw ≥ 5.4)", "best"), ("W-phase,\nregional Mw", "best"), ("GCMT < 5.4,\nlowered", "best"),
+                            ("Ruiz and\nMadariaga 2018", "lit"), ("Ms, ML, mb\nconverted", "glob")])]),
+         ("epicentre", [("before 1904", [("Cabello\net al. 2025", "hist")]),
+                        ("1904–1963", [("Centennial,\nrelocated", "best"), ("ISC-GEM", "glob"), ("ISC", "glob")]),
+                        ("1964–, outside\nthe network", [("GCCEL", "best"), ("ISC-EHB L1/L2", "best"), ("ISC", "glob"), ("ComCat", "glob")]),
+                        ("1982–, inside\nthe network", [("Potin et al.\n2024, CSN", "local"), ("GCCEL", "best"), ("ISC-EHB L1/L2", "best"),
+                                                        ("ISC", "glob")])]),
+         ("depth", [("before 1904", [("not measured", "hist")]),
+                    ("1904–1963", [("Centennial\nfree depth", "best"), ("ISC-GEM\nquality A, B", "best")]),
+                    ("1964–, outside the\nnetwork, offshore", [("GCCEL", "best"), ("ISC-EHB L1/L2", "best"), ("ISC", "glob"),
+                                                               ("ComCat", "glob")]),
+                    ("1982–, inside\nthe network", [("Potin et al.\n2024, CSN", "local"), ("GCCEL", "best"), ("ISC-EHB L1/L2", "best"),
+                                                    ("ISC", "glob")])])]
+KIND = {"lit": ("#e3defa", "#6250d6", "review paper"), "best": ("#cfeee2", "#1baf7a", "measured moment or calibrated"),
+        "local": ("#fbdccf", "#eb6834", "local network"), "glob": ("#cde2fb", "#2a78d6", "global catalogue or converted"),
+        "hist": ("#e6e5df", "#8a897f", "historical")}
 
-use_theme('slides')
-P = PC.palette('tol_muted')
-light = lambda c: to_hex([1 - 0.22 * (1 - v) for v in to_rgb(c)])
-C = {k: (light(c), c, lab) for k, c, lab in (('lit', P[0], 'review paper or hand-checked'),
-                                            ('best', P[2], 'measured moment, calibrated or depth-phase'),
-                                            ('local', P[1], 'local network (relocated)'),
-                                            ('glob', P[6], 'global catalogue or converted magnitude'),
-                                            ('hist', '#8a897f', 'historical'))}
-INK, MUTED = '0.15', '0.4'
-
-panels = [
- ('Magnitude (Mw): the first that exists',
-  [('before 1904', [('Ruiz and Madariaga 2018', 'lit'), ('Cabello et al. 2025', 'hist')]),
-   ('1904 – 1975', [('Ruiz and Madariaga 2018', 'lit'), ('Centennial Mw (from a moment)', 'best'),
-                    ('ISC-GEM direct Mw (from a moment)', 'best'), ('Centennial Ms / mB, converted', 'glob'),
-                    ('ISC-GEM proxy Mw', 'glob')]),
-   ('1976 – today', [('GCMT (Mw ≥ 5.4)', 'best'), ('W-phase / regional Mw\n(USGS, CSN, GFZ)', 'best'),
-                     ('GCMT below 5.4, slightly lowered', 'best'),
-                     ('CSN Mw of the ISC Bulletin (GUC MW),\nonly if no other measured Mw', 'best'), ('Ruiz and Madariaga 2018', 'lit'),
-                     ('Converted: Ms (shallow) → CSN ML\n→ ISC mb → NEIC mb → INPRES ML', 'glob')])],
-  'No usable magnitude → no Mw, event listed.  Conversions fitted on Chilean pairs (native on Mw, inverted), by depth group (down to 50 km, 50–150 km, below 150 km).'),
- ('Epicentre: the first source that has the event',
-  [('before 1904', [('Cabello et al. 2025', 'hist')]),
-   ('1904 – 1963', [('Centennial, where relocated\n(1918–42, 1956 on)', 'best'), ('ISC-GEM', 'glob'), ('ISC', 'glob')]),
-   ('1964 – today\noutside the network,\nand all of 1964–1981', [('GCCEL', 'best'), ('ISC-EHB L1 / L2', 'best'), ('ISC', 'glob'),
-                    ('USGS ComCat', 'glob'), ('Potin / CSN', 'local')]),
-   ('1982 – today\ninside the network\n(18–46°S, west of the arc)', [('Potin et al. 2024\n(CSN after July 2020)', 'local'), ('GCCEL', 'best'),
-                    ('ISC-EHB L1 / L2', 'best'), ('ISC', 'glob'), ('USGS ComCat', 'glob')])],
-  'Check: a local record more than 50 km from every global record of the event is not used.  A copy of an event (reviewed pairs, single-agency ISC copies) is merged into it first.'),
- ('Depth: the first measured depth',
-  [('before 1904', [('Not measured\n(Cabello\'s depths are estimates)', 'hist')]),
-   ('1904 – 1963', [('Centennial free-depth solution', 'best'), ('ISC-GEM depth quality A or B', 'best')]),
-   ('1964 – today\noutside the network,\nor > 20 km offshore', [('GCCEL', 'best'), ('ISC-EHB L1 / L2', 'best'), ('ISC', 'glob'),
-                    ('USGS ComCat', 'glob'), ('Potin / CSN', 'local')]),
-   ('1982 – today\ninside the network,\non land or near the coast', [('Potin et al. 2024\n(CSN after July 2020)', 'local'), ('GCCEL', 'best'),
-                    ('ISC-EHB L1 / L2', 'best'), ('ISC', 'glob'), ('USGS ComCat', 'glob')])],
-  'Skipped as not measured: fixed depths, agency defaults (10, 33, 35 km…), ISC-EHB L3, GCMT centroid.  '
-  'None left → unknown.\n'
-  'Class known from the literature but no measured depth → depth assigned from the class and the slab model, flagged "assigned" (any period).'),
-]
-
-BH, GAP, HEAD = 0.66, 0.14, 1.75
-heights = [HEAD + max(len(b) for _, b in cols) * (BH + GAP) + 0.95 for _, cols, _ in panels]
-fig = plt.figure(figsize=(13, sum(heights) * 0.62 + 1.0), dpi=160)
-fig.patch.set_facecolor('white')
-y0 = 1 - 0.035
-tot = sum(heights)
-for (title, cols, note), h in zip(panels, heights):
-    fh = h / tot * 0.90
-    ax = fig.add_axes([0.03, y0 - fh, 0.94, fh]); y0 -= fh + 0.012
-    ax.set_xlim(0, 4); ax.set_ylim(0, h); ax.axis('off')
-    ax.text(0, h - 0.05, title, fontsize=13.5, color=INK, va='top')
-    w = 4 / len(cols)
+use_theme("slides")
+fig, axs = plt.subplots(1, 3, figsize=(16, 5.4), gridspec_kw=dict(wspace=0.05, width_ratios=[3, 4, 4]))
+bh, gap = 0.78, 0.2
+for ax, (prop, cols) in zip(axs, RULES):
+    ax.set_xlim(0, len(cols))
+    ax.set_ylim(-5 * (bh + gap) - 0.2, 1.9)
+    ax.axis("off")
+    ax.text(0.02, 1.85, prop, fontsize=14, color="0.15", va="top")
     for i, (per, boxes) in enumerate(cols):
-        x = i * w
-        ax.text(x + w / 2, h - 0.52, per, fontsize=9.6, color=MUTED, ha='center', va='top', linespacing=1.15)
-        if i: ax.plot([x, x], [0.55, h - 0.5], color='#dddcd5', lw=0.8)
+        ax.text(i + 0.5, 0.95, per, fontsize=8.8, color="0.4", ha="center", va="center", linespacing=1.1)
         for k, (lab, kind) in enumerate(boxes):
-            yb = h - HEAD - 0.1 - (k + 1) * (BH + GAP) + GAP
-            fill, edge, _ = C[kind]
-            ax.add_patch(FancyBboxPatch((x + 0.09, yb), w - 0.18, BH, boxstyle='round,pad=0,rounding_size=0.06',
-                                        fc=fill, ec=edge, lw=1.1))
-            ax.text(x + 0.16, yb + BH / 2, str(k + 1), fontsize=10, color=edge, va='center')
-            ax.text(x + 0.27, yb + BH / 2, lab, fontsize=8.6 if '\n' in lab else 9.2, color=INK, va='center', linespacing=1.1)
-    ax.text(0, 0.30, note, fontsize=8.8, color=MUTED, va='center', style='italic', linespacing=1.3)
-    ax.plot([0, 4], [0.0, 0.0], color='#dddcd5', lw=0.8)
-# legend
-ax = fig.add_axes([0.03, 0.0, 0.94, 0.035]); ax.axis('off'); ax.set_xlim(0, 4); ax.set_ylim(0, 1)
-x = 0
-for k in ['lit', 'best', 'local', 'glob', 'hist']:
-    fill, edge, lab = C[k]
-    ax.add_patch(FancyBboxPatch((x, 0.3), 0.07, 0.45, boxstyle='round,pad=0,rounding_size=0.02', fc=fill, ec=edge, lw=1.1))
-    ax.text(x + 0.09, 0.52, lab, fontsize=8.8, color=INK, va='center'); x += 0.12 + len(lab) * 0.0215
-OUT = HERE.parents[1] / 'FIGURES' / 'rules'
+            fc, ec, _ = KIND[kind]
+            y = 0.35 - (k + 1) * (bh + gap)
+            ax.add_patch(FancyBboxPatch((i + 0.04, y), 0.92, bh, boxstyle="round,pad=0,rounding_size=0.06", fc=fc, ec=ec, lw=1.0))
+            ax.text(i + 0.5, y + bh / 2, lab, fontsize=8.0, ha="center", va="center", color="0.15", linespacing=1.05)
+h = [FancyBboxPatch((0, 0), 1, 1, fc=v[0], ec=v[1]) for v in KIND.values()]
+fig.legend(h, [v[2] for v in KIND.values()], loc="lower center", ncol=5, fontsize=10, bbox_to_anchor=(0.5, -0.02))
 OUT.mkdir(parents=True, exist_ok=True)
-fig.savefig(OUT / 'catalog_rules.png', facecolor='white')
+fig.savefig(OUT / "catalog_rules.png", dpi=200, bbox_inches="tight", pad_inches=0.08, facecolor="white")

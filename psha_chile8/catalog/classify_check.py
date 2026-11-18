@@ -16,6 +16,8 @@ import palette  # noqa: E402
 # settings
 RUN = C.RUN
 FIG = C.HERE / "figs" / "classify"
+# figures of the paper and supplement go to FIGURES/classes; the other check figures stay in FIG
+OFFICIAL, FIG_OUT = {"maps", "sections", "band", "nest", "sensitivity"}, C.HERE / "FIGURES" / "classes"
 MMIN, BIG = 4.5, [4.5, 5.5, 7.0]
 BEST = ["gccel", "ehb1"]
 D_TOP = [(0, 20), (20, 35), (35, 50)]
@@ -390,8 +392,9 @@ def new(nr, nc, w, h, **kw):
 
 def save(fig, name, dpi=160, **kw):
     import matplotlib.pyplot as plt
-    FIG.mkdir(parents=True, exist_ok=True)
-    fig.savefig(FIG / f"{name}.png", dpi=dpi, **kw)
+    d = FIG_OUT if name in OFFICIAL else FIG
+    d.mkdir(parents=True, exist_ok=True)
+    fig.savefig(d / f"{name}.png", dpi=dpi, **kw)
     plt.close(fig)
 
 

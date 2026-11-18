@@ -20,7 +20,7 @@ CAT = C.HERE / "frozen" / "2026-11-16e" / "catalog_2026-11-16e.csv"
 BASE = C.REPO / "data" / "basemaps" / "basemap_chile_gray" / "basemap_gray.tif"
 FAULTS = C.HERE.parent / "data" / "faults" / "faults_gem_extra_2026-11-15.shp"
 ISC = C.HERE / "sources" / "isc_2026-11-10_events.csv"
-OUT = C.HERE / "figs" / "classify"
+OUT = C.HERE / "FIGURES" / "classes"
 MAPS = {"lofs_south": dict(box=(-76.0, -71.0, -48.2, -43.6), mmin=3.0, size=(16.0, 13.0), lab=(5.5, 5.0), k=1.0),
         "lofs_full": dict(box=(-76.0, -70.3, -48.2, -37.8), mmin=4.0, size=(16.0, 22.0), lab=(5.7, 5.2), k=0.7)}
 # intra-arc events (crustal weight > 0, sub-class arc) are coloured by depth, the rest grey; SPLIT edge for weights

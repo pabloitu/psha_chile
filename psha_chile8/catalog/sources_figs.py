@@ -26,7 +26,7 @@ from pituplots.style.axes import darkgrid
 # settings
 SRC = HERE / "sources"
 RUN_DATE = "2026-11-17"
-FIGS = HERE / "figs" / "sources" / RUN_DATE
+FIGS = HERE / "FIGURES" / "sources"
 BASEMAP = HERE.parent.parent / "data" / "basemaps" / "basemap_chile_gray" / "basemap_gray.tif"
 EXTENT = [*DOMAIN["lon"], *DOMAIN["lat"]]
 PROJ = ccrs.Mercator(central_longitude=sum(DOMAIN["lon"]) / 2)
