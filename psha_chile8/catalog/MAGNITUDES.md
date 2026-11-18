@@ -34,7 +34,7 @@ Mean of member − NEIC Mww on shared events, pair mean 4.5–6.5. Means are use
 
 All W members are flat (no bin with 30 pairs departs from the mean by more than 0.05). Reference errors from GCMT, NEIC Mww and GUC Mwr on the 314 events that have all three (variances of the pairwise differences): GCMT 0.059, NEIC Mww 0.047, GUC Mwr 0.11. The settings stay at 0.08 and 0.10.
 
-## 3. Relations of the main scales (`relations`, `figs/magnitude/relations.png`)
+## 3. Relations of the main scales (`relations`, `FIGURES/magnitudes/relations.png`)
 
 | scale | form, split | pairs | σ | Mw at native 4.5 (95 % interval) | 5.0 | 5.5 | 6.0 |
 |---|---|---|---|---|---|---|---|
@@ -65,7 +65,7 @@ Given in rule 6. Converted events with Mw ≥ 4.5 come from ISC mb (4 772), CSN 
 - Depth is the final depth of this run where it is measured, else the reference depth of A3 (no default-depth screening); the families of the tests use it too.
 - The tests use the events from 1976 on (test 6: 1964–1975) and the values of the rule, before the corrections of the large-event review.
 
-## 6. Test results (`mw_tests`, `mw_sensitivity`; one figure each in `figs/magnitude/`)
+## 6. Test results (`mw_tests`, `mw_sensitivity`; figures in `FIGURES/magnitudes/` (tests 1, 7, 9) and `figs/magnitude/` (the others))
 
 | test | result | pass |
 |---|---|---|
@@ -115,7 +115,7 @@ Tested: four ways of lowering GCMT (step per bin, line that is zero at 5.4, free
 
 Still open: test 4 (mb against the regional Mw at 5.0–5.5); converted events at Mw ≥ 5.5 were 5–7 % too many against measured values under every rule tested; the withheld events are the fitting pairs and are not a random sample below Mw 5.
 
-## 7. Synthetic comparison of the regression methods (test 9, `figs/magnitude/test9_synthetic.png`, `mw_synthetic`)
+## 7. Synthetic comparison of the regression methods (test 9, `FIGURES/magnitudes/test9_synthetic.png`, `mw_synthetic`)
 
 A Gutenberg–Richter population (b = 1, from M 3.5), native = 0.5 + 0.9 M with σ 0.20, reference with σ 0.08, 20 populations of 200 000 events. Bias of the converted Mw at native 4.5 (5.0):
 
@@ -150,3 +150,20 @@ The inverse step is the method's new element for this purpose: no paper was foun
 | Validation | Lolli et al. (2014); Habermann (1991) 10.1016/0040-1951(91)90337-R; Zúñiga and Wiemer (1999) 10.1007/s000240050285; Tormann et al. (2010) 10.1785/0120090124 |
 
 Not yet verified, check before citing: Felzer (2008); Mueller (2019) and Riquelme et al. (2018) beyond the passages read; the ESHM20 and Canada conversion rules; items marked (mem) in REVIEW §5.
+
+## 10. Depth groups and the comparison with Cabello and Candia–Macedo (17 Nov, A11)
+
+**Change.** The converted scales may take three depth groups (down to 50 km, 50–150 km, below 150 km; 150 km is the top of the Jujuy nest in `classify.NEST`), chosen per scale by the same time-block cross-validation as the other forms (`magnitude.ZNEST`, split `depth3`). It is chosen for GUC ML (and CSN Ml / Mlv through it), SJA ML, ISC mb and NEIC mb. Asked by FITS (`handoffs/2026-11-17_FITS_to_CAT.md`): the Jujuy nest fit bends at about Mw 5.8.
+
+**What the figures show** (`FIGURES/magnitudes/`: `relations`, `relations_others`, `residual_depth`, `residual_converted`, `compare_relations`, `test1_b_floor`, `test7_comparison`):
+- As reported, the scales disagree with the measured Mw by depth: CSN ML +0.2 below 150 km, ISC mb sliding to −0.3 at 250 km, NEIC mb and INPRES ML −0.1 to −0.2 below 200 km. With two depth groups (17f) the deep ML relation, fitted mostly near 110 km, left nest events (about 205 km) 0.1 too high and deep mb 0.1–0.15 too low. With three groups every scale is within ±0.1 of the measured Mw at every depth.
+- The nest b barely moves (1.45 → 1.46 from Mw 5.0 since 1976, events of most weight): the ML values go down and the mb values up by about 0.08. The bend of the nest is not a conversion artefact; the split of its fit into direct and converted Mw is the selection FITS described (direct Mw for most events above 5.5).
+- A5 tests on the three groups: all pass that passed on 17f, plus Mw 6.5–7 predicted from 5.0 (88.8 / 107); b range 0.05–0.16, M ≥ 5.5 rate drift 13.6 %, M ≥ 7 37.9 / 43. Still failing: ISC and NEIC mb held out at 5.0–5.5 (+0.10 to +0.15 against the regional Mw) and shallow crustal declustered M ≥ 7 from 5.3.
+- The magnitudes as reported (measured Mw where there is one, the native value otherwise) give the same b against the fit floor within 0.05. From 4.7 to 5.8 the conversions are close to 1:1; their value is the removal of the depth and period biases, not the b.
+
+**Why the other two catalogues fail.**
+- Candia and Macedo (2026) convert ComCat mb with one forward relation, Mw = 0.994 mb + 0.179, at every depth. Below about Mw 5 only the larger events have a measured Mw, so a regression of Mw on mb is pulled up; their converted Mw sits 0.15–0.25 above the measured Mw at mb 4.3–5.5 (0.6–0.8 below mb 4 for ISC mb, where the flat part of their values sits). Their CSN values are taken as Mw unchanged: 0.3–0.6 below the measured Mw above ML 5 at depth. One relation at every depth also keeps the mb drift with depth.
+- Cabello et al. (2025) use forward relations as well and one per scale (CSN ML split at 50 km); their Mw on our events sits 0.3–0.5 above ours for NEIC mb at 4–5.5, and their ISC mb line stays below the saturation above mb 6.
+- At catalogue level (test 7): b moves 0.24–0.55 (Cabello) and 0.11–0.42 (Candia–Macedo) with the fit floor against 0.05–0.16 here; the M ≥ 5.5 rate drifts 34 % and 17 %; a fit from Mw 5.0 predicts 0.4–0.75 and 0.5–0.66 of the observed M ≥ 7 against 0.9 here. Both do worse on b than the magnitudes as reported.
+
+**How to compare a converted catalogue** (learned here): on events that have a measured Mw the other catalogues carry that same Mw (Candia–Macedo take ComCat, ISC-GEM and ISC Mw unchanged), so the comparison says nothing; compare on events without a measured Mw. A relation drawn through its own converted values is a straight line by construction. Below about magnitude 4.3 the paired medians rise for every scale (only the larger events are paired), so no relation can be judged there from pairs.

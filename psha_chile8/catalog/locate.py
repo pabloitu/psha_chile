@@ -14,15 +14,15 @@ import numpy as np
 import pandas as pd
 
 from match import SRC, OUT, FROZEN, DATES, tsec, tstr, year
-from magnitude import manifest, overrides
+from magnitude import manifest, merged, merges, overrides
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 
 # settings
-RUN = "2026-11-16d"
+RUN = "2026-11-17g"
 A3 = "2026-11-11"
-MW = "2026-11-16d"
+MW = "2026-11-17g"
 ARC = REPO / "data" / "intraarc.shp"
 LAND = Path.home() / ".local/share/cartopy/shapefiles/natural_earth/physical/ne_10m_land.shp"
 X3_SIGMA = HERE.parent / "explore" / "X3" / "tables" / "x3_depth_error_model.csv"
@@ -59,6 +59,7 @@ MECH_DIFF = 0.4
 # properties of the A6 table applied here (property -> column); the last two only add a column
 A6_LOC = {k: k for k in ["time", "lon", "lat", "depth", "strike1", "dip1", "rake1", "strike2", "dip2", "rake2"]}
 A6_LOC.update(exists="a6_exists", class_hint="a6_class_hint")
+# duplicates (A11): merged before locating (magnitude.merges); an A6 row exists = False removes its event
 WPHASE = r"(?i)(?:_mww$|_WCMT$|^moment-tensor:duputel)"
 GCMT_COPY = r"(?i)(?:_GCMT$|_HRV$|_gcmt$|_mwc$|gcmt)"
 NM = lambda m0: (2 / 3) * (np.log10(m0) - 9.1)
@@ -81,6 +82,7 @@ def records(d=SRC, out=OUT):
     e["yr"] = year(tsec(e.time))
     L = pd.read_csv(Path(out) / f"links_{A3}.csv", dtype={"src_id": str, "origin_id": str}, low_memory=False)
     L = L[L.used.astype(str).eq("True") & (L.src != "rm2018")][["event_id", "src", "src_id", "origin_id", "dt", "dd"]]
+    L, e = merged(L, e, merges(out, d))
     rows, allo = [], []
     for s in L.src.unique():
         x = pd.read_csv(Path(d) / f"{s}_{DATES.get(s, FROZEN)}_events.csv", low_memory=False, dtype={"src_id": str, "origin_id": str})
@@ -294,17 +296,21 @@ def tensor_m0(m):
 def mechanisms(R, d=SRC):
     """
     One mechanism per event: GCMT (our file, then its copies in ComCat), then a ComCat W-phase tensor, then
-    another ComCat tensor, then a ComCat focal mechanism (nodal planes only). Within a rank a product
-    whose scalar moment agrees with its tensor within M0_TOL comes first. M0 is the moment of the tensor; a
-    listed moment that differs is flagged.
+    another ComCat tensor, then a ComCat focal mechanism (nodal planes only), then a mechanism from the literature
+    listed by ISC-GEM (agency "bibliog"; events before 1976). Within a rank a product whose scalar moment agrees
+    with its tensor within M0_TOL comes first. M0 is the moment of the tensor; a listed moment that differs is
+    flagged.
     """
     c = pd.read_csv(Path(d) / f"comcat_mt_{FROZEN}_mechs.csv", dtype={"src_id": str})
     g = pd.read_csv(Path(d) / f"gcmt_{FROZEN}_mechs.csv", dtype={"src_id": str})
+    b = pd.read_csv(Path(d) / f"iscgem_{FROZEN}_mechs.csv", dtype={"src_id": str})
+    b = b[(b.agency == "bibliog") & b.strike1.notna()]
     ft = c.code.str.startswith("focal-mechanism")
     c["rank"] = np.where(ft, 4, np.where(c.code.str.contains(GCMT_COPY), 1, np.where(c.code.str.contains(WPHASE), 2, 3)))
-    g["rank"] = 0
+    g["rank"], b["rank"] = 0, 5
     ev = lambda s: R[R.src == s].drop_duplicates("src_id").set_index("src_id").event_id
-    m = pd.concat([c.assign(event_id=c.src_id.map(ev("comcat"))), g.assign(event_id=g.src_id.map(ev("gcmt")))], ignore_index=True)
+    m = pd.concat([c.assign(event_id=c.src_id.map(ev("comcat"))), g.assign(event_id=g.src_id.map(ev("gcmt"))),
+                   b.assign(event_id=b.src_id.map(ev("iscgem")))], ignore_index=True)
     m = m[m.event_id.notna()]
     m["m0_tensor"] = tensor_m0(m)
     m["m0"] = pd.to_numeric(m.m0, errors="coerce")
@@ -313,7 +319,7 @@ def mechanisms(R, d=SRC):
     m["mech_flag"] = np.where(m.bad, "m0_listed_differs_from_tensor", np.where(m["rank"] == 4, "nodal_planes_only", ""))
     m["mech_m0"] = m.m0_tensor.fillna(m.m0).where(m["rank"] < 4)
     m["mech_mw"] = NM(m.mech_m0).round(2)
-    m["mech_src"] = np.where(m.src == "gcmt", "GCMT", "ComCat " + m.agency.astype(str))
+    m["mech_src"] = np.select([m.src == "gcmt", m.src == "iscgem"], ["GCMT", "ISC-GEM literature"], "ComCat " + m.agency.astype(str))
     cols = ["event_id", "mech_src", "code", "strike1", "dip1", "rake1", "strike2", "dip2", "rake2", "mrr", "mtt", "mpp", "mrt",
             "mrp", "mtp", "mech_m0", "mech_mw", "mech_flag"]
     return m[cols].rename(columns={"code": "mech_id"})
@@ -344,6 +350,13 @@ def build(e, R, dflt, back=backarc, off=offshore):
     return out, W, R
 
 
+
+def duplicates(loc):
+    """Events an A6 row marks exists = False, removed; returns the table without them and the removed ids."""
+    gone = loc.event_id[loc.a6_exists.astype(str).str.lower().eq("false")] if "a6_exists" in loc else loc.event_id[:0]
+    return loc[~loc.event_id.isin(gone)].reset_index(drop=True), gone
+
+
 def main():
     e, R, allo = records()
     dflt = defaults(allo)
@@ -352,8 +365,12 @@ def main():
     print("A6 corrections applied:", n6)
     if n6:
         loc["in_domain"] = loc.lat.between(*DOMAIN["lat"]) & loc.lon.between(*DOMAIN["lon"])
+    loc, gone = duplicates(loc)
+    mg = merges()
+    print("duplicates merged:", mg.reason.value_counts().to_dict(), "| removed by exists = False:", len(gone))
     loc = loc.sort_values("time", kind="stable").reset_index(drop=True)
-    files = {OUT / f"locations_{RUN}.csv": loc, OUT / f"defaults_{RUN}.csv": dflt}
+    files = {OUT / f"locations_{RUN}.csv": loc, OUT / f"defaults_{RUN}.csv": dflt,
+             OUT / "review" / f"duplicates_merged_{RUN}.csv": mg}
     bad = loc[loc.mech_flag == "m0_listed_differs_from_tensor"][["event_id", "time", "lat", "lon", "mech_src", "mech_id", "mech_m0", "mech_mw"]]
     files[OUT / "review" / f"mech_m0_mismatch_{RUN}.csv"] = bad
     f = OUT / f"mw_{MW}.csv"

@@ -1,0 +1,187 @@
+name,event_id,src,agency,code,mw,m0,strike1,dip1,rake1,strike2,dip2,rake2,used
+Valparaíso 1906,cl19060817004004,iscgem,bibliog,ISC-GEM-suppl,8.2,2.8e+21,3.0,15.0,117.0,155.0,77.0,83.0,True
+Talca 1928,cl19281201040617,iscgem,bibliog,ISC-GEM,7.7,4e+20,20.0,25.0,80.0,211.0,65.0,95.0,True
+San Juan 1944,cl19440115234931,iscgem,bibliog,ISC-GEM,6.92,3.01e+19,45.0,35.0,110.0,201.0,57.0,77.0,True
+San Juan 1952,cl19520611003143,iscgem,bibliog,ISC-GEM,6.83,2.2e+19,40.0,75.0,30.0,301.0,61.0,163.0,True
+Valdivia 1960,cl19600522191120,iscgem,bibliog,ISC-GEM,9.55,2.7000000000000005e+23,10.0,17.0,140.0,139.0,79.0,77.0,True
+La Ligua 1965,cl19650328163316,iscgem,bibliog,ISC-GEM,7.4,1.8e+20,348.0,10.0,-95.0,173.0,80.0,-89.0,True
+Taltal 1966,cl19661228081805,iscgem,bibliog,ISC-GEM,7.67,4e+20,70.0,41.0,150.0,184.0,71.0,53.0,True
+Tocopilla 1967,cl19671221022524,iscgem,bibliog,ISC-GEM,7.3,1e+20,6.0,28.0,100.0,175.0,62.0,85.0,True
+La Ligua 1971,cl19710709030319,iscgem,bibliog,ISC-GEM,7.8,5.5999999999999993e+20,180.0,66.0,87.0,7.0,24.0,97.0,True
+Arauco 1975,cl19750510142741,iscgem,bibliog,ISC-GEM,7.3,1.1200000000000002e+20,13.0,18.0,129.0,153.0,76.0,78.0,True
+Caucete 1977,cl19771123092626,comcat_mt,us,focal-mechanism:gcmtZ112377A,,,183.0,44.0,90.0,4.0,46.0,90.0,True
+Caucete 1977,cl19771123092626,gcmt,GCMT,Z112377A,7.45,1.86e+20,183.0,44.0,90.0,4.0,46.0,90.0,True
+Caucete 1977,cl19771123092626,iscgem,gcmt,ISC-GEM,7.45,1.86e+20,4.0,46.0,90.0,183.0,44.0,90.0,False
+Papudo 1981,cl19811016032540,comcat_mt,us,focal-mechanism:gcmtC101681A,,,194.0,34.0,96.0,6.0,56.0,86.0,True
+Papudo 1981,cl19811016032540,gcmt,GCMT,C101681A,7.07,5.11e+19,194.0,34.0,96.0,6.0,56.0,86.0,True
+Papudo 1981,cl19811016032540,iscgem,gcmt,ISC-GEM,7.07,5.11e+19,6.0,56.0,86.0,194.0,34.0,96.0,False
+Copiapó 1983,cl19831004185217,comcat_mt,us,focal-mechanism:gcmtC100483C,,,9.0,20.0,110.0,168.0,71.0,83.0,True
+Copiapó 1983,cl19831004185217,gcmt,GCMT,C100483C,7.62,3.38e+20,9.0,20.0,110.0,168.0,71.0,83.0,True
+Copiapó 1983,cl19831004185217,iscgem,gcmt,ISC-GEM,7.62,3.38e+20,9.0,20.0,110.0,168.0,71.0,83.0,True
+Valparaíso 1985,cl19850303224709,comcat_mt,us,focal-mechanism:choy19850303224726,,,360.0,35.0,105.0,360.0,35.0,105.0,False
+Valparaíso 1985,cl19850303224709,gcmt,GCMT,M030385A,7.94,1.031e+21,11.0,26.0,110.0,169.0,66.0,81.0,True
+Valparaíso 1985,cl19850303224709,iscgem,gcmt,ISC-GEM,7.95,1.031e+21,11.0,26.0,110.0,169.0,66.0,81.0,True
+Antofagasta 1987,cl19870305091704,comcat_mt,us,focal-mechanism:gcmtC030587A,,,12.0,23.0,106.0,175.0,68.0,83.0,True
+Antofagasta 1987,cl19870305091704,gcmt,GCMT,C030587A,7.53,2.48e+20,12.0,23.0,106.0,175.0,68.0,83.0,True
+Antofagasta 1987,cl19870305091704,iscgem,gcmt,ISC-GEM,7.54,2.48e+20,12.0,23.0,106.0,175.0,68.0,83.0,True
+Arica 1987,cl19870808154857,comcat_mt,us,focal-mechanism:gcmtC080887C,,,176.0,20.0,-87.0,353.0,70.0,-91.0,True
+Arica 1987,cl19870808154857,gcmt,GCMT,C080887C,7.2,7.88e+19,176.0,20.0,-87.0,353.0,70.0,-91.0,True
+Arica 1987,cl19870808154857,iscgem,gcmt,ISC-GEM,7.2,7.88e+19,176.0,20.0,-87.0,353.0,70.0,-91.0,True
+Mejillones 1994,cl19941210033932,comcat_mt,us,focal-mechanism:gcmtB121094B,,,7.0,28.0,107.0,168.0,64.0,81.0,True
+Mejillones 1994,cl19941210033932,gcmt,GCMT,B121094B,6.0,1.28e+18,7.0,28.0,107.0,168.0,64.0,81.0,True
+Mejillones 1994,cl19941210033932,iscgem,gcmt,ISC-GEM,6.01,1.28e+18,7.0,28.0,107.0,168.0,64.0,81.0,True
+Antofagasta 1995,cl19950730051122,comcat_mt,duputel,moment-tensor:duputel073095A,8.1,1.823e+21,14.0,17.0,116.0,166.0,74.0,82.0,False
+Antofagasta 1995,cl19950730051122,comcat_mt,us,focal-mechanism:gcmtM073095A,,,354.0,22.0,87.0,177.0,68.0,91.0,True
+Antofagasta 1995,cl19950730051122,comcat_mt,us,focal-mechanism:choy19950730051123,,,355.0,19.0,90.0,175.0,71.0,90.0,False
+Antofagasta 1995,cl19950730051122,gcmt,GCMT,M073095A,7.99,1.215e+21,354.0,22.0,87.0,177.0,68.0,91.0,True
+Antofagasta 1995,cl19950730051122,iscgem,gcmt,ISC-GEM,8.0,1.215e+21,177.0,68.0,91.0,354.0,22.0,87.0,False
+Punitaqui 1997,cl19971015010334,comcat_mt,duputel,moment-tensor:duputel101597A,7.1,6.152e+19,323.0,10.0,240.0,172.0,80.0,-84.0,False
+Punitaqui 1997,cl19971015010334,comcat_mt,HRV,moment-tensor:pde19971015010333460_58_C_HRV,,4.9e+19,315.0,12.0,-128.0,173.0,80.0,-83.0,True
+Punitaqui 1997,cl19971015010334,comcat_mt,US,moment-tensor:pde19971015010333460_58_M_US,,4.9e+19,52.0,15.0,-31.0,172.0,82.0,-103.0,False
+Punitaqui 1997,cl19971015010334,comcat_mt,US,focal-mechanism:pde19971015010333460_58_B_US,,5300000000000000.0,175.0,85.0,-120.0,76.0,30.0,-10.0,False
+Punitaqui 1997,cl19971015010334,comcat_mt,us,focal-mechanism:gcmtC101597A,,,315.0,12.0,-128.0,173.0,80.0,-83.0,True
+Punitaqui 1997,cl19971015010334,comcat_mt,us,focal-mechanism:choy19971015010333,,,175.0,85.0,-120.0,76.0,30.0,-10.0,False
+Punitaqui 1997,cl19971015010334,gcmt,GCMT,C101597A,7.06,4.92e+19,315.0,12.0,-128.0,173.0,80.0,-83.0,True
+Punitaqui 1997,cl19971015010334,iscgem,gcmt,ISC-GEM,7.07,4.92e+19,173.0,80.0,-83.0,315.0,12.0,-128.0,False
+Papudo 2001,cl20010409090055,comcat_mt,duputel,moment-tensor:duputel040901A,6.8,1.694e+19,226.0,63.0,279.0,26.0,28.0,-107.0,False
+Papudo 2001,cl20010409090055,comcat_mt,HRV,moment-tensor:pde20010409090057170_11_C_HRV,,1.2e+19,219.0,44.0,-86.0,33.0,46.0,-94.0,True
+Papudo 2001,cl20010409090055,comcat_mt,US,moment-tensor:pde20010409090057170_11_M_US,,1.1e+19,227.0,25.0,-97.0,54.0,66.0,-87.0,False
+Papudo 2001,cl20010409090055,comcat_mt,US,focal-mechanism:pde20010409090057170_11_B_US,,85000000000000.0,45.0,55.0,-55.0,174.0,48.0,-129.0,False
+Papudo 2001,cl20010409090055,comcat_mt,us,focal-mechanism:gcmtC040901A,,,219.0,44.0,-86.0,33.0,46.0,-94.0,True
+Papudo 2001,cl20010409090055,comcat_mt,us,focal-mechanism:choy20010409090057,,,45.0,55.0,-55.0,174.0,48.0,-129.0,False
+Papudo 2001,cl20010409090055,gcmt,GCMT,C040901A,6.65,1.17e+19,219.0,44.0,-86.0,33.0,46.0,-94.0,True
+Papudo 2001,cl20010409090055,iscgem,gcmt,ISC-GEM,6.65,1.17e+19,33.0,46.0,-94.0,219.0,44.0,-86.0,False
+Southern Peru 2001,cl20010707093844,comcat_mt,duputel,moment-tensor:duputel070701F,7.6,2.717e+20,159.0,76.0,94.0,319.0,14.0,70.0,False
+Southern Peru 2001,cl20010707093844,comcat_mt,HRV,moment-tensor:pde20010707093843520_33_C_HRV,,3.2e+20,306.0,14.0,52.0,165.0,79.0,99.0,True
+Southern Peru 2001,cl20010707093844,comcat_mt,US,moment-tensor:pde20010707093843520_33_M_US,,2.1e+20,319.0,11.0,69.0,160.0,80.0,94.0,False
+Southern Peru 2001,cl20010707093844,comcat_mt,us,focal-mechanism:gcmtC070701F,,,306.0,14.0,52.0,165.0,79.0,99.0,True
+Southern Peru 2001,cl20010707093844,comcat_mt,us,focal-mechanism:choy20010707093843,,,306.0,14.0,52.0,165.0,79.0,99.0,True
+Southern Peru 2001,cl20010707093844,gcmt,GCMT,C070701F,7.6,3.2e+20,306.0,14.0,52.0,165.0,79.0,99.0,True
+Southern Peru 2001,cl20010707093844,iscgem,gcmt,ISC-GEM,7.61,3.2e+20,165.0,79.0,99.0,306.0,14.0,52.0,False
+Aroma 2001,cl20010724050006,comcat_mt,HRV,moment-tensor:pde20010724050009090_33_C_HRV,,3.6e+18,14.0,46.0,-169.0,276.0,82.0,-44.0,True
+Aroma 2001,cl20010724050006,comcat_mt,US,moment-tensor:pde20010724050009090_33_M_US,,3.8e+18,106.0,81.0,7.0,14.0,83.0,171.0,False
+Aroma 2001,cl20010724050006,comcat_mt,US,focal-mechanism:pde20010724050009090_33_B_US,,320000000000000.0,280.0,75.0,-30.0,18.0,61.0,-163.0,False
+Aroma 2001,cl20010724050006,comcat_mt,us,focal-mechanism:gcmtC072401C,,,14.0,46.0,-169.0,276.0,82.0,-44.0,True
+Aroma 2001,cl20010724050006,comcat_mt,us,focal-mechanism:choy20010724050009,,,280.0,75.0,-30.0,18.0,61.0,-163.0,False
+Aroma 2001,cl20010724050006,gcmt,GCMT,C072401C,6.3,3.58e+18,14.0,46.0,-169.0,276.0,82.0,-44.0,True
+Aroma 2001,cl20010724050006,iscgem,gcmt,ISC-GEM,6.31,3.58e+18,14.0,46.0,-169.0,276.0,82.0,-44.0,True
+Curicó 2004,cl20040828134124,comcat_mt,duputel,moment-tensor:duputel082804C,6.5,7.537e+18,24.0,68.0,200.0,286.0,71.0,-22.0,False
+Curicó 2004,cl20040828134124,comcat_mt,HRV,moment-tensor:pde20040828134125600_5_C_HRV,,7.2e+18,21.0,61.0,-178.0,290.0,88.0,-29.0,True
+Curicó 2004,cl20040828134124,comcat_mt,US,moment-tensor:pde20040828134125600_5_M_US,,6.7e+18,117.0,87.0,2.0,27.0,88.0,177.0,False
+Curicó 2004,cl20040828134124,comcat_mt,US,focal-mechanism:pde20040828134125600_5_B_US,,18000000000000.0,0.0,45.0,90.0,180.0,45.0,90.0,False
+Curicó 2004,cl20040828134124,comcat_mt,us,focal-mechanism:gcmtC082804C,,,21.0,61.0,-178.0,290.0,88.0,-29.0,True
+Curicó 2004,cl20040828134124,comcat_mt,us,focal-mechanism:choy20040828134125,,,0.0,45.0,90.0,180.0,45.0,90.0,False
+Curicó 2004,cl20040828134124,gcmt,GCMT,C082804C,6.5,7.181e+18,21.0,61.0,-178.0,290.0,88.0,-29.0,True
+Curicó 2004,cl20040828134124,iscgem,gcmt,ISC-GEM,6.51,7.18e+18,21.0,61.0,-178.0,290.0,88.0,-29.0,True
+Tarapacá 2005,cl20050613224432,comcat_mt,duputel,moment-tensor:duputel200506132244A,7.8,5.259e+20,184.0,23.0,283.0,350.0,67.0,-95.0,False
+Tarapacá 2005,cl20050613224432,comcat_mt,HRV,moment-tensor:pde20050613224433900_115_C_HRV,,5.3e+20,182.0,23.0,-81.0,352.0,67.0,-94.0,True
+Tarapacá 2005,cl20050613224432,comcat_mt,US,moment-tensor:pde20050613224433900_115_M_US,,6.5e+20,231.0,30.0,-33.0,350.0,75.0,-116.0,False
+Tarapacá 2005,cl20050613224432,comcat_mt,US,focal-mechanism:pde20050613224433900_115_B_US,,5400000000000000.0,355.0,70.0,-90.0,175.0,20.0,-90.0,False
+Tarapacá 2005,cl20050613224432,comcat_mt,us,focal-mechanism:gcmtC200506132244A,,,182.0,23.0,-81.0,352.0,67.0,-94.0,True
+Tarapacá 2005,cl20050613224432,comcat_mt,us,focal-mechanism:choy20050613224433,,,355.0,70.0,-90.0,175.0,20.0,-90.0,False
+Tarapacá 2005,cl20050613224432,gcmt,GCMT,C200506132244A,7.75,5.322e+20,182.0,23.0,-81.0,352.0,67.0,-94.0,True
+Tarapacá 2005,cl20050613224432,iscgem,gcmt,ISC-GEM,7.76,5.32e+20,182.0,23.0,-81.0,352.0,67.0,-94.0,True
+Aysén 2007a,cl20070402024935,comcat_mt,LD,moment-tensor:pde20070402024935900_4_C_GCMT,,2.1e+18,53.0,43.0,-86.0,228.0,47.0,-94.0,True
+Aysén 2007a,cl20070402024935,comcat_mt,us,focal-mechanism:gcmtC200704020249A,,,53.0,43.0,-86.0,228.0,47.0,-94.0,True
+Aysén 2007a,cl20070402024935,gcmt,GCMT,C200704020249A,6.14,2.073e+18,53.0,43.0,-86.0,228.0,47.0,-94.0,True
+Aysén 2007a,cl20070402024935,iscgem,gcmt,ISC-GEM,6.15,2.07e+18,53.0,43.0,-86.0,228.0,47.0,-94.0,True
+Aysén 2007b,cl20070421175343,comcat_mt,LD,moment-tensor:pde20070421175346310_36_C_GCMT,,2.8e+18,84.0,86.0,2.0,354.0,88.0,176.0,True
+Aysén 2007b,cl20070421175343,comcat_mt,US,moment-tensor:pde20070421175346310_36_M_US,,2.5e+18,93.0,87.0,-1.0,183.0,89.0,-177.0,False
+Aysén 2007b,cl20070421175343,comcat_mt,us,focal-mechanism:gcmtC200704211753A,,,84.0,86.0,2.0,354.0,88.0,176.0,True
+Aysén 2007b,cl20070421175343,gcmt,GCMT,C200704211753A,6.24,2.843e+18,84.0,86.0,2.0,354.0,88.0,176.0,True
+Aysén 2007b,cl20070421175343,iscgem,gcmt,ISC-GEM,6.24,2.84e+18,84.0,86.0,2.0,354.0,88.0,176.0,True
+Tocopilla 2007,cl20071114154050,comcat_mt,duputel,moment-tensor:duputel200711141540A,7.8,5.895e+20,6.0,17.0,111.0,164.0,73.0,83.0,False
+Tocopilla 2007,cl20071114154050,comcat_mt,LD,moment-tensor:pde20071114154050530_40_C_GCMT,,4.8e+20,358.0,20.0,98.0,170.0,71.0,87.0,True
+Tocopilla 2007,cl20071114154050,comcat_mt,us,focal-mechanism:gcmtC200711141540A,,,358.0,20.0,98.0,170.0,71.0,87.0,True
+Tocopilla 2007,cl20071114154050,comcat_mt,us,focal-mechanism:choy20071114154050,,,169.0,70.0,87.0,358.0,20.0,98.0,False
+Tocopilla 2007,cl20071114154050,gcmt,GCMT,C200711141540A,7.72,4.765e+20,358.0,20.0,98.0,170.0,71.0,87.0,True
+Tocopilla 2007,cl20071114154050,iscgem,gcmt,ISC-GEM,7.73,4.76e+20,170.0,71.0,87.0,358.0,20.0,98.0,False
+Michilla 2007,cl20071216080916,comcat_mt,duputel,moment-tensor:duputel200712160809A,6.7,1.367e+19,228.0,7.0,140.0,358.0,85.0,84.0,False
+Michilla 2007,cl20071216080916,comcat_mt,LD,moment-tensor:pde20071216080917930_45_C_GCMT,,1.5e+19,246.0,6.0,159.0,357.0,88.0,84.0,True
+Michilla 2007,cl20071216080916,comcat_mt,US,moment-tensor:pde20071216080917930_45_M_US,,1.2e+19,5.0,80.0,83.0,222.0,12.0,127.0,False
+Michilla 2007,cl20071216080916,comcat_mt,US,focal-mechanism:pde20071216080917930_45_B_US,,130000000000000.0,5.0,85.0,90.0,185.0,5.0,90.0,False
+Michilla 2007,cl20071216080916,comcat_mt,us,focal-mechanism:gcmtC200712160809A,,,246.0,6.0,159.0,357.0,88.0,84.0,True
+Michilla 2007,cl20071216080916,comcat_mt,us,focal-mechanism:choy20071216080917,,,5.0,85.0,90.0,185.0,5.0,90.0,False
+Michilla 2007,cl20071216080916,gcmt,GCMT,C200712160809A,6.71,1.464e+19,246.0,6.0,159.0,357.0,88.0,84.0,True
+Michilla 2007,cl20071216080916,iscgem,gcmt,ISC-GEM,6.72,1.46e+19,246.0,6.0,159.0,357.0,88.0,84.0,True
+Maule 2010,cl20100227063411,comcat_mt,duputel,moment-tensor:duputel201002270634A,8.8,2.257e+22,17.0,13.0,108.0,178.0,76.0,85.0,False
+Maule 2010,cl20100227063411,comcat_mt,US,moment-tensor:pde20100227063411530_22_C_WCMT,,2.77679671564e+23,16.0,14.0,104.0,181.0,75.0,86.0,False
+Maule 2010,cl20100227063411,comcat_mt,LD,moment-tensor:pde20100227063411530_22_C_GCMT,,1.9e+22,19.0,18.0,116.0,172.0,74.0,82.0,True
+Maule 2010,cl20100227063411,comcat_mt,US,moment-tensor:pde20100227063411530_22_C_UCMT,,1.8e+22,14.0,19.0,104.0,179.0,71.0,85.0,False
+Maule 2010,cl20100227063411,comcat_mt,us,focal-mechanism:gcmtC201002270634A,,,19.0,18.0,116.0,172.0,74.0,82.0,True
+Maule 2010,cl20100227063411,comcat_mt,us,focal-mechanism:choy20100227063411,,,171.0,73.0,81.0,19.0,19.0,117.0,False
+Maule 2010,cl20100227063411,gcmt,GCMT,C201002270634A,8.78,1.858e+22,19.0,18.0,116.0,172.0,74.0,82.0,True
+Maule 2010,cl20100227063411,iscgem,gcmt,ISC-GEM,8.79,1.86e+22,19.0,18.0,116.0,172.0,74.0,82.0,True
+Maule outer rise 2010,cl20100227080120,comcat_mt,LD,moment-tensor:pde20100227080123010_35_C_GCMT,,1.4e+20,3.0,46.0,-102.0,200.0,46.0,-78.0,True
+Maule outer rise 2010,cl20100227080120,comcat_mt,us,focal-mechanism:gcmtS201002270801A,,,3.0,46.0,-102.0,200.0,46.0,-78.0,True
+Maule outer rise 2010,cl20100227080120,gcmt,GCMT,S201002270801A,7.36,1.361e+20,3.0,46.0,-102.0,200.0,46.0,-78.0,True
+Maule outer rise 2010,cl20100227080120,iscgem,gcmt,ISC-GEM,7.36,1.3600000000000002e+20,3.0,46.0,-102.0,200.0,46.0,-78.0,True
+Pichilemu 2010b,cl20100311143944,comcat_mt,duputel,moment-tensor:duputel201003111439A,6.8,1.959e+19,323.0,38.0,276.0,134.0,51.0,-95.0,False
+Pichilemu 2010b,cl20100311143944,comcat_mt,US,moment-tensor:pde20100311143943950_11_C_WCMT,,2.6e+19,317.0,33.0,-97.0,145.0,57.0,-85.0,False
+Pichilemu 2010b,cl20100311143944,comcat_mt,LD,moment-tensor:pde20100311143943950_11_C_GCMT,,2.4e+19,324.0,35.0,-90.0,144.0,55.0,-90.0,True
+Pichilemu 2010b,cl20100311143944,comcat_mt,US,moment-tensor:pde20100311143943950_11_C_UCMT,,2.4e+19,337.0,37.0,-63.0,126.0,57.0,-107.0,False
+Pichilemu 2010b,cl20100311143944,comcat_mt,US,moment-tensor:pde20100311143943950_11_M_US,,1.7e+19,111.0,51.0,-111.0,322.0,44.0,-67.0,False
+Pichilemu 2010b,cl20100311143944,comcat_mt,us,focal-mechanism:gcmtC201003111439A,,,324.0,35.0,-90.0,144.0,55.0,-90.0,True
+Pichilemu 2010b,cl20100311143944,comcat_mt,us,focal-mechanism:choy20100311143944,,,143.0,55.0,-90.0,323.0,35.0,-90.0,False
+Pichilemu 2010b,cl20100311143944,gcmt,GCMT,C201003111439A,6.85,2.385e+19,324.0,35.0,-90.0,144.0,55.0,-90.0,True
+Pichilemu 2010b,cl20100311143944,iscgem,gcmt,ISC-GEM,6.86,2.38e+19,144.0,55.0,-90.0,324.0,35.0,-90.0,False
+Pichilemu 2010a,cl20100311145523,comcat_mt,US,moment-tensor:pde20100311145527510_18_C_WCMT,,1.78565758196e+19,36.0,27.0,-43.0,168.0,71.0,-109.0,False
+Pichilemu 2010a,cl20100311145523,comcat_mt,LD,moment-tensor:pde20100311145527510_18_C_GCMT,,3.5e+19,16.0,6.0,-53.0,159.0,86.0,-93.0,True
+Pichilemu 2010a,cl20100311145523,comcat_mt,us,focal-mechanism:gcmtC201003111455A,,,16.0,6.0,-53.0,159.0,86.0,-93.0,True
+Pichilemu 2010a,cl20100311145523,gcmt,GCMT,C201003111455A,6.96,3.4900000000000004e+19,16.0,6.0,-53.0,159.0,86.0,-93.0,True
+Pichilemu 2010a,cl20100311145523,iscgem,gcmt,ISC-GEM,6.97,3.4900000000000004e+19,16.0,6.0,-53.0,159.0,86.0,-93.0,True
+Arauco 2011,cl20110102202010,comcat_mt,duputel,moment-tensor:duputel201101022020A,7.1,5.854e+19,15.0,14.0,114.0,170.0,77.0,84.0,False
+Arauco 2011,cl20110102202010,comcat_mt,US,moment-tensor:pde20110102202017780_24_C_WCMT,,7.8e+19,358.0,11.0,86.0,182.0,78.0,90.0,False
+Arauco 2011,cl20110102202010,comcat_mt,LD,moment-tensor:pde20110102202017780_24_C_GCMT,,6.3e+19,5.0,13.0,97.0,178.0,77.0,88.0,True
+Arauco 2011,cl20110102202010,comcat_mt,US,moment-tensor:pde20110102202017780_24_C_UCMT,,5.3e+19,4.0,16.0,88.0,186.0,74.0,91.0,False
+Arauco 2011,cl20110102202010,comcat_mt,US,moment-tensor:pde20110102202017780_24_M_US,,3.8e+19,30.0,13.0,128.0,172.0,79.0,82.0,False
+Arauco 2011,cl20110102202010,comcat_mt,US,focal-mechanism:pde20110102202017780_24_B_US,,1300000000000000.0,175.0,80.0,90.0,355.0,10.0,90.0,False
+Arauco 2011,cl20110102202010,comcat_mt,us,focal-mechanism:choy20110102202017,,,175.0,80.0,90.0,355.0,10.0,90.0,False
+Arauco 2011,cl20110102202010,gcmt,GCMT,C201101022020A,7.13,6.327e+19,5.0,13.0,97.0,178.0,77.0,88.0,True
+Arauco 2011,cl20110102202010,iscgem,gcmt,ISC-GEM,7.14,6.33e+19,5.0,13.0,97.0,178.0,77.0,88.0,True
+Constitución 2012,cl20120325223705,comcat_mt,duputel,moment-tensor:duputel201203252237A,7.1,4.947e+19,182.0,72.0,85.0,17.0,17.0,104.0,False
+Constitución 2012,cl20120325223705,comcat_mt,US,moment-tensor:pde20120325223706000_40_C_WCMT,,5e+19,20.0,18.0,109.0,180.0,73.0,84.0,False
+Constitución 2012,cl20120325223705,comcat_mt,LD,moment-tensor:pde20120325223706000_40_C_GCMT,,7.4e+19,21.0,11.0,114.0,176.0,80.0,85.0,False
+Constitución 2012,cl20120325223705,comcat_mt,US,moment-tensor:pde20120325223706000_40_C_UCMT,,5.3e+19,12.0,19.0,101.0,180.0,72.0,86.0,False
+Constitución 2012,cl20120325223705,comcat_mt,US,focal-mechanism:pde20120325223706000_40_B_US,,690000000000000.0,175.0,75.0,65.0,56.0,29.0,148.0,False
+Constitución 2012,cl20120325223705,comcat_mt,us,focal-mechanism:choy20120325223706,,,175.0,75.0,65.0,56.0,29.0,148.0,False
+Constitución 2012,cl20120325223705,gcmt,GCMT,C201203252237A,7.12,5.978e+19,20.0,16.0,112.0,177.0,76.0,84.0,True
+Constitución 2012,cl20120325223705,iscgem,gcmt,ISC-GEM,7.12,5.980000000000001e+19,20.0,16.0,112.0,177.0,76.0,84.0,True
+Iquique foreshock 2014,cl20140316211627,comcat_mt,us,moment-tensor:us_c000ndnj_mww,6.7,1.59e+19,126.0,74.0,98.0,277.0,18.0,63.0,False
+Iquique foreshock 2014,cl20140316211627,comcat_mt,us,moment-tensor:usc000ndnj,6.7,1.59e+19,277.0,18.0,63.0,126.0,74.0,98.0,False
+Iquique foreshock 2014,cl20140316211627,comcat_mt,gcmt,moment-tensor:us_c000ndnj_mwc_gcmt,6.7,1.32e+19,141.0,70.0,104.0,286.0,24.0,57.0,False
+Iquique foreshock 2014,cl20140316211627,comcat_mt,us,moment-tensor:us_c000ndnj_mwb,6.5,8.12e+18,258.24,24.0,43.85,126.97,73.63,107.8,False
+Iquique foreshock 2014,cl20140316211627,gcmt,GCMT,C201403162116A,6.67,1.27e+19,284.0,26.0,54.0,144.0,69.0,106.0,True
+Iquique foreshock 2014,cl20140316211627,iscgem,gcmt,ISC-GEM,6.67,1.27e+19,144.0,69.0,106.0,284.0,26.0,54.0,False
+Iquique 2014,cl20140401234645,comcat_mt,us,moment-tensor:us_c000nzvd_mww,8.2,2.35e+21,160.0,79.0,87.0,358.0,11.0,107.0,False
+Iquique 2014,cl20140401234645,comcat_mt,us,moment-tensor:us_c000nzvd_mwc,8.1,2.1e+21,339.91,13.87,73.55,176.83,76.7,94.0,False
+Iquique 2014,cl20140401234645,comcat_mt,gcmt,moment-tensor:us_c000nzvd_mwc_gcmt,8.1,1.69e+21,157.0,73.0,84.0,357.0,18.0,109.0,False
+Iquique 2014,cl20140401234645,gcmt,GCMT,C201404012346A,8.12,1.898e+21,355.0,15.0,106.0,159.0,76.0,86.0,True
+Iquique 2014,cl20140401234645,iscgem,gcmt,ISC-GEM,8.12,1.9e+21,159.0,76.0,86.0,355.0,15.0,106.0,False
+Iquique aftershock 2014,cl20140403024315,comcat_mt,us,moment-tensor:us_c000p27i_mww,7.7,4.71e+20,166.0,75.0,87.0,356.0,15.0,100.0,False
+Iquique aftershock 2014,cl20140403024315,comcat_mt,us,moment-tensor:usc000p27i,7.7,4.71e+20,356.0,15.0,100.0,166.0,75.0,87.0,False
+Iquique aftershock 2014,cl20140403024315,comcat_mt,us,moment-tensor:us_c000p27i_mwc,7.7,3.96e+20,354.54,19.98,98.14,165.89,70.23,87.05,False
+Iquique aftershock 2014,cl20140403024315,comcat_mt,gcmt,moment-tensor:us_c000p27i_mwc_gcmt,7.7,3.86e+20,165.0,73.0,86.0,357.0,18.0,101.0,False
+Iquique aftershock 2014,cl20140403024315,gcmt,GCMT,C201404030243A,7.73,4.9189999999999993e+20,358.0,14.0,103.0,165.0,76.0,87.0,True
+Iquique aftershock 2014,cl20140403024315,iscgem,gcmt,ISC-GEM,7.73,4.92e+20,165.0,76.0,87.0,358.0,14.0,103.0,False
+Jujuy 2015,cl20150211185720,comcat_mt,us,moment-tensor:us_c000tp1s_mww,6.7,1.4e+19,3.0,68.0,-86.0,173.0,22.0,-99.0,False
+Jujuy 2015,cl20150211185720,comcat_mt,us,moment-tensor:usc000tp1s,6.7,1.403e+19,173.0,22.0,-99.0,3.0,68.0,-86.0,False
+Jujuy 2015,cl20150211185720,comcat_mt,gcmt,moment-tensor:us_c000tp1s_mwc_gcmt,6.7,1.4e+19,4.0,72.0,-86.0,171.0,18.0,-102.0,False
+Jujuy 2015,cl20150211185720,comcat_mt,us,moment-tensor:us_c000tp1s_mwb,6.7,1.3e+19,149.67,25.19,-119.59,1.78,68.28,-76.92,False
+Jujuy 2015,cl20150211185720,gcmt,GCMT,C201502111857A,6.69,1.346e+19,168.0,19.0,-104.0,3.0,72.0,-85.0,True
+Jujuy 2015,cl20150211185720,iscgem,gcmt,ISC-GEM,6.69,1.35e+19,3.0,72.0,-85.0,168.0,19.0,-104.0,False
+Illapel 2015,cl20150916225432,comcat_mt,us,moment-tensor:us_20003k7a_mww,8.3,3.19e+21,180.0,71.0,92.0,353.0,19.0,83.0,False
+Illapel 2015,cl20150916225432,comcat_mt,us,moment-tensor:us20003k7a,8.3,3.191e+21,353.0,19.0,83.0,180.0,71.0,92.0,False
+Illapel 2015,cl20150916225432,comcat_mt,gcmt,moment-tensor:us_20003k7a_mwc_gcmt,8.2,2.86e+21,169.0,69.0,84.0,5.0,22.0,106.0,False
+Illapel 2015,cl20150916225432,gcmt,GCMT,C201509162254A,8.27,3.2290000000000003e+21,7.0,19.0,109.0,166.0,72.0,83.0,True
+Illapel 2015,cl20150916225432,iscgem,gcmt,ISC-GEM,8.27,3.23e+21,7.0,19.0,109.0,166.0,72.0,83.0,True
+Chiloé 2016,cl20161225142224,comcat_mt,us,moment-tensor:us_10007mn3_mww,7.6,3.38e+20,183.0,74.0,92.0,356.0,16.0,83.0,False
+Chiloé 2016,cl20161225142224,comcat_mt,us,moment-tensor:us_10007mn3_mwc,7.6,2.85e+20,10.44,22.46,104.5,174.81,68.29,84.09,False
+Chiloé 2016,cl20161225142224,comcat_mt,us,moment-tensor:us_10007mn3_mwb,7.5,2.25e+20,43.35,31.18,127.56,181.4,65.77,69.75,False
+Chiloé 2016,cl20161225142224,gcmt,GCMT,C201612251422A,7.57,2.839e+20,4.0,19.0,96.0,178.0,71.0,88.0,True
+Chiloé 2016,cl20161225142224,iscgem,gcmt,ISC-GEM,7.57,2.84e+20,4.0,19.0,96.0,178.0,71.0,88.0,True
+Valparaíso 2017,cl20170424213828,comcat_mt,us,moment-tensor:us_10008kce_mww,6.9,2.77e+19,174.0,76.0,88.0,4.0,14.0,99.0,False
+Valparaíso 2017,cl20170424213828,comcat_mt,us,moment-tensor:us_10008kce_mwc,6.9,2.42e+19,8.04,18.41,107.21,169.97,72.44,84.38,False
+Valparaíso 2017,cl20170424213828,comcat_mt,us,moment-tensor:us_10008kce_mwb,6.6,1.19e+19,55.16,31.31,138.61,182.13,69.9,65.47,False
+Valparaíso 2017,cl20170424213828,gcmt,GCMT,C201704242138A,6.86,2.419e+19,3.0,16.0,94.0,179.0,74.0,89.0,True
+Valparaíso 2017,cl20170424213828,iscgem,gcmt,ISC-GEM,6.86,2.42e+19,3.0,16.0,94.0,179.0,74.0,89.0,True

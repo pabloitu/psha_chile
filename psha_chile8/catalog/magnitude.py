@@ -22,9 +22,9 @@ import pandas as pd
 from match import SRC, OUT, FROZEN, DATES, tsec, year
 
 # settings
-RUN = "2026-11-16d"
+RUN = "2026-11-17g"
 A3 = "2026-11-11"
-LOC = "2026-11-16d"
+LOC = "2026-11-17g"
 SEED = 1
 SRCS = ["gcmt", "isc", "csn", "comcat", "iscgem", "centennial", "cabello"]
 CODA, CODA_AG, CODA_BEFORE = ["md", "mc", "c"], ["GUC", "CSN", "guc", "GUC;NEIC"], 1990
@@ -48,6 +48,9 @@ MIN_SIDE, NFOLD, NBOOT = 20, 5, 200
 KNOTS, KREF = np.round(np.arange(4.6, 6.61, 0.1), 1), 5.5
 B_SAT, S_MAX, GROW = 0.3, 1.0, 0.1
 ZCUT, PCUT, PERIOD_SPLIT = 50.0, 1990, ["ISC mb", "NEIC mb"]
+# 'depth3' adds a group below ZNEST, the top of the Jujuy nest in classify.NEST: the deep ML relation, fitted mostly
+# on in-slab pairs near 110 km, gave nest events (about 205 km) an Mw 0.15-0.25 too high (FITS to CAT, 17 Nov)
+ZNEST = 150.0
 AT = [4.5, 5.0, 5.5, 6.0]
 ML, WEB_ML, WEB_MLV = "GUC ML", "CSN Ml", "CSN Mlv"
 MB_FAMILY = ["ISC mb", "NEIC mb"]
@@ -72,8 +75,16 @@ CENT_TY = {"Mw": 0, "mB": 1, "Ms": 2, "UK": 3}
 CAB_BEFORE = 1904
 # corrections of the large-event review (plan A6): rows with status 'accepted' are applied as the last step
 A6 = Path(__file__).resolve().parent / "overrides_A6.csv"
+DUP = Path(__file__).resolve().parent / "duplicates.csv"
+# duplicates (A11), read by locate.py and magnitude.py before they choose: the records of a duplicate event join the
+# kept event. A row of DUP (reviewed by hand, with source and reason) names the kept event; and an event made of one ISC record whose prime origin is
+# not ISC's own (an ISC copy of one agency's solution, mostly the unreviewed months) joins the nearest event with
+# records from two or more sources within LONE_S seconds and LONE_KM km
+LONE_S, LONE_KM = 10.0, 100.0
 A6_MW = {"mw": "mw"}
-A6_ALSO = {"mw": {"mw_kind": "a6"}, "depth": {"depth_kind": "measured", "depth_src": "a6"}}
+A6_ALSO = {"mw": {"mw_kind": "a6", "mw_src": "a6"}, "depth": {"depth_kind": "measured", "depth_src": "a6"}, "lon": {"loc_src": "a6"},
+           "lat": {"loc_src": "a6"},
+           "strike1": {"mech_src": "a6"}}
 SIG_RM, SIG_GEM, SIG_CENT, SIG_MB, SIG_CAB = 0.2, 0.2, 0.25, 0.3, 0.5
 BIG, BIG_DIFF = 7.0, 0.3
 PROXY_REVIEW = 6.5
@@ -128,6 +139,7 @@ def load(d=SRC, out=OUT):
         z = e.event_id.map(pd.read_csv(f, usecols=["event_id", "depth"]).set_index("event_id").depth)
         e["z"] = z.fillna(e.z)
     L = pd.read_csv(Path(out) / f"links_{A3}.csv", usecols=["event_id", "src", "src_id"], dtype=str).drop_duplicates(["src", "src_id"])
+    L, e = merged(L, e, merges(out, d))
     yr = e.set_index("event_id").yr
     rows = []
     for s in SRCS:
@@ -367,6 +379,8 @@ def conv(f, x):
 def groups(split, z, yr):
     if split == "depth":
         return np.where(np.isfinite(z) & (z > ZCUT), "deep", "shallow")
+    if split == "depth3":
+        return np.select([np.isfinite(z) & (z > ZNEST), np.isfinite(z) & (z > ZCUT)], [f"below {ZNEST:.0f} km", "deep"], "shallow")
     if split == "period":
         return np.where(yr < PCUT, f"before {PCUT}", f"{PCUT} on")
     return np.full(len(z), "all")
@@ -392,7 +406,7 @@ def candidates(sc, n):
     c = [("linear", "none")]
     if n >= N_ALL:
         c += [("hinge", "none"), ("linear", "depth")] + [("linear", "period")] * (sc in PERIOD_SPLIT) + \
-             [("hinge", "depth")] + [("hinge", "period")] * (sc in PERIOD_SPLIT)
+             [("hinge", "depth")] + [("hinge", "period")] * (sc in PERIOD_SPLIT) + [("linear", "depth3"), ("hinge", "depth3")]
     return c
 
 
@@ -689,6 +703,48 @@ def old_big(e, M, mw):
     d = d.join(x[["time", "lat", "lon", "yr", "mw", "mw_kind"]])
     return d[d.yr < PRE76].drop(columns="yr").sort_values("time").reset_index()
 
+
+
+def merges(out=OUT, d=SRC, f=DUP, dt=LONE_S, dkm=LONE_KM):
+    """
+    Duplicate events and the event their records join: the accepted rows of DUP, then the lone ISC copies of the
+    rule above (on the links and events of the A3 run). Returns a table event_id, into, reason, dt, dd.
+    """
+    L = pd.read_csv(Path(out) / f"links_{A3}.csv", usecols=["event_id", "src", "src_id"], dtype=str).drop_duplicates(["event_id", "src", "src_id"])
+    e = pd.read_csv(Path(out) / f"events_{A3}.csv", usecols=["event_id", "time", "lon", "lat"], low_memory=False)
+    rows = []
+    if Path(f).exists():
+        o = pd.read_csv(f, dtype=str)
+        o = o[o.status == "accepted"]
+        rows += [(r.event_id, r.into, "reviewed (duplicates.csv)", np.nan, np.nan) for r in o.itertuples()]
+    isc = pd.read_csv(Path(d) / f"isc_{FROZEN}_events.csv", dtype={"src_id": str}, usecols=["src_id", "agency", "prime"])
+    own = set(isc.src_id[isc.prime.astype(str).eq("True") & isc.agency.ne("ISC")])
+    n = L.groupby("event_id").src.nunique()
+    r1 = L.drop_duplicates("event_id").set_index("event_id").reindex(n.index)
+    lone = set(n.index[(n == 1) & r1.src.eq("isc") & r1.src_id.isin(own)]) - {r[0] for r in rows}
+    x = e.assign(t=tsec(e.time)).sort_values("t")
+    t, lo, la, ev = x.t.to_numpy(), x.lon.to_numpy(), x.lat.to_numpy(), x.event_id.to_numpy()
+    full = n.reindex(ev).fillna(0).to_numpy() >= 2
+    for i in np.flatnonzero(np.isin(ev, list(lone))):
+        j = np.arange(*np.searchsorted(t, [t[i] - dt, t[i] + dt]))
+        j = j[full[j]]
+        km = 111.2 * np.hypot((lo[j] - lo[i]) * np.cos(np.radians(la[i])), la[j] - la[i])
+        if (km <= dkm).any():
+            k = j[np.argmin(km)]
+            rows.append((ev[i], ev[k], "single-agency ISC copy", round(t[k] - t[i], 2), round(km.min(), 1)))
+    return pd.DataFrame(rows, columns=["event_id", "into", "reason", "dt", "dd"])
+
+
+def merged(L, e, m):
+    """
+    Links and events after the merges m: the records of each duplicate carry the kept event's id, except records of a
+    source the kept event already has (that source listed the earthquake twice; one record per source is kept).
+    """
+    mp = m.set_index("event_id").into
+    has = set(zip(L.event_id, L.src))
+    cp = L.event_id.isin(mp.index)
+    dup = cp & [(k, s) in has for k, s in zip(L.event_id.map(mp), L.src)]
+    return L[~dup].assign(event_id=L.event_id[~dup].replace(mp)), e[~e.event_id.isin(mp.index)]
 
 def overrides(d, cols, flag="flags", f=A6):
     """

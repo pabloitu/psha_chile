@@ -9,9 +9,11 @@ Last full check: 17 Nov 2026, 14:10 (main conversation, wrap-up; every owner che
 | input | current | note |
 |---|---|---|
 | source catalogs (A2, A2b) | `catalog/sources/<name>_2026-11-10_{events,mags,mechs}.csv` (11 sources), `gccel_2026-11-11_*`; `sources/MANIFEST.csv` (sha256) | read by `match.py`; downloaded 10 Nov, unchanged since (commits c3ecf3b, 3bb70b3); raw in `sources/raw/` (not in git) |
-| frozen catalogue | `catalog/frozen/2026-11-16e/catalog_2026-11-16e.csv` | as 16c, with Aysén 1960 and 1927-11-21 at the ISC-GEM epicentre |
-| catalogue the fits and models are built on | `catalog/frozen/2026-11-16c/catalog_2026-11-16c.csv` | refit on 16e on hold (Pablo, 16 Nov) |
-| overrides | `catalog/overrides_A6.csv` | A6: 104 accepted, 8 superseded, none proposed; identical to the copy in `frozen/2026-11-16e/` (all applied); applied by `locate.py` (location, depth, class hint) and `magnitude.py` (Mw) as their last step |
+| frozen catalogue (final) | `catalog/frozen/2026-11-17g/catalog_2026-11-17g.csv` | final catalogue (Pablo, 18 Nov, CAT); 17f with the A11 merges (44 events, `duplicates.csv` and the ISC-copy rule) and the conversions with three depth groups (below 150 km); 14 416 events of Mw ≥ 4.5 in the domain; handoff `handoffs/2026-11-18_CAT_to_FITS_17g.md` |
+| catalogue the fits and models are built on | `catalog/frozen/2026-11-16c/catalog_2026-11-16c.csv` | until FITS refits on 2026-11-17g (handoff of 18 Nov) |
+| overrides | `catalog/overrides_A6.csv` | per-event corrections of event properties: 119 accepted, 8 superseded, none proposed; identical to the copy in `frozen/2026-11-17g/` (all applied); applied by `locate.py` (location, depth, mechanism, class hint) and `magnitude.py` (Mw) as their last step |
+| duplicates | `catalog/duplicates.csv` | reviewed merges (22 accepted: event, kept event, reference, reason); with the ISC-copy rule read by `locate.py` and `magnitude.py` before they choose location and Mw; merged events of a run in `merged/review/duplicates_merged_<run>.csv` and in the freeze |
+| named events | `catalog/named_events.csv` | events named in the literature (88), label flag and label positions of the mechanism map; add a row for every event cited in the paper |
 | matched events and links (A3) | `catalog/merged/events_2026-11-11.csv`, `links_2026-11-11.csv` (`windows_`, `review/`) | 204 956 events; read by `locate.py` and `magnitude.py`; unchanged since the rerun of 11 Nov (commit 2267cc9) |
 | declustered catalogues | `catalog/declustered/*_2026-11-16e.csv` | built on catalogue 16c (owner: FITS) |
 
@@ -30,7 +32,7 @@ Last full check: 17 Nov 2026, 14:10 (main conversation, wrap-up; every owner che
 |---|---|---|
 | sources and tree | `model/interface/nrml_2026-11-16c/` (`branches.json`) | on fits 16f; pad rows inside (`*_pad00`, `*_pad04`, tornado block); `nrml_2026-11-16/` and `nrml_2026-11-16b/` superseded |
 
-## In-slab (owner: IS, sessions S2, C14/C15, B14)
+## In-slab (owner: IS for the sources; FITS for depth cells, class shares and nodal planes, from 18 Nov)
 
 | input | current | note |
 |---|---|---|

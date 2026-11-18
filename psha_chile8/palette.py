@@ -3,7 +3,7 @@
 # the new class names (A7). Import from here; do not restate colours in a figure script.
 
 # magnitude bands of the catalog profiles, light to dark
-BAND = {"M < 4": "#d9d9d9", "4–5": "#9ecae1", "5–6": "#4292c6", "6–7": "#08519c", "M ≥ 7": "#e6550d",
+BAND = {"M < 4": "#d9d9d9", "4–5": "#9ecae1", "5–6": "#4292c6", "6–7": "#08519c", "M ≥ 7": "#c0141c",
         "no magnitude": "#ffffff"}
 # qualitative series (sources, magnitude types)
 SERIES = ["#2166ac", "#e0641e", "#2e8b57", "#a50f15", "#c9a227", "#6a3d9a", "#4393c3", "#8c510a", "#f0505a",
@@ -31,3 +31,17 @@ def apply(size=None):
             rc[k] = size + (1 if k == "axes.titlesize" else 0) - (
                 2 if k in ("legend.fontsize", "xtick.labelsize", "ytick.labelsize") else 0)
     matplotlib.rcParams.update(rc)
+
+# tectonic classes (A7): display name and colour, one entry per class; "split" is an event whose weights are shared
+# between classes. Colours (Pablo, 17 Nov): interface steel blue, in-slab dark red (shades by sub-class), crustal
+# forearc yellow, arc olive, backarc yellow-green, Patagonia brown, outer rise violet
+CLASS = {"interface": ("interface", "#4682b4"), "antarctic_interface": ("Antarctic interface", "#9dc3e0"),
+         "intraslab_shallow": ("in-slab, shallow", "#b23a3a"), "intraslab_intermediate": ("in-slab, intermediate depth", "#7f1d1d"),
+         "jujuy_nest": ("Jujuy nest", "#4a0f0f"), "forearc": ("crustal, forearc", "#e8c21c"), "arc": ("crustal, arc", "#5e7a2a"),
+         "backarc": ("crustal, backarc", "#a3b81f"), "patagonia": ("crustal, Patagonia", "#6b4423"),
+         "outside": ("crustal, outside the grid", "#c8cdbf"), "outer_rise": ("outer rise", "#85638e"),
+         "split": ("shared between classes", "#9e9e9e"), "unclassified": ("unclassified", "#111111")}
+CLASS_NAME = {k: v[0] for k, v in CLASS.items()}
+CLASS_COLOR = {k: v[1] for k, v in CLASS.items()}
+# one colour per family, for figures that mix families (crustal: the arc olive, which reads on white and gray)
+FAMILY_COLOR = {"interface": "#4682b4", "inslab": "#7f1d1d", "crustal": "#5e7a2a", "outer_rise": "#85638e"}

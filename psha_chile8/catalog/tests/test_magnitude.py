@@ -253,7 +253,7 @@ def test_gcmt_line_is_continuous_and_keeps_the_order():
 
 
 def test_a6_corrections_only_accepted_rows(tmp_path):
-    d = pd.DataFrame({"event_id": ["a", "b", "c"], "mw": [7.0, 6.5, 6.0], "mw_sigma": [0.2, 0.2, 0.2], "mw_kind": "iscgem",
+    d = pd.DataFrame({"event_id": ["a", "b", "c"], "mw": [7.0, 6.5, 6.0], "mw_sigma": [0.2, 0.2, 0.2], "mw_kind": "iscgem", "mw_src": "iscgem",
                       "depth": [np.nan, 30.0, 10.0], "depth_sigma": np.nan, "depth_kind": ["unknown", "measured", "measured"],
                       "flags": ["", "x", ""]})
     o = pd.DataFrame([["a", "mw", 7.0, 7.7, 0.1, "ref", "p. 1", "why", "accepted"], ["b", "mw", 6.5, 6.9, 0.1, "ref", "p. 1", "why", "proposed"],
@@ -263,7 +263,7 @@ def test_a6_corrections_only_accepted_rows(tmp_path):
     f = tmp_path / "o.csv"
     o.to_csv(f, index=False)
     w, n = G.overrides(d, {"mw": "mw", "depth": "depth", "class_hint": "a6_class_hint"}, f=f)
-    assert n == 3 and w.mw.tolist() == [7.7, 6.5, 6.0] and w.mw_sigma[0] == 0.1 and w.mw_kind.tolist() == ["a6", "iscgem", "iscgem"]
+    assert n == 3 and w.mw.tolist() == [7.7, 6.5, 6.0] and w.mw_sigma[0] == 0.1 and w.mw_kind.tolist() == ["a6", "iscgem", "iscgem"] and w.mw_src.tolist() == ["a6", "iscgem", "iscgem"]
     assert w.depth[0] == 15 and w.depth_sigma[0] == 5 and w.depth_kind[0] == "measured" and w["flags"].tolist() == ["a6_mw;a6_depth", "x;a6_class_hint", ""]
     assert w.a6_class_hint.tolist()[1] == "in-slab" and w.a6_class_hint.isna().sum() == 2
     o["status"] = "proposed"
@@ -271,6 +271,17 @@ def test_a6_corrections_only_accepted_rows(tmp_path):
     w, n = G.overrides(d, {"mw": "mw", "depth": "depth", "class_hint": "a6_class_hint"}, f=f)
     assert n == 0 and w.equals(d)
     assert G.overrides(d, {"mw": "mw"}, f=tmp_path / "none.csv")[1] == 0
+
+
+def test_a6_epicentre_sets_the_location_source(tmp_path):
+    d = pd.DataFrame({"event_id": ["a", "b"], "lon": [-72.5, -71.0], "lat": [-45.5, -30.0], "loc_src": ["cent_ehb", "isc"],
+                      "flags": ["", ""]})
+    o = pd.DataFrame([["a", "lon", -72.5, -72.9, "", "ref", "p. 1", "why", "accepted"], ["a", "lat", -45.5, -45.7, "", "ref", "p. 1", "why", "accepted"]],
+                     columns=["event_id", "property", "old_value", "new_value", "sigma", "reference", "page", "reason", "status"])
+    f = tmp_path / "o.csv"
+    o.to_csv(f, index=False)
+    w, n = G.overrides(d, {"lon": "lon", "lat": "lat"}, f=f)
+    assert n == 2 and w.loc_src.tolist() == ["a6", "isc"] and w.lon[0] == -72.9 and w.lat[0] == -45.7
 
 
 def test_guc_mw_comes_last_and_is_not_a_fitting_pair():
@@ -291,3 +302,43 @@ def test_relations_leave_out_pairs_below_the_floor_and_guc_mw_pairs():
     F = G.relations(M, R, e, quiet=True, boot=0, forms=("linear",))
     assert F["ISC mb"]["n"] == int((y >= G.FIT_MIN).sum())
     assert G.relations(M, R, e, quiet=True, boot=0, forms=("linear",), floor=None)["ISC mb"]["n"] == 900
+
+
+def test_a6_mechanism_sets_the_mechanism_source(tmp_path):
+    d = pd.DataFrame({"event_id": ["a"], "strike1": [10.0], "dip1": [17.0], "rake1": [140.0], "mech_src": ["ISC-GEM literature"],
+                      "flags": [""]})
+    o = pd.DataFrame([["a", k, "", v, "", "ref", "p. 1", "why", "accepted"] for k, v in (("strike1", 7), ("dip1", 12), ("rake1", 105))],
+                     columns=["event_id", "property", "old_value", "new_value", "sigma", "reference", "page", "reason", "status"])
+    f = tmp_path / "o.csv"
+    o.to_csv(f, index=False)
+    w, n = G.overrides(d, {k: k for k in ("strike1", "dip1", "rake1")}, f=f)
+    assert n == 3 and (w.strike1[0], w.dip1[0], w.rake1[0]) == (7, 12, 105) and w.mech_src[0] == "a6"
+
+
+
+def test_merges_rule_and_a6_rows(tmp_path):
+    A3 = G.A3
+    pd.DataFrame({"src_id": ["1", "2", "3"], "agency": ["NEIC", "IDC", "ISC"], "prime": [True, True, True]}).to_csv(
+        tmp_path / f"isc_{G.FROZEN}_events.csv", index=False)
+    pd.DataFrame({"event_id": ["full", "copy", "far", "rev", "dup"],
+                  "time": ["2025-01-01T00:00:00", "2025-01-01T00:00:03", "2025-01-01T00:05:00", "2025-01-01T00:00:04",
+                           "2020-01-01T00:00:00"],
+                  "lon": [-71.0, -71.6, -71.0, -71.05, -70.0], "lat": [-30.0, -30.3, -30.0, -30.0, -30.0]}).to_csv(
+        tmp_path / f"events_{A3}.csv", index=False)
+    pd.DataFrame({"event_id": ["full", "full", "copy", "far", "rev", "dup"], "src": ["isc", "csn", "isc", "isc", "isc", "comcat"],
+                  "src_id": ["1", "c1", "2", "2", "3", "u1"]}).to_csv(tmp_path / f"links_{A3}.csv", index=False)
+    o = pd.DataFrame([["dup", "full", "ref", "why", "accepted"]], columns=["event_id", "into", "reference", "reason", "status"])
+    o.to_csv(tmp_path / "o.csv", index=False)
+    m = G.merges(out=tmp_path, d=tmp_path, f=tmp_path / "o.csv")
+    assert m.set_index("event_id").into.to_dict() == {"dup": "full", "copy": "full"}
+    L = pd.read_csv(tmp_path / f"links_{A3}.csv", dtype=str)
+    e = pd.read_csv(tmp_path / f"events_{A3}.csv")
+    L2, e2 = G.merged(L, e, m)
+    assert (L2.event_id == "full").sum() == 3 and sorted(e2.event_id) == ["far", "full", "rev"]
+    assert sorted(L2[L2.event_id == "full"].src) == ["comcat", "csn", "isc"]
+
+
+def test_depth3_groups_split_below_the_nest_top():
+    g = G.groups("depth3", np.array([10.0, 120.0, 200.0, np.nan]), np.zeros(4))
+    assert g.tolist() == ["shallow", "deep", f"below {G.ZNEST:.0f} km", "shallow"]
+    assert ("linear", "depth3") in G.candidates("GUC ML", G.N_ALL) and ("linear", "depth3") not in G.candidates("GUC ML", G.N_ALL - 1)

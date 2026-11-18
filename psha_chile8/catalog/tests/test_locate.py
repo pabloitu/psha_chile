@@ -150,3 +150,22 @@ def test_maule_moment_check():
     w = c[c.code.str.endswith("20100227063411530_22_C_WCMT")]
     assert abs(float(w.m0.iloc[0]) / G.tensor_m0(w).iloc[0] - 1) > G.M0_TOL
 
+
+
+def test_literature_mechanism_from_iscgem_only_without_another():
+    R = pd.DataFrame({"event_id": ["valdivia"], "src": ["iscgem"], "src_id": ["879136"]})
+    b = pd.read_csv(G.SRC / f"iscgem_{G.FROZEN}_mechs.csv", dtype={"src_id": str})
+    b = b[(b.agency == "bibliog") & b.strike1.notna()]
+    R["src_id"] = b[b.mw > 9.5].src_id.iloc[0]
+    r = G.mechanisms(R).iloc[0]
+    assert r.mech_src == "ISC-GEM literature" and (r.strike1, r.dip1, r.rake1) == (10.0, 17.0, 140.0)
+    g = pd.read_csv(G.SRC / f"iscgem_{G.FROZEN}_mechs.csv", dtype={"src_id": str})
+    gc = g[g.agency == "gcmt"].src_id.iloc[0]
+    assert G.mechanisms(pd.DataFrame({"event_id": ["x"], "src": ["iscgem"], "src_id": [gc]})).empty
+
+
+
+def test_duplicates_exists_false_removes_the_event():
+    loc = pd.DataFrame({"event_id": ["a", "b"], "a6_exists": [None, "False"]})
+    x, gone = G.duplicates(loc)
+    assert x.event_id.tolist() == ["a"] and gone.tolist() == ["b"]

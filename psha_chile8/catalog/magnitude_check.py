@@ -23,16 +23,21 @@ from match import SRC, OUT, FROZEN, tsec, year
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 import palette  # noqa: E402
+from plots import colors as PC  # noqa: E402
 
 # settings
 RUN = G.RUN
 FIG = HERE / "figs" / "magnitude"
+# figures of the paper and supplement go to FIGURES/magnitudes; the other test figures stay in FIG
+OFFICIAL, FIG_OUT = {"relations", "relations_others", "residual_depth", "residual_converted", "compare_relations",
+                     "compare_residual_depth", "compare_residual_converted", "test1_b_floor", "test7_comparison",
+                     "test9_synthetic"}, HERE / "FIGURES" / "magnitudes"
 SLAB = HERE.parents[1] / "data" / "slab_2.0"
 XLSX = Path.home() / "Downloads" / "srl-2025449_supplement.xlsx"
 CACHE = HERE / "cache"
 DM = 0.1
 FLOORS = np.round(np.arange(4.7, 5.81, 0.1), 1)
-SHOW = np.round(np.arange(4.3, 6.01, 0.1), 1)
+SHOW = np.round(np.arange(4.3, 6.51, 0.1), 1)
 B_RANGE = 0.2
 B_PER = [(2011, "2011 to today"), (1976, "1976 to today")]
 PER = [(1976, 1990), (1990, 2000), (2000, 2011), (2011, 2100)]
@@ -53,6 +58,17 @@ BOX = (-58.0, -15.5, -80.0, -60.0)
 SYN = {"a": 0.5, "b": 0.9, "sx": 0.20, "sy": 0.08, "floor": 5.3, "width": 0.1, "n": 200000, "rep": 20, "m0": 3.5}
 SYN_X = np.round(np.arange(3.5, 6.51, 0.25), 2)
 FWD_FIG = ["ISC mb", "NEIC mb", "GUC ML"]
+# published relations of the two Chilean catalogues, Mw from the native value: Cabello et al. (2025), CSN ML with one line
+# down to 50 km and one below (coefficients as in explore/X1/x1_mag.py); Candia and Macedo (2026, Table 6), ComCat mb
+PUB = {"ISC mb": {"Cabello et al. (2025)": lambda x: 0.87 * x + 0.75},
+       "NEIC mb": {"Cabello et al. (2025)": lambda x: 1.04 * x - 0.02, "Candia and Macedo (2026)": lambda x: 0.994 * x + 0.179},
+       "GUC ML": {"Cabello et al. (2025)": (lambda x: 0.80 * x + 1.15, lambda x: 0.94 * x + 0.30)}}
+OTHERS = ["Cabello et al. (2025)", "Candia and Macedo (2026)"]
+ZG = [("down to 50 km", -1.0, 50.0), ("50–150 km", 50.0, G.ZNEST), (f"below {G.ZNEST:.0f} km", G.ZNEST, 1e4)]
+CM_S, CM_KM = 30.0, 100.0
+UNC = "native magnitude"
+# display names in legends
+DISP = {"this study": "converted Mw", UNC: "native magnitude"}
 
 
 # statistics
@@ -151,6 +167,7 @@ def tests123(name, mw, c, t_end):
             b = np.array([aki(x, f) for f in SHOW])
             for f, v in zip(SHOW, b):
                 add(1, f"{lab}, {tag}", f"b at {f:.1f}", v)
+                add(1, f"{lab}, {tag}", f"n at {f:.1f}", int((x >= f - 1e-9).sum()))
             r = float(np.ptp(b[np.isin(SHOW, FLOORS)]))
             add(1, f"{lab}, {tag}", f"b range {FLOORS[0]}–{FLOORS[-1]}", r, f"<= {B_RANGE}", r <= B_RANGE)
         for fam, cls in FAMS.items():
@@ -169,15 +186,19 @@ def tests123(name, mw, c, t_end):
                 add(3, f"{fam}, {tag}, fit from {lo}", "b of the fit", b)
     keep = ok & ~dep
     for q in RATE_M:
-        r = np.array([(keep & (yr >= a) & (yr < b) & (m >= q - 1e-9)).sum() / (min(b, t_end) - a) for a, b in PER])
-        for (a, b), v in zip(PER, r):
+        nq = np.array([(keep & (yr >= a) & (yr < b) & (m >= q - 1e-9)).sum() for a, b in PER])
+        r = nq / np.array([min(b, t_end) - a for a, b in PER])
+        for (a, b), v, nn in zip(PER, r, nq):
             add(2, "declustered", f"rate M >= {q}, {a}–{'today' if b > 2090 else b - 1}", v)
+            add(2, "declustered", f"count M >= {q}, {a}–{'today' if b > 2090 else b - 1}", int(nn))
         d = float(np.abs(r / r.mean() - 1).max())
         add(2, "declustered", f"rate M >= {q}, largest departure from the mean", d, f"<= {RATE_TOL}" if q == 5.5 else None,
             (d <= RATE_TOL) if q == 5.5 else None)
     a, b = OLD_PER
     for q in RATE_M:
-        add(6, "declustered", f"rate M >= {q}, {a}–{b - 1}", (keep & (yr >= a) & (yr < b) & (m >= q - 1e-9)).sum() / (b - a))
+        nn = int((keep & (yr >= a) & (yr < b) & (m >= q - 1e-9)).sum())
+        add(6, "declustered", f"rate M >= {q}, {a}–{b - 1}", nn / (b - a))
+        add(6, "declustered", f"count M >= {q}, {a}–{b - 1}", nn)
     return pd.DataFrame(rows), dep
 
 
@@ -399,18 +420,43 @@ def new(nr, nc, w, h, **kw):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    palette.apply()
-    return plt.subplots(nr, nc, figsize=(w, h), layout="constrained", squeeze=False, **kw)
+    from pituplots import use_theme
+    from pituplots.style.axes import darkgrid
+    use_theme("slides")
+    matplotlib.rcParams["mathtext.default"] = "regular"
+    fig, ax = plt.subplots(nr, nc, figsize=(w, h), layout="constrained", squeeze=False, **kw)
+    for a in ax.flat:
+        darkgrid(a)
+    return fig, ax
 
 
 def save(fig, name):
     import matplotlib.pyplot as plt
-    FIG.mkdir(parents=True, exist_ok=True)
-    fig.savefig(FIG / f"{name}.png", dpi=200)
+    d = FIG_OUT if name in OFFICIAL else FIG
+    d.mkdir(parents=True, exist_ok=True)
+    if fig._suptitle is not None:
+        fig._suptitle.remove()
+        fig._suptitle = None
+    import matplotlib
+    for o in fig.findobj(matplotlib.text.Text):
+        t = o.get_text()
+        if "$" not in t and ("Mw" in t or "M ≥" in t):
+            o.set_text(re.sub(r"\bMw\b", "$M_w$", t).replace("M ≥", "$M_w$ ≥"))
+    for a in fig.axes:
+        t = a.get_title("left") or a.get_title()
+        if t:
+            a.set_title("", loc="left"), a.set_title("")
+            a.text(0.02, 0.97, t, transform=a.transAxes, va="top", fontsize=10, color=palette.INK, zorder=10)
+    fig.savefig(d / f"{name}.png", dpi=200)
     plt.close(fig)
 
 
-C = palette.SERIES
+C = PC.palette("tol_muted")
+BANDC = C[4]
+GC = {"shallow": C[1], "deep": C[6], f"below {G.ZNEST:.0f} km": C[0], "all": C[0]}
+SC4 = {"ISC mb": C[0], "NEIC mb": C[2], "GUC ML": C[1], "SJA ML": C[6]}
+# the other catalogues in colours the depth groups do not use
+OC = {"this study": C[0], "Cabello et al. (2025)": PC.palette("dark2")[4], "Candia and Macedo (2026)": PC.palette("dark2")[1]}
 
 
 def fig_offsets(D):
@@ -457,31 +503,76 @@ def draw_rel(a, f, c, lw=2.2, ls="-", lab=None, lo=3.5, hi=7.5):
     a.plot(G.pl(f["p"], y), y, color=c, lw=lw, ls=ls, label=lab)
 
 
-def fig_relations(D):
+def size(m):
+    return np.clip(2.0 * 3.0 ** (m - 4.5), 1.0, 80.0)
+
+
+def matched(D, name):
+    """Mw of another catalogue on our events: its record nearest in time within CM_S s and CM_KM km."""
+    c = others().get(name)
+    if c is None:
+        return pd.Series(dtype=float)
+    a = D.e[["event_id", "t", "lat", "lon"]].dropna(subset=["t"]).sort_values("t")
+    b = c[["t", "lat", "lon", "mw"]].dropna(subset=["t", "mw"]).sort_values("t")
+    m = pd.merge_asof(a, b, on="t", direction="nearest", tolerance=CM_S, suffixes=("", "_c")).dropna(subset=["mw"])
+    km = 111.2 * np.hypot(m.lat - m.lat_c, (m.lon - m.lon_c) * np.cos(np.radians(m.lat)))
+    return m[km <= CM_KM].drop_duplicates("event_id").set_index("event_id").mw
+
+
+def no_ref(D, sc, cm):
+    """Native value of sc and the other catalogue's Mw minus it, on our events without a reference Mw."""
+    x = D.P[sc].x.to_numpy(float)
+    k = np.isfinite(x) & ~D.e.event_id.isin(D.R.index).to_numpy()
+    c = cm.reindex(D.e.event_id[k]).to_numpy()
+    return pd.DataFrame({"x": x[k], "cm": c - x[k], "z": D.e.z[k].to_numpy(), "yr": D.e.yr[k].to_numpy()}).dropna(subset=["cm"])
+
+
+def legend_below(fig, ax, ncol=4):
+    h = {}
+    for a in ax.flat:
+        for hh, ll in zip(*a.get_legend_handles_labels()):
+            h.setdefault(ll, hh)
+    fig.legend(h.values(), h.keys(), loc="outside lower center", ncol=ncol, fontsize=10)
+
+
+def fig_relations(D, oth=False):
+    """Reference Mw against native magnitude with the relation of each depth group; oth adds the relations of
+    Cabello et al. (2025) and Candia and Macedo (2026) and their Mw on our events without a measured Mw."""
     fig, ax = new(2, 3, 14, 9.5, sharex=True, sharey=True)
+    cms = {k: matched(D, k) for k in OTHERS} if oth else {}
+    xs = np.linspace(3.5, 7.3, 100)
     for a, sc in zip(ax.ravel(), MAIN):
         p, r = D.pairs(sc), D.F[sc]
         x, y, yr, z = (p[c].to_numpy(float) for c in ("mag", "y", "yr", "z"))
         g = G.groups(r["split"], z, yr)
-        sy = float(np.sqrt(np.mean(p.sig ** 2)))
-        a.plot([3, 8], [3, 8], color="0.6", lw=0.9, ls=":")
-        for i, q in enumerate(np.unique(g)):
-            a.scatter(x[g == q], y[g == q], s=3, color=C[i], alpha=0.12, lw=0, rasterized=True)
-        for form, ls in (("linear", "--"), ("hinge", "-.")):
-            if (form, "none") != (r["form"], r["split"]):
-                draw_rel(a, G.fit_inv(y, x, sy, form), "0.35", 1.0, ls, f"not chosen: {'straight line' if form == 'linear' else 'line with bend'}, no split")
-        for i, (q, f) in enumerate(r["parts"].items()):
-            draw_rel(a, f, C[i], lab="chosen" + ("" if q == "all" else f": {q}"))
+        lab = {"shallow": "down to 50 km", "deep": "50–150 km" if r["split"] == "depth3" else "below 50 km", "all": "no depth split"}
+        col = {**GC, "all": C[5]}
+        a.plot([3, 8], [3, 8], color="0.25", lw=1.2, ls=":", label="native magnitude (1:1)")
+        o = np.argsort(y)
+        for q in np.unique(g):
+            k = o[g[o] == q]
+            a.scatter(x[k], y[k], s=size(y[k]), color=col[q], alpha=0.3, lw=0, rasterized=True)
+        for q, f in r["parts"].items():
+            draw_rel(a, f, col[q], 2.6, lab=lab.get(q, q))
+        for nm, mk in zip(cms, ("o", "s")):
+            for j, fj in enumerate(PUB.get(sc, {}).get(nm, ()) if isinstance(PUB.get(sc, {}).get(nm), tuple) else
+                                   [PUB[sc][nm]] if nm in PUB.get(sc, {}) else []):
+                a.plot(xs, fj(xs), "--" if j == 0 else "-.", color=OC[nm], lw=2.2,
+                       label=f"{nm}, relation" + ("" if sc != "GUC ML" else [", down to 50 km", ", below 50 km"][j]))
+            v = no_ref(D, sc, cms[nm])
+            v = (v.cm + v.x).groupby(np.round(v.x, 1))
+            md, n = v.median(), v.count()
+            a.plot(md.index[n >= 15], md[n >= 15], mk, color=OC[nm], mfc="none", ms=5, mew=1.5,
+                   label=f"{nm}, their Mw on our events without a measured Mw (median)")
         a.set_title(f"{NAME.get(sc, sc)} ({len(p):,} pairs)")
-        a.legend(loc="upper left", fontsize=8.5)
         a.set_xlim(3.4, 7.6)
         a.set_ylim(3.4, 8.0)
     for a in ax[-1]:
         a.set_xlabel("native magnitude")
     for a in ax[:, 0]:
         a.set_ylabel("reference Mw")
-    fig.suptitle("Conversion relations of the main scales: native magnitude regressed on the reference Mw and inverted", x=0.01, ha="left")
-    save(fig, "relations")
+    legend_below(fig, ax, 3 if oth else 4)
+    save(fig, "relations_others" if oth else "relations")
 
 
 def fig_forward(D):
@@ -500,7 +591,7 @@ def fig_forward(D):
                 ax[0, j].tick_params(labelbottom=True)
                 continue
             k, f = g == qs[i], r["parts"][qs[i]]
-            a.scatter(x[k], y[k], s=4, color="0.45", alpha=0.15, lw=0, rasterized=True)
+            a.scatter(x[k], y[k], s=4, color=C[0], alpha=0.12, lw=0, rasterized=True)
             a.plot([3, 8], [3, 8], color="0.5", lw=1.0, ls=":", label="1:1")
             fw = G.fit_fwd(x[k], y[k], np.sqrt(max(f["s"] ** 2 - (f["p"][1] * sy) ** 2, 0.05 ** 2)), sy)
             draw_rel(a, fw, C[1], lab="forward chi-square fit (Mw on native)")
@@ -514,9 +605,166 @@ def fig_forward(D):
                 a.set_xlabel("native magnitude")
             if j == 0:
                 a.set_ylabel("reference Mw")
-    ax[0, 0].legend(loc="upper left")
+    ax[0, 0].legend(loc="lower right")
     fig.suptitle("Forward chi-square fit and the chosen inverse fit on the same pairs", x=0.01, ha="left")
     save(fig, "forward_inverse")
+
+
+def residuals(D, scales=FWD_FIG + ["SJA ML"]):
+    """Native value, converted value, reference Mw and depth of every event with a reference Mw, per scale."""
+    ref = D.e.event_id.map(D.R.y).to_numpy(float)
+    out = []
+    for sc in scales:
+        d = D.P[sc]
+        k = d.x.notna().to_numpy() & np.isfinite(ref) & (ref >= G.FIT_MIN)
+        out.append(pd.DataFrame({"scale": sc, "event_id": D.e.event_id[k].to_numpy(), "x": d.x[k].to_numpy(), "conv": d.raw[k].to_numpy(),
+                                 "ref": ref[k], "z": D.e.z[k].to_numpy(), "yr": D.e.yr[k].to_numpy()}))
+    r = pd.concat(out, ignore_index=True)
+    r["d"] = r.conv - r.ref
+    return r
+
+
+def fig_depth(D, r):
+    """Reported and converted magnitude minus the reference Mw, against depth, per scale."""
+    zb = np.arange(0, 325, 25)
+    fig, ax = new(1, 2, 14, 5, sharey=True)
+    for a, (col, lab) in zip(ax[0], (("x", "native magnitude"), ("conv", "converted Mw"))):
+        for i, sc in enumerate(r.scale.unique()):
+            q = r[r.scale == sc]
+            g = (q[col] - q.ref).groupby(pd.cut(q.z, zb), observed=True)
+            m, lo, hi, n = g.median(), g.quantile(0.25), g.quantile(0.75), g.count()
+            x, ok = np.array([v.mid for v in m.index]) + 2 * (i - 1.5), n.to_numpy() >= 20
+            a.errorbar(x[ok], m[ok], [m[ok] - lo[ok], hi[ok] - m[ok]], color=SC4[sc], marker="o", ms=5, lw=1.8, capsize=0,
+                       label=NAME.get(sc, sc))
+        for zc in (50, G.ZNEST):
+            a.axvline(zc, color="0.4", lw=0.8, ls="--")
+        a.axhline(0, color="0.2", lw=0.8)
+        a.set_title(lab)
+        a.set_xlabel("depth (km)")
+        a.set_ylim(-0.7, 0.5)
+    ax[0, 0].set_ylabel("magnitude − reference Mw (median, quartiles)")
+    ax[0, 0].legend(loc="lower left", ncol=2)
+    save(fig, "residual_depth")
+
+
+def fig_residual(D, r):
+    """Reported (dashed) and converted (solid) magnitude minus the reference Mw, against that magnitude, per depth group."""
+    mb = np.arange(3.75, 6.76, 0.25)
+    fig, ax = new(1, 3, 14, 4.8, sharey=True)
+    for a, (lab, z0, z1) in zip(ax[0], ZG):
+        for sc in r.scale.unique():
+            q = r[(r.scale == sc) & (r.z > z0) & (r.z <= z1)]
+            for col, ls in (("x", "--"), ("conv", "-")):
+                g = (q[col] - q.ref).groupby(pd.cut(q[col], mb), observed=True)
+                m, n = g.median(), g.count()
+                x, ok = np.array([v.mid for v in m.index]), n.to_numpy() >= 15
+                a.plot(x[ok], m[ok], ls, color=SC4[sc], lw=2 if col == "conv" else 1.4, marker="o" if col == "conv" else None, ms=4,
+                       label=NAME.get(sc, sc) if col == "conv" else None)
+        a.axhline(0, color="0.2", lw=0.8)
+        a.set_title(lab)
+        a.set_xlabel("native magnitude or converted Mw")
+        a.set_ylim(-0.8, 0.6)
+    ax[0, 0].set_ylabel("magnitude − reference Mw (median)")
+    ax[0, 0].plot([], [], "--", color="0.3", label="native magnitude")
+    ax[0, 0].plot([], [], "-", color="0.3", label="converted Mw")
+    legend_below(fig, ax, 6)
+    save(fig, "residual_converted")
+
+
+def fig_others_residual(D, r):
+    """The relations of this study, Cabello et al. (2025) and Candia and Macedo (2026) applied to the same events with a
+    measured Mw: their value minus the measured Mw, against depth and against their value, per scale."""
+    sc3 = [sc for sc in r.scale.unique() if sc in PUB]
+    v = {}
+    for sc in sc3:
+        q = r[r.scale == sc]
+        v[(sc, "this study")] = q.assign(m=q.conv)
+        for nm, fn in PUB[sc].items():
+            m = np.where(q.z > 50, fn[1](q.x), fn[0](q.x)) if isinstance(fn, tuple) else fn(q.x)
+            v[(sc, nm)] = q.assign(m=m)
+    zb = np.arange(0, 325, 25)
+    fig, ax = new(1, len(sc3), 15, 4.8, sharey=True)
+    for a, sc in zip(ax[0], sc3):
+        for (s_, nm), q in v.items():
+            if s_ != sc:
+                continue
+            g = (q.m - q.ref).groupby(pd.cut(q.z, zb), observed=True)
+            m, n = g.median(), g.count()
+            x, ok = np.array([b.mid for b in m.index]), n.to_numpy() >= 20
+            a.plot(x[ok], m[ok], "-o", color=OC[nm], lw=2.2, ms=4, label=DISP.get(nm, nm))
+        for zc in (50, G.ZNEST):
+            a.axvline(zc, color="0.4", lw=0.8, ls="--")
+        a.axhline(0, color="0.2", lw=0.8)
+        a.set_title(NAME.get(sc, sc))
+        a.set_xlabel("depth (km)")
+        a.set_ylim(-0.5, 0.6)
+    ax[0, 0].set_ylabel("converted − measured Mw (median)")
+    legend_below(fig, ax, 3)
+    save(fig, "compare_residual_depth")
+    mb = np.arange(4.25, 6.76, 0.25)
+    fig, ax = new(len(sc3), 3, 14, 3.6 * len(sc3), sharex=True, sharey=True)
+    for i, sc in enumerate(sc3):
+        for j, (lab, z0, z1) in enumerate(ZG):
+            a = ax[i, j]
+            for (s_, nm), q in v.items():
+                if s_ != sc:
+                    continue
+                q = q[(q.z > z0) & (q.z <= z1)] if z1 > 50 else q[~(q.z > 50)]
+                g = (q.m - q.ref).groupby(pd.cut(q.m, mb), observed=True)
+                m, n = g.median(), g.count()
+                x, ok = np.array([b.mid for b in m.index]), n.to_numpy() >= 15
+                a.plot(x[ok], m[ok], "-o", color=OC[nm], lw=2.2, ms=4, label=DISP.get(nm, nm))
+            a.axhline(0, color="0.2", lw=0.8)
+            a.set_title(f"{NAME.get(sc, sc)}, {lab}")
+            a.set_ylim(-0.5, 0.6)
+        ax[i, 0].set_ylabel("converted − measured Mw")
+    for a in ax[-1]:
+        a.set_xlabel("converted Mw")
+    legend_below(fig, ax, 3)
+    save(fig, "compare_residual_converted")
+
+
+def fig_others(D, r):
+    """Mw minus native against native, per scale and depth group: this study, the relations of Cabello et al. (2025)
+    and Candia and Macedo (2026), the Mw of their catalogues on our events without a measured Mw, and the paired
+    reference Mw."""
+    cms = {k: matched(D, k) for k in OTHERS}
+    sc4 = list(r.scale.unique())
+    xs = np.linspace(4.0, 6.8, 100)
+    fig, ax = new(len(sc4), 3, 13, 3.3 * len(sc4), sharex=True, sharey=True)
+    for i, sc in enumerate(sc4):
+        f = D.F[sc]
+        nr = {k: no_ref(D, sc, v) for k, v in cms.items()}
+        for j, (lab, z0, z1) in enumerate(ZG):
+            a = ax[i, j]
+            q = r[(r.scale == sc) & (r.z > z0) & (r.z <= z1) & (r.yr >= G.PRE76)].sort_values("ref")
+            a.scatter(q.x, q.ref - q.x, s=size(q.ref.to_numpy()), color="white", alpha=0.5, lw=0, rasterized=True)
+            g = (q.ref - q.x).groupby(np.round(q.x, 1))
+            m, n = g.median(), g.count()
+            a.plot(m.index[n >= 15], m[n >= 15], "o", color="0.15", ms=3.5, label="reference Mw on our events, median per 0.1")
+            for k, mk in zip(OTHERS, ("o", "s")):
+                v = nr[k]
+                v = v[((v.z > z0) & (v.z <= z1)) if z1 > 50 else ~(v.z > 50)]
+                v = v[v.yr >= G.PRE76]
+                gc = v.cm.groupby(np.round(v.x, 1))
+                mc, nc = gc.median(), gc.count()
+                a.plot(mc.index[nc >= 15], mc[nc >= 15], mk, color=OC[k], mfc="none", ms=5, mew=1.5,
+                       label=f"{k}: their Mw on our events without a measured Mw")
+            zm = (max(z0, 0) + min(z1, 300)) / 2
+            gq = G.groups(f["split"], np.full(1, zm), np.full(1, 2000.0))[0]
+            a.plot(xs, G.conv(f["parts"][gq], xs)[0] - xs, color=OC["this study"], lw=2.8, label="converted Mw: relation")
+            for nm, fn in PUB.get(sc, {}).items():
+                fj = (fn[0] if z1 <= 50 else fn[1]) if isinstance(fn, tuple) else fn
+                a.plot(xs, fj(xs) - xs, "--", color=OC[nm], lw=2.4, label=f"{nm}: relation")
+            a.axhline(0, color="0.3", lw=0.6)
+            a.text(0.03, 0.05, f"{NAME.get(sc, sc)}, {lab}", transform=a.transAxes, fontsize=10)
+        ax[i, 0].set_ylabel("Mw − native")
+    for a in ax[-1]:
+        a.set_xlabel("native magnitude")
+    ax[0, 0].set_ylim(-1.0, 1.4)
+    ax[0, 0].set_xlim(4.0, 6.8)
+    legend_below(fig, ax, 2)
+    save(fig, "compare_relations")
 
 
 def coverage(D):
@@ -555,30 +803,47 @@ def fig_b(T, names, file, title):
     for a, s in zip(ax[0], subs):
         for i, nm in enumerate(names):
             x = T[(T.test == 1) & (T.catalogue == nm) & (T.subset == s) & T.quantity.str.startswith("b at")]
-            a.plot(SHOW, x.value.astype(float), color=C[i], lw=2.4 if i == 0 else 1.5, label=nm)
-        a.axvspan(FLOORS[0], FLOORS[-1], color="0.95", lw=0)
+            cl = {UNC: C[1], **OC}.get(nm, C[i])
+            b = x.value.astype(float).to_numpy()
+            n = T[(T.test == 1) & (T.catalogue == nm) & (T.subset == s) & T.quantity.str.startswith("n at")].value.astype(float).to_numpy()
+            a.plot(SHOW, b, color=cl, lw=2.4 if i == 0 else 1.8, label=DISP.get(nm, nm))
+            if len(n) == len(b):
+                a.fill_between(SHOW, b * (1 - 1.96 / np.sqrt(n)), b * (1 + 1.96 / np.sqrt(n)), color=cl, alpha=0.15, lw=0)
+        a.axvspan(FLOORS[0], FLOORS[-1], color=BANDC, alpha=0.3, lw=0)
         a.axhline(1.0, color="0.6", lw=0.7)
         a.set_title(s)
         a.set_xlabel("lowest magnitude fitted")
-        a.set_ylim(0.5, 1.8)
+        a.set_ylim(0.4, 2.0)
     ax[0, 0].set_ylabel("b")
-    ax[0, -1].legend(loc="upper right")
+    ax[0, 0].legend(loc="lower left")
     fig.suptitle(title, x=0.01, ha="left")
     save(fig, file)
 
 
-def rate_axis(a, T, names, q):
+def rate_axis(a, T, names, qs=RATE_M):
+    """Declustered rate per period, M >= 5.0 solid and M >= 5.5 dashed, with the band of ± RATE_TOL around the mean
+    of the first catalogue for each threshold."""
     lab = [f"{x}–{'today' if y > 2090 else y - 1}" for x, y in PER]
-    for i, nm in enumerate(names):
-        x = T[(T.test == 2) & (T.catalogue == nm) & T.quantity.str.startswith(f"rate M >= {q},") & ~T.quantity.str.contains("departure")]
-        a.plot(range(len(lab)), x.value.astype(float), color=C[i], lw=2.4 if i == 0 else 1.5, marker="o", label=nm)
-        if i == 0:
-            v = x.value.astype(float).mean()
-            a.axhspan(v * (1 - RATE_TOL), v * (1 + RATE_TOL), color="0.93", lw=0)
+    for q, ls, bc in zip(qs, ("-", "--"), (BANDC, C[3])):
+        for i, nm in enumerate(names):
+            x = T[(T.test == 2) & (T.catalogue == nm) & T.quantity.str.startswith(f"rate M >= {q},") & ~T.quantity.str.contains("departure")]
+            n = T[(T.test == 2) & (T.catalogue == nm) & T.quantity.str.startswith(f"count M >= {q},")].value.astype(float).to_numpy()
+            v = x.value.astype(float).to_numpy()
+            e = 1.96 * v / np.sqrt(n) if len(n) == len(v) else None
+            a.errorbar(np.arange(len(lab)) + 0.04 * (i - 1), v, e, fmt="o", ls=ls, color={UNC: C[1], **OC}.get(nm, C[i]),
+                       lw=2.4 if i == 0 else 1.6, capsize=3, elinewidth=1.2)
+            if i == 0:
+                v = x.value.astype(float).mean()
+                a.axhspan(v * (1 - RATE_TOL), v * (1 + RATE_TOL), color=bc, alpha=0.4, lw=0)
+    for q, ls in zip(qs, ("-", "--")):
+        a.plot([], [], ls, color="0.3", label=f"M ≥ {q}")
+    a.set_yscale("log")
+    a.set_yticks([10, 15, 20, 30, 50, 80], ["10", "15", "20", "30", "50", "80"])
+    a.set_ylim(10, 110)
+    a.yaxis.set_minor_formatter("")
     a.set_xticks(range(len(lab)), lab)
     a.set_ylabel("events per year (declustered)")
-    a.set_title(f"Rate of M ≥ {q}")
-    a.set_ylim(0, None)
+    a.set_title("Rate per period")
 
 
 def large_axis(a, T, names, q="N >= 7"):
@@ -591,8 +856,8 @@ def large_axis(a, T, names, q="N >= 7"):
                 x = T[(T.test == 3) & (T.catalogue == nm) & (T.subset == s)].set_index("quantity").value
                 obs, pred = float(x[f"{q} observed"]), float(x[f"{q} predicted"])
                 l, h = band(int(obs))
-                a.plot([k, k], [l / obs, h / obs], color="0.75", lw=6, solid_capstyle="butt")
-                a.plot(k, pred / obs, "o" if tag == "full" else "s", color=C[i], ms=8)
+                a.plot([k, k], [l / obs, h / obs], color=BANDC, alpha=0.6, lw=6, solid_capstyle="butt")
+                a.plot(k, pred / obs, "o" if tag == "full" else "s", color={UNC: C[1], **OC}.get(nm, C[i]), ms=8)
                 ticks.append(f"{lo}\n{'all' if tag == 'full' else 'decl.'}")
                 k += 1
         k += 0.6
@@ -604,15 +869,17 @@ def large_axis(a, T, names, q="N >= 7"):
 
 def fig_tests(D, T, H, G6, ind):
     own = ["this study"]
-    fig_b(T, own, "test1_b_floor", "Test 1: b against the lowest magnitude fitted (grey: the range that must stay within 0.2)")
-    fig, ax = new(1, 2, 12, 4.6)
-    for a, q in zip(ax[0], RATE_M):
-        rate_axis(a, T, own, q)
+    fig_b(T, own + [UNC] + [k for k in OTHERS if (T.catalogue == k).any()], "test1_b_floor", "")
+    fig, ax = new(1, 1, 8, 5)
+    a = ax[0, 0]
+    rate_axis(a, T, own)
     x = T[(T.test == 6) & T.quantity.str.startswith("rate")]
-    for a, q in zip(ax[0], RATE_M):
+    for q in RATE_M:
         v = float(x[x.quantity.str.startswith(f"rate M >= {q}")].value.iloc[0])
-        a.plot(-1, v, "D", color=C[3], ms=8)
-        a.set_xticks(range(-1, len(PER)), [f"{OLD_PER[0]}–{OLD_PER[1] - 1}"] + [t.get_text() for t in a.get_xticklabels()])
+        nn = float(T[(T.test == 6) & T.quantity.str.startswith(f"count M >= {q}")].value.iloc[0])
+        a.errorbar(-1, v, 1.96 * v / np.sqrt(nn), fmt="D", color="0.25", ms=8, capsize=3, label="1964–1975 (test 6)" if q == RATE_M[0] else None)
+    a.set_xticks(range(-1, len(PER)), [f"{OLD_PER[0]}–{OLD_PER[1] - 1}"] + [t.get_text() for t in a.get_xticklabels()])
+    a.legend(loc="lower right")
     fig.suptitle("Test 2: declustered rates per period (grey: ± 15 % of the mean of 1976 to today; diamond: 1964–1975, test 6)", x=0.01, ha="left")
     save(fig, "test2_rates")
     fig, ax = new(1, 2, 15, 5.2, sharey=True)
@@ -625,7 +892,7 @@ def fig_tests(D, T, H, G6, ind):
                     x = T[(T.test == 3) & (T.catalogue == "this study") & (T.subset == f"{fam}, {tag}, fit from {lo}")].set_index("quantity").value
                     obs, pred = float(x[f"{q} observed"]), float(x[f"{q} predicted"])
                     l, h = band(int(obs))
-                    a.plot([k, k], [l, h], color="0.78", lw=7, solid_capstyle="butt")
+                    a.plot([k, k], [l, h], color=BANDC, alpha=0.6, lw=7, solid_capstyle="butt")
                     a.plot([k - 0.3, k + 0.3], [obs, obs], color="0.2", lw=1.5)
                     a.plot(k, pred, "o" if tag == "full" else "s", color=C[i], ms=8)
                     lab.append(f"{lo}\n{'all' if tag == 'full' else 'decl.'}")
@@ -643,7 +910,7 @@ def fig_tests(D, T, H, G6, ind):
     for i, sc in enumerate(MAIN):
         x = ind[(ind.subset == sc) & (ind.n >= IND_N)]
         ax[0, 0].plot(x.lo + 0.125, x.value, color=C[i], marker="o", lw=1.6, label=NAME.get(sc, sc))
-    ax[0, 0].axhspan(-IND_TOL, IND_TOL, color="0.94", lw=0)
+    ax[0, 0].axhspan(-IND_TOL, IND_TOL, color=BANDC, alpha=0.3, lw=0)
     ax[0, 0].axvline(IND_FROM, color="0.5", lw=0.8, ls="--")
     ax[0, 0].axhline(0, color="0.5", lw=0.8)
     ax[0, 0].set_xlabel("regional Mw")
@@ -670,20 +937,25 @@ def fig_tests(D, T, H, G6, ind):
 
 
 def fig_compare(T, names):
-    fig, ax = new(1, 4, 19, 5)
+    fig, ax = new(1, 3, 16, 5)
+    s = "2011 to today, declustered"
     for i, nm in enumerate(names):
-        x = T[(T.test == 1) & (T.catalogue == nm) & (T.subset == "2011 to today, declustered") & T.quantity.str.startswith("b at")]
-        ax[0, 0].plot(SHOW, x.value.astype(float), color=C[i], lw=2.4 if i == 0 else 1.6, label=nm)
+        x = T[(T.test == 1) & (T.catalogue == nm) & (T.subset == s) & T.quantity.str.startswith("b at")]
+        n = T[(T.test == 1) & (T.catalogue == nm) & (T.subset == s) & T.quantity.str.startswith("n at")].value.astype(float).to_numpy()
+        cl, b = {UNC: C[1], **OC}.get(nm, C[i]), x.value.astype(float).to_numpy()
+        ax[0, 0].plot(SHOW, b, color=cl, lw=2.4 if i == 0 else 1.6, label=DISP.get(nm, nm))
+        if len(n) == len(b):
+            ax[0, 0].fill_between(SHOW, b * (1 - 1.96 / np.sqrt(n)), b * (1 + 1.96 / np.sqrt(n)), color=cl, alpha=0.15, lw=0)
     ax[0, 0].axhline(1, color="0.6", lw=0.7)
     ax[0, 0].set_xlabel("lowest magnitude fitted")
     ax[0, 0].set_ylabel("b (2011 to today, declustered)")
     ax[0, 0].set_title("b against the fit floor")
-    ax[0, 0].set_ylim(0.5, 1.8)
+    ax[0, 0].set_ylim(0.4, 2.0)
     ax[0, 0].legend()
-    rate_axis(ax[0, 1], T, names, 5.0)
-    rate_axis(ax[0, 2], T, names, 5.5)
-    large_axis(ax[0, 3], T, names)
-    ax[0, 3].set_title("M ≥ 7 since 1976: predicted from Mw 5.0 (5.3)–6.5 over observed")
+    rate_axis(ax[0, 1], T, names)
+    ax[0, 1].legend(loc="center right", fontsize=9)
+    large_axis(ax[0, 2], T, names)
+    ax[0, 2].set_title("Forecasted M ≥ 7")
     save(fig, "test7_comparison")
 
 
@@ -710,6 +982,8 @@ def main():
     D = Data()
     c = D.e[["t", "yr", "lat", "lon", "cls"]]
     T, dep = tests123("this study", D.mw.mw, c, D.t_end)
+    unc = np.where(D.mw.mw_kind == "proxy", D.mw.native_value, D.mw.mw)
+    TU = tests123(UNC, unc, c, D.t_end)[0]
     ind = independent(D)
     T5, H = histogram(D)
     T6, G6 = old_period(D)
@@ -738,7 +1012,7 @@ def main():
     T8 = pd.concat(T8, ignore_index=True)
     S = synthetic()
     cov = coverage(D)
-    allT = pd.concat([T, ind.drop(columns=["lo", "n"]), T5, T6] + T7 + [T8.assign(test=8)], ignore_index=True)
+    allT = pd.concat([T, TU, ind.drop(columns=["lo", "n"]), T5, T6] + T7 + [T8.assign(test=8)], ignore_index=True)
     allT["value"] = [round(v, 4) if isinstance(v, float) else v for v in allT.value]
     sens = pd.DataFrame([headline(T, "this study")] + [headline(T8, k) for k in var] + [headline(x, k) for x, k in zip(T7, oth)])
     files = {OUT / f"mw_tests_{RUN}.csv": allT, OUT / f"mw_sensitivity_{RUN}.csv": sens, OUT / f"mw_synthetic_{RUN}.csv": S,
@@ -750,6 +1024,12 @@ def main():
     G.manifest(files)
     fig_offsets(D)
     fig_relations(D)
+    fig_relations(D, oth=True)
+    r = residuals(D)
+    fig_depth(D, r)
+    fig_residual(D, r)
+    fig_others(D, r)
+    fig_others_residual(D, r)
     fig_forward(D)
     fig_coverage(cov)
     fig_tests(D, allT, H, G6, ind)

@@ -24,7 +24,7 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
 
 # settings
-RUN, CAT = "2026-11-16e", "2026-11-16d"
+RUN, CAT = "2026-11-17g", "2026-11-17g"
 SLAB, SLAB_V = REPO / "data" / "slab_2.0", "02.23.18"
 TRENCH = REPO / "data" / "shapefiles" / "sam_nazca_trench.shp"
 TRENCH_AN = REPO / "data" / "shapefiles" / "sam_antarctica_trench.shp"
