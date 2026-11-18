@@ -1,13 +1,12 @@
 """Fits on the declustered catalogues (plan B12), with the code of B11 unchanged (run.py, gr.py, table.py).
 
-For every declustered catalogue of decluster.py: the automatic completeness table (read on the declustered events
-from Mw 3.5), compared with the table of the full catalogue; the fits of run.py on the declustered events (both
-shapes, class weights, magnitude-error weight, event bootstrap, interface (a, b) branches) with the full-catalogue
-table, and also with the declustered table where it differs at a step by more than DMAG or DYEAR; the interface
+For every declustered catalogue of decluster.py: the fits of run.py on the declustered events (both shapes, class
+weights, magnitude-error weight, cluster bootstrap, interface (a, b) branches) on the completeness tables of the full
+catalogue (a table read on the declustered catalogues was tested and not taken, DECISIONS, Statistics, 17 Nov); the interface
 segments also with one b shared by the four segments. Mmax of every unit is that of the full catalogue. The full
 catalogue goes through the same steps (method "full").
 
-Writes tables/fits_declustered_<DATE>.csv, tables/declustered_tables_<DATE>.csv, tables/declustered_removed_<DATE>.csv,
+Writes tables/fits_declustered_<DATE>.csv, tables/declustered_removed_<DATE>.csv,
 tables/declustered_compare_<DATE>.csv, tables/declustered_floor_<DATE>.csv and figs/declustered_*.png.
 """
 import sys
@@ -23,16 +22,13 @@ import run as R
 import table as TB
 
 HERE = Path(__file__).resolve().parent
-TAB, FIG = HERE / "tables", HERE / "figs"
-
 # settings
-DATE = "2026-11-16e"
+DATE = "2026-11-17"
+TAB, FIG = HERE / "tables", HERE / "figs" / DATE
 DC_DATE = D.DATE
 METHODS = {"full": "full catalogue", "gk": "Gardner–Knopoff", "gk_family": "Gardner–Knopoff per family",
-           "nn": "nearest neighbour", "nn_depth": "nearest neighbour, with depth",
-           "nn_family": "nearest neighbour per family"}
-# the declustered table is used (as well) where it differs from the full one by more than this at a step
-DMAG, DYEAR = 0.2, 10
+           "gk_gruenthal_family": "Grünthal windows per family", "gk_uhrhammer_family": "Uhrhammer windows per family",
+           "nn": "nearest neighbour", "nn_depth": "nearest neighbour, with depth", "nn_family": "nearest neighbour per family"}
 FLOORS = (5.0, 5.2, 5.4, 5.6, 5.8, 6.0)
 # Fano factor of the yearly counts: magnitude from, since
 FANO = [(5.0, 1976), (5.5, 1964)]
@@ -58,21 +54,6 @@ def declustered(d, k):
     for c in [q for q in x.columns if q.startswith("W_")]:
         x[c] = x[c] * k
     return x
-
-
-def years(tb, ms):
-    yr, _ = G.table_years(tb, 2027.0)
-    return np.array([yr[G.kbin(m)] for m in ms])
-
-
-def differ(tb, ref):
-    """Largest difference in years at the magnitudes of the steps of either table, and in magnitude at their years."""
-    ms = sorted({m for m, _ in tb + ref})
-    dy = np.abs(years(tb, ms) - years(ref, ms))
-    mag = lambda t, y: min([m for m, yy in t if yy <= y], default=np.inf)
-    ys = sorted({y for _, y in tb + ref})
-    dm = [abs(mag(tb, y) - mag(ref, y)) for y in ys if np.isfinite(mag(tb, y)) and np.isfinite(mag(ref, y))]
-    return float(np.nanmax(np.where(np.isfinite(dy), dy, np.nan))), float(max(dm))
 
 
 def shared(d, te, shape, table, F):
@@ -101,6 +82,7 @@ def fit_all(a):
     """All units and shapes on one catalogue and table."""
     name, tname, table = a
     d0 = G.load()
+    d0["cl"] = R.clusters(d0)
     te = G.tend(d0)
     full_mmax(d0)
     d = declustered(d0, keep(d0, name))
@@ -119,7 +101,7 @@ def fit_all(a):
         if R.UNITS[u].get("b_from"):
             continue
         for x in FLOORS:
-            g = G.fit(m, t, R.weights(d, u), R.table_of(u, table), te, sig=sig, shape="trunc", top=R.top(d0, u), floor=x, nboot=300,
+            g = G.fit(m, t, R.weights(d, u), R.table_of(u, table), te, sig=sig, shape="trunc", top=R.top(d0, u), floor=x, nboot=300, cl=d.cl.to_numpy(),
                       rng=np.random.default_rng(1))
             fl.append(dict(method=name, table=tname, unit=u, floor=x, b=g["b"], b_sd=np.nanstd(g["bb"]), n=g["n"]))
     return rows, fl
@@ -156,23 +138,11 @@ def removed(d, name):
 def run():
     pd.set_option("display.width", 250, "display.max_columns", 40)
     d = G.load()
+    d["cl"] = R.clusters(d)
     te = G.tend(d)
     full_mmax(d)
-    # completeness on the declustered catalogues from Mw 3.5
-    tabs, todo = [], []
-    for name in METHODS:
-        k = keep(d, name, D.M35)
-        e = d[k]
-        tb, _ = TB.auto(e.mw.to_numpy(), e.t.to_numpy(), e.lat.to_numpy(), te)
-        dy, dm = differ(tb, R.TABLE)
-        use = name != "full" and (dy > DYEAR or dm > DMAG + 1e-6)
-        tabs.append(dict(method=name, table=TB.text(tb), max_dyear=dy, max_dmag=dm, also_fitted=use))
-        print(f"{name}: {TB.text(tb)} (differs by {dy:g} years, {dm:.1f} units)")
-        todo.append((name, "full", R.TABLE))
-        if use:
-            todo.append((name, "declustered", tb))
-    tabs = pd.DataFrame(tabs)
-    tabs.to_csv(TAB / f"declustered_tables_{DATE}.csv", index=False)
+    # every catalogue on the completeness tables of the full catalogue (DECISIONS, Statistics, 17 Nov)
+    todo = [(name, "full", None) for name in METHODS]
     with Pool(min(NPROC, len(todo))) as p:
         res = p.map(fit_all, todo)
     x = pd.DataFrame([r for rows, _ in res for r in rows])

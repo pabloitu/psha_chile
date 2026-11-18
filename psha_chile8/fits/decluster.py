@@ -23,14 +23,18 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "catalog/declustered"
 
 # settings
-DATE = "2026-11-16e"
+DATE = "2026-11-17"
 MMIN, M35 = 4.5, 3.5
 FS = 1.0
-NN = dict(b=1.0, df=1.6, since=1964)
+# nearest neighbour: b of the catalogue (Weichert on the table of the margin, all events), d_f of Zaliapin and Ben-Zion
+# (2013) for epicentres (no estimate for Chile yet)
+NN = dict(b="catalogue", df=1.6, since=1964)
 FAMILY = {"interface": "w_interface", "in-slab": "w_inslab", "crustal": "w_crustal", "other": "w_outer_rise",
           "unclassified": "w_unclassified"}
-METHODS = {"gk": dict(kind="gk"), "gk_family": dict(kind="gk", family=True), "nn": dict(kind="nn"),
-           "nn_depth": dict(kind="nn", depth=True), "nn_family": dict(kind="nn", family=True, largest=True)}
+METHODS = {"gk": dict(kind="gk"), "gk_family": dict(kind="gk", family=True),
+           "gk_gruenthal_family": dict(kind="gk", family=True, window="gruenthal"),
+           "gk_uhrhammer_family": dict(kind="gk", family=True, window="uhrhammer"),
+           "nn": dict(kind="nn"), "nn_depth": dict(kind="nn", depth=True), "nn_family": dict(kind="nn", family=True, largest=True)}
 
 
 def km(lon1, lat1, lon2, lat2):
@@ -39,14 +43,22 @@ def km(lon1, lat1, lon2, lat2):
     return 2 * 6371 * np.arcsin(np.sqrt(a))
 
 
-def gk_window(m):
-    """Gardner and Knopoff (1974) windows as fitted by van Stiphout et al. (2012): km, days."""
+def gk_window(m, window="gk"):
+    """Aftershock windows (km, days) of van Stiphout et al. (2012, eqs. 1-3): Gardner and Knopoff (1974) as fitted
+    there ("gk"), Gruenthal ("gruenthal") and Uhrhammer (1986) ("uhrhammer"); the same forms as openquake.hmtk."""
+    m = np.asarray(m, float)
+    if window == "gruenthal":
+        d = np.exp(1.77 + np.sqrt(0.037 + 1.02 * m))
+        tt = np.where(m >= 6.5, 10 ** (2.8 + 0.024 * m), np.abs(np.exp(-3.95 + np.sqrt(0.62 + 17.32 * m))))
+        return d, tt
+    if window == "uhrhammer":
+        return np.exp(-1.024 + 0.804 * m), np.exp(-2.87 + 1.235 * m)
     d = 10 ** (0.1238 * m + 0.983)
     tt = np.where(m >= 6.5, 10 ** (0.032 * m + 2.7389), 10 ** (0.5409 * m - 0.547))
     return d, tt
 
 
-def gardner_knopoff(t, lon, lat, m, fs=FS, group=None):
+def gardner_knopoff(t, lon, lat, m, fs=FS, group=None, window="gk"):
     """Window method, largest event first; the foreshock window is fs times the aftershock window.
 
     Returns the mainshock flag and the index of the mainshock of every event (its own index for a mainshock). With
@@ -57,7 +69,7 @@ def gardner_knopoff(t, lon, lat, m, fs=FS, group=None):
     for i in np.argsort(-m, kind="stable"):
         if done[i]:
             continue
-        d, tt = gk_window(m[i])
+        d, tt = gk_window(m[i], window)
         dt = (t - t[i]) * 365.25
         near = (dt <= tt) & (dt >= -fs * tt) & ~done & (g == g[i])
         near[i] = False
@@ -68,18 +80,21 @@ def gardner_knopoff(t, lon, lat, m, fs=FS, group=None):
     return main, cl
 
 
-def nearest_neighbour(t, lon, lat, m, z=None, b=NN["b"], df=NN["df"]):
+def nearest_neighbour(t, lon, lat, m, z=None, b=1.0, df=NN["df"]):
     """Zaliapin and Ben-Zion (2013): nearest-neighbour proximity eta of every event (t in years, time order) and the
-    index of its parent; distances in km, at least 1 km; z depths (NaN unknown) give hypocentral distances."""
+    index of its parent; distances in km, at least 1 km; z depths (NaN unknown) give hypocentral distances. An earlier
+    event at the same time is no parent (eta infinite for t_ij <= 0, as in the paper)."""
     n = t.size
     eta, par = np.full(n, np.inf), np.full(n, -1)
     for j in range(1, n):
         r = km(lon[j], lat[j], lon[:j], lat[:j])
         if z is not None:
             r = np.sqrt(r ** 2 + np.nan_to_num(z[j] - z[:j]) ** 2)
-        e = np.maximum(t[j] - t[:j], 1e-7) * np.maximum(r, 1.0) ** df * 10 ** (-b * m[:j])
+        dt = t[j] - t[:j]
+        e = np.where(dt > 0, dt, np.inf) * np.maximum(r, 1.0) ** df * 10 ** (-b * m[:j])
         i = np.argmin(e)
-        eta[j], par[j] = e[i], i
+        if np.isfinite(e[i]):
+            eta[j], par[j] = e[i], i
     return eta, par
 
 
@@ -112,7 +127,7 @@ def nn_clusters(eta, par, thr, m=None):
     return cl == np.arange(eta.size), cl
 
 
-def decluster(d, kind, family=False, depth=False, largest=False):
+def decluster(d, kind, family=False, depth=False, largest=False, window="gk"):
     """One method on a catalogue in time order (columns t, lon, lat, mw, depth and the family weights).
 
     family: run inside each class family (the family of the largest class weight); for nn the proximities are
@@ -122,24 +137,30 @@ def decluster(d, kind, family=False, depth=False, largest=False):
     t, lon, lat, m = (d[c].to_numpy(float) for c in ("t", "lon", "lat", "mw"))
     grp = np.argmax(d[list(FAMILY.values())].to_numpy(), 1) if family else np.zeros(t.size, int)
     if kind == "gk":
-        main, cl = gardner_knopoff(t, lon, lat, m, FS, grp if family else None)
+        main, cl = gardner_knopoff(t, lon, lat, m, FS, grp if family else None, window)
         return pd.DataFrame(dict(mainshock=main, cl=cl))
     z = d.depth.to_numpy(float) if depth else None
+    b = NN["b"]
+    if b == "catalogue":
+        import run as R
+        b = float(G.fit(m, t, np.ones(t.size), R.TABLE, G.tend(d))["b"])
     eta, par = np.full(t.size, np.inf), np.full(t.size, -1)
     for g in np.unique(grp):
         i = np.where(grp == g)[0]
-        e, p = nearest_neighbour(t[i], lon[i], lat[i], m[i], None if z is None else z[i])
+        e, p = nearest_neighbour(t[i], lon[i], lat[i], m[i], None if z is None else z[i], b=b)
         eta[i], par[i] = e, np.where(p >= 0, i[np.maximum(p, 0)], -1)
     thr = nn_threshold(eta[t >= NN["since"]])
     main, root = nn_clusters(eta, par, thr, m if largest else None)
     x = pd.DataFrame(dict(mainshock=main, cl=root, parent=par, log10_eta=np.log10(eta)))
-    x.attrs["thr"] = thr
+    x.attrs["thr"], x.attrs["b"] = thr, b
     return x
 
 
 def one(a):
     name, mmin = a
     d = G.load(mlow=mmin)
+    d["t"] += pd.to_datetime("2000" + d.time.str[4:19], errors="coerce").dt.second.fillna(0) / 86400 / 366
+    d = d.sort_values("t", kind="stable").reset_index(drop=True)
     x = decluster(d, **METHODS[name])
     ids = d.event_id.to_numpy()
     o = pd.DataFrame(dict(event_id=ids, mw=d.mw, mainshock=x.mainshock, cluster=ids[x.cl]))

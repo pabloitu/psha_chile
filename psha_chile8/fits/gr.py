@@ -14,7 +14,17 @@ from scipy import optimize, stats
 from scipy.special import ndtr
 
 ROOT = Path(__file__).resolve().parents[1]
-CAT = ROOT / "catalog/frozen/2026-11-16c/catalog_2026-11-16c.csv"
+
+
+def current(row="frozen catalogue (final)"):
+    """Path of an input from its row in CURRENT.md (the first file named in backticks)."""
+    for ln in (ROOT / "CURRENT.md").read_text().splitlines():
+        if ln.startswith(f"| {row} |"):
+            return ROOT / ln.split("`")[1]
+    raise KeyError(row)
+
+
+CAT = current()
 
 DM, M0, MTOP = 0.1, 3.5, 9.7
 LN10 = np.log(10)
@@ -178,8 +188,8 @@ def ml_shape(n, T, m_lo, shape, corner=None, mmax=None, bfix=None):
 
 
 def fit(m, t, w, table, te, sig=None, shape="gr", top=None, corner=None, bfix=None, floor=None, nboot=0, rng=None,
-        bw=None, bboot=None):
-    """Fit of one unit on a completeness table, with an event bootstrap.
+        bw=None, bboot=None, cl=None):
+    """Fit of one unit on a completeness table, with a bootstrap of the events or of their clusters.
 
     Parameters
     ----------
@@ -202,6 +212,9 @@ def fit(m, t, w, table, te, sig=None, shape="gr", top=None, corner=None, bfix=No
         b held fixed, the rate refitted (gr and trunc).
     nboot : int
         Poisson bootstrap of the events, the weights carried.
+    cl : array of int, optional
+        Cluster of every event (mainshock with its fore- and aftershocks). The bootstrap then draws whole clusters,
+        so its intervals carry the clustering of the catalogue; without it every event is drawn alone.
     bboot : array (nboot,), optional
         With bfix: the b of each replicate (the replicates of the unit the b is taken from).
 
@@ -242,11 +255,15 @@ def fit(m, t, w, table, te, sig=None, shape="gr", top=None, corner=None, bfix=No
             b, r, m_lo, cor = one(cnt(ww))
     n = cnt(ww)
     f = dict(shape=shp, b=b, rate=r, m_lo=m_lo, mmax=mmax, corner=cor, n=n.sum(), nev=int(ok.sum()), T=T, cnt=n,
-             npar=(1 if bfix is not None else 2) + free, w=np.where(ok, ww, 0.0))
+             npar=(1 if bfix is not None else 2) + free, w=np.where(ok, ww, 0.0), k=k, cl=cl)
     f["lnL"] = loglik(f, n, T)
     if nboot and ok.sum() > 2:
         rng = rng or np.random.default_rng(1)
-        mult = rng.poisson(1.0, (nboot, int(ok.sum())))
+        if cl is None:
+            mult = rng.poisson(1.0, (nboot, int(ok.sum())))
+        else:
+            u, inv = np.unique(np.asarray(cl)[ok], return_inverse=True)
+            mult = rng.poisson(1.0, (nboot, u.size))[:, inv]
         nb = np.zeros((nboot, yr.size))
         for j in range(nboot):
             nb[j] = np.bincount(k[ok], ww[ok] * mult[j], minlength=yr.size)
@@ -271,12 +288,63 @@ def a_value(f):
     return np.log10(r) + f["b"] * f["m_lo"]
 
 
+def dispersion(f, M):
+    """Variance over mean of the count at and above M when clusters, not events, are independent: sum c^2 / sum c
+    over the weighted counts c of each cluster (compound Poisson); 1 without clusters, never below 1."""
+    if f.get("cl") is None:
+        return 1.0
+    s = (f["w"] > 0) & (np.clip(f["k"], 0, None) >= kbin(M))
+    c = np.bincount(np.unique(np.asarray(f["cl"])[s], return_inverse=True)[1], f["w"][s]) if s.any() else np.zeros(0)
+    return max(1.0, float((c ** 2).sum() / c.sum())) if c.sum() > 0 else 1.0
+
+
+def band(e, phi=1.0, q=(0.05, 0.95)):
+    """5-95 % band of a count with mean e and variance phi e: Poisson for phi 1, negative binomial above."""
+    if phi <= 1 + 1e-9 or e <= 0:
+        return stats.poisson.ppf(q, e)
+    return stats.nbinom.ppf(q, e / (phi - 1), 1 / phi)
+
+
+def predictive(f, q=(5, 95), rng=None):
+    """Predictive band of the observed cumulative rates: for every bootstrap replicate of the fit, counts per bin drawn
+    over the bin's own observation time (Poisson, or negative binomial with the dispersion of the observed clusters in
+    the bin), then summed from the top as the observed points are. Returns the q percentiles per bin (NaN outside the
+    table): the range of observed values expected if the fit were true, with its parameter uncertainty."""
+    rng = rng or np.random.default_rng(7)
+    c = centres()
+    T = f["T"]
+    use = T > 0
+    phi = np.ones(c.size)
+    if f.get("cl") is not None:
+        cl, k, w = np.asarray(f["cl"]), np.clip(f["k"], 0, c.size - 1), f["w"]
+        for i in np.where(use)[0]:
+            s = (w > 0) & (k == i)
+            if s.any():
+                cc = np.bincount(np.unique(cl[s], return_inverse=True)[1], w[s])
+                phi[i] = max(1.0, float((cc ** 2).sum() / cc.sum()))
+    B = boot(f)
+    cor = np.broadcast_to(np.asarray(B["corner"], float), np.shape(B["b"])) if B["corner"] is not None else [None] * len(B["b"])
+    sims = []
+    for b, r, co in zip(B["b"], B["rate"], cor):
+        if not (np.isfinite(b) and np.isfinite(r)):
+            continue
+        lam = np.where(use, rates(dict(f, b=b, rate=r, corner=co)) * T, 0.0)
+        nb = phi > 1 + 1e-9
+        n = rng.poisson(lam)
+        if nb.any():
+            n[nb] = rng.negative_binomial(np.maximum(lam[nb] / (phi[nb] - 1), 1e-12), 1 / phi[nb])
+        sims.append(np.cumsum((n / np.where(use, T, 1))[::-1])[::-1])
+    lo, hi = np.percentile(np.array(sims), q, axis=0)
+    return np.where(use, lo, np.nan), np.where(use, hi, np.nan)
+
+
 def check(f, M, q=(0.05, 0.95)):
     """Large-event check: events the fit expects inside the table at and above M, the weighted count observed
-    there, and whether the count lies in the Poisson band of the expected number."""
+    there, and whether the count lies in the band of the expected number (negative binomial with the dispersion of
+    the clusters, Poisson without clusters)."""
     s = centres() >= M - 1e-6
     e, o = (rates(f) * f["T"])[s].sum(), f["cnt"][s].sum()
-    lo, hi = stats.poisson.ppf(q, e)
+    lo, hi = band(e, dispersion(f, M), q)
     return e, o, bool(lo - 0.5 <= o <= hi + 0.5)
 
 

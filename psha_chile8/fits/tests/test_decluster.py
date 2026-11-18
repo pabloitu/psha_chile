@@ -111,3 +111,19 @@ def test_nearest_neighbour_per_family(cats):
         assert -0.15 < x.mainshock.sum() / d.main.sum() - 1 < 0.02
         # the largest event of a cluster stays: aftershocks are smaller than their mainshock
         assert d.main.to_numpy()[x.cl.to_numpy()].mean() > 0.95
+
+
+def test_nearest_neighbour_no_parent_at_the_same_time():
+    t, lon, lat, m = np.array([2000.0, 2000.0, 2000.5]), np.full(3, -70.0), np.full(3, -30.0), np.array([6.0, 5.0, 5.0])
+    eta, par = D.nearest_neighbour(t, lon, lat, m)
+    assert np.isinf(eta[1]) and par[1] == -1 and par[2] == 0
+
+
+def test_windows_of_van_stiphout():
+    """Eqs. 1-3 of van Stiphout et al. (2012) at Mw 7: Gardner-Knopoff 70 km, 915 days (their Table 2); Uhrhammer
+    (1986) wider (100 km) but far shorter (322 days); Gruenthal 86 km, 929 days."""
+    d0, t0 = D.gk_window(np.array([7.0]))
+    du, tu = D.gk_window(np.array([7.0]), "uhrhammer")
+    dg, tg = D.gk_window(np.array([7.0]), "gruenthal")
+    assert abs(d0[0] - 70) < 3 and abs(t0[0] - 915) < 40
+    assert abs(du[0] - 100) < 2 and abs(tu[0] - 322) < 3 and abs(dg[0] - 86) < 2 and abs(tg[0] - 929) < 5

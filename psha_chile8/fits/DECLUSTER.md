@@ -187,3 +187,21 @@ Input `catalog/frozen/2026-11-16/catalog_2026-11-16.csv`; `decluster.py` and `ru
 - **Declustering.** `fits/decluster.py` reads the classes only for the per-family methods (the family of the largest of the five family weights) and never `sub_crustal`. All five methods were run again as `catalog/declustered/*_2026-11-16e.csv` (the script builds them together). Compared with the `_2026-11-16` files: `gk`, `nn`, `nn_depth` and their `_m35` files are identical; `gk_family` has the same mainshock flags (6 006) and differs only in cluster labels; `nn_family` differs in 2 flags (10 923 → 10 921; 4 flags from Mw 3.5), through the 13 Scotia events that changed family. Completeness tables of the declustered catalogues unchanged.
 - **Declustered fits** (`fits_declustered_2026-11-16e.csv`; two options, table full, own family b): family b 0.923 → 0.922 (Gardner–Knopoff per family) and 0.999 → 1.001 (nearest neighbour per family), so the declustered b hardly moves, unlike the full one. N(≥ 6): forearc −8 % and −9 %, arc 0 % and −0.5 %, backarc −75 % and −78 %, Patagonia −45 % and −53 %. Interface, in-slab and nest rows identical. Checks as before.
 - Numbers per unit in `fits/FITS.md` section 12. Figures `figs/declustered_*.png` are of this run; those of 16d are in `figs/2026-11-16d/`.
+
+## 11. Interface Mmax from the catalogue (16 Nov, run 2026-11-16f)
+
+`fits/tables/fits_declustered_2026-11-16f.csv` and the four `declustered_*_2026-11-16f.csv` tables, on the declustered catalogues of 2026-11-16e (unchanged). Only interface segment rows change (37–32° S Mmax 9.3 → 9.2, 26–17.6° S 9.0 → 9.1, and the shared-b rows of the other two segments in the fourth decimal); numbers in `fits/FITS.md` section 13. Figures `figs/declustered_*.png` are of this run; those of 16e are in `figs/2026-11-16e/`.
+
+## 12. Check of `nn_family` against Zaliapin and Ben-Zion (2013) (17 Nov, B15)
+
+Checked against the method of the paper (the PDF is not in `refs/`; checked from the method as published, no page numbers):
+- Proximity η_ij = t_ij · r_ij^d_f · 10^(−b m_i) for a parent i earlier than j, with b 1 and d_f 1.6 on epicentral distance: as in the code (t in years, r in km, the product does not depend on q).
+- Parent = the earlier event of smallest η; links with η below the threshold η0 are kept, the others cut; clusters are the trees that remain; the largest event of a cluster is its mainshock (`largest=True`, first on ties): as in the code.
+- Threshold from a two-Gaussian mixture on log10 η (from 1964), at equal posterior: as in the code.
+- Choices of ours, not of the paper (DECISIONS, Statistics, 15 Nov): proximities inside each class family, one threshold for all families; Mw ≥ 4.5 over the whole span, historical part included (the source of the 1657 → 1751 and 1975 → 1960 links); distance at least 1 km.
+
+Two deviations found and fixed in `decluster.py`:
+1. Event times dropped the seconds (`gr.load` reads to the minute), so 38 pairs of events in one family shared a time and 24 of them were in the wrong order. `decluster.one` now adds the seconds and sorts again; `gr.load` is not changed (it is shared with the fits, and the table test draws its pool in its order).
+2. A zero time difference was floored at 1e-7 yr and linked; the paper sets η infinite for t_ij ≤ 0. Now an event at the same time is no parent (test `test_nearest_neighbour_no_parent_at_the_same_time`).
+
+Effect on catalogue 16c (`nn_family`, Mw ≥ 4.5; against `catalog/declustered/nn_family_2026-11-16e.csv`): 7 flags change, mainshocks 10 921 → 10 922, threshold log10 η −5.74. Three pairs swap which copy is the mainshock (2026-09-25 15:29, 2024-03-13 22:10, 2025-09-01 / 2020-06-15 near 24.2° S); the 2025-09-04 04:10 pair (two ISC Mw 5.9 at the same time) is now kept twice, a duplicate that A11 removes from the catalogue.

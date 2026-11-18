@@ -1,21 +1,33 @@
 """The completeness table, read on all events (DECISIONS, Statistics).
 
-From HIST_FROM the steps come from the shape of the magnitude distribution: Mc per network window and region with
-the events from Mw 3.5 (b-stability and a Kolmogorov-Smirnov test, the larger; the largest region), and a magnitude
-is complete from the window after the last one whose Mc is above it. Before HIST_FROM a step of a 0.5 band is the
+From HIST_FROM the steps come from the shape of the magnitude distribution: Mc in time per latitude segment (the four
+interface segments), by moving windows of NWIN events (Mc(t) as in Woessner and Wiemer 2005), each with b-stability and
+a Kolmogorov-Smirnov test, the larger, and a bootstrap of the window for its uncertainty (Woessner and Wiemer 2005); in
+a segment a magnitude is complete from the end of the last window whose Mc is above it beyond one bootstrap sd (its
+16th percentile above the magnitude), and the table is the envelope of the segments (the latest year). The steps below FLOOR are reported (Mc of
+the catalogue); the fits use the table from FLOOR up (`cut`). Before HIST_FROM a step of a 0.5 band is the
 earliest year from which its counts in 5-year blocks stay consistent with the Gutenberg-Richter line of the
 instrumental fit (a step function of lower rates before it, each step paid with a BIC penalty). A larger magnitude
 is never complete later than a smaller one. A historical step that reaches less than MIN_BACK years before
 HIST_FROM is not kept.
+
+The historical steps are checked with two published methods, `hg2012` (Hakimhashemi and Grünthal 2012) and
+`albarello2001` (Albarello et al. 2001), on the same events (`checks`); run.py writes them next to the table. The table
+of DECISIONS keeps the historical steps the checks support (fits/FITS.md section 2).
 """
 import numpy as np
 import pandas as pd
+from scipy import stats
 from scipy.special import gammaln
 
 import gr as G
 
 # settings
+# the fits start at FLOOR (Pablo, 17 Nov); the table is measured below it as well
 FLOOR = 5.0
+# Mc(t): latitude segments (those of the interface), events per window and step between windows
+SEG = {"north": (-26.0, -15.0), "central-north": (-32.0, -26.0), "central": (-37.0, -32.0), "south": (-46.0, -37.0)}
+NWIN, NSTEP, NBOOT_MC = 250, 50, 30
 WINDOWS = [(1964, 1976), (1976, 1990), (1990, 2000), (2000, 2007), (2007, 2012), (2012, 2020), (2020, 2027)]
 REG = {"north": (-26.0, -15.0), "central-north": (-32.0, -26.0), "central": (-37.0, -32.0), "south": (-46.0, -37.0),
        "far south": (-60.0, -46.0)}
@@ -170,13 +182,128 @@ def historical(m, t, w, te, inst):
     return tb
 
 
-def auto(m, t, lat, te, windows=WINDOWS, reg=REG):
-    """The automatic table of a catalogue (all events from Mw 3.5, no weights) and the Mc of the windows."""
-    x = mc_windows(m, t, lat, windows, reg)
-    inst = instrumental(x)
+def mc_one(a):
+    mm, seed, nb = a
+    w = np.ones(mm.size)
+    f = lambda q: max(mc_bstab(q, w), mc_ks(q, w, rng=np.random.default_rng(5), **KS))
+    rng = np.random.default_rng(seed)
+    bs = [f(mm[rng.integers(0, mm.size, mm.size)]) for _ in range(nb)]
+    return f(mm), np.nanpercentile(bs, 16), np.nanpercentile(bs, 84)
+
+
+def mc_series(m, t, n=NWIN, step=NSTEP, t0=HIST_FROM, nb=NBOOT_MC):
+    """Mc(t): Mc (larger of b-stability and KS) of moving windows of n events in time order from t0, with the 16th
+    and 84th percentiles of a bootstrap of each window; window start, end and median time."""
+    from multiprocessing import Pool
+    s = t >= t0
+    m, t = m[s], t[s]
+    o = np.argsort(t, kind="stable")
+    m, t = m[o], t[o]
+    js = list(range(0, m.size - n + 1, step))
+    with Pool(16) as p:
+        r = p.map(mc_one, [(m[j:j + n], 1000 + j, nb) for j in js], chunksize=2)
+    return pd.DataFrame([dict(start=t[j], end=t[j + n - 1], t=float(np.median(t[j:j + n])), n=n, mc=v, lo=lo, hi=hi)
+                         for j, (v, lo, hi) in zip(js, r)])
+
+
+def steps_series(x, te, lo=G.M0):
+    """Steps of one segment from its Mc(t): a magnitude on the 0.1 grid is complete from the end of the last window
+    whose Mc is above it beyond one bootstrap sd (its point estimate and its 16th percentile above it; a window whose
+    estimator fails does not count), from the first window if none is."""
+    out = {}
+    for mf in np.round(np.arange(lo, x.lo.max() + 0.11, 0.1), 1):
+        bad = x[(x.lo > mf + 1e-6) & (x.mc > mf + 1e-6)]
+        out[float(mf)] = float(np.floor(x.start.min())) if bad.empty else float(bad.end.max())
+    return out
+
+
+def envelope(per, te):
+    """The table of the segments: per magnitude the latest year of any segment, as steps (a step only where the year
+    gets earlier)."""
+    mfs = sorted(set().union(*[set(v) for v in per.values()]))
+    tb = []
+    for mf in mfs:
+        y = int(np.ceil(max(v.get(mf, min(v.values())) for v in per.values())))
+        if y < te and (not tb or y < tb[-1][1]):
+            tb.append((mf, y))
+    return tb
+
+
+def cut(tb, floor=FLOOR):
+    """The table from floor up, for the fits: floor complete from the year of the largest step at or below it."""
+    y = min((yy for mf, yy in tb if mf <= floor + 1e-6), default=None)
+    if y is None:
+        return sorted(q for q in tb if q[0] >= floor - 1e-6)
+    return sorted([(floor, y)] + [q for q in tb if q[0] > floor + 1e-6 and q[1] < y])
+
+
+def auto(m, t, lat, te, seg=SEG):
+    """The automatic tables of a catalogue (all events from Mw 3.5, no weights). Mc(t) is measured on all events of the
+    margin together ("margin") and on each segment; the instrumental steps of each series (below FLOOR too) are read
+    from it alone. Returns the margin table (its instrumental steps and the historical steps of the automatic rule on
+    them), the instrumental steps of every series, and the Mc(t) of every series."""
+    xs = {"margin": mc_series(m, t)}
+    xs.update({k: mc_series(m[(lat >= a) & (lat < b)], t[(lat >= a) & (lat < b)]) for k, (a, b) in seg.items()})
+    inst = {k: envelope({k: steps_series(x, te)}, te) for k, x in xs.items()}
     s = m >= FLOOR - 1e-6
-    return sorted(inst + historical(m[s], t[s], np.ones(int(s.sum())), te, inst)), x
+    hist = historical(m[s], t[s], np.ones(int(s.sum())), te, cut(inst["margin"]))
+    x = pd.concat([v.assign(segment=k) for k, v in xs.items()], ignore_index=True)
+    return sorted(inst["margin"] + hist), inst, x
 
 
 def text(tb):
     return ", ".join(f"{mf:.1f} from {y}" for mf, y in sorted(tb))
+
+
+# published checks of the historical steps
+CHECK_BANDS = (6.0, 6.5, 7.0, 7.5, 8.0, 8.5)
+HG = dict(level=0.8, nmin=10)
+ALB = dict(dt=10, t0=1500)
+
+
+def hg2012(t, level=HG["level"], nmin=HG["nmin"]):
+    """Completeness time of one magnitude band by Hakimhashemi and Grünthal (2012, BSSA 102, 2530-2546): the sample
+    variance of the interevent times taken back from the present one event at a time (eq. 3); the first time where an
+    F-test finds consecutive variances different with probability >= level (0.8 in the paper, p. 2539). The first nmin
+    intervals are not tested (p. 2533). Returns the younger event of that interval, the first event if never. One
+    test per event: in a dense band (several events a year) a chance trigger near the present is likely."""
+    t = np.sort(np.asarray(t, float))
+    if t.size < nmin + 3:
+        return np.nan
+    dt = np.diff(t)[::-1]
+    for i in range(nmin, dt.size):
+        c = stats.f.cdf(dt[:i + 1].var(ddof=1) / dt[:i].var(ddof=1), i, i - 1)
+        if 1 - 2 * min(c, 1 - c) >= level:
+            return t[-(i + 1)]
+    return t[0]
+
+
+def albarello2001(t, te, dt=ALB["dt"], t0=ALB["t0"]):
+    """Completeness time of a magnitude class by Albarello et al. (2001, BSSA 91, 1694-1703): for each start back
+    from te, the counts of the 2N subintervals of dt years, early half against late half by a sign test (eq. 2); P
+    weighted by the span (eq. 5), normalised (eq. 6); the median from the present back (eq. 7). Uninformative for a
+    class with few events (the span weight alone puts the median about 1/sqrt(2) of the span back)."""
+    t = np.asarray(t, float)
+    ti, p = [], []
+    for N in range(1, int((te - t0) // (2 * dt)) + 1):
+        a = te - 2 * N * dt
+        n = np.histogram(t, bins=a + dt * np.arange(2 * N + 1))[0]
+        e, l = n[:N], n[N:]
+        k = e != l
+        pc = stats.binom.sf((e[k] < l[k]).sum() - 1, k.sum(), 0.5) if k.any() else 1.0
+        ti.append(a)
+        p.append(2 * N * dt * pc)
+    c = np.cumsum(np.array(p) / np.sum(p))
+    return float(np.array(ti)[np.searchsorted(c, 0.5)])
+
+
+def checks(m, t, te, bands=CHECK_BANDS):
+    """Both published methods on all events: H&G per band [mf, mf + 0.5) (monotone, as in the paper), Albarello per
+    class Mw >= mf."""
+    rows, prev = [], np.inf
+    for b in bands:
+        h = hg2012(t[(m >= b - 1e-6) & (m < b + 0.5 - 1e-6)] if b < bands[-1] else t[m >= b - 1e-6])
+        h = min(h, prev) if np.isfinite(h) else h
+        prev = h if np.isfinite(h) else prev
+        rows.append(dict(mw_from=b, hg2012=round(h, 1), albarello2001=round(albarello2001(t[m >= b - 1e-6], te), 1)))
+    return pd.DataFrame(rows)
