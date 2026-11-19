@@ -1,10 +1,11 @@
-# STATUS (18 Nov)
+# STATUS (19 Nov)
 
 ## psha_chile9
 - Design: `claude/DESIGN_psha_chile9_orchestration.md` rev. 4 (project doc).
 - Skeleton written (18 Nov). No runs yet.
 - DECISIONS consolidated with Pablo, every section (18 Nov); 55 open questions in QUESTIONS.md, grouped by session in PLAN.md.
-- Next: LEARNINGS cleaned; references merged (SETUP_01); environment with OpenQuake 3.27 on every machine (SETUP, D-ENV-01); handoff; then part 2 in a new orchestrator conversation.
+- LEARNINGS cleaned, classification method note, porting map, handoff written (18–19 Nov); work on git branch `psha9`.
+- Next: SETUP_01 (references) and SETUP_02 (environment) run in Claude Code; part 2 in a new orchestrator conversation, starting with the DATA method note.
 
 ## Where psha_chile8 stopped (inputs for the port)
 - Catalogue `catalog/frozen/2026-11-17g/`.

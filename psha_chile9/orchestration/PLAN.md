@@ -8,7 +8,9 @@
 - [x] FIGURE_STYLE merged (18 Nov)
 - [ ] References merged into `refs/` and `docs/REFERENCES.md` (SETUP_01)
 - [ ] Environment `psha9` created and tested on every machine (SETUP, OpenQuake 3.27, D-ENV-01)
-- [ ] Handoff to the new orchestrator conversation
+- [x] Porting map `docs/PORTING_MAP.md` (19 Nov)
+- [x] Handoff to the new orchestrator conversation: `orchestration/HANDOFF_part2.md`, project doc `claude/HANDOFF_psha_chile9_part2.md` (19 Nov)
+- [ ] SETUP_02 environment (brief written, 19 Nov)
 
 ## Part 2: methods and the step-by-step plan
 - [x] Classification method note `docs/methods/CLASSIFICATION.md` (18 Nov)

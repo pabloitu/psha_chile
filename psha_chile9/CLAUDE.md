@@ -53,4 +53,4 @@
 
 ## Other
 - psha_chile8 and older folders: read them, copy from them, never change them.
-- Git: Pablo commits. Do not run git commands that change the repository.
+- Git: work is on the branch `psha9`. Pablo commits. Do not run git commands that change the repository.

@@ -8,6 +8,7 @@ Consolidated from psha_chile8 `DECISIONS.md` with Pablo on 18 Nov, every section
 - D-ORC-01 How the work is organised: `claude/DESIGN_psha_chile9_orchestration.md` (project doc), rev. 4 (18 Nov).
 - D-ORC-02 Pablo commits when a run is published or when he switches machines (18 Nov).
 - D-ORC-03 "Review in <session>" on a rule means: it holds until that session's work confirms or changes it (18 Nov).
+- D-ORC-04 psha_chile9 work is on the git branch `psha9`, made from `a2-night` so psha_chile8 stays readable; `main` gets one merge when the paper's model is published (Pablo, 19 Nov).
 
 ## Scope
 - D-SCO-01 One paper: hazard model, sensitivity, logic tree (18 Nov).
