@@ -24,20 +24,19 @@
 
 ## Brief SETUP_02 (19 Nov): the `psha9` environment on every machine
 
-**Goal:** one conda environment `psha9` with OpenQuake 3.27 on pansito, rs1, rs28 and rs37 (D-ENV-01).
+**Goal:** the conda environment `psha9` on pansito (D-ENV-01); the remote machines keep the OpenQuake they run now.
 
 **Read first:** `psha_chile9/CLAUDE.md`; `psha_chile9/environment.yml` (draft); psha_chile8 `hazard/remote.sh` (how the machines are reached).
 
 **Tasks:**
 1. On pansito: create `psha9` from `environment.yml`, `pip install -e .` in `psha_chile9/`; check `oq --version` is 3.27 and that `import openquake.hazardlib, geopandas, cartopy` work (the old `psha_renta` had broken GDAL data: check that geopandas reads a shapefile).
 2. Pin the versions that were installed in `environment.yml` (exact versions, not ranges).
-3. Write `config/hosts.yaml` (ssh name, working folder, how to activate `psha9`, cores) for pansito, rs1, rs28, rs37, from what `remote.sh` already uses.
-4. On rs1, rs28 and rs37: the same environment from the pinned file, if Pablo's ssh access allows it; report each machine's OpenQuake version, cores, memory and free disk. If a machine needs Pablo (password, module system), stop there and say what is needed.
-5. Run one tiny OpenQuake job (one site, one source, PGA) on each machine and compare the result across machines.
+3. Write `config/hosts.yaml` (ssh name, working folder, the environment it runs OpenQuake in now, cores) for pansito, rs1, rs28, rs37, from what `remote.sh` already uses.
+(Steps 4–5 dropped by Pablo, 19 Nov: no OpenQuake work on the remote machines and no test job; they already run OpenQuake.)
 
 **Out of scope:** no model code; no changes to psha_chile8 or to `psha_renta`.
 
-**Done when:** `psha9` works on pansito; pinned `environment.yml`; `config/hosts.yaml`; the report lists each remote machine as ready or what it needs.
+**Done when:** `psha9` works on pansito; pinned `environment.yml`; `config/hosts.yaml`.
 
 **Report:** below this brief, with the headings of CLAUDE.md.
 

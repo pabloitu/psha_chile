@@ -1,20 +1,35 @@
-# draft: the SETUP session creates the environment, tests it and pins the versions it got
+# compiled packages from conda-forge; OpenQuake from git with --no-deps, so pip does not build gdal (D-ENV-01)
 name: psha9
 channels:
   - conda-forge
 dependencies:
   - python=3.11
-  - numpy
-  - pandas
-  - scipy
-  - matplotlib
-  - geopandas
-  - shapely
+  - numpy>=2.4
+  - scipy>=1.17
+  - pandas=2.2
+  - h5py>=3.13
+  - numba
+  - gdal
+  - fiona
   - pyproj
+  - shapely
+  - geopandas
   - cartopy
   - rasterio
+  - matplotlib
   - pyyaml
   - pytest
+  - django<5
+  - psutil
+  - requests
+  - pyzmq
+  - h3-py>=4.4
+  - decorator
+  - pillow
+  - toml
+  - django-cors-headers
   - pip
   - pip:
-      - openquake.engine==3.27.*   # the same on pansito, rs1, rs28, rs37 (D-ENV-01)
+      - alpha_shapes==1.1.0
+      - django_cookie_consent==0.6.0
+      - --no-deps git+https://github.com/gem/oq-engine.git@c9cefc797fecc2a84a55769d9f99b6712930be41   # 3.27.0, as in psha_renta
