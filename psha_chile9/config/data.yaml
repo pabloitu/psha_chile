@@ -1,0 +1,44 @@
+# DATA stage: geometry read by every later stage (design 4.2)
+run: data-07
+
+inputs:
+  # read by the freeze scripts in trials/data_shapes and by CAT, IF, IS; not by the build
+  slab_top: data/raw/slab2/sam_slab2_dep_02.23.18_2026-11-15.xyz
+  pb2002: data/raw/trenches/pb2002_antarctic_trench_2026-11-15.geojson
+  crustal_area: data/raw/shapes/crustal_area.geojson
+  inslab_area: data/raw/shapes/inslab_area.geojson
+  crustal_classes: data/raw/shapes/crustal_classes.geojson
+  segment_limits: data/raw/shapes/interface_segment_limits.geojson
+  interface_footprints: data/raw/shapes/interface_footprints.geojson
+  western_edge: data/raw/shapes/western_edge.geojson
+  cities: data/raw/shapes/cities.geojson
+  site_grid: data/raw/grids/chile_005.csv
+
+# collection box (D-CAT-06)
+box: {lon: [-80.0, -60.0], lat: [-58.0, -15.5]}
+
+# western edge (D-DAT-02): frozen in data/raw/shapes/western_edge.geojson by trials/data_shapes/freeze_geometry.py:
+# Slab2 western edge (smoothed over 5 rows) north of its southern end, then the PB2002 Antarctic trench;
+# south of the trench's end the edge runs due south to edge.south (only to close the polygon; the drawn sides count)
+edge:
+  north: -15.0
+  south: -59.0
+  antarctic: "AN\\SA"
+  east: -55.0
+  # trials/data_shapes/cut_areas.py swept the drawn areas this far west (degrees) before the cut
+  sweep: 3.0
+
+# interface footprints (D-CLS-08): Slab2 top between a top and a bottom contour, frozen in data/raw/shapes by
+# trials/data_shapes/freeze_geometry.py (Pablo, 19 Nov, replaces deriving them in each run, D-DAT-03)
+interface:
+  # one top, the western edge (0 = from the edge; the slab top there is 6.5-10.8 km deep), Pablo 19 Nov
+  tops: [0.0]
+  bottoms: [50.0, 60.0]
+  # segment names south to north, between consecutive limit lines
+  segments: [seg1, seg2, seg3, seg4]
+  # Antarctic plane (D-IF-10): PB2002 AN\SA, dip 30, top on the trench at 5 km (about the depth of the slab top at
+  # the southern end of Slab2, 6-10 km; poorly constrained), bottom 50 km (Pablo, 19 Nov)
+  antarctic: {name: "AN\\SA", lat_north: -45.55, dip: 30.0, z0: 5.0, top: 5.0, bottom: 50.0, n: 9, step: 10.0}
+
+# source grids (cell centres, degrees), as psha_chile8
+grids: {crustal: 0.1, inslab: 0.1}

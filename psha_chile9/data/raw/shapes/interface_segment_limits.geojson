@@ -1,0 +1,12 @@
+{
+"type": "FeatureCollection",
+"name": "interface_segment_limits",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{"type":"Feature","properties":{"name":"south","lat":-45.55},"geometry":{"type":"LineString","coordinates":[[-80.0,-45.55],[-66.0,-45.55]]}},
+{"type":"Feature","properties":{"name":"seg1/seg2","lat":-37.0},"geometry":{"type":"LineString","coordinates":[[-80.0,-37.0],[-66.0,-37.0]]}},
+{"type":"Feature","properties":{"name":"seg2/seg3","lat":-32.0},"geometry":{"type":"LineString","coordinates":[[-80.0,-32.0],[-66.0,-32.0]]}},
+{"type":"Feature","properties":{"name":"seg3/seg4","lat":-26.0},"geometry":{"type":"LineString","coordinates":[[-80.0,-26.0],[-66.0,-26.0]]}},
+{"type":"Feature","properties":{"name":"north","lat":-17.1},"geometry":{"type":"LineString","coordinates":[[-80.0,-17.1],[-66.0,-17.1]]}}
+]
+}
