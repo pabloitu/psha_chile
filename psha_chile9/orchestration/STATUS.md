@@ -9,7 +9,7 @@
 - data: `data-07`. catalog, stats, interface, inslab, crustal, gmm, hazard: none yet.
 
 ## Waiting for later briefs (from the DATA_01 report)
-- CAT_02 (classification, C7): read data-07; Antarctic interface class from 45.55° S; outer rise = shallow, no slab under it, outside the crustal area (the Chile Rise inset replaces the 75 km rule); Scotia–Antarctic events to outer rise (17g put them in the Antarctic interface class); crustal sub-classes from `crustal_classes.geojson`, Patagonia south of the arc (48.5° S); events north of 17.1° S keep their class but are outside every source (Q-72); Q-74.
+- CAT_03 (classification, C7): read data-07; Antarctic interface class from 45.55° S; outer rise = shallow, no slab under it, outside the crustal area (the Chile Rise inset replaces the 75 km rule); Scotia–Antarctic events to outer rise (17g put them in the Antarctic interface class); crustal sub-classes from `crustal_classes.geojson`, Patagonia south of the arc (48.5° S); events north of 17.1° S keep their class but are outside every source (Q-72); Q-74. Before it, CAT_02: the Mw ≥ 7 review (D-CAT-23).
 - IF: footprints from `data/raw/shapes/interface_footprints.geojson`; top at the edge only, bottom 50 / 60 km; geodetic moment about +10 % against 10–50 km; seg1's western side at 45.05–45.56° S is the inset line; Antarctic plane 5–50 km from 45.55° S, about 57,800 km² (Q-73).
 - IS: area and grid from data-07; south of 44.27° S the area is the edge–60 km band; Q-71.
 - CR: crustal area, grid and class polygons from data-07 (planes by class, D-CR-04).

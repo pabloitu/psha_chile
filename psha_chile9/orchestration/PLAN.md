@@ -17,7 +17,10 @@
 - [ ] DATA method note `docs/methods/DATA.md`, written by the orchestrator from DECISIONS (Data, D-CLS-07–10, D-IF-03, D-IF-10) and the DATA_01 report
 - [ ] CAT method note, drafted by the orchestrator from the decisions for Pablo to read before CAT_01
 - [ ] CAT_01 (written, not started): steps C1–C6, run `cat-01`
-- [ ] CAT_02 (after CAT_01): classification C7 on data-07, check figures C8
+- [ ] CAT_02 (after CAT_01): review of the Mw ≥ 7 events classed by rule or with poor depths (D-CAT-23), literature, overrides
+- [ ] CAT_03: classification C7 on data-07, check figures C8
+- [x] Review of the input data by the orchestrator (20 Nov): findings in brief DATA_02
+- [ ] DATA_02 (written, not started): README and CHANGES for `data/raw/`, fault encoding fix, intermediates out, scripts archived (D-DAT-04)
 - [ ] Magnitudes as a section of the CAT method note: inverse regression with references for and against, dithering (Stallone and Spassiani 2026)
 - [ ] Method notes for the other stages, then the step-by-step plan (pipeline order, one note just before each stage: DATA, CAT, STATS, IF / IS / CR, GMM, HAZ, FIG)
 - HAZ to port: a status command (job running or stale, phase preclassical / classical, progress or waiting), nothing written
