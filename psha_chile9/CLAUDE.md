@@ -2,7 +2,7 @@
 
 ## Start and end
 - Your task is the last brief in `orchestration/<SESSION>.md` (the last `## Brief` heading). Read from that heading down, not the whole file. Read what the brief lists, nothing more unless you need it.
-- Do the brief, nothing else. If it conflicts with `orchestration/DECISIONS.md`, stop and say so.
+- Do the brief, nothing else: no extra checks, tests, installs or comparisons. If you think one is needed, ask in the report under Questions. If it conflicts with `orchestration/DECISIONS.md`, stop and say so.
 - End by writing your report below the brief in the same file, with these headings:
   - Done
   - Outputs (run ids, paths)
@@ -34,6 +34,7 @@
 - You run the code yourself. Runs longer than about ten minutes: start them in the background with a log file, tell Pablo where the log is, and stop.
 - One OpenQuake job at a time; check for stale jobs first (`oq engine --lhc`).
 - Environment: conda `psha9`.
+- Remote machines (`config/hosts.yaml`, set up by Pablo): only run jobs and fetch results, on the machine named in the command; touch only the model's repo and `~/oqdata/` there; on an error, stop and report, no retries or fixes.
 - Use `OMP_NUM_THREADS=1` with process pools.
 
 ## Tests

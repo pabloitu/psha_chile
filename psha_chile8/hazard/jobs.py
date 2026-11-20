@@ -53,6 +53,10 @@ for f, (s, _) in FAM.items():
 # grid interface: Mmin 6.0 and MFD bins of 0.2 (speed test on 200 grid sites: within 1.4 % at 95 % of the sites at
 # 475 yr, 0.8 % at 2475 yr; up to 5 % lower in Patagonia; hazard/speed.py, Pablo, 18 Nov)
 JOBS["g_if_tree"] |= {"ini": {"minimum_magnitude": f'{{"{IF}": 6.0}}'}, "rebin": {"interface": 2}}
+# grid crustal: the single-fault paths as in tree.json, the multi-fault half as one path (psi 0.8, Liquine-Ofqui
+# secondary traces; thickness 20 km and jump 15 km as fixed in the tree) (Pablo, 19 Nov)
+CR_MF = "mf_nn_A_psi080_t20_splays"
+JOBS["g_cr_tree"]["crustal"] = {**{k: w for k, w in tree("crustal").items() if k.startswith("seg_")}, CR_MF: 0.5}
 TREE_PARTS = {}
 
 # tornado rows: axis and label per family level (labels of the 16 Nov tornado and verdicts)

@@ -31,7 +31,7 @@
 **Tasks:**
 1. On pansito: create `psha9` from `environment.yml`, `pip install -e .` in `psha_chile9/`; check `oq --version` is 3.27 and that `import openquake.hazardlib, geopandas, cartopy` work (the old `psha_renta` had broken GDAL data: check that geopandas reads a shapefile).
 2. Pin the versions that were installed in `environment.yml` (exact versions, not ranges).
-3. Write `config/hosts.yaml` (ssh name, working folder, the environment it runs OpenQuake in now, cores) for pansito, rs1, rs28, rs37, from what `remote.sh` already uses.
+3. Write `config/hosts.yaml` (ssh name, working folder, the environment it runs OpenQuake in now, cores) for pansito, rs1, rs28, rs37, from psha_chile8 `hazard/remote.sh` only: no login to the remote machines; a field `remote.sh` does not give stays empty.
 (Steps 4–5 dropped by Pablo, 19 Nov: no OpenQuake work on the remote machines and no test job; they already run OpenQuake.)
 
 **Out of scope:** no model code; no changes to psha_chile8 or to `psha_renta`.

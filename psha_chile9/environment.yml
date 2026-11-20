@@ -1,35 +1,18 @@
-# compiled packages from conda-forge; OpenQuake from git with --no-deps, so pip does not build gdal (D-ENV-01)
+# conda-forge only (D-ENV-01); then: pip install -e . --no-deps
+# freeze after any change: conda list --explicit --md5 > psha9-linux64.lock
 name: psha9
 channels:
   - conda-forge
+channel_priority: strict
 dependencies:
-  - python=3.11
-  - numpy>=2.4
-  - scipy>=1.17
-  - pandas=2.2
-  - h5py>=3.13
-  - numba
-  - gdal
-  - fiona
-  - pyproj
-  - shapely
+  - python=3.12
+  - openquake.engine=3.26.2
   - geopandas
+  - fiona
   - cartopy
   - rasterio
   - matplotlib
   - pyyaml
+  - scikit-learn
   - pytest
-  - django<5
-  - psutil
-  - requests
-  - pyzmq
-  - h3-py>=4.4
-  - decorator
-  - pillow
-  - toml
-  - django-cors-headers
   - pip
-  - pip:
-      - alpha_shapes==1.1.0
-      - django_cookie_consent==0.6.0
-      - --no-deps git+https://github.com/gem/oq-engine.git@c9cefc797fecc2a84a55769d9f99b6712930be41   # 3.27.0, as in psha_renta

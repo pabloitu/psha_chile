@@ -171,6 +171,9 @@ What earlier rounds (psha_chile4–8) taught us: methods tried and why they were
 - Code tested without OpenQuake or Slab2 is untested for those parts; say so.
 - A process pool with numpy needs `OMP_NUM_THREADS=1`.
 - Old folders hold stray copies of files: check which copy is imported before editing.
+- Shapes edited in QGIS: draw one polygon and derive its neighbours from it; drawing shared borders twice leaves invalid geometry and slivers. Shapes made by sweeping (union of shifted copies) leave repeated nodes and a sawtooth; build them as single polygons.
+- `conda run` does not pass a heredoc on stdin: write scripts to files.
+- psha_chile8 `data/SHA256SUMS` no longer matches its fault files (`faults_gem_extra_*`); the copies in `data/raw` are the current files.
 
 ## Why the psha_chile9 design is this way
 - Four generations of fit code and hand edits left no reproducible path: one builder per stage.
