@@ -1,0 +1,148 @@
+# STATS stage: declustering, completeness, magnitude-error weight and the reference fits (T1-T4, T10)
+run: stats-02
+# catalog and data: the newest run of each stage unless named here
+compare: ../psha_chile8/fits/tables/fits_2026-11-18.csv
+named: data/raw/catalog/manual/named_events.csv
+basemap: data/raw/basemaps/basemap_chile_gray/basemap_gray.tif
+procs: 16
+
+# magnitude grid: 0.1 bins (centres) from 3.5, the lowest magnitude read for completeness (D-MAG-01)
+grid: {dm: 0.1, m0: 3.5, mtop: 9.7}
+
+# T1 declustering, per family, the whole span (D-STA-13)
+decluster:
+  mmin: 4.5
+  # foreshock window as a share of the aftershock window
+  fs: 1.0
+  methods:
+    gk: {kind: gk, window: gk}
+    gk_gruenthal: {kind: gk, window: gruenthal}
+    gk_uhrhammer: {kind: gk, window: uhrhammer}
+    nn: {kind: nn}
+  # nearest neighbour: b of the catalogue, d_f of Zaliapin and Ben-Zion (2013), threshold from the events since
+  nn: {df: 1.6, since: 1964}
+  # the bootstrap of the fits draws whole clusters of this method (D-STA-08)
+  cluster: nn
+
+# T2 completeness (D-STA-01 to 03)
+completeness:
+  hist_from: 1964
+  # Mc(t): events per window, step, bootstrap of each window
+  series: {nwin: 250, step: 50, nboot: 30}
+  bstab: {span: 0.5, nmin: 50}
+  ks: {p: 0.1, nsim: 200, ncap: 3000, nmin: 50}
+  # historical steps of the fits (D-STA-03)
+  historical: [[7.0, 1905], [7.5, 1830], [8.5, 1550]]
+  # the automatic rule and the two published checks, written every run next to the table
+  auto: {y0: 1500, dt: 5, min_back: 10, bands: [5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0]}
+  checks:
+    bands: [6.0, 6.5, 7.0, 7.5, 8.0, 8.5]
+    hg: {level: 0.8, nmin: 10}
+    albarello: {dt: 10, t0: 1500}
+  # Mc maps: nodes every step degrees with the events within r_km, per window
+  maps:
+    r_km: 250.0
+    nmin: 100
+    step: 1.0
+    windows: [[1964, 1976], [1976, 1990], [1990, 2000], [2000, 2007], [2007, 2012], [2012, 2020], [2020, 2027]]
+
+# T3 magnitude-error weight (D-MAG-09): b of the report tables only; every fit uses its own
+sigma:
+  b: 0.95
+  mmin: 5.0
+  periods: [0, 1904, 1964, 1976, 1990, 2000, 2011, 2100]
+
+# T4 fits (D-STA-04, 07 to 11)
+fit:
+  floor: 5.0
+  shapes: [taper, trunc]
+  nboot: 2000
+  seed: 1
+  # Mmax = the largest event of class weight mmax_weight + pad (D-STA-10)
+  pad: 0.2
+  mmax_weight: 1.0
+  ref: [5.0, 6.0, 7.0, 8.0]
+  check: [7.0, 8.0]
+  bpositive: {since: 1976, floor: 5.0, dmc: 0.2}
+  # b against the fit floor (Q-50)
+  floors: [4.5, 4.6, 4.7, 4.8, 4.9, 5.0, 5.2, 5.4, 5.6, 5.8, 6.0]
+  # interface (a, b) branches (D-IF-07): percentiles of N(>= m, at most Mmax - back)
+  ab: {pct: [5, 95], m: 8.8, back: 0.3}
+
+# units (D-STA-05, 06); an event counts in a unit only inside its area (D-DAT-01)
+interface:
+  sub: interface
+  # Mc(t) series of each segment
+  series: {seg1: south, seg2: central, seg3: central-north, seg4: north}
+inslab:
+  since: 1964
+  units: [intraslab_shallow, intraslab_intermediate, jujuy_nest]
+crustal:
+  since: 1976
+  # the classes share the b of the family (D-STA-12)
+  units: [forearc, arc, backarc, patagonia]
+
+# T5 and T6 (STATS_02): a new run from a finished one, its files plus the declustered fits and the pad tables
+extend:
+  base: stats-02
+  run: stats-03
+  # declustered fits: the full-catalogue table and Mmax (D-STA-13); great mainshocks: Mw from
+  great: 7.5
+  compare: ../psha_chile8/fits/tables/fits_declustered_2026-11-18.csv
+  psha8_methods: {gk: gk_family, gk_gruenthal: gk_gruenthal_family, gk_uhrhammer: gk_uhrhammer_family, nn: nn_family}
+  # Mmax pads (D-STA-10), maximum likelihood only
+  pads: [0.0, 0.2, 0.4]
+
+# T8 and T9 (STATS_03): nodal planes, the class of the crustal cells, the in-slab depth model (entry psha9.stats.planes)
+planes:
+  run: stats-04
+  stats_in: stats-02
+  compare: ../psha_chile8/model/mechanisms/npd_2026-11-18.csv
+  mlow: 4.5
+  # Frohlich (1992) plunge limits; oblique goes to the type of its largest plunge (Pablo, item a)
+  limits: {reverse: 50.0, strike-slip: 60.0, normal: 60.0}
+  oblique: {crustal: false, inslab: false}
+  min_share: 0.10
+  # at most this many types per class (the largest)
+  max_types: 2
+  # below min_n weighted mechanisms a class takes its fault system's mechanism (D-CR-05, item c)
+  min_n: 15
+  fallback: true
+  fault:
+    backarc: {name: Precordillera thrust, plane: [10.0, 40.0, 90.0]}
+    patagonia: {name: Magallanes-Fagnano, plane: [110.0, 90.0, 0.0]}
+  # one plane per type, chosen with Pablo (20 Nov); the run reports its Kagan angle to the representative mechanism
+  # (summed moment tensor, Kostrov 1974) of the type
+  pick:
+    # in-slab: the east-dipping plane
+    intraslab_shallow: {normal: [0.0, 65.0, -100.0], reverse: [355.0, 35.0, 80.0]}
+    intraslab_intermediate: {normal: [350.0, 65.0, -90.0], strike-slip: [330.0, 80.0, -130.0]}
+    jujuy_nest: {normal: [350.0, 65.0, -100.0]}
+    # forearc normal: NW, dipping SW (Pichilemu fault and its 2010 sequence); reverse: N-S, east-dipping (splay-like)
+    forearc: {normal: [150.0, 55.0, -90.0], reverse: [350.0, 35.0, 85.0]}
+    # arc: N-S right-lateral (Liquine-Ofqui); reverse N-S, east-dipping
+    arc: {strike-slip: [10.0, 90.0, 180.0], reverse: [0.0, 55.0, 75.0]}
+    # backarc: N-S east-dipping thrust; strike-slip the plane closer to N-S
+    backarc: {reverse: [10.0, 55.0, 95.0], strike-slip: [135.0, 75.0, -10.0]}
+  # crustal cell size, degrees
+  cell: 0.1
+
+depth:
+  compare: ../psha_chile8/model/inslab/tables/depth_cells_2026-11-18.csv
+  chile: data/raw/outlines/chile_outline_2026-11-15.shp
+  since: 1990
+  # depth sets (Q-59, item d): the model is the catalogue (Pablo, 20 Nov); Riedel-Hornig only for checks and
+  # calibration, written as depth_cells_rh.csv; `set` is written as depth_cells.csv
+  sets: [catalogue, rh]
+  set: catalogue
+  # catalogue depths left out (long tails below the slab), and local-network sources left out east of the Chile border
+  drop: [isc, csn, csn_isc, comcat]
+  local: [potin, csn]
+  rh: {file: data/raw/faults/riedel_hornig_primary_2026-11-14.csv, ml: 2.5, sig: 5.0, dt: 10.0, dd: 50.0}
+  # kernel of the in-slab rate pattern: 1 / (r² + h²)^power, h the distance to the nn-th neighbour, at least hmin km
+  kernel: {nn: 25, power: 1.5, hmin: 5.0, dmax: 500.0}
+  # zone bottom at the q_low % fraction of the thickness; slice hypocentre at the middle below min_layer events
+  q_low: 95.0
+  min_layer: 5.0
+  edge: 0.5
+  bins: [-50.0, 201.0, 1.0]
