@@ -26,7 +26,7 @@ One row per key; cite as `key p. N`. PDFs in `refs/<key>.pdf`, copied on 19 Nov 
 | dziewonski_1981 | Dziewonski, A.M., Chou, T.-A., Woodhouse, J.H. (1981). Determination of earthquake source parameters from waveform data for studies of global and regional seismicity. JGR 86(B4), 2825–2852. | 10.1029/JB086iB04p02825 | `dziewonski_1981.pdf` | – |
 | ekstrom_2012 | Ekström, G., Nettles, M., Dziewoński, A.M. (2012). The global CMT project 2004–2010: centroid-moment tensors for 13,017 earthquakes. PEPI 200–201, 1–9. | 10.1016/j.pepi.2012.04.002 | `ekstrom_2012.pdf` | – |
 | comcat | USGS ComCat, Advanced National Seismic System Comprehensive Catalog (dataset). | – | no PDF | DECISIONS Catalog; DECISIONS In-slab; DECISIONS Superseded (only where the reversal matters); LEARNINGS.md; catalog/MAGNITUDES.md; catalog/RULES_LOCATION_MAGNITUDE.md; catalog/PREFERENCES.md; catalog/SOURCES.md; catalog/A6/REPORT.md; catalog/REPORT_A3-A5.md; explore/X1/REPORT.md; explore/X3/REPORT.md; explore/X4/REPORT.md; model/faults/REPORT_D16.md; model/inslab/REPORT_C14.md; model/inslab/REPORT_C15.md; model/mechanisms/REPORT_B14.md |
-| comte_1991 | Comte, D., Pardo, M. (1991). Reappraisal of great historical earthquakes in the northern Chile and southern Peru seismic gaps. Nat. Hazards 4, 23–44 (citation from psha_chile8 catalog/A6/REPORT.md; not opened). | 10.1007/BF00126557 | no PDF | catalog/A6/REPORT.md |
+| comte_1991 | Comte, D., Pardo, M. (1991). Reappraisal of great historical earthquakes in the northern Chile and southern Peru seismic gaps. Nat. Hazards 4, 23–44 (read CAT_02–03). | 10.1007/BF00126557 | `comte_1991.pdf` | catalog/A6/REPORT.md; overrides_A6.csv |
 | pacheco_1992 | Pacheco, J.F., Sykes, L.R. (1992). Seismic moment catalog of large shallow earthquakes, 1900 to 1989. BSSA 82(3), 1306–1349. | – | `pacheco_1992.pdf` | catalog/A6/REPORT.md |
 | albini_2014 | Albini, P., Musson, R.M.W., Rovida, A., Locati, M., Gomez Capera, A.A., Viganò, D. (2014). The global earthquake history. Earthquake Spectra 30(2), 607–624. | 10.1193/122013EQS297 | `albini_2014.pdf` | – |
 | albini_2013 | Albini, P., Musson, R.M.W., Gomez Capera, A.A., Locati, M., Rovida, A., Stucchi, M., Viganò, D. (2013). Global Historical Earthquake Archive and Catalogue (1000–1903). GEM Technical Report 2013-01 V1.0.0, GEM Foundation, Pavia. | 10.13117/GEM.GEGD.TR2013.01 (p. 4) | `albini_2013.pdf` | explore/B9/REPORT.md |
@@ -35,7 +35,39 @@ One row per key; cite as `key p. N`. PDFs in `refs/<key>.pdf`, copied on 19 Nov 
 | askew_1985 | Askew, B., Algermissen, S.T. (1985). Catalog of earthquakes for South America (CERESIS / SISRA). Details to check. | – | no PDF | – |
 | lomnitz_2004 | Lomnitz, C. (2004). Major earthquakes of Chile: a historical survey, 1535–1960. SRL 75(3), 368–378. | – | `lomnitz_2004.pdf` | DECISIONS Catalog; catalog/RULES_LOCATION_MAGNITUDE.md; catalog/A6/REPORT.md; explore/B9/REPORT.md |
 | noaa_tsunami | NOAA National Centers for Environmental Information (NCEI/WDS). Global Historical Tsunami Database (dataset, API read 16 Nov 2026). | 10.7289/V5PN93H7 | no PDF | DECISIONS Catalog; LEARNINGS.md; catalog/A6/REPORT.md |
-| candia_2026 | Candia, G., Macedo, J. (2026). A homogenized and declustered earthquake catalog for continental Chile. SRL, 1–27 (volume not yet assigned). | 10.1785/0220250449 | `candia_2026.pdf` | DECISIONS Catalog; LEARNINGS.md; catalog/MAGNITUDES.md; catalog/REPORT_A3-A5.md; explore/P1/REPORT.md; explore/X4/REPORT.md |
+| candia_2026 | Candia, G., Macedo, J. (2026). A homogenized and declustered earthquake catalog for continental Chile. SRL, 1–27 (volume not yet assigned). | 10.1785/0220250449 | `candia_2026.pdf`; supplement `candia_2026_supp_a.docx` (Tables S1–S5), `candia_2026_supp_b.xlsx` (catalogue with classes and declustering flags) | DECISIONS Catalog; LEARNINGS.md; catalog/MAGNITUDES.md; catalog/REPORT_A3-A5.md; explore/P1/REPORT.md; explore/X4/REPORT.md |
+| dorbath_1990 | Dorbath, L., Cisternas, A., Dorbath, C. (1990). Assessment of the size of large and great historical earthquakes in Peru. BSSA 80(3), 551–576 (read CAT_02). | – | `dorbath_1990.pdf` | overrides_A6.csv |
+| benavente_2022 | Benavente, C., Palomino, A., Wimpenny, S., García, B., Rosell, L., Aguirre, E., Macharé, J., Rodriguez Padilla, A.M., Hall, S.R. (2022). Paleoseismic evidence of the 1715 C.E earthquake on the Purgatorio Fault in Southern Peru: implications for seismic hazard in subduction zones. Tectonophysics 834, 229355 (read CAT_02). | 10.1016/j.tecto.2022.229355 | `benavente_2022.pdf` | overrides_A6.csv |
+| ammirati_2020 | Ammirati, J.-B., Flores, M.C., Ruiz, S. (2020). Seismicity along the Magallanes-Fagnano fault system. JSAES 103, 102799 (read CAT_03, the historical events, p. 1). | 10.1016/j.jsames.2020.102799 | `ammirati_2020.pdf` | – |
+| metois_2013 | Métois, M., Socquet, A., Vigny, C., Carrizo, D., Peyrat, S., Delorme, A., Maureira, E., Valderas-Bermejo, M.-C., Ortega, I. (2013). Revisiting the North Chile seismic gap segmentation using GPS-derived interseismic coupling. GJI 194(3), 1283–1294 (HAL preprint; read CAT_03). | 10.1093/gji/ggt183 | `metois_2013.pdf` | – |
+| metois_2014 | Métois, M., Vigny, C., Socquet, A., Delorme, A., Morvan, S., Ortega, I., Valderas-Bermejo, C.-M. (2014). GPS-derived interseismic coupling on the subduction and seismic hazards in the Atacama region, Chile. GJI 196(2), 644–655 (volume and pages not in the PDF; to check; read CAT_03). | 10.1093/gji/ggt418 | `metois_2014.pdf` | – |
+| klein_2018 | Klein, E., Métois, M., Meneses, G., Vigny, C., Delorme, A. (2018). Bridging the gap between North and Central Chile: insight from new GPS data on coupling complexities and the Andean sliver motion. GJI 213(3), 1924–1933 (read CAT_03). | 10.1093/gji/ggy094 | `klein_2018.pdf` | – |
+| victor_2011 | Victor, P., Sobiesiak, M., Glodny, J., Nielsen, S.N., Oncken, O. (2011). Long-term persistence of subduction earthquake segment boundaries: evidence from Mejillones Peninsula, northern Chile. JGR 116, B02402 (read CAT_03). | 10.1029/2010JB007771 | `victor_2011.pdf` | – |
+| bejarpizarro_2013 | Béjar-Pizarro, M., Socquet, A., Armijo, R., Carrizo, D., Genrich, J., Simons, M. (2013). Andean structural control on interseismic coupling in the North Chile subduction zone. Nat. Geosci. 6(6), 462–467 (read CAT_03). | 10.1038/ngeo1802 | `bejarpizarro_2013.pdf` | – |
+| molina_2021 | Molina, D., Tassara, A., Abarca, R., Melnick, D., Madella, A. (2021). Frictional segmentation of the Chilean megathrust from a multivariate analysis of geophysical, geological, and geodetic data. JGR Solid Earth 126(6), e2020JB020647 (read CAT_03; supplement Table S1 not placed). | 10.1029/2020JB020647 | `molina_2021.pdf` | – |
+| vigny_2022 | Vigny, C., Klein, E. (2022). The 1877 megathrust earthquake of North Chile two times smaller than thought? A review of ancient articles. JSAES, 103878 (volume to check; read CAT_03). | 10.1016/j.jsames.2022.103878 | `vigny_2022.pdf` | – |
+| giovanni_2002 | Giovanni, M.K., Beck, S.L., Wagner, L. (2002). The June 23, 2001 Peru earthquake and the southern Peru subduction zone. GRL 29(21), 2018 (read CAT_03). | 10.1029/2002GL015774 | `giovanni_2002.pdf` | – |
+| nishenko_1985 | Nishenko, S.P. (1985). Seismic potential for large and great interplate earthquakes along the Chilean and southern Peruvian margins of South America: a quantitative reappraisal. JGR 90(B5), 3589–3615 (read CAT_03). | 10.1029/JB090iB05p03589 | `nishenko_1985.pdf` | – |
+| herrera_2024 | Herrera, C., Crempien, J.G.F., Cembrano, J., Moreno, M. (2024). Seismic cycle controlled by subduction geometry: novel 3-D quasi-dynamic model of Central Chile megathrust. GJI (abstract only read, 20 Nov; PDF to place). | 10.1093/gji/ggae069 | no PDF | docs/methods/SEGMENTATION.md |
+| contreras-reyes_carrizo_2011 | Contreras-Reyes, E., Carrizo, D. (2011). Control of high oceanic features and subduction channel on earthquake ruptures along the Chile–Peru subduction zone. PEPI 186, 49–58 (read CAT_03). | – | `contreras-reyes_carrizo_2011.pdf` | – |
+| comte_1986 | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `comte_1986.pdf` | – |
+| christensen_1983 | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `christensen_1983.pdf` | – |
+| christensen_1988 | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `christensen_1988.pdf` | – |
+| duda_1963 | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `duda_1963.pdf` | – |
+| greve_1960 | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `greve_1960.pdf` | – |
+| martinic_1988 | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `martinic_1988.pdf` | – |
+| martinic_2008 | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `martinic_2008.pdf` | – |
+| cisternas_2008 | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `cisternas_2008.pdf` | – |
+| stallone_2026 | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `stallone_2026.pdf` | – |
+| montessus_1911_es | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `montessus_1911_es.pdf` | – |
+| montessus_1911_en | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `montessus_1911_en.pdf` | – |
+| montessus_1912_a | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `montessus_1912_a.pdf` | – |
+| montessus_1912_b | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `montessus_1912_b.pdf` | – |
+| montessus_1914 | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `montessus_1914.pdf` | – |
+| montessus_1915_a | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `montessus_1915_a.pdf` | – |
+| montessus_1915_b | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `montessus_1915_b.pdf` | – |
+| montessus_1915_c | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `montessus_1915_c.pdf` | – |
+| montessus_1915_d | Placed 20 Nov (CAT_03) from Pablo's files; citation from page 1 still to write; not read. | – | `montessus_1915_d.pdf` | – |
 | castellaro_2006 | Castellaro, S., Mulargia, F., Kagan, Y.Y. (2006). Regression problems for magnitudes. GJI 165, 913–930. | 10.1111/j.1365-246X.2006.02955.x | `castellaro_2006.pdf` | catalog/MAGNITUDES.md; catalog/RULES_LOCATION_MAGNITUDE.md |
 | lolli_2012 | Lolli, B., Gasperini, P. (2012). A comparison among general orthogonal regression methods applied to earthquake magnitude conversions. GJI 190, 1135–1151. | 10.1111/j.1365-246X.2012.05530.x | `lolli_2012.pdf` | catalog/MAGNITUDES.md; catalog/RULES_LOCATION_MAGNITUDE.md |
 | lolli_2014 | Lolli, B., Gasperini, P., Vannucci, G. (2014). Empirical conversion between teleseismic magnitudes (mb and Ms) and moment magnitude (Mw) at the global, Euro-Mediterranean and Italian scale. GJI 199, 805–828. | 10.1093/gji/ggu264 | `lolli_2014.pdf` | DECISIONS Magnitudes (A5); catalog/MAGNITUDES.md; catalog/RULES_LOCATION_MAGNITUDE.md |
@@ -81,6 +113,9 @@ One row per key; cite as `key p. N`. PDFs in `refs/<key>.pdf`, copied on 19 Nov 
 | kagan_2002 | Kagan, Y.Y. (2002a). Seismic moment distribution revisited: I. Statistical results. GJI 148, 520–541. | to check | `kagan_2002.pdf` | DECISIONS Statistics (B9) |
 | kagan_2002_b | Kagan, Y.Y. (2002b). Seismic moment distribution revisited: II. Moment conservation principle. GJI 149, 731–754. | to check | `kagan_2002_b.pdf` | DECISIONS Statistics (B9); DECISIONS Interface; LEARNINGS.md |
 | tinti_1985 | Tinti, S., Mulargia, F. (1985). An improved method for the analysis of the completeness of a seismic catalogue. Lettere al Nuovo Cimento 42(1). Not the BSSA 75 paper cited in B9 (see mismatches). | – | `tinti_1985.pdf` | catalog/MAGNITUDES.md |
+| woessner_2015 | Woessner, J., Danciu, L., Giardini, D., et al. (2015). The 2013 European Seismic Hazard Model: key components and results. Bulletin of Earthquake Engineering 13, 3553–3596. | 10.1007/s10518-015-9795-1 (to check) | `woessner_etal_2013.pdf` | D-STA-12 (penalised b, ESHM13) |
+| danciu_2021 | Danciu, L., Nandan, S., Reyes, C., et al. (2021). The 2020 update of the European Seismic Hazard Model: model overview. EFEHR Technical Report 001, v1.0.0. | 10.12686/a15 (to check) | `danciu_etal_2021.pdf` | D-STA-12 (ESHM20 b rule, p. 46–47) |
+| danciu_2024 | Danciu, L., Giardini, D., Weatherill, G., et al. (2024). The 2020 European seismic hazard model: overview and results. Natural Hazards and Earth System Sciences 24, 3049–3073. | 10.5194/nhess-24-3049-2024 (to check) | `danciu_etal_2024.pdf` | D-STA-12 |
 
 ## Interface
 
@@ -159,7 +194,6 @@ One row per key; cite as `key p. N`. PDFs in `refs/<key>.pdf`, copied on 19 Nov 
 
 - isc_2025 (catalogue)
 - comcat (catalogue)
-- comte_1991 (catalogue)
 - albini_2013_ghea (catalogue)
 - askew_1985 (catalogue)
 - noaa_tsunami (catalogue)
