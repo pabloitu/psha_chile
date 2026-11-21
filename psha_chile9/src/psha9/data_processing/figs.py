@@ -19,7 +19,7 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
 ROOT = Path(__file__).resolve().parents[3]
-BASEMAP = ROOT / "data/raw/basemaps/basemap_chile_gray/basemap_gray.tif"
+BASEMAP = ROOT / "data/raw/basemaps/basemap_chile_2026-11-21/basemap_color_trench.tif"
 CAT = ROOT / "trials/data_qgis/catalog_17g.gpkg"
 OLD = ROOT / "trials/data_qgis/psha8_class_domains.geojson"
 PB = ROOT / "data/raw/trenches/pb2002_antarctic_trench_2026-11-15.geojson"
@@ -154,6 +154,36 @@ def versus(run, d):
     plt.close(fig)
 
 
+def classes(run, d, mmin=4.0):
+    """Crustal classes (Q-75) with the crustal events of the newest classified catalogue, coloured by the class
+    polygon they fall in (the catalogue's own sub-class may come from older shapes)."""
+    import shapely
+    col = {"forearc": "#ffb000", "arc": "#2e8b57", "backarc": "#8c6d1f", "patagonia": "#c2a5cf"}
+    cl = gpd.read_file(run / "crustal_classes.geojson").set_index("cls").geometry
+    c = pd.read_csv(sorted((ROOT / "runs/catalog").glob("cat-*/catalog.csv"))[-1], low_memory=False,
+                    usecols=["lon", "lat", "mw", "w_crustal"])
+    c = c[(c.mw >= mmin) & (c.w_crustal >= 0.5)].sort_values("mw")
+    k = np.full(len(c), "outside", object)
+    for n, g in cl.items():
+        k[shapely.contains_xy(g, c.lon.to_numpy(), c.lat.to_numpy())] = n
+    fig = plt.figure(figsize=(6.9, 6.6))
+    for i, ext in enumerate([(-76.5, -63, -36, -15.5), (-76.5, -63, -56.5, -36)]):
+        ax = axes(fig, [0.04 + 0.49 * i, 0.12, 0.45, 0.87], ext)
+        basemap(ax, ext)
+        for n, g in cl.items():
+            ax.add_geometries([g], PC, fc=col[n], alpha=0.25, ec=col[n], lw=0.8, zorder=1)
+        ax.scatter(c.lon, c.lat, s=size(c.mw), c=[col.get(x, "#c8cdbf") for x in k], alpha=0.8, lw=0.2,
+                   edgecolor="w", transform=PC, zorder=3)
+        outline(ax, d["edge"].geometry, "k", 1.0, z=5)
+    h = [Line2D([], [], ls="", marker="o", ms=6, mfc=v, mec="w", label=f"crustal, {'Patagonia' if n == 'patagonia' else n}")
+         for n, v in col.items()]
+    h += [Line2D([], [], ls="", marker="o", ms=6, mfc="#c8cdbf", mec="w", label="crustal, outside the area"),
+          Line2D([], [], color="k", lw=1.0, label="western edge")]
+    fig.legend(handles=h, loc="lower center", ncol=6, frameon=False, fontsize=6.5)
+    fig.savefig(run / "figs" / "crustal_classes.png", dpi=300)
+    plt.close(fig)
+
+
 def main(run):
     run = Path(run)
     (run / "figs").mkdir(exist_ok=True)
@@ -161,6 +191,7 @@ def main(run):
     overview(run, c, d)
     zoom(run, c, d)
     versus(run, d)
+    classes(run, d)
 
 
 if __name__ == "__main__":

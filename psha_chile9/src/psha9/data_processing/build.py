@@ -76,14 +76,14 @@ def plane(xy, dip, z0, top, bot, n):
     return e
 
 
-def grid(area, step):
-    """Cell centres on multiples of step that lie inside area or on its boundary."""
+def grid(area, step, tol=1e-7):
+    """Cell centres on multiples of step that lie inside area or on its boundary (within tol degrees, so float noise
+    in the shapes or the cut at the edge does not decide a boundary row)."""
     x0, y0, x1, y1 = area.bounds
-    xs = np.arange(np.floor(x0 / step), np.ceil(x1 / step) + 1) * step
-    ys = np.arange(np.floor(y0 / step), np.ceil(y1 / step) + 1) * step
+    xs = np.round(np.arange(np.floor(x0 / step), np.ceil(x1 / step) + 1) * step, 6)
+    ys = np.round(np.arange(np.floor(y0 / step), np.ceil(y1 / step) + 1) * step, 6)
     X, Y = np.meshgrid(xs, ys)
-    p = gpd.GeoSeries(gpd.points_from_xy(X.ravel(), Y.ravel()), crs=CRS)
-    k = p.covered_by(area).to_numpy()
+    k = shapely.dwithin(shapely.points(X.ravel(), Y.ravel()), area, tol)
     return pd.DataFrame({"lon": X.ravel()[k], "lat": Y.ravel()[k]}).round(4).sort_values(["lat", "lon"], ascending=[False, True])
 
 

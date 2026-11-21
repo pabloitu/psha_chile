@@ -1,5 +1,5 @@
 # DATA stage: geometry read by every later stage (design 4.2)
-run: data-07
+run: data-08
 
 inputs:
   # read by the freeze scripts in trials/data_shapes and by CAT, IF, IS; not by the build
@@ -34,8 +34,9 @@ interface:
   # one top, the western edge (0 = from the edge; the slab top there is 6.5-10.8 km deep), Pablo 19 Nov
   tops: [0.0]
   bottoms: [50.0, 60.0]
-  # segment names south to north, between consecutive limit lines
-  segments: [seg1, seg2, seg3, seg4]
+  # segment names south to north, between consecutive limit lines (D-IF-03: 45.55 | 37 | 32 | 29.9 | 26 | 23.3 | 19.1 | 15.5 S;
+  # perpendicular to the trench, the northern limit the 15.5 S parallel; trials/data_shapes/make_segments.py)
+  segments: [seg1, seg2, seg3, seg4, seg5, seg6, seg7]
   # Antarctic plane (D-IF-10): PB2002 AN\SA, dip 30, top on the trench at 5 km (about the depth of the slab top at
   # the southern end of Slab2, 6-10 km; poorly constrained), bottom 50 km (Pablo, 19 Nov)
   antarctic: {name: "AN\\SA", lat_north: -45.55, dip: 30.0, z0: 5.0, top: 5.0, bottom: 50.0, n: 9, step: 10.0}
