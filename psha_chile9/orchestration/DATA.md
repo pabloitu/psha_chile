@@ -158,5 +158,6 @@ Finished briefs and reports: `orchestration/archive/DATA_1.md` (DATA_01, 19 Nov)
 
 ### Left to do
 - DATA_02 (provenance, README, CHANGES), later.
+- Line widths for the classified-events map (CAT_04 / FIG): coastline, trench and borders may need to be wider once that figure exists (Pablo: "we can then replace the existing in data/raw, as long as the code is still saved"). Re-export with `trials/basemap/export.py` (`lw` at the top scales every line, `dpi` the pixel size of a mm), replace the four basemaps in `data/raw/basemaps/basemap_chile_2026-11-21/`, commit script and basemaps together.
 - Zoomed basemaps (e.g. the LOFS), when needed: `trials/basemap/export.py` renders `basemap.qgz` at any extent, pixel size and line width; GEBCO (15″, about 460 m) limits the resolution, a finer inset needs a finer elevation model (a new download).
 - Questions 1–3.

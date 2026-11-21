@@ -19,6 +19,9 @@ x0, x1, y0, y1, res, dpi = -80.0, -63.616, -62.056, -14.5, 0.004, 200
 seas = {"color": (["#9fb9cc", "#b8cddc", "#cfdde8", "#e1eaf1", "#eef4f8"], 0.7),
         "gray": (["#9a9a9a", "#b4b4b4", "#cccccc", "#e0e0e0", "#f2f2f2"], 0.6)}
 lines = ["nazca_trench", "antarctic_trench", "chile_rise"]
+# line widths as saved in the project times `lw` (coastline, borders, trenches and their teeth, Chile Rise)
+lw = 1.0
+vectors = lines + ["coastline", "chile_borders", "borders_ne10m"]
 gdal = "/data/miniforge3/envs/psha9/bin/gdal_translate"
 env = {"PROJ_DATA": "/data/miniforge3/envs/psha9/share/proj", "GDAL_DATA": "/data/miniforge3/envs/psha9/share/gdal"}
 
@@ -29,8 +32,12 @@ p = QgsProject.instance()
 p.read(str(d / "project/basemap.qgz"))
 root = p.layerTreeRoot()
 by = {l.name(): l for l in p.mapLayers().values()}
-for n in ["bathy_masked", "hillshade_sea", "coastline"] + lines:
+for n in ["bathy_masked", "hillshade_sea"] + vectors:
     assert n in by and by[n].isValid(), n
+for n in vectors:
+    for s in by[n].renderer().symbol().symbolLayers():
+        if hasattr(s, "setWidth"):
+            s.setWidth(s.width() * lw)
 
 
 def ramp(layer, cols, lo=-10000.0, hi=-1000.0):
