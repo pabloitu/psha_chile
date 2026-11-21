@@ -1,8 +1,9 @@
 """Choice c (DATA_03): the gray basemap's layers extended north to 14.5° S, for Pablo to re-export in QGIS.
 
 The basemap (data/basemaps/basemap_chile_gray/basemap_gen.qgz) is drawn from merged.tif, GEBCO_2025 at 15",
-80-65° W, 58-17° S. The new GEBCO_2025 tile (download/, 80-63.5° W, 17.5-14.5° S, 21 Nov) equals merged.tif where
-they overlap. Here: merged.tif extended north, topo_masked (>= 0 m) and bathy_masked (< 0 m, nodata -9999),
+80-65° W, 58-17° S (repo data/basemaps, outside psha_chile9). The new GEBCO_2025 tile
+(data/raw/basemaps/gebco_2025_north, 80-63.5° W, 17.5-14.5° S, 21 Nov) equals merged.tif where they overlap. The
+rasters of data/raw/basemaps/basemap_chile_2026-11-21/project were made this way (the project there holds the styles). Here: merged.tif extended north, topo_masked (>= 0 m) and bathy_masked (< 0 m, nodata -9999),
 hillshade (gdaldem, scale 111120, azimuth 315, altitude 45: matches the old one, mean difference 1.8 of 255),
 the coastline as the 0 m contour, the northern borders from Natural Earth 10 m, and a copy of basemap_gen.qgz
 pointing to them. The originals are not changed. Trial, not used.
@@ -17,7 +18,7 @@ from shapely.geometry import box
 
 here = Path(__file__).parent
 old = Path("/data/PyCharmProjects/psha_chile/data/basemaps/basemap_chile_gray")
-tile = here / "download/gebco_2025_north/gebco_2025_n-14.5_s-17.5_w-80.0_e-63.5_geotiff.tif"
+tile = here.parents[1] / "data/raw/basemaps/gebco_2025_north/gebco_2025_n-14.5_s-17.5_w-80.0_e-63.5_geotiff.tif"
 out = here / "layers"
 out.mkdir(exist_ok=True)
 g = "/data/miniforge3/envs/psha9/bin/"
